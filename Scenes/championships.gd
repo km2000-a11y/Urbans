@@ -7,13 +7,22 @@ func _ready():
 
 # ============================================================
 # INPUT HANDLING (DEBUG KEY)
+# =====================================================================================
+# INPUT HANDLING (DEBUG UNLOCK ACTION)
 # ============================================================
 func _input(event):
-	if event is InputEventKey and event.pressed == KEY_M:
+	if event.is_action_pressed("champ_unlock"):
 		var current = ClubCups.get_current_cup()
 		ClubCups.complete_cup(current)
 		print("Debug: advanced career, unlocked next cup")
 		_update_button_states()
+	if $Control.has_node("Money"):
+		$Control/Money.text = "Balance: $" + str(Cars.player_money)
+
+# ============================================================
+# CAREER-AWARE CUP START
+# ============================================================
+
 
 # ============================================================
 # CAREER-AWARE CUP START
@@ -216,6 +225,14 @@ func _on_supercars_pressed() -> void:
 func _on_track_cars_pressed() -> void:
 	GameMode.game_mode="Club Cups"
 	ChampionshipState.active_cup="track_cars"
+	ChampionshipState.championship_mode=true
+	
+	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
+
+
+func _on_sport_racing_pressed() -> void:
+	GameMode.game_mode="Club Cups"
+	ChampionshipState.active_cup="sport_racing"
 	ChampionshipState.championship_mode=true
 	
 	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")

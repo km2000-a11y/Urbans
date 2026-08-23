@@ -8,6 +8,7 @@ var car_class := ""
 var car_name := ""
 var car_index := 0
 var color_index := 0
+var unlocked_cars := {}
 
 # 3D Preview
 @onready var preview_holder: Node3D = $SubViewportContainer/SubViewport/CarPreview/CarHolder
@@ -573,7 +574,7 @@ func _ready():
 	RoadChallengeSave.load()
 	MusicManager.play_menu_music()
 	$Control/ColorSelector.visible = false
-
+	unlocked_cars = Cars.unlocked_cars
 	_update_class_locks()
 
 
@@ -647,28 +648,30 @@ var car_scene_paths = {
 # UI UPDATE
 # -------------------------
 func _get_filtered_list(raw_list: Array) -> Array:
-	if GameMode.game_mode != "Club Cups":
+	# Free Race → all cars available
+	if GameMode.game_mode == "Free Race":
 		return raw_list
 
-	if not ChampionshipState.championship_mode:
-		return raw_list
+	# Club Cups → only unlocked cars + eligible cars
+	if GameMode.game_mode == "Club Cups" and ChampionshipState.championship_mode:
+		var allowed := ClubCups.get_available_cars(ChampionshipState.active_cup)
+		var filtered := []
 
-	var allowed := ClubCups.get_available_cars(ChampionshipState.active_cup)
-	var filtered := []
+		for car_name in raw_list:
+			if allowed.has(car_name) and unlocked_cars.has(car_name) and unlocked_cars[car_name]["unlocked"]:
+				filtered.append(car_name)
 
-	for car_name in raw_list:
-		# NEW: Check if the class is unlocked in Road Challenge
-		# Do NOT apply Road Challenge unlocks in Club Cups
-		if GameMode.game_mode != "Club Cups":
-			if not RoadChallengeSave.unlocked.get(car_class, false):
-				continue
+		return filtered
 
+	# Road Challenge → respect class unlocks
+	if GameMode.game_mode == "Road Challenge":
+		var filtered := []
+		for car_name in raw_list:
+			if RoadChallengeSave.unlocked.get(car_class, false):
+				filtered.append(car_name)
+		return filtered
 
-		# Existing: Check if the car is allowed in this cup
-		if allowed.has(car_name):
-			filtered.append(car_name)
-
-	return filtered   # ⭐ REQUIRE
+	return raw_list
 
 
 func update_car_ui(stats: Array, name: String):

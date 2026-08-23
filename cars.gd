@@ -10,6 +10,11 @@ var selected_color: Color = Color.WHITE
 var selected_class: String = ""
 var all_cars: Array = []
 var manual_class_clear := false
+var unlocked_cars: Dictionary = {}   # car_name -> { "unlocked": bool, "unlock_source": String }
+var unlocked_save_path := "user://unlocked_cars.json"
+var player_money: int = 0
+var money_save_path := "user://money.save"
+
 
 
 var class_lists := {
@@ -439,10 +444,10 @@ var car_colors := {
 
 func _ready() -> void:
 	load_color()
-
+	load_unlocked_cars()
+	load_money()
 	if GameMode.game_mode != "Club Cups":
-		selected_class = ""   # clear ONLY
-
+		selected_class = ""
 	all_cars = get_unlocked_cars()
 
 
@@ -593,3 +598,69 @@ func get_class_of_car(car_name: String) -> String:
 func reset_class_if_not_club() -> void:
 	if GameMode.game_mode != "Club Cups":
 		selected_class = ""
+func save_unlocked_cars() -> void:
+	var file = FileAccess.open(unlocked_save_path, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(unlocked_cars))
+		file.close()
+		print("Unlocked cars saved")
+
+func load_unlocked_cars() -> void:
+	if not FileAccess.file_exists(unlocked_save_path):
+		print("No unlocked cars save found, starting fresh")
+		# Always unlock starter car
+		unlocked_cars["Colossus Behemoth"] = { "unlocked": true, "unlock_source": "starter" }
+		save_unlocked_cars()
+		return
+
+	var file = FileAccess.open(unlocked_save_path, FileAccess.READ)
+	if file:
+		var text = file.get_as_text()
+		var data = JSON.parse_string(text)
+		if typeof(data) == TYPE_DICTIONARY:
+			unlocked_cars = data
+		file.close()
+
+	# Ensure starter car is always present
+	if not unlocked_cars.has("Colossus Behemoth"):
+		unlocked_cars["Colossus Behemoth"] = { "unlocked": true, "unlock_source": "starter" }
+		save_unlocked_cars()
+
+	print("Unlocked cars loaded:", unlocked_cars.keys())
+
+func unlock_car(car_name: String, source: String = "manual") -> void:
+	if not unlocked_cars.has(car_name):
+		unlocked_cars[car_name] = { "unlocked": true, "unlock_source": source }
+		save_unlocked_cars()
+		print("Car unlocked:", car_name, "via", source)
+func save_money() -> void:
+	var f = FileAccess.open(money_save_path, FileAccess.WRITE)
+	if f:
+		f.store_line(str(player_money))
+		f.close()
+		print("Money saved:", player_money)
+
+func load_money() -> void:
+	if FileAccess.file_exists(money_save_path):
+		var f = FileAccess.open(money_save_path, FileAccess.READ)
+		if f:
+			player_money = int(f.get_line())
+			f.close()
+	else:
+		# Default starting balance
+		player_money = 0
+		save_money()
+	print("Money loaded:", player_money)
+func add_money(amount: int) -> void:
+	player_money += amount
+	save_money()
+	print("Money added:", amount, "→ Balance:", player_money)
+
+func spend_money(amount: int) -> bool:
+	if player_money < amount:
+		print("Not enough money! Balance:", player_money)
+		return false
+	player_money -= amount
+	save_money()
+	print("Money spent:", amount, "→ Balance:", player_money)
+	return true

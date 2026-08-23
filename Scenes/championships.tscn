@@ -68,30 +68,32 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "SPEEDSTER TOURNAMENT"
 
-[node name="KuroCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "KURO CUP"
-
-[node name="SchroderCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "SCHRODER CUP"
-
-[node name="GermanCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "GERMAN CUP"
-
 [node name="AllWheelGrip" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "ALL-WHEEL GRIP"
 
+[node name="KuroCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "KURO CUP"
+
+[node name="GermanCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "GERMAN CUP"
+
 [node name="EisenachCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "EISENACH CUP"
+
+[node name="SchroderCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SCHRODER CUP"
 
 [node name="Under400HP" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -113,6 +115,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "KESTREL MAX CHAMPIONSHIP"
 
+[node name="SportRacing" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SPORT RACING CARS"
+
 [node name="V12Engines" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -128,6 +135,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "TRACK CARS"
 
+[node name="Money" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 810.0
+offset_top = 570.0
+offset_right = 1282.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 30
+
 [connection signal="pressed" from="Control/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Colossus" to="." method="_on_colossus_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/StreetTuners" to="." method="_on_street_tuners_pressed"]
@@ -137,15 +152,16 @@ text = "TRACK CARS"
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BusinessmanRacers" to="." method="_on_businessman_racers_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/JapaneseCup" to="." method="_on_japanese_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SpeedsterTournament" to="." method="_on_speedster_tournament_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KuroCup" to="." method="_on_kuro_cup_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SchroderCup" to="." method="_on_schroder_cup_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GermanCup" to="." method="_on_german_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AllWheelGrip" to="." method="_on_all_wheel_grip_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KuroCup" to="." method="_on_kuro_cup_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GermanCup" to="." method="_on_german_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/EisenachCup" to="." method="_on_eisenach_cup_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SchroderCup" to="." method="_on_schroder_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Under400HP" to="." method="_on_under_400hp_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/StingrayCompetition" to="." method="_on_stingray_competition_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GentlemanRacers" to="." method="_on_gentleman_racers_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KestrelMax" to="." method="_on_kestrel_max_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SportRacing" to="." method="_on_sport_racing_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/V12Engines" to="." method="_on_v_12_engines_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Supercars" to="." method="_on_supercars_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/TrackCars" to="." method="_on_track_cars_pressed"]

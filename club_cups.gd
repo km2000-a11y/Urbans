@@ -118,7 +118,6 @@ var class_lists: Dictionary = {
 		"Mir Cars Nightwolf",
 		"Eisenach Goblin",
 		"Colossus Titan Max",
-		"Kronstadt Fortress",
 				"Zenith Horizon",
 		"Schroder Atrix Q32",
 		"Straeda B32",
@@ -154,6 +153,7 @@ var class_lists: Dictionary = {
 	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Kronstadt Essence",
 		"Berkshire Tempest",
 		"Kestrel Speedster"
 	],
@@ -191,6 +191,27 @@ var class_lists: Dictionary = {
 		"Linetti Terror"
 	]
 }
+var cup_rewards: Dictionary = {
+	"colossus": "Kuro Zephyr",                # Lexus IS250
+	"street_tuners": "Brutus Viper",          # Shelby GT500
+	"muscle_hustle": "Schroder Atrix Q32",    # Audi TT Roadster
+	"v6_engines": "Zenith Horizon",           # Nissan 350Z
+	"zenith_competition": "Mir Cars Transporter", # Audi S8
+	"businessman_racers": "Kuro Serenity",    # Lexus SC400
+	"japanese_cup": "Strandberg Turbo",       # Volvo S60R
+	"all_wheel_grip": "Kestrel Speedster",    # Morgan Aero 8
+	"speedster_tournament": "Eisenach Goblin",# BMW 1M Coupe
+	"eisenach_cup": "Schroder Classique Sport", # Audi S4 Cabriolet
+	"schroder_cup": "Berkshire Blunt",        # Jaguar XKR
+	"under_400_hp": "Brutus Stingray",        # Corvette C6
+	"stingray_competition": "Berkshire V12-S",# Aston Martin DB9
+	"gentleman_racers": "Kestrel Touring",    # TVR Cerbera
+	"kestrel_max": "Linetti Shepherd",        # Lamborghini Gallardo
+	"sport_racing": "Linetti Firestorm",      # Lamborghini Diablo Roadster
+	"v12_engines": "Mir Cars Raptor",         # Saleen S7
+	"supercars": "Bartoli Track Cruiser",     # Maserati MC12
+	"track_cars": "Mir Cars Athletic C70"     # Pagani Zonda
+}
 
 # ============================================================
 #  CHAMPIONSHIPS (ONLY THESE FOUR)
@@ -216,10 +237,12 @@ var career_order: Array = [
 	"gentleman_racers",
 	"kestrel_max",
 	"german_cup",
+	"sport_racing",   # ⭐ NEW
 	"v12_engines",
 	"supercars",
 	"track_cars"
 ]
+
 
 var current_stage: int = 0
 var unlocked_cups: Array = ["colossus"]  # starter cup
@@ -233,7 +256,6 @@ func is_cup_unlocked(cup_id: String) -> bool:
 func complete_cup(cup_id: String) -> void:
 	var idx = career_order.find(cup_id)
 	if idx != -1 and idx == current_stage:
-		# unlock next stage
 		current_stage += 1
 		if current_stage < career_order.size():
 			var next_cup = career_order[current_stage]
@@ -242,6 +264,15 @@ func complete_cup(cup_id: String) -> void:
 		else:
 			print("Career completed!")
 
+	# Unlock reward car
+	if cup_rewards.has(cup_id):
+		var reward_car = cup_rewards[cup_id]
+		Cars.unlock_car(reward_car, cup_id)
+		print("Unlocked car:", reward_car, "from cup:", cup_id)
+
+	save_progress()
+
+	
 var cups: Dictionary = {
 	"colossus": {
 		"eligible_classes": ["suv"],
@@ -427,6 +458,16 @@ var cups: Dictionary = {
 		"Linetti Terror"
 	]
 },
+"sport_racing": {
+	"eligible_classes": ["sport_racing"],
+	"eligible_cars": [
+		"Schroder Atrocity",
+		"Linetti Shepherd",
+		"Brutus Venom",
+		"Kestrel Battleaxe"
+	]
+},
+
 "supercars":{
 	"eligible_classess":["supercars"],
 	"eligible_cars":[
@@ -449,6 +490,8 @@ var cups: Dictionary = {
 # ============================================================
 #  MAIN FILTER FUNCTION (MENU + AI)
 # ============================================================
+func _ready():
+	load_progress()
 
 func get_available_cars(cup_id: String) -> Array[String]:
 	var cup: Dictionary = cups[cup_id]
@@ -470,3 +513,32 @@ func get_available_cars(cup_id: String) -> Array[String]:
 
 	print("ClubCups.gd USED")
 	return result
+var save_path := "user://career_progress.json"
+var career_progress: Dictionary = {}  # cup_id -> { "normal":false, "duel":false, "elimination":false, "radar":false }
+
+func save_progress():
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify({
+			"current_stage": current_stage,
+			"unlocked_cups": unlocked_cups,
+			"career_progress": career_progress
+		}))
+		file.close()
+		print("Career progress saved")
+
+func load_progress():
+	if not FileAccess.file_exists(save_path):
+		print("No career save found, starting fresh")
+		return
+
+	var file = FileAccess.open(save_path, FileAccess.READ)
+	if file:
+		var text = file.get_as_text()
+		var data = JSON.parse_string(text)
+		if typeof(data) == TYPE_DICTIONARY:
+			current_stage = data.get("current_stage", 0)
+			unlocked_cups = data.get("unlocked_cups", ["colossus"])
+			career_progress = data.get("career_progress", {})
+			print("Career progress loaded")
+		file.close()

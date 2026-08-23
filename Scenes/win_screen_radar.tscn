@@ -37,5 +37,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 
+[node name="MoneyLabel" type="Label" parent="Control/Panel"]
+layout_mode = 2
+offset_left = 200.0
+offset_top = 391.0
+offset_right = 1091.0
+offset_bottom = 419.0
+theme_override_font_sizes/font_size = 20
+
 [connection signal="pressed" from="Control/Panel/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

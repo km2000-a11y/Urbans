@@ -1,8 +1,8 @@
-CarController
 Label
+Button
+CarController
 MultiplayerSynchronizer
 MultiplayerSpawner
-Button
 LineEdit
 Control
 CanvasLayer

@@ -29,21 +29,22 @@ func show_results(player_won: bool):
 
 	# Get results from autoload
 	var results := RaceResults.results
-
-	# Sort by time (ascending)
 	results.sort_custom(_sort_by_time)
 
-	# Add each entry to the UI
 	for i in range(results.size()):
 		var r = results[i]
-
 		var line := Label.new()
 		line.text = str(i + 1) + ". " \
 			+ r["name"] + " — " \
 			+ r["car"] + " — " \
 			+ _format_time(r["time"])
-
 		entries.add_child(line)
+
+	# ⭐ Club Cups money reward
+	if player_won and GameMode.game_mode == "Club Cups":
+		Cars.add_money(5000)
+		var money_label = $Control/Panel/MoneyLabel
+		money_label.text = "Reward: $5000\nBalance: $" + str(Cars.player_money)
 
 	visible = true
 

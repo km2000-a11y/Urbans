@@ -5,6 +5,7 @@ var win_screen_radar: Node
 var player_car: CarController
 var race_started: bool = false
 var is_lan := false
+var career_progress: Dictionary = {}  # cup_id -> { "normal":false, "duel":false, "elimination":false, "radar":false }
 
 
 @onready var finish_flash := $FinishFlash
@@ -440,7 +441,18 @@ func show_finish(player_won: bool):
 		else:
 			# Any other mode should NOT be treated as Road Challenge
 			GameMode.game_mode = Modes.mode
+	if player_won and GameMode.game_mode == "Club Cups":
+		_update_career_progress()
+		ClubCups.save_progress()
 
+	if player_won and GameMode.game_mode:
+		# ⭐ Add $5000 per race victory
+		Cars.add_money(5000)
+		print("YOU WIN! +$5000 → Balance:", Cars.player_money)
+	if player_won:
+		print("YOU WIN!")
+	else:
+		print("YOU LOSE!")
 
 	if leaderboard:
 		leaderboard.visible = true
@@ -511,3 +523,23 @@ func _spawn_lan_remote_player(id, car_path):
 @rpc("any_peer")
 func spawn_remote_player(id, car_path):
 	_spawn_lan_remote_player(id, car_path)
+func _update_career_progress():
+	var cup_id = ChampionshipState.active_cup
+	if not career_progress.has(cup_id):
+		career_progress[cup_id] = { "normal":false, "duel":false, "elimination":false, "radar":false }
+
+	match mode:
+		"Normal Race":
+			career_progress[cup_id]["normal"] = true
+		"Duel":
+			career_progress[cup_id]["duel"] = true
+		"Elimination":
+			career_progress[cup_id]["elimination"] = true
+		"Radar Race":
+			career_progress[cup_id]["radar"] = true
+
+	# Check completion
+	var cup_data = career_progress[cup_id]
+	if cup_data["normal"] and cup_data["duel"] and cup_data["elimination"] and cup_data["radar"]:
+		print("Cup completed:", cup_id)
+		ClubCups.complete_cup(cup_id)

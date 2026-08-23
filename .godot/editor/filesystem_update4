@@ -63,3 +63,10 @@ res://Scenes/bmw_1m.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/clk_55.tscn
+res://main.gd
+res://cars.gd
+res://Scripts/car_select.gd
+res://Scenes/clk_55.gd
+res://Scripts/leaderboard.gd
+res://Scripts/win_screen_radar.gd
+res://Scenes/track_select.gd

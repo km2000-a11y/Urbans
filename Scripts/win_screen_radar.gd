@@ -13,6 +13,12 @@ func show_win(success: bool):
 		var group := RoadChallengeState.active_group
 		var done :int= RoadChallengeSave.progress[group]
 
+	# ⭐ Club Cups money reward
+	if success and GameMode.game_mode == "Club Cups":
+		Cars.add_money(5000)
+		var money_label = $Control/Panel/MoneyLabel
+		money_label.text = "Reward: $5000\nBalance: $" + str(Cars.player_money)
+
 	$Control/Panel/VBoxContainer/Label_Title.text = text
 	visible = true
 
