@@ -31,6 +31,7 @@ var class_lists: Dictionary = {
 		"Eisenach Prince",
 		"Kestrel Speedster",
 		"Eisenach Bengal",
+		"Kronstadt Essence",
 				"Strandberg Turbo",
 		"Kuro Serenity"
 	],
@@ -194,6 +195,52 @@ var class_lists: Dictionary = {
 # ============================================================
 #  CHAMPIONSHIPS (ONLY THESE FOUR)
 # ============================================================
+# ============================================================
+#  CAREER PROGRESSION LOGIC
+# ============================================================
+
+var career_order: Array = [
+	"colossus",
+	"street_tuners",
+	"muscle_hustle",
+	"v6_engines",
+	"zenith_competition",
+	"businessman_racers",
+	"japanese_cup",
+	"all_wheel_grip",
+	"speedster_tournament",
+	"eisenach_cup",
+	"under_400_hp",
+	"stingray_competition",
+	"schroder_cup",
+	"gentleman_racers",
+	"kestrel_max",
+	"german_cup",
+	"v12_engines",
+	"supercars",
+	"track_cars"
+]
+
+var current_stage: int = 0
+var unlocked_cups: Array = ["colossus"]  # starter cup
+
+func get_current_cup() -> String:
+	return career_order[current_stage]
+
+func is_cup_unlocked(cup_id: String) -> bool:
+	return unlocked_cups.has(cup_id)
+
+func complete_cup(cup_id: String) -> void:
+	var idx = career_order.find(cup_id)
+	if idx != -1 and idx == current_stage:
+		# unlock next stage
+		current_stage += 1
+		if current_stage < career_order.size():
+			var next_cup = career_order[current_stage]
+			unlocked_cups.append(next_cup)
+			print("Unlocked next cup: ", next_cup)
+		else:
+			print("Career completed!")
 
 var cups: Dictionary = {
 	"colossus": {

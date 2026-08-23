@@ -2,6 +2,57 @@ extends CanvasLayer
 
 func _ready():
 	MusicManager.play_menu_music()
+	set_process_input(true)
+	_update_button_states()
+
+# ============================================================
+# INPUT HANDLING (DEBUG KEY)
+# ============================================================
+func _input(event):
+	if event is InputEventKey and event.pressed == KEY_M:
+		var current = ClubCups.get_current_cup()
+		ClubCups.complete_cup(current)
+		print("Debug: advanced career, unlocked next cup")
+		_update_button_states()
+
+# ============================================================
+# CAREER-AWARE CUP START
+# ============================================================
+func _start_cup(cup_id: String) -> void:
+	if ClubCups.is_cup_unlocked(cup_id):
+		GameMode.game_mode = "Club Cups"
+		ChampionshipState.active_cup = cup_id
+		ChampionshipState.championship_mode = true
+		get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
+	else:
+		print("Cup locked: ", cup_id)
+
+# ============================================================
+# BUTTON STATE MANAGEMENT (EXPLICIT PATHS)
+# ============================================================
+func _update_button_states():
+	$Control/ScrollContainer/VBoxContainer/Colossus.disabled = not ClubCups.is_cup_unlocked("colossus")
+	$Control/ScrollContainer/VBoxContainer/StreetTuners.disabled = not ClubCups.is_cup_unlocked("street_tuners")
+	$Control/ScrollContainer/VBoxContainer/MuscleHustle.disabled = not ClubCups.is_cup_unlocked("muscle_hustle")
+	$Control/ScrollContainer/VBoxContainer/V6Engines.disabled = not ClubCups.is_cup_unlocked("v6_engines")
+	$Control/ScrollContainer/VBoxContainer/ZenithCompetition.disabled = not ClubCups.is_cup_unlocked("zenith_competition")
+	$Control/ScrollContainer/VBoxContainer/BusinessmanRacers.disabled = not ClubCups.is_cup_unlocked("businessman_racers")
+	$Control/ScrollContainer/VBoxContainer/SpeedsterTournament.disabled = not ClubCups.is_cup_unlocked("speedster_tournament")
+	$Control/ScrollContainer/VBoxContainer/KuroCup.disabled = not ClubCups.is_cup_unlocked("kuro_cup")
+	$Control/ScrollContainer/VBoxContainer/AllWheelGrip.disabled = not ClubCups.is_cup_unlocked("all_wheel_grip")
+	$Control/ScrollContainer/VBoxContainer/EisenachCup.disabled = not ClubCups.is_cup_unlocked("eisenach_cup")
+	$Control/ScrollContainer/VBoxContainer/Under400HP.disabled = not ClubCups.is_cup_unlocked("under_400_hp")
+	$Control/ScrollContainer/VBoxContainer/StingrayCompetition.disabled = not ClubCups.is_cup_unlocked("stingray_competition")
+	$Control/ScrollContainer/VBoxContainer/SchroderCup.disabled = not ClubCups.is_cup_unlocked("schroder_cup")
+	$Control/ScrollContainer/VBoxContainer/GentlemanRacers.disabled = not ClubCups.is_cup_unlocked("gentleman_racers")
+	$Control/ScrollContainer/VBoxContainer/JapaneseCup.disabled = not ClubCups.is_cup_unlocked("japanese_cup")
+	$Control/ScrollContainer/VBoxContainer/GermanCup.disabled = not ClubCups.is_cup_unlocked("german_cup")
+	$Control/ScrollContainer/VBoxContainer/KestrelMax.disabled = not ClubCups.is_cup_unlocked("kestrel_max")
+	$Control/ScrollContainer/VBoxContainer/V12Engines.disabled = not ClubCups.is_cup_unlocked("v12_engines")
+	$Control/ScrollContainer/VBoxContainer/Supercars.disabled = not ClubCups.is_cup_unlocked("supercars")
+	$Control/ScrollContainer/VBoxContainer/TrackCars.disabled = not ClubCups.is_cup_unlocked("track_cars")
+
+# ============================================================
 
 func _on_colossus_pressed() -> void:
 	GameMode.game_mode = "Club Cups"
