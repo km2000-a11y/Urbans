@@ -338,21 +338,22 @@ func _estimate_ai_finish_time() -> int:
 	if laps_left > 0:
 		var wp: Array = ai_car.waypoints
 		var lap_dist: float = 0.0
-
-		# Compute actual lap distance
 		for i in range(wp.size()):
 			var a: Vector3 = wp[i].global_position
 			var b: Vector3 = wp[(i + 1) % wp.size()].global_position
 			lap_dist += a.distance_to(b)
-
 		remaining_dist += lap_dist * float(laps_left)
 
-	# Smoothed speed
-	var speed: float = ai_car.current_speed
-	var blended_speed: float = clamp(speed * 0.85, 8.0, 120.0)
+	# Pick a speed estimate: prefer avg_speed if available, else current_speed
+	var speed_kmh: float = ai_car.avg_speed
+	if speed_kmh <= 1.0:
+		speed_kmh = ai_car.current_speed
+
+	# Convert km/h → m/s
+	var speed_ms: float = max(speed_kmh / 3.6, 1.0)
 
 	# Time = distance / speed
-	var remaining_time_ms: int = int((remaining_dist / blended_speed) * 1000)
+	var remaining_time_ms: int = int((remaining_dist / speed_ms) * 1000)
 
 	# Slight smoothing
 	remaining_time_ms = int(remaining_time_ms * 1.05)

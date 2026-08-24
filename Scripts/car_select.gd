@@ -438,9 +438,9 @@ var urban_racers = {
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 		"Berkshire Blunt":[
-		"", "Country: UK", "HP: 396", "WEIGHT: 1832 KG",
+		"", "Country: UK", "HP: 370", "WEIGHT: 1832 KG",
 		"0-100 KM/H: 5.6s", "TOP SPEED: 268 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
+		"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Eisenach Bengal":[
@@ -489,7 +489,7 @@ var sedans = {
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 	"Kronstadt Fortress":[
-	"", "Country: Germany", "HP: 398", "WEIGHT: 2150 KG",
+	"", "Country: Germany", "HP: 389", "WEIGHT: 2150 KG",
 	"0-100 KM/H: 6.6s", "TOP SPEED: 272 KM/H",
 	"ENGINE: V12 6.0L", "ASPIRATION: NA", "TORQUE: 580 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
@@ -499,7 +499,7 @@ var sedans = {
 }
 var sport = {
 	"Eisenach Goblin":[
-	"", "Country: Germany", "HP: 340", "WEIGHT: 1500 KG",
+	"", "Country: Germany", "HP: 335", "WEIGHT: 1500 KG",
 	"0-100 KM/H: 4.6s", "TOP SPEED: 258 KM/H",
 	"ENGINE: L6 3.0L", "ASPIRATION: Turbo", "TORQUE: 500 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
@@ -613,7 +613,7 @@ var track_cars = {
 # -------------------------
 
 func _ready():
-	RoadChallengeSave.load()
+	RoadChallengeSave.load() 
 	MusicManager.play_menu_music()
 	$Control/ColorSelector.visible = false
 	unlocked_cars = Cars.unlocked_cars
@@ -1064,6 +1064,8 @@ func _on_select_pressed():
 		Cars.selected_color = car_colors.get(car_name, [])[color_index]
 		Cars.save_color()
 		print("Car selected:", car_name)
+		
+	get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
 
 
 func _on_back_btn_pressed() -> void:

@@ -5,8 +5,7 @@ var selected_car_name: String = ""     # car name string
 
 var selected_ai_car: String = ""       # scene path
 var selected_ai_car_name: String = ""  # car name string
-var dealership_mode: bool = false
-
+var dealership_mode:bool=false
 var selected_color: Color = Color.WHITE
 var selected_class: String = ""
 var all_cars: Array = []

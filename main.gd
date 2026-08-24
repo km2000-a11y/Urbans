@@ -445,7 +445,7 @@ func show_finish(player_won: bool):
 		_update_career_progress()
 		ClubCups.save_progress()
 
-	if player_won and GameMode.game_mode:
+	if player_won and GameMode.game_mode=="Club Cups":
 		# ⭐ Add $5000 per race victory
 		Cars.add_money(5000)
 		print("YOU WIN! +$5000 → Balance:", Cars.player_money)

@@ -513,17 +513,16 @@ func _estimate_ai_finish_time_for(ai: CarController) -> int:
 	# Add full laps still to go
 	remaining_dist += lap_dist * float(laps_left)
 
-	# 4) Use average race speed instead of raw current speed
-	# Assume ai.total_race_time is in ms and current_speed is km/h or m/s depending on your setup.
-	var race_time_sec: float = max(float(ai.total_race_time) / 1000.0, 0.1)
-	var avg_speed: float = ai.distance_travelled / race_time_sec  # you should track this on the car
+	# 4) Speed estimate: prefer avg_speed, fallback to current_speed
+	var speed_kmh: float = ai.avg_speed
+	if speed_kmh <= 1.0:
+		speed_kmh = ai.current_speed
 
-	# Fallback if avg_speed is not tracked or too small
-	if avg_speed <= 1.0:
-		avg_speed = clamp(ai.current_speed * 0.8, 10.0, 120.0)
+	# Convert km/h → m/s
+	var speed_ms: float = max(speed_kmh / 3.6, 1.0)
 
 	# 5) Time = distance / speed
-	var remaining_time_ms: int = int((remaining_dist / avg_speed) * 1000)
+	var remaining_time_ms: int = int((remaining_dist / speed_ms) * 1000)
 
 	# Slight smoothing
 	remaining_time_ms = int(remaining_time_ms * 1.03)
