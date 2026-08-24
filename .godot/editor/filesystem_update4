@@ -61,3 +61,8 @@ res://Scenes/bmw_1m.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/clk_55.tscn
+res://club_cups.gd
+res://cars.gd
+res://Scripts/car_select.gd
+res://Scenes/championships.gd
+res://Scripts/mode_select.gd

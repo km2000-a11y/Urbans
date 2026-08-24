@@ -355,6 +355,7 @@ var cups: Dictionary = {
 	"eligible_cars":[
 		"Eisenach Suppressor",
 		"Eisenach Bengal",
+		"Eisenach Goblin",
 		"Eisenach Prince"
 	]
 },

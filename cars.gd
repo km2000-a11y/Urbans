@@ -5,6 +5,7 @@ var selected_car_name: String = ""     # car name string
 
 var selected_ai_car: String = ""       # scene path
 var selected_ai_car_name: String = ""  # car name string
+var dealership_mode: bool = false
 
 var selected_color: Color = Color.WHITE
 var selected_class: String = ""
@@ -664,3 +665,10 @@ func spend_money(amount: int) -> bool:
 	save_money()
 	print("Money spent:", amount, "→ Balance:", player_money)
 	return true
+func enable_dealership_mode() -> void:
+	dealership_mode = true
+	print("Dealership mode enabled")
+
+func disable_dealership_mode() -> void:
+	dealership_mode = false
+	print("Dealership mode disabled")

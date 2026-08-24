@@ -236,3 +236,15 @@ func _on_sport_racing_pressed() -> void:
 	ChampionshipState.championship_mode=true
 	
 	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
+
+
+func _on_dealership_pressed() -> void:
+	# Enable dealership mode globally
+	Cars.enable_dealership_mode()
+	
+	# Reset championship state so dealership is clean
+	ChampionshipState.reset()
+
+
+	# Go to Car Select scene in dealership mode
+	get_tree().change_scene_to_file("res://Scenes/car_select.tscn")

@@ -108,6 +108,11 @@ layout_mode = 2
 [node name="TorqueLabel" type="Label" parent="Control/CarStats"]
 layout_mode = 2
 
+[node name="PriceLabel" type="Label" parent="Control/CarStats"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
 [node name="ColorSelector" type="VBoxContainer" parent="Control"]
 layout_mode = 0
 offset_left = 713.0
@@ -138,6 +143,21 @@ offset_right = 253.0
 offset_bottom = 648.0
 theme_override_font_sizes/font_size = 40
 text = "BACK"
+
+[node name="MoneyLabel" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 900.0
+offset_top = 553.0
+offset_right = 1252.0
+offset_bottom = 614.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 494.0
+offset_right = 359.0
+offset_bottom = 570.0
+theme_override_font_sizes/font_size = 20
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = -1

@@ -9,6 +9,48 @@ var car_name := ""
 var car_index := 0
 var color_index := 0
 var unlocked_cars := {}
+var car_prices := {
+	"Colossus Titan Max": 10000,
+	"Colossus Behemoth": 0,
+	"Schroder Colosso": 22000,
+	"Mir Cars Nightwolf": 18000,
+	"Kuro Zephyr": 20000,
+	"Schroder Atrix Q32": 35000,
+	"Zenith Horizon": 39000,
+	"Schroder D-20": 24000,
+	"Straeda B32": 28500,
+	"Brutus Viper": 28000,
+	"Mir Cars Hutch": 33000,
+	"Eisenach Suppressor": 43000,
+	"Kuro Persian": 56000,
+	"Kuro Vault": 40000,
+	"Kronstadt Fortress": 60000,
+	"Mir Cars Transporter": 52000,
+	"Eisenach Prince": 56000,
+	"Strandberg Turbo": 50000,
+	"Kestrel Speedster": 62000,
+	"Eisenach Bengal": 53000,
+	"Kuro Serenity": 43000,
+	"Berkshire Blunt": 72000,
+	"Kronstadt Essence": 67000,
+	"Brutus Stingray": 100000,
+	"Eisenach Goblin": 75000,
+	"Berkshire V12-S": 120000,
+	"Schroder Classique Sport": 87000,
+	"Kestrel Touring": 150000,
+	"Berkshire Tempest": 125000,
+	"Linetti Shepherd": 200000,
+	"Brutus Venom": 187000,
+	"Schroder Atrocity": 150000,
+	"Kestrel Battleaxe": 164000,
+	"Kestrel Guillotine": 215000,
+	"Linetti Terror": 340000,
+	"Mir Cars Raptor": 270000,
+	"Linetti Firestorm": 240000,
+	"Mir Cars Athletic C70": 600000,
+	"Bartoli Track Cruiser": 480000,
+	"Brutus Thunderbolt": 530000,
+}
 
 # 3D Preview
 @onready var preview_holder: Node3D = $SubViewportContainer/SubViewport/CarPreview/CarHolder
@@ -576,6 +618,10 @@ func _ready():
 	$Control/ColorSelector.visible = false
 	unlocked_cars = Cars.unlocked_cars
 	_update_class_locks()
+	if Cars.dealership_mode==true:
+		$Control/MoneyLabel.show()
+		$Control/CarStats/PriceLabel.show()
+	
 
 
 var car_scene_paths = {
@@ -686,6 +732,19 @@ func update_car_ui(stats: Array, name: String):
 	$Control/CarStats/AspirationLabel.text = stats[7]
 	$Control/CarStats/TorqueLabel.text = stats[8]
 	$Control/CarStats/TransmissionLabel.text = stats[9]
+
+	if Cars.dealership_mode:
+		var price = car_prices.get(name, 0)
+		$Control/CarStats/PriceLabel.text = "Price: $" + str(price)
+		$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
+		$Control/ColorSelector.visible = false
+		$Select.text = "BUY"
+		$Select.disabled = false
+	else:
+		$Control/CarStats/PriceLabel.text = ""
+		$Control/MoneyLabel.text = ""
+		$Control/ColorSelector.visible = true
+		$Select.text = "SELECT"
 
 
 # -------------------------
@@ -973,28 +1032,38 @@ func update_color_ui():
 # SELECT BUTTON (LAN FIX)
 # -------------------------
 func _on_select_pressed():
-	Cars.on_car_selected(car_name)
-	Cars.selected_car_name = car_name
-	Cars.selected_car = car_scene_paths[car_name]
-	Cars.selected_color = car_colors[car_name][color_index]
-	Cars.save_color()
+	if Cars.dealership_mode:
+		var price = car_prices.get(car_name, 0)
 
-	RoadChallengeState.active_group = car_class
-	RoadChallengeState.active_car = car_name
-	RoadChallengeState.active_color = car_colors[car_name][color_index]
+		# Already owned check
+		if Cars.unlocked_cars.has(car_name) and Cars.unlocked_cars[car_name]["unlocked"]:
+			$Control/Label.text = "ALREADY OWNED!"
+			$Control/Label.modulate = Color.RED
+			$Select.disabled = true   # disable button
+			return
 
-	# LAN MODE FIX
-	if GameMode.game_mode == "Multi-Device":
-		if multiplayer.is_server():
-			# HOST → go to TrackSelect
-			get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
-		else:
-			# CLIENT → stay here and wait for host
-			print("Client waiting for host to choose track")
-		return
+		# Insufficient cash check
+		if Cars.player_money < price:
+			$Control/Label.text = "INSUFFICIENT CASH!"
+			$Control/Label.modulate = Color.RED
+			$Select.disabled = true   # disable button
+			return
 
-	# SINGLE PLAYER
-	get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
+		# Deduct money and unlock
+		if Cars.spend_money(price):
+			Cars.unlock_car(car_name, "dealership")
+			$Control/Label.text = "PURCHASED!"
+			$Control/Label.modulate = Color.GREEN
+			$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
+			$Select.disabled = true   # disable after purchase
+	else:
+		# Normal SELECT behavior
+		Cars.on_car_selected(car_name)
+		Cars.selected_car_name = car_name
+		Cars.selected_car = Cars.car_scene_paths.get(car_name, "")
+		Cars.selected_color = car_colors.get(car_name, [])[color_index]
+		Cars.save_color()
+		print("Car selected:", car_name)
 
 
 func _on_back_btn_pressed() -> void:
@@ -1035,3 +1104,23 @@ func _update_class_locks():
 	# Normal modes → unlock everything
 	for btn in $Control/ClassList.get_children():
 		btn.disabled = false
+func attempt_purchase(car_name: String):
+	var price = car_prices.get(car_name, 0)
+
+	if Cars.unlocked_cars.has(car_name) and Cars.unlocked_cars[car_name]["unlocked"]:
+		print("Already owned:", car_name)
+		return
+
+	if Cars.player_money < price:
+		print("Not enough money! Balance:", Cars.player_money)
+		return
+
+	# Deduct money and unlock car
+	Cars.spend_money(price)
+	Cars.unlock_car(car_name, "dealership")
+
+	print("Purchased:", car_name, "for $", price)
+
+	# Refresh UI
+	$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
+	$Control/PriceLabel.text = "Price: $" + str(price)
