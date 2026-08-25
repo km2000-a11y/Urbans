@@ -259,35 +259,76 @@ func _check_finish() -> void:
 		return
 
 
-
 func _end_duel(who_won: String) -> void:
 	duel_active = false
 
 	player_car.controls_enabled = false
 	ai_car.controls_enabled = false
 
-	var player_time := player_car.total_race_time
-	var ai_time := _estimate_ai_finish_time()
+	var participants = []
+	var total_waypoints = player_car.waypoints.size()
 
+	# Player entry
+	var p_progress = (player_laps * total_waypoints) + player_car.current_wp
+	participants.append({
+		"car_obj": player_car,
+		"name": player_car.driver_name,
+		"car_name": player_car.car_name,
+		"progress": p_progress,
+		"dist": _distance_to_next_wp(player_car),
+		"real_time": player_car.total_race_time,
+		"finished": player_laps >= total_laps
+	})
 
-	RaceResults.add_result(player_car.driver_name, player_car.car_name, player_time)
-	RaceResults.add_result(ai_car.driver_name, ai_car.car_name, ai_time)
+	# AI entry
+	var ai_progress = (ai_laps * total_waypoints) + ai_car.current_wp
+	participants.append({
+		"car_obj": ai_car,
+		"name": ai_car.driver_name,
+		"car_name": ai_car.car_name,
+		"progress": ai_progress,
+		"dist": _distance_to_next_wp(ai_car),
+		"real_time": ai_car.total_race_time,
+		"finished": ai_laps >= total_laps
+	})
 
-	main_scene.show_finish(who_won == "Player")
+	# Sort by progress/dist
+	participants.sort_custom(func(a, b):
+		if a["progress"] != b["progress"]:
+			return a["progress"] > b["progress"]
+		return a["dist"] < b["dist"]
+	)
+
+	RaceResults.clear()
+
+	for i in range(participants.size()):
+		var p = participants[i]
+		var final_time: float
+
+		if p["finished"]:
+			final_time = p["real_time"]
+		else:
+			if p["car_obj"] == ai_car:
+				final_time = _estimate_ai_finish_time()
+			else:
+				final_time = p["real_time"]
+
+		# Add micro offset per position
+		final_time += float(i) * 15.0
+
+		RaceResults.add_result(p["name"], p["car_name"], int(final_time))
+
+	# Winner check: use argument but also verify sorted leader
+	var actual_winner = participants[0]["car_obj"]
+	var player_is_winner = (who_won == "Player") or (actual_winner == player_car)
+
+	main_scene.show_finish(player_is_winner)
 	hud.visible = false
-	
-	print("DEBUG PLAYER:",
-		"driver=", player_car.driver_name,
-		"car=", player_car.car_name,
-		"time=", player_time
-	)
-	print("DEBUG AI:",
-		"driver=", ai_car.driver_name,
-		"car=", ai_car.car_name,
-		"time=", ai_time
-	)
 	MusicManager.stop_music()
 
+	# Debug print
+	for p in participants:
+		print("DEBUG:", p["name"], "car=", p["car_name"], "time=", p["real_time"], "finished=", p["finished"])
 
 
 func _calculate_position() -> int:
@@ -337,7 +378,7 @@ func _estimate_ai_finish_time() -> float:
 
 	var lap_dist: float = 0.0
 	for i in range(wp.size()):
-		var a: Vector3 = wp[i].global_position
+		var a: Vector3 = wp[i].global_positizzon
 		var b: Vector3 = wp[(i + 1) % wp.size()].global_position
 		lap_dist += a.distance_to(b)
 
@@ -368,3 +409,13 @@ func _estimate_ai_finish_time() -> float:
 	remaining_time_ms += tie_breaker
 
 	return float(ai_car.total_race_time) + remaining_time_ms
+func _distance_to_next_wp(car: CarController) -> float:
+	if car.waypoints.is_empty():
+		return 0.0
+
+	var next_wp := car.current_wp + 1
+	if next_wp >= car.waypoints.size():
+		next_wp = 0
+
+	var wp := car.waypoints[next_wp] as Node3D
+	return car.global_position.distance_to(wp.global_position)

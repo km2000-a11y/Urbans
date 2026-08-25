@@ -304,9 +304,10 @@ func _end_race(winner: String) -> void:
 		ai.controls_enabled = false
 
 	var participants = []
-	var total_wp := player_car.waypoints.size()
+	var total_waypoints = player_car.waypoints.size()
 
-	var p_progress = (car_laps[player_car] * total_wp) + player_car.current_wp
+	# Collect player
+	var p_progress = (car_laps.get(player_car, 0) * total_waypoints) + player_car.current_wp
 	participants.append({
 		"car_obj": player_car,
 		"name": player_car.driver_name,
@@ -314,11 +315,12 @@ func _end_race(winner: String) -> void:
 		"progress": p_progress,
 		"dist": _distance_to_next_wp(player_car),
 		"real_time": player_car.total_race_time,
-		"finished": car_laps[player_car] >= total_laps
+		"finished": car_laps.get(player_car, 0) >= total_laps
 	})
 
+	# Collect AI
 	for ai in ai_cars:
-		var ai_progress = (car_laps[ai] * total_wp) + ai.current_wp
+		var ai_progress = (car_laps.get(ai, 0) * total_waypoints) + ai.current_wp
 		participants.append({
 			"car_obj": ai,
 			"name": ai.driver_name,
@@ -326,9 +328,10 @@ func _end_race(winner: String) -> void:
 			"progress": ai_progress,
 			"dist": _distance_to_next_wp(ai),
 			"real_time": ai.total_race_time,
-			"finished": car_laps[ai] >= total_laps
+			"finished": car_laps.get(ai, 0) >= total_laps
 		})
 
+	# Sort by progress/dist
 	participants.sort_custom(func(a, b):
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
@@ -337,22 +340,24 @@ func _end_race(winner: String) -> void:
 
 	RaceResults.clear()
 
-	var winner_time = participants[0]["real_time"]
-
-	for p in participants:
-		var final_time: int
+	for i in range(participants.size()):
+		var p = participants[i]
+		var final_time: float
 
 		if p["finished"]:
 			final_time = p["real_time"]
 		else:
-			# Accurate AI finish time
 			var ai := p["car_obj"] as CarController
 			final_time = _estimate_ai_finish_time_for(ai)
-			
-		RaceResults.add_result(p["name"], p["car_name"], final_time)
 
+		# Add micro offset per position
+		final_time += float(i) * 15.0
 
-	main_scene.show_finish(winner == "Player")
+		RaceResults.add_result(p["name"], p["car_name"], int(final_time))
+	
+	# Winner is whoever sorted first
+	var actual_winner = participants[0]["car_obj"]
+	main_scene.show_finish(actual_winner == player_car)
 	hud.visible = false
 	MusicManager.stop_music()
 

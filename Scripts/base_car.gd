@@ -16,6 +16,7 @@ var hard_frozen := false
 static var used_ai_names := []
 var speed_samples := []
 var avg_speed := 0.0
+var distance_travelled:=0.0
 
 @export var sync_velocity: Vector3
 @export var sync_transform: Transform3D

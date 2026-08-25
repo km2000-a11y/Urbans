@@ -5645,7 +5645,7 @@ mesh = SubResource("BoxMesh_3xgwq")
 shape = SubResource("BoxShape3D_glu1v")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D8/MeshInstance3D3/MeshInstance3D36/MeshInstance3D20/MeshInstance3D4/MeshInstance3D3/MeshInstance3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.62709, 0, -5.96047e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.95, -5.62709, 0, -5.96047e-08)
 mesh = SubResource("BoxMesh_3xgwq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/MeshInstance3D8/MeshInstance3D3/MeshInstance3D36/MeshInstance3D20/MeshInstance3D4/MeshInstance3D3/MeshInstance3D3/MeshInstance3D2"]
