@@ -325,15 +325,15 @@ func _update_laps_from_progress() -> void:
 		ai_laps += 1
 		ai_crossed_start = false
 		
-func _estimate_ai_finish_time() -> int:
+func _estimate_ai_finish_time() -> float:
 	var lapline: Node3D = main_scene.find_child("LapLine", true, false)
 	if lapline == null:
-		return ai_car.total_race_time
+		return float(ai_car.total_race_time)
 
 	# 1) Compute lap distance from waypoints
 	var wp: Array = ai_car.waypoints
 	if wp.is_empty():
-		return ai_car.total_race_time
+		return float(ai_car.total_race_time)
 
 	var lap_dist: float = 0.0
 	for i in range(wp.size()):
@@ -348,23 +348,23 @@ func _estimate_ai_finish_time() -> int:
 	var remaining_dist: float = ai_car.distance_to_finish_line(lapline)
 	remaining_dist += lap_dist * float(laps_left)
 
-	# 4) Speed estimate
+	# 4) Speed estimate: blend average and current
 	var speed_kmh: float = ai_car.avg_speed
-	if speed_kmh <= 5.0:
+	if speed_kmh < 5.0:
 		speed_kmh = ai_car.current_speed
-
-	# Blend average and current to stabilize
-	var blended_speed_kmh: float = (ai_car.avg_speed * 0.6) + (ai_car.current_speed * 0.4)
-	if blended_speed_kmh <= 1.0:
-		blended_speed_kmh = speed_kmh
+	var blended_speed_kmh: float = (speed_kmh * 0.6) + (ai_car.current_speed * 0.4)
 
 	# Convert km/h → m/s
-	var speed_ms: float = max(blended_speed_kmh / 3.6, 2.0)
+	var speed_ms: float = max(blended_speed_kmh / 3.6, 1.0)
 
-	# 5) Time = distance / speed
-	var remaining_time_ms: int = int((remaining_dist / speed_ms) * 1000)
+	# 5) Time = distance / speed (keep float precision)
+	var remaining_time_ms: float = (remaining_dist / speed_ms) * 1000.0
 
 	# Apply small smoothing factor
-	remaining_time_ms = int(remaining_time_ms * 1.02)
+	remaining_time_ms *= 1.02
 
-	return ai_car.total_race_time + remaining_time_ms
+	# Tie‑breaker offset based on instance_id
+	var tie_breaker: float = float(ai_car.get_instance_id() % 19) * 0.5  # up to ~9 ms
+	remaining_time_ms += tie_breaker
+
+	return float(ai_car.total_race_time) + remaining_time_ms

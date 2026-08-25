@@ -490,16 +490,15 @@ func _apply_random_ai_color(car: CarController) -> void:
 
 				for s in range(surface_count):
 					mesh_instance.set_surface_override_material(s, new_mat)
-
-func _estimate_ai_finish_time_for(ai: CarController) -> int:
+func _estimate_ai_finish_time_for(ai: CarController) -> float:
 	var lapline: Node3D = main_scene.find_child("LapLine", true, false)
 	if lapline == null:
-		return ai.total_race_time
+		return float(ai.total_race_time)
 
 	# 1) Compute full lap distance from waypoints
 	var wp: Array = ai.waypoints
 	if wp.is_empty():
-		return ai.total_race_time
+		return float(ai.total_race_time)
 
 	var lap_dist: float = 0.0
 	for i in range(wp.size()):
@@ -517,20 +516,25 @@ func _estimate_ai_finish_time_for(ai: CarController) -> int:
 
 	# 4) Speed estimate: blend average and current speed more smoothly
 	var speed_kmh: float = ai.avg_speed
-	if speed_kmh < 5.0:  # if average is too low, fallback
+	if speed_kmh < 5.0:  # fallback if avg too low
 		speed_kmh = ai.current_speed
 	var blended_speed_kmh: float = (speed_kmh * 0.6) + (ai.current_speed * 0.4)
 
 	# Convert km/h → m/s
 	var speed_ms: float = max(blended_speed_kmh / 3.6, 1.0)
 
-	# 5) Time = distance / speed
-	var remaining_time_ms: int = int((remaining_dist / speed_ms) * 1000)
+	# 5) Time = distance / speed (keep float precision)
+	var remaining_time_ms: float = (remaining_dist / speed_ms) * 1000.0
 
 	# Slight smoothing factor
-	remaining_time_ms = int(remaining_time_ms * 1.02)
+	remaining_time_ms *= 1.02
 
-	return ai.total_race_time + remaining_time_ms
+	# Add a micro‑offset based on instance_id to break ties
+	var tie_breaker: float = float(ai.get_instance_id() % 17) * 0.5  # up to ~8 ms
+	remaining_time_ms += tie_breaker
+
+	return float(ai.total_race_time) + remaining_time_ms
+
 
 
 
