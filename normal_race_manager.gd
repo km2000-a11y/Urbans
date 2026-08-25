@@ -37,7 +37,7 @@ func spawn_race(scene: Node) -> void:
 			ai.queue_free()
 
 	ai_cars.clear()
-	
+		
 	# Career lap rules
 	if Cars.selected_class == "suv":
 		total_laps = 2
@@ -116,9 +116,12 @@ func spawn_race(scene: Node) -> void:
 		final_ai_paths = [player_car_path]
 
 	# Spawn up to 7 AI for single-player (SpawnPoint1..7)
-	for i in range(ai_spawns.size()):
-		var index := i % final_ai_paths.size()
-		var ai_path: String = final_ai_paths[index]
+	# Shuffle the list once per race
+	var shuffled := final_ai_paths.duplicate()
+	shuffled.shuffle()
+
+	for i in range(min(ai_spawns.size(), shuffled.size())):
+		var ai_path: String = shuffled[i]
 
 		var ai_scene := load(ai_path)
 		if ai_scene == null:
@@ -126,6 +129,7 @@ func spawn_race(scene: Node) -> void:
 
 		var ai := ai_scene.instantiate() as CarController
 		scene.add_child(ai)
+
 
 		# Camera off
 		if ai.has_node("Camera3D"):

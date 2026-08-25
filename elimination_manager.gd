@@ -31,7 +31,7 @@ signal elimination_timer_updated(time_left)
 
 func spawn_race(scene: Node) -> void:
 	race_active = false
-
+	
 	# Remove old cars
 	if player_car and player_car.is_inside_tree():
 		player_car.queue_free()
@@ -41,8 +41,13 @@ func spawn_race(scene: Node) -> void:
 			ai.queue_free()
 
 	ai_cars.clear()
-
+	
 	await get_tree().process_frame
+	if GameMode.game_mode == "Club Cups":
+		ai_car_paths = ClubCups.get_ai_paths_for_class(ChampionshipState.active_cup)
+	else:
+		Cars.apply_auto_class_if_not_club()
+		ai_car_paths = Cars.get_ai_paths_for_class(Cars.selected_class)
 
 	var root := scene.get_node(TrackName.track_name)
 

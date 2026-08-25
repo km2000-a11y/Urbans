@@ -112,34 +112,34 @@ var class_lists: Dictionary = {
 		"Eisenach Goblin",
 		"Eisenach Prince"
 	],
-	"under_400_hp":[
-		"Schroder Colosso",
-		"Colossus Behemoth",
-		"Mir Cars Nightwolf",
-		"Eisenach Goblin",
-		"Colossus Titan Max",
-				"Zenith Horizon",
-		"Schroder Atrix Q32",
-		"Straeda B32",
-		"Kuro Zephyr",
-		"Schroder D-20",
-				"Mir Cars Hutch",
-		"Brutus Viper",
-				"Eisenach Suppressor",
-		"Kuro Vault",
-		"Mir Cars Transporter",
-				"Kronstadt Fortress",
-		"Kronstadt Essence",
-		"Eisenach Goblin",
-		"Strandberg Turbo",
-		"Kuro Persian",
-				"Kestrel Touring",
-							"Berkshire Blunt",
-		"Eisenach Prince",
-		"Kestrel Speedster",
-		"Eisenach Bengal",
-		"Kuro Serenity"	
-	],
+	"under_400_hp": [
+	"Mir Cars Hutch",
+	"Kuro Persian",
+	"Eisenach Prince",
+	"Schroder Atrix Q32",
+	"Colossus Titan Max",
+	"Kestrel Touring",
+	"Straeda B32",
+	"Berkshire Blunt",
+	"Zenith Horizon",
+	"Kuro Serenity",
+	"Brutus Viper",
+	"Schroder D-20",
+	"Kuro Vault",
+	"Eisenach Goblin",
+	"Strandberg Turbo",
+	"Schroder Colosso",
+	"Mir Cars Transporter",
+	"Eisenach Suppressor",
+	"Kronstadt Essence",
+	"Kestrel Speedster",
+	"Colossus Behemoth",
+	"Eisenach Bengal",
+	"Mir Cars Nightwolf",
+	"Kronstadt Fortress",
+	"Kuro Zephyr"
+],
+
 	"stingray_competition":[
 		"Brutus Stingray"
 	],
@@ -231,9 +231,9 @@ var career_order: Array = [
 	"all_wheel_grip",
 	"speedster_tournament",
 	"eisenach_cup",
+		"schroder_cup",
 	"under_400_hp",
 	"stingray_competition",
-	"schroder_cup",
 	"gentleman_racers",
 	"kestrel_max",
 	"german_cup",
@@ -362,31 +362,31 @@ var cups: Dictionary = {
 "under_400_hp":{
 	"eligible_classes":["under_400_hp"],
 	"eligible_cars":[
-				"Schroder Colosso",
-		"Colossus Behemoth",
-		"Mir Cars Nightwolf",
-		"Colossus Titan Max",
-				"Zenith Horizon",
-						"Eisenach Goblin",
-		"Schroder Atrix Q32",
-		"Straeda B32",
-		"Kuro Zephyr",
-		"Schroder D-20",
-				"Mir Cars Hutch",
-		"Brutus Viper",
-				"Eisenach Suppressor",
-						"Kronstadt Fortress",
-		"Kronstadt Essence",
-		"Kuro Vault",
-		"Mir Cars Transporter",
-		"Strandberg Turbo",
-		"Kuro Persian",
-				"Kestrel Touring",
-							"Berkshire Blunt",
-		"Eisenach Prince",
-		"Kestrel Speedster",
-		"Eisenach Bengal",
-		"Kuro Serenity"	
+	"Mir Cars Hutch",
+	"Kuro Persian",
+	"Eisenach Prince",
+	"Schroder Atrix Q32",
+	"Colossus Titan Max",
+	"Kestrel Touring",
+	"Straeda B32",
+	"Berkshire Blunt",
+	"Zenith Horizon",
+	"Kuro Serenity",
+	"Brutus Viper",
+	"Schroder D-20",
+	"Kuro Vault",
+	"Eisenach Goblin",
+	"Strandberg Turbo",
+	"Schroder Colosso",
+	"Mir Cars Transporter",
+	"Eisenach Suppressor",
+	"Kronstadt Essence",
+	"Kestrel Speedster",
+	"Colossus Behemoth",
+	"Eisenach Bengal",
+	"Mir Cars Nightwolf",
+	"Kronstadt Fortress",
+	"Kuro Zephyr"
 	]
 },
 "stingray_competition":{
@@ -493,7 +493,8 @@ var cups: Dictionary = {
 # ============================================================
 func _ready():
 	load_progress()
-
+	get_shuffled_under_400_hp()
+		
 func get_available_cars(cup_id: String) -> Array[String]:
 	var cup: Dictionary = cups[cup_id]
 
@@ -543,3 +544,7 @@ func load_progress():
 			career_progress = data.get("career_progress", {})
 			print("Career progress loaded")
 		file.close()
+func get_shuffled_under_400_hp() -> Array:
+	var cars: Array = class_lists["under_400_hp"].duplicate()
+	cars.shuffle()
+	return cars

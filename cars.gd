@@ -123,33 +123,34 @@ var class_lists := {
 		"Eisenach Bengal",
 		"Eisenach Prince"
 	],
-		"under_400_hp":[
-		"Schroder Colosso",
-		"Colossus Behemoth",
-		"Mir Cars Nightwolf",
-		"Kronstadt Fortress",
-		"Colossus Titan Max",
-				"Kronstadt Essence",
-				"Zenith Horizon",
-		"Schroder Atrix Q32",
-		"Straeda B32",
-		"Kuro Zephyr",
-		"Schroder D-20",
-				"Mir Cars Hutch",
-		"Brutus Viper",
-		"Eisenach Goblin",
-				"Eisenach Suppressor",
-		"Kuro Vault",
-		"Mir Cars Transporter",
-		"Strandberg Turbo",
-		"Kuro Persian",
-				"Kestrel Touring",
-							"Berkshire Blunt",
-		"Eisenach Prince",
-		"Kestrel Speedster",
-		"Eisenach Bengal",
-		"Kuro Serenity"	
-	],
+	"under_400_hp": [
+	"Mir Cars Hutch",
+	"Kuro Persian",
+	"Eisenach Prince",
+	"Schroder Atrix Q32",
+	"Colossus Titan Max",
+	"Kestrel Touring",
+	"Straeda B32",
+	"Berkshire Blunt",
+	"Zenith Horizon",
+	"Kuro Serenity",
+	"Brutus Viper",
+	"Schroder D-20",
+	"Kuro Vault",
+	"Eisenach Goblin",
+	"Strandberg Turbo",
+	"Schroder Colosso",
+	"Mir Cars Transporter",
+	"Eisenach Suppressor",
+	"Kronstadt Essence",
+	"Kestrel Speedster",
+	"Colossus Behemoth",
+	"Eisenach Bengal",
+	"Mir Cars Nightwolf",
+	"Kronstadt Fortress",
+	"Kuro Zephyr"
+],
+
 		"stingray_competition":[
 		"Brutus Stingray"
 	],
@@ -534,18 +535,28 @@ func get_ai_paths_for_class(_unused: Variant) -> Array[String]:
 		return result
 
 	var cup_id: String = ChampionshipState.active_cup
-	var filtered: Array[String] = ClubCups.get_available_cars(cup_id)
+	var filtered: Array[String]
+
+	if cup_id == "under_400_hp":
+		# 🔥 Use full shuffled pool instead of static subset
+		filtered = class_lists["under_400_hp"].duplicate()
+		filtered.shuffle()
+		print("DEBUG: Shuffled under_400_hp list:", filtered)
+	else:
+		filtered = ClubCups.get_available_cars(cup_id)
 
 	if filtered.is_empty():
 		for i in range(7):
 			result.append(selected_car)
 		return result
 
-	for i in range(7):
-		var car_name_cup: String = filtered[randi() % filtered.size()]
+	# ✅ Cycle through shuffled list → guarantees variety
+	for i in range(min(7, filtered.size())):
+		var car_name_cup: String = filtered[i]
 		result.append(car_scene_paths.get(car_name_cup, selected_car))
 
 	return result
+
 
 
 func get_radar_target_speed() -> int:

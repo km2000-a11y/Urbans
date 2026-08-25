@@ -330,32 +330,41 @@ func _estimate_ai_finish_time() -> int:
 	if lapline == null:
 		return ai_car.total_race_time
 
-	# Remaining distance to finish line
+	# 1) Compute lap distance from waypoints
+	var wp: Array = ai_car.waypoints
+	if wp.is_empty():
+		return ai_car.total_race_time
+
+	var lap_dist: float = 0.0
+	for i in range(wp.size()):
+		var a: Vector3 = wp[i].global_position
+		var b: Vector3 = wp[(i + 1) % wp.size()].global_position
+		lap_dist += a.distance_to(b)
+
+	# 2) Remaining laps
+	var laps_left: int = max(total_laps - ai_laps, 0)
+
+	# 3) Distance to finish line + full laps left
 	var remaining_dist: float = ai_car.distance_to_finish_line(lapline)
+	remaining_dist += lap_dist * float(laps_left)
 
-	# Remaining laps
-	var laps_left: int = total_laps - ai_laps
-	if laps_left > 0:
-		var wp: Array = ai_car.waypoints
-		var lap_dist: float = 0.0
-		for i in range(wp.size()):
-			var a: Vector3 = wp[i].global_position
-			var b: Vector3 = wp[(i + 1) % wp.size()].global_position
-			lap_dist += a.distance_to(b)
-		remaining_dist += lap_dist * float(laps_left)
-
-	# Pick a speed estimate: prefer avg_speed if available, else current_speed
+	# 4) Speed estimate
 	var speed_kmh: float = ai_car.avg_speed
-	if speed_kmh <= 1.0:
+	if speed_kmh <= 5.0:
 		speed_kmh = ai_car.current_speed
 
-	# Convert km/h → m/s
-	var speed_ms: float = max(speed_kmh / 3.6, 1.0)
+	# Blend average and current to stabilize
+	var blended_speed_kmh: float = (ai_car.avg_speed * 0.6) + (ai_car.current_speed * 0.4)
+	if blended_speed_kmh <= 1.0:
+		blended_speed_kmh = speed_kmh
 
-	# Time = distance / speed
+	# Convert km/h → m/s
+	var speed_ms: float = max(blended_speed_kmh / 3.6, 2.0)
+
+	# 5) Time = distance / speed
 	var remaining_time_ms: int = int((remaining_dist / speed_ms) * 1000)
 
-	# Slight smoothing
-	remaining_time_ms = int(remaining_time_ms * 1.05)
+	# Apply small smoothing factor
+	remaining_time_ms = int(remaining_time_ms * 1.02)
 
 	return ai_car.total_race_time + remaining_time_ms
