@@ -513,25 +513,25 @@ func _estimate_ai_finish_time_for(ai: CarController) -> int:
 
 	# 3) Distance from current position to LapLine on this lap
 	var remaining_dist: float = ai.distance_to_finish_line(lapline)
-
-	# Add full laps still to go
 	remaining_dist += lap_dist * float(laps_left)
 
-	# 4) Speed estimate: prefer avg_speed, fallback to current_speed
+	# 4) Speed estimate: blend average and current speed more smoothly
 	var speed_kmh: float = ai.avg_speed
-	if speed_kmh <= 1.0:
+	if speed_kmh < 5.0:  # if average is too low, fallback
 		speed_kmh = ai.current_speed
+	var blended_speed_kmh: float = (speed_kmh * 0.6) + (ai.current_speed * 0.4)
 
 	# Convert km/h → m/s
-	var speed_ms: float = max(speed_kmh / 3.6, 1.0)
+	var speed_ms: float = max(blended_speed_kmh / 3.6, 1.0)
 
 	# 5) Time = distance / speed
 	var remaining_time_ms: int = int((remaining_dist / speed_ms) * 1000)
 
-	# Slight smoothing
-	remaining_time_ms = int(remaining_time_ms * 1.03)
+	# Slight smoothing factor
+	remaining_time_ms = int(remaining_time_ms * 1.02)
 
 	return ai.total_race_time + remaining_time_ms
+
 
 
 func force_player_camera():
