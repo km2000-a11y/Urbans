@@ -207,8 +207,6 @@ func init_lap_system():
 		car_laps[ai] = 0
 		last_wp[ai] = 0
 
-
-
 func register_lap(body: Node) -> void:
 	if not race_active:
 		return
@@ -217,57 +215,43 @@ func register_lap(body: Node) -> void:
 	while car != null and not (car is CarController):
 		car = car.get_parent()
 
-	if car == null:
-		return
-
-	if not car_laps.has(car):
+	if car == null or not car_laps.has(car):
 		return
 
 	if lap_cooldown.get(car, false):
 		return
 
-	# PLAYER LAP COUNTS HERE
 	car_laps[car] += 1
-
 	lap_cooldown[car] = true
 	_start_lap_cooldown(car)
 
-	if car == player_car:
-		_check_finish()
+	# If player finishes → always end race immediately
+	if car == player_car and car_laps[car] >= total_laps:
+		_end_race()
+		return
 
-
-
-func get_all_race_cars() -> Array:
-	var arr = []
-	if player_car:
-		arr.append(player_car)
-	for ai in ai_cars:
-		arr.append(ai)
-	return arr
-
-
-
-func _start_lap_cooldown(car):
-	await get_tree().create_timer(0.8).timeout
-	lap_cooldown[car] = false
-
+	# If AI finishes first → mark finished but don't end race yet
+	if car != player_car and car_laps[car] >= total_laps:
+		# Race continues until player crosses finish
+		return
 
 func _check_finish() -> void:
 	if not race_active:
 		return
 
 	var player_finished: bool = car_laps[player_car] >= total_laps
-
 	if not player_finished:
 		return
 
 	var player_position := _calculate_position()
-	var player_won := (player_position <= 3)
+	var player_won := (player_position <= 3)   # ✅ Top 3 counts as win
 
 	if player_won:
-		_end_race("Player")
+		_end_race()
 	else:
-		_end_race("AI")
+		_end_race()
+
+
 func _get_wp_index(car: CarController) -> int:
 	var waypoints := player_car.waypoints
 	if waypoints.is_empty():
@@ -284,6 +268,9 @@ func _get_wp_index(car: CarController) -> int:
 			best_index = i
 
 	return best_index
+func _start_lap_cooldown(car):
+	await get_tree().create_timer(0.8).timeout
+	lap_cooldown[car] = false
 
 func _distance_to_next_wp_from_index(car: CarController, wp_index: int) -> float:
 	var waypoints := player_car.waypoints
@@ -297,7 +284,7 @@ func _distance_to_next_wp_from_index(car: CarController, wp_index: int) -> float
 	var wp := waypoints[next_wp] as Node3D
 	return car.global_position.distance_to(wp.global_position)
 
-func _end_race(winner: String) -> void:
+func _end_race() -> void:
 	race_active = false
 	player_car.controls_enabled = false
 	for ai in ai_cars:
@@ -348,18 +335,19 @@ func _end_race(winner: String) -> void:
 			final_time = p["real_time"]
 		else:
 			var ai := p["car_obj"] as CarController
-			final_time = _estimate_ai_finish_time_for(ai)
+			final_time = _estimate_finish_time(ai)
 
-		# Add micro offset per position
+		# Add micro offset per position to avoid identical times
 		final_time += float(i) * 15.0
 
 		RaceResults.add_result(p["name"], p["car_name"], int(final_time))
-	
+
 	# Winner is whoever sorted first
 	var actual_winner = participants[0]["car_obj"]
 	main_scene.show_finish(actual_winner == player_car)
 	hud.visible = false
 	MusicManager.stop_music()
+
 
 
 func update_race() -> void:
@@ -495,54 +483,57 @@ func _apply_random_ai_color(car: CarController) -> void:
 
 				for s in range(surface_count):
 					mesh_instance.set_surface_override_material(s, new_mat)
-func _estimate_ai_finish_time_for(ai: CarController) -> float:
+					
+func _estimate_finish_time(car: CarController) -> float:
 	var lapline: Node3D = main_scene.find_child("LapLine", true, false)
 	if lapline == null:
-		return float(ai.total_race_time)
+		return float(car.total_race_time)
 
-	# 1) Compute full lap distance from waypoints
-	var wp: Array = ai.waypoints
+	var wp: Array = car.waypoints
 	if wp.is_empty():
-		return float(ai.total_race_time)
+		return float(car.total_race_time)
 
+	# 1) Compute full lap length
 	var lap_dist: float = 0.0
 	for i in range(wp.size()):
 		var a: Vector3 = wp[i].global_position
 		var b: Vector3 = wp[(i + 1) % wp.size()].global_position
 		lap_dist += a.distance_to(b)
 
-	# 2) Remaining laps
-	var laps_done: int = car_laps.get(ai, 0)
-	var laps_left: int = max(total_laps - laps_done, 0)
+	# 2) Remaining laps (exclude current lap already partially covered)
+	var laps_done: int = car_laps.get(car, 0)
+	var laps_left: int = max(total_laps - laps_done - 1, 0)
 
-	# 3) Distance from current position to LapLine on this lap
-	var remaining_dist: float = ai.distance_to_finish_line(lapline)
+	# 3) Distance left in current lap → from car to finish line
+	var remaining_dist: float = car.distance_to_finish_line(lapline)
+
+	# Add full laps still left after this one
 	remaining_dist += lap_dist * float(laps_left)
 
-	# 4) Speed estimate: blend average and current speed more smoothly
-	var speed_kmh: float = ai.avg_speed
-	if speed_kmh < 5.0:  # fallback if avg too low
-		speed_kmh = ai.current_speed
-	var blended_speed_kmh: float = (speed_kmh * 0.6) + (ai.current_speed * 0.4)
+	# 4) Speed estimate (blend avg + current)
+	var speed_kmh: float = car.avg_speed
+	if speed_kmh < 10.0: # fallback if avg too low
+		speed_kmh = car.current_speed
+	var blended_speed_kmh: float = (speed_kmh * 0.5) + (car.current_speed * 0.5)
 
-	# Convert km/h → m/s
 	var speed_ms: float = max(blended_speed_kmh / 3.6, 1.0)
 
-	# 5) Time = distance / speed (keep float precision)
+	# 5) Time = distance / speed
 	var remaining_time_ms: float = (remaining_dist / speed_ms) * 1000.0
 
-	# Slight smoothing factor
-	remaining_time_ms *= 1.02
+	# Apply small smoothing factor
+	remaining_time_ms *= 1.01
 
-	# Add a micro‑offset based on instance_id to break ties
-	var tie_breaker: float = float(ai.get_instance_id() % 17) * 0.5  # up to ~8 ms
-	remaining_time_ms += tie_breaker
-
-	return float(ai.total_race_time) + remaining_time_ms
-
-
+	return float(car.total_race_time) + remaining_time_ms
 
 
 func force_player_camera():
 	if player_car and player_car.has_node("Camera3D"):
 		player_car.get_node("Camera3D").current = true
+func get_all_race_cars() -> Array:
+	var arr = []
+	if player_car:
+		arr.append(player_car)
+	for ai in ai_cars:
+		arr.append(ai)
+	return arr
