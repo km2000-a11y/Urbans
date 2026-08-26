@@ -307,7 +307,7 @@ func _end_duel() -> void:
 		if p["finished"]:
 			final_time = p["real_time"]
 		else:
-			final_time = _estimate_finish_time(p["car_obj"])   # ✅ pass the car here
+			final_time = _estimate_ai_finish_time()   # ✅ pass the car here
 
 		RaceResults.add_result(p["name"], p["car_name"], int(final_time))
 
@@ -360,48 +360,39 @@ func _update_laps_from_progress() -> void:
 		ai_laps += 1
 		ai_crossed_start = false
 		
-func _estimate_finish_time(car: CarController) -> float:
+func _estimate_ai_finish_time() -> int:
 	var lapline: Node3D = main_scene.find_child("LapLine", true, false)
 	if lapline == null:
-		return float(car.total_race_time)
+		return ai_car.total_race_time
 
-	var wp: Array = car.waypoints
-	if wp.is_empty():
-		return float(car.total_race_time)
+	# Remaining distance to finish line
+	var remaining_dist: float = ai_car.distance_to_finish_line(lapline)
 
-	# 1) Compute full lap length
-	var lap_dist: float = 0.0
-	for i in range(wp.size()):
-		var a: Vector3 = wp[i].global_position
-		var b: Vector3 = wp[(i + 1) % wp.size()].global_position
-		lap_dist += a.distance_to(b)
+	# Remaining laps
+	var laps_left: int = total_laps - ai_laps
+	if laps_left > 0:
+		var wp: Array = ai_car.waypoints
+		var lap_dist: float = 0.0
 
-	# 2) Remaining laps → use correct counter
-	var laps_done: int = 0
-	if car == player_car:
-		laps_done = player_laps
-	elif car == ai_car:
-		laps_done = ai_laps
+		# Compute actual lap distance
+		for i in range(wp.size()):
+			var a: Vector3 = wp[i].global_position
+			var b: Vector3 = wp[(i + 1) % wp.size()].global_position
+			lap_dist += a.distance_to(b)
 
-	var laps_left: int = max(total_laps - laps_done - 1, 0)
+		remaining_dist += lap_dist * float(laps_left)
 
-	# 3) Distance left in current lap
-	var remaining_dist: float = car.distance_to_finish_line(lapline)
-	remaining_dist += lap_dist * float(laps_left)
+	# Smoothed speed
+	var speed: float = ai_car.current_speed
+	var blended_speed: float = clamp(speed * 0.85, 8.0, 120.0)
 
-	# 4) Speed estimate
-	var speed_kmh: float = car.avg_speed
-	if speed_kmh < 10.0:
-		speed_kmh = car.current_speed
-	var blended_speed_kmh: float = (speed_kmh * 0.5) + (car.current_speed * 0.5)
+	# Time = distance / speed
+	var remaining_time_ms: int = int((remaining_dist / blended_speed) * 1000)
 
-	var speed_ms: float = max(blended_speed_kmh / 3.6, 1.0)
+	# Slight smoothing
+	remaining_time_ms = int(remaining_time_ms * 1.05)
 
-	# 5) Time = distance / speed
-	var remaining_time_ms: float = (remaining_dist / speed_ms) * 1000.0
-	remaining_time_ms *= 1.01
-
-	return float(car.total_race_time) + remaining_time_ms
+	return ai_car.total_race_time + remaining_time_ms
 
 func _distance_to_next_wp(car: CarController) -> float:
 	if car.waypoints.is_empty():

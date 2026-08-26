@@ -335,7 +335,9 @@ func _end_race() -> void:
 			final_time = p["real_time"]
 		else:
 			var ai := p["car_obj"] as CarController
-			final_time = _estimate_finish_time(ai)
+			var leader_time: float = player_car.total_race_time  # or whoever actually finished first
+			final_time = _estimate_ai_finish_time_for(ai, leader_time)
+
 
 		# Add micro offset per position to avoid identical times
 		final_time += float(i) * 15.0
@@ -484,47 +486,38 @@ func _apply_random_ai_color(car: CarController) -> void:
 				for s in range(surface_count):
 					mesh_instance.set_surface_override_material(s, new_mat)
 					
-func _estimate_finish_time(car: CarController) -> float:
+func _estimate_ai_finish_time_for(ai: CarController, leader_time: float) -> int:
 	var lapline: Node3D = main_scene.find_child("LapLine", true, false)
 	if lapline == null:
-		return float(car.total_race_time)
+		return ai.total_race_time
 
-	var wp: Array = car.waypoints
+	var wp: Array = ai.waypoints
 	if wp.is_empty():
-		return float(car.total_race_time)
+		return ai.total_race_time
 
-	# 1) Compute full lap length
+	# 1) Compute full lap distance
 	var lap_dist: float = 0.0
 	for i in range(wp.size()):
 		var a: Vector3 = wp[i].global_position
 		var b: Vector3 = wp[(i + 1) % wp.size()].global_position
 		lap_dist += a.distance_to(b)
 
-	# 2) Remaining laps (exclude current lap already partially covered)
-	var laps_done: int = car_laps.get(car, 0)
-	var laps_left: int = max(total_laps - laps_done - 1, 0)
+	# 2) Progress fraction
+	var laps_done: int = car_laps.get(ai, 0)
+	var dist_covered: float = (laps_done * lap_dist) + ai.distance_travelled_in_current_lap()
+	var total_dist: float = total_laps * lap_dist
+	var progress_fraction: float = dist_covered / total_dist
 
-	# 3) Distance left in current lap → from car to finish line
-	var remaining_dist: float = car.distance_to_finish_line(lapline)
+	# 3) Gap fraction relative to leader
+	var gap_fraction: float = 1.0 - progress_fraction
 
-	# Add full laps still left after this one
-	remaining_dist += lap_dist * float(laps_left)
+	# 4) Estimate gap based on leader’s average lap time
+	var avg_lap_time: float = leader_time / total_laps
+	var gap_time: float = gap_fraction * total_laps * avg_lap_time
 
-	# 4) Speed estimate (blend avg + current)
-	var speed_kmh: float = car.avg_speed
-	if speed_kmh < 10.0: # fallback if avg too low
-		speed_kmh = car.current_speed
-	var blended_speed_kmh: float = (speed_kmh * 0.5) + (car.current_speed * 0.5)
+	return int(leader_time + gap_time)
 
-	var speed_ms: float = max(blended_speed_kmh / 3.6, 1.0)
 
-	# 5) Time = distance / speed
-	var remaining_time_ms: float = (remaining_dist / speed_ms) * 1000.0
-
-	# Apply small smoothing factor
-	remaining_time_ms *= 1.01
-
-	return float(car.total_race_time) + remaining_time_ms
 
 
 func force_player_camera():

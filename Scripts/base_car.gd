@@ -618,3 +618,27 @@ func distance_to_next_wp() -> float:
 
 	var wp := waypoints[current_wp] as Node3D
 	return global_position.distance_to(wp.global_position)
+func distance_travelled_in_current_lap() -> float:
+	if waypoints.is_empty():
+		return 0.0
+
+	# Compute full lap length
+	var lap_dist: float = 0.0
+	for i in range(waypoints.size()):
+		var a: Vector3 = waypoints[i].global_position
+		var b: Vector3 = waypoints[(i + 1) % waypoints.size()].global_position
+		lap_dist += a.distance_to(b)
+
+	# Distance covered so far in this lap
+	var dist: float = 0.0
+	for i in range(current_wp):
+		var a: Vector3 = waypoints[i].global_position
+		var b: Vector3 = waypoints[(i + 1) % waypoints.size()].global_position
+		dist += a.distance_to(b)
+
+	# Add partial segment from car to next waypoint
+	var next_wp := waypoints[current_wp] as Node3D
+	dist += global_position.distance_to(next_wp.global_position)
+
+	# Clamp to lap length
+	return clamp(dist, 0.0, lap_dist)

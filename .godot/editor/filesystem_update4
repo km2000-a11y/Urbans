@@ -1,4 +1,5 @@
 res://main.tscn
+res://duel_manager.gd
 res://normal_race_manager.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -62,4 +63,3 @@ res://Scenes/bmw_1m.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/clk_55.tscn
-res://duel_manager.gd
