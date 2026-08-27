@@ -218,6 +218,9 @@ func _physics_process(delta: float) -> void:
 	if hard_frozen:
 		velocity = Vector3.ZERO
 		return
+	# Track distance travelled
+	distance_travelled += velocity.length() * delta
+
 
 
 
