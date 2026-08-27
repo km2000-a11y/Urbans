@@ -168,28 +168,44 @@ func _end_race() -> void:
 	player_car.controls_enabled = false
 	for ai in ai_cars: ai.controls_enabled = false
 
-	# Сбор результатов
-	var participants = []
-	var total_wp = player_car.waypoints.size()
+	var participants: Array = []
+	var total_wp: int = player_car.waypoints.size()
 
-	var cars_to_check = [player_car] + ai_cars
+	var cars_to_check := [player_car] + ai_cars
 	for car in cars_to_check:
-		var laps = car_laps.get(car, 0)
-		var progress = (laps * total_wp) + car.current_wp
+		var laps: int = car_laps.get(car, 0)
+		var wp_index: int = _get_wp_index(car)
+		var progress: int = (laps * total_wp) + wp_index
+		var dist: float = _distance_to_next_wp_from_index(car, wp_index)
+
 		participants.append({
 			"name": car.driver_name,
 			"car_name": car.car_name,
 			"progress": progress,
+			"dist": dist,
 			"time": car.total_race_time,
 			"finished": laps >= total_laps,
 			"obj": car
 		})
 
-	# Сортировка (кто дальше проехал или кто быстрее финишировал)
+	# сортировка
 	participants.sort_custom(func(a, b):
+		# оба финишировали → по времени
 		if a["finished"] and b["finished"]:
 			return a["time"] < b["time"]
-		return a["progress"] > b["progress"]
+
+		# один финишировал → финишировавший выше
+		if a["finished"] and not b["finished"]:
+			return true
+		if b["finished"] and not a["finished"]:
+			return false
+
+		# никто не финишировал → по прогрессу
+		if a["progress"] != b["progress"]:
+			return a["progress"] > b["progress"]
+
+		# тайбрейк → по дистанции до следующего вейпоинта
+		return a["dist"] < b["dist"]
 	)
 
 	RaceResults.clear()
@@ -199,16 +215,46 @@ func _end_race() -> void:
 	main_scene.show_finish(participants[0]["obj"] == player_car)
 	hud.visible = false
 	MusicManager.stop_music()
+func _get_wp_index(car: CarController) -> int:
+	var waypoints := player_car.waypoints
+	if waypoints.is_empty():
+		return 0
+
+	var best_index := 0
+	var best_dist := INF
+	for i in range(waypoints.size()):
+		var wp := waypoints[i] as Node3D
+		var d := car.global_position.distance_to(wp.global_position)
+		if d < best_dist:
+			best_dist = d
+			best_index = i
+	return best_index
+
+
+func _distance_to_next_wp_from_index(car: CarController, wp_index: int) -> float:
+	var waypoints := player_car.waypoints
+	if waypoints.is_empty():
+		return 0.0
+
+	var next_wp := wp_index + 1
+	if next_wp >= waypoints.size():
+		next_wp = 0
+
+	var wp := waypoints[next_wp] as Node3D
+	return car.global_position.distance_to(wp.global_position)
+
 
 func _calculate_position() -> int:
-	var sorted := _sorted_cars()
-	if sorted.is_empty():
-		return 1
-
-	for i in range(sorted.size()):
-		if sorted[i] == player_car:
-			return i + 1
-
+	var total_wp = player_car.waypoints.size()
+	var list = []
+	for car in [player_car] + ai_cars:
+		var progress = (car_laps.get(car, 0) * total_wp) + car.current_wp
+		list.append({"car": car, "prog": progress})
+	
+	list.sort_custom(func(a, b): return a["prog"] > b["prog"])
+	
+	for i in range(list.size()):
+		if list[i]["car"] == player_car: return i + 1
 	return 1
 
 func get_all_race_cars() -> Array:
