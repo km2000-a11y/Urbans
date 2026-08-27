@@ -319,24 +319,35 @@ func _end_race() -> void:
 		})
 
 	# Sort by progress/dist
-	participants.sort_custom(func(a, b):
+	participants.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		if a["finished"] and b["finished"]:
+			return a["real_time"] < b["real_time"]
+
+		if a["finished"] and not b["finished"]:
+			return true
+		if b["finished"] and not a["finished"]:
+			return false
+
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
+
 		return a["dist"] < b["dist"]
-	)
+)
+
+
 
 	RaceResults.clear()
 
 	for i in range(participants.size()):
 		var p = participants[i]
-		var final_time: float
+		var final_time: int
 
 		if p["finished"]:
 			final_time = p["real_time"]
 		else:
-			var ai := p["car_obj"] as CarController
-			var leader_time: float = player_car.total_race_time  # or whoever actually finished first
-			final_time = _estimate_ai_finish_time_for(ai)
+			var ai_car: CarController = p["car_obj"]
+			final_time = _estimate_ai_finish_time_for(ai_car)
+
 
 
 		# Add micro offset per position to avoid identical times
@@ -401,30 +412,30 @@ func _distance_to_next_wp(car: CarController) -> float:
 
 
 func _calculate_position() -> int:
-	var sorted := _sorted_cars()
+	var sorted: Array = _sorted_cars()
 
 	for i in range(sorted.size()):
-		if sorted[i] == player_car:
+		var car: CarController = sorted[i]
+		if car == player_car:
 			return i + 1
 
 	return 1
 
+
+
 func _sorted_cars() -> Array:
 	if not is_instance_valid(player_car) or player_car.waypoints.is_empty():
-		  			
-					return []
-	var total_wp := player_car.waypoints.size()
-	var cars := []
+		return []
 
-	for car in [player_car] + ai_cars:
-		var lap :int= car_laps.get(car, 0)
+	var total_wp: int = player_car.waypoints.size()
+	var cars: Array = []
+	var all_cars: Array = [player_car] + ai_cars
 
-		# compute waypoint index by proximity
-		var wp_index := _get_wp_index(car)
-
-		# pure progress: laps + waypoint index
-		var progress :int= lap * total_wp + wp_index
-		var dist := _distance_to_next_wp_from_index(car, wp_index)
+	for car in all_cars:
+		var laps: int = car_laps.get(car, 0)
+		var wp_index: int = _get_wp_index(car)
+		var progress: int = laps * total_wp + wp_index
+		var dist: float = _distance_to_next_wp_from_index(car, wp_index)
 
 		cars.append({
 			"car": car,
@@ -432,8 +443,7 @@ func _sorted_cars() -> Array:
 			"dist": dist
 		})
 
-	# sort: higher progress first, then closer to next WP
-	cars.sort_custom(func(a, b):
+	cars.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
 		return a["dist"] < b["dist"]
@@ -442,6 +452,7 @@ func _sorted_cars() -> Array:
 	var result: Array = []
 	for c in cars:
 		result.append(c["car"])
+
 	return result
 
 
