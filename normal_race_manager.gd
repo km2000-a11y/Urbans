@@ -294,29 +294,39 @@ func _end_race() -> void:
 	var total_waypoints = player_car.waypoints.size()
 
 	# Collect player
-	var p_progress = (car_laps.get(player_car, 0) * total_waypoints) + player_car.current_wp
+	var p_laps: int = car_laps.get(player_car, 0)
+	var p_wp: int = _get_wp_index(player_car)
+	var p_progress: int = (p_laps * total_waypoints) + p_wp
+	var p_dist: float = _distance_to_next_wp_from_index(player_car, p_wp)
+
 	participants.append({
 		"car_obj": player_car,
 		"name": player_car.driver_name,
 		"car_name": player_car.car_name,
 		"progress": p_progress,
-		"dist": _distance_to_next_wp(player_car),
+		"dist": p_dist,
 		"real_time": player_car.total_race_time,
-		"finished": car_laps.get(player_car, 0) >= total_laps
+		"finished": p_laps >= total_laps
 	})
+
 
 	# Collect AI
 	for ai in ai_cars:
-		var ai_progress = (car_laps.get(ai, 0) * total_waypoints) + ai.current_wp
+		var laps: int = car_laps.get(ai, 0)
+		var wp_index: int = _get_wp_index(ai)
+		var ai_progress: int = (laps * total_waypoints) + wp_index
+		var ai_dist: float = _distance_to_next_wp_from_index(ai, wp_index)
+
 		participants.append({
 			"car_obj": ai,
 			"name": ai.driver_name,
 			"car_name": ai.car_name,
 			"progress": ai_progress,
-			"dist": _distance_to_next_wp(ai),
+			"dist": ai_dist,
 			"real_time": ai.total_race_time,
-			"finished": car_laps.get(ai, 0) >= total_laps
+			"finished": laps >= total_laps
 		})
+
 
 	# Sort by progress/dist
 	participants.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
