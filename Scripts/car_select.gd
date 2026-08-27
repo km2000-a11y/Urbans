@@ -375,7 +375,7 @@ var suv = {
 var compact = {
 	"Kuro Zephyr":[
 		"", "Country: Japan", "HP: 204", "WEIGHT: 1600 KG",
-		"0-100 KM/H: 6.9s", "TOP SPEED: 234 KM/H",
+		"0-100 KM/H: 7.3s", "TOP SPEED: 234 KM/H",
 		"ENGINE: V6 2.5L", "ASPIRATION: NA", "TORQUE: 270 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],

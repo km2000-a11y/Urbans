@@ -284,41 +284,43 @@ func _distance_to_next_wp_from_index(car: CarController, wp_index: int) -> float
 	var wp := waypoints[next_wp] as Node3D
 	return car.global_position.distance_to(wp.global_position)
 
-func _end_race() -> void:
+func _end_race(player_won: bool = false) -> void:
 	race_active = false
 	player_car.controls_enabled = false
 	for ai in ai_cars:
 		ai.controls_enabled = false
 
-	var participants = []
-	var total_waypoints = player_car.waypoints.size()
+	var participants: Array = []
+	var total_waypoints: int = player_car.waypoints.size()
 
-	# Collect player
-	var p_progress = (car_laps.get(player_car, 0) * total_waypoints) + player_car.current_wp
+	# PLAYER
+	var p_laps: int = car_laps.get(player_car, 0)
+	var p_progress: int = (p_laps * total_waypoints) + player_car.current_wp
+
 	participants.append({
 		"car_obj": player_car,
 		"name": player_car.driver_name,
 		"car_name": player_car.car_name,
 		"progress": p_progress,
 		"dist": _distance_to_next_wp(player_car),
-		"real_time": player_car.total_race_time,
-		"finished": car_laps.get(player_car, 0) >= total_laps
+		"real_time": player_car.total_race_time
 	})
 
-	# Collect AI
+	# AI
 	for ai in ai_cars:
-		var ai_progress = (car_laps.get(ai, 0) * total_waypoints) + ai.current_wp
+		var laps: int = car_laps.get(ai, 0)
+		var ai_progress: int = (laps * total_waypoints) + ai.current_wp
+
 		participants.append({
 			"car_obj": ai,
 			"name": ai.driver_name,
 			"car_name": ai.car_name,
 			"progress": ai_progress,
 			"dist": _distance_to_next_wp(ai),
-			"real_time": ai.total_race_time,
-			"finished": car_laps.get(ai, 0) >= total_laps
+			"real_time": ai.total_race_time
 		})
 
-	# Sort by progress/dist
+	# SORT BY REAL PROGRESS
 	participants.sort_custom(func(a, b):
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
@@ -328,25 +330,21 @@ func _end_race() -> void:
 	RaceResults.clear()
 
 	for i in range(participants.size()):
-		var p = participants[i]
-		var final_time: float
+		var p: Dictionary = participants[i]
+		var car: CarController = p["car_obj"]
+		var laps_done: int = car_laps.get(car, 0)
+		var final_time: int
 
-		if p["finished"]:
+		if laps_done >= total_laps:
+			# Finished → use real time
 			final_time = p["real_time"]
 		else:
-			var ai := p["car_obj"] as CarController
-			var leader_time: float = player_car.total_race_time  # or whoever actually finished first
-			final_time = _estimate_ai_finish_time_for(ai, leader_time)
+			# Not finished → estimate
+			final_time = _estimate_ai_finish_time_for(car, winner_time)
 
+		RaceResults.add_result(p["name"], p["car_name"], final_time)
 
-		# Add micro offset per position to avoid identical times
-		final_time += float(i) * 15.0
-
-		RaceResults.add_result(p["name"], p["car_name"], int(final_time))
-
-	# Winner is whoever sorted first
-	var actual_winner = participants[0]["car_obj"]
-	main_scene.show_finish(actual_winner == player_car)
+	main_scene.show_finish(player_won)
 	hud.visible = false
 	MusicManager.stop_music()
 

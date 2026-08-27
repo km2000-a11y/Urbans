@@ -7,6 +7,8 @@ const DRAG := 0.1
 const HARD_LIMIT_KMH := 400.0
 const HARD_LIMIT := HARD_LIMIT_KMH / 3.6
 
+
+
 # --- ROLE FLAGS ---
 var is_ai: bool = false
 var waypoint_root: Node3D = null
@@ -201,6 +203,8 @@ func _physics_process(delta: float) -> void:
 	# --- UPDATE WAYPOINT FIRST ---
 	# --- UPDATE WAYPOINT FIRST ---
 	update_waypoint()
+	# Smooth the distance to prevent jitter
+
 
 	if is_ai:
 		_update_ai_inputs(delta)

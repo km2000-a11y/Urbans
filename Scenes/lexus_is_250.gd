@@ -12,7 +12,7 @@ func _ready():
 	mass = 1500.0                     # Simulated lighter feel (IS250 IRL feels heavy)
 	horsepower = 204                  # +11 hp hidden buff to remove sadness
 	max_rpm = 6500.0                  # Slightly higher rev ceiling for sportiness
-	zero_to_hundred = 6.9
+	zero_to_hundred = 7.3
 	top_speed_kmh = 236               # Small bump, still realistic
 
 	# HANDLING FIXES (no more soggy steering)
