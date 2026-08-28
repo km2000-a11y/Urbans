@@ -12,9 +12,9 @@ func show_results(player_won: bool) -> void:
 	else:
 		title_label.text = "YOU LOSE!"
 
-	# Road Challenge extra text
+	# Road Challenge
 	if GameMode.game_mode == "Road Challenge":
-		var group: String = RoadChallengeState.active_group
+		var group := RoadChallengeState.active_group
 		var done: int = RoadChallengeSave.progress[group]
 		var left: int = 5 - done
 
@@ -27,17 +27,19 @@ func show_results(player_won: bool) -> void:
 	for child in entries.get_children():
 		child.queue_free()
 
-	# Get results
-	var results: Array = RaceResults.results.duplicate()
+	# Get raw results
+	var raw: Array = RaceResults.results.duplicate()
 
-	# ⭐ FIX: Sort results by time (ascending)
-	results.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		return a["time"] < b["time"]
+	# ⭐ PROXIMITY SORT (MATCHES RACE LOGIC)
+	raw.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		if a["progress"] != b["progress"]:
+			return a["progress"] > b["progress"]
+		return a["dist"] < b["dist"]
 	)
 
 	# Display sorted results
-	for i: int in results.size():
-		var r: Dictionary = results[i]
+	for i: int in raw.size():
+		var r: Dictionary = raw[i]
 		var line := Label.new()
 		line.text = "%d. %s — %s — %s" % [
 			i + 1,
@@ -78,8 +80,6 @@ func _on_quit_btn_pressed() -> void:
 
 func reset() -> void:
 	title_label.text = ""
-
 	for child in entries.get_children():
 		child.queue_free()
-
 	visible = false

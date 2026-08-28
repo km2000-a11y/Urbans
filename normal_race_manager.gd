@@ -243,36 +243,40 @@ func _end_race(winner: String) -> void:
 	var participants: Array = []
 	var total_wp: int = player_car.waypoints.size()
 
-	# --- PLAYER ---
+	# --- PLAYER (PROXIMITY INDEX) ---
 	var p_laps: int = car_laps.get(player_car, 0)
-	var p_progress: int = (p_laps * total_wp) + player_car.current_wp
+	var p_wp_index: int = _get_wp_index(player_car)
+	var p_progress: int = (p_laps * total_wp) + p_wp_index
+	var p_dist: float = _distance_to_next_wp_from_index(player_car, p_wp_index)
 
 	participants.append({
 		"car_obj": player_car,
 		"name": player_car.driver_name,
 		"car_name": player_car.car_name,
 		"progress": p_progress,
-		"dist": _distance_to_next_wp(player_car),
+		"dist": p_dist,
 		"real_time": player_car.total_race_time,
 		"finished": p_laps >= total_laps
 	})
 
-	# --- AI ---
+	# --- AI (PROXIMITY INDEX) ---
 	for ai: CarController in ai_cars:
 		var laps: int = car_laps.get(ai, 0)
-		var ai_progress: int = (laps * total_wp) + ai.current_wp
+		var ai_wp_index: int = _get_wp_index(ai)
+		var ai_progress: int = (laps * total_wp) + ai_wp_index
+		var ai_dist: float = _distance_to_next_wp_from_index(ai, ai_wp_index)
 
 		participants.append({
 			"car_obj": ai,
 			"name": ai.driver_name,
 			"car_name": ai.car_name,
 			"progress": ai_progress,
-			"dist": _distance_to_next_wp(ai),
+			"dist": ai_dist,
 			"real_time": ai.total_race_time,
 			"finished": laps >= total_laps
 		})
 
-	# --- SORT BY REAL RACE POSITION ---
+	# --- SORT BY REAL RACE POSITION (PROXIMITY) ---
 	participants.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
@@ -291,7 +295,6 @@ func _end_race(winner: String) -> void:
 		if i == 0:
 			# Winner always keeps real time
 			final_time = p["real_time"]
-
 		else:
 			if p["finished"]:
 				# Finished → keep real time
@@ -304,12 +307,19 @@ func _end_race(winner: String) -> void:
 				var penalty: int = int(progress_diff * avg_time_per_wp) + (randi() % 2000 + 500)
 				final_time = winner_time + penalty
 
-		RaceResults.add_result(p["name"], p["car_name"], final_time)
+		RaceResults.add_result(
+			p["name"],
+			p["car_name"],
+			final_time,
+			p["progress"],
+			p["dist"]
+		)
 
 	# --- SHOW FINISH SCREEN ---
 	main_scene.show_finish(winner == "Player")
 	hud.visible = false
 	MusicManager.stop_music()
+
 
 
 func update_race() -> void:

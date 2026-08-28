@@ -264,11 +264,11 @@ func _end_duel() -> void:
 	player_car.controls_enabled = false
 	ai_car.controls_enabled = false
 
-	var participants = []
-	var total_waypoints = player_car.waypoints.size()
+	var participants: Array = []
+	var total_wp: int = player_car.waypoints.size()
 
-	# Player entry
-	var p_progress = (player_laps * total_waypoints) + player_car.current_wp
+	# PLAYER
+	var p_progress: int = (player_laps * total_wp) + player_car.current_wp
 	participants.append({
 		"car_obj": player_car,
 		"name": player_car.driver_name,
@@ -279,8 +279,8 @@ func _end_duel() -> void:
 		"finished": player_finished
 	})
 
-	# AI entry
-	var ai_progress = (ai_laps * total_waypoints) + ai_car.current_wp
+	# AI
+	var ai_progress: int = (ai_laps * total_wp) + ai_car.current_wp
 	participants.append({
 		"car_obj": ai_car,
 		"name": ai_car.driver_name,
@@ -291,40 +291,39 @@ func _end_duel() -> void:
 		"finished": ai_finished
 	})
 
-	# Sort by progress/dist
-	participants.sort_custom(func(a, b):
+	# ⭐ PROXIMITY SORT (MATCHES HUD)
+	participants.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
 		return a["dist"] < b["dist"]
 	)
 
+	# ⭐ Compute final times AFTER sorting
 	RaceResults.clear()
 
-	for i in range(participants.size()):
-		var p = participants[i]
-		var final_time: float
+	for p in participants:
+		var final_time: int
 
 		if p["finished"]:
 			final_time = p["real_time"]
 		else:
-			final_time = _estimate_ai_finish_time()   # ✅ pass the car here
+			final_time = _estimate_ai_finish_time()
 
-		RaceResults.add_result(p["name"], p["car_name"], int(final_time))
-
-
-		# Add micro offset per position
-		final_time += float(i) * 15.0
-		RaceResults.add_result(p["name"], p["car_name"], int(final_time))
+		# ⭐ PASS ALL 5 ARGUMENTS
+		RaceResults.add_result(
+			p["name"],
+			p["car_name"],
+			final_time,
+			p["progress"],
+			p["dist"]
+		)
 
 	# Winner is whoever sorted first
-	var actual_winner = participants[0]["car_obj"]
+	var actual_winner: CarController = participants[0]["car_obj"]
 	main_scene.show_finish(actual_winner == player_car)
 	hud.visible = false
 	MusicManager.stop_music()
 
-	# Debug print
-	for p in participants:
-		print("DEBUG:", p["name"], "car=", p["car_name"], "time=", p["real_time"], "finished=", p["finished"])
 func _calculate_position() -> int:
 	# LAP FIRST
 	if player_laps > ai_laps:

@@ -1,5 +1,8 @@
-res://main.tscn
+res://Scripts/leaderboard.gd
+res://Scenes/car_select.tscn
 res://normal_race_manager.gd
+res://race_results.gd
+res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -17,7 +20,6 @@ res://Scenes/sagaris.tscn
 res://Scenes/gallardo.tscn
 res://Scenes/murcielago.tscn
 res://Scenes/chevelle_ss.tscn
-res://Scenes/car_select.tscn
 res://Scenes/lexus_lx470.tscn
 res://Scenes/dodge_viper.tscn
 res://Scenes/tvr t 440r.tscn
@@ -62,4 +64,4 @@ res://Scenes/bmw_1m.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/clk_55.tscn
-res://Scripts/leaderboard.gd
+res://duel_manager.gd
