@@ -380,9 +380,18 @@ func update_race() -> void:
 	# Race not active → nothing to update
 	if not race_active:
 		return
-
+	if race_active:
+		player_car.total_race_time += get_process_delta_time() * 1000
+	for ai in ai_cars:
+			ai.total_race_time += get_process_delta_time() * 1000
 	# Player car must exist AND be valid
 	if player_car == null or not is_instance_valid(player_car):
+		return
+	if Input.is_action_just_pressed("debug_tp_finish"):
+		player_car.global_position = main_scene.find_child("LapLine", true, false).global_position
+	if Input.is_action_pressed("debug_lose"):
+		car_laps[player_car] = 0
+		_end_race()
 		return
 
 	# Waypoints must exist (prevents early-frame crashes)
