@@ -37,9 +37,9 @@ func spawn_race(scene: Node) -> void:
 			ai.queue_free()
 
 	ai_cars.clear()
-		
+	
 	# Career lap rules
-	if Cars.selected_class == "suv":
+	if Cars.selected_class == "suv"or "colossus":
 		total_laps = 2
 	else:
 		total_laps = 3
@@ -116,12 +116,9 @@ func spawn_race(scene: Node) -> void:
 		final_ai_paths = [player_car_path]
 
 	# Spawn up to 7 AI for single-player (SpawnPoint1..7)
-	# Shuffle the list once per race
-	var shuffled := final_ai_paths.duplicate()
-	shuffled.shuffle()
-
-	for i in range(min(ai_spawns.size(), shuffled.size())):
-		var ai_path: String = shuffled[i]
+	for i in range(ai_spawns.size()):
+		var index := i % final_ai_paths.size()
+		var ai_path: String = final_ai_paths[index]
 
 		var ai_scene := load(ai_path)
 		if ai_scene == null:
@@ -129,7 +126,6 @@ func spawn_race(scene: Node) -> void:
 
 		var ai := ai_scene.instantiate() as CarController
 		scene.add_child(ai)
-
 
 		# Camera off
 		if ai.has_node("Camera3D"):
@@ -207,6 +203,8 @@ func init_lap_system():
 		car_laps[ai] = 0
 		last_wp[ai] = 0
 
+
+
 func register_lap(body: Node) -> void:
 	if not race_active:
 		return
@@ -215,45 +213,59 @@ func register_lap(body: Node) -> void:
 	while car != null and not (car is CarController):
 		car = car.get_parent()
 
-	if car == null or not car_laps.has(car):
+	if car == null:
+		return
+
+	if not car_laps.has(car):
 		return
 
 	if lap_cooldown.get(car, false):
 		return
 
+	# PLAYER LAP COUNTS HERE
 	car_laps[car] += 1
+
 	lap_cooldown[car] = true
 	_start_lap_cooldown(car)
 
-	# If player finishes → always end race immediately
-	if car == player_car and car_laps[car] >= total_laps:
-		_end_race()
-		return
+	if car == player_car:
+		_check_finish()
 
-	# If AI finishes first → mark finished but don't end race yet
-	if car != player_car and car_laps[car] >= total_laps:
-		# Race continues until player crosses finish
-		return
+
+
+func get_all_race_cars() -> Array:
+	var arr = []
+	if player_car:
+		arr.append(player_car)
+	for ai in ai_cars:
+		arr.append(ai)
+	return arr
+
+
+
+func _start_lap_cooldown(car):
+	await get_tree().create_timer(0.8).timeout
+	lap_cooldown[car] = false
+
 
 func _check_finish() -> void:
 	if not race_active:
 		return
 
 	var player_finished: bool = car_laps[player_car] >= total_laps
+
 	if not player_finished:
 		return
 
 	var player_position := _calculate_position()
-	var player_won := (player_position <= 3)   # ✅ Top 3 counts as win
+	var player_won := (player_position <= 3)
 
 	if player_won:
-		_end_race()
+		_end_race("Player")
 	else:
-		_end_race()
-
-
+		_end_race("AI")
 func _get_wp_index(car: CarController) -> int:
-	var waypoints := car.waypoints
+	var waypoints := player_car.waypoints
 	if waypoints.is_empty():
 		return 0
 
@@ -269,12 +281,8 @@ func _get_wp_index(car: CarController) -> int:
 
 	return best_index
 
-func _start_lap_cooldown(car):
-	await get_tree().create_timer(0.8).timeout
-	lap_cooldown[car] = false
-
 func _distance_to_next_wp_from_index(car: CarController, wp_index: int) -> float:
-	var waypoints := car.waypoints
+	var waypoints := player_car.waypoints
 	if waypoints.is_empty():
 		return 0.0
 
@@ -285,113 +293,73 @@ func _distance_to_next_wp_from_index(car: CarController, wp_index: int) -> float
 	var wp := waypoints[next_wp] as Node3D
 	return car.global_position.distance_to(wp.global_position)
 
-func _end_race() -> void:
+func _end_race(winner: String) -> void:
 	race_active = false
 	player_car.controls_enabled = false
 	for ai in ai_cars:
 		ai.controls_enabled = false
 
 	var participants = []
+	var total_wp := player_car.waypoints.size()
 
-	# PLAYER
-	var p_total_wp: int = player_car.waypoints.size()
-	var p_laps: int = car_laps.get(player_car, 0)
-	var p_wp: int = _get_wp_index(player_car)
-	var p_progress: int = p_laps * p_total_wp + p_wp
-	var p_dist: float = _distance_to_next_wp_from_index(player_car, p_wp)
-
+	var p_progress = (car_laps[player_car] * total_wp) + player_car.current_wp
 	participants.append({
 		"car_obj": player_car,
 		"name": player_car.driver_name,
 		"car_name": player_car.car_name,
 		"progress": p_progress,
-		"dist": p_dist,
+		"dist": _distance_to_next_wp(player_car),
 		"real_time": player_car.total_race_time,
-		"finished": p_laps >= total_laps
+		"finished": car_laps[player_car] >= total_laps
 	})
 
-# AI
 	for ai in ai_cars:
-		var total_wp: int = ai.waypoints.size()
-		var laps: int = car_laps.get(ai, 0)
-		var wp_index: int = _get_wp_index(ai)
-		var ai_progress: int = laps * total_wp + wp_index
-		var ai_dist: float = _distance_to_next_wp_from_index(ai, wp_index)
-
+		var ai_progress = (car_laps[ai] * total_wp) + ai.current_wp
 		participants.append({
 			"car_obj": ai,
 			"name": ai.driver_name,
 			"car_name": ai.car_name,
 			"progress": ai_progress,
-			"dist": ai_dist,
+			"dist": _distance_to_next_wp(ai),
 			"real_time": ai.total_race_time,
-			"finished": laps >= total_laps
+			"finished": car_laps[ai] >= total_laps
 		})
 
-
-
-
-	# Sort by progress/dist
-	participants.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		if a["finished"] and b["finished"]:
-			return a["real_time"] < b["real_time"]
-
-		if a["finished"] and not b["finished"]:
-			return true
-		if b["finished"] and not a["finished"]:
-			return false
-
+	participants.sort_custom(func(a, b):
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
-
 		return a["dist"] < b["dist"]
-)
-
-
+	)
 
 	RaceResults.clear()
 
-	for i in range(participants.size()):
-		var p = participants[i]
+	var winner_time = participants[0]["real_time"]
+
+	for p in participants:
 		var final_time: int
 
 		if p["finished"]:
 			final_time = p["real_time"]
 		else:
-			var ai_car: CarController = p["car_obj"]
-			final_time = _estimate_ai_finish_time_for(ai_car)
+			# Accurate AI finish time
+			var ai := p["car_obj"] as CarController
+			final_time = _estimate_ai_finish_time_for(ai)
+			
+		RaceResults.add_result(p["name"], p["car_name"], final_time)
 
 
-
-		# Add micro offset per position to avoid identical times
-		final_time += float(i) * 15.0
-
-		RaceResults.add_result(p["name"], p["car_name"], int(final_time))
-
-	# Winner is whoever sorted first
-	var actual_winner = participants[0]["car_obj"]
-	main_scene.show_finish(actual_winner == player_car)
+	main_scene.show_finish(winner == "Player")
 	hud.visible = false
 	MusicManager.stop_music()
-
 
 
 func update_race() -> void:
 	# Race not active → nothing to update
 	if not race_active:
 		return
-	if race_active:
-		player_car.total_race_time += get_process_delta_time() * 1000
-	for ai in ai_cars:
-			ai.total_race_time += get_process_delta_time() * 1000
+
 	# Player car must exist AND be valid
 	if player_car == null or not is_instance_valid(player_car):
-		return
-	if Input.is_action_just_pressed("debug_tp_finish"):
-		player_car.global_position = main_scene.find_child("LapLine", true, false).global_position
-	if Input.is_action_pressed("debug_lose"):
-		car_laps[player_car] = 0
-		_end_race()
 		return
 
 	# Waypoints must exist (prevents early-frame crashes)
@@ -421,35 +389,43 @@ func update_race() -> void:
 
 
 
+func _distance_to_next_wp(car: CarController) -> float:
+	if car.waypoints.is_empty():
+		return 0.0
+
+	var next_wp := car.current_wp + 1
+	if next_wp >= car.waypoints.size():
+		next_wp = 0
+
+	var wp := car.waypoints[next_wp] as Node3D
+	return car.global_position.distance_to(wp.global_position)
+
 
 func _calculate_position() -> int:
-	var sorted: Array = _sorted_cars()
+	var sorted := _sorted_cars()
 
 	for i in range(sorted.size()):
-		var car: CarController = sorted[i]
-		if car == player_car:
+		if sorted[i] == player_car:
 			return i + 1
 
 	return 1
 
-
-
 func _sorted_cars() -> Array:
 	if not is_instance_valid(player_car) or player_car.waypoints.is_empty():
-		return []
+		  			
+					return []
+	var total_wp := player_car.waypoints.size()
+	var cars := []
 
-	var cars: Array = []
-	var all_cars: Array = [player_car] + ai_cars
+	for car in [player_car] + ai_cars:
+		var lap :int= car_laps.get(car, 0)
 
-	for car in all_cars:
-		if car.waypoints.is_empty():
-			continue
+		# compute waypoint index by proximity
+		var wp_index := _get_wp_index(car)
 
-		var total_wp: int = car.waypoints.size()
-		var laps: int = car_laps.get(car, 0)
-		var wp_index: int = _get_wp_index(car)
-		var progress: int = laps * total_wp + wp_index
-		var dist: float = _distance_to_next_wp_from_index(car, wp_index)
+		# pure progress: laps + waypoint index
+		var progress :int= lap * total_wp + wp_index
+		var dist := _distance_to_next_wp_from_index(car, wp_index)
 
 		cars.append({
 			"car": car,
@@ -457,7 +433,8 @@ func _sorted_cars() -> Array:
 			"dist": dist
 		})
 
-	cars.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+	# sort: higher progress first, then closer to next WP
+	cars.sort_custom(func(a, b):
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
 		return a["dist"] < b["dist"]
@@ -466,8 +443,8 @@ func _sorted_cars() -> Array:
 	var result: Array = []
 	for c in cars:
 		result.append(c["car"])
-
 	return result
+
 
 func _apply_player_color(car: CarController) -> void:
 	var color: Color = Cars.selected_color
@@ -509,7 +486,7 @@ func _apply_random_ai_color(car: CarController) -> void:
 
 				for s in range(surface_count):
 					mesh_instance.set_surface_override_material(s, new_mat)
-					
+
 func _estimate_ai_finish_time_for(ai: CarController) -> int:
 	var lapline: Node3D = main_scene.find_child("LapLine", true, false)
 	if lapline == null:
@@ -554,17 +531,6 @@ func _estimate_ai_finish_time_for(ai: CarController) -> int:
 	return ai.total_race_time + remaining_time_ms
 
 
-
-
-
-
 func force_player_camera():
 	if player_car and player_car.has_node("Camera3D"):
 		player_car.get_node("Camera3D").current = true
-func get_all_race_cars() -> Array:
-	var arr = []
-	if player_car:
-		arr.append(player_car)
-	for ai in ai_cars:
-		arr.append(ai)
-	return arr
