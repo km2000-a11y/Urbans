@@ -35,12 +35,12 @@ text = "Compact Cars"
 [node name="Sedans" type="Button" parent="Control/ClassList"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Sedans"
+text = "Executive Cars"
 
 [node name="UrbanRacers" type="Button" parent="Control/ClassList"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Urban Racers"
+text = "Urban Performance Cars"
 
 [node name="SportCoupe" type="Button" parent="Control/ClassList"]
 layout_mode = 2
