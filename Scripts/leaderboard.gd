@@ -4,7 +4,6 @@ extends CanvasLayer
 @onready var entries := $Control/VBoxContainer
 @onready var retry_button := $Control/RetryBtn
 @onready var quit_button := $Control/QuitBtn
-
 func show_results(player_won: bool):
 	# Set title
 	if player_won:
@@ -12,10 +11,9 @@ func show_results(player_won: bool):
 	else:
 		title_label.text = "YOU LOSE!"
 
-	# ROAD CHALLENGE PROGRESS
 	if GameMode.game_mode == "Road Challenge":
 		var group := RoadChallengeState.active_group
-		var done :int= RoadChallengeSave.progress[group]
+		var done: int = RoadChallengeSave.progress[group]
 		var left := 5 - done
 
 		if left > 0:
@@ -23,13 +21,11 @@ func show_results(player_won: bool):
 		else:
 			title_label.text += "\nChallenge Complete!"
 
-	# Clear old entries
 	for child in entries.get_children():
 		child.queue_free()
 
-	# Get results from autoload
 	var results := RaceResults.results
-	results.sort_custom(_sort_by_time)
+	# ❌ no sort_custom here
 
 	for i in range(results.size()):
 		var r = results[i]
@@ -40,7 +36,6 @@ func show_results(player_won: bool):
 			+ _format_time(r["time"])
 		entries.add_child(line)
 
-	# ⭐ Club Cups money reward
 	if player_won and GameMode.game_mode == "Club Cups":
 		Cars.add_money(5000)
 		var money_label = $Control/Panel/MoneyLabel
@@ -48,9 +43,6 @@ func show_results(player_won: bool):
 
 	visible = true
 
-
-func _sort_by_time(a, b):
-	return a["time"] < b["time"]
 
 func _format_time(ms: int) -> String:
 	var total_seconds := ms / 1000.0
