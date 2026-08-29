@@ -19,6 +19,8 @@ static var used_ai_names := []
 var speed_samples := []
 var avg_speed := 0.0
 var distance_travelled:=0.0
+var finished_time: int = -1
+
 
 @export var sync_velocity: Vector3
 @export var sync_transform: Transform3D

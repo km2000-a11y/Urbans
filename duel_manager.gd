@@ -287,7 +287,7 @@ func _end_duel() -> void:
 		"car_name": ai_car.car_name,
 		"progress": ai_progress,
 		"dist": _distance_to_next_wp(ai_car),
-		"real_time": ai_car.total_race_time,
+		"real_time": ai_car.finished_time if ai_car.finished_time > 0 else ai_car.total_race_time,
 		"finished": ai_finished
 	})
 

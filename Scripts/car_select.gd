@@ -439,7 +439,7 @@ var urban_racers = {
 	],
 		"Berkshire Blunt":[
 		"", "Country: UK", "HP: 370", "WEIGHT: 1832 KG",
-		"0-100 KM/H: 5.6s", "TOP SPEED: 268 KM/H",
+		"0-100 KM/H: 6.4s", "TOP SPEED: 272 KM/H",
 		"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
@@ -490,7 +490,7 @@ var sedans = {
 	],
 	"Kronstadt Fortress":[
 	"", "Country: Germany", "HP: 389", "WEIGHT: 2150 KG",
-	"0-100 KM/H: 6.6s", "TOP SPEED: 272 KM/H",
+	"0-100 KM/H: 6.6s", "TOP SPEED: 268+ KM/H",
 	"ENGINE: V12 6.0L", "ASPIRATION: NA", "TORQUE: 580 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],

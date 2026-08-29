@@ -163,6 +163,14 @@ func register_lap(body: Node) -> void:
 
 	# PLAYER LAP COUNTS HERE
 	car_laps[car] += 1
+	# Freeze finish time the moment the car finishes
+	if car_laps[car] >= total_laps and car.finished_time < 0:
+		car.finished_time = car.total_race_time
+	# Freeze AI movement immediately when they finish
+	if car != player_car and car_laps[car] >= total_laps:
+		car.controls_enabled = false
+		car.hard_frozen = true
+
 
 	lap_cooldown[car] = true
 	_start_lap_cooldown(car)
@@ -242,12 +250,29 @@ func _end_race(winner: String) -> void:
 
 	var participants: Array = []
 	var total_wp: int = player_car.waypoints.size()
+	# --- FORCE-FINISH ANY AI THAT REACHED FINAL LAP PROGRESS ---
+	var final_progress := total_laps * total_wp
+
+	for ai in ai_cars:
+		var laps :int= car_laps.get(ai, 0)
+		var wp_index := _get_wp_index(ai)
+		var progress :int= laps * total_wp + wp_index
+
+		if progress >= final_progress and ai.finished_time < 0:
+			ai.finished_time = ai.total_race_time
+			ai.controls_enabled = false
+			ai.hard_frozen = true
 
 	# --- PLAYER (PROXIMITY INDEX) ---
 	var p_laps: int = car_laps.get(player_car, 0)
 	var p_wp_index: int = _get_wp_index(player_car)
 	var p_progress: int = (p_laps * total_wp) + p_wp_index
 	var p_dist: float = _distance_to_next_wp_from_index(player_car, p_wp_index)
+			
+			
+	var p_time := player_car.total_race_time
+	if player_car.finished_time >= 0:
+			p_time = player_car.finished_time
 
 	participants.append({
 		"car_obj": player_car,
@@ -255,8 +280,9 @@ func _end_race(winner: String) -> void:
 		"car_name": player_car.car_name,
 		"progress": p_progress,
 		"dist": p_dist,
-		"real_time": player_car.total_race_time,
-		"finished": p_laps >= total_laps
+		"real_time": p_time,
+		"finished": player_car.finished_time >= 0
+
 	})
 
 	# --- AI (PROXIMITY INDEX) ---
@@ -265,6 +291,9 @@ func _end_race(winner: String) -> void:
 		var ai_wp_index: int = _get_wp_index(ai)
 		var ai_progress: int = (laps * total_wp) + ai_wp_index
 		var ai_dist: float = _distance_to_next_wp_from_index(ai, ai_wp_index)
+		var ai_time := ai.total_race_time
+		if ai.finished_time >= 0:
+				ai_time = ai.finished_time
 
 		participants.append({
 			"car_obj": ai,
@@ -272,16 +301,27 @@ func _end_race(winner: String) -> void:
 			"car_name": ai.car_name,
 			"progress": ai_progress,
 			"dist": ai_dist,
-			"real_time": ai.total_race_time,
-			"finished": laps >= total_laps
+			"real_time": ai_time,
+			"finished": ai.finished_time >= 0
 		})
 
 	# --- SORT BY REAL RACE POSITION (PROXIMITY) ---
-	participants.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+	participants.sort_custom(func(a, b):
+	# 1. Finished cars always come before unfinished cars
+		if a["finished"] != b["finished"]:
+			return a["finished"] and not b["finished"]
+
+		# 2. If both finished, sort by real_time (lower = better)
+		if a["finished"] and b["finished"]:
+			return a["real_time"] < b["real_time"]
+
+		# 3. If neither finished, fall back to progress + dist
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
+
 		return a["dist"] < b["dist"]
-	)
+)
+
 
 	# --- GENERATE FINAL TIMES ---
 	RaceResults.clear()
@@ -335,6 +375,17 @@ func update_race() -> void:
 
 	_check_finish()
 
+	# Check if any AI finished before the player
+	for ai in ai_cars:
+		if car_laps[ai] >= total_laps and ai.finished_time < 0:
+			ai.finished_time = ai.total_race_time
+			ai.controls_enabled = false
+			ai.hard_frozen = true
+	# If ANY AI finished, end race immediately
+	for ai in ai_cars:
+		if ai.finished_time >= 0:
+			_end_race("AI")
+			return
 
 
 func _distance_to_next_wp(car: CarController) -> float:

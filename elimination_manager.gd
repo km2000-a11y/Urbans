@@ -44,7 +44,7 @@ func spawn_race(scene: Node) -> void:
 	
 	await get_tree().process_frame
 	if GameMode.game_mode == "Club Cups":
-		ai_car_paths = ClubCups.get_ai_paths_for_class(ChampionshipState.active_cup)
+		ai_car_paths = Cars.get_ai_paths_for_class(ChampionshipState.active_cup)
 	else:
 		Cars.apply_auto_class_if_not_club()
 		ai_car_paths = Cars.get_ai_paths_for_class(Cars.selected_class)

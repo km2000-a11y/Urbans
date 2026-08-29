@@ -13,7 +13,7 @@ func _ready():
 	horsepower = 395
 	max_rpm = 5800.0               # Smooth, low‑revving V12 tuned for effortless torque
 	zero_to_hundred = 6.6
-	top_speed_kmh =272
+	top_speed_kmh =268
 	turn_speed = 2.20              # Slow, deliberate steering; massive chassis weight
 	brake_strength = 10.4          # Strong brakes, but fighting 2.1 tons of mass
 	lateral_friction = 0.96        # Stable, planted grip; not sporty, but confident
