@@ -421,7 +421,7 @@ var muscle = {
 var urban_racers = {
 		"Eisenach Prince":[
 		"", "Country: Germany", "HP: 285", "WEIGHT: 1725 KG",
-		"0-100 KM/H: 5.9s", "TOP SPEED: 263 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 254 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
@@ -445,14 +445,14 @@ var urban_racers = {
 	],
 	"Eisenach Bengal":[
 		"", "Country: Germany", "HP: 265", "WEIGHT: 1450 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 243 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 243 KM/H",
 		"ENGINE: L6 3.0L", "ASPIRATION: NA", "TORQUE: 320 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kronstadt Essence":[
 	"", "Country: Germany", "HP: 342", "WEIGHT: 1640 KG",
-	"0-100 KM/H: 5.1s", "TOP SPEED: 257 KM/H",
-	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 376 NM",
+	"0-100 KM/H: 5.7s", "TOP SPEED: 266 KM/H",
+	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 
@@ -472,7 +472,7 @@ var sedans = {
 	],
 	"Kuro Persian":[
 		"", "Country: Japan", "HP: 300", "WEIGHT: 1660 KG",
-		"0-100 KM/H: 5.7s", "TOP SPEED: 258 KM/H",
+		"0-100 KM/H: 5.7s", "TOP SPEED: 253 KM/H",
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],

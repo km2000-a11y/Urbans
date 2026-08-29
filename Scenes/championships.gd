@@ -100,6 +100,7 @@ func _on_back_btn_pressed():
 	ChampionshipState.reset()
 	GameMode.game_mode = ""
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	
 
 
 func _on_zenith_competition_pressed() -> void:

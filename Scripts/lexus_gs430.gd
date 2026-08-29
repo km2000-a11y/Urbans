@@ -13,7 +13,7 @@ func _ready():
 	horsepower = 278
 	max_rpm = 6200.0                 # 3UZ‑FE V8: silky, mature, effortless mid‑range pull
 	zero_to_hundred = 5.8
-	top_speed_kmh = 258
+	top_speed_kmh = 253
 	turn_speed = 2.45                # Calm steering; precise but not aggressive
 	brake_strength = 11.4            # Confident Lexus brakes; strong without being sporty harsh
 	lateral_friction = 1.06          # Balanced RWD grip with smooth cornering behavior

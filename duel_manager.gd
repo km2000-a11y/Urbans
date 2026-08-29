@@ -34,9 +34,6 @@ func _process(delta):
 
 
 func spawn_duel(main_scene: Node) -> void:
-	player_car.finished_time = -1
-	ai_car.finished_time = -1
-
 	RaceResults.clear()
 	# If Club Cups already set ai_car_path, DO NOT override it
 	if GameMode.game_mode != "Club Cups":
@@ -116,6 +113,8 @@ func spawn_duel(main_scene: Node) -> void:
 	ai_crossed_start = false
 	winner = ""
 	duel_active = true
+	player_car.finished_time = -1
+	ai_car.finished_time = -1
 
 	# HUD MUST BE UPDATED AFTER START
 	hud.update_lap(player_laps + 1, total_laps)

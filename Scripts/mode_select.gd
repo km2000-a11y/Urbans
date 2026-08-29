@@ -28,6 +28,8 @@ func _on_elimination_btn_pressed() -> void:
 
 func _on_back_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	ChampionshipState.reset()
+	GameMode.game_mode = ""
 
 func _on_cop_chase_btn_pressed() -> void:
 	Modes.mode = "Cop Chase"

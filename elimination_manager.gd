@@ -87,7 +87,8 @@ func spawn_race(scene: Node) -> void:
 
 
 	for i in range(ai_spawns.size()):
-		var ai_scene := load(ai_car_paths[i])
+		var path :String= ai_car_paths[i % ai_car_paths.size()]
+		var ai_scene := load(path)
 		var ai := ai_scene.instantiate() as CarController
 		scene.add_child(ai)
 
@@ -100,8 +101,11 @@ func spawn_race(scene: Node) -> void:
 		ai.controls_enabled =false
 
 		ai.driver_name = ai.ai_names[randi() % ai.ai_names.size()]
-		ai.car_name = Cars.car_scene_paths.keys()[Cars.car_scene_paths.values().find(ai_car_paths[i])]
-
+		var car_name := ""
+		for name in Cars.car_scene_paths.keys():
+			if Cars.car_scene_paths[name] == path:
+				car_name = name
+				break
 		_apply_random_ai_color(ai)
 
 		ai_cars.append(ai)

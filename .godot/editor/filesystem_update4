@@ -1,4 +1,5 @@
 res://main.tscn
+res://Scripts/base_car.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -61,3 +62,13 @@ res://Scenes/bmw_1m.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/clk_55.tscn
+res://duel_manager.gd
+res://elimination_manager.gd
+res://normal_race_manager.gd
+res://Scenes/championships.gd
+res://Scripts/mode_select.gd
+res://Scripts/bmw_135i.gd
+res://bmw_m_5_e_39.gd
+res://Scripts/car_select.gd
+res://Scenes/clk_55.gd
+res://Scripts/lexus_gs430.gd

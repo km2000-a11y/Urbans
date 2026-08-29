@@ -58,6 +58,10 @@ var car_name: String = ""
 
 var transmission := "Front wheel drive" # "Front wheel drive", "Rear wheel drive", "Four wheel drive"
 var is_diesel := false
+var nitro_time: float = 0.0
+var nitro_cooldown: float = 0.0
+var nitro_active: bool = false
+
 
 var horsepower := 150.0
 var max_rpm := 6500.0
@@ -240,8 +244,37 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	if not is_ai:
 		if Input.is_action_pressed("drift"):
 			drift_input = true
+
+	if not is_ai:
+		# Player is holding NOS
 		if Input.is_action_pressed("nos"):
-			nitrous = true
+			# Only allow nitro if not cooling down
+			if nitro_cooldown <= 0.0:
+				nitrous = true
+		else:
+			nitrous = false
+
+		# --- NITRO TIMER SYSTEM ---
+		if nitrous:
+			nitro_time += delta
+			nitro_active = true
+
+			# If nitro exceeds 4 seconds, block it
+			if nitro_time >= 4.0:
+				nitro_active = false
+				nitro_cooldown = 8.0  # start cooldown
+		else:
+			nitro_active = false
+
+		# Count down cooldown
+		if nitro_cooldown > 0.0:
+			nitro_cooldown -= delta
+
+		# Reset nitro timer ONLY when cooldown is finished
+		if nitro_cooldown <= 0.0 and not nitro_active:
+			nitro_time = 0.0
+
+
 
 	var target_drift := 0.0
 	if drift_input:
