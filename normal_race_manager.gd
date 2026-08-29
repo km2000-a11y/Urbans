@@ -372,9 +372,6 @@ func update_race() -> void:
 	hud.update_stopwatch(player_car.total_race_time)
 	hud.update_lap(car_laps[player_car] + 1, total_laps)
 	hud.update_position(player_pos, ai_cars.size() + 1)
-
-	_check_finish()
-
 	# Check if any AI finished before the player
 	for ai in ai_cars:
 		if car_laps[ai] >= total_laps and ai.finished_time < 0:
@@ -386,6 +383,9 @@ func update_race() -> void:
 		if ai.finished_time >= 0:
 			_end_race("AI")
 			return
+	_check_finish()
+
+	
 
 
 func _distance_to_next_wp(car: CarController) -> float:

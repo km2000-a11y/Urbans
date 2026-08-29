@@ -34,6 +34,9 @@ func _process(delta):
 
 
 func spawn_duel(main_scene: Node) -> void:
+	player_car.finished_time = -1
+	ai_car.finished_time = -1
+
 	RaceResults.clear()
 	# If Club Cups already set ai_car_path, DO NOT override it
 	if GameMode.game_mode != "Club Cups":
@@ -227,22 +230,21 @@ func register_lap(body: Node) -> void:
 	lap_cooldown = true
 	_start_lap_cooldown()
 
+	# PLAYER LAP
 	if car == player_car:
 		player_laps += 1
-		print("Player lap:", player_laps)
 
-		if player_laps >= total_laps:
-			player_finished = true
-			_end_duel()   # Player ends duel immediately
+		if player_laps >= total_laps and player_car.finished_time < 0:
+			player_car.finished_time = player_car.total_race_time
+			_end_duel()   # Duel ends immediately (Option A)
 
+	# AI LAP
 	elif car == ai_car:
-		await get_tree().create_timer(0.15).timeout
 		ai_laps += 1
-		print("AI lap:", ai_laps)
 
-		if ai_laps >= total_laps:
-			ai_finished = true
-			# Duel continues until player finishes
+		if ai_laps >= total_laps and ai_car.finished_time < 0:
+			ai_car.finished_time = ai_car.total_race_time
+			_end_duel()   # Duel ends immediately (Option A)
 
 func _start_lap_cooldown() -> void:
 	await get_tree().create_timer(1.0).timeout
@@ -250,13 +252,9 @@ func _start_lap_cooldown() -> void:
 
 
 func _check_finish() -> void:
-	# Only end duel when player finishes
-	if player_finished:
+	# Duel ends instantly when ANY car finishes
+	if player_car.finished_time >= 0 or ai_car.finished_time >= 0:
 		_end_duel()
-	# AI finishes → DO NOT end duel
-	if ai_finished:
-		# Just mark AI finished, do nothing else
-		return
 
 
 func _end_duel() -> void:
@@ -267,60 +265,75 @@ func _end_duel() -> void:
 	var participants: Array = []
 	var total_wp: int = player_car.waypoints.size()
 
-	# PLAYER
+	# --- PLAYER ---
 	var p_progress: int = (player_laps * total_wp) + player_car.current_wp
+	var p_dist: float = _distance_to_next_wp(player_car)
+
+	var p_time: int = player_car.total_race_time
+	if player_car.finished_time >= 0:
+		p_time = player_car.finished_time
+
 	participants.append({
 		"car_obj": player_car,
 		"name": player_car.driver_name,
 		"car_name": player_car.car_name,
 		"progress": p_progress,
-		"dist": _distance_to_next_wp(player_car),
-		"real_time": player_car.total_race_time,
-		"finished": player_finished
+		"dist": p_dist,
+		"real_time": p_time,
+		"finished": player_car.finished_time >= 0
 	})
 
-	# AI
+	# --- AI ---
 	var ai_progress: int = (ai_laps * total_wp) + ai_car.current_wp
+	var ai_dist: float = _distance_to_next_wp(ai_car)
+
+	var ai_time: int = ai_car.total_race_time
+	if ai_car.finished_time >= 0:
+		ai_time = ai_car.finished_time
+
 	participants.append({
 		"car_obj": ai_car,
 		"name": ai_car.driver_name,
 		"car_name": ai_car.car_name,
 		"progress": ai_progress,
-		"dist": _distance_to_next_wp(ai_car),
-		"real_time": ai_car.finished_time if ai_car.finished_time > 0 else ai_car.total_race_time,
-		"finished": ai_finished
+		"dist": ai_dist,
+		"real_time": ai_time,
+		"finished": ai_car.finished_time >= 0
 	})
 
-	# ⭐ PROXIMITY SORT (MATCHES HUD)
-	participants.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+	# --- FINAL SORT (same flawless logic as NormalRaceManager) ---
+	participants.sort_custom(func(a, b):
+		# Finished cars first
+		if a["finished"] != b["finished"]:
+			return a["finished"] and not b["finished"]
+
+		# Both finished → sort by real_time only
+		if a["finished"] and b["finished"]:
+			return a["real_time"] < b["real_time"]
+
+		# Neither finished → sort by progress
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
+
+		# Tie-breaker: distance
 		return a["dist"] < b["dist"]
 	)
 
-	# ⭐ Compute final times AFTER sorting
+	# --- FINAL TIMES ---
 	RaceResults.clear()
 
 	for p in participants:
-		var final_time: int
-
-		if p["finished"]:
-			final_time = p["real_time"]
-		else:
-			final_time = _estimate_ai_finish_time()
-
-		# ⭐ PASS ALL 5 ARGUMENTS
 		RaceResults.add_result(
 			p["name"],
 			p["car_name"],
-			final_time,
+			p["real_time"],
 			p["progress"],
 			p["dist"]
 		)
 
-	# Winner is whoever sorted first
-	var actual_winner: CarController = participants[0]["car_obj"]
-	main_scene.show_finish(actual_winner == player_car)
+	# Winner = whoever sorted first
+	var winner_car: CarController = participants[0]["car_obj"]
+	main_scene.show_finish(winner_car == player_car)
 	hud.visible = false
 	MusicManager.stop_music()
 

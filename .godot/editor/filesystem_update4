@@ -61,10 +61,5 @@ res://Scenes/bmw_1m.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/clk_55.tscn
-res://duel_manager.gd
 res://normal_race_manager.gd
-res://Scripts/base_car.gd
-res://Scripts/car_select.gd
-res://Scripts/jaguar_xkr_2003.gd
-res://Scenes/s_600.gd
-res://elimination_manager.gd
+res://duel_manager.gd
