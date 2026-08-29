@@ -421,7 +421,7 @@ var muscle = {
 var urban_racers = {
 		"Eisenach Prince":[
 		"", "Country: Germany", "HP: 285", "WEIGHT: 1725 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 254 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 257 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
@@ -445,7 +445,7 @@ var urban_racers = {
 	],
 	"Eisenach Bengal":[
 		"", "Country: Germany", "HP: 265", "WEIGHT: 1450 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 243 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 245 KM/H",
 		"ENGINE: L6 3.0L", "ASPIRATION: NA", "TORQUE: 320 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
