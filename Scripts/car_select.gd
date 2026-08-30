@@ -1052,7 +1052,7 @@ func update_color_ui():
 func _on_select_pressed():
 	if Cars.dealership_mode:
 		var price = car_prices.get(car_name, 0)
-
+		
 		# Already owned check
 		if Cars.unlocked_cars.has(car_name) and Cars.unlocked_cars[car_name]["unlocked"]:
 			$Control/Label.text = "ALREADY OWNED!"
