@@ -11,7 +11,7 @@ var color_index := 0
 var unlocked_cars := {}
 var car_prices := {
 	"Colossus Titan Max": 10000,
-	"Colossus Behemoth": 0,
+	"Colossus Behemoth": 15000,
 	"Schroder Colosso": 22000,
 	"Mir Cars Nightwolf": 18000,
 	"Kuro Zephyr": 20000,
@@ -613,15 +613,31 @@ var track_cars = {
 # -------------------------
 
 func _ready():
-	RoadChallengeSave.load_progress() 
+	RoadChallengeSave.load_progress()
 	MusicManager.play_menu_music()
+
 	unlocked_cars = Cars.unlocked_cars
+
+	# Ensure every car has unlocked flag ONLY
+	for car in car_prices.keys():
+		if not unlocked_cars.has(car):
+			unlocked_cars[car] = {"unlocked": false}
+		else:
+			if not unlocked_cars[car].has("unlocked"):
+				unlocked_cars[car]["unlocked"] = false
+
+	Cars.unlocked_cars = unlocked_cars
+
 	_update_class_locks()
 	$Control/ColorSelector.hide()
-	if Cars.dealership_mode==true:
+
+	if Cars.dealership_mode:
 		$Control/MoneyLabel.show()
 		$Control/CarStats/PriceLabel.show()
-		
+	else:
+		$Control/MoneyLabel.hide()
+		$Control/CarStats/PriceLabel.hide()
+
 	
 
 
@@ -722,6 +738,8 @@ func _get_filtered_list(raw_list: Array) -> Array:
 
 
 func update_car_ui(stats: Array, name: String):
+	car_name = name
+
 	$Control/Cars/CarName.text = name
 	$Control/CarStats/PPLabel.text = stats[0]
 	$Control/CarStats/CountryLabel.text = stats[1]
@@ -735,21 +753,25 @@ func update_car_ui(stats: Array, name: String):
 	$Control/CarStats/TransmissionLabel.text = stats[9]
 
 	if Cars.dealership_mode:
-		var price = car_prices.get(name, 0)
-		var owned :bool= Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name].get("owned", false)
+		var price = car_prices[name]
 
-		if owned and name != "Colossus Behemoth":
+		if not Cars.unlocked_cars.has(name):
+			Cars.unlocked_cars[name] = {"unlocked": false}
+
+		var unlocked = Cars.unlocked_cars[name]["unlocked"]
+
+		if unlocked:
 			var sell_price = int(price * 0.5)
 			$Control/CarStats/PriceLabel.text = "Sell for: $" + str(sell_price)
 			$Select.text = "SELL"
-			$Select.disabled = false
 		else:
 			$Control/CarStats/PriceLabel.text = "Price: $" + str(price)
 			$Select.text = "BUY"
-			$Select.disabled = (price > Cars.player_money)
 
+		$Select.disabled = false
 		$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
 		$Control/ColorSelector.visible = false
+
 	else:
 		$Control/CarStats/PriceLabel.text = ""
 		$Control/MoneyLabel.text = ""
@@ -1050,41 +1072,50 @@ func update_color_ui():
 # SELECT BUTTON (LAN FIX)
 # -------------------------
 func _on_select_pressed():
-	if Cars.dealership_mode:
-		var price = car_prices.get(car_name, 0)
-		
-		# Already owned check
-		if Cars.unlocked_cars.has(car_name) and Cars.unlocked_cars[car_name]["unlocked"]:
-			$Control/Label.text = "ALREADY OWNED!"
-			$Control/Label.modulate = Color.RED
-			$Select.disabled = true   # disable button
-			return
+	if not Cars.dealership_mode:
+		Cars.selected_car = car_name
+		get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
+		return
 
-		# Insufficient cash check
-		if Cars.player_money < price:
-			$Control/Label.text = "INSUFFICIENT CASH!"
-			$Control/Label.modulate = Color.RED
-			$Select.disabled = true   # disable button
-			return
+	var price = car_prices[car_name]
 
-		# Deduct money and unlock
-		if Cars.spend_money(price):
-			Cars.unlock_car(car_name, "dealership")
-			$Control/Label.text = "PURCHASED!"
-			$Control/Label.modulate = Color.GREEN
-			$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
-			$Select.disabled = true   # disable after purchase
-	else:
-		# Normal SELECT behavior
-		Cars.on_car_selected(car_name)
-		Cars.selected_car_name = car_name
-		Cars.selected_car = Cars.car_scene_paths.get(car_name, "")
-		Cars.selected_color = car_colors.get(car_name, [])[color_index]
-		Cars.save_color()
-		print("Car selected:", car_name)
-		
-	get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
+	if not Cars.unlocked_cars.has(car_name):
+		Cars.unlocked_cars[car_name] = {"unlocked": false}
 
+	var unlocked = Cars.unlocked_cars[car_name]["unlocked"]
+
+	# -------------------------
+	# SELL
+	# -------------------------
+	if unlocked:
+		var sell_price = int(price * 0.5)
+		Cars.player_money += sell_price
+
+		# REMOVE FROM GARAGE
+		Cars.unlocked_cars[car_name]["unlocked"] = false
+
+		Cars.save_money()
+		Cars.save_unlocked_cars()
+
+		update_car_ui(_get_stats_for_current_car(), car_name)
+		return
+
+	# -------------------------
+	# BUY
+	# -------------------------
+	if Cars.player_money < price:
+		$Control/Label.text = "INSUFFICIENT CASH!"
+		$Control/Label.modulate = Color.RED
+		return
+
+	Cars.player_money -= price
+	Cars.unlocked_cars[car_name]["unlocked"] = true
+
+	Cars.save_money()
+	Cars.save_unlocked_cars()
+
+	$Control/Label.text = ""
+	update_car_ui(_get_stats_for_current_car(), car_name)
 
 func _on_back_btn_pressed() -> void:
 	if GameMode.game_mode == "Road Challenge":
@@ -1144,3 +1175,15 @@ func attempt_purchase(car_name: String):
 	# Refresh UI
 	$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
 	$Control/PriceLabel.text = "Price: $" + str(price)
+func _get_stats_for_current_car():
+	match car_class:
+		"suv": return suv[car_name]
+		"compact": return compact[car_name]
+		"muscle": return muscle[car_name]
+		"urban": return urban_racers[car_name]
+		"sedans": return sedans[car_name]
+		"sport": return sport[car_name]
+		"sport_racing": return sport_racing[car_name]
+		"supercars": return supercars[car_name]
+		"track_cars": return track_cars[car_name]
+	return []
