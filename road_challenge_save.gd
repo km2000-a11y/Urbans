@@ -30,7 +30,7 @@ var progress := {
 # SAVE / LOAD
 # ============================================================
 
-func save():
+func save_progress():
 	var data = {
 		"unlocked": unlocked,
 		"progress": progress
@@ -40,9 +40,9 @@ func save():
 		file.store_string(JSON.stringify(data))
 		file.close()
 
-func load():
+func load_progress():
 	if not FileAccess.file_exists(save_path):
-		save() # create default save file
+		save_progress() # create default save file
 		return
 	var file = FileAccess.open(save_path, FileAccess.READ)
 	if file:
@@ -85,4 +85,4 @@ func unlock_next_group(group_id: String):
 	# Unlock the next group
 	if idx < order.size() - 1:
 		unlocked[order[idx + 1]] = true
-		save()  # auto-save after unlocking
+		save_progress()  # auto-save after unlocking

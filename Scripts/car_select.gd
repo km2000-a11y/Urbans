@@ -613,14 +613,15 @@ var track_cars = {
 # -------------------------
 
 func _ready():
-	RoadChallengeSave.load() 
+	RoadChallengeSave.load_progress() 
 	MusicManager.play_menu_music()
-	$Control/ColorSelector.visible = false
 	unlocked_cars = Cars.unlocked_cars
 	_update_class_locks()
+	$Control/ColorSelector.hide()
 	if Cars.dealership_mode==true:
 		$Control/MoneyLabel.show()
 		$Control/CarStats/PriceLabel.show()
+		
 	
 
 
@@ -735,16 +736,26 @@ func update_car_ui(stats: Array, name: String):
 
 	if Cars.dealership_mode:
 		var price = car_prices.get(name, 0)
-		$Control/CarStats/PriceLabel.text = "Price: $" + str(price)
+		var owned :bool= Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name].get("owned", false)
+
+		if owned and name != "Colossus Behemoth":
+			var sell_price = int(price * 0.5)
+			$Control/CarStats/PriceLabel.text = "Sell for: $" + str(sell_price)
+			$Select.text = "SELL"
+			$Select.disabled = false
+		else:
+			$Control/CarStats/PriceLabel.text = "Price: $" + str(price)
+			$Select.text = "BUY"
+			$Select.disabled = (price > Cars.player_money)
+
 		$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
 		$Control/ColorSelector.visible = false
-		$Select.text = "BUY"
-		$Select.disabled = false
 	else:
 		$Control/CarStats/PriceLabel.text = ""
 		$Control/MoneyLabel.text = ""
 		$Control/ColorSelector.visible = true
 		$Select.text = "SELECT"
+		$Select.disabled = false
 
 
 # -------------------------
@@ -923,7 +934,7 @@ func _input(event):
 		RoadChallengeSave.unlocked["sport_racing"] = true
 		RoadChallengeSave.unlocked["supercars"] = true
 		RoadChallengeSave.unlocked["track_cars"] = true
-		RoadChallengeSave.save()
+		RoadChallengeSave.save_progress()
 
 		print("CHEAT ACTIVATED: All classes unlocked!")
 		_update_class_locks()
@@ -987,7 +998,12 @@ func switch_car(direction):
 
 func _reset_color():
 	color_index = 0
-	$Control/ColorSelector.visible = true
+
+	if Cars.dealership_mode:
+		$Control/ColorSelector.hide()
+		return
+
+	$Control/ColorSelector.show()
 	apply_color_to_preview(car_colors[car_name][0])
 	update_color_ui()
 
@@ -1013,6 +1029,8 @@ func apply_color_to_preview(color: Color):
 					mat.albedo_color = color
 
 func update_color_ui():
+	if Cars.dealership_mode:
+		return
 	var colors = car_colors[car_name]
 
 	$Control/ColorSelector/ColorBox1.color = colors[0]
