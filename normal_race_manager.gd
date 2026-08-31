@@ -388,8 +388,19 @@ func update_race() -> void:
 	# If ANY AI finished, end race immediately
 	for ai in ai_cars:
 		if ai.finished_time >= 0:
-			_end_race("AI")
+			if car_laps[player_car] >= total_laps:
+				var pos = _calculate_position()
+				var player_won = false
+
+				if pos <= 3:
+					player_won = true
+
+				if player_won:
+					_end_race("Player")
+				else:
+					_end_race("AI")
 			return
+
 	_check_finish()
 
 	

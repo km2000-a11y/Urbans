@@ -435,7 +435,7 @@ func show_finish(player_won: bool):
 
 	# Do NOT override Duel, Elimination, Cop Chase, Club Cups, Radar Race
 	if GameMode.game_mode == "Road Challenge":
-		if Modes.mode == "Free Race":
+		if GameMode.game_mode == "Free Race":
 			pass  # free race stays free race
 		elif Modes.mode == "Normal Race":
 			Modes.mode = "Normal Race"  # Road Challenge race
@@ -446,46 +446,23 @@ func show_finish(player_won: bool):
 		_update_career_progress()
 		ClubCups.save_progress()
 
-	if player_won and GameMode.game_mode=="Club Cups":
-		# ⭐ Add $5000 per race victory
-		Cars.add_money(5000)
-		print("YOU WIN! +$5000 → Balance:", Cars.player_money)
-	if player_won:
-		print("YOU WIN!")
-	else:
-		print("YOU LOSE!")
-	# --- Championship Reward Check ---
+# Club Cups reward logic stays here
 	if player_won and GameMode.game_mode == "Club Cups":
-		var cup_id := ChampionshipState.active_cup
-
-		# First update progress
 		_update_career_progress()
-
-		# Now read REAL saved progress
-		var cup_data :Dictionary= ClubCups.career_progress.get(cup_id, {
-			"normal": false,
-			"duel": false,
-			"elimination": false,
-			"radar": false
-		})
-
-		# Check completion
-		var completed :bool= (
-			cup_data["normal"] and
-			cup_data["duel"] and
-			cup_data["elimination"] and
-			cup_data["radar"]
-		)
-
+		ClubCups.save_progress()
+		var cup_id := ChampionshipState.active_cup
+		var cup_data = ClubCups.career_progress.get(cup_id, {})
+		var completed = cup_data["normal"] and cup_data["duel"] and cup_data["elimination"] and cup_data["radar"]
 		if completed:
 			_show_championship_reward(cup_id)
 			ClubCups.complete_cup(cup_id)
 			ClubCups.save_progress()
 
+	# Leaderboard ALWAYS shows in Free Race and Normal Race
+	if leaderboard:
+		leaderboard.visible = true
+		leaderboard.show_results(player_won)
 
-		if leaderboard:
-			leaderboard.visible = true
-			leaderboard.show_results(player_won)
 
 		if player_won:
 			print("YOU WIN!")
