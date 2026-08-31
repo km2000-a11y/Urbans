@@ -13,7 +13,7 @@ func _ready():
 	horsepower = 260                  # 1UZ-FE output (Urban Racers spec)
 	max_rpm = 6200.0                  # Smooth Lexus V8 rev band
 	idle_rpm = 700.0
-	zero_to_hundred = 6.2
+	zero_to_hundred = 6.3
 	top_speed_kmh = 250               # Gentle GT top speed
 	transmission = "Rear wheel drive"
 
