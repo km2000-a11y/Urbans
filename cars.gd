@@ -451,6 +451,9 @@ func _ready() -> void:
 		selected_class = ""
 	all_cars = get_unlocked_cars()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("reset_progress"):
+		reset_all_progress()
 
 func on_car_selected(car_name: String) -> void:
 	selected_car_name = car_name
@@ -682,3 +685,25 @@ func enable_dealership_mode() -> void:
 func disable_dealership_mode() -> void:
 	dealership_mode = false
 	print("Dealership mode disabled")
+func reset_all_progress():
+	# Reset unlocked cars
+	Cars.unlocked_cars.clear()
+	Cars.unlocked_cars["Colossus Behemoth"] = { "unlocked": true, "unlock_source": "starter" }
+	Cars.save_unlocked_cars()
+
+	# Reset money
+	Cars.player_money = 0
+	Cars.save_money()
+
+	# Reset Club Cups career
+	ClubCups.current_stage = 0
+	ClubCups.unlocked_cups = ["colossus"]
+	ClubCups.career_progress.clear()
+	ClubCups.save_progress()
+
+	# Reset Road Challenge
+	RoadChallengeSave.unlocked.clear()
+	RoadChallengeSave.progress.clear()
+	RoadChallengeSave.save_progress()
+
+	print("🔥 ALL PROGRESS RESET — Fresh start!")

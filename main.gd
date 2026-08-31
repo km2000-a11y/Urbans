@@ -453,6 +453,11 @@ func show_finish(player_won: bool):
 		print("YOU WIN!")
 	else:
 		print("YOU LOSE!")
+	var cup_id := ChampionshipState.active_cup
+	var cup_data = career_progress[cup_id]
+
+	if cup_data["normal"] and cup_data["duel"] and cup_data["elimination"] and cup_data["radar"]:
+		_show_championship_reward(cup_id)
 
 	if leaderboard:
 		leaderboard.visible = true
@@ -543,3 +548,9 @@ func _update_career_progress():
 	if cup_data["normal"] and cup_data["duel"] and cup_data["elimination"] and cup_data["radar"]:
 		print("Cup completed:", cup_id)
 		ClubCups.complete_cup(cup_id)
+func _show_championship_reward(cup_id: String):
+	if ClubCups.cup_rewards.has(cup_id):
+		var reward :String= ClubCups.cup_rewards[cup_id]
+		if leaderboard:
+			leaderboard.visible = true
+			leaderboard.show_reward("Championship Completed!\nReward Unlocked: " + reward)

@@ -45,5 +45,12 @@ offset_right = 1091.0
 offset_bottom = 419.0
 theme_override_font_sizes/font_size = 20
 
+[node name="RewardLabel" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_top = 535.0
+offset_right = 251.0
+offset_bottom = 579.0
+theme_override_font_sizes/font_size = 20
+
 [connection signal="pressed" from="Control/Panel/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

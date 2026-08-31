@@ -621,6 +621,7 @@ func _ready():
 	if Cars.dealership_mode==true:
 		$Control/MoneyLabel.show()
 		$Control/CarStats/PriceLabel.show()
+		$Select.text="BUY"
 		
 	
 
@@ -736,17 +737,22 @@ func update_car_ui(stats: Array, name: String):
 
 	if Cars.dealership_mode:
 		var price = car_prices.get(name, 0)
-		var owned :bool= Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name].get("owned", false)
+		var owned :bool = Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name]["unlocked"]
 
-		if owned and name != "Colossus Behemoth":
-			var sell_price = int(price * 0.5)
-			$Control/CarStats/PriceLabel.text = "Sell for: $" + str(sell_price)
-			$Select.text = "SELL"
-			$Select.disabled = false
-		else:
-			$Control/CarStats/PriceLabel.text = "Price: $" + str(price)
-			$Select.text = "BUY"
-			$Select.disabled = (price > Cars.player_money)
+
+		$Control/CarStats/PriceLabel.text = "Price: $" + str(price)
+		$Select.text = "BUY"
+		if price>Cars.player_money:
+			$Control/Label.text="INSUFFICIENT CASH!"
+			$Control/Label.modulate = Color.RED
+			$Select.disabled = true   # disable button
+		if Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name]["unlocked"]:
+			$Control/Label.text = "ALREADY OWNED!"
+			$Control/Label.modulate = Color.RED
+			$Select.disabled = true
+			return
+
+			
 
 		$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
 		$Control/ColorSelector.visible = false
@@ -1054,18 +1060,6 @@ func _on_select_pressed():
 		var price = car_prices.get(car_name, 0)
 		
 		# Already owned check
-		if Cars.unlocked_cars.has(car_name) and Cars.unlocked_cars[car_name]["unlocked"]:
-			$Control/Label.text = "ALREADY OWNED!"
-			$Control/Label.modulate = Color.RED
-			$Select.disabled = true   # disable button
-			return
-
-		# Insufficient cash check
-		if Cars.player_money < price:
-			$Control/Label.text = "INSUFFICIENT CASH!"
-			$Control/Label.modulate = Color.RED
-			$Select.disabled = true   # disable button
-			return
 
 		# Deduct money and unlock
 		if Cars.spend_money(price):
@@ -1083,7 +1077,7 @@ func _on_select_pressed():
 		Cars.save_color()
 		print("Car selected:", car_name)
 		
-	get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
+		get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
 
 
 func _on_back_btn_pressed() -> void:
@@ -1109,7 +1103,7 @@ func _on_track_cars_pressed():
 
 func _update_class_locks():
 	# Free Race and Road Challenge share unlocks
-	if GameMode.game_mode == "Free Race" or GameMode.game_mode == "Road Challenge" or GameMode.game_mode=="Club Cups":
+	if GameMode.game_mode == "Free Race" or GameMode.game_mode == "Road Challenge":
 		$Control/ClassList/SUV.disabled = false
 		$Control/ClassList/MuscleCars.disabled = not RoadChallengeSave.unlocked["muscle"]
 		$Control/ClassList/CompactCars.disabled = not RoadChallengeSave.unlocked["compact"]

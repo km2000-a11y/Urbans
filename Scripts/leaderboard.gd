@@ -83,3 +83,7 @@ func reset() -> void:
 	for child in entries.get_children():
 		child.queue_free()
 	visible = false
+func show_reward(text: String):
+	if has_node("RewardLabel"):
+		$Control/Panel/RewardLabel.text = text
+		$Control/Panel/RewardLabel.visible = true

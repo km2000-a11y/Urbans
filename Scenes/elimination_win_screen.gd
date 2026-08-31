@@ -34,3 +34,7 @@ func _on_retry_btn_pressed() -> void:
 
 func _on_quit_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
+func show_reward(text: String):
+	if has_node("RewardLabel"):
+		$Control/Panel/RewardLabel.text = text
+		$Control/Panel/RewardLabel.visible = true
