@@ -386,22 +386,18 @@ func update_race() -> void:
 			ai.controls_enabled = false
 			ai.hard_frozen = true
 	# If ANY AI finished, end race immediately
+	# If ANY AI finishes before the player → AI wins
 	for ai in ai_cars:
 		if ai.finished_time >= 0:
-			if car_laps[player_car] >= total_laps:
-				var pos = _calculate_position()
-				var player_won = false
+			if car_laps[player_car] < total_laps:
+				_end_race("AI")
+				return
 
-				if pos <= 3:
-					player_won = true
-
-				if player_won:
-					_end_race("Player")
-				else:
-					_end_race("AI")
-			return
-
+	# If player finishes first → normal finish logic
 	_check_finish()
+
+
+
 
 	
 

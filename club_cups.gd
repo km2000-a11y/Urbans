@@ -411,6 +411,7 @@ var cups: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
+		"Kronstadt Essence",
 		"Kestrel Speedster"
 	]
 },

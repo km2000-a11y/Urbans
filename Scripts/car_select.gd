@@ -421,44 +421,44 @@ var muscle = {
 var urban_racers = {
 		"Eisenach Prince":[
 		"", "Country: Germany", "HP: 285", "WEIGHT: 1725 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 257 KM/H",
+		"0-100 KM/H: 5.9s", "TOP SPEED: 262 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kestrel Speedster":[
 		"", "Country: UK", "HP: 286", "WEIGHT: 1145 KG",
-		"0-100 KM/H: 5.3s", "TOP SPEED: 259 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 246 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 		"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
-		"0-100 KM/H: 5.7s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 5.7s", "TOP SPEED: 253 KM/H",
 		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 		"Berkshire Blunt":[
 		"", "Country: UK", "HP: 370", "WEIGHT: 1832 KG",
-		"0-100 KM/H: 6.4s", "TOP SPEED: 272 KM/H",
+		"0-100 KM/H: 6.3s", "TOP SPEED: 269 KM/H",
 		"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Eisenach Bengal":[
 		"", "Country: Germany", "HP: 265", "WEIGHT: 1450 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 245 KM/H",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 243 KM/H",
 		"ENGINE: L6 3.0L", "ASPIRATION: NA", "TORQUE: 320 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kronstadt Essence":[
 	"", "Country: Germany", "HP: 342", "WEIGHT: 1640 KG",
-	"0-100 KM/H: 5.7s", "TOP SPEED: 266 KM/H",
+	"0-100 KM/H: 5.0s", "TOP SPEED: 256 KM/H",
 	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 
 	"Kuro Serenity":[
 		"", "Country: Japan", "HP: 260", "WEIGHT: 1640 KG",
-		"0-100 KM/H: 6.2s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 6.3s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 360 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	]

@@ -61,3 +61,13 @@ res://Scenes/bmw_1m.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/clk_55.tscn
+res://normal_race_manager.gd
+res://Scripts/bmw_135i.gd
+res://bmw_m_5_e_39.gd
+res://Scripts/car_select.gd
+res://Scenes/clk_55.gd
+res://club_cups.gd
+res://Scripts/jaguar_xkr_2003.gd
+res://Scenes/lexus_sc.gd
+res://Scripts/morgan_aero_8.gd
+res://Scenes/volvo_s_60r.gd
