@@ -30,6 +30,7 @@ func _ready():
 
 	Cars.load_color()
 	MusicManager.play_race_music()
+	career_progress = ClubCups.career_progress
 	is_lan = GameMode.game_mode == "Multi-Device"
 	$EliminationWinScreen.visible = false
 	if GameMode.game_mode == "Road Challenge":
@@ -453,20 +454,43 @@ func show_finish(player_won: bool):
 		print("YOU WIN!")
 	else:
 		print("YOU LOSE!")
-	var cup_id := ChampionshipState.active_cup
-	var cup_data = career_progress[cup_id]
+	# --- Championship Reward Check ---
+	if player_won and GameMode.game_mode == "Club Cups":
+		var cup_id := ChampionshipState.active_cup
 
-	if cup_data["normal"] and cup_data["duel"] and cup_data["elimination"] and cup_data["radar"]:
-		_show_championship_reward(cup_id)
+		# First update progress
+		_update_career_progress()
 
-	if leaderboard:
-		leaderboard.visible = true
-		leaderboard.show_results(player_won)
+		# Now read REAL saved progress
+		var cup_data :Dictionary= ClubCups.career_progress.get(cup_id, {
+			"normal": false,
+			"duel": false,
+			"elimination": false,
+			"radar": false
+		})
 
-	if player_won:
-		print("YOU WIN!")
-	else:
-		print("YOU LOSE!")
+		# Check completion
+		var completed :bool= (
+			cup_data["normal"] and
+			cup_data["duel"] and
+			cup_data["elimination"] and
+			cup_data["radar"]
+		)
+
+		if completed:
+			_show_championship_reward(cup_id)
+			ClubCups.complete_cup(cup_id)
+			ClubCups.save_progress()
+
+
+		if leaderboard:
+			leaderboard.visible = true
+			leaderboard.show_results(player_won)
+
+		if player_won:
+			print("YOU WIN!")
+		else:
+			print("YOU LOSE!")
 
 func _face_away_from_lap_line(car: CarController, root: Node):
 	var lap_line := safe_get(root, "LapLine")
@@ -553,4 +577,4 @@ func _show_championship_reward(cup_id: String):
 		var reward :String= ClubCups.cup_rewards[cup_id]
 		if leaderboard:
 			leaderboard.visible = true
-			leaderboard.show_reward("Championship Completed!\nReward Unlocked: " + reward)
+			leaderboard.show_reward("Championship Completed!\nCongratulations! You have won a " + reward)
