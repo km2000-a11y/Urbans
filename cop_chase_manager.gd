@@ -217,37 +217,27 @@ func _apply_player_color(car: CarController) -> void:
 				if mat is BaseMaterial3D:
 					mat.albedo_color = color
 
-
 func _apply_random_ai_color(car: CarController) -> void:
-	# Do NOT recolor the police interceptor
-	if car.car_name == "Bartoli Cruiser Interceptor":
+	var car_name: String = car.car_name
+
+	if not Cars.car_colors.has(car_name):
 		return
 
-	var name: String = car.car_name
-
-	if not Cars.car_colors.has(name):
-		return
-
-	var palette: Array = Cars.car_colors[name]
+	var palette: Array = Cars.car_colors[car_name]
 	if palette.is_empty():
 		return
 
-	var random_color: Color = palette[randi() % palette.size()]
+	var chosen_color: Color = palette[int(randf() * palette.size())]
 
 	if car.has_node("ModelRoot/Body"):
-		var body := car.get_node("ModelRoot/Body")
+		var body: Node = car.get_node("ModelRoot/Body")
 
-		for child in body.get_children():
+		for child: Node in body.get_children():
 			if child is MeshInstance3D:
 				var mesh_instance: MeshInstance3D = child
-				var mesh: Mesh = mesh_instance.mesh
-				if mesh == null:
-					continue
 
-				var surface_count: int = mesh.get_surface_count()
+				var mat: StandardMaterial3D = StandardMaterial3D.new()
+				mat.albedo_color = chosen_color
 
-				var new_mat: StandardMaterial3D = StandardMaterial3D.new()
-				new_mat.albedo_color = random_color
-
-				for s in range(surface_count):
-					mesh_instance.set_surface_override_material(s, new_mat)
+				# ⭐ THIS IS THE FIX ⭐
+				mesh_instance.material_override = mat

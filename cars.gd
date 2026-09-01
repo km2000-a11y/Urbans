@@ -520,6 +520,7 @@ func pick_ai_car_path() -> String:
 
 
 func get_ai_paths_for_class(_unused: Variant) -> Array[String]:
+	randomize()
 	var result: Array[String] = []
 
 	if GameMode.game_mode != "Club Cups":
@@ -538,7 +539,7 @@ func get_ai_paths_for_class(_unused: Variant) -> Array[String]:
 		return result
 
 	var cup_id: String = ChampionshipState.active_cup
-	var filtered: Array[String]
+	var filtered: Array
 
 	if cup_id == "under_400_hp":
 		# 🔥 Use full shuffled pool instead of static subset

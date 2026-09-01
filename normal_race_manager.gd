@@ -79,6 +79,8 @@ func spawn_race(scene: Node) -> void:
 
 	# AI CARS
 	ai_cars.clear()
+	
+	ai_car_paths = Cars.get_ai_paths_for_class(null)
 
 	for i in range(ai_spawns.size()):
 		var path: String = ai_car_paths[i % ai_car_paths.size()]
@@ -471,34 +473,30 @@ func _apply_player_color(car: CarController) -> void:
 
 
 func _apply_random_ai_color(car: CarController) -> void:
-	var name: String = car.car_name
+	var car_name: String = car.car_name
 
-	if not Cars.car_colors.has(name):
+	if not Cars.car_colors.has(car_name):
 		return
 
-	var palette: Array = Cars.car_colors[name]
+	var palette: Array = Cars.car_colors[car_name]
 	if palette.is_empty():
 		return
 
-	var random_color: Color = palette[randi() % palette.size()]
+	var chosen_color: Color = palette[int(randf() * palette.size())]
 
 	if car.has_node("ModelRoot/Body"):
-		var body := car.get_node("ModelRoot/Body")
+		var body: Node = car.get_node("ModelRoot/Body")
 
-		for child in body.get_children():
+		for child: Node in body.get_children():
 			if child is MeshInstance3D:
-				var mesh_instance := child
-				var mesh: Mesh = mesh_instance.mesh
-				if mesh == null:
-					return
+				var mesh_instance: MeshInstance3D = child
 
-				var surface_count := mesh.get_surface_count()
+				var mat: StandardMaterial3D = StandardMaterial3D.new()
+				mat.albedo_color = chosen_color
 
-				var new_mat := StandardMaterial3D.new()
-				new_mat.albedo_color = random_color
+				# ⭐ THIS IS THE FIX ⭐
+				mesh_instance.material_override = mat
 
-				for s in range(surface_count):
-					mesh_instance.set_surface_override_material(s, new_mat)
 func _estimate_ai_finish_time_for(ai: CarController) -> int:
 	var lapline := main_scene.find_child("LapLine", true, false)
 	if lapline == null:
