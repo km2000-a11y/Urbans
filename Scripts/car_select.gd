@@ -1105,6 +1105,7 @@ func _on_track_cars_pressed():
 
 func _update_class_locks():
 	# Free Race and Road Challenge share unlocks
+	RoadChallengeSave.load_progress()
 	if GameMode.game_mode == "Road Challenge":
 		await get_tree().process_frame
 		$Control/ClassList/SUV.disabled = false
