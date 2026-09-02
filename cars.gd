@@ -13,6 +13,8 @@ var manual_class_clear := false
 var unlocked_cars: Dictionary = {}   # car_name -> { "unlocked": bool, "unlock_source": String }
 var unlocked_save_path := "user://unlocked_cars.json"
 var player_money: int = 0
+var upgrades: Dictionary = {}   # car_name -> { weight, engine, steering, brakes }
+var upgrades_save_path := "user://car_upgrades.json"
 var money_save_path := "user://money.save"
 
 
@@ -447,6 +449,8 @@ func _ready() -> void:
 	load_color()
 	load_unlocked_cars()
 	load_money()
+	initialize_upgrades()
+	load_upgrades()
 	if GameMode.game_mode != "Club Cups":
 		selected_class = ""
 	all_cars = get_unlocked_cars()
@@ -708,3 +712,33 @@ func reset_all_progress():
 	RoadChallengeSave.save_progress()
 
 	print("🔥 ALL PROGRESS RESET — Fresh start!")
+func initialize_upgrades():
+	for car_name in car_scene_paths.keys():
+		if not upgrades.has(car_name):
+			upgrades[car_name] = {
+				"weight": 0,
+				"engine": 0,
+				"steering": 0,
+				"brakes": 0
+			}
+func save_upgrades():
+	var file := FileAccess.open(upgrades_save_path, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(upgrades))
+		file.close()
+		print("Upgrades saved")
+func load_upgrades():
+	if not FileAccess.file_exists(upgrades_save_path):
+		print("No upgrade save found, starting fresh")
+		save_upgrades()
+		return
+
+	var file := FileAccess.open(upgrades_save_path, FileAccess.READ)
+	if file:
+		var text := file.get_as_text()
+		var data :Dictionary= JSON.parse_string(text)
+		if typeof(data) == TYPE_DICTIONARY:
+			upgrades = data
+		file.close()
+
+	print("Upgrades loaded:", upgrades.keys())

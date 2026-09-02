@@ -8,6 +8,7 @@ var car_class := ""
 var car_name := ""
 var car_index := 0
 var color_index := 0
+var upgrade_mode:=false
 var unlocked_cars := {}
 var car_prices := {
 	"Colossus Titan Max": 10000,
@@ -614,12 +615,18 @@ var track_cars = {
 
 func _ready():
 	RoadChallengeSave.load_progress() 
+	$UpgradeMenu.visible=false
 	MusicManager.play_menu_music()
 	unlocked_cars = Cars.unlocked_cars
 	_update_class_locks()
+	if GameMode.game_mode == "Club Cups":
+		$Control/UpgradesButton.show()
+	else:
+		$Control/UpgradesButton.hide()
+
 	$Control/ColorSelector.hide()
 	if Cars.dealership_mode==true:
-		$Control/MoneyLabel.show()
+		$MoneyLabel.show()
 		$Control/CarStats/PriceLabel.show()
 		$Select.text="BUY"
 	if GameMode.game_mode=="Road Challenge":
@@ -756,11 +763,11 @@ func update_car_ui(stats: Array, name: String):
 
 			
 
-		$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
+		$MoneyLabel.text = "Money: $" + str(Cars.player_money)
 		$Control/ColorSelector.visible = false
 	else:
 		$Control/CarStats/PriceLabel.text = ""
-		$Control/MoneyLabel.text = ""
+		$MoneyLabel.text = ""
 		$Control/ColorSelector.visible = true
 		$Select.text = "SELECT"
 		$Select.disabled = false
@@ -914,6 +921,8 @@ func _on_sport_racing_pressed():
 
 func _input(event):
 	# Ignore color inputs when no car class is selected (main menu)
+	if upgrade_mode:
+		return
 	if car_class == "":
 		if event.is_action_pressed("car_select_left") or event.is_action_pressed("car_select_right"):
 			return
@@ -951,51 +960,18 @@ func _input(event):
 
 
 # -------------------------
-func switch_car(direction):
-	var raw_list
-	var dict
+func switch_car(direction: int):
+	if upgrade_mode:
+		return
 
-	match car_class:
-		"suv":
-			raw_list = suv_list
-			dict = suv
-		"compact":
-			raw_list = compact_list
-			dict = compact
-		"muscle":
-			raw_list = muscle_list
-			dict = muscle
-		"urban":
-			raw_list = urban_list
-			dict = urban_racers
-		"sedans":
-			raw_list = sedans_list
-			dict = sedans
-		"sport":
-			raw_list = sport_list
-			dict = sport
-		"supercars":
-			raw_list = supercars_list
-			dict = supercars
-		"sport_racing":
-			raw_list = sport_racing_list
-			dict = sport_racing
-		"track_cars":
-			raw_list = track_cars_list
-			dict = track_cars
+	var list = _get_filtered_list(get_list_for_class(car_class))
+	if list.is_empty():
+		return
 
-	var list = _get_filtered_list(raw_list)
-	if list.is_empty(): return
-
-	car_index += direction
-
-	if car_index < 0:
-		car_index = list.size() - 1
-	elif car_index >= list.size():
-		car_index = 0
-
+	car_index = (car_index + direction) % list.size()
 	car_name = list[car_index]
-	update_car_ui(dict[car_name], car_name)
+
+	update_car_ui(get_stats_for(car_name), car_name)
 	load_preview_car(car_scene_paths[car_name])
 	_reset_color()
 
@@ -1058,6 +1034,8 @@ func update_color_ui():
 # SELECT BUTTON (LAN FIX)
 # -------------------------
 func _on_select_pressed():
+	if upgrade_mode:
+		return
 	if Cars.dealership_mode:
 		var price = car_prices.get(car_name, 0)
 		
@@ -1068,7 +1046,7 @@ func _on_select_pressed():
 			Cars.unlock_car(car_name, "dealership")
 			$Control/Label.text = "PURCHASED!"
 			$Control/Label.modulate = Color.GREEN
-			$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
+			$MoneyLabel.text = "Money: $" + str(Cars.player_money)
 			$Select.disabled = true   # disable after purchase
 	else:
 		# Normal SELECT behavior
@@ -1087,6 +1065,10 @@ func _on_back_btn_pressed() -> void:
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	elif GameMode.game_mode=="Club Cups":
 		get_tree().change_scene_to_file("res://Scenes/championships.tscn")
+	elif upgrade_mode==true:
+		get_tree().change_scene_to_file("res://Scenes/championships.tscn")
+		$Control.hide()
+		$UpgradeMenu.show()
 	else:
 		get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
 
@@ -1140,9 +1122,157 @@ func attempt_purchase(car_name: String):
 	print("Purchased:", car_name, "for $", price)
 
 	# Refresh UI
-	$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
+	$MoneyLabel.text = "Money: $" + str(Cars.player_money)
 	$Control/PriceLabel.text = "Price: $" + str(price)
 
 
 func _on_upgrades_pressed() -> void:
-	pass # Replace with function body.
+	if GameMode.game_mode != "Club Cups":
+		return  # upgrades disabled outside Club Cups
+	upgrade_mode=true
+	if car_name == "":
+		return
+
+	upgrade_mode = true
+
+	$Control.hide()
+	$UpgradeMenu.show()
+	_update_upgrade_menu()
+func _update_upgrade_menu():
+	if not Cars.upgrades.has(car_name):
+		return
+
+	var u = Cars.upgrades[car_name]
+	$UpgradeMenu/VBoxContainer/CarLabel.text = car_name
+	# Weight Reduction
+	$UpgradeMenu/VBoxContainer/WeightReduction/Stage.text = "Stage: " + str(u["weight"])
+	$UpgradeMenu/VBoxContainer/WeightReduction/Price.text = "$" + str(2000 * (u["weight"] + 1))
+
+	# Engine Tune
+	$UpgradeMenu/VBoxContainer/EngineTune/Stage.text = "Stage: " + str(u["engine"])
+	$UpgradeMenu/VBoxContainer/EngineTune/Price.text = "$" + str(2500 * (u["engine"] + 1))
+
+	# Steering
+	$UpgradeMenu/VBoxContainer/Steering/Stage.text = "Stage: " + str(u["steering"])
+	$UpgradeMenu/VBoxContainer/Steering/Price.text = "$" + str(1500 * (u["steering"] + 1))
+
+	# Brakes
+	$UpgradeMenu/VBoxContainer/Brakes/Stage.text = "Stage: " + str(u["brakes"])
+	$UpgradeMenu/VBoxContainer/Brakes/Price.text = "$" + str(1800 * (u["brakes"] + 1))
+
+	# Money
+	$MoneyLabel.text = "Money: $" + str(Cars.player_money)
+func get_list_for_class(class_id: String) -> Array:
+	match class_id:
+		"suv":
+			return suv_list
+		"compact":
+			return compact_list
+		"muscle":
+			return muscle_list
+		"urban":
+			return urban_list
+		"sedans":
+			return sedans_list
+		"sport":
+			return sport_list
+		"sport_racing":
+			return sport_racing_list
+		"supercars":
+			return supercars_list
+		"track_cars":
+			return track_cars_list
+		_:
+			return []
+func get_stats_for(name: String) -> Array:
+	match car_class:
+		"suv":
+			return suv[name]
+		"compact":
+			return compact[name]
+		"muscle":
+			return muscle[name]
+		"urban":
+			return urban_racers[name]
+		"sedans":
+			return sedans[name]
+		"sport":
+			return sport[name]
+		"sport_racing":
+			return sport_racing[name]
+		"supercars":
+			return supercars[name]
+		"track_cars":
+			return track_cars[name]
+		_:
+			return []
+
+
+func _on_buy_btn_pressed() -> void:
+	if GameMode.game_mode != "Club Cups":
+		return
+
+	var u = Cars.upgrades[car_name]
+	if u["steering"] >= 3:
+		return
+
+	var cost = 1500 * (u["steering"] + 1)
+	if not Cars.spend_money(cost):
+		return
+
+	u["steering"] += 1
+	Cars.save_upgrades()
+	_update_upgrade_menu()
+
+
+
+func _on_buy_btn_2_pressed() -> void:
+	if GameMode.game_mode != "Club Cups":
+		return
+
+	var u = Cars.upgrades[car_name]
+	if u["engine"] >= 3:
+		return
+
+	var cost = 2500 * (u["engine"] + 1)
+	if not Cars.spend_money(cost):
+		return
+
+	u["engine"] += 1
+	Cars.save_upgrades()
+	_update_upgrade_menu()
+
+
+
+func _on_buy_btn_3_pressed() -> void:
+	if GameMode.game_mode != "Club Cups":
+		return
+
+	var u = Cars.upgrades[car_name]
+	if u["weight"] >= 3:
+		return
+
+	var cost = 2000 * (u["weight"] + 1)
+	if not Cars.spend_money(cost):
+		return
+
+	u["weight"] += 1
+	Cars.save_upgrades()
+	_update_upgrade_menu()
+
+
+func _on_buy_btn_4_pressed() -> void:
+	if GameMode.game_mode != "Club Cups":
+		return
+
+	var u = Cars.upgrades[car_name]
+	if u["brakes"] >= 3:
+		return
+
+	var cost = 1800 * (u["brakes"] + 1)
+	if not Cars.spend_money(cost):
+		return
+
+	u["brakes"] += 1
+	Cars.save_upgrades()
+	_update_upgrade_menu()

@@ -104,19 +104,41 @@ var ai_overtake_offset: float = 0.0
 var ai_overtake_side: float = 0.0 # -1 left, +1 right
 
 func apply_stats() -> void:
+	# --- APPLY UPGRADES FIRST ---
+	# --- APPLY UPGRADES FIRST ---
+	if GameMode.game_mode == "Club Cups" and Cars.upgrades.has(car_name):
+		var u = Cars.upgrades[car_name]
+
+		# Weight Reduction
+		mass *= (1.0 - 0.05 * u["weight"])
+		zero_to_hundred *= (1.0 - 0.04 * u["weight"])  # faster acceleration
+
+		# Engine Tune
+		horsepower *= (1.0 + 0.06 * u["engine"])
+		top_speed_kmh *= (1.0 + 0.02 * u["engine"])
+		top_speed_kmh += (horsepower * 0.015)  # HP improves top speed
+
+		# Steering Upgrade
+		turn_speed *= (1.0 + 0.08 * u["steering"])
+		lateral_friction *= (1.0 + 0.05 * u["steering"])
+
+		# Brake Upgrade
+		brake_strength *= (1.0 + 0.10 * u["brakes"])
+
+		# --- ORIGINAL STATS CALC ---
 	acceleration_calc = (27.78 / zero_to_hundred) * 2.5
 	torque = (horsepower * 5252.0) / max_rpm
 
 	if is_diesel:
 		torque *= 1.6
 
-	top_speed = top_speed_kmh / 3.6
+		top_speed = top_speed_kmh / 3.6
 
-	performance_points = round(
-		(top_speed_kmh * 1.5)
-		+ (100.0 / zero_to_hundred)
-		+ ((horsepower / mass) * 700.0)
-	)
+		performance_points = round(
+			(top_speed_kmh * 1.5)
+			+ (100.0 / zero_to_hundred)
+			+ ((horsepower / mass) * 700.0)
+		)
 
 func apply_handling_profile() -> void:
 	match handling_type:
