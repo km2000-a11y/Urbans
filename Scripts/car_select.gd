@@ -1142,3 +1142,7 @@ func attempt_purchase(car_name: String):
 	# Refresh UI
 	$Control/MoneyLabel.text = "Money: $" + str(Cars.player_money)
 	$Control/PriceLabel.text = "Price: $" + str(price)
+
+
+func _on_upgrades_pressed() -> void:
+	pass # Replace with function body.

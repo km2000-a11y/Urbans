@@ -159,6 +159,15 @@ offset_right = 359.0
 offset_bottom = 570.0
 theme_override_font_sizes/font_size = 20
 
+[node name="Upgrades" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 507.0
+offset_right = 1161.0
+offset_bottom = 559.0
+theme_override_font_sizes/font_size = 30
+text = "UPGRADES"
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = -1
 anchor_left = 0.55
@@ -207,4 +216,5 @@ text = "SELECT CAR
 [connection signal="pressed" from="Control/ClassList/Supercars" to="." method="_on_supercars_pressed"]
 [connection signal="pressed" from="Control/ClassList/TrackCars" to="." method="_on_track_cars_pressed"]
 [connection signal="pressed" from="Control/BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="Control/Upgrades" to="." method="_on_upgrades_pressed"]
 [connection signal="pressed" from="Select" to="." method="_on_select_pressed"]

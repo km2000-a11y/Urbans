@@ -1,11 +1,11 @@
-Label
+CanvasLayer
 Button
+Label
 CarController
 MultiplayerSynchronizer
 MultiplayerSpawner
 LineEdit
 Control
-CanvasLayer
 MeshInstance3D
 ScrollContainer
 VBoxContainer
