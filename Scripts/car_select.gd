@@ -732,6 +732,18 @@ func _get_filtered_list(raw_list: Array) -> Array:
 
 
 func update_car_ui(stats: Array, name: String):
+	# --- Inject dynamic stats (ClubCups needs this) ---
+	if GameMode.game_mode == "Club Cups" and preview_car != null:
+		var cc = find_car_controller(preview_car)
+		if cc != null:
+			stats[2] = "HP: " + str(int(cc.horsepower))
+			stats[3] = "WEIGHT: " + str(int(cc.mass)) + " KG"
+			stats[4] = "0-100 KM/H: " + str(round(cc.zero_to_hundred * 100) / 100.0) + "s"
+			stats[5] = "TOP SPEED: " + str(int(cc.top_speed_kmh)) + " KM/H"
+			stats[8] = "TORQUE: " + str(int(cc.torque)) + " NM"
+			stats[0] = str(cc.performance_points)
+
+	# --- Apply UI labels ---
 	$Control/Cars/CarName.text = name
 	$Control/CarStats/PPLabel.text = stats[0]
 	$Control/CarStats/CountryLabel.text = stats[1]
@@ -744,34 +756,35 @@ func update_car_ui(stats: Array, name: String):
 	$Control/CarStats/TorqueLabel.text = stats[8]
 	$Control/CarStats/TransmissionLabel.text = stats[9]
 
+	# --- Dealership mode (ClubCups shop) ---
 	if Cars.dealership_mode:
 		var price = car_prices.get(name, 0)
-		var owned :bool = Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name]["unlocked"]
-
+		var owned = Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name]["unlocked"]
 
 		$Control/CarStats/PriceLabel.text = "Price: $" + str(price)
 		$Select.text = "BUY"
-		if price>Cars.player_money:
-			$Control/Label.text="INSUFFICIENT CASH!"
+
+		if price > Cars.player_money:
+			$Control/Label.text = "INSUFFICIENT CASH!"
 			$Control/Label.modulate = Color.RED
-			$Select.disabled = true   # disable button
-		if Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name]["unlocked"]:
+			$Select.disabled = true
+
+		if owned:
 			$Control/Label.text = "ALREADY OWNED!"
 			$Control/Label.modulate = Color.RED
 			$Select.disabled = true
 			return
 
-			
-
 		$MoneyLabel.text = "Money: $" + str(Cars.player_money)
 		$Control/ColorSelector.visible = false
+
 	else:
+		# Normal ClubCups selection
 		$Control/CarStats/PriceLabel.text = ""
 		$MoneyLabel.text = ""
 		$Control/ColorSelector.visible = true
 		$Select.text = "SELECT"
 		$Select.disabled = false
-
 
 # -------------------------
 # 3D PREVIEW LOADING
@@ -1276,3 +1289,18 @@ func _on_buy_btn_4_pressed() -> void:
 	u["brakes"] += 1
 	Cars.save_upgrades()
 	_update_upgrade_menu()
+func find_car_controller(node: Node) -> Node:
+	if node == null:
+		return null
+
+	# Detect by script class name
+	if node.get_script() != null and node.get_script().get_class() == "CarController":
+		return node
+
+	# Search children recursively
+	for child in node.get_children():
+		var found = find_car_controller(child)
+		if found != null:
+			return found
+
+	return null
