@@ -695,7 +695,9 @@ func reset_all_progress():
 	Cars.unlocked_cars.clear()
 	Cars.unlocked_cars["Colossus Behemoth"] = { "unlocked": true, "unlock_source": "starter" }
 	Cars.save_unlocked_cars()
-
+	Cars.upgrades.clear()
+	Cars.initialize_upgrades()
+	Cars.save_upgrades()
 	# Reset money
 	Cars.player_money = 0
 	Cars.save_money()

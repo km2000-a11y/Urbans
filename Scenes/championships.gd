@@ -14,6 +14,8 @@ func _input(event):
 	if event.is_action_pressed("champ_unlock"):
 		var current = ClubCups.get_current_cup()
 		ClubCups.complete_cup(current)
+		Cars.player_money+=10000
+		Cars.save_money()
 		print("Debug: advanced career, unlocked next cup")
 		_update_button_states()
 	if $Control.has_node("Money"):

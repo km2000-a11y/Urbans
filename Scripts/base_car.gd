@@ -104,41 +104,47 @@ var ai_overtake_offset: float = 0.0
 var ai_overtake_side: float = 0.0 # -1 left, +1 right
 
 func apply_stats() -> void:
-	# --- APPLY UPGRADES FIRST ---
-	# --- APPLY UPGRADES FIRST ---
+	# --- APPLY UPGRADES FIRST (Arcade‑clean behavior) ---
 	if GameMode.game_mode == "Club Cups" and Cars.upgrades.has(car_name):
 		var u = Cars.upgrades[car_name]
 
-		# Weight Reduction
-		mass *= (1.0 - 0.05 * u["weight"])
-		zero_to_hundred *= (1.0 - 0.04 * u["weight"])  # faster acceleration
+		# Weight Reduction → improves acceleration + top speed slightly
+		if u["weight"] > 0:
+			var w = u["weight"]
+			mass *= (1.0 - 0.05 * w)                 # lighter car
+			zero_to_hundred *= (1.0 - 0.04 * w)     # faster 0–100
+			
+		# Engine Tune → improves HP + top speed
+		if u["engine"] > 0:
+			var e = u["engine"]
+			horsepower *= (1.0 + 0.06 * e)          # more HP
+			top_speed_kmh *= (1.0 + 0.03 * e)       # bigger top speed gain
 
-		# Engine Tune
-		horsepower *= (1.0 + 0.06 * u["engine"])
-		top_speed_kmh *= (1.0 + 0.02 * u["engine"])
-		top_speed_kmh += (horsepower * 0.015)  # HP improves top speed
+		# Steering Upgrade → improves handling only
+		if u["steering"] > 0:
+			var s = u["steering"]
+			turn_speed *= (1.0 + 0.08 * s)
+			lateral_friction *= (1.0 + 0.05 * s)
 
-		# Steering Upgrade
-		turn_speed *= (1.0 + 0.08 * u["steering"])
-		lateral_friction *= (1.0 + 0.05 * u["steering"])
+		# Brake Upgrade → improves braking only
+		if u["brakes"] > 0:
+			var b = u["brakes"]
+			brake_strength *= (1.0 + 0.10 * b)
 
-		# Brake Upgrade
-		brake_strength *= (1.0 + 0.10 * u["brakes"])
-
-		# --- ORIGINAL STATS CALC ---
+	# --- ORIGINAL STATS CALC ---
 	acceleration_calc = (27.78 / zero_to_hundred) * 2.5
 	torque = (horsepower * 5252.0) / max_rpm
 
 	if is_diesel:
 		torque *= 1.6
 
-		top_speed = top_speed_kmh / 3.6
+	top_speed = top_speed_kmh / 3.6
 
-		performance_points = round(
-			(top_speed_kmh * 1.5)
-			+ (100.0 / zero_to_hundred)
-			+ ((horsepower / mass) * 700.0)
-		)
+	performance_points = round(
+		(top_speed_kmh * 1.5)
+		+ (100.0 / zero_to_hundred)
+		+ ((horsepower / mass) * 700.0)
+	)
 
 func apply_handling_profile() -> void:
 	match handling_type:
