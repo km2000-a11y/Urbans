@@ -491,7 +491,7 @@ var sedans = {
 	],
 	"Kronstadt Fortress":[
 	"", "Country: Germany", "HP: 389", "WEIGHT: 2150 KG",
-	"0-100 KM/H: 6.6s", "TOP SPEED: 268+ KM/H",
+	"0-100 KM/H: 6.6s", "TOP SPEED: 268 KM/H",
 	"ENGINE: V12 6.0L", "ASPIRATION: NA", "TORQUE: 580 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
@@ -729,67 +729,71 @@ func _get_filtered_list(raw_list: Array) -> Array:
 		return filtered
 
 	return raw_list
+func find_car_controller(node: Node) -> Node:
+	if node == null:
+		return null
 
+	# Detect by script type
+	if node.get_script() != null and node.get_script() is CarController:
+		return node
+
+	for child in node.get_children():
+		var found = find_car_controller(child)
+		if found != null:
+			return found
+
+	return null
+
+func get_base_stats_for(name: String) -> Array:
+	if suv.has(name):
+		return suv[name]
+	if compact.has(name):
+		return compact[name]
+	if muscle.has(name):
+		return muscle[name]
+	if urban_racers.has(name):
+		return urban_racers[name]
+	if sedans.has(name):
+		return sedans[name]
+	if sport.has(name):
+		return sport[name]
+	if sport_racing.has(name):
+		return sport_racing[name]
+	if supercars.has(name):
+		return supercars[name]
+	if track_cars.has(name):
+		return track_cars[name]
+
+	return []
 
 func update_car_ui(stats: Array, name: String):
-	# --- Inject dynamic stats (ClubCups needs this) ---
+	var final_stats = stats.duplicate()
+
 	if GameMode.game_mode == "Club Cups" and preview_car != null:
 		var cc = find_car_controller(preview_car)
 		if cc != null:
-			stats[2] = "HP: " + str(int(cc.horsepower))
-			stats[3] = "WEIGHT: " + str(int(cc.mass)) + " KG"
-			stats[4] = "0-100 KM/H: " + str(round(cc.zero_to_hundred * 100) / 100.0) + "s"
-			stats[5] = "TOP SPEED: " + str(int(cc.top_speed_kmh)) + " KM/H"
-			stats[8] = "TORQUE: " + str(int(cc.torque)) + " NM"
-			stats[0] = str(cc.performance_points)
+			final_stats[2] = "HP: " + str(int(cc.horsepower))
+			final_stats[3] = "WEIGHT: " + str(int(cc.mass)) + " KG"
+			final_stats[4] = "0-100 KM/H: " + str(round(cc.zero_to_hundred * 100) / 100.0) + "s"
+			final_stats[5] = "TOP SPEED: " + str(int(cc.top_speed_kmh)) + " KM/H"
+			final_stats[8] = "TORQUE: " + str(int(cc.torque)) + " NM"
+			final_stats[0] = str(cc.performance_points)
 
-	# --- Apply UI labels ---
 	$Control/Cars/CarName.text = name
-	$Control/CarStats/PPLabel.text = stats[0]
-	$Control/CarStats/CountryLabel.text = stats[1]
-	$Control/CarStats/HPLabel.text = stats[2]
-	$Control/CarStats/WeightLabel.text = stats[3]
-	$Control/CarStats/ZeroToHundredLabel.text = stats[4]
-	$Control/CarStats/TopSpeedLabel.text = stats[5]
-	$Control/CarStats/EngineLabel.text = stats[6]
-	$Control/CarStats/AspirationLabel.text = stats[7]
-	$Control/CarStats/TorqueLabel.text = stats[8]
-	$Control/CarStats/TransmissionLabel.text = stats[9]
-
-	# --- Dealership mode (ClubCups shop) ---
-	if Cars.dealership_mode:
-		var price = car_prices.get(name, 0)
-		var owned = Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name]["unlocked"]
-
-		$Control/CarStats/PriceLabel.text = "Price: $" + str(price)
-		$Select.text = "BUY"
-
-		if price > Cars.player_money:
-			$Control/Label.text = "INSUFFICIENT CASH!"
-			$Control/Label.modulate = Color.RED
-			$Select.disabled = true
-
-		if owned:
-			$Control/Label.text = "ALREADY OWNED!"
-			$Control/Label.modulate = Color.RED
-			$Select.disabled = true
-			return
-
-		$MoneyLabel.text = "Money: $" + str(Cars.player_money)
-		$Control/ColorSelector.visible = false
-
-	else:
-		# Normal ClubCups selection
-		$Control/CarStats/PriceLabel.text = ""
-		$MoneyLabel.text = ""
-		$Control/ColorSelector.visible = true
-		$Select.text = "SELECT"
-		$Select.disabled = false
+	$Control/CarStats/PPLabel.text = final_stats[0]
+	$Control/CarStats/CountryLabel.text = final_stats[1]
+	$Control/CarStats/HPLabel.text = final_stats[2]
+	$Control/CarStats/WeightLabel.text = final_stats[3]
+	$Control/CarStats/ZeroToHundredLabel.text = final_stats[4]
+	$Control/CarStats/TopSpeedLabel.text = final_stats[5]
+	$Control/CarStats/EngineLabel.text = final_stats[6]
+	$Control/CarStats/AspirationLabel.text = final_stats[7]
+	$Control/CarStats/TorqueLabel.text = final_stats[8]
+	$Control/CarStats/TransmissionLabel.text = final_stats[9]
 
 # -------------------------
 # 3D PREVIEW LOADING
 # -------------------------
-
 func load_preview_car(path: String):
 	if preview_car:
 		preview_car.queue_free()
@@ -797,6 +801,9 @@ func load_preview_car(path: String):
 	var car_scene = load(path)
 	if car_scene == null:
 		return
+	await get_tree().process_frame
+	await get_tree().process_frame
+	update_car_ui(get_base_stats_for(car_name), car_name)
 
 	var car = car_scene.instantiate()
 	preview_holder.add_child(car)
@@ -810,8 +817,15 @@ func load_preview_car(path: String):
 
 	model_root.scale = Vector3.ONE * 1.5
 	model_root.position = Vector3.ZERO
+	
 
-# -------------------------
+	# ⭐ FIX: Update UI AFTER preview car loads
+	if GameMode.game_mode == "Club Cups" and car_name != "":
+		update_car_ui(get_base_stats_for(car_name), car_name)
+	print(preview_car)
+	print(preview_car.get_script())
+
+	# -------------------------
 # ROTATE PREVIEW EACH FRAME
 # -------------------------
 
@@ -1289,18 +1303,3 @@ func _on_buy_btn_4_pressed() -> void:
 	u["brakes"] += 1
 	Cars.save_upgrades()
 	_update_upgrade_menu()
-func find_car_controller(node: Node) -> Node:
-	if node == null:
-		return null
-
-	# Detect by script class name
-	if node.get_script() != null and node.get_script().get_class() == "CarController":
-		return node
-
-	# Search children recursively
-	for child in node.get_children():
-		var found = find_car_controller(child)
-		if found != null:
-			return found
-
-	return null
