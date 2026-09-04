@@ -645,8 +645,7 @@ func _apply_dealership_ui():
 
 	# Update balance + price
 	$MoneyLabel.text = "BALANCE: " + str(Cars.player_money)
-	$Control/CarStats/PriceLabel.text = "PRICE: " + str(car_prices.get(car_name, 0))
-
+	
 
 
 var car_scene_paths = {
