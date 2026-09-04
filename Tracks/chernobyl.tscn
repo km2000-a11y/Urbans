@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://bcsgdawdkhawv"]
+[gd_scene load_steps=92 format=3 uid="uid://bcsgdawdkhawv"]
 
 [ext_resource type="Script" uid="uid://frkq58mu2pgw" path="res://Scripts/barrier_1.gd" id="1_sawg2"]
 [ext_resource type="Script" uid="uid://dthur0h1nvj6s" path="res://Tracks/lap_line.gd" id="2_kpt7h"]
@@ -150,25 +150,31 @@ size = Vector3(440, 1, 10)
 size = Vector3(410, 4, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s087q"]
-size = Vector3(425, 140, 0)
+size = Vector3(420, 140, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cm5gb"]
-size = Vector3(440, 4, 1)
+size = Vector3(436, 4, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_td035"]
-size = Vector3(440, 140, 1)
+size = Vector3(436, 140, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxcwx"]
+size = Vector3(1, 5, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ugukp"]
 albedo_color = Color(0.176471, 0.176471, 0.176471, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2q1fn"]
-size = Vector3(20, 1, 830)
+size = Vector3(20, 1, 800)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ao255"]
 size = Vector3(1, 4, 795)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kpt7h"]
+points = PackedVector3Array(-0.5, -2, -397.5, 0.5, -2, -397.5, -0.5, -2, 397.5, -0.5, 2, -397.5, 0.5, 2, -397.5, 0.5, -2, 397.5, -0.5, 2, 397.5, 0.5, 2, 397.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5yuob"]
-size = Vector3(1, 140, 795)
+size = Vector3(1.5, 140, 800)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjgvn"]
 albedo_color = Color(0.443137, 0.45098, 0.470588, 1)
@@ -3805,19 +3811,25 @@ mesh = SubResource("BoxMesh_cm5gb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D3/MeshInstance3D3/MeshInstance3D/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("BoxShape3D_td035")
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D3/MeshInstance3D3/MeshInstance3D/MeshInstance3D2"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D3/MeshInstance3D3/MeshInstance3D/MeshInstance3D2/StaticBody3D2"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 216.963, 1.84099, -2.15186)
+shape = SubResource("BoxShape3D_pxcwx")
+
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D3/MeshInstance3D3/MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.026, 1, -382.032)
 material_override = SubResource("StandardMaterial3D_ugukp")
 mesh = SubResource("BoxMesh_2q1fn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D3/MeshInstance3D3/MeshInstance3D/MeshInstance3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.05, 9.97354, 0, -3.183)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.974, 1, -6.401)
 mesh = SubResource("BoxMesh_ao255")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D3/MeshInstance3D3/MeshInstance3D/MeshInstance3D4/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D3/MeshInstance3D3/MeshInstance3D/MeshInstance3D4/MeshInstance3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_5yuob")
+shape = SubResource("ConvexPolygonShape3D_kpt7h")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D3/MeshInstance3D3/MeshInstance3D/MeshInstance3D4"]
 transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.96, -6.72806, 0.964822, -4.19275)

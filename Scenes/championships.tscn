@@ -63,15 +63,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "JAPANESE CUP"
 
-[node name="SpeedsterTournament" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "SPEEDSTER TOURNAMENT"
-
 [node name="AllWheelGrip" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "ALL-WHEEL GRIP"
+
+[node name="SpeedsterTournament" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SPEEDSTER TOURNAMENT"
 
 [node name="KuroCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 visible = false
@@ -160,8 +160,8 @@ text = "CAR DEALERSHIP"
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ZenithCompetition" to="." method="_on_zenith_competition_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BusinessmanRacers" to="." method="_on_businessman_racers_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/JapaneseCup" to="." method="_on_japanese_cup_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SpeedsterTournament" to="." method="_on_speedster_tournament_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AllWheelGrip" to="." method="_on_all_wheel_grip_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SpeedsterTournament" to="." method="_on_speedster_tournament_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KuroCup" to="." method="_on_kuro_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GermanCup" to="." method="_on_german_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/EisenachCup" to="." method="_on_eisenach_cup_pressed"]

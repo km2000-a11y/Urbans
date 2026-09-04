@@ -1,3 +1,5 @@
+StaticBody3D
+CollisionShape3D
 Label
 Control
 Button
@@ -11,4 +13,3 @@ LineEdit
 MeshInstance3D
 ScrollContainer
 WorldEnvironment
-CollisionShape3D
