@@ -107,6 +107,7 @@ func apply_stats() -> void:
 	# --- APPLY UPGRADES FIRST (Arcade‑clean behavior) ---
 	if GameMode.game_mode == "Club Cups" and Cars.upgrades.has(car_name):
 		var u = Cars.upgrades[car_name]
+		Cars.load_upgrades()
 
 		# Weight Reduction → improves acceleration + top speed slightly
 		if u["weight"] > 0:
@@ -183,7 +184,6 @@ func _ready() -> void:
 	apply_handling_profile()
 	nitro.hide()
 	floor_stop_on_slope=false
-
 	if is_ai:
 		# Build a fresh pool if empty
 		if used_ai_names.is_empty():

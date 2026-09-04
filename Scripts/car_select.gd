@@ -614,25 +614,39 @@ var track_cars = {
 # -------------------------
 
 func _ready():
-	RoadChallengeSave.load_progress() 
-	$UpgradeMenu.visible=false
+	RoadChallengeSave.load_progress()
+	$UpgradeMenu.visible = false
 	MusicManager.play_menu_music()
+
 	unlocked_cars = Cars.unlocked_cars
 	_update_class_locks()
+
+	# Club Cups upgrades button
 	if GameMode.game_mode == "Club Cups":
 		$Control/UpgradesButton.show()
 	else:
 		$Control/UpgradesButton.hide()
 
 	$Control/ColorSelector.hide()
-	if Cars.dealership_mode==true:
-		$MoneyLabel.show()
-		$Control/CarStats/PriceLabel.show()
-		$Select.text="BUY"
-	if GameMode.game_mode=="Road Challenge":
-		RoadChallengeSave.load_progress()
-		
+
+	# ⭐ Correct dealership mode logic
 	
+	if GameMode.game_mode == "Road Challenge":
+		RoadChallengeSave.load_progress()
+
+func _apply_dealership_ui():
+	$MoneyLabel.show()
+	$Control/CarStats/PriceLabel.show()
+	$Select.show()
+
+	$Select.text = "BUY"
+	$Select.disabled = false
+	$Control/UpgradesButton.hide()
+
+	# Update balance + price
+	$MoneyLabel.text = "BALANCE: " + str(Cars.player_money)
+	$Control/CarStats/PriceLabel.text = "PRICE: " + str(car_prices.get(car_name, 0))
+
 
 
 var car_scene_paths = {
@@ -733,9 +747,13 @@ func find_car_controller(node: Node) -> Node:
 	if node == null:
 		return null
 
-	# Detect by script type
-	if node.get_script() != null and node.get_script() is CarController:
-		return node
+	var script :GDScript= node.get_script()
+	if script != null:
+		var base := script
+		while base != null:
+			if base == CarController:
+				return node
+			base = base.get_base_script()
 
 	for child in node.get_children():
 		var found = find_car_controller(child)
@@ -769,18 +787,29 @@ func get_base_stats_for(name: String) -> Array:
 func update_car_ui(stats: Array, name: String):
 	var final_stats = stats.duplicate()
 
-	if GameMode.game_mode == "Club Cups" and preview_car != null:
-		var cc = find_car_controller(preview_car)
-		if cc != null:
-			final_stats[2] = "HP: " + str(int(cc.horsepower))
-			final_stats[3] = "WEIGHT: " + str(int(cc.mass)) + " KG"
-			final_stats[4] = "0-100 KM/H: " + str(round(cc.zero_to_hundred * 100) / 100.0) + "s"
-			final_stats[5] = "TOP SPEED: " + str(int(cc.top_speed_kmh)) + " KM/H"
-			final_stats[8] = "TORQUE: " + str(int(cc.torque)) + " NM"
-			final_stats[0] = str(cc.performance_points)
+	# ============================
+	# 1. STOCK STATS IN DEALERSHIP
+	# ============================
+	if Cars.dealership_mode:
+		# Do NOT apply dynamic stats
+		pass
+	else:
+		# ============================
+		# 2. DYNAMIC STATS IN CLUB CUPS
+		# ============================
+		if GameMode.game_mode == "Club Cups" and preview_car != null:
+			var cc = find_car_controller(preview_car)
+			if cc != null:
+				final_stats[2] = "HP: " + str(int(cc.horsepower))
+				final_stats[3] = "WEIGHT: " + str(int(cc.mass)) + " KG"
+				final_stats[4] = "0-100 KM/H: " + str(round(cc.zero_to_hundred * 100) / 100.0) + "s"
+				final_stats[5] = "TOP SPEED: " + str(int(cc.top_speed_kmh)) + " KM/H"
 
+	# ============================
+	# 3. APPLY STATS TO UI
+	# ============================
 	$Control/Cars/CarName.text = name
-	$Control/CarStats/PPLabel.text = final_stats[0]
+	$Control/CarStats/PPLabel.text = stats[0]
 	$Control/CarStats/CountryLabel.text = final_stats[1]
 	$Control/CarStats/HPLabel.text = final_stats[2]
 	$Control/CarStats/WeightLabel.text = final_stats[3]
@@ -791,7 +820,37 @@ func update_car_ui(stats: Array, name: String):
 	$Control/CarStats/TorqueLabel.text = final_stats[8]
 	$Control/CarStats/TransmissionLabel.text = final_stats[9]
 
-# -------------------------
+	# ============================
+	# 4. DEALERSHIP UI LOGIC
+	# ============================
+	if Cars.dealership_mode:
+		var price = car_prices.get(name, 0)
+		var balance = Cars.player_money
+
+		# Update price + balance labels
+		$MoneyLabel.text = "Money: $" + str(balance)
+		$Control/CarStats/PriceLabel.text = "Price: $" + str(price)
+
+		# Reset BUY button + message
+		$Select.disabled = false
+		$Select.text = "BUY"
+		$Control/Label.text = ""
+		$Control/Label.modulate = Color.WHITE
+
+		# Already owned
+		if Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name]["unlocked"]:
+			$Control/Label.text = "ALREADY OWNED!"
+			$Control/Label.modulate = Color.RED
+			$Select.disabled = true
+
+		# Not enough money
+		elif balance < price:
+			$Control/Label.text = "INSUFFICIENT CASH!"
+			$Control/Label.modulate = Color.RED
+			$Select.disabled = true
+		
+		
+# ------------------	-------
 # 3D PREVIEW LOADING
 # -------------------------
 func load_preview_car(path: String):
@@ -806,6 +865,7 @@ func load_preview_car(path: String):
 	update_car_ui(get_base_stats_for(car_name), car_name)
 
 	var car = car_scene.instantiate()
+	car.car_name = car_name 
 	preview_holder.add_child(car)
 	preview_car = car
 
@@ -830,6 +890,8 @@ func load_preview_car(path: String):
 # -------------------------
 
 func _process(delta):
+	if Cars.dealership_mode and not $MoneyLabel.visible:
+		_apply_dealership_ui()
 	if preview_car == null:
 		return
 
@@ -1063,28 +1125,34 @@ func update_color_ui():
 func _on_select_pressed():
 	if upgrade_mode:
 		return
+
 	if Cars.dealership_mode:
 		var price = car_prices.get(car_name, 0)
-		
-		# Already owned check
+		var balance = Cars.player_money
 
-		# Deduct money and unlock
-		if Cars.spend_money(price):
-			Cars.unlock_car(car_name, "dealership")
-			$Control/Label.text = "PURCHASED!"
-			$Control/Label.modulate = Color.GREEN
-			$MoneyLabel.text = "Money: $" + str(Cars.player_money)
-			$Select.disabled = true   # disable after purchase
-	else:
-		# Normal SELECT behavior
-		Cars.on_car_selected(car_name)
-		Cars.selected_car_name = car_name
-		Cars.selected_car = Cars.car_scene_paths.get(car_name, "")
-		Cars.selected_color = car_colors.get(car_name, [])[color_index]
-		Cars.save_color()
-		print("Car selected:", car_name)
+		# Already owned
 		
-		get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
+
+		# Purchase successful
+		Cars.player_money -= price
+		Cars.save_money()
+		Cars.unlock_car(car_name, "dealership")
+
+		$Control/Label.text = "PURCHASED!"
+		$Control/Label.modulate = Color.GREEN
+
+		$MoneyLabel.text = "Money: $" + str(Cars.player_money)
+		$Select.disabled = true
+		return
+
+	# Normal SELECT behavior
+	Cars.on_car_selected(car_name)
+	Cars.selected_car_name = car_name
+	Cars.selected_car = Cars.car_scene_paths.get(car_name, "")
+	Cars.selected_color = car_colors.get(car_name, [])[color_index]
+	Cars.save_color()
+
+	get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
 
 
 func _on_back_btn_pressed() -> void:
