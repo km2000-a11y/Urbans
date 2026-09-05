@@ -297,11 +297,11 @@ var muscle_list = [
 
 var urban_list = [
 	"Kuro Serenity",
+	"Berkshire Blunt",
+	"Kestrel Speedster",
 	"Strandberg Turbo",
 	"Kronstadt Essence",
-	"Berkshire Blunt",
-	"Eisenach Prince",
-	"Kestrel Speedster"
+	"Eisenach Prince"
 ]
 
 
@@ -452,7 +452,7 @@ var urban_racers = {
 ],
 	"Berkshire Blunt":[
 		"", "Country: UK", "HP: 390", "WEIGHT: 1832 KG",
-		"0-100 KM/H: 5.5s", "TOP SPEED: 257 KM/H",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 259 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],

@@ -20,6 +20,8 @@ var speed_samples := []
 var avg_speed := 0.0
 var distance_travelled:=0.0
 var finished_time: int = -1
+var reversing: bool = false
+var reverse_speed_limit := 40.0 / 3.6  # 40 km/h in m/s
 
 
 @export var sync_velocity: Vector3
@@ -133,7 +135,7 @@ func apply_stats() -> void:
 			brake_strength *= (1.0 + 0.10 * b)
 
 	# --- ORIGINAL STATS CALC ---
-	acceleration_calc = (27.78 / zero_to_hundred) * 2.5
+	acceleration_calc = (27.78 / zero_to_hundred) * 2.3
 	torque = (horsepower * 5252.0) / max_rpm
 
 	if is_diesel:
@@ -249,6 +251,14 @@ func _physics_process(delta: float) -> void:
 		throttle_input = Input.get_action_strength("accelerate")
 		brake_input = Input.get_action_strength("brake")
 		steer_input = Input.get_action_strength("turn_left") - Input.get_action_strength("turn_right")
+	# --- REVERSE TOGGLE ---
+		if not is_ai:
+			if Input.is_action_just_pressed("reverse"):
+				reversing = not reversing
+				if reversing:
+					current_gear = -1
+				else:
+					current_gear = 1
 
 	_drive(delta, throttle_input, brake_input, steer_input)
 	total_race_time += int(delta * 1000)
@@ -456,14 +466,27 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	var accel_force := 0.0
 
 	if accel > 0.0:
-		var launch_boost := 1.0
-		if current_gear == 1:
-			launch_boost = 1.25
+		if reversing:
+			# --- REVERSE MOVEMENT ---
+			var rev_force := acceleration_calc * 0.35   # MUCH WEAKER
+			velocity -= forward * rev_force * delta
 
-		accel_force = acceleration_calc * torque_factor * traction_factor * launch_boost * launch_grip
-		velocity += forward * accel_force * delta
+			# Cap reverse speed
+			var flat_rev := Vector3(velocity.x, 0, velocity.z)
+			if flat_rev.length() > reverse_speed_limit:
+				flat_rev = flat_rev.normalized() * reverse_speed_limit
+			velocity.x = flat_rev.x
+			velocity.z = flat_rev.z
 
-		velocity = velocity.rotated(Vector3.UP, throttle_steer * delta)
+		else:
+			# --- FORWARD MOVEMENT ---
+			var launch_boost := 1.0
+			if current_gear == 1:
+				launch_boost = 1.25
+
+			accel_force = acceleration_calc * torque_factor * traction_factor * launch_boost * launch_grip
+			velocity += forward * accel_force * delta
+
 	else:
 		var flat := Vector3(velocity.x, 0, velocity.z)
 		var brake_power := ENGINE_BRAKE
@@ -499,6 +522,10 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	if not is_ai and controls_enabled:
 		Global.speed = speed_kmh
 		Global.gear = current_gear
+		if reversing:
+			Global.gear = -1
+		else:
+			Global.gear = current_gear
 
 	current_speed = speed_kmh
 
