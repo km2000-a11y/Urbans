@@ -131,6 +131,7 @@ var class_lists: Dictionary = {
 	"Kronstadt Essence",
 	"Kestrel Speedster",
 	"Colossus Behemoth",
+	"Schroder Classique Sport",
 	"Eisenach Bengal",
 	"Mir Cars Nightwolf",
 	"Kronstadt Fortress",
@@ -197,9 +198,9 @@ var cup_rewards: Dictionary = {
 	"japanese_cup": "Strandberg Turbo",       # Volvo S60R
 	"all_wheel_grip": "Kestrel Speedster",    # Morgan Aero 8
 	"speedster_tournament": "Eisenach Prince",# BMW 1M Coupe
-	"eisenach_cup": "Schroder Classique Sport", # Audi S4 Cabriolet
-	"schroder_cup": "Berkshire Blunt",        # Jaguar XKR
-	"under_400_hp": "Brutus Stingray",        # Corvette C6
+	"eisenach_cup": "Berkshire Blunt", # Audi S4 Cabriolet
+	"under_400_hp": "Schroder Classique Sport",
+	"schroder_cup": "Brutus Stingray",      # Jaguar XKR      # Corvette C6
 	"stingray_competition": "Berkshire V12-S",# Aston Martin DB9
 	"gentleman_racers": "Kestrel Touring",    # TVR Cerbera
 	"kestrel_max": "Linetti Shepherd",        # Lamborghini Gallardo
@@ -227,8 +228,8 @@ var career_order: Array = [
 	"all_wheel_grip",
 	"speedster_tournament",
 	"eisenach_cup",
+		"under_400_hp",
 		"schroder_cup",
-	"under_400_hp",
 	"stingray_competition",
 	"gentleman_racers",
 	"kestrel_max",
@@ -372,6 +373,7 @@ var cups: Dictionary = {
 	"Brutus Viper",
 	"Schroder D-20",
 	"Kuro Vault",
+	"Schroder Classique Sport",
 	"Strandberg Turbo",
 	"Schroder Colosso",
 	"Mir Cars Transporter",

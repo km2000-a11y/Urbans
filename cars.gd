@@ -50,6 +50,7 @@ var class_lists := {
 	"urban": [
 		"Eisenach Prince",
 		"Kestrel Speedster",
+		"Berkshire Blunt",
 			"Strandberg Turbo",
 				"Kronstadt Essence",
 		"Kuro Serenity"
@@ -64,7 +65,7 @@ var class_lists := {
 	],
 
 	"sport": [
-						"Berkshire Blunt",
+					
 			"Brutus Stingray",
 		"Berkshire V12-S",
 		"Berkshire Tempest",

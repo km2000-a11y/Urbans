@@ -283,10 +283,10 @@ var suv_list = [
 
 var compact_list = [
 	"Kuro Zephyr",
+	"Schroder D-20",
+	"Straeda B32",
 	"Schroder Atrix Q32",
 	"Zenith Horizon",
-	"Straeda B32",
-	"Schroder D-20",
 	"Eisenach Bengal"
 ]
 
@@ -299,6 +299,7 @@ var urban_list = [
 	"Kuro Serenity",
 	"Strandberg Turbo",
 	"Kronstadt Essence",
+	"Berkshire Blunt",
 	"Eisenach Prince",
 	"Kestrel Speedster"
 ]
@@ -316,7 +317,6 @@ var sedans_list = [
 
 
 var sport_list = [
-	"Berkshire Blunt",
 	"Schroder Classique Sport",
 	"Brutus Stingray",
 	"Berkshire V12-S",
@@ -450,6 +450,12 @@ var urban_racers = {
 	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
+	"Berkshire Blunt":[
+		"", "Country: UK", "HP: 390", "WEIGHT: 1832 KG",
+		"0-100 KM/H: 5.5s", "TOP SPEED: 257 KM/H",
+		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 
 	"Kuro Serenity":[
 		"", "Country: Japan", "HP: 260", "WEIGHT: 1640 KG",
@@ -493,12 +499,6 @@ var sedans = {
 
 }
 var sport = {
-		"Berkshire Blunt":[
-		"", "Country: UK", "HP: 390", "WEIGHT: 1832 KG",
-		"0-100 KM/H: 5.5s", "TOP SPEED: 277 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Eisenach Goblin":[
 	"", "Country: Germany", "HP: 335", "WEIGHT: 1500 KG",
 	"0-100 KM/H: 4.6s", "TOP SPEED: 258 KM/H",

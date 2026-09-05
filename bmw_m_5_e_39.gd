@@ -10,7 +10,7 @@ var zero_to_hundred_display := 4.60
 func _ready():
 	# GAMEPLAY STATS — heavy, overhyped executive brute
 	mass = 1740.0
-	horsepower = 396
+	horsepower =285
 	max_rpm = 7000.0                 # High‑rev V8 but not torque‑friendly
 	zero_to_hundred =5.9
 	top_speed_kmh = 262
