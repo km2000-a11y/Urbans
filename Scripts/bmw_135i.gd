@@ -12,8 +12,8 @@ func _ready():
 	mass = 1450.0
 	horsepower = 265
 	max_rpm = 7000.0
-	zero_to_hundred = 5.2
-	top_speed_kmh = 243
+	zero_to_hundred = 6.1
+	top_speed_kmh = 246
 	turn_speed = 2.90              # slightly softer than Z4M, playful turbo cabrio feel
 	brake_strength = 13.8          # heavier car, slightly longer stopping distance
 	lateral_friction = 1.10        # less razor‑sharp than S54 roadster

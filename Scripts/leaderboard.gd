@@ -51,9 +51,9 @@ func show_results(player_won: bool) -> void:
 
 	# Club Cups reward
 	if player_won and GameMode.game_mode == "Club Cups":
-		Cars.add_money(5000)
+		Cars.add_money(6000)
 		var money_label: Label = $Control/Panel/MoneyLabel
-		money_label.text = "Reward: $5000\nBalance: $" + str(Cars.player_money)
+		money_label.text = "Reward: $6000\nBalance: $" + str(Cars.player_money)
 
 	visible = true
 

@@ -18,6 +18,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Straeda B32",
 		"Kuro Zephyr",
+		"Eisenach Bengal",
 		"Schroder D-20"
 	],
 
@@ -30,7 +31,6 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Eisenach Prince",
 		"Kestrel Speedster",
-		"Eisenach Bengal",
 		"Kronstadt Essence",
 				"Strandberg Turbo",
 		"Kuro Serenity"
@@ -47,7 +47,6 @@ var class_lists: Dictionary = {
 	"sport": [
 				"Brutus Stingray",
 		"Berkshire V12-S",
-		"Eisenach Goblin",
 		"Berkshire Tempest",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
@@ -109,7 +108,6 @@ var class_lists: Dictionary = {
 	"eisenach_cup":[
 		"Eisenach Suppressor",
 		"Eisenach Bengal",
-		"Eisenach Goblin",
 		"Eisenach Prince"
 	],
 	"under_400_hp": [
@@ -126,7 +124,6 @@ var class_lists: Dictionary = {
 	"Brutus Viper",
 	"Schroder D-20",
 	"Kuro Vault",
-	"Eisenach Goblin",
 	"Strandberg Turbo",
 	"Schroder Colosso",
 	"Mir Cars Transporter",
@@ -171,7 +168,6 @@ var class_lists: Dictionary = {
 		"Schroder Classique Sport",
 		"Schroder Atrocity",
 				"Eisenach Suppressor",
-		"Eisenach Goblin",
 		"Eisenach Bengal",
 				"Kronstadt Fortress",
 		"Kronstadt Essence",
@@ -200,7 +196,7 @@ var cup_rewards: Dictionary = {
 	"businessman_racers": "Kuro Serenity",    # Lexus SC400
 	"japanese_cup": "Strandberg Turbo",       # Volvo S60R
 	"all_wheel_grip": "Kestrel Speedster",    # Morgan Aero 8
-	"speedster_tournament": "Eisenach Goblin",# BMW 1M Coupe
+	"speedster_tournament": "Eisenach Prince",# BMW 1M Coupe
 	"eisenach_cup": "Schroder Classique Sport", # Audi S4 Cabriolet
 	"schroder_cup": "Berkshire Blunt",        # Jaguar XKR
 	"under_400_hp": "Brutus Stingray",        # Corvette C6
@@ -291,6 +287,7 @@ var cups: Dictionary = {
 			"Schroder D-20",
 			"Zenith Horizon",
 			"Kuro Zephyr",
+			"Eisenach Bengal",
 			"Straeda B32"
 		]
 	},
@@ -355,7 +352,7 @@ var cups: Dictionary = {
 	"eligible_cars":[
 		"Eisenach Suppressor",
 		"Eisenach Bengal",
-		"Eisenach Goblin",
+
 		"Eisenach Prince"
 	]
 },
@@ -375,7 +372,6 @@ var cups: Dictionary = {
 	"Brutus Viper",
 	"Schroder D-20",
 	"Kuro Vault",
-	"Eisenach Goblin",
 	"Strandberg Turbo",
 	"Schroder Colosso",
 	"Mir Cars Transporter",
@@ -436,7 +432,6 @@ var cups: Dictionary = {
 				"Eisenach Suppressor",
 						"Kronstadt Fortress",
 		"Kronstadt Essence",
-		"Eisenach Goblin",
 		"Eisenach Bengal",
 		"Eisenach Prince",
 		"Straeda B32"

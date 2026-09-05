@@ -30,7 +30,7 @@ var car_prices := {
 	"Eisenach Prince": 56000,
 	"Strandberg Turbo": 50000,
 	"Kestrel Speedster": 62000,
-	"Eisenach Bengal": 53000,
+	"Eisenach Bengal": 41000,
 	"Kuro Serenity": 43000,
 	"Berkshire Blunt": 72000,
 	"Kronstadt Essence": 67000,
@@ -286,7 +286,8 @@ var compact_list = [
 	"Schroder Atrix Q32",
 	"Zenith Horizon",
 	"Straeda B32",
-	"Schroder D-20"
+	"Schroder D-20",
+	"Eisenach Bengal"
 ]
 
 var muscle_list = [
@@ -294,15 +295,14 @@ var muscle_list = [
 	"Mir Cars Hutch"
 ]
 
-var urban_list = [  
+var urban_list = [
 	"Kuro Serenity",
-	"Eisenach Bengal",
 	"Strandberg Turbo",
-		"Berkshire Blunt",
-		"Kronstadt Essence",
+	"Kronstadt Essence",
 	"Eisenach Prince",
-	"Kestrel Speedster", 
+	"Kestrel Speedster"
 ]
+
 
 
 var sedans_list = [
@@ -316,8 +316,8 @@ var sedans_list = [
 
 
 var sport_list = [
-		"Eisenach Goblin",
-			"Schroder Classique Sport",
+	"Berkshire Blunt",
+	"Schroder Classique Sport",
 	"Brutus Stingray",
 	"Berkshire V12-S",
 	"Berkshire Tempest",
@@ -398,6 +398,12 @@ var compact = {
 		"ENGINE: L4 2.0L DIESEL", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FRONT-WHEEL DRIVE"
 	],
+	"Eisenach Bengal":[
+		"", "Country: Germany", "HP: 265", "WEIGHT: 1450 KG",
+		"0-100 KM/H: 6.1s", "TOP SPEED: 246 KM/H",
+		"ENGINE: L6 3.0L", "ASPIRATION: NA", "TORQUE: 320 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 	"Straeda B32":[
 		"", "Country: Germany", "HP: 224", "WEIGHT: 1500 KG",
 		"0-100 KM/H: 6.7s", "TOP SPEED: 236 KM/H",
@@ -438,21 +444,9 @@ var urban_racers = {
 		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
-		"Berkshire Blunt":[
-		"", "Country: UK", "HP: 370", "WEIGHT: 1832 KG",
-		"0-100 KM/H: 6.3s", "TOP SPEED: 269 KM/H",
-		"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
-	"Eisenach Bengal":[
-		"", "Country: Germany", "HP: 265", "WEIGHT: 1450 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 243 KM/H",
-		"ENGINE: L6 3.0L", "ASPIRATION: NA", "TORQUE: 320 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Kronstadt Essence":[
 	"", "Country: Germany", "HP: 342", "WEIGHT: 1640 KG",
-	"0-100 KM/H: 5.0s", "TOP SPEED: 256 KM/H",
+	"0-100 KM/H: 6.4s", "TOP SPEED: 268 KM/H",
 	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
@@ -499,6 +493,12 @@ var sedans = {
 
 }
 var sport = {
+		"Berkshire Blunt":[
+		"", "Country: UK", "HP: 390", "WEIGHT: 1832 KG",
+		"0-100 KM/H: 5.5s", "TOP SPEED: 277 KM/H",
+		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 	"Eisenach Goblin":[
 	"", "Country: Germany", "HP: 335", "WEIGHT: 1500 KG",
 	"0-100 KM/H: 4.6s", "TOP SPEED: 258 KM/H",

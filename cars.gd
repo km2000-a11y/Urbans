@@ -31,6 +31,7 @@ var class_lists := {
 		"Zenith Horizon",
 		"Schroder Atrix Q32",
 		"Straeda B32",
+				"Eisenach Bengal",
 		"Kuro Zephyr",
 		"Schroder D-20"
 	],
@@ -47,12 +48,10 @@ var class_lists := {
 	],
 
 	"urban": [
-					"Berkshire Blunt",
 		"Eisenach Prince",
 		"Kestrel Speedster",
 			"Strandberg Turbo",
 				"Kronstadt Essence",
-		"Eisenach Bengal",
 		"Kuro Serenity"
 	],
 
@@ -65,8 +64,8 @@ var class_lists := {
 	],
 
 	"sport": [
+						"Berkshire Blunt",
 			"Brutus Stingray",
-			"Eisenach Goblin",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 		"Schroder Classique Sport",
@@ -121,7 +120,6 @@ var class_lists := {
 	],
 		"eisenach_cup":[
 		"Eisenach Suppressor",
-		"Eisenach Goblin",
 		"Eisenach Bengal",
 		"Eisenach Prince"
 	],
@@ -139,7 +137,6 @@ var class_lists := {
 	"Brutus Viper",
 	"Schroder D-20",
 	"Kuro Vault",
-	"Eisenach Goblin",
 	"Strandberg Turbo",
 	"Schroder Colosso",
 	"Mir Cars Transporter",
@@ -184,7 +181,6 @@ var class_lists := {
 		"Schroder Classique Sport",
 		"Schroder Atrocity",
 				"Eisenach Suppressor",
-		"Eisenach Goblin",
 		"Eisenach Bengal",
 		"Kronstadt Fortress",
 		"Kronstadt Essence",
