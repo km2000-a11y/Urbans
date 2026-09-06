@@ -621,18 +621,17 @@ func _ready():
 	unlocked_cars = Cars.unlocked_cars
 	_update_class_locks()
 
-	# Club Cups upgrades button
+	# Disable class buttons in Club Cups if empty
 	if GameMode.game_mode == "Club Cups":
-		$Control/UpgradesButton.show()
-	else:
-		$Control/UpgradesButton.hide()
-
-	$Control/ColorSelector.hide()
-
-	# ⭐ Correct dealership mode logic
-	
-	if GameMode.game_mode == "Road Challenge":
-		RoadChallengeSave.load_progress()
+		$Control/ClassList/SUV.disabled = not _class_has_eligible(suv_list)
+		$Control/ClassList/CompactCars.disabled = not _class_has_eligible(compact_list)
+		$Control/ClassList/MuscleCars.disabled = not _class_has_eligible(muscle_list)
+		$Control/ClassList/UrbanRacers.disabled = not _class_has_eligible(urban_list)
+		$Control/ClassList/Sedans.disabled = not _class_has_eligible(sedans_list)
+		$Control/ClassList/SportCoupe.disabled = not _class_has_eligible(sport_list)
+		$Control/ClassList/SportRacing.disabled = not _class_has_eligible(sport_racing_list)
+		$Control/ClassList/Supercars.disabled = not _class_has_eligible(supercars_list)
+		$Control/ClassList/TrackCars.disabled = not _class_has_eligible(track_cars_list)
 
 func _apply_dealership_ui():
 	$MoneyLabel.show()
@@ -646,8 +645,6 @@ func _apply_dealership_ui():
 	# Update balance + price
 	$MoneyLabel.text = "BALANCE: " + str(Cars.player_money)
 	
-
-
 var car_scene_paths = {
 	"Colossus Titan Max":"res://Scenes/hummer_h1.tscn",
 	"Colossus Behemoth":"res://Scenes/hummer_h2.tscn",
@@ -1370,3 +1367,6 @@ func _on_buy_btn_4_pressed() -> void:
 	u["brakes"] += 1
 	Cars.save_upgrades()
 	_update_upgrade_menu()
+func _class_has_eligible(raw_list: Array) -> bool:
+	var filtered := _get_filtered_list(raw_list)
+	return not filtered.is_empty()

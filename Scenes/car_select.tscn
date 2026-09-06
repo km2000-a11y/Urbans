@@ -64,8 +64,8 @@ text = "Track Cars"
 
 [node name="Cars" type="VBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = 269.0
-offset_right = 1085.0
+offset_left = 410.0
+offset_right = 694.0
 offset_bottom = 88.0
 
 [node name="CarName" type="Label" parent="Control/Cars"]
