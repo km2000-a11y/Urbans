@@ -60,6 +60,3 @@ res://Scenes/s600.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/clk_55.tscn
-res://Scripts/bmw_135i.gd
-res://Scripts/car_select.gd
-res://Scenes/track_select.gd
