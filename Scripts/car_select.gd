@@ -37,7 +37,7 @@ var car_prices := {
 	"Brutus Stingray": 100000,
 	"Eisenach Goblin": 75000,
 	"Berkshire V12-S": 120000,
-	"Schroder Classique Sport": 87000,
+	"Schroder Classique Sport": 80000,
 	"Kestrel Touring": 150000,
 	"Berkshire Tempest": 125000,
 	"Linetti Shepherd": 200000,
