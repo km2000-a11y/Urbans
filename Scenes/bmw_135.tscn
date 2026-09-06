@@ -53,7 +53,7 @@ size = Vector3(0.8, 0.1, 0.6)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5b1h"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wromi"]
-size = Vector3(0.1, 0.5, 0.6)
+size = Vector3(0.1, 0.5, 0.65)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gu0u7"]
 
@@ -138,7 +138,7 @@ material_override = SubResource("StandardMaterial3D_08euy")
 mesh = SubResource("CylinderMesh_nfu50")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.239414, 0, -0.34202, 0.657785, -6.21837e-08, 0.654495, 0.397933)
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.239414, 0, -0.34202, 0.657785, -7.36176e-08, 0.654495, 0.473656)
 material_override = SubResource("StandardMaterial3D_p16f5")
 mesh = SubResource("BoxMesh_b4kkp")
 
@@ -168,12 +168,12 @@ material_override = SubResource("StandardMaterial3D_p16f5")
 mesh = SubResource("BoxMesh_b4kkp")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(-4.80825e-08, -0.7, 0, 1.1, -3.0598e-08, 0, 0, 0, 1, -0.28824, 0.401381, 1.11636)
+transform = Transform3D(-4.80825e-08, -0.7, 0, 1.1, -3.0598e-08, 0, 0, 0, 1, -0.28824, 0.401381, 1.11125)
 material_override = SubResource("StandardMaterial3D_kceoh")
 mesh = SubResource("CapsuleMesh_v7ldy")
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(-4.80825e-08, -0.7, 0, 1.1, -3.0598e-08, 0, 0, 0, 1, 0.323114, 0.40001, 1.10915)
+transform = Transform3D(-4.80825e-08, -0.7, 0, 1.1, -3.0598e-08, 0, 0, 0, 1, 0.323114, 0.40001, 1.08496)
 material_override = SubResource("StandardMaterial3D_kceoh")
 mesh = SubResource("CapsuleMesh_v7ldy")
 

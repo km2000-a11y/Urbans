@@ -22,6 +22,8 @@ func _on_split_pressed():
 
 
 func _on_back_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/car_select.tscn")
-	if GameMode.game_mode=="Cop Chase":
+	if Modes.mode=="Cop Chase":
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
+	else: 
+		get_tree().change_scene_to_file("res://Scenes/car_select.tscn")
