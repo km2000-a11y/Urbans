@@ -4199,7 +4199,7 @@ transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 244.675, 0
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 416.637, 0, -485.683)
 
 [node name="RadarTrap" type="Area3D" parent="."]
-transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 513.081, 0, -420.436)
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 576.949, 0, -309.813)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RadarTrap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53693, 3.76264, 0.00878894)
