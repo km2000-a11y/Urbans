@@ -372,7 +372,7 @@ func _end_race(winner: String) -> void:
 
 
 func update_race() -> void:
-	if not race_active or not is_instance_valid(player_car):  
+	if not race_active or not is_instance_valid(player_car):
 		return
 
 	var sorted := _sorted_cars()
@@ -381,21 +381,16 @@ func update_race() -> void:
 	hud.update_stopwatch(player_car.total_race_time)
 	hud.update_lap(car_laps[player_car] + 1, total_laps)
 	hud.update_position(player_pos, ai_cars.size() + 1)
-	# Check if any AI finished before the player
+
+	# Freeze any AI that finished
 	for ai in ai_cars:
 		if car_laps[ai] >= total_laps and ai.finished_time < 0:
 			ai.finished_time = ai.total_race_time
 			ai.controls_enabled = false
 			ai.hard_frozen = true
-	# If ANY AI finished, end race immediately
-	# If ANY AI finishes before the player → AI wins
-	for ai in ai_cars:
-		if ai.finished_time >= 0:
-			if car_laps[player_car] < total_laps:
-				_end_race("AI")
-				return
 
-	# If player finishes first → normal finish logic
+	# ❌ REMOVE the "AI wins immediately" block
+	# Just let the player finish and then decide outcome
 	_check_finish()
 
 

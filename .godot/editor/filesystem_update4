@@ -1,8 +1,9 @@
-res://Scenes/lexus_sc.tscn
+res://Scenes/audi_rs3.tscn
+res://Scripts/car_select.gd
+res://cars.gd
 res://main.tscn
-res://Scripts/base_car.gd
-res://Scripts/speedometer.gd
-res://Scenes/track_select.gd
+res://Scenes/rs3.gd
+res://Scripts/chevrolet_corvette_c5_1998.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -31,7 +32,6 @@ res://Scenes/win_screen_radar.tscn
 res://Scenes/leaderboard.tscn
 res://Scenes/saleen_s7.tscn
 res://Scenes/audi_s6.tscn
-res://Scenes/audi_s4.tscn
 res://Scenes/volvo_s60r.tscn
 res://Scenes/lexus_is250.tscn
 res://Scenes/main_menu.tscn
@@ -62,6 +62,6 @@ res://Scenes/championships.tscn
 res://Scenes/audi_a8.tscn
 res://Scenes/s600.tscn
 res://Scenes/lanui.tscn
+res://Scenes/lexus_sc.tscn
 res://Scenes/clk_55.tscn
-res://Scripts/car_select.gd
-res://Scripts/jaguar_xkr_2003.gd
+res://normal_race_manager.gd

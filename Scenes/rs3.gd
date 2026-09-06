@@ -3,8 +3,8 @@ extends CarController
 # COSMETIC INFO (UI only)
 var def_car_name := "Schroder Classique Sport"
 var country := "Germany"
-var engine := "V8 4.2L"
-var weight_kg := 1855
+var engine := "L5 2.5L"
+var weight_kg := 1575
 var zero_to_hundred_display := 4.80
 
 func _ready():
@@ -12,8 +12,8 @@ func _ready():
 	mass = 1855.0
 	horsepower = 340
 	max_rpm = 7000.0
-	zero_to_hundred = 4.8
-	top_speed_kmh = 265
+	zero_to_hundred = 4.5
+	top_speed_kmh = 263
 	turn_speed = 2.55              # heavier GT cabrio, stable not twitchy
 	brake_strength = 20.5          # strong brakes for 1.8t quattro chassis
 	lateral_friction = 1.18        # quattro grip, but softer than TT RS

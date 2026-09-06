@@ -512,9 +512,9 @@ var sport = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 340", "WEIGHT: 1855 KG",
-		"0-100 KM/H: 4.8s", "TOP SPEED: 265 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
+		"", "Country: Germany", "HP: 340", "WEIGHT: 1575 KG",
+		"0-100 KM/H: 4.5s", "TOP SPEED: 263 KM/H",
+		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 450 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 		"Brutus Stingray":[
@@ -686,7 +686,7 @@ var car_scene_paths = {
 	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
-	"Schroder Classique Sport":"res://Scenes/audi_s4.tscn",
+	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",

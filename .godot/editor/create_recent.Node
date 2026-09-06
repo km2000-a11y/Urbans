@@ -1,5 +1,6 @@
-StaticBody3D
 CollisionShape3D
+StaticBody3D
+MeshInstance3D
 Label
 Control
 Button
@@ -10,6 +11,4 @@ CarController
 MultiplayerSynchronizer
 MultiplayerSpawner
 LineEdit
-MeshInstance3D
 ScrollContainer
-WorldEnvironment

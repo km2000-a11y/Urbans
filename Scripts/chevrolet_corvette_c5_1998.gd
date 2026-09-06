@@ -12,7 +12,7 @@ func _ready():
 	mass = 1460.0
 	horsepower = 400
 	max_rpm = 6000.0
-	zero_to_hundred = 4.7
+	zero_to_hundred = 4.9
 	top_speed_kmh = 282
 	turn_speed = 2.85
 	brake_strength = 12.8

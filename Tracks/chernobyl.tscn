@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://bcsgdawdkhawv"]
+[gd_scene load_steps=94 format=3 uid="uid://bcsgdawdkhawv"]
 
 [ext_resource type="Script" uid="uid://frkq58mu2pgw" path="res://Scripts/barrier_1.gd" id="1_sawg2"]
 [ext_resource type="Script" uid="uid://dthur0h1nvj6s" path="res://Tracks/lap_line.gd" id="2_kpt7h"]
@@ -174,7 +174,13 @@ size = Vector3(1, 4, 795)
 points = PackedVector3Array(-0.5, -2, -397.5, 0.5, -2, -397.5, -0.5, -2, 397.5, -0.5, 2, -397.5, 0.5, 2, -397.5, 0.5, -2, 397.5, -0.5, 2, 397.5, 0.5, 2, 397.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5yuob"]
-size = Vector3(1.5, 140, 800)
+size = Vector3(1.5, 140, 796)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tml4q"]
+size = Vector3(6, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fu4m5"]
+size = Vector3(6, 1, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjgvn"]
 albedo_color = Color(0.443137, 0.45098, 0.470588, 1)
@@ -3842,6 +3848,15 @@ shape = SubResource("BoxShape3D_5yuob")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D3/MeshInstance3D3/MeshInstance3D/MeshInstance3D4"]
 
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D9/MeshInstance3D3"]
+transform = Transform3D(0.642788, -0.492404, 0.586824, 0, 0.766044, 0.642788, -0.766044, -0.413176, 0.492404, 8.58681, 3.19179, 181.255)
+mesh = SubResource("BoxMesh_tml4q")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D9/MeshInstance3D3/MeshInstance3D4/StaticBody3D"]
+shape = SubResource("BoxShape3D_fu4m5")
+
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14.6082, 4.15402, 202.938)
 material_override = SubResource("StandardMaterial3D_sjgvn")
@@ -4804,7 +4819,7 @@ transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -130.039, 0, 944.802)
 
 [node name="WP13" type="Node3D" parent="Waypoints"]
-transform = Transform3D(0.34202, 0, 0.939692, 0, 1, 0, -0.939692, 0, 0.34202, -123.049, 0, 950.23)
+transform = Transform3D(0.34202, -0.604023, 0.719846, 0, 0.766044, 0.642787, -0.939692, -0.219846, 0.262002, -122.234, 0.966214, 951.357)
 
 [node name="WP14" type="Node3D" parent="Waypoints"]
 transform = Transform3D(0.34202, 0, 0.939692, 0, 1, 0, -0.939692, 0, 0.34202, 223.867, 0, 1076.5)
