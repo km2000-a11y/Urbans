@@ -1,12 +1,12 @@
+Button
+VBoxContainer
+Control
+CanvasLayer
 CollisionShape3D
 StaticBody3D
 MeshInstance3D
 Label
-Control
-Button
 HBoxContainer
-VBoxContainer
-CanvasLayer
 CarController
 MultiplayerSynchronizer
 MultiplayerSpawner

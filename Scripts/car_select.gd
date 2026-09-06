@@ -632,7 +632,8 @@ func _ready():
 		$Control/ClassList/SportRacing.disabled = not _class_has_eligible(sport_racing_list)
 		$Control/ClassList/Supercars.disabled = not _class_has_eligible(supercars_list)
 		$Control/ClassList/TrackCars.disabled = not _class_has_eligible(track_cars_list)
-
+	if upgrade_mode:
+		$Select.hide()
 func _apply_dealership_ui():
 	$MoneyLabel.show()
 	$Control/CarStats/PriceLabel.show()
@@ -1157,9 +1158,8 @@ func _on_back_btn_pressed() -> void:
 	elif GameMode.game_mode=="Club Cups":
 		get_tree().change_scene_to_file("res://Scenes/championships.tscn")
 	elif upgrade_mode==true:
-		get_tree().change_scene_to_file("res://Scenes/championships.tscn")
-		$Control.hide()
-		$UpgradeMenu.show()
+		$Control.show()
+		$UpgradeMenu.hide()
 	else:
 		get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
 

@@ -40,6 +40,8 @@ RoadChallengeSave="*res://road_challenge_save.gd"
 ClubCups="*res://club_cups.gd"
 ChampionshipState="*res://championship_state.gd"
 LanManager="*res://lan_manager.gd"
+Localization="*res://localization.gd"
+UiTheme="*res://ui_theme.gd"
 
 [display]
 

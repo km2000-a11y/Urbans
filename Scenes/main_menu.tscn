@@ -38,6 +38,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "MULTI-DEVICE PLAY (DO NOT PRESS!)"
 
+[node name="LanguageMenu" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "LANGUAGE OPTIONS"
+
 [node name="LANUI" parent="." instance=ExtResource("2_48xlc")]
 
 [connection signal="pressed" from="Control/VBoxContainer/RoadChallenge" to="." method="_on_road_challenge_pressed"]
