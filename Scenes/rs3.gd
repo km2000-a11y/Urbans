@@ -9,10 +9,10 @@ var zero_to_hundred_display := 4.80
 
 func _ready():
 	# GAMEPLAY STATS — Audi S4 Convertible (B7)
-	mass = 1855.0
+	mass = 1470.0
 	horsepower = 340
 	max_rpm = 7000.0
-	zero_to_hundred = 4.5
+	zero_to_hundred = 4.6
 	top_speed_kmh = 263
 	turn_speed = 2.55              # heavier GT cabrio, stable not twitchy
 	brake_strength = 20.5          # strong brakes for 1.8t quattro chassis

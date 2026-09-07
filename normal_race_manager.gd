@@ -51,7 +51,7 @@ func spawn_race(scene: Node) -> void:
 	player_spawn = root.get_node("SpawnPoint").global_transform.origin
 
 	ai_spawns.clear()
-	for i in range(7):
+	for i in range(4):
 		ai_spawns.append(root.get_node("AISpawnPoint" + str(i + 1)).global_transform.origin)
 
 	RaceResults.clear()
@@ -208,18 +208,22 @@ func _check_finish() -> void:
 	if not race_active:
 		return
 
-	var player_finished: bool = car_laps[player_car] >= total_laps
+	# Only end race when PLAYER finishes
+	if car_laps[player_car] >= total_laps:
+		var pos := _calculate_position()
+		var player_won := false
 
-	if not player_finished:
-		return
+		# Player must be FIRST to win
+		if pos == 1:
+			player_won = true
+		else:
+			player_won = false
 
-	var player_position := _calculate_position()
-	var player_won := (player_position <= 3)
+		if player_won:
+			_end_race("Player")
+		else:
+			_end_race("AI")
 
-	if player_won:
-		_end_race("Player")
-	else:
-		_end_race("AI")
 func _get_wp_index(car: CarController) -> int:
 	var waypoints := car.waypoints
 	if waypoints.is_empty():
@@ -389,12 +393,22 @@ func update_race() -> void:
 			ai.controls_enabled = false
 			ai.hard_frozen = true
 
-	# ❌ REMOVE the "AI wins immediately" block
-	# Just let the player finish and then decide outcome
-	_check_finish()
+	# ⭐ PLAYER FINISH LOGIC ⭐
+	if car_laps[player_car] >= total_laps:
+		var player_won := false
 
+		# HUD shows win for 1st, 2nd, 3rd
+		if player_pos <= 3:
+			player_won = true
 
+		# Show HUD result
+		main_scene.show_results(player_won)
 
+		# ⭐ REAL SYSTEM WIN CHECK (only 1st place)
+		if player_pos == 1:
+			_end_race("Player")
+		else:
+			_end_race("AI")
 
 	
 
@@ -414,27 +428,38 @@ func _distance_to_next_wp(car: CarController) -> float:
 func _calculate_position() -> int:
 	var sorted := _sorted_cars()
 
+	# If sorting failed → assume LAST place
+	if sorted.is_empty():
+		return ai_cars.size() + 1
+
 	for i in range(sorted.size()):
 		if sorted[i] == player_car:
 			return i + 1
 
-	return 1
+	# If somehow not found → last place
+	return ai_cars.size() + 1
 
 func _sorted_cars() -> Array:
+	var result := []
+
+	# If player has no waypoints, sorting is impossible
 	if not is_instance_valid(player_car) or player_car.waypoints.is_empty():
-		  			
-					return []
+		return [player_car] + ai_cars
+
+	if player_car.waypoints.is_empty():
+		return result
+
 	var total_wp := player_car.waypoints.size()
 	var cars := []
 
 	for car in [player_car] + ai_cars:
+		# Skip cars with missing waypoint lists
+		if car.waypoints.is_empty():
+			continue
+
 		var lap :int= car_laps.get(car, 0)
-
-		# compute waypoint index by proximity
 		var wp_index := _get_wp_index(car)
-
-		# pure progress: laps + waypoint index
-		var progress :int= lap * total_wp + wp_index
+		var progress := lap * total_wp + wp_index
 		var dist := _distance_to_next_wp_from_index(car, wp_index)
 
 		cars.append({
@@ -443,16 +468,20 @@ func _sorted_cars() -> Array:
 			"dist": dist
 		})
 
-	# sort: higher progress first, then closer to next WP
+	# If no cars were added → return empty
+	if cars.is_empty():
+		return result
+
+	# Sort by progress first, then distance
 	cars.sort_custom(func(a, b):
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
 		return a["dist"] < b["dist"]
 	)
 
-	var result: Array = []
 	for c in cars:
 		result.append(c["car"])
+
 	return result
 
 
