@@ -297,10 +297,10 @@ var muscle_list = [
 
 var urban_list = [
 	"Kuro Serenity",
-	"Berkshire Blunt",
 	"Kestrel Speedster",
+	"Eisenach Prince",
 	"Kronstadt Essence",
-	"Eisenach Prince"
+	"Berkshire Blunt",
 ]
 
 
@@ -432,7 +432,7 @@ var urban_racers = {
 	],
 	"Kestrel Speedster":[
 		"", "Country: UK", "HP: 286", "WEIGHT: 1145 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 246 KM/H",
+		"0-100 KM/H: 4.7s", "TOP SPEED: 246 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
