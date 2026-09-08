@@ -51,7 +51,7 @@ func spawn_race(scene: Node) -> void:
 	player_spawn = root.get_node("SpawnPoint").global_transform.origin
 
 	ai_spawns.clear()
-	for i in range(4):
+	for i in range(7):
 		ai_spawns.append(root.get_node("AISpawnPoint" + str(i + 1)).global_transform.origin)
 
 	RaceResults.clear()
@@ -396,21 +396,20 @@ func update_race() -> void:
 	# ⭐ PLAYER FINISH LOGIC ⭐
 	if car_laps[player_car] >= total_laps:
 		var player_won := false
-
-		# HUD shows win for 1st, 2nd, 3rd
 		if player_pos <= 3:
 			player_won = true
 
-		# Show HUD result
 		main_scene.show_results(player_won)
 
-		# ⭐ REAL SYSTEM WIN CHECK (only 1st place)
-		if player_pos == 1:
-			_end_race("Player")
+		var winner_string := ""
+		if player_pos <= 3:
+			winner_string = "Player"
 		else:
-			_end_race("AI")
+			winner_string = "AI"
 
-	
+		_end_race(winner_string)
+
+			
 
 
 func _distance_to_next_wp(car: CarController) -> float:

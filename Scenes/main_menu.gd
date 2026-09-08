@@ -27,3 +27,7 @@ func _on_multi_device_pressed() -> void:
 	GameMode.game_mode = "Multi-Device"
 	$LANUI.show()
 	$Control.hide()
+
+
+func _on_language_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/language_menu.tscn")

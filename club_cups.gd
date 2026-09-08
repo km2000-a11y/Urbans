@@ -32,7 +32,6 @@ var class_lists: Dictionary = {
 		"Eisenach Prince",
 		"Kestrel Speedster",
 		"Kronstadt Essence",
-				"Strandberg Turbo",
 		"Kuro Serenity"
 	],
 
@@ -40,7 +39,7 @@ var class_lists: Dictionary = {
 		"Eisenach Suppressor",
 		"Kuro Vault",
 		"Mir Cars Transporter",
-		"Kronstadt Fortress",
+		"Strandberg Turbo",
 		"Kuro Persian"
 	],
 
@@ -86,7 +85,7 @@ var class_lists: Dictionary = {
 		"Kuro Persian",
 		"Kuro Vault",
 		"Eisenach Suppressor",
-		"Kronstadt Fortress",
+		"Strandberg Turbo",
 		"Mir Cars Transporter"
 	],
 	"speedster_tournament":[
@@ -134,7 +133,6 @@ var class_lists: Dictionary = {
 	"Schroder Classique Sport",
 	"Eisenach Bengal",
 	"Mir Cars Nightwolf",
-	"Kronstadt Fortress",
 	"Kuro Zephyr"
 ],
 
@@ -170,7 +168,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrocity",
 				"Eisenach Suppressor",
 		"Eisenach Bengal",
-				"Kronstadt Fortress",
+
 		"Kronstadt Essence",
 		"Eisenach Prince",
 		"Straeda B32"
@@ -181,7 +179,6 @@ var class_lists: Dictionary = {
 		"Kestrel Guillotine"
 	],
 		"v12_engines":[
-		"Kronstadt Fortress",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 		"Linetti Firestorm",
@@ -383,7 +380,6 @@ var cups: Dictionary = {
 	"Colossus Behemoth",
 	"Eisenach Bengal",
 	"Mir Cars Nightwolf",
-	"Kronstadt Fortress",
 	"Kuro Zephyr"
 	]
 },
@@ -432,7 +428,6 @@ var cups: Dictionary = {
 		"Schroder Classique Sport",
 		"Schroder Atrocity",
 				"Eisenach Suppressor",
-						"Kronstadt Fortress",
 		"Kronstadt Essence",
 		"Eisenach Bengal",
 		"Eisenach Prince",
@@ -450,7 +445,6 @@ var cups: Dictionary = {
 "v12_engines":{
 	"eligible_classes":["v12_engines"],
 	"eligible_cars":[
-			"Kronstadt Fortress",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 		"Linetti Firestorm",

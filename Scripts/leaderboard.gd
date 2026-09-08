@@ -28,14 +28,9 @@ func show_results(player_won: bool) -> void:
 		child.queue_free()
 
 	# Get raw results
-	var raw: Array = RaceResults.results.duplicate()
+	# Already sorted by _end_race()
+	var raw: Array = RaceResults.results
 
-	# ⭐ PROXIMITY SORT (MATCHES RACE LOGIC)
-	raw.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		if a["progress"] != b["progress"]:
-			return a["progress"] > b["progress"]
-		return a["dist"] < b["dist"]
-	)
 
 	# Display sorted results
 	for i: int in raw.size():

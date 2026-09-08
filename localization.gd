@@ -8,7 +8,7 @@ var TEXT := {
 		"road_challenge": "Road Challenge",
 		"free_race": "Free Race",
 		"club_cups": "Career Mode",
-		"multi_device": "Multi-Device",
+		"multi_device": "Multi-Device Play",
 		"normal_race": "Normal Race",
 		"radar_race": "Radar Race",
 		"duel": "Duel",
@@ -87,7 +87,7 @@ var TEXT := {
 		"road_challenge": "Défi Routier",
 		"free_race": "Course Libre",
 		"club_cups": "Mode Carrière",
-		"multi_device": "Multi-Appareils",
+		"multi_device": "Jeu Multi-Appareils",
 		"normal_race": "Course Normale",
 		"radar_race": "Course Radar",
 		"duel": "Duel",
@@ -161,7 +161,7 @@ var TEXT := {
 		"road_challenge": "Straßen-Herausforderung",
 		"free_race": "Freies Rennen",
 		"club_cups": "Karrieremodus",
-		"multi_device": "Mehrgeräte",
+		"multi_device": "Mehrgeräte Spiel",
 		"normal_race": "Normales Rennen",
 		"radar_race": "Radarrennen",
 		"duel": "Duell",
@@ -235,7 +235,7 @@ var TEXT := {
 		"road_challenge": "Дорожный вызов",
 		"free_race": "Свободная гонка",
 		"club_cups": "Карьерный режим",
-		"multi_device": "Мульти-устройства",
+		"multi_device": "Мульти-устройственная игра",
 		"normal_race": "Обычная гонка",
 		"radar_race": "Радарная гонка",
 		"duel": "Дуэль",
@@ -467,8 +467,10 @@ func set_language(code: String) -> void:
 	if TEXT.has(code):
 		LANG = code
 		save_language()
+
 		if Engine.has_singleton("UiTheme"):
 			UiTheme.apply_language_font(LANG)
+
 
 func save_language() -> void:
 	var cfg := ConfigFile.new()

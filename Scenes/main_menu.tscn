@@ -39,8 +39,9 @@ theme_override_font_sizes/font_size = 40
 text = "MULTI-DEVICE PLAY (DO NOT PRESS!)"
 
 [node name="LanguageMenu" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "LANGUAGE OPTIONS"
 
 [node name="LANUI" parent="." instance=ExtResource("2_48xlc")]
@@ -49,3 +50,4 @@ text = "LANGUAGE OPTIONS"
 [connection signal="pressed" from="Control/VBoxContainer/FreeRace" to="." method="_on_free_race_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/ClubCups" to="." method="_on_club_cups_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/MultiDevice" to="." method="_on_multi_device_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/LanguageMenu" to="." method="_on_language_menu_pressed"]

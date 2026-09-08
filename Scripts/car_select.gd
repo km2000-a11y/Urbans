@@ -299,7 +299,6 @@ var urban_list = [
 	"Kuro Serenity",
 	"Berkshire Blunt",
 	"Kestrel Speedster",
-	"Strandberg Turbo",
 	"Kronstadt Essence",
 	"Eisenach Prince"
 ]
@@ -307,12 +306,11 @@ var urban_list = [
 
 
 var sedans_list = [
-		"Kuro Vault",
-			"Eisenach Suppressor",
+	"Eisenach Suppressor",
+	"Strandberg Turbo",
+	"Kuro Vault",
 	"Mir Cars Transporter",
-	"Kronstadt Fortress",
 	"Kuro Persian",
-	
 ]
 
 
@@ -438,15 +436,9 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-		"Strandberg Turbo":[
-		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
-		"0-100 KM/H: 5.7s", "TOP SPEED: 253 KM/H",
-		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
-	],
 	"Kronstadt Essence":[
 	"", "Country: Germany", "HP: 342", "WEIGHT: 1640 KG",
-	"0-100 KM/H: 6.4s", "TOP SPEED: 268 KM/H",
+	"0-100 KM/H: 6.0s", "TOP SPEED: 268 KM/H",
 	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
@@ -467,7 +459,7 @@ var urban_racers = {
 var sedans = {
 	"Eisenach Suppressor":[
 		"", "Country: Germany", "HP: 218", "WEIGHT: 1660 KG",
-		"0-100 KM/H: 6.4s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 6.7s", "TOP SPEED: 250 KM/H",
 		"ENGINE: L6 3.0L DIESEL", "ASPIRATION: Turbo", "TORQUE: 500 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
@@ -477,15 +469,21 @@ var sedans = {
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+			"Strandberg Turbo":[
+		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
+		"0-100 KM/H: 5.6s", "TOP SPEED: 246 KM/H",
+		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+		"TRANSMISSION: FOUR-WHEEL DRIVE"
+	],
 	"Kuro Vault":[
 		"", "Country: Japan", "HP: 290", "WEIGHT: 1760 KG",
-		"0-100 KM/H: 6.3s", "TOP SPEED: 248 KM/H",
+		"0-100 KM/H: 6.3s", "TOP SPEED: 257 KM/H",
 		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 		"Mir Cars Transporter":[
 		"", "Country:UAE", "HP: 340", "WEIGHT: 1740 KG",
-		"0-100 KM/H: 5.5s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 5.9s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V8 4.6L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],

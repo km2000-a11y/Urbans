@@ -51,7 +51,6 @@ var class_lists := {
 		"Eisenach Prince",
 		"Kestrel Speedster",
 		"Berkshire Blunt",
-			"Strandberg Turbo",
 				"Kronstadt Essence",
 		"Kuro Serenity"
 	],
@@ -60,8 +59,8 @@ var class_lists := {
 		"Eisenach Suppressor",
 		"Kuro Vault",
 		"Mir Cars Transporter",
-		"Kronstadt Fortress",
-		"Kuro Persian"
+		"Kuro Persian",
+					"Strandberg Turbo",
 	],
 
 	"sport": [
@@ -100,7 +99,6 @@ var class_lists := {
 		"Kuro Persian",
 		"Kuro Vault",
 		"Eisenach Suppressor",
-		"Kronstadt Fortress",
 		"Mir Cars Transporter"
 ],
 	"speedster_tournament":[
@@ -147,7 +145,6 @@ var class_lists := {
 	"Colossus Behemoth",
 	"Eisenach Bengal",
 	"Mir Cars Nightwolf",
-	"Kronstadt Fortress",
 	"Kuro Zephyr"
 ],
 
@@ -183,7 +180,6 @@ var class_lists := {
 		"Schroder Atrocity",
 				"Eisenach Suppressor",
 		"Eisenach Bengal",
-		"Kronstadt Fortress",
 		"Kronstadt Essence",
 		"Eisenach Prince",
 		"Straeda B32"
@@ -194,7 +190,6 @@ var class_lists := {
 		"Kestrel Guillotine"
 	],
 	"v12_engines":[
-		"Kronstadt Fortress",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 		"Linetti Firestorm",
