@@ -438,7 +438,7 @@ var urban_racers = {
 	],
 	"Kronstadt Blazer":[
 	"", "Country: Germany", "HP: 315", "WEIGHT: 1835 KG",
-	"0-100 KM/H: 6.1s", "TOP SPEED: 262 KM/H",
+	"0-100 KM/H: 5.9s", "TOP SPEED: 262 KM/H",
 	"ENGINE: V8 5.0L", "ASPIRATION: NA", "TORQUE: 470 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],

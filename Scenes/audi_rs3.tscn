@@ -171,6 +171,7 @@ func _physics_process(delta: float) -> void:
 "
 
 [node name="AUDI TT RS" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037474, 0, 0)
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_vsi4x")
@@ -223,7 +224,7 @@ material_override = SubResource("StandardMaterial3D_3n017")
 mesh = SubResource("BoxMesh_i0x3i")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1.05, 0, 0, 0, 1, 0, 0, 0, 1, -0.0313916, 0.432867, 0.11121)
+transform = Transform3D(1.05, 0, 0, 0, 0.906308, -0.422618, 0, 0.422618, 0.906308, -0.0313916, 0.452103, 0.0699576)
 material_override = SubResource("StandardMaterial3D_3n017")
 mesh = SubResource("BoxMesh_i0x3i")
 
