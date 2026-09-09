@@ -33,7 +33,7 @@ var car_prices := {
 	"Eisenach Bengal": 41000,
 	"Kuro Serenity": 43000,
 	"Berkshire Blunt": 72000,
-	"Kronstadt Essence": 67000,
+	"Kronstadt Blazer": 67000,
 	"Brutus Stingray": 100000,
 	"Eisenach Goblin": 75000,
 	"Berkshire V12-S": 120000,
@@ -299,7 +299,7 @@ var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Speedster",
 	"Eisenach Prince",
-	"Kronstadt Essence",
+	"Kronstadt Blazer",
 	"Berkshire Blunt",
 ]
 
@@ -323,22 +323,22 @@ var sport_list = [
 ]
 
 var sport_racing_list = [
-	"Linetti Shepherd",
+	"Kestrel Battleaxe",
 	"Schroder Atrocity",
 	"Brutus Venom",
-	"Kestrel Battleaxe"
+	"Linetti Shepherd",
 ]
 
 var supercars_list = [
-	"Linetti Terror",
-	"Linetti Firestorm",
 	"Kestrel Guillotine",
-	"Mir Cars Raptor"
+	"Linetti Firestorm",
+	"Mir Cars Raptor",
+	"Linetti Terror",
 ]
 var track_cars_list = [
-	"Mir Cars Athletic C70",
 	"Bartoli Track Cruiser",
-	"Brutus Thunderbolt"
+	"Brutus Thunderbolt",
+	"Mir Cars Athletic C70",
 ]
 
 
@@ -426,29 +426,28 @@ var muscle = {
 var urban_racers = {
 		"Eisenach Prince":[
 		"", "Country: Germany", "HP: 285", "WEIGHT: 1725 KG",
-		"0-100 KM/H: 5.9s", "TOP SPEED: 262 KM/H",
+		"0-100 KM/H: 5.6s", "TOP SPEED: 253 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kestrel Speedster":[
 		"", "Country: UK", "HP: 286", "WEIGHT: 1145 KG",
-		"0-100 KM/H: 4.7s", "TOP SPEED: 246 KM/H",
+		"0-100 KM/H: 4.8s", "TOP SPEED: 246 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kronstadt Essence":[
-	"", "Country: Germany", "HP: 342", "WEIGHT: 1640 KG",
-	"0-100 KM/H: 6.0s", "TOP SPEED: 268 KM/H",
-	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
+	"Kronstadt Blazer":[
+	"", "Country: Germany", "HP: 315", "WEIGHT: 1835 KG",
+	"0-100 KM/H: 6.1s", "TOP SPEED: 262 KM/H",
+	"ENGINE: V8 5.0L", "ASPIRATION: NA", "TORQUE: 470 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	"Berkshire Blunt":[
-		"", "Country: UK", "HP: 390", "WEIGHT: 1832 KG",
+		"", "Country: UK", "HP: 390", "WEIGHT: 1750 KG",
 		"0-100 KM/H: 5.2s", "TOP SPEED: 259 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-
 	"Kuro Serenity":[
 		"", "Country: Japan", "HP: 260", "WEIGHT: 1640 KG",
 		"0-100 KM/H: 6.3s", "TOP SPEED: 250 KM/H",

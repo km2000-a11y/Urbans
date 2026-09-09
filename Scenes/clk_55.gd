@@ -13,7 +13,7 @@ func _ready():
 	horsepower = 342                    # CLK 55 AMG real-world output
 	max_rpm = 6200.0                    # Broad, torquey AMG rev band
 	idle_rpm = 700.0
-	zero_to_hundred = 6.0
+	zero_to_hundred = 5.6
 	top_speed_kmh = 268           # Gentle GT top speed with muscle
 	transmission = "Rear wheel drive"
 

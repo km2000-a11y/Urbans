@@ -31,7 +31,7 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Eisenach Prince",
 		"Kestrel Speedster",
-		"Kronstadt Essence",
+		"Kronstadt Blazer",
 		"Kuro Serenity"
 	],
 
@@ -127,7 +127,7 @@ var class_lists: Dictionary = {
 	"Schroder Colosso",
 	"Mir Cars Transporter",
 	"Eisenach Suppressor",
-	"Kronstadt Essence",
+	"Kronstadt Blazer",
 	"Kestrel Speedster",
 	"Colossus Behemoth",
 	"Schroder Classique Sport",
@@ -149,7 +149,7 @@ var class_lists: Dictionary = {
 	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Kronstadt Essence",
+		"Kronstadt Blazer",
 		"Berkshire Tempest",
 		"Kestrel Speedster"
 	],
@@ -169,7 +169,7 @@ var class_lists: Dictionary = {
 				"Eisenach Suppressor",
 		"Eisenach Bengal",
 
-		"Kronstadt Essence",
+		"Kronstadt Blazer",
 		"Eisenach Prince",
 		"Straeda B32"
 	],
@@ -375,7 +375,7 @@ var cups: Dictionary = {
 	"Schroder Colosso",
 	"Mir Cars Transporter",
 	"Eisenach Suppressor",
-	"Kronstadt Essence",
+	"Kronstadt Blazer",
 	"Kestrel Speedster",
 	"Colossus Behemoth",
 	"Eisenach Bengal",
@@ -405,7 +405,7 @@ var cups: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
-		"Kronstadt Essence",
+		"Kronstadt Blazer",
 		"Kestrel Speedster"
 	]
 },
@@ -428,7 +428,7 @@ var cups: Dictionary = {
 		"Schroder Classique Sport",
 		"Schroder Atrocity",
 				"Eisenach Suppressor",
-		"Kronstadt Essence",
+		"Kronstadt Blazer",
 		"Eisenach Bengal",
 		"Eisenach Prince",
 		"Straeda B32"

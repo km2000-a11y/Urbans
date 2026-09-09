@@ -51,7 +51,7 @@ var class_lists := {
 		"Eisenach Prince",
 		"Kestrel Speedster",
 		"Berkshire Blunt",
-				"Kronstadt Essence",
+				"Kronstadt Blazer",
 		"Kuro Serenity"
 	],
 
@@ -140,7 +140,7 @@ var class_lists := {
 	"Schroder Colosso",
 	"Mir Cars Transporter",
 	"Eisenach Suppressor",
-	"Kronstadt Essence",
+	"Kronstadt Blazer",
 	"Kestrel Speedster",
 	"Colossus Behemoth",
 	"Eisenach Bengal",
@@ -162,7 +162,7 @@ var class_lists := {
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
-				"Kronstadt Essence",
+				"Kronstadt Blazer",
 		"Kestrel Speedster"
 	],
 	"japanese_cup":[
@@ -180,7 +180,7 @@ var class_lists := {
 		"Schroder Atrocity",
 				"Eisenach Suppressor",
 		"Eisenach Bengal",
-		"Kronstadt Essence",
+		"Kronstadt Blazer",
 		"Eisenach Prince",
 		"Straeda B32"
 	],
