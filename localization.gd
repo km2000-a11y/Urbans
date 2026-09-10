@@ -7,7 +7,7 @@ var TEXT := {
 		# Modes
 		"road_challenge": "Road Challenge",
 		"free_race": "Free Race",
-		"club_cups": "Career Mode",
+		"career_mode": "Career Mode",
 		"multi_device": "Multi-Device Play",
 		"normal_race": "Normal Race",
 		"radar_race": "Radar Race",
@@ -43,11 +43,11 @@ var TEXT := {
 		"special_class": "Special",
 		"suv_class": "4x4 SUV",
 		"compact_class": "Compact Cars",
-		"muscle_class": "Muscle",
+		"muscle_class": "Muscle Cars",
 		"executive_class": "Executive Cars",
-		"urban_performance_class": "Urban Performance",
+		"urban_performance_class": "Urban Performance Cars",
 		"sport_coupe_class": "Sport Coupe",
-		"sport_racing_class": "Sport Racing",
+		"sport_racing_class": "Sports Racing Cars",
 		"supercars_class": "Supercars",
 		"track_class": "Track Cars",
 
@@ -86,7 +86,7 @@ var TEXT := {
 	"fr": {
 		"road_challenge": "Défi Routier",
 		"free_race": "Course Libre",
-		"club_cups": "Mode Carrière",
+		"career_mode": "Mode Carrière",
 		"multi_device": "Jeu Multi-Appareils",
 		"normal_race": "Course Normale",
 		"radar_race": "Course Radar",
@@ -160,7 +160,7 @@ var TEXT := {
 	"de": {
 		"road_challenge": "Straßen-Herausforderung",
 		"free_race": "Freies Rennen",
-		"club_cups": "Karrieremodus",
+		"career_mode": "Karrieremodus",
 		"multi_device": "Mehrgeräte Spiel",
 		"normal_race": "Normales Rennen",
 		"radar_race": "Radarrennen",
@@ -234,7 +234,7 @@ var TEXT := {
 	"ru": {
 		"road_challenge": "Дорожный вызов",
 		"free_race": "Свободная гонка",
-		"club_cups": "Карьерный режим",
+		"career_mode": "Карьерный режим",
 		"multi_device": "Мульти-устройственная игра",
 		"normal_race": "Обычная гонка",
 		"radar_race": "Радарная гонка",
@@ -308,7 +308,7 @@ var TEXT := {
 	"sh": {
 		"road_challenge": "Drumski Izazov",
 		"free_race": "Slobodna Trka",
-		"club_cups": "Karijerni Mod",
+		"career_mode": "Karijerni Mod",
 		"multi_device": "Više Uređaja",
 		"normal_race": "Normalna Trka",
 		"radar_race": "Radar Trka",
@@ -382,7 +382,7 @@ var TEXT := {
 	"tr": {
 		"road_challenge": "Yol Mücadelesi",
 		"free_race": "Serbest Yarış",
-		"club_cups": "Kariyer Modu",
+		"career_mode": "Kariyer Modu",
 		"multi_device": "Çoklu Cihaz",
 		"normal_race": "Normal Yarış",
 		"radar_race": "Radar Yarışı",
@@ -455,12 +455,52 @@ var TEXT := {
 }
 
 func _ready() -> void:
+	normalize_dictionary()
 	load_language()
+# Normalize ANY input into a predictable format
+func normalize_key(key: String) -> String:
+	var k := key.strip_edges().to_lower()
+	k = k.replace(" ", "_")
+	k = k.replace("-", "_")
+	k = k.replace(".", "_")
+	while k.find("__") != -1:
+		k = k.replace("__", "_")
+	return k
 
+# Find best matching key inside a language dictionary
+func find_best_key(lang: String, key: String) -> String:
+	var lower := normalize_key(key)
+
+	# Exact match
+	if TEXT[lang].has(lower):
+		return lower
+
+	# Prefix match (e.g. "career_mode_label" → "career_mode")
+	for k in TEXT[lang].keys():
+		if lower.begins_with(k):
+			return k
+
+	# Word match (e.g. "CAREER MODE" → "club_cups")
+	var words := lower.split("_")
+	for k in TEXT[lang].keys():
+		var kw :PackedStringArray= k.split("_")
+		for w in words:
+			if w in kw:
+				return k
+
+	return ""
+
+# Main translation function
 func translate(key: String) -> String:
-	var lower := key.to_lower()
+	var lower := normalize_key(key)
+
 	if TEXT.has(LANG) and TEXT[LANG].has(lower):
 		return TEXT[LANG][lower]
+
+	if TEXT.has("en") and TEXT["en"].has(lower):
+		return TEXT["en"][lower]
+
+	# Key not found → DO NOT translate
 	return key
 
 func set_language(code: String) -> void:
@@ -468,9 +508,12 @@ func set_language(code: String) -> void:
 		LANG = code
 		save_language()
 
+		# Apply font
 		if Engine.has_singleton("UiTheme"):
 			UiTheme.apply_language_font(LANG)
 
+		# Refresh all UI text
+		refresh_ui()
 
 func save_language() -> void:
 	var cfg := ConfigFile.new()
@@ -483,5 +526,29 @@ func load_language() -> void:
 		var saved: String = cfg.get_value("language", "current", "en")
 		if TEXT.has(saved):
 			LANG = saved
+
 	if Engine.has_singleton("UiTheme"):
 		UiTheme.apply_language_font(LANG)
+func refresh_ui(node: Node = null) -> void:
+	if node == null:
+		node = get_tree().root
+
+	for child in node.get_children():
+
+		if child is Label or child is Button or child is RichTextLabel:
+
+			# Store original English text ONCE
+			if not child.has_meta("original_text"):
+				child.set_meta("original_text", child.text)
+
+			var original := str(child.get_meta("original_text"))
+			child.text = translate(original)
+
+		refresh_ui(child)
+func normalize_dictionary() -> void:
+	for lang in TEXT.keys():
+		var new_dict := {}
+		for key in TEXT[lang].keys():
+			var norm := normalize_key(key)
+			new_dict[norm] = TEXT[lang][key]
+		TEXT[lang] = new_dict
