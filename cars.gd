@@ -19,7 +19,7 @@ var money_save_path := "user://money.save"
 
 
 
-var class_lists := {
+var class_lists: Dictionary = {
 	"suv": [
 		"Schroder Colosso",
 		"Colossus Behemoth",
@@ -30,17 +30,9 @@ var class_lists := {
 	"compact": [
 		"Zenith Horizon",
 		"Schroder Atrix Q32",
-		"Straeda B32",
-				"Eisenach Bengal",
 		"Kuro Zephyr",
-		"Schroder D-20"
+		"Eisenach Bengal",
 	],
-	"track_cars": [
-	"Mir Cars Athletic C70",
-	"Bartoli Track Cruiser",
-	"Brutus Thunderbolt"
-],
-
 
 	"muscle": [
 		"Mir Cars Hutch",
@@ -48,26 +40,23 @@ var class_lists := {
 	],
 
 	"urban": [
+		"Berkshire Blunt",
 		"Eisenach Prince",
 		"Kestrel Speedster",
-		"Berkshire Blunt",
-				"Kronstadt Blazer",
+		"Kronstadt Blazer",
 		"Kuro Serenity"
 	],
 
 	"sedans": [
 		"Eisenach Suppressor",
 		"Kuro Vault",
-		"Mir Cars Transporter",
-		"Kuro Persian",
-					"Strandberg Turbo",
+		"Strandberg Turbo",
+		"Eisenach Prince"
 	],
 
 	"sport": [
-					
-			"Brutus Stingray",
+				"Brutus Stingray",
 		"Berkshire V12-S",
-		"Berkshire Tempest",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
 	],
@@ -85,56 +74,58 @@ var class_lists := {
 		"Kestrel Guillotine",
 		"Mir Cars Raptor"
 	],
+
+	"track_cars": [
+		"Mir Cars Athletic C70",
+		"Bartoli Track Cruiser",
+		"Brutus Thunderbolt"
+	],
+
 	"special": [
 		"Bartoli Cruiser Interceptor"
 	],
-	"v6_engines": [
-	"Zenith Horizon",
-	"Schroder Atrix Q32"
-],
+	"v6_engines":[
+		"Schroder Atrix Q32",
+		"Zenith Horizon"
+	],
 	"zenith_competition":[
 		"Zenith Horizon"
 	],
 	"businessman_racers":[
-		"Kuro Persian",
+		"Eisenach Prince",
 		"Kuro Vault",
 		"Eisenach Suppressor",
-		"Mir Cars Transporter"
-],
+		"Strandberg Turbo",
+	],
 	"speedster_tournament":[
 		"Kestrel Speedster"
 	],
-		"kuro_cup":[
+	"kuro_cup":[
 		"Kuro Zephyr",
 		"Kuro Vault",
-		"Kuro Persian",
 		"Kuro Serenity"
 	],
-		"all_wheel_grip":[
+	"all_wheel_grip":[
 		"Strandberg Turbo",
 		"Mir Cars Transporter",
 		"Schroder Classique Sport",
 		"Schroder Atrix Q32",
-		"Straeda B32"
 	],
-		"eisenach_cup":[
+	"eisenach_cup":[
 		"Eisenach Suppressor",
 		"Eisenach Bengal",
 		"Eisenach Prince"
 	],
 	"under_400_hp": [
 	"Mir Cars Hutch",
-	"Kuro Persian",
 	"Eisenach Prince",
 	"Schroder Atrix Q32",
 	"Colossus Titan Max",
 	"Kestrel Touring",
-	"Straeda B32",
 	"Berkshire Blunt",
 	"Zenith Horizon",
 	"Kuro Serenity",
 	"Brutus Viper",
-	"Schroder D-20",
 	"Kuro Vault",
 	"Strandberg Turbo",
 	"Schroder Colosso",
@@ -143,55 +134,51 @@ var class_lists := {
 	"Kronstadt Blazer",
 	"Kestrel Speedster",
 	"Colossus Behemoth",
+	"Schroder Classique Sport",
 	"Eisenach Bengal",
 	"Mir Cars Nightwolf",
 	"Kuro Zephyr"
 ],
 
-		"stingray_competition":[
+	"stingray_competition":[
 		"Brutus Stingray"
 	],
-		"schroder_cup":[
-		"Schroder D-20",
+	"schroder_cup":[
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Classique Sport",
 		"Schroder Atrocity"
 	],
-		"gentleman_racers":[
+	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Berkshire Tempest",
-				"Kronstadt Blazer",
+		"Kronstadt Blazer",
 		"Kestrel Speedster"
 	],
-	"japanese_cup":[
+		"japanese_cup":[
 		"Zenith Horizon",
 		"Kuro Zephyr",
-		"Kuro Persian",
 		"Kuro Serenity",
 		"Kuro Vault"
 	],
-	"german_cup":[
-		"Schroder D-20",
+		"german_cup":[
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Classique Sport",
 		"Schroder Atrocity",
 				"Eisenach Suppressor",
 		"Eisenach Bengal",
+
 		"Kronstadt Blazer",
 		"Eisenach Prince",
-		"Straeda B32"
 	],
-	"kestrel_max":[
+		"kestrel_max":[
 		"Kestrel Touring",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
 	],
-	"v12_engines":[
+		"v12_engines":[
 		"Berkshire V12-S",
-		"Berkshire Tempest",
 		"Linetti Firestorm",
 		"Linetti Terror"
 	]

@@ -18,8 +18,6 @@ var car_prices := {
 	"Kuro Zephyr": 20000,
 	"Schroder Atrix Q32": 35000,
 	"Zenith Horizon": 39000,
-	"Schroder D-20": 24000,
-	"Straeda B32": 28500,
 	"Brutus Viper": 28000,
 	"Mir Cars Hutch": 33000,
 	"Eisenach Suppressor": 38000,
@@ -39,7 +37,6 @@ var car_prices := {
 	"Berkshire V12-S": 120000,
 	"Schroder Classique Sport": 80000,
 	"Kestrel Touring": 150000,
-	"Berkshire Tempest": 125000,
 	"Linetti Shepherd": 200000,
 	"Brutus Venom": 187000,
 	"Schroder Atrocity": 150000,
@@ -283,8 +280,6 @@ var suv_list = [
 
 var compact_list = [
 	"Kuro Zephyr",
-	"Schroder D-20",
-	"Straeda B32",
 	"Schroder Atrix Q32",
 	"Zenith Horizon",
 	"Eisenach Bengal"
@@ -298,7 +293,6 @@ var muscle_list = [
 var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Speedster",
-	"Eisenach Prince",
 	"Kronstadt Blazer",
 	"Berkshire Blunt",
 ]
@@ -309,8 +303,7 @@ var sedans_list = [
 	"Eisenach Suppressor",
 	"Strandberg Turbo",
 	"Kuro Vault",
-	"Mir Cars Transporter",
-	"Kuro Persian",
+	"Eisenach Prince",
 ]
 
 
@@ -318,7 +311,6 @@ var sport_list = [
 	"Schroder Classique Sport",
 	"Brutus Stingray",
 	"Berkshire V12-S",
-	"Berkshire Tempest",
 	"Kestrel Touring"
 ]
 
@@ -390,24 +382,12 @@ var compact = {
 		"ENGINE: V6 3.5L", "ASPIRATION: NA", "TORQUE: 340 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Schroder D-20":[
-		"", "Country: Germany", "HP: 177", "WEIGHT: 1450 KG",
-		"0-100 KM/H: 7.1s", "TOP SPEED: 238 KM/H",
-		"ENGINE: L4 2.0L DIESEL", "ASPIRATION: Turbo", "TORQUE: 350 NM",
-		"TRANSMISSION: FRONT-WHEEL DRIVE"
-	],
 	"Eisenach Bengal":[
 		"", "Country: Germany", "HP: 265", "WEIGHT: 1450 KG",
 		"0-100 KM/H: 6.1s", "TOP SPEED: 246 KM/H",
 		"ENGINE: L6 3.0L", "ASPIRATION: NA", "TORQUE: 320 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Straeda B32":[
-		"", "Country: Germany", "HP: 224", "WEIGHT: 1500 KG",
-		"0-100 KM/H: 6.7s", "TOP SPEED: 236 KM/H",
-		"ENGINE: V6 3.2L", "ASPIRATION: NA", "TORQUE: 300 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
-	]
 }
 var muscle = {
 	"Brutus Viper":[
@@ -424,27 +404,21 @@ var muscle = {
 	]
 }
 var urban_racers = {
-		"Eisenach Prince":[
-		"", "Country: Germany", "HP: 285", "WEIGHT: 1725 KG",
-		"0-100 KM/H: 5.6s", "TOP SPEED: 253 KM/H",
-		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Kestrel Speedster":[
 		"", "Country: UK", "HP: 286", "WEIGHT: 1145 KG",
-		"0-100 KM/H: 4.8s", "TOP SPEED: 246 KM/H",
+		"0-100 KM/H: 4.7s", "TOP SPEED: 246 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kronstadt Blazer":[
 	"", "Country: Germany", "HP: 315", "WEIGHT: 1835 KG",
-	"0-100 KM/H: 5.9s", "TOP SPEED: 262 KM/H",
+	"0-100 KM/H: 5.9s", "TOP SPEED: 265 KM/H",
 	"ENGINE: V8 5.0L", "ASPIRATION: NA", "TORQUE: 470 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	"Berkshire Blunt":[
 		"", "Country: UK", "HP: 390", "WEIGHT: 1750 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 259 KM/H",
+		"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
@@ -462,46 +436,28 @@ var sedans = {
 		"ENGINE: L6 3.0L DIESEL", "ASPIRATION: Turbo", "TORQUE: 500 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kuro Persian":[
-		"", "Country: Japan", "HP: 300", "WEIGHT: 1660 KG",
-		"0-100 KM/H: 5.7s", "TOP SPEED: 253 KM/H",
-		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 410 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 			"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
 		"0-100 KM/H: 5.6s", "TOP SPEED: 246 KM/H",
 		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
+			"Eisenach Prince":[
+		"", "Country: Germany", "HP: 285", "WEIGHT: 1725 KG",
+		"0-100 KM/H: 5.9s", "TOP SPEED: 253 KM/H",
+		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 	"Kuro Vault":[
 		"", "Country: Japan", "HP: 290", "WEIGHT: 1760 KG",
-		"0-100 KM/H: 6.3s", "TOP SPEED: 257 KM/H",
+		"0-100 KM/H: 6.5s", "TOP SPEED: 257 KM/H",
 		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-		"Mir Cars Transporter":[
-		"", "Country:UAE", "HP: 340", "WEIGHT: 1740 KG",
-		"0-100 KM/H: 5.9s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.6L", "ASPIRATION: NA", "TORQUE: 410 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
-	],
-	"Kronstadt Fortress":[
-	"", "Country: Germany", "HP: 389", "WEIGHT: 2150 KG",
-	"0-100 KM/H: 6.6s", "TOP SPEED: 268 KM/H",
-	"ENGINE: V12 6.0L", "ASPIRATION: NA", "TORQUE: 580 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
 
 
 }
 var sport = {
-	"Eisenach Goblin":[
-	"", "Country: Germany", "HP: 335", "WEIGHT: 1500 KG",
-	"0-100 KM/H: 4.6s", "TOP SPEED: 258 KM/H",
-	"ENGINE: L6 3.0L", "ASPIRATION: Turbo", "TORQUE: 500 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
 	"Berkshire V12-S":[
 		"", "Country: UK", "HP: 450", "WEIGHT: 1740 KG",
 		"0-100 KM/H: 5.1s", "TOP SPEED: 293 KM/H",
@@ -526,12 +482,6 @@ var sport = {
 		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 390 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Tempest":[
-		"", "Country: UK", "HP: 460", "WEIGHT: 1875 KG",
-		"0-100 KM/H: 5.4s", "TOP SPEED: 303 KM/H",
-		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 580 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	]
 }
 var sport_racing = {
 	"Linetti Shepherd":[

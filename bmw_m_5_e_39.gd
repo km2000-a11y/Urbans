@@ -12,7 +12,7 @@ func _ready():
 	mass = 1740.0
 	horsepower =285
 	max_rpm = 7000.0                 # High‑rev V8 but not torque‑friendly
-	zero_to_hundred =5.6
+	zero_to_hundred =5.9
 	top_speed_kmh = 253
 	turn_speed = 2.35                # Horrendous rotation; heavy understeer by design
 	brake_strength = 12.8            # Good brakes but not enough for the weight
