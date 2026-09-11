@@ -63,12 +63,5 @@ res://Scenes/clk_55.tscn
 res://Scenes/language_menu.tscn
 res://Scenes/bmw_1m.tscn
 res://Scenes/sl_500.tscn
-res://Scripts/car_select.gd
-res://cars.gd
-res://club_cups.gd
-res://bmw_m_5_e_39.gd
-res://Scripts/jaguar_xkr_2003.gd
-res://Scripts/lexus_ls_430_2003.gd
-res://Scripts/morgan_aero_8.gd
-res://Scenes/sl_500.gd
-res://Scripts/base_car.gd
+res://localization.gd
+res://Tracks/new_york.tscn

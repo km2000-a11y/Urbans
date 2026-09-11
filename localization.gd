@@ -2,6 +2,7 @@ extends Node
 
 var LANG: String = "en"
 
+
 var TEXT := {
 	"en": {
 		# Modes

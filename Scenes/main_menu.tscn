@@ -39,7 +39,6 @@ theme_override_font_sizes/font_size = 40
 text = "MULTI-DEVICE PLAY (DO NOT PRESS!)"
 
 [node name="LanguageMenu" type="Button" parent="Control/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "LANGUAGE OPTIONS"
