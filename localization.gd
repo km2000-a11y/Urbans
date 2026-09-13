@@ -2,6 +2,7 @@ extends Node
 
 var LANG: String = "en"
 
+signal language_changed
 
 var TEXT := {
 	"en": {
