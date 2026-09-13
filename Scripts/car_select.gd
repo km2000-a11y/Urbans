@@ -567,6 +567,8 @@ func _ready():
 
 	unlocked_cars = Cars.unlocked_cars
 	_update_class_locks()
+	if GameMode.game_mode!="Club Cups":
+		$Control/UpgradesButton.visible=false
 
 	# Disable class buttons in Club Cups if empty
 	if GameMode.game_mode == "Club Cups":

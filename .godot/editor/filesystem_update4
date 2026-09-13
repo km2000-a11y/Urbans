@@ -1,4 +1,3 @@
-res://Tracks/new_york.tscn
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -64,8 +63,5 @@ res://Scenes/clk_55.tscn
 res://Scenes/language_menu.tscn
 res://Scenes/bmw_1m.tscn
 res://Scenes/sl_500.tscn
-res://cars.gd
-res://track_registry.gd
-res://Tracks/lap_line.gd
-res://Scenes/track_select.gd
-res://music_manager.gd
+res://Tracks/new_york.tscn
+res://Scripts/car_select.gd
