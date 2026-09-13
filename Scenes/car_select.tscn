@@ -50,7 +50,7 @@ text = "Sport Coupe"
 [node name="SportRacing" type="Button" parent="Control/ClassList"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Sports Racing Cars"
+text = "Sport Racing"
 
 [node name="Supercars" type="Button" parent="Control/ClassList"]
 layout_mode = 2

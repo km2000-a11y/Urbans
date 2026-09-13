@@ -1,45 +1,55 @@
 extends Node
 
-# Stores the original English text of every UI node
 var original_texts := {}
 
 func _ready():
-	# Refresh UI when language changes
 	Localization.language_changed.connect(_refresh_all_ui)
-
-	# Refresh UI when scenes change
 	get_tree().tree_changed.connect(_refresh_all_ui)
 
-
 func _refresh_all_ui():
-	var root := get_tree().current_scene
-	if root == null:
-		return
-
-	# Apply correct font globally
-	if Engine.has_singleton("UiTheme"):
-		UiTheme.apply_language_font(Localization.LANG)
-
-	# Update all UI nodes
-	_update_node_recursive(root)
-
+	if not is_inside_tree(): return
+	var tree = get_tree()
+	if tree == null or tree.current_scene == null: return
+	_update_node_recursive(tree.current_scene)
 
 func _update_node_recursive(node):
-	# Update Label
-	if node is Label:
-		_store_original_text(node)
-		node.text = Localization.translate(original_texts[node])
-
-	# Update Button
-	if node is Button:
-		_store_original_text(node)
-		node.text = Localization.translate(original_texts[node])
-
-	# Continue recursion
+	if not is_instance_valid(node): return
+	if node is Label or node is Button:
+		_process_node_text(node)
 	for child in node.get_children():
 		_update_node_recursive(child)
 
+func _process_node_text(node):
+	var current_text = node.text
+	if current_text == "": return
 
-func _store_original_text(node):
+	if ":" in current_text:
+		var parts = current_text.split(":", true, 1)
+		var key_part = parts[0].strip_edges()
+		var value_part = parts[1].strip_edges()
+
+		# 1. Переводим заголовок (Country, Engine, Transmission...)
+		var translated_key = Localization.translate(key_part)
+		
+		# 2. Пытаемся перевести всё значение целиком (USA, Four wheel drive, Compact Cars...)
+		var translated_value = Localization.translate(value_part)
+		
+		# 3. Если значение не изменилось (нет в словаре), ищем в нем единицы измерения
+		if translated_value == value_part:
+			var units = ["km/h", "KG", "km/sa", "km/ч", "л.с.", "HP", "s"]
+			for unit in units:
+				if unit in translated_value:
+					translated_value = translated_value.replace(unit, Localization.translate(unit))
+
+		var new_text = translated_key + ": " + translated_value
+		if node.text != new_text:
+			node.text = new_text
+		return
+
+	# Для обычных текстов без двоеточия (названия машин, кнопки)
 	if not original_texts.has(node):
-		original_texts[node] = node.text
+		original_texts[node] = current_text
+
+	var translated = Localization.translate(original_texts[node])
+	if node.text != translated:
+		node.text = translated

@@ -118,7 +118,7 @@ text = "KESTREL MAX CHAMPIONSHIP"
 [node name="SportRacing" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "SPORT RACING CARS"
+text = "SPORT RACING"
 
 [node name="V12Engines" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2

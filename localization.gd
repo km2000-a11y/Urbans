@@ -6,7 +6,6 @@ signal language_changed
 
 var TEXT := {
 	"en": {
-		# Modes
 		"road_challenge": "Road Challenge",
 		"free_race": "Free Race",
 		"career_mode": "Career Mode",
@@ -17,8 +16,6 @@ var TEXT := {
 		"elimination": "Elimination",
 		"cop_chase": "Cop Chase",
 		"language_options": "Language Options",
-
-		# Championships
 		"colossus": "Colossus Cup",
 		"street_tuners": "Street Tuners",
 		"muscle_hustle": "Muscle Hustle",
@@ -40,8 +37,6 @@ var TEXT := {
 		"supercars": "Supercars",
 		"track_cars": "Track Cars",
 		"sport_racing": "Sport Racing",
-
-		# Car class names
 		"special_class": "Special",
 		"suv_class": "4x4 SUV",
 		"compact_class": "Compact Cars",
@@ -52,8 +47,6 @@ var TEXT := {
 		"sport_racing_class": "Sports Racing Cars",
 		"supercars_class": "Supercars",
 		"track_class": "Track Cars",
-
-		# UI actions
 		"buy": "BUY",
 		"balance": "BALANCE",
 		"price": "PRICE",
@@ -67,22 +60,36 @@ var TEXT := {
 		"volume": "Volume",
 		"upgrades": "Upgrades",
 		"car_dealership": "Car Dealership",
-
-		# Results
 		"you_win": "YOU WIN!",
 		"you_lose": "YOU LOSE!",
-
-		# Stats
 		"hp": "HP",
 		"weight": "Weight",
 		"zero_to_hundred": "0–100 km/h",
 		"top_speed": "Top Speed",
 		"engine": "Engine",
+		"italy": "Italy",
+		"uk": "UK",
+		"sweden": "Sweden",
+		"back": "Back",
+		"executive_cars": "Executive Cars",
+		"urban_performance_cars": "Urban Performance Cars",
+		"sport_coupe": "Sport Coupe",
+
 		"aspiration": "Aspiration",
 		"torque": "Torque",
 		"transmission": "Transmission",
 		"country": "Country",
-		"kmh": "km/h"
+		"kmh": "km/h",
+		"s": "s",
+		"usa": "USA",
+		"germany": "Germany",
+		"japan": "Japan",
+		"four_wheel_drive": "Four-Wheel Drive",
+		"rear_wheel_drive": "Rear-Wheel Drive",
+		"front_wheel_drive": "Front-Wheel Drive",
+		"4x4_suv": "4x4 SUV",
+		"compact_cars": "Compact Cars",
+		"muscle_cars": "Muscle Cars"
 	},
 
 	"fr": {
@@ -96,7 +103,6 @@ var TEXT := {
 		"elimination": "Élimination",
 		"cop_chase": "Course Police",
 		"language_options": "Options de langue",
-
 		"colossus": "Coupe Colossus",
 		"street_tuners": "Préparateurs de Rue",
 		"muscle_hustle": "Muscle Hustle",
@@ -116,20 +122,26 @@ var TEXT := {
 		"kestrel_max": "Kestrel Max",
 		"v12_engines": "Moteurs V12",
 		"supercars": "Supercars",
+		"italy": "Italie",
+		"uk": "Royaume-Uni",
+		"sweden": "Suède",
+		"back": "Retour",
+		"executive": "Voitures de Direction",
+		"urban_performance": "Performance Urbaine",
+		"sport_coupe": "Coupé Sport",
+
 		"track_cars": "Voitures de Circuit",
 		"sport_racing": "Course Sportive",
-
 		"special_class": "Spécial",
 		"suv_class": "4x4 SUV",
 		"compact_class": "Voitures Compactes",
 		"muscle_class": "Muscle",
-		"executive_class": "Voitures de Direction",
-		"urban_performance_class": "Performance Urbaine",
+		"executive_cars": "Voitures de Direction",
+		"urban_performance_cars": "Performance Urbaine",
 		"sport_coupe_class": "Coupé Sport",
 		"sport_racing_class": "Course Sportive",
 		"supercars_class": "Supercars",
 		"track_class": "Voitures de Circuit",
-
 		"buy": "ACHETER",
 		"balance": "SOLDE",
 		"price": "PRIX",
@@ -143,10 +155,8 @@ var TEXT := {
 		"volume": "Volume",
 		"upgrades": "Améliorations",
 		"car_dealership": "Concessionnaire",
-
 		"you_win": "VOUS GAGNEZ !",
 		"you_lose": "VOUS PERDEZ !",
-
 		"hp": "Puissance",
 		"weight": "Poids",
 		"zero_to_hundred": "0–100 km/h",
@@ -156,7 +166,17 @@ var TEXT := {
 		"torque": "Couple",
 		"transmission": "Transmission",
 		"country": "Pays",
-		"kmh": "km/h"
+		"kmh": "km/h",
+		"s": "s",
+		"usa": "États-Unis",
+		"germany": "Allemagne",
+		"japan": "Japon",
+		"four_wheel_drive": "Quatre roues motrices",
+		"rear_wheel_drive": "Propulsion",
+		"front_wheel_drive": "Traction",
+		"4x4_suv": "SUV 4x4",
+		"compact_cars": "Voitures compactes",
+		"muscle_cars": "Muscle Cars"
 	},
 
 	"de": {
@@ -170,7 +190,6 @@ var TEXT := {
 		"elimination": "Eliminierung",
 		"cop_chase": "Polizeijagd",
 		"language_options": "Spracheinstellungen",
-
 		"colossus": "Colossus-Pokal",
 		"street_tuners": "Street Tuners",
 		"muscle_hustle": "Muscle Hustle",
@@ -181,6 +200,14 @@ var TEXT := {
 		"kuro_cup": "Kuro-Pokal",
 		"all_wheel_grip": "Allrad-Grip",
 		"eisenach_cup": "Eisenach-Pokal",
+		"italy": "Italien",
+		"uk": "Vereinigtes Königreich",
+		"sweden": "Schweden",
+		"back": "Zurück",
+		"executive": "Obere Mittelklasse",
+		"urban_performance": "Urban Performance",
+		"sport_coupe": "Sportcoupé",
+
 		"under_400_hp": "Unter 400 PS",
 		"stingray_competition": "Stingray-Wettbewerb",
 		"schroder_cup": "Schröder-Pokal",
@@ -192,18 +219,16 @@ var TEXT := {
 		"supercars": "Supercars",
 		"track_cars": "Track Cars",
 		"sport_racing": "Sport Racing",
-
 		"special_class": "Spezial",
 		"suv_class": "4x4 SUV",
 		"compact_class": "Kompaktwagen",
 		"muscle_class": "Muscle",
-		"executive_class": "Obere Mittelklasse",
-		"urban_performance_class": "Urban Performance",
+		"executive_cars": "Obere Mittelklasse",
+		"urban_performance_cars": "Urban Performance",
 		"sport_coupe_class": "Sportcoupé",
 		"sport_racing_class": "Sport Racing",
 		"supercars_class": "Supercars",
 		"track_class": "Track Cars",
-
 		"buy": "KAUFEN",
 		"balance": "GUTHABEN",
 		"price": "PREIS",
@@ -217,10 +242,8 @@ var TEXT := {
 		"volume": "Lautstärke",
 		"upgrades": "Upgrades",
 		"car_dealership": "Autohaus",
-
 		"you_win": "DU GEWINNST!",
 		"you_lose": "DU VERLIERST!",
-
 		"hp": "PS",
 		"weight": "Gewicht",
 		"zero_to_hundred": "0–100 km/h",
@@ -230,7 +253,17 @@ var TEXT := {
 		"torque": "Drehmoment",
 		"transmission": "Getriebe",
 		"country": "Land",
-		"kmh": "km/h"
+		"kmh": "km/h",
+		"s": "s",
+		"usa": "USA",
+		"germany": "Deutschland",
+		"japan": "Japan",
+		"four_wheel_drive": "Allradantrieb",
+		"rear_wheel_drive": "Hinterradantrieb",
+		"front_wheel_drive": "Vorderradantrieb",
+		"4x4_suv": "4x4 SUV",
+		"compact_cars": "Kompaktwagen",
+		"muscle_cars": "Muscle-Cars"
 	},
 
 	"ru": {
@@ -244,10 +277,18 @@ var TEXT := {
 		"elimination": "Элиминация",
 		"cop_chase": "Погоня полиции",
 		"language_options": "Языковые настройки",
-
 		"colossus": "Кубок Colossus",
 		"street_tuners": "Уличные тюнеры",
 		"muscle_hustle": "Muscle Hustle",
+		"italy": "Италия",
+		"uk": "Великобритания",
+		"sweden": "Швеция",
+		"back": "Назад",
+		"special": "Особый",
+		"executive": "Представительские авто",
+		"urban_performance": "Городская производительность",
+		"sport_coupe": "Спортивное купе",
+
 		"v6_engines": "Двигатели V6",
 		"zenith_competition": "Соревнование Zenith",
 		"businessman_racers": "Гонщики-бизнесмены",
@@ -266,18 +307,16 @@ var TEXT := {
 		"supercars": "Суперкары",
 		"track_cars": "Трековые машины",
 		"sport_racing": "Спортивные гонки",
-
 		"special_class": "Особый",
 		"suv_class": "4x4 SUV",
 		"compact_class": "Компактные автомобили",
 		"muscle_class": "Muscle",
-		"executive_class": "Представительские авто",
-		"urban_performance_class": "Городская производительность",
+		"executive_cars": "Представительские авто",
+		"urban_performance_cars": "Городская производительность",
 		"sport_coupe_class": "Спортивное купе",
 		"sport_racing_class": "Спортивные гонки",
 		"supercars_class": "Суперкары",
 		"track_class": "Трековые машины",
-
 		"buy": "КУПИТЬ",
 		"balance": "БАЛАНС",
 		"price": "ЦЕНА",
@@ -291,10 +330,8 @@ var TEXT := {
 		"volume": "Громкость",
 		"upgrades": "Улучшения",
 		"car_dealership": "Автосалон",
-
 		"you_win": "ВЫ ПОБЕДИЛИ!",
 		"you_lose": "ВЫ ПРОИГРАЛИ!",
-
 		"hp": "Л.с.",
 		"weight": "Вес",
 		"zero_to_hundred": "0–100 км/ч",
@@ -304,7 +341,17 @@ var TEXT := {
 		"torque": "Крутящий момент",
 		"transmission": "Трансмиссия",
 		"country": "Страна",
-		"kmh": "км/ч"
+		"kmh": "км/ч",
+		"s": "с",
+		"usa": "США",
+		"germany": "Германия",
+		"japan": "Япония",
+		"four_wheel_drive": "Полный привод",
+		"rear_wheel_drive": "Задний привод",
+		"front_wheel_drive": "Передний привод",
+		"4x4_suv": "Внедорожник 4x4",
+		"compact_cars": "Компактные",
+		"muscle_cars": "Масл-кары"
 	},
 
 	"sh": {
@@ -318,7 +365,6 @@ var TEXT := {
 		"elimination": "Eliminacija",
 		"cop_chase": "Policijska Potjera",
 		"language_options": "Jezičke opcije",
-
 		"colossus": "Colossus Kup",
 		"street_tuners": "Street Tuners",
 		"muscle_hustle": "Muscle Hustle",
@@ -329,6 +375,16 @@ var TEXT := {
 		"kuro_cup": "Kuro Kup",
 		"all_wheel_grip": "Pogon na sve točkove",
 		"eisenach_cup": "Eisenach Kup",
+		"italy": "Italija",
+		"uk": "Ujedinjeno Kraljevstvo",
+		"sweden": "Švedska",
+		"back": "Nazad",
+
+		"special": "Specijal",
+		"executive": "Poslovna Vozila",
+		"urban_performance": "Urbana Performansa",
+		"sport_coupe": "Sportski Kupe",
+
 		"under_400_hp": "Ispod 400 HP",
 		"stingray_competition": "Stingray Takmičenje",
 		"schroder_cup": "Schröder Kup",
@@ -340,18 +396,16 @@ var TEXT := {
 		"supercars": "Superautomobili",
 		"track_cars": "Trkaći Automobili",
 		"sport_racing": "Sportske Trke",
-
 		"special_class": "Specijal",
 		"suv_class": "4x4 SUV",
 		"compact_class": "Kompaktna Vozila",
 		"muscle_class": "Muscle",
-		"executive_class": "Poslovna Vozila",
-		"urban_performance_class": "Urbana Performansa",
+		"executive_cars": "Poslovna Vozila",
+		"urban_performance_cars": "Urbana Performansa",
 		"sport_coupe_class": "Sportski Kupe",
 		"sport_racing_class": "Sportske Trke",
 		"supercars_class": "Superautomobili",
 		"track_class": "Trkaći Automobili",
-
 		"buy": "KUPI",
 		"balance": "STANJE",
 		"price": "CENA",
@@ -365,10 +419,8 @@ var TEXT := {
 		"volume": "Zvuk",
 		"upgrades": "Nadogradnje",
 		"car_dealership": "Auto Kuća",
-
 		"you_win": "POBJEDA!",
 		"you_lose": "PORAZ!",
-
 		"hp": "HP",
 		"weight": "Težina",
 		"zero_to_hundred": "0–100 km/h",
@@ -378,7 +430,17 @@ var TEXT := {
 		"torque": "Obrtni moment",
 		"transmission": "Transmisija",
 		"country": "Država",
-		"kmh": "km/h"
+		"kmh": "km/h",
+		"s": "s",
+		"usa": "SAD",
+		"germany": "Njemačka",
+		"japan": "Japan",
+		"four_wheel_drive": "Pogon na sve točkove",
+		"rear_wheel_drive": "Zadnji pogon",
+		"front_wheel_drive": "Prednji pogon",
+		"4x4_suv": "4x4 SUV",
+		"compact_cars": "Kompaktna vozila",
+		"muscle_cars": "Muscle automobili"
 	},
 
 	"tr": {
@@ -392,11 +454,20 @@ var TEXT := {
 		"elimination": "Eleme",
 		"cop_chase": "Polis Takibi",
 		"language_options": "Dil Seçenekleri",
-
 		"colossus": "Colossus Kupası",
 		"street_tuners": "Sokak Tunerları",
 		"muscle_hustle": "Muscle Hustle",
 		"v6_engines": "V6 Motorlar",
+		"italy": "İtalya",
+		"uk": "Birleşik Krallık",
+		"sweden": "İsveç",
+		"back": "Geri",
+
+		"special": "Özel",
+		"executive_class": "Yönetici Arabalar",
+		"urban_performance": "Kentsel Performans",
+		"sport_coupe": "Spor Coupe",
+
 		"zenith_competition": "Zenith Yarışı",
 		"businessman_racers": "İş Adamı Yarışçıları",
 		"speedster_tournament": "Speedster Turnuvası",
@@ -414,18 +485,16 @@ var TEXT := {
 		"supercars": "Süper Arabalar",
 		"track_cars": "Pist Arabaları",
 		"sport_racing": "Spor Yarışları",
-
 		"special_class": "Özel",
 		"suv_class": "4x4 SUV",
 		"compact_class": "Kompakt Arabalar",
 		"muscle_class": "Muscle",
-		"executive_class": "Yönetici Arabalar",
-		"urban_performance_class": "Kentsel Performans",
+		"executive_cars": "Yönetici Arabalar",
+		"urban_performance_cars": "Kentsel Performans",
 		"sport_coupe_class": "Spor Coupe",
 		"sport_racing_class": "Spor Yarışları",
 		"supercars_class": "Süper Arabalar",
 		"track_class": "Pist Arabaları",
-
 		"buy": "SATIN AL",
 		"balance": "BAKİYE",
 		"price": "FİYAT",
@@ -439,10 +508,8 @@ var TEXT := {
 		"volume": "Ses",
 		"upgrades": "Yükseltmeler",
 		"car_dealership": "Araba Bayisi",
-
 		"you_win": "KAZANDIN!",
 		"you_lose": "KAYBETTİN!",
-
 		"hp": "Beygir Gücü",
 		"weight": "Ağırlık",
 		"zero_to_hundred": "0–100 km/sa",
@@ -452,9 +519,20 @@ var TEXT := {
 		"torque": "Tork",
 		"transmission": "Şanzıman",
 		"country": "Ülke",
-		"kmh": "km/sa"
+		"kmh": "km/sa",
+		"s": "sn",
+		"usa": "ABD",
+		"germany": "Almanya",
+		"japan": "Japonya",
+		"four_wheel_drive": "Dört Tekerlekten Çekiş",
+		"rear_wheel_drive": "Arkadan İtiş",
+		"front_wheel_drive": "Önden Çekiş",
+		"4x4_suv": "4x4 SUV",
+		"compact_cars": "Kompakt Arabalar",
+		"muscle_cars": "Muscle Arabalar"
 	}
 }
+
 
 func _ready() -> void:
 	normalize_dictionary()
@@ -494,15 +572,16 @@ func find_best_key(lang: String, key: String) -> String:
 
 # Main translation function
 func translate(key: String) -> String:
-	var lower := normalize_key(key)
+	var best := find_best_key(LANG, key)
+	if best != "":
+		return TEXT[LANG][best]
 
-	if TEXT.has(LANG) and TEXT[LANG].has(lower):
-		return TEXT[LANG][lower]
+	# fallback to English best match
+	var best_en := find_best_key("en", key)
+	if best_en != "":
+		return TEXT["en"][best_en]
 
-	if TEXT.has("en") and TEXT["en"].has(lower):
-		return TEXT["en"][lower]
-
-	# Key not found → DO NOT translate
+	# IMPORTANT: return key BUT normalized for future matching
 	return key
 
 func set_language(code: String) -> void:

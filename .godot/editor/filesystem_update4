@@ -65,3 +65,4 @@ res://Scenes/bmw_1m.tscn
 res://Scenes/sl_500.tscn
 res://Tracks/new_york.tscn
 res://localization.gd
+res://language_refresher.gd
