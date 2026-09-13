@@ -1,8 +1,10 @@
+Button
 MeshInstance3D
 CollisionShape3D
+Area3D
+Node3D
 StaticBody3D
 WorldEnvironment
-Button
 VBoxContainer
 Control
 CanvasLayer
@@ -10,5 +12,3 @@ Label
 HBoxContainer
 CarController
 MultiplayerSynchronizer
-MultiplayerSpawner
-LineEdit

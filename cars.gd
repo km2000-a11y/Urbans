@@ -41,7 +41,6 @@ var class_lists: Dictionary = {
 
 	"urban": [
 		"Berkshire Blunt",
-		"Eisenach Prince",
 		"Kestrel Speedster",
 		"Kronstadt Blazer",
 		"Kuro Serenity"

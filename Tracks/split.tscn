@@ -10872,10 +10872,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.19467, 0)
 shape = SubResource("BoxShape3D_sl8vj")
 
 [node name="SpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.15536e-05, 1.26467, -132.158)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7.8542e-06, 1.26467, -89.8418)
 
 [node name="AISpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.91282e-05, 0, 218.801)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.63929e-05, 0, 187.513)
 
 [node name="AISpawnPoint1" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.82846e-05, 0, 209.152)
@@ -10899,7 +10899,7 @@ transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -136.584
 transform = Transform3D(-0.573576, 0, 0.819152, 0, 1, 0, -0.819152, 0, -0.573576, -229.091, 0, 632.09)
 
 [node name="LapLine" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -227.594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -161.646)
 script = ExtResource("1_1c3gv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LapLine"]
