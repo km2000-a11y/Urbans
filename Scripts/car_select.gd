@@ -417,7 +417,7 @@ var urban_racers = {
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	"Berkshire Blunt":[
-		"", "Country: UK", "HP: 390", "WEIGHT: 1750 KG",
+		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
 		"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
@@ -443,14 +443,14 @@ var sedans = {
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 			"Eisenach Prince":[
-		"", "Country: Germany", "HP: 285", "WEIGHT: 1725 KG",
-		"0-100 KM/H: 5.9s", "TOP SPEED: 253 KM/H",
-		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
+		"", "Country: Germany", "HP: 400", "WEIGHT: 1725 KG",
+		"0-100 KM/H: 5.5s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V8 4.9L", "ASPIRATION: NA", "TORQUE: 500 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kuro Vault":[
 		"", "Country: Japan", "HP: 290", "WEIGHT: 1760 KG",
-		"0-100 KM/H: 6.5s", "TOP SPEED: 257 KM/H",
+		"0-100 KM/H: 6.4s", "TOP SPEED: 257 KM/H",
 		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],

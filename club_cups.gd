@@ -350,6 +350,7 @@ var cups: Dictionary = {
 	"Schroder Classique Sport",
 	"Strandberg Turbo",
 	"Schroder Colosso",
+	"Brutus Stingray",
 	"Mir Cars Transporter",
 	"Eisenach Suppressor",
 	"Kronstadt Blazer",

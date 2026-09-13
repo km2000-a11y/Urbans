@@ -122,6 +122,7 @@ var class_lists: Dictionary = {
 	"Colossus Titan Max",
 	"Kestrel Touring",
 	"Berkshire Blunt",
+	"Brutus Stingray",
 	"Zenith Horizon",
 	"Kuro Serenity",
 	"Brutus Viper",
