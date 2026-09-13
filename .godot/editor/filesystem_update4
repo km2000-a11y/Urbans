@@ -1,4 +1,5 @@
 res://main.tscn
+res://localization.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -64,5 +65,3 @@ res://Scenes/language_menu.tscn
 res://Scenes/bmw_1m.tscn
 res://Scenes/sl_500.tscn
 res://Tracks/new_york.tscn
-res://localization.gd
-res://language_refresher.gd

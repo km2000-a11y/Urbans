@@ -80,7 +80,7 @@ var TEXT := {
 		"transmission": "Transmission",
 		"country": "Country",
 		"kmh": "km/h",
-		"s": "s",
+		
 		"usa": "USA",
 		"germany": "Germany",
 		"japan": "Japan",
@@ -167,7 +167,7 @@ var TEXT := {
 		"transmission": "Transmission",
 		"country": "Pays",
 		"kmh": "km/h",
-		"s": "s",
+
 		"usa": "États-Unis",
 		"germany": "Allemagne",
 		"japan": "Japon",
@@ -254,7 +254,7 @@ var TEXT := {
 		"transmission": "Getriebe",
 		"country": "Land",
 		"kmh": "km/h",
-		"s": "s",
+		
 		"usa": "USA",
 		"germany": "Deutschland",
 		"japan": "Japan",
@@ -342,7 +342,7 @@ var TEXT := {
 		"transmission": "Трансмиссия",
 		"country": "Страна",
 		"kmh": "км/ч",
-		"s": "с",
+	
 		"usa": "США",
 		"germany": "Германия",
 		"japan": "Япония",
@@ -431,7 +431,7 @@ var TEXT := {
 		"transmission": "Transmisija",
 		"country": "Država",
 		"kmh": "km/h",
-		"s": "s",
+	
 		"usa": "SAD",
 		"germany": "Njemačka",
 		"japan": "Japan",
@@ -520,7 +520,7 @@ var TEXT := {
 		"transmission": "Şanzıman",
 		"country": "Ülke",
 		"kmh": "km/sa",
-		"s": "sn",
+
 		"usa": "ABD",
 		"germany": "Almanya",
 		"japan": "Japonya",
