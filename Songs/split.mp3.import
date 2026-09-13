@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/split.mp3-e79b3891c8244fa97e233c7478d529a7.mp
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

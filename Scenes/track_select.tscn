@@ -50,8 +50,17 @@ offset_bottom = 247.0
 theme_override_font_sizes/font_size = 30
 text = "SPLIT CROATIA"
 
+[node name="NewYork" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 264.0
+offset_right = 1250.0
+offset_bottom = 314.0
+theme_override_font_sizes/font_size = 30
+text = "NEW YORK"
+
 [connection signal="pressed" from="Control/BogotaAirport" to="." method="_on_bogota_airport_pressed"]
 [connection signal="pressed" from="Control/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="Control/Chernobyl" to="." method="_on_chernobyl_pressed"]
 [connection signal="pressed" from="Control/AbuDhabi" to="." method="_on_abu_dhabi_pressed"]
 [connection signal="pressed" from="Control/Split" to="." method="_on_split_pressed"]
+[connection signal="pressed" from="Control/NewYork" to="." method="_on_new_york_pressed"]
