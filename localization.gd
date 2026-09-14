@@ -9,12 +9,14 @@ var TEXT := {
 		"road_challenge": "Road Challenge",
 		"free_race": "Free Race",
 		"career_mode": "Career Mode",
-		"multi_device": "Multi-Device Play",
+		"multi_device_play": "Multi-Device Play",
 		"normal_race": "Normal Race",
 		"radar_race": "Radar Race",
 		"duel": "Duel",
 		"elimination": "Elimination",
 		"cop_chase": "Cop Chase",
+		"money": "Money",
+
 		"language_options": "Language Options",
 		"colossus": "Colossus Cup",
 		"street_tuners": "Street Tuners",
@@ -43,12 +45,23 @@ var TEXT := {
 		"muscle_class": "Muscle Cars",
 		"executive_class": "Executive Cars",
 		"urban_performance_class": "Urban Performance Cars",
+		"enter_ip_of_host_to_join_game": "Enter IP of host to join game",
+"join_lan": "Join LAN",
+"host_lan": "Host LAN",
+
 		"sport_coupe_class": "Sport Coupe",
 		"sport_racing_class": "Sports Racing Cars",
 		"supercars_class": "Supercars",
 		"track_class": "Track Cars",
+		"races_left": "Races left",
+"challenge_complete": "Challenge Complete!",
+"reward": "Reward",
+"balance": "Balance",
+"target": "Target",
+"championship_completed": "Championship Completed!",
+"congratulations": "Congratulations!",
+
 		"buy": "BUY",
-		"balance": "BALANCE",
 		"price": "PRICE",
 		"already_owned": "ALREADY OWNED!",
 		"insufficient_cash": "INSUFFICIENT CASH!",
@@ -96,7 +109,7 @@ var TEXT := {
 		"road_challenge": "Défi Routier",
 		"free_race": "Course Libre",
 		"career_mode": "Mode Carrière",
-		"multi_device": "Jeu Multi-Appareils",
+		"multi_device_play": "Jeu Multi-Appareils",
 		"normal_race": "Course Normale",
 		"radar_race": "Course Radar",
 		"duel": "Duel",
@@ -120,11 +133,23 @@ var TEXT := {
 		"japanese_cup": "Coupe Japonaise",
 		"german_cup": "Coupe Allemande",
 		"kestrel_max": "Kestrel Max",
+		"enter_ip_of_host_to_join_game": "Entrez l’IP de l’hôte pour rejoindre la partie",
+"join_lan": "Rejoindre LAN",
+"host_lan": "Héberger LAN",
+
 		"v12_engines": "Moteurs V12",
 		"supercars": "Supercars",
 		"italy": "Italie",
 		"uk": "Royaume-Uni",
 		"sweden": "Suède",
+		"races_left": "Courses restantes",
+"challenge_complete": "Défi terminé !",
+"reward": "Récompense",
+"balance": "Solde",
+"target": "Objectif",
+"championship_completed": "Championnat terminé !",
+"congratulations": "Félicitations !",
+
 		"back": "Retour",
 		"executive": "Voitures de Direction",
 		"urban_performance": "Performance Urbaine",
@@ -143,7 +168,6 @@ var TEXT := {
 		"supercars_class": "Supercars",
 		"track_class": "Voitures de Circuit",
 		"buy": "ACHETER",
-		"balance": "SOLDE",
 		"price": "PRIX",
 		"already_owned": "DÉJÀ ACHETÉ !",
 		"insufficient_cash": "ARGENT INSUFFISANT !",
@@ -183,7 +207,7 @@ var TEXT := {
 		"road_challenge": "Straßen-Herausforderung",
 		"free_race": "Freies Rennen",
 		"career_mode": "Karrieremodus",
-		"multi_device": "Mehrgeräte Spiel",
+		"multi_device_play": "Mehrgeräte Spiel",
 		"normal_race": "Normales Rennen",
 		"radar_race": "Radarrennen",
 		"duel": "Duell",
@@ -191,10 +215,22 @@ var TEXT := {
 		"cop_chase": "Polizeijagd",
 		"language_options": "Spracheinstellungen",
 		"colossus": "Colossus-Pokal",
+		"enter_ip_of_host_to_join_game": "IP des Hosts eingeben, um beizutreten",
+"join_lan": "LAN beitreten",
+"host_lan": "LAN hosten",
+
 		"street_tuners": "Street Tuners",
 		"muscle_hustle": "Muscle Hustle",
 		"v6_engines": "V6-Motoren",
 		"zenith_competition": "Zenith-Wettbewerb",
+		"races_left": "Verbleibende Rennen",
+"challenge_complete": "Herausforderung abgeschlossen!",
+"reward": "Belohnung",
+
+"target": "Ziel",
+"championship_completed": "Meisterschaft abgeschlossen!",
+"congratulations": "Glückwunsch!",
+
 		"businessman_racers": "Geschäftsleute-Racer",
 		"speedster_tournament": "Speedster-Turnier",
 		"kuro_cup": "Kuro-Pokal",
@@ -270,7 +306,17 @@ var TEXT := {
 		"road_challenge": "Дорожный вызов",
 		"free_race": "Свободная гонка",
 		"career_mode": "Карьерный режим",
-		"multi_device": "Мульти-устройственная игра",
+		"enter_ip_of_host_to_join_game": "Введите IP хоста, чтобы присоединиться",
+"join_lan": "Присоединиться к LAN",
+"host_lan": "Создать LAN",
+"races_left": "Осталось гонок",
+"challenge_complete": "Испытание завершено!",
+"reward": "Награда",
+"target": "Цель",
+"championship_completed": "Чемпионат завершён!",
+"congratulations": "Поздравляем!",
+
+		"multi_device_play": "Мульти-устройственная игра",
 		"normal_race": "Обычная гонка",
 		"radar_race": "Радарная гонка",
 		"duel": "Дуэль",
@@ -358,7 +404,7 @@ var TEXT := {
 		"road_challenge": "Drumski Izazov",
 		"free_race": "Slobodna Trka",
 		"career_mode": "Karijerni Mod",
-		"multi_device": "Više Uređaja",
+		"multi_device_plau": "Više Uređaja",
 		"normal_race": "Normalna Trka",
 		"radar_race": "Radar Trka",
 		"duel": "Duel",
@@ -366,9 +412,16 @@ var TEXT := {
 		"cop_chase": "Policijska Potjera",
 		"language_options": "Jezičke opcije",
 		"colossus": "Colossus Kup",
+		"races_left": "Kalan yarış",
+
+
 		"street_tuners": "Street Tuners",
 		"muscle_hustle": "Muscle Hustle",
 		"v6_engines": "V6 Motori",
+		"enter_ip_of_host_to_join_game": "Unesi IP hosta da se pridružiš",
+"join_lan": "Pridruži se LAN-u",
+"host_lan": "Hostuj LAN",
+
 		"zenith_competition": "Zenith Takmičenje",
 		"businessman_racers": "Biznismeni Trkači",
 		"speedster_tournament": "Speedster Turnir",
@@ -383,6 +436,7 @@ var TEXT := {
 		"special": "Specijal",
 		"executive": "Poslovna Vozila",
 		"urban_performance": "Urbana Performansa",
+		
 		"sport_coupe": "Sportski Kupe",
 
 		"under_400_hp": "Ispod 400 HP",
@@ -417,6 +471,14 @@ var TEXT := {
 		"resume": "Nastavi",
 		"retry": "Pokušaj ponovo",
 		"volume": "Zvuk",
+
+"challenge_complete": "Izazov završen!",
+"reward": "Nagrada",
+
+"target": "Cilj",
+"championship_completed": "Šampionat završen!",
+"congratulations": "Čestitamo!",
+
 		"upgrades": "Nadogradnje",
 		"car_dealership": "Auto Kuća",
 		"you_win": "POBJEDA!",
@@ -446,8 +508,18 @@ var TEXT := {
 	"tr": {
 		"road_challenge": "Yol Mücadelesi",
 		"free_race": "Serbest Yarış",
+		"challenge_complete": "Mücadele tamamlandı!",
+"reward": "Ödül",
+
+"target": "Hedef",
+"championship_completed": "Şampiyona tamamlandı!",
+"congratulations": "Tebrikler!",
 		"career_mode": "Kariyer Modu",
-		"multi_device": "Çoklu Cihaz",
+		"multi_device_play": "Çoklu Cihaz",
+		"enter_ip_of_host_to_join_game": "Oyuna katılmak için hostun IP’sini gir",
+"join_lan": "LAN’a Katıl",
+"host_lan": "LAN Oluştur",
+
 		"normal_race": "Normal Yarış",
 		"radar_race": "Radar Yarışı",
 		"duel": "Düello",
@@ -540,34 +612,45 @@ func _ready() -> void:
 # Normalize ANY input into a predictable format
 func normalize_key(key: String) -> String:
 	var k := key.strip_edges().to_lower()
+
+	# Remove punctuation that breaks matching
+	k = k.replace("!", "")
+	k = k.replace("?", "")
+	k = k.replace(":", "")
+	k = k.replace(",", "")
+	k = k.replace(".", "")
+
+	# Normalize spacing
 	k = k.replace(" ", "_")
 	k = k.replace("-", "_")
-	k = k.replace(".", "_")
+
 	while k.find("__") != -1:
 		k = k.replace("__", "_")
+
 	return k
 
 # Find best matching key inside a language dictionary
 func find_best_key(lang: String, key: String) -> String:
 	var lower := normalize_key(key)
 
-	# Exact match
+	# 1. Exact match only
 	if TEXT[lang].has(lower):
 		return lower
 
-	# Prefix match (e.g. "career_mode_label" → "career_mode")
+	# 2. If the key contains spaces → it's a car name or engine type → DO NOT MATCH
+	if key.count(" ") > 0:
+		return ""
+
+	# 3. If the key contains numbers → it's an engine type → DO NOT MATCH
+	if key.is_valid_float() or key.is_valid_int():
+		return ""
+
+	# 4. Prefix match ONLY for UI labels
 	for k in TEXT[lang].keys():
 		if lower.begins_with(k):
 			return k
 
-	# Word match (e.g. "CAREER MODE" → "club_cups")
-	var words := lower.split("_")
-	for k in TEXT[lang].keys():
-		var kw :PackedStringArray= k.split("_")
-		for w in words:
-			if w in kw:
-				return k
-
+	# 5. Word match DISABLED (too dangerous)
 	return ""
 
 # Main translation function
@@ -623,7 +706,16 @@ func refresh_ui(node: Node = null) -> void:
 				child.set_meta("original_text", child.text)
 
 			var original := str(child.get_meta("original_text"))
-			child.text = translate(original)
+
+			# Split into lines
+			var lines := original.split("\n")
+
+			var translated_lines := []
+			for line in lines:
+				translated_lines.append(translate(line))
+
+			child.text = "\n".join(translated_lines)
+
 
 		refresh_ui(child)
 func normalize_dictionary() -> void:

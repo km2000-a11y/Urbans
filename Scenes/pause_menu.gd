@@ -84,7 +84,8 @@ func _on_vol_down_btn_pressed() -> void:
 	apply_volume()
 	
 func update_volume_label():
-	$Control/Panel/VolumeLabel.text="Volume: %d%%"%volume
+	$Control/Panel/VolumeLabel.text = "volume: %d%%" % volume
+
 	
 func apply_volume():
 	var linear=float(volume)/100.0

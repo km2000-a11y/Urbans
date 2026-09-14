@@ -6,10 +6,19 @@ func _ready():
 	Localization.language_changed.connect(_refresh_all_ui)
 	get_tree().tree_changed.connect(_refresh_all_ui)
 
+var refresh_pending := false
+
 func _refresh_all_ui():
-	if not is_inside_tree(): return
+	if refresh_pending:
+		return
+	refresh_pending = true
+	await get_tree().process_frame
+	refresh_pending = false
+
 	var tree = get_tree()
-	if tree == null or tree.current_scene == null: return
+	if tree == null or tree.current_scene == null:
+		return
+
 	_update_node_recursive(tree.current_scene)
 
 func _update_node_recursive(node):
@@ -47,8 +56,12 @@ func _process_node_text(node):
 		return
 
 	# Для обычных текстов без двоеточия (названия машин, кнопки)
-	if not original_texts.has(node):
+	# If the text changed since last time, update original
+	# If the text changed since last time, update original
+	if original_texts.get(node, "") != current_text:
 		original_texts[node] = current_text
+
+
 
 	var translated = Localization.translate(original_texts[node])
 	if node.text != translated:

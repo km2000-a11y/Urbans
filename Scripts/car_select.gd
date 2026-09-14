@@ -737,8 +737,17 @@ func update_car_ui(stats: Array, name: String):
 	# 1. STOCK STATS IN DEALERSHIP
 	# ============================
 	if Cars.dealership_mode:
-		# Do NOT apply dynamic stats
-		pass
+	# Mark all stat labels with their original English source text
+		$Control/CarStats/CountryLabel.set_meta("source_text", final_stats[1])
+		$Control/CarStats/HPLabel.set_meta("source_text", final_stats[2])
+		$Control/CarStats/WeightLabel.set_meta("source_text", final_stats[3])
+		$Control/CarStats/ZeroToHundredLabel.set_meta("source_text", final_stats[4])
+		$Control/CarStats/TopSpeedLabel.set_meta("source_text", final_stats[5])
+		$Control/CarStats/EngineLabel.set_meta("source_text", final_stats[6])
+		$Control/CarStats/AspirationLabel.set_meta("source_text", final_stats[7])
+		$Control/CarStats/TorqueLabel.set_meta("source_text", final_stats[8])
+		$Control/CarStats/TransmissionLabel.set_meta("source_text", final_stats[9])
+
 	else:
 		# ============================
 		# 2. DYNAMIC STATS IN CLUB CUPS
@@ -774,8 +783,10 @@ func update_car_ui(stats: Array, name: String):
 		var balance = Cars.player_money
 
 		# Update price + balance labels
-		$MoneyLabel.text = "Money: $" + str(balance)
-		$Control/CarStats/PriceLabel.text = "Price: $" + str(price)
+		$MoneyLabel.text = "money: $" + str(balance)
+		$Control/CarStats/PriceLabel.text = "price: $" + str(price)
+		$Control/Label.text = "insufficient_cash"
+		$Select.text = "buy"
 
 		# Reset BUY button + message
 		$Select.disabled = false
@@ -785,13 +796,13 @@ func update_car_ui(stats: Array, name: String):
 
 		# Already owned
 		if Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name]["unlocked"]:
-			$Control/Label.text = "ALREADY OWNED!"
+			$Control/Label.text = "already_owned"
 			$Control/Label.modulate = Color.RED
 			$Select.disabled = true
 
 		# Not enough money
 		elif balance < price:
-			$Control/Label.text = "INSUFFICIENT CASH!"
+			$Control/Label.text = "insufficient_cash"
 			$Control/Label.modulate = Color.RED
 			$Select.disabled = true
 		
@@ -1084,10 +1095,10 @@ func _on_select_pressed():
 		Cars.save_money()
 		Cars.unlock_car(car_name, "dealership")
 
-		$Control/Label.text = "PURCHASED!"
+		$Control/Label.text = "purchased"
 		$Control/Label.modulate = Color.GREEN
 
-		$MoneyLabel.text = "Money: $" + str(Cars.player_money)
+		$MoneyLabel.text = "money: $" + str(Cars.player_money)
 		$Select.disabled = true
 		return
 
