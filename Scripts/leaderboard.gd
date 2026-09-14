@@ -8,9 +8,10 @@ extends CanvasLayer
 func show_results(player_won: bool) -> void:
 	# Title
 	if player_won:
-		title_label.text = "YOU WIN!"
+		Localization.set_text(title_label, "YOU WIN!")
 	else:
-		title_label.text = "YOU LOSE!"
+		Localization.set_text(title_label, "YOU LOSE!")
+
 
 	# Road Challenge
 	if GameMode.game_mode == "Road Challenge":
@@ -19,9 +20,10 @@ func show_results(player_won: bool) -> void:
 		var left: int = 5 - done
 
 		if left > 0:
-			title_label.text += "\nRaces left: %d / 5" % left
+			Localization.set_text(title_label, "Races left: %d / 5" % left)
 		else:
-			title_label.text += "\nChallenge Complete!"
+			Localization.set_text(title_label, "Challenge Complete!")
+
 
 	# Clear old entries
 	for child in entries.get_children():
@@ -48,7 +50,7 @@ func show_results(player_won: bool) -> void:
 	if player_won and GameMode.game_mode == "Club Cups":
 		Cars.add_money(6000)
 		var money_label: Label = $Control/Panel/MoneyLabel
-		money_label.text = "Reward: $6000\nBalance: $" + str(Cars.player_money)
+		Localization.set_text(money_label, "Reward: $6000\nBalance: $" + str(Cars.player_money))
 
 	visible = true
 

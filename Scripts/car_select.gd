@@ -1079,26 +1079,39 @@ func update_color_ui():
 # -------------------------
 # SELECT BUTTON (LAN FIX)
 # -------------------------
-func _on_select_pressed():
+func _on_select_pressed() -> void:
 	if upgrade_mode:
 		return
 
 	if Cars.dealership_mode:
-		var price = car_prices.get(car_name, 0)
-		var balance = Cars.player_money
+		var price :int= car_prices.get(car_name, 0)
+		var balance := Cars.player_money
 
 		# Already owned
-		
+		if Cars.unlocked_cars.has(car_name) and Cars.unlocked_cars[car_name]["unlocked"]:
+			$Control/Label.text = Localization.translate("already_owned")
+			$Control/Label.modulate = Color.RED
+			$Select.disabled = true
+			return
+
+		# Not enough money
+		if balance < price:
+			$Control/Label.text = Localization.translate("insufficient_cash")
+			$Control/Label.modulate = Color.RED
+			$Select.disabled = true
+			return
 
 		# Purchase successful
 		Cars.player_money -= price
 		Cars.save_money()
 		Cars.unlock_car(car_name, "dealership")
 
-		$Control/Label.text = "purchased"
+		$Control/Label.text = Localization.translate("purchased")
 		$Control/Label.modulate = Color.GREEN
 
-		$MoneyLabel.text = "money: $" + str(Cars.player_money)
+		var money_key := Localization.translate("balance")
+		$MoneyLabel.text = "%s: $%d" % [money_key, Cars.player_money]
+
 		$Select.disabled = true
 		return
 

@@ -1,24 +1,37 @@
 extends CanvasLayer
 
-func show_win(success: bool):
+func show_win(success: bool) -> void:
 	var text := ""
 
+	# WIN / LOSE
 	if success:
-		text = "YOU WIN!"
+		text = Localization.translate("you_win")
 	else:
-		text = "YOU LOSE!"
+		text = Localization.translate("you_lose")
 
-	# ROAD CHALLENGE PROGRESS
+	# ROAD CHALLENGE PROGRESS (if needed later)
 	if GameMode.game_mode == "Road Challenge":
 		var group := RoadChallengeState.active_group
-		var done :int= RoadChallengeSave.progress[group]
+		var done: int = RoadChallengeSave.progress[group]
+		# (You can add races_left here if you want, same as the other script)
 
-	# ⭐ Club Cups money reward
+	# ⭐ CLUB CUPS MONEY REWARD
 	if success and GameMode.game_mode == "Club Cups":
 		Cars.add_money(6000)
-		var money_label = $Control/Panel/MoneyLabel
-		money_label.text = "Reward: $6000\nBalance: $" + str(Cars.player_money)
 
+		var reward := Localization.translate("reward")
+		var balance := Localization.translate("balance")
+
+		var money_label := $Control/Panel/MoneyLabel
+		money_label.text = "%s: $6000\n%s: $%d" % [
+			reward,
+			balance,
+			Cars.player_money
+		]
+
+		money_label.visible = true
+
+	# Apply translated title
 	$Control/Panel/VBoxContainer/Label_Title.text = text
 	visible = true
 
@@ -29,7 +42,9 @@ func _on_retry_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
-func show_reward(text: String):
+
+
+func show_reward(text: String) -> void:
 	if has_node("Control/Panel/RewardLabel"):
 		$Control/Panel/RewardLabel.text = text
 		$Control/Panel/RewardLabel.visible = true

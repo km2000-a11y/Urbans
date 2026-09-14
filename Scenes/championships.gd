@@ -19,7 +19,9 @@ func _input(event):
 		print("Debug: advanced career, unlocked next cup")
 		_update_button_states()
 	if $Control.has_node("Money"):
-		$Control/Money.text = "Balance: $" + str(Cars.player_money)
+		var balance_key := Localization.translate("balance")
+		$Control/Money.text = "%s: $%d" % [balance_key, Cars.player_money]
+
 
 # ============================================================
 # CAREER-AWARE CUP START

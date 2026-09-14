@@ -11,6 +11,7 @@ func _ready():
 	host_button.pressed.connect(_on_host_pressed)
 	join_button.pressed.connect(_on_join_pressed)
 	back_button.pressed.connect(_on_back_pressed)
+	$Control/IPField.placeholder_text=Localization.translate("enter_ip_of_host_to_join_game")
 
 	# Listen to LANManager status updates
 	if LanManager.has_signal("status_changed"):

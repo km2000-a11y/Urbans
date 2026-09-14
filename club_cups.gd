@@ -174,7 +174,7 @@ var cup_rewards: Dictionary = {
 	"street_tuners": "Brutus Viper",          # Shelby GT500
 	"muscle_hustle": "Schroder Atrix Q32",    # Audi TT Roadster
 	"v6_engines": "Zenith Horizon",           # Nissan 350Z
-	"zenith_competition": "Kuro Vault", # Audi S8
+	"zenith_competition": "Eisenach Suppressor", # Audi S8
 	"businessman_racers": "Kuro Serenity",    # Lexus SC400
 	"japanese_cup": "Strandberg Turbo",       # Volvo S60R
 	"all_wheel_grip": "Kestrel Speedster",    # Morgan Aero 8

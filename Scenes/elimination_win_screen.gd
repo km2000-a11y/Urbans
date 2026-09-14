@@ -4,49 +4,67 @@ extends CanvasLayer
 @onready var retry_button := $Control/Panel/RetryBtn
 @onready var quit_button := $Control/Panel/QuitBtn
 
-func show_results(player_won: bool):
+func show_results(player_won: bool) -> void:
 	var text := ""
 
+	# WIN / LOSE
 	if player_won:
-		text = "YOU WIN!"
+		text = Localization.translate("you_win")
 	else:
-		text = "YOU LOSE!"
+		text = Localization.translate("you_lose")
 
 	# ROAD CHALLENGE PROGRESS
 	if GameMode.game_mode == "Road Challenge":
 		var group := RoadChallengeState.active_group
-		var done :int = RoadChallengeSave.progress[group]
-		var left := 5 - done
+		var done: int = RoadChallengeSave.progress[group]
+		var left: int = 5 - done
 
 		if left > 0:
-			text += "\nRaces left: %d / 5" % left
+			# "Races left: %d / 5"
+			var races_left := Localization.translate("races_left")
+			text += "\n" + "%s: %d / 5" % [races_left, left]
 		else:
-			text += "\nChallenge Complete!"
+			text += "\n" + Localization.translate("challenge_complete")
 
+	# Apply translated text
 	title_label.text = text
 	visible = true
 
 	# ⭐ CLUB CUPS REWARD BLOCK
 	if player_won and GameMode.game_mode == "Club Cups":
 		Cars.add_money(6000)
+
 		if has_node("Control/Panel/MoneyLabel"):
 			var money_label := $Control/Panel/MoneyLabel
-			money_label.text = "Reward: $6000\nBalance: $" + str(Cars.player_money)
+
+			var reward := Localization.translate("reward")
+			var balance := Localization.translate("balance")
+
+			money_label.text = "%s: $6000\n%s: $%d" % [
+				reward,
+				balance,
+				Cars.player_money
+			]
+
 			money_label.visible = true
 
-		# Optional: also show RewardLabel if present
+		# Optional RewardLabel
 		if has_node("Control/Panel/RewardLabel"):
-			$Control/Panel/RewardLabel.text = "+ $6000 Reward"
-			$Control/Panel/RewardLabel.visible = true
+			var reward_label := $Control/Panel/RewardLabel
+			var reward := Localization.translate("reward")
+			reward_label.text = "+ $6000 " + reward
+			reward_label.visible = true
 
 
 func _on_retry_btn_pressed() -> void:
 	get_tree().reload_current_scene()
 
+
 func _on_quit_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
 
-func show_reward(text: String):
+
+func show_reward(text: String) -> void:
 	if has_node("Control/Panel/RewardLabel"):
 		$Control/Panel/RewardLabel.text = text
 		$Control/Panel/RewardLabel.visible = true

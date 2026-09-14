@@ -16,6 +16,8 @@ var TEXT := {
 		"elimination": "Elimination",
 		"cop_chase": "Cop Chase",
 		"money": "Money",
+		"purchased": "PURCHASED!",
+
 
 		"language_options": "Language Options",
 		"colossus": "Colossus Cup",
@@ -122,6 +124,8 @@ var TEXT := {
 		"v6_engines": "Moteurs V6",
 		"zenith_competition": "Compétition Zenith",
 		"businessman_racers": "Pilotes d’Affaires",
+		"purchased": "ACHETÉ !",
+
 		"speedster_tournament": "Tournoi Speedster",
 		"kuro_cup": "Coupe Kuro",
 		"all_wheel_grip": "Adhérence Intégrale",
@@ -234,6 +238,8 @@ var TEXT := {
 		"businessman_racers": "Geschäftsleute-Racer",
 		"speedster_tournament": "Speedster-Turnier",
 		"kuro_cup": "Kuro-Pokal",
+		"purchased": "GEKAUFT!",
+
 		"all_wheel_grip": "Allrad-Grip",
 		"eisenach_cup": "Eisenach-Pokal",
 		"italy": "Italien",
@@ -319,6 +325,8 @@ var TEXT := {
 		"multi_device_play": "Мульти-устройственная игра",
 		"normal_race": "Обычная гонка",
 		"radar_race": "Радарная гонка",
+		"purchased": "КУПЛЕНО!",
+
 		"duel": "Дуэль",
 		"elimination": "Элиминация",
 		"cop_chase": "Погоня полиции",
@@ -412,7 +420,7 @@ var TEXT := {
 		"cop_chase": "Policijska Potjera",
 		"language_options": "Jezičke opcije",
 		"colossus": "Colossus Kup",
-		"races_left": "Kalan yarış",
+		"purchased": "KUPOVANO!",
 
 
 		"street_tuners": "Street Tuners",
@@ -484,6 +492,7 @@ var TEXT := {
 		"you_win": "POBJEDA!",
 		"you_lose": "PORAZ!",
 		"hp": "HP",
+		
 		"weight": "Težina",
 		"zero_to_hundred": "0–100 km/h",
 		"top_speed": "Maksimalna brzina",
@@ -522,6 +531,8 @@ var TEXT := {
 
 		"normal_race": "Normal Yarış",
 		"radar_race": "Radar Yarışı",
+		"purchased": "SATIN ALINDI!",
+
 		"duel": "Düello",
 		"elimination": "Eleme",
 		"cop_chase": "Polis Takibi",
@@ -725,3 +736,13 @@ func normalize_dictionary() -> void:
 			var norm := normalize_key(key)
 			new_dict[norm] = TEXT[lang][key]
 		TEXT[lang] = new_dict
+func set_text(node: Node, text: String) -> void:
+	# Store original English text
+	node.set_meta("original_text", text)
+
+	# Translate immediately
+	var lines := text.split("\n")
+	var translated := []
+	for line in lines:
+		translated.append(translate(line))
+	node.text = "\n".join(translated)

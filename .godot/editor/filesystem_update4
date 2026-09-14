@@ -1,5 +1,4 @@
 res://main.tscn
-res://localization.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -65,9 +64,11 @@ res://Scenes/language_menu.tscn
 res://Scenes/bmw_1m.tscn
 res://Scenes/sl_500.tscn
 res://Tracks/new_york.tscn
-res://language_refresher.gd
-res://Scripts/car_select.gd
-res://Scripts/leaderboard.gd
-res://Scenes/pause_menu.gd
 res://Scenes/elimination_win_screen.gd
+res://Scripts/leaderboard.gd
+res://localization.gd
 res://Scripts/win_screen_radar.gd
+res://Scripts/car_select.gd
+res://Scenes/championships.gd
+res://Scenes/lanui.gd
+res://club_cups.gd
