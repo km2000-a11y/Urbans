@@ -757,8 +757,18 @@ func update_car_ui(stats: Array, name: String):
 			if cc != null:
 				final_stats[2] = "HP: " + str(int(cc.horsepower))
 				final_stats[3] = "WEIGHT: " + str(int(cc.mass)) + " KG"
-				final_stats[4] = "0-100 KM/H: " + str(round(cc.zero_to_hundred * 100) / 100.0) + "s"
-				final_stats[5] = "TOP SPEED: " + str(int(cc.top_speed_kmh)) + " KM/H"
+				if SpeedSettings.SPEED_UNIT == "mph":
+	# Convert top speed
+					var mph_speed = int(_kmh_to_mph(cc.top_speed_kmh))
+					final_stats[5] = "TOP SPEED: " + str(mph_speed) + " MPH"
+
+					# Acceleration time stays the same, only label changes
+					final_stats[4] = "0-62 MPH: " + str(round(cc.zero_to_hundred * 100) / 100.0) + "s"
+				else:
+					# Default KM/H
+					final_stats[4] = "0-100 KM/H: " + str(round(cc.zero_to_hundred * 100) / 100.0) + "s"
+					final_stats[5] = "TOP SPEED: " + str(int(cc.top_speed_kmh)) + " KM/H"
+
 
 	# ============================
 	# 3. APPLY STATS TO UI
@@ -806,7 +816,36 @@ func update_car_ui(stats: Array, name: String):
 			$Control/Label.modulate = Color.RED
 			$Select.disabled = true
 		
-		
+	# ============================
+# 5. APPLY SPEED UNIT CONVERSION LAST
+# ============================
+	if SpeedSettings.SPEED_UNIT == "mph":
+		# Extract KM/H values from final_stats
+		var zero_text = final_stats[4]
+		var top_text = final_stats[5]
+
+		# Parse numbers
+		var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
+		var top_val = float(top_text.split(" ")[2])
+
+		# Convert
+		var mph_speed = int(top_val * 0.621371)
+
+		# Apply to UI
+		$Control/CarStats/ZeroToHundredLabel.text = "0-62 MPH: " + str(zero_val) + "s"
+		$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: " + str(mph_speed) + " MPH"
+	else:
+		# Reapply KM/H cleanly
+		var zero_text = final_stats[4]
+		var top_text = final_stats[5]
+
+		var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
+
+		var top_val = float(top_text.split(" ")[2])
+
+		$Control/CarStats/ZeroToHundredLabel.text = "0-100 KM/H: " + str(zero_val) + "s"
+		$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: " + str(int(top_val)) + " KM/H"
+
 # ------------------	-------
 # 3D PREVIEW LOADING
 # -------------------------
@@ -817,12 +856,13 @@ func load_preview_car(path: String):
 	var car_scene = load(path)
 	if car_scene == null:
 		return
+
 	await get_tree().process_frame
 	await get_tree().process_frame
-	update_car_ui(get_base_stats_for(car_name), car_name)
+	# ❌ DO NOT update UI here
 
 	var car = car_scene.instantiate()
-	car.car_name = car_name 
+	car.car_name = car_name
 	preview_holder.add_child(car)
 	preview_car = car
 
@@ -834,21 +874,21 @@ func load_preview_car(path: String):
 
 	model_root.scale = Vector3.ONE * 1.5
 	model_root.position = Vector3.ZERO
-	
 
-	# ⭐ FIX: Update UI AFTER preview car loads
+	# ⭐ Correct place to update UI
 	if GameMode.game_mode == "Club Cups" and car_name != "":
 		update_car_ui(get_base_stats_for(car_name), car_name)
-	print(preview_car)
-	print(preview_car.get_script())
 
-	# -------------------------
-# ROTATE PREVIEW EACH FRAME
 # -------------------------
 
 func _process(delta):
-	if Cars.dealership_mode and not $MoneyLabel.visible:
-		_apply_dealership_ui()
+	if Cars.dealership_mode:
+		if not $MoneyLabel.visible:
+			_apply_dealership_ui()
+		else:
+			# Re-apply speed unit conversion for dealership stats
+			_apply_speed_unit_to_dealership_stats()
+
 	if preview_car == null:
 		return
 
@@ -1343,3 +1383,50 @@ func _on_buy_btn_4_pressed() -> void:
 func _class_has_eligible(raw_list: Array) -> bool:
 	var filtered := _get_filtered_list(raw_list)
 	return not filtered.is_empty()
+func _kmh_to_mph(kmh: float) -> float:
+	return kmh * 0.621371
+
+func _zero_to_hundred_to_mph(time: float) -> float:
+	# 0–100 km/h → 0–62 mph
+	return time  # acceleration time stays the SAME
+func _apply_speed_unit_to_dealership_stats():
+	var stats = get_base_stats_for(car_name)
+	var final_stats = stats.duplicate()
+
+	# Extract KM/H values from the static text
+	var zero_to_hundred = final_stats[4]
+	var top_speed = final_stats[5]
+
+	# Parse numbers
+	var zero_val = float(zero_to_hundred.split(" ")[1].replace("KM/H:", "").replace("s", ""))
+	var top_val = float(top_speed.split(" ")[2])
+
+	if SpeedSettings.SPEED_UNIT == "mph":
+		var mph_speed = int(top_val * 0.621371)
+		final_stats[5] = "TOP SPEED: " + str(mph_speed) + " MPH"
+		final_stats[4] = "0-62 MPH: " + str(zero_val) + "s"
+	else:
+		final_stats[5] = "TOP SPEED: " + str(int(top_val)) + " KM/H"
+		final_stats[4] = "0-100 KM/H: " + str(zero_val) + "s"
+
+	# Apply to UI
+	$Control/CarStats/ZeroToHundredLabel.text = final_stats[4]
+	$Control/CarStats/TopSpeedLabel.text = final_stats[5]
+func _apply_speed_unit_to_ui():
+	var zero_label = $Control/CarStats/ZeroToHundredLabel
+	var top_label = $Control/CarStats/TopSpeedLabel
+
+	var zero_text = zero_label.text
+	var top_text = top_label.text
+
+	# Extract numbers
+	var zero_val = float(zero_text.split(" ")[1].replace("KM/H:", "").replace("MPH:", "").replace("s", ""))
+	var top_val = float(top_text.split(" ")[2])
+
+	if SpeedSettings.SPEED_UNIT == "mph":
+		var mph_speed = int(top_val * 0.621371)
+		zero_label.text = "0-62 MPH: " + str(zero_val) + "s"
+		top_label.text = "TOP SPEED: " + str(mph_speed) + " MPH"
+	else:
+		zero_label.text = "0-100 KM/H: " + str(zero_val) + "s"
+		top_label.text = "TOP SPEED: " + str(int(top_val)) + " KM/H"

@@ -1,4 +1,5 @@
 Button
+HSlider
 MeshInstance3D
 CollisionShape3D
 Area3D
@@ -11,4 +12,3 @@ CanvasLayer
 Label
 HBoxContainer
 CarController
-MultiplayerSynchronizer

@@ -520,12 +520,14 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	velocity.z = flat2.z
 
 	if not is_ai and controls_enabled:
-		Global.speed = speed_kmh
-		Global.gear = current_gear
-		if reversing:
-			Global.gear = -1
-		else:
+			Global.speed = SpeedSettings.convert_speed(speed_kmh)
 			Global.gear = current_gear
+			Global.speed_unit = SpeedSettings.get_unit_label()
+
+			if reversing:
+				Global.gear = -1
+			else:
+				Global.gear = current_gear
 
 	current_speed = speed_kmh
 

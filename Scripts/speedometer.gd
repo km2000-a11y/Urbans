@@ -1,8 +1,13 @@
 extends CanvasLayer
 
 var target_car: CarController
+
 func _process(delta: float) -> void:
-	$Control/Speed.text = str(int(round(Global.speed))) + " km/h"
+	$Control/Speed.text = "%d %s" % [
+		int(round(Global.speed)),
+		Global.speed_unit
+	]
+
 	if Global.gear == -1:
 		$Control/Gear.text = "R"
 	else:

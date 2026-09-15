@@ -14,7 +14,9 @@ func update_stopwatch(ms: int) -> void:
 	stopwatch_label.text = "%02d:%05.2f" % [minutes, seconds]
 
 func update_lap(current: int, total: int) -> void:
-	lap_label.text = "Lap: %d/%d" % [current, total]
+	var laps_key := Localization.translate("laps")
+	lap_label.text = "%s: %d/%d" % [laps_key, current, total]
+
 
 func update_position(pos: int, total: int) -> void:
 	var suffix := "th"

@@ -11,6 +11,8 @@ var TEXT := {
 		"career_mode": "Career Mode",
 		"multi_device_play": "Multi-Device Play",
 		"normal_race": "Normal Race",
+		"laps": "Laps",
+
 		"radar_race": "Radar Race",
 		"duel": "Duel",
 		"elimination": "Elimination",
@@ -110,6 +112,8 @@ var TEXT := {
 	"fr": {
 		"road_challenge": "Défi Routier",
 		"free_race": "Course Libre",
+		"laps": "Tours",
+
 		"career_mode": "Mode Carrière",
 		"multi_device_play": "Jeu Multi-Appareils",
 		"normal_race": "Course Normale",
@@ -219,6 +223,8 @@ var TEXT := {
 		"cop_chase": "Polizeijagd",
 		"language_options": "Spracheinstellungen",
 		"colossus": "Colossus-Pokal",
+		"laps": "Runden",
+
 		"enter_ip_of_host_to_join_game": "IP des Hosts eingeben, um beizutreten",
 "join_lan": "LAN beitreten",
 "host_lan": "LAN hosten",
@@ -314,6 +320,8 @@ var TEXT := {
 		"career_mode": "Карьерный режим",
 		"enter_ip_of_host_to_join_game": "Введите IP хоста, чтобы присоединиться",
 "join_lan": "Присоединиться к LAN",
+"laps": "Круги",
+
 "host_lan": "Создать LAN",
 "races_left": "Осталось гонок",
 "challenge_complete": "Испытание завершено!",
@@ -437,6 +445,8 @@ var TEXT := {
 		"all_wheel_grip": "Pogon na sve točkove",
 		"eisenach_cup": "Eisenach Kup",
 		"italy": "Italija",
+		"laps": "Krugovi",
+
 		"uk": "Ujedinjeno Kraljevstvo",
 		"sweden": "Švedska",
 		"back": "Nazad",
@@ -502,6 +512,7 @@ var TEXT := {
 		"transmission": "Transmisija",
 		"country": "Država",
 		"kmh": "km/h",
+		
 	
 		"usa": "SAD",
 		"germany": "Njemačka",
@@ -537,6 +548,8 @@ var TEXT := {
 		"elimination": "Eleme",
 		"cop_chase": "Polis Takibi",
 		"language_options": "Dil Seçenekleri",
+		"laps": "Turlar",
+
 		"colossus": "Colossus Kupası",
 		"street_tuners": "Sokak Tunerları",
 		"muscle_hustle": "Muscle Hustle",

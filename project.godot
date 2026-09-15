@@ -43,6 +43,7 @@ LanManager="*res://lan_manager.gd"
 Localization="*res://localization.gd"
 UiTheme="*res://ui_theme.gd"
 LanguageRefresher="*res://language_refresher.gd"
+SpeedSettings="*res://speed_settings.gd"
 
 [display]
 
