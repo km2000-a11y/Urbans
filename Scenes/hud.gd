@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var stopwatch_label := $Control/StopwatchLabel
 @onready var lap_label := $Control/LapLabel
 @onready var pos_label := $Control/PositionLabel
+@onready var radar_target:=$Control/RadarTargetLabel
 
 # ============================
 # NORMAL RACE HUD
@@ -24,3 +25,12 @@ func update_position(pos: int, total: int) -> void:
 	elif pos == 2: suffix = "nd"
 	elif pos == 3: suffix = "rd"
 	pos_label.text = "%d%s/%d" % [pos, suffix, total]
+func format_speed(speed_kmh: float) -> String:
+	# Check player settings
+	var use_mph := SpeedSettings.SPEED_UNIT == "MPH"
+
+	if use_mph:
+		var mph := speed_kmh * 0.621371
+		return "%d mph" % mph
+	else:
+		return "%d km/h" % speed_kmh

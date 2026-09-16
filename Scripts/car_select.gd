@@ -438,7 +438,7 @@ var sedans = {
 	],
 			"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
-		"0-100 KM/H: 5.6s", "TOP SPEED: 246 KM/H",
+		"0-100 KM/H: 5.9s", "TOP SPEED: 253 KM/H",
 		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
