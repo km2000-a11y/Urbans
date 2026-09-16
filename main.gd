@@ -80,7 +80,12 @@ func _ready():
 			_spawn_player_free_drive()
 
 	if mode == "Radar Race":
-		radar_target_label.text = "Target: %d km/h" % Cars.get_radar_target_speed()
+		var target := Cars.get_radar_target_speed()
+		var formatted := _format_radar_speed(target)
+		radar_target_label.text = "Target: %s" % formatted
+
+		
+		
 		var ws_scene = load("res://Scenes/win_screen_radar.tscn")
 		win_screen_radar = ws_scene.instantiate()
 		add_child(win_screen_radar)
@@ -555,3 +560,11 @@ func _show_championship_reward(cup_id: String):
 		if leaderboard:
 			leaderboard.visible = true
 			leaderboard.show_reward("Championship Completed!\nCongratulations! You have won a " + reward)
+func _format_radar_speed(speed_kmh: float) -> String:
+	var use_mph := SpeedSettings.SPEED_UNIT == "mph"
+
+	if use_mph:
+		var mph := speed_kmh * 0.621371
+		return "%d mph" % mph
+	else:
+		return "%d km/h" % speed_kmh

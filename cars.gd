@@ -723,3 +723,11 @@ func load_upgrades():
 		file.close()
 
 	print("Upgrades loaded:", upgrades.keys())
+func get_radar_target_speed_formatted() -> String:
+	var target_kmh :int= radar_target_speeds.get(selected_class, 180)
+
+	if SpeedSettings.SPEED_UNIT.to_lower() == "mph":
+		var mph := int(target_kmh * 0.621371)
+		return "%d mph" % mph
+	else:
+		return "%d km/h" % target_kmh

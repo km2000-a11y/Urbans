@@ -65,5 +65,6 @@ res://Scenes/bmw_1m.tscn
 res://Scenes/sl_500.tscn
 res://Tracks/new_york.tscn
 res://Scenes/hud.gd
-res://Scenes/volvo_s_60r.gd
+res://main.gd
 res://Scripts/car_select.gd
+res://cars.gd

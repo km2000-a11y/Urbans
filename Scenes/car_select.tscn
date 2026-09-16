@@ -140,9 +140,9 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_top = 494.0
-offset_right = 359.0
-offset_bottom = 570.0
+offset_top = 667.0
+offset_right = 302.0
+offset_bottom = 716.0
 theme_override_font_sizes/font_size = 20
 
 [node name="UpgradesButton" type="Button" parent="Control"]
