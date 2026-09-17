@@ -354,12 +354,8 @@ func _end_race(winner: String) -> void:
 				final_time = p["real_time"]
 			else:
 				# Not finished → estimate time
-				var progress_diff: int = participants[0]["progress"] - p["progress"]
-				var avg_time_per_wp: float = float(winner_time) / max(participants[0]["progress"], 1)
-
-				var penalty: int = int(progress_diff * avg_time_per_wp) + (randi() % 2000 + 500)
-				final_time = winner_time + penalty
-
+				final_time = _estimate_ai_finish_time_for(p["car_obj"])
+				
 		RaceResults.add_result(
 			p["name"],
 			p["car_name"],

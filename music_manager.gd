@@ -25,7 +25,10 @@ func play_race_music() -> void:
 	if TrackName.track_name == "Chernobyl":
 		path = "res://Songs/chernobyl.mp3"
 
-	if TrackName.track_name=="Split" or "Abu Dhabi":
+	if TrackName.track_name=="Split":
+		path="res://Songs/split.mp3"
+		
+	if TrackName.track_name=="AbuDhabi":
 		path="res://Songs/split.mp3"
 	if TrackName.track_name=="NewYork":
 		path="res://Songs/new_york.mp3"

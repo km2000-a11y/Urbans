@@ -55,16 +55,11 @@ res://Tracks/split.tscn
 res://Scenes/win_screen_duel.tscn
 res://Scenes/bmw_m5_e39.tscn
 res://Scenes/championships.tscn
-res://Scenes/audi_a8.tscn
-res://Scenes/s600.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
-res://Scenes/clk_55.tscn
 res://Scenes/language_menu.tscn
 res://Scenes/bmw_1m.tscn
 res://Scenes/sl_500.tscn
 res://Tracks/new_york.tscn
 res://music_manager.gd
-res://Scripts/aston_db9_2007.gd
-res://Scripts/car_select.gd
-res://Scripts/granturismo_s_2009_police.gd
+res://normal_race_manager.gd
