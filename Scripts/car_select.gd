@@ -463,7 +463,7 @@ var sedans = {
 var sport = {
 	"Berkshire V12-S":[
 		"", "Country: UK", "HP: 450", "WEIGHT: 1740 KG",
-		"0-100 KM/H: 5.1s", "TOP SPEED: 293 KM/H",
+		"0-100 KM/H: 5.1s", "TOP SPEED: 296 KM/H",
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
