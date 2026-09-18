@@ -3,40 +3,36 @@ extends CarController
 # COSMETIC INFO (UI only)
 var def_car_name := "Schroder Classique Sport"
 var country := "Germany"
-var engine := "L5 2.5L"
-var weight_kg := 1575
-var zero_to_hundred_display := 4.80
+var engine := "L4 2.0L Turbo"
+var weight_kg := 1420
+var zero_to_hundred_display := 4.90
 
 func _ready():
-	# GAMEPLAY STATS — Audi S4 Convertible (B7)
-	mass = 1470.0
-	horsepower = 340
-	max_rpm = 7000.0
-	zero_to_hundred = 4.6
+	# GAMEPLAY STATS — Audi TTS (8J)
+	mass = 1420.0
+	horsepower = 280
+	max_rpm = 6800.0
+	zero_to_hundred = 4.9
 	top_speed_kmh = 263
-	turn_speed = 2.55              # heavier GT cabrio, stable not twitchy
-	brake_strength = 20.5          # strong brakes for 1.8t quattro chassis
-	lateral_friction = 1.18        # quattro grip, but softer than TT RS
+	turn_speed = 2.95
+	brake_strength = 21.0
+	lateral_friction = 1.20
 	transmission = "Four wheel drive"
 
-	# SHIFT LOGIC — V8 high‑rev character
-	shift_up_rpm = 6800
-	shift_down_rpm = 3000
+	# SHIFT LOGIC — turbo quattro character
+	shift_up_rpm = 6500
+	shift_down_rpm = 2500
 
-	# QUATTRO V8 GEARING (B7 S4 style)
+	# TTS QUATTRO GEARING
 	gear_count = 6
 	gear_ratios = [
-		3.67,  # 1st - strong V8 launch
-		2.05,  # 2nd
-		1.46,  # 3rd
-		1.13,  # 4th
-		0.97,  # 5th
-		0.84   # 6th - long GT overdrive
+		3.36,  # 1st
+		2.09,  # 2nd
+		1.47,  # 3rd
+		1.10,  # 4th
+		0.92,  # 5th
+		0.76   # 6th
 	]
-
-	# HANDLING PROFILE — Executive GT Cabrio
-	# Heavy, planted, mature, quattro stability
-	handling_type = "executive_gt"
 
 	apply_stats()
 	print("Child READY loaded:", def_car_name)

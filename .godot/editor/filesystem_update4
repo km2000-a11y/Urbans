@@ -1,3 +1,7 @@
+res://Scenes/bmw_135.tscn
+res://Scripts/bmw_135i.gd
+res://Scripts/car_select.gd
+res://Scenes/rs3.gd
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -38,9 +42,7 @@ res://Scenes/bmw_535d.tscn
 res://Scenes/morgan_aero_8.tscn
 res://Scenes/audi_a3.tscn
 res://Scenes/audi_q7.tscn
-res://Scenes/lexus_gs430.tscn
 res://Scenes/pause_menu.tscn
-res://Scenes/bmw_135.tscn
 res://Scenes/elimination_hud.tscn
 res://Scenes/elimination_win_screen.tscn
 res://Scenes/mc12.tscn
@@ -61,5 +63,4 @@ res://Scenes/language_menu.tscn
 res://Scenes/bmw_1m.tscn
 res://Scenes/sl_500.tscn
 res://Tracks/new_york.tscn
-res://music_manager.gd
-res://normal_race_manager.gd
+res://Scenes/bmw_530d.gd

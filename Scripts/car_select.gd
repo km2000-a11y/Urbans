@@ -284,8 +284,8 @@ var suv_list = [
 var compact_list = [
 	"Kuro Zephyr",
 	"Schroder Atrix Q32",
+	"Eisenach Bengal",
 	"Zenith Horizon",
-	"Eisenach Bengal"
 ]
 
 var muscle_list = [
@@ -386,11 +386,12 @@ var compact = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Eisenach Bengal":[
-		"", "Country: Germany", "HP: 265", "WEIGHT: 1450 KG",
-		"0-100 KM/H: 6.1s", "TOP SPEED: 246 KM/H",
-		"ENGINE: L6 3.0L", "ASPIRATION: NA", "TORQUE: 320 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+	"", "Country: Germany", "HP: 204", "WEIGHT: 1550 KG",
+	"0-100 KM/H: 6.5s", "TOP SPEED: 246 KM/H",
+		"ENGINE: L4 2.0L Diesel", "ASPIRATION: Twin Turbo",
+	"TORQUE: 400 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 }
 var muscle = {
 	"Brutus Viper":[
@@ -435,7 +436,7 @@ var urban_racers = {
 var sedans = {
 	"Eisenach Suppressor":[
 		"", "Country: Germany", "HP: 218", "WEIGHT: 1660 KG",
-		"0-100 KM/H: 6.7s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 6.5s", "TOP SPEED: 250 KM/H",
 		"ENGINE: L6 3.0L DIESEL", "ASPIRATION: Turbo", "TORQUE: 500 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
@@ -468,9 +469,9 @@ var sport = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 340", "WEIGHT: 1575 KG",
-		"0-100 KM/H: 4.5s", "TOP SPEED: 263 KM/H",
-		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 450 NM",
+		"", "Country: Germany", "HP: 280", "WEIGHT: 1420 KG",
+		"0-100 KM/H: 4.9s", "TOP SPEED: 263 KM/H",
+		"ENGINE: L4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 		"Brutus Stingray":[

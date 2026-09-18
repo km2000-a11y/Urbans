@@ -10890,7 +10890,7 @@ shape = SubResource("BoxShape3D_sl8vj")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7.8542e-06, 1.26467, -89.8418)
 
 [node name="AISpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.63929e-05, 0, 187.513)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.31407e-05, 0, 150.312)
 
 [node name="AISpawnPoint1" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.82846e-05, 0, 209.152)
