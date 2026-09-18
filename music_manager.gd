@@ -29,7 +29,7 @@ func play_race_music() -> void:
 		path="res://Songs/split.mp3"
 		
 	if TrackName.track_name=="AbuDhabi":
-		path="res://Songs/split.mp3"
+		path="res://Songs/abu_dhabi.mp3"
 	if TrackName.track_name=="NewYork":
 		path="res://Songs/new_york.mp3"
 	# Prevent restarting same track
