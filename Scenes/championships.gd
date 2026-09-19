@@ -254,3 +254,11 @@ func _on_dealership_pressed() -> void:
 
 	# Go to Car Select scene in dealership mode
 	get_tree().change_scene_to_file("res://Scenes/car_select.tscn")
+
+
+func _on_berkshire_cup_pressed() -> void:
+	GameMode.game_mode="Club Cups"
+	ChampionshipState.active_cup="berkshire_cup"
+	ChampionshipState.championship_mode=true
+	
+	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")

@@ -27,18 +27,18 @@ var class_lists: Dictionary = {
 
 	"urban": [
 		"Berkshire Blunt",
-		"Eisenach Prince",
 		"Kestrel Speedster",
+		"Eisenach Prince",
 		"Kronstadt Blazer",
 		"Kuro Serenity"
 	],
 
 	"sedans": [
-		"Eisenach Suppressor",
-		"Kuro Vault",
-		"Strandberg Turbo",
-		"Eisenach Prince"
-	],
+	"Eisenach Suppressor",
+	"Kuro Vault",
+	"Strandberg Turbo",
+	"Berkshire Mocha"
+],
 
 	"sport": [
 				"Brutus Stingray",
@@ -78,11 +78,11 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"businessman_racers":[
-		"Eisenach Prince",
-		"Kuro Vault",
-		"Eisenach Suppressor",
-		"Strandberg Turbo",
-	],
+	"Kuro Vault",
+	"Eisenach Suppressor",
+	"Strandberg Turbo",
+	"Berkshire Mocha",
+],
 	"speedster_tournament":[
 		"Kestrel Speedster"
 	],
@@ -109,6 +109,8 @@ var class_lists: Dictionary = {
 	"Colossus Titan Max",
 	"Kestrel Touring",
 	"Berkshire Blunt",
+	"Berkshire Mocha",
+	"Brutus Stingray",
 	"Zenith Horizon",
 	"Kuro Serenity",
 	"Brutus Viper",
@@ -125,7 +127,11 @@ var class_lists: Dictionary = {
 	"Mir Cars Nightwolf",
 	"Kuro Zephyr"
 ],
-
+"berkshire_cup":[
+	"Berkshire Blunt",
+	"Berkshire Mocha",
+	"Berkshire V12-S"
+],
 	"stingray_competition":[
 		"Brutus Stingray"
 	],
@@ -170,26 +176,28 @@ var class_lists: Dictionary = {
 	]
 }
 var cup_rewards: Dictionary = {
-	"colossus": "Kuro Zephyr",                # Lexus IS250
-	"street_tuners": "Brutus Viper",          # Shelby GT500
-	"muscle_hustle": "Schroder Atrix Q32",    # Audi TT Roadster
-	"v6_engines": "Zenith Horizon",           # Nissan 350Z
-	"zenith_competition": "Eisenach Suppressor", # Audi S8
-	"businessman_racers": "Kuro Serenity",    # Lexus SC400
-	"japanese_cup": "Strandberg Turbo",       # Volvo S60R
-	"all_wheel_grip": "Kestrel Speedster",    # Morgan Aero 8
-	"speedster_tournament": "Eisenach Prince",# BMW 1M Coupe
-	"eisenach_cup": "Berkshire Blunt", # Audi S4 Cabriolet
+	"colossus": "Kuro Zephyr",
+	"street_tuners": "Brutus Viper",
+	"muscle_hustle": "Schroder Atrix Q32",
+	"v6_engines": "Zenith Horizon",
+	"zenith_competition": "Eisenach Suppressor",
+	"businessman_racers": "Kuro Serenity",
+	"japanese_cup": "Strandberg Turbo",
+	"all_wheel_grip": "Kestrel Speedster",
+	"speedster_tournament": "Eisenach Prince",
+	"eisenach_cup": "Berkshire Blunt",
+	"berkshire_cup": "Kronstadt Blazer",
 	"under_400_hp": "Schroder Classique Sport",
-	"schroder_cup": "Brutus Stingray",      # Jaguar XKR      # Corvette C6
-	"stingray_competition": "Berkshire V12-S",# Aston Martin DB9
-	"gentleman_racers": "Kestrel Touring",    # TVR Cerbera
-	"kestrel_max": "Linetti Shepherd",        # Lamborghini Gallardo
-	"sport_racing": "Linetti Firestorm",      # Lamborghini Diablo Roadster
-	"v12_engines": "Mir Cars Raptor",         # Saleen S7
-	"supercars": "Bartoli Track Cruiser",     # Maserati MC12
-	"track_cars": "Mir Cars Athletic C70"     # Pagani Zonda
+	"schroder_cup": "Brutus Stingray",
+	"stingray_competition": "Berkshire V12-S",
+	"gentleman_racers": "Kestrel Touring",
+	"kestrel_max": "Linetti Shepherd",
+	"sport_racing": "Linetti Firestorm",
+	"v12_engines": "Mir Cars Raptor",
+	"supercars": "Bartoli Track Cruiser",
+	"track_cars": "Mir Cars Athletic C70"
 }
+
 
 # ============================================================
 #  CHAMPIONSHIPS (ONLY THESE FOUR)
@@ -209,13 +217,13 @@ var career_order: Array = [
 	"all_wheel_grip",
 	"speedster_tournament",
 	"eisenach_cup",
-		"under_400_hp",
-		"schroder_cup",
+	"berkshire_cup",
+	"under_400_hp",
+	"schroder_cup",
 	"stingray_competition",
 	"gentleman_racers",
 	"kestrel_max",
-	"german_cup",
-	"sport_racing",   # ⭐ NEW
+	"sport_racing",
 	"v12_engines",
 	"supercars",
 	"track_cars"
@@ -296,7 +304,7 @@ var cups: Dictionary = {
 "businessman_racers":{
 	"eligible_classes":["businessman_racers"],
 	"eligible_cars":[
-		"Eisenach Prince",
+		"Berkshire Mocha",
 		"Kuro Vault",
 		"Eisenach Suppressor",
 		"Mir Cars Transporter"
@@ -334,12 +342,21 @@ var cups: Dictionary = {
 		"Eisenach Prince"
 	]
 },
+"berkshire_cup":{
+	"eligible_classes":["berkshire_cup"],
+	"eligible_cars":[
+		"Berkshire Mocha",
+		"Berkshire Blunt",
+		"Berkshire V12-S"
+	]
+},
 "under_400_hp":{
 	"eligible_classes":["under_400_hp"],
 	"eligible_cars":[
 	"Mir Cars Hutch",
 	"Eisenach Prince",
 	"Schroder Atrix Q32",
+	"Berkshire Mocha",
 	"Colossus Titan Max",
 	"Kestrel Touring",
 	"Berkshire Blunt",

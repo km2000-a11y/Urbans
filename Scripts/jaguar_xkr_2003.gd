@@ -3,14 +3,14 @@ extends CarController
 # COSMETIC INFO (UI only)
 var def_car_name := "Berkshire Blunt"
 var country := "UK"
-var engine := "V8 4.2L Supercharged"
-var weight_kg := 1832
-var zero_to_hundred_display := 5.60
+var engine := "V8 4.0L Supercharged"
+var weight_kg := 1710
+var zero_to_hundred_display := 5.40
 
 func _ready():
 	# GAMEPLAY STATS
-	mass = 1750.0
-	horsepower = 406
+	mass = 1710.0
+	horsepower = 370
 	max_rpm = 6200.0
 	zero_to_hundred = 5.4
 	top_speed_kmh = 259
@@ -19,18 +19,17 @@ func _ready():
 	lateral_friction = 1.06
 	transmission = "Rear wheel drive"
 
-	# Jaguar XKR-style GT handling (heavy, smooth, torque-rich)
+	# Jaguar XKR coupe GT handling
 	handling_type = "luxury_boat"
 
-	# ⭐ 2003 XKR — ZF 6HP26 6-speed automatic
-	gear_count = 6
+	# Mercedes 5G-Tronic automatic
+	gear_count = 5
 	gear_ratios = [
-		4.171,  # 1st - strong supercharged launch
-		2.340,  # 2nd
-		1.521,  # 3rd
-		1.143,  # 4th
-		0.867,  # 5th
-		0.691   # 6th - overdrive
+		3.59,  # 1st
+		2.19,  # 2nd
+		1.41,  # 3rd
+		1.00,  # 4th
+		0.83   # 5th
 	]
 
 	shift_up_rpm = 5600

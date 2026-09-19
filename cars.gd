@@ -42,16 +42,17 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Berkshire Blunt",
 		"Kestrel Speedster",
+		"Eisenach Prince",
 		"Kronstadt Blazer",
 		"Kuro Serenity"
 	],
 
 	"sedans": [
-		"Eisenach Suppressor",
-		"Kuro Vault",
-		"Strandberg Turbo",
-		"Eisenach Prince"
-	],
+	"Eisenach Suppressor",
+	"Kuro Vault",
+	"Strandberg Turbo",
+	"Berkshire Mocha"
+],
 
 	"sport": [
 				"Brutus Stingray",
@@ -91,11 +92,11 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"businessman_racers":[
-		"Eisenach Prince",
-		"Kuro Vault",
-		"Eisenach Suppressor",
-		"Strandberg Turbo",
-	],
+	"Kuro Vault",
+	"Eisenach Suppressor",
+	"Strandberg Turbo",
+	"Berkshire Mocha",
+],
 	"speedster_tournament":[
 		"Kestrel Speedster"
 	],
@@ -122,6 +123,7 @@ var class_lists: Dictionary = {
 	"Colossus Titan Max",
 	"Kestrel Touring",
 	"Berkshire Blunt",
+	"Berkshire Mocha",
 	"Brutus Stingray",
 	"Zenith Horizon",
 	"Kuro Serenity",
@@ -139,7 +141,11 @@ var class_lists: Dictionary = {
 	"Mir Cars Nightwolf",
 	"Kuro Zephyr"
 ],
-
+"berkshire_cup":[
+	"Berkshire Blunt",
+	"Berkshire Mocha",
+	"Berkshire V12-S"
+],
 	"stingray_competition":[
 		"Brutus Stingray"
 	],
@@ -237,6 +243,7 @@ var car_scene_paths := {
 	"Kestrel Battleaxe":"res://Scenes/sagaris.tscn",
 	"Linetti Shepherd":"res://Scenes/gallardo.tscn",
 	"Brutus Venom":"res://Scenes/dodge_viper.tscn",
+	"Berkshire Mocha":"res://Scenes/jaguar_s_type.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn",
 
 
@@ -399,7 +406,12 @@ var car_colors := {
 	"Berkshire Tempest":[Color8(192,192,192), Color8(255,255,255), Color8(0,80,120), Color8(160,160,160)],
 	"Berkshire V12-S":[Color8(46,54,64), Color8(255,255,255), Color8(80,120,160), Color8(160,160,160)],
 	"Bartoli Cruiser":[Color8(0,157,192), Color8(255,255,255), Color8(180,180,180), Color8(0,90,160)],
-	   
+	   "Berkshire Mocha":[
+	Color8(139,69,19),    # Mocha Brown
+	Color8(255,255,255),  # White
+	Color8(180,180,180),  # Silver
+	Color8(0,70,120)      # Royal Blue
+],
 "Schroder Classique Sport":[
 	Color8(0,192,192),   # ⭐ Cyan — new signature color
 	Color8(255,255,255), # White

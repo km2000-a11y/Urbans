@@ -17,6 +17,7 @@ var car_prices := {
 	"Colossus Titan Max": 10000,
 	"Colossus Behemoth": 0,
 	"Schroder Colosso": 22000,
+	"Berkshire Mocha": 47000,
 	"Mir Cars Nightwolf": 18000,
 	"Kuro Zephyr": 20000,
 	"Schroder Atrix Q32": 35000,
@@ -28,9 +29,9 @@ var car_prices := {
 	"Kuro Vault": 45000,
 	"Kronstadt Fortress": 60000,
 	"Mir Cars Transporter": 52000,
-	"Eisenach Prince": 56000,
+	"Eisenach Prince": 65000,
 	"Strandberg Turbo": 42000,
-	"Kestrel Speedster": 62000,
+	"Kestrel Speedster": 50000,
 	"Eisenach Bengal": 41000,
 	"Kuro Serenity": 43000,
 	"Berkshire Blunt": 72000,
@@ -206,7 +207,12 @@ var car_colors := {
 	Color8(60,60,60),     # Dark Grey
 	Color8(0,0,0)         # Black
 ],
-
+"Berkshire Mocha":[
+	Color8(139,69,19),    # Mocha Brown (default)
+	Color8(255,255,255),  # White
+	Color8(180,180,180),  # Silver
+	Color8(0,70,120)      # British Racing Blue
+],
 	"Mir Cars Transporter":[Color8(192,192,192), Color8(255,255,255), Color8(0,40,80), Color8(160,160,160)],
 	"Kuro Vault":[Color8(123,3,35), Color8(255,255,255), Color8(60,60,60), Color8(0,70,120)],
 
@@ -296,6 +302,7 @@ var muscle_list = [
 var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Speedster",
+	"Eisenach Prince",
 	"Kronstadt Blazer",
 	"Berkshire Blunt",
 ]
@@ -306,7 +313,7 @@ var sedans_list = [
 	"Eisenach Suppressor",
 	"Strandberg Turbo",
 	"Kuro Vault",
-	"Eisenach Prince",
+	"Berkshire Mocha"
 ]
 
 
@@ -421,9 +428,15 @@ var urban_racers = {
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	"Berkshire Blunt":[
-		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
+		"", "Country: UK", "HP: 370", "WEIGHT: 1750 KG",
 		"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
+		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 520 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Eisenach Prince":[
+		"", "Country: Germany", "HP: 400", "WEIGHT: 1725 KG",
+		"0-100 KM/H: 5.1s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V8 4.9L", "ASPIRATION: NA", "TORQUE: 500 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kuro Serenity":[
@@ -442,24 +455,23 @@ var sedans = {
 	],
 			"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
-		"0-100 KM/H: 5.9s", "TOP SPEED: 253 KM/H",
+		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
 		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
-			"Eisenach Prince":[
-		"", "Country: Germany", "HP: 400", "WEIGHT: 1725 KG",
-		"0-100 KM/H: 5.5s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.9L", "ASPIRATION: NA", "TORQUE: 500 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+			
 	"Kuro Vault":[
 		"", "Country: Japan", "HP: 290", "WEIGHT: 1760 KG",
 		"0-100 KM/H: 6.4s", "TOP SPEED: 257 KM/H",
 		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-
-
+"Berkshire Mocha":[
+	"", "Country: UK", "HP: 300", "WEIGHT: 1750 KG",
+	"0-100 KM/H: 5.7s", "TOP SPEED: 253 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 }
 var sport = {
 	"Berkshire V12-S":[
@@ -602,6 +614,7 @@ func _apply_dealership_ui():
 var car_scene_paths = {
 	"Colossus Titan Max":"res://Scenes/hummer_h1.tscn",
 	"Colossus Behemoth":"res://Scenes/hummer_h2.tscn",
+	"Berkshire Mocha":"res://Scenes/jaguar_s_type.tscn",
 	"Mir Cars Nightwolf":"res://Scenes/lexus_lx470.tscn",
 	"Straeda Pitbull":"res://Scenes/vw_touareg_v10.tscn",
 
