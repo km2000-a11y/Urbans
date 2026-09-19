@@ -146,6 +146,34 @@ var class_lists: Dictionary = {
 	"Berkshire Mocha",
 	"Berkshire V12-S"
 ],
+	"diesel_masters": [
+		"Eisenach Bengal",
+		"Eisenach Suppressor",
+		"Schroder Colosso"
+	],
+
+	"american_thunder": [
+		"Mir Cars Hutch",
+		"Brutus Viper",
+		"Brutus Stingray",
+		"Brutus Venom"
+	],
+
+	"british_invasion": [
+		"Kestrel Speedster",
+		"Berkshire Blunt",
+		"Berkshire V12-S",
+		"Kestrel Touring",
+		"Kestrel Battleaxe",
+		"Kestrel Guillotine"
+	],
+
+	"grand_touring": [
+		"Kuro Serenity",
+		"Berkshire Blunt",
+		"Kronstadt Blazer",
+		"Berkshire V12-S"
+	],
 	"stingray_competition":[
 		"Brutus Stingray"
 	],

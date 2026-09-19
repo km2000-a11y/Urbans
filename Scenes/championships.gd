@@ -14,8 +14,6 @@ func _input(event):
 	if event.is_action_pressed("champ_unlock"):
 		var current = ClubCups.get_current_cup()
 		ClubCups.complete_cup(current)
-		Cars.player_money+=10000
-		Cars.save_money()
 		print("Debug: advanced career, unlocked next cup")
 		_update_button_states()
 	if $Control.has_node("Money"):
@@ -57,6 +55,14 @@ func _update_button_states():
 	$Control/ScrollContainer/VBoxContainer/Under400HP.disabled = not ClubCups.is_cup_unlocked("under_400_hp")
 	$Control/ScrollContainer/VBoxContainer/StingrayCompetition.disabled = not ClubCups.is_cup_unlocked("stingray_competition")
 	$Control/ScrollContainer/VBoxContainer/SchroderCup.disabled = not ClubCups.is_cup_unlocked("schroder_cup")
+	$Control/ScrollContainer/VBoxContainer/DieselMasters.disabled = not ClubCups.is_cup_unlocked("diesel_masters")
+
+	$Control/ScrollContainer/VBoxContainer/AmericanThunder.disabled = not ClubCups.is_cup_unlocked("american_thunder")
+
+	$Control/ScrollContainer/VBoxContainer/BritishInvasion.disabled = not ClubCups.is_cup_unlocked("british_invasion")
+
+	$Control/ScrollContainer/VBoxContainer/GrandTouring.disabled = not ClubCups.is_cup_unlocked("grand_touring")
+	$Control/ScrollContainer/VBoxContainer/BerkshireCup.disabled=not ClubCups.is_cup_unlocked("berkshire_cup")
 	$Control/ScrollContainer/VBoxContainer/GentlemanRacers.disabled = not ClubCups.is_cup_unlocked("gentleman_racers")
 	$Control/ScrollContainer/VBoxContainer/JapaneseCup.disabled = not ClubCups.is_cup_unlocked("japanese_cup")
 	$Control/ScrollContainer/VBoxContainer/GermanCup.disabled = not ClubCups.is_cup_unlocked("german_cup")
@@ -259,6 +265,45 @@ func _on_dealership_pressed() -> void:
 func _on_berkshire_cup_pressed() -> void:
 	GameMode.game_mode="Club Cups"
 	ChampionshipState.active_cup="berkshire_cup"
+	ChampionshipState.championship_mode=true
+	
+	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
+
+
+
+
+func _on_diesel_masters_pressed() -> void:
+	GameMode.game_mode="Club Cups"
+	ChampionshipState.active_cup="diesel_masters"
+	ChampionshipState.championship_mode=true
+	
+	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
+
+
+
+
+func _on_american_thunder_pressed() -> void:
+	GameMode.game_mode="Club Cups"
+	ChampionshipState.active_cup="american_thunder"
+	ChampionshipState.championship_mode=true
+	
+	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
+
+
+
+
+func _on_british_invasion_pressed() -> void:
+	GameMode.game_mode="Club Cups"
+	ChampionshipState.active_cup="british_invasion"
+	ChampionshipState.championship_mode=true
+	
+	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
+
+
+
+func _on_grand_touring_pressed() -> void:
+	GameMode.game_mode="Club Cups"
+	ChampionshipState.active_cup="grand_touring"
 	ChampionshipState.championship_mode=true
 	
 	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")

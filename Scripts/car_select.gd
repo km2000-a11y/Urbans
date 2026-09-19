@@ -13,46 +13,106 @@ var top_speed_kmh: float
 var zero_to_hundred: float
 
 var unlocked_cars := {}
-var car_prices := {
-	"Colossus Titan Max": 10000,
+var car_sell_prices := {
+	"Colossus Titan Max": 9000,
 	"Colossus Behemoth": 0,
-	"Schroder Colosso": 22000,
-	"Berkshire Mocha": 47000,
-	"Mir Cars Nightwolf": 18000,
-	"Kuro Zephyr": 20000,
-	"Schroder Atrix Q32": 35000,
+	"Mir Cars Nightwolf": 16800,
+	"Schroder Colosso": 21000,
+
+	"Kuro Zephyr": 24000,
+	"Schroder Atrix Q32": 33000,
 	"Zenith Horizon": 39000,
-	"Brutus Viper": 28000,
-	"Mir Cars Hutch": 33000,
-	"Eisenach Suppressor": 38000,
-	"Kuro Persian": 56000,
-	"Kuro Vault": 45000,
-	"Kronstadt Fortress": 60000,
-	"Mir Cars Transporter": 52000,
-	"Eisenach Prince": 65000,
-	"Strandberg Turbo": 42000,
-	"Kestrel Speedster": 50000,
-	"Eisenach Bengal": 41000,
-	"Kuro Serenity": 43000,
-	"Berkshire Blunt": 72000,
-	"Kronstadt Blazer": 67000,
-	"Brutus Stingray": 100000,
-	"Eisenach Goblin": 75000,
-	"Berkshire V12-S": 120000,
-	"Schroder Classique Sport": 75000,
-	"Kestrel Touring": 150000,
-	"Linetti Shepherd": 200000,
-	"Brutus Venom": 187000,
-	"Schroder Atrocity": 150000,
-	"Kestrel Battleaxe": 164000,
-	"Kestrel Guillotine": 215000,
-	"Linetti Terror": 340000,
-	"Mir Cars Raptor": 270000,
-	"Linetti Firestorm": 240000,
-	"Mir Cars Athletic C70": 600000,
-	"Bartoli Track Cruiser": 480000,
-	"Brutus Thunderbolt": 530000,
+	"Eisenach Bengal": 42000,
+
+	"Brutus Viper": 30000,
+	"Mir Cars Hutch": 36000,
+
+	"Eisenach Suppressor": 42000,
+	"Strandberg Turbo": 48000,
+	"Kuro Vault": 51000,
+	"Berkshire Mocha": 54000,
+
+	"Mir Cars Transporter": 63000,
+	"Kuro Persian": 66000,
+	"Kronstadt Fortress": 72000,
+
+	"Kuro Serenity": 51000,
+	"Kestrel Speedster": 57000,
+	"Eisenach Prince": 72000,
+	"Berkshire Blunt": 78000,
+	"Kronstadt Blazer": 84000,
+
+	"Schroder Classique Sport": 96000,
+	"Brutus Stingray": 108000,
+	"Eisenach Goblin": 114000,
+	"Berkshire V12-S": 132000,
+	"Kestrel Touring": 156000,
+
+	"Schroder Atrocity": 168000,
+	"Brutus Venom": 192000,
+	"Kestrel Battleaxe": 210000,
+	"Linetti Shepherd": 228000,
+
+	"Kestrel Guillotine": 270000,
+	"Linetti Firestorm": 300000,
+	"Mir Cars Raptor": 330000,
+	"Linetti Terror": 390000,
+
+	"Bartoli Track Cruiser": 540000,
+	"Brutus Thunderbolt": 600000,
+	"Mir Cars Athletic C70": 720000
 }
+
+var car_prices := {
+	"Colossus Titan Max": 15000,
+	"Colossus Behemoth": 0,
+	"Mir Cars Nightwolf": 28000,
+	"Schroder Colosso": 35000,
+
+	"Kuro Zephyr": 40000,
+	"Schroder Atrix Q32": 55000,
+	"Zenith Horizon": 65000,
+	"Eisenach Bengal": 70000,
+
+	"Brutus Viper": 50000,
+	"Mir Cars Hutch": 60000,
+
+	"Eisenach Suppressor": 70000,
+	"Strandberg Turbo": 80000,
+	"Kuro Vault": 85000,
+	"Berkshire Mocha": 90000,
+
+	"Mir Cars Transporter": 105000,
+	"Kuro Persian": 110000,
+	"Kronstadt Fortress": 120000,
+
+	"Kuro Serenity": 85000,
+	"Kestrel Speedster": 95000,
+	"Eisenach Prince": 120000,
+	"Berkshire Blunt": 130000,
+	"Kronstadt Blazer": 140000,
+
+	"Schroder Classique Sport": 160000,
+	"Brutus Stingray": 180000,
+	"Eisenach Goblin": 190000,
+	"Berkshire V12-S": 220000,
+	"Kestrel Touring": 260000,
+
+	"Schroder Atrocity": 280000,
+	"Brutus Venom": 320000,
+	"Kestrel Battleaxe": 350000,
+	"Linetti Shepherd": 380000,
+
+	"Kestrel Guillotine": 450000,
+	"Linetti Firestorm": 500000,
+	"Mir Cars Raptor": 550000,
+	"Linetti Terror": 650000,
+
+	"Bartoli Track Cruiser": 900000,
+	"Brutus Thunderbolt": 1000000,
+	"Mir Cars Athletic C70": 1200000
+}
+
 
 # 3D Preview
 @onready var preview_holder: Node3D = $SubViewportContainer/SubViewport/CarPreview/CarHolder
@@ -751,12 +811,10 @@ func update_car_ui(stats: Array, name: String):
 	var final_stats = stats.duplicate()
 
 	# ============================
-	# 1. STOCK STATS IN DEALERSHIP
+	# STOCK STATS IN DEALERSHIP
 	# ============================
-	
-	
+
 	if Cars.dealership_mode:
-	# Mark all stat labels with their original English source text
 		$Control/CarStats/CountryLabel.set_meta("source_text", final_stats[1])
 		$Control/CarStats/HPLabel.set_meta("source_text", final_stats[2])
 		$Control/CarStats/WeightLabel.set_meta("source_text", final_stats[3])
@@ -768,31 +826,26 @@ func update_car_ui(stats: Array, name: String):
 		$Control/CarStats/TransmissionLabel.set_meta("source_text", final_stats[9])
 
 	else:
-		# ============================
-		# 2. DYNAMIC STATS IN CLUB CUPS
-		# ============================
 		if GameMode.game_mode == "Club Cups" and preview_car != null:
 			var cc = find_car_controller(preview_car)
+
 			if cc != null:
-				var top_speed_kmh :int= cc.top_speed_kmh
-				var zero_to_hundred :float= cc.zero_to_hundred
+				var top_speed_kmh: int = cc.top_speed_kmh
+				var zero_to_hundred: float = cc.zero_to_hundred
 
 				if SpeedSettings.SPEED_UNIT.to_lower() == "mph":
 					var mph_speed := int(top_speed_kmh * 0.621371)
+
 					$Control/CarStats/ZeroToHundredLabel.text = "0-62 MPH: %.2fs" % zero_to_hundred
 					$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: %d MPH" % mph_speed
 				else:
 					$Control/CarStats/ZeroToHundredLabel.text = "0-100 KM/H: %.2fs" % zero_to_hundred
 					$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: %d KM/H" % int(top_speed_kmh)
-			else:
-				# fallback for dealership (static stats)
-				$Control/CarStats/ZeroToHundredLabel.text = final_stats[4]
-				$Control/CarStats/TopSpeedLabel.text = final_stats[5]
-
 
 	# ============================
-	# 3. APPLY STATS TO UI
+	# APPLY STATS TO UI
 	# ============================
+
 	$Control/Cars/CarName.text = name
 	$Control/CarStats/PPLabel.text = stats[0]
 	$Control/CarStats/CountryLabel.text = final_stats[1]
@@ -806,67 +859,73 @@ func update_car_ui(stats: Array, name: String):
 	$Control/CarStats/TransmissionLabel.text = final_stats[9]
 
 	# ============================
-	# 4. DEALERSHIP UI LOGIC
+	# DEALERSHIP LOGIC
 	# ============================
+
 	if Cars.dealership_mode:
-		var price = car_prices.get(name, 0)
-		var balance = Cars.player_money
 
-		# Update price + balance labels
-		$MoneyLabel.text = "money: $" + str(balance)
-		$Control/CarStats/PriceLabel.text = "price: $" + str(price)
-		$Control/Label.text = "insufficient_cash"
-		$Select.text = "buy"
+		var price :int= car_prices.get(name, 0)
+		var sale_price :int= car_sell_prices.get(name, 0)
+		var balance := Cars.player_money
 
-		# Reset BUY button + message
-		$Select.disabled = false
-		$Select.text = "BUY"
+		$MoneyLabel.text = "BALANCE: $" + str(balance)
+
 		$Control/Label.text = ""
 		$Control/Label.modulate = Color.WHITE
 
-		# Already owned
+		# Already owned = SELL
 		if Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name]["unlocked"]:
-			$Control/Label.text = "already_owned"
-			$Control/Label.modulate = Color.RED
-			$Select.disabled = true
 
-		# Not enough money
-		elif balance < price:
-			$Control/Label.text = "insufficient_cash"
-			$Control/Label.modulate = Color.RED
-			$Select.disabled = true
+			$Control/CarStats/PriceLabel.text = "%s: $%d" % [
+	Localization.translate("sale_price"),
+	sale_price
+]
+			$Select.text = Localization.translate("sell")
+			$Select.disabled = false
+
 		
+
+		# Not owned = BUY
+		else:
+
+			$Control/CarStats/PriceLabel.text = "PRICE: $" + str(price)
+
+			$Select.text = "BUY"
+			$Select.disabled = false
+
+			if balance < price:
+				$Control/Label.text = "INSUFFICIENT CASH"
+				$Control/Label.modulate = Color.RED
+				$Select.disabled = true
+
 	# ============================
-# 5. APPLY SPEED UNIT CONVERSION LAST
-# ============================
+	# SPEED UNIT DISPLAY
+	# ============================
+
 	if SpeedSettings.SPEED_UNIT == "mph":
-		# Extract KM/H values from final_stats
+
 		var zero_text = final_stats[4]
 		var top_text = final_stats[5]
 
-		# Parse numbers
 		var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
 		var top_val = float(top_text.split(" ")[2])
 
-		# Convert
 		var mph_speed = int(top_val * 0.621371)
 
-		# Apply to UI
 		$Control/CarStats/ZeroToHundredLabel.text = "0-62 MPH: " + str(zero_val) + "s"
 		$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: " + str(mph_speed) + " MPH"
+
 	else:
-		# Reapply KM/H cleanly
+
 		var zero_text = final_stats[4]
 		var top_text = final_stats[5]
 
 		var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
-
 		var top_val = float(top_text.split(" ")[2])
 
 		$Control/CarStats/ZeroToHundredLabel.text = "0-100 KM/H: " + str(zero_val) + "s"
 		$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: " + str(int(top_val)) + " KM/H"
-
-# ------------------	-------
+#---------------	-------
 # 3D PREVIEW LOADING
 # -------------------------
 func load_preview_car(path: String):
@@ -1142,38 +1201,58 @@ func _on_select_pressed() -> void:
 		return
 
 	if Cars.dealership_mode:
-		var price :int= car_prices.get(car_name, 0)
-		var balance := Cars.player_money
 
-		# Already owned
+		var price: int = car_prices.get(car_name, 0)
+		var sale_price: int = car_sell_prices.get(car_name, 0)
+
+		# =========================
+		# SELL CAR
+		# =========================
 		if Cars.unlocked_cars.has(car_name) and Cars.unlocked_cars[car_name]["unlocked"]:
-			$Control/Label.text = Localization.translate("already_owned")
-			$Control/Label.modulate = Color.RED
-			$Select.disabled = true
+
+			# Prevent selling starter car
+			if car_name == "Colossus Behemoth":
+				$Control/Label.text = Localization.translate("starter_car")
+				$Control/Label.modulate = Color.RED
+				return
+
+			Cars.add_money(sale_price)
+
+			Cars.unlocked_cars.erase(car_name)
+			Cars.save_unlocked_cars()
+
+			$Control/Label.text = Localization.translate("sold")
+			$Control/Label.modulate = Color.GREEN
+
+			$MoneyLabel.text = "balance: $" + str(Cars.player_money)
+
+			update_car_ui(get_stats_for(car_name), car_name)
+
 			return
 
-		# Not enough money
-		if balance < price:
+		# =========================
+		# BUY CAR
+		# =========================
+		if Cars.player_money < price:
 			$Control/Label.text = Localization.translate("insufficient_cash")
 			$Control/Label.modulate = Color.RED
-			$Select.disabled = true
 			return
 
-		# Purchase successful
-		Cars.player_money -= price
-		Cars.save_money()
+		Cars.spend_money(price)
 		Cars.unlock_car(car_name, "dealership")
 
 		$Control/Label.text = Localization.translate("purchased")
 		$Control/Label.modulate = Color.GREEN
 
-		var money_key := Localization.translate("balance")
-		$MoneyLabel.text = "%s: $%d" % [money_key, Cars.player_money]
+		$MoneyLabel.text = "balance: $" + str(Cars.player_money)
 
-		$Select.disabled = true
+		update_car_ui(get_stats_for(car_name), car_name)
+
 		return
 
-	# Normal SELECT behavior
+	# =========================
+	# NORMAL CAR SELECT
+	# =========================
 	Cars.on_car_selected(car_name)
 	Cars.selected_car_name = car_name
 	Cars.selected_car = Cars.car_scene_paths.get(car_name, "")
@@ -1181,8 +1260,6 @@ func _on_select_pressed() -> void:
 	Cars.save_color()
 
 	get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
-
-
 func _on_back_btn_pressed() -> void:
 	if GameMode.game_mode == "Road Challenge":
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
@@ -1265,25 +1342,41 @@ func _update_upgrade_menu():
 		return
 
 	var u = Cars.upgrades[car_name]
+
 	$UpgradeMenu/VBoxContainer/CarLabel.text = car_name
+
+	# Section Titles
+	$UpgradeMenu/VBoxContainer/WeightReduction/Label.text = Localization.translate("weight_reduction")
+	$UpgradeMenu/VBoxContainer/EngineTune/Label.text = Localization.translate("engine_tune")
+	$UpgradeMenu/VBoxContainer/Steering/Label.text = Localization.translate("steering")
+	$UpgradeMenu/VBoxContainer/Brakes/Label.text = Localization.translate("brakes")
+
 	# Weight Reduction
-	$UpgradeMenu/VBoxContainer/WeightReduction/Stage.text = "Stage: " + str(u["weight"])
-	$UpgradeMenu/VBoxContainer/WeightReduction/Price.text = "$" + str(2000 * (u["weight"] + 1))
+	$UpgradeMenu/VBoxContainer/WeightReduction/Stage.text = \
+		Localization.translate("stage") + ": " + str(u["weight"])
+	$UpgradeMenu/VBoxContainer/WeightReduction/Price.text = \
+		"$" + str(2000 * (u["weight"] + 1))
 
 	# Engine Tune
-	$UpgradeMenu/VBoxContainer/EngineTune/Stage.text = "Stage: " + str(u["engine"])
-	$UpgradeMenu/VBoxContainer/EngineTune/Price.text = "$" + str(2500 * (u["engine"] + 1))
+	$UpgradeMenu/VBoxContainer/EngineTune/Stage.text = \
+		Localization.translate("stage") + ": " + str(u["engine"])
+	$UpgradeMenu/VBoxContainer/EngineTune/Price.text = \
+		"$" + str(2500 * (u["engine"] + 1))
 
 	# Steering
-	$UpgradeMenu/VBoxContainer/Steering/Stage.text = "Stage: " + str(u["steering"])
-	$UpgradeMenu/VBoxContainer/Steering/Price.text = "$" + str(1500 * (u["steering"] + 1))
+	$UpgradeMenu/VBoxContainer/Steering/Stage.text = \
+		Localization.translate("stage") + ": " + str(u["steering"])
+	$UpgradeMenu/VBoxContainer/Steering/Price.text = \
+		"$" + str(1500 * (u["steering"] + 1))
 
 	# Brakes
-	$UpgradeMenu/VBoxContainer/Brakes/Stage.text = "Stage: " + str(u["brakes"])
-	$UpgradeMenu/VBoxContainer/Brakes/Price.text = "$" + str(1800 * (u["brakes"] + 1))
+	$UpgradeMenu/VBoxContainer/Brakes/Stage.text = \
+		Localization.translate("stage") + ": " + str(u["brakes"])
+	$UpgradeMenu/VBoxContainer/Brakes/Price.text = \
+		"$" + str(1800 * (u["brakes"] + 1))
 
 	# Money
-	$MoneyLabel.text = "Money: $" + str(Cars.player_money)
+	$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
 func get_list_for_class(class_id: String) -> Array:
 	match class_id:
 		"suv":

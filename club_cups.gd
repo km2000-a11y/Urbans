@@ -3,7 +3,32 @@ extends Node
 # ============================================================
 #  FULL CLASS LIST (LOCAL — SELF-CONTAINED)
 # ============================================================
-
+var cash_rewards: Dictionary = {
+	"colossus": 5000,
+	"street_tuners": 10000,
+	"muscle_hustle": 12000,
+	"v6_engines": 15000,
+	"zenith_competition": 18000,
+	"businessman_racers": 20000,
+	"japanese_cup": 22000,
+	"all_wheel_grip": 25000,
+	"speedster_tournament": 28000,
+	"eisenach_cup": 30000,
+	"berkshire_cup": 35000,
+	"under_400_hp": 40000,
+	"schroder_cup": 45000,
+	"stingray_competition": 50000,
+	"gentleman_racers": 55000,
+	"kestrel_max": 60000,
+	"diesel_masters": 65000,
+	"american_thunder": 70000,
+	"british_invasion": 75000,
+	"grand_touring": 80000,
+	"sport_racing": 85000,
+	"v12_engines": 90000,
+	"supercars": 100000,
+	"track_cars": 120000
+}
 
 var class_lists: Dictionary = {
 	"suv": [
@@ -132,6 +157,34 @@ var class_lists: Dictionary = {
 	"Berkshire Mocha",
 	"Berkshire V12-S"
 ],
+	"diesel_masters": [
+		"Eisenach Bengal",
+		"Eisenach Suppressor",
+		"Schroder Colosso"
+	],
+
+	"american_thunder": [
+		"Mir Cars Hutch",
+		"Brutus Viper",
+		"Brutus Stingray",
+		"Brutus Venom"
+	],
+
+	"british_invasion": [
+		"Kestrel Speedster",
+		"Berkshire Blunt",
+		"Berkshire V12-S",
+		"Kestrel Touring",
+		"Kestrel Battleaxe",
+		"Kestrel Guillotine"
+	],
+
+	"grand_touring": [
+		"Kuro Serenity",
+		"Berkshire Blunt",
+		"Kronstadt Blazer",
+		"Berkshire V12-S"
+	],
 	"stingray_competition":[
 		"Brutus Stingray"
 	],
@@ -214,15 +267,19 @@ var career_order: Array = [
 	"zenith_competition",
 	"businessman_racers",
 	"japanese_cup",
+	"diesel_masters",
 	"all_wheel_grip",
 	"speedster_tournament",
 	"eisenach_cup",
 	"berkshire_cup",
 	"under_400_hp",
 	"schroder_cup",
+	"american_thunder",
+	"british_invasion",
 	"stingray_competition",
 	"gentleman_racers",
 	"kestrel_max",
+	"grand_touring",
 	"sport_racing",
 	"v12_engines",
 	"supercars",
@@ -238,11 +295,12 @@ func get_current_cup() -> String:
 
 func is_cup_unlocked(cup_id: String) -> bool:
 	return unlocked_cups.has(cup_id)
-
 func complete_cup(cup_id: String) -> void:
 	var idx = career_order.find(cup_id)
+
 	if idx != -1 and idx == current_stage:
 		current_stage += 1
+
 		if current_stage < career_order.size():
 			var next_cup = career_order[current_stage]
 			unlocked_cups.append(next_cup)
@@ -250,14 +308,23 @@ func complete_cup(cup_id: String) -> void:
 		else:
 			print("Career completed!")
 
-	# Unlock reward car
+	# Award reward car
 	if cup_rewards.has(cup_id):
 		var reward_car = cup_rewards[cup_id]
 		Cars.unlock_car(reward_car, cup_id)
-		print("Unlocked car:", reward_car, "from cup:", cup_id)
+		print("Unlocked car: ", reward_car)
+
+	# Award championship cash
+	if cash_rewards.has(cup_id):
+		var cash_reward: int = cash_rewards[cup_id]
+
+		Cars.add_money(cash_reward)
+
+		print("Awarded cash: $", cash_reward)
+		print("Player balance: $", Cars.player_money)
 
 	save_progress()
-
+	
 	
 var cups: Dictionary = {
 	"colossus": {
@@ -293,6 +360,46 @@ var cups: Dictionary = {
 	"eligible_cars": [
 		"Zenith Horizon",
 		"Schroder Atrix Q32"
+	]
+},
+"diesel_masters": {
+	"eligible_classes": ["diesel_masters"],
+	"eligible_cars": [
+		"Eisenach Bengal",
+		"Eisenach Suppressor",
+		"Schroder Colosso"
+	]
+},
+
+"american_thunder": {
+	"eligible_classes": ["american_thunder"],
+	"eligible_cars": [
+		"Mir Cars Hutch",
+		"Brutus Viper",
+		"Brutus Stingray",
+		"Brutus Venom"
+	]
+},
+
+"british_invasion": {
+	"eligible_classes": ["british_invasion"],
+	"eligible_cars": [
+		"Kestrel Speedster",
+		"Berkshire Blunt",
+		"Berkshire V12-S",
+		"Kestrel Touring",
+		"Kestrel Battleaxe",
+		"Kestrel Guillotine"
+	]
+},
+
+"grand_touring": {
+	"eligible_classes": ["grand_touring"],
+	"eligible_cars": [
+		"Kuro Serenity",
+		"Berkshire Blunt",
+		"Kronstadt Blazer",
+		"Berkshire V12-S"
 	]
 },
 "zenith_competition":{

@@ -63,6 +63,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "JAPANESE CUP"
 
+[node name="DieselMasters" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "DIESEL MASTERS"
+
 [node name="AllWheelGrip" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -90,7 +95,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "EISENACH CUP"
 
-[node name="Berkshire Cup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="BerkshireCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "BERKSHIRE CUP"
@@ -104,6 +109,16 @@ text = "UNDER 400 HP"
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "SCHRODER CUP"
+
+[node name="AmericanThunder" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "AMERICAN THUNDER"
+
+[node name="BritishInvasion" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BRITISH INVASION"
 
 [node name="StingrayCompetition" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -119,6 +134,12 @@ text = "GENTLEMAN RACERS"
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "KESTREL MAX CHAMPIONSHIP"
+
+[node name="GrandTouring" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "GRAND TOURING
+"
 
 [node name="SportRacing" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -165,17 +186,21 @@ text = "CAR DEALERSHIP"
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ZenithCompetition" to="." method="_on_zenith_competition_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BusinessmanRacers" to="." method="_on_businessman_racers_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/JapaneseCup" to="." method="_on_japanese_cup_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/DieselMasters" to="." method="_on_diesel_masters_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AllWheelGrip" to="." method="_on_all_wheel_grip_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SpeedsterTournament" to="." method="_on_speedster_tournament_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KuroCup" to="." method="_on_kuro_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GermanCup" to="." method="_on_german_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/EisenachCup" to="." method="_on_eisenach_cup_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Berkshire Cup" to="." method="_on_berkshire_cup_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BerkshireCup" to="." method="_on_berkshire_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Under400HP" to="." method="_on_under_400hp_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SchroderCup" to="." method="_on_schroder_cup_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AmericanThunder" to="." method="_on_american_thunder_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BritishInvasion" to="." method="_on_british_invasion_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/StingrayCompetition" to="." method="_on_stingray_competition_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GentlemanRacers" to="." method="_on_gentleman_racers_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KestrelMax" to="." method="_on_kestrel_max_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GrandTouring" to="." method="_on_grand_touring_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SportRacing" to="." method="_on_sport_racing_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/V12Engines" to="." method="_on_v_12_engines_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Supercars" to="." method="_on_supercars_pressed"]
