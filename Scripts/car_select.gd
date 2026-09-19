@@ -364,7 +364,6 @@ var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Speedster",
 	"Eisenach Prince",
-	"Kronstadt Blazer",
 	"Berkshire Blunt",
 ]
 
@@ -482,12 +481,6 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kronstadt Blazer":[
-	"", "Country: Germany", "HP: 315", "WEIGHT: 1835 KG",
-	"0-100 KM/H: 5.9s", "TOP SPEED: 265 KM/H",
-	"ENGINE: V8 5.0L", "ASPIRATION: NA", "TORQUE: 470 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
 	"Berkshire Blunt":[
 		"", "Country: UK", "HP: 370", "WEIGHT: 1750 KG",
 		"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",

@@ -43,7 +43,7 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Kestrel Speedster",
 		"Eisenach Prince",
-		"Kronstadt Blazer",
+
 		"Kuro Serenity"
 	],
 
@@ -133,7 +133,7 @@ var class_lists: Dictionary = {
 	"Schroder Colosso",
 	"Mir Cars Transporter",
 	"Eisenach Suppressor",
-	"Kronstadt Blazer",
+
 	"Kestrel Speedster",
 	"Colossus Behemoth",
 	"Schroder Classique Sport",
@@ -171,7 +171,7 @@ var class_lists: Dictionary = {
 	"grand_touring": [
 		"Kuro Serenity",
 		"Berkshire Blunt",
-		"Kronstadt Blazer",
+
 		"Berkshire V12-S"
 	],
 	"stingray_competition":[
@@ -186,7 +186,7 @@ var class_lists: Dictionary = {
 	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Kronstadt Blazer",
+
 		"Kestrel Speedster"
 	],
 		"japanese_cup":[
@@ -203,7 +203,7 @@ var class_lists: Dictionary = {
 				"Eisenach Suppressor",
 		"Eisenach Bengal",
 
-		"Kronstadt Blazer",
+
 		"Eisenach Prince",
 	],
 		"kestrel_max":[
