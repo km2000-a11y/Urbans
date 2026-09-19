@@ -5,11 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>Urban Drive v0.1</string>
+	<string>Urban Drive</string>
 	<key>CFBundleName</key>
-	<string>Urban Drive v0.1</string>
+	<string>Urban Drive </string>
 	<key>CFBundleDisplayName</key>
-	<string>Urban Drive v0.1</string>
+	<string>Urban Drive </string>
 	<key>CFBundleIconFile</key>
 	<string>icon.icns</string>
 	<key>CFBundleIdentifier</key>
