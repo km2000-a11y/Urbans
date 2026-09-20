@@ -1,6 +1,4 @@
 res://main.tscn
-res://cop_chase_manager.gd
-res://elimination_manager.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -11,7 +9,6 @@ res://Scenes/nissan_350z.tscn
 res://Scenes/jaguar_xkr.tscn
 res://Scenes/chevrolet_corvette_c5.tscn
 res://Scenes/aston_db9.tscn
-res://Scenes/vanquish.tscn
 res://Scenes/gt500.tscn
 res://Scenes/diablo_road.tscn
 res://Scenes/sagaris.tscn
@@ -62,4 +59,4 @@ res://Scenes/language_menu.tscn
 res://Scenes/sl_500.tscn
 res://Tracks/new_york.tscn
 res://Scenes/jaguar_s_type.tscn
-res://localization.gd
+res://normal_race_manager.gd
