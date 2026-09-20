@@ -40,11 +40,11 @@ var car_sell_prices := {
 	"Kuro Serenity": 51000,
 	"Kestrel Speedster": 57000,
 	"Eisenach Prince": 72000,
-	"Berkshire Blunt": 78000,
+	"Berkshire Blunt": 100000,
 	"Kronstadt Blazer": 84000,
 
 	"Schroder Classique Sport": 96000,
-	"Brutus Stingray": 108000,
+	"Brutus Stingray": 84000,
 	"Eisenach Goblin": 114000,
 	"Berkshire V12-S": 132000,
 	"Kestrel Touring": 156000,
@@ -364,7 +364,7 @@ var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Speedster",
 	"Eisenach Prince",
-	"Berkshire Blunt",
+	"Brutus Stingray",
 ]
 
 
@@ -379,7 +379,7 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-	"Brutus Stingray",
+		"Berkshire Blunt",
 	"Berkshire V12-S",
 	"Kestrel Touring"
 ]
@@ -481,15 +481,9 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Blunt":[
-		"", "Country: UK", "HP: 370", "WEIGHT: 1750 KG",
-		"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
-		"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 520 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Eisenach Prince":[
 		"", "Country: Germany", "HP: 400", "WEIGHT: 1725 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 253 KM/H",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 253 KM/H",
 		"ENGINE: V8 4.9L", "ASPIRATION: NA", "TORQUE: 500 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
@@ -498,7 +492,13 @@ var urban_racers = {
 		"0-100 KM/H: 6.3s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 360 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
-	]
+	],
+		"Brutus Stingray":[
+		"", "Country: USA", "HP: 340", "WEIGHT: 1460 KG",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 257 KM/H",
+		"ENGINE: V8 5.7L", "ASPIRATION: NA", "TORQUE: 475 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 }
 var sedans = {
 	"Eisenach Suppressor":[
@@ -540,16 +540,16 @@ var sport = {
 		"ENGINE: L4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
-		"Brutus Stingray":[
-		"", "Country: USA", "HP: 400", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 4.7s", "TOP SPEED: 282 KM/H",
-		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 540 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Kestrel Touring":[
 		"", "Country: UK", "HP: 360", "WEIGHT: 1150 KG",
 		"0-100 KM/H: 4.3s", "TOP SPEED: 292 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 390 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Berkshire Blunt":[
+		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
+		"0-100 KM/H: 5.5s", "TOP SPEED: 280 KM/H",
+		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 }

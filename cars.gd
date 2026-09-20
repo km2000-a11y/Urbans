@@ -40,7 +40,7 @@ var class_lists: Dictionary = {
 	],
 
 	"urban": [
-		"Berkshire Blunt",
+			"Brutus Stingray",
 		"Kestrel Speedster",
 		"Eisenach Prince",
 
@@ -55,8 +55,8 @@ var class_lists: Dictionary = {
 ],
 
 	"sport": [
-				"Brutus Stingray",
 		"Berkshire V12-S",
+		"Berkshire Blunt",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
 	],

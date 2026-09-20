@@ -59,4 +59,11 @@ res://Scenes/language_menu.tscn
 res://Scenes/sl_500.tscn
 res://Tracks/new_york.tscn
 res://Scenes/jaguar_s_type.tscn
-res://normal_race_manager.gd
+res://localization.gd
+res://duel_manager.gd
+res://bmw_m_5_e_39.gd
+res://cars.gd
+res://Scripts/car_select.gd
+res://Scripts/chevrolet_corvette_c5_1998.gd
+res://club_cups.gd
+res://Scripts/jaguar_xkr_2003.gd

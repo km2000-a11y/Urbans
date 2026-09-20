@@ -51,10 +51,9 @@ var class_lists: Dictionary = {
 	],
 
 	"urban": [
-		"Berkshire Blunt",
 		"Kestrel Speedster",
 		"Eisenach Prince",
-
+				"Brutus Stingray",
 		"Kuro Serenity"
 	],
 
@@ -66,7 +65,7 @@ var class_lists: Dictionary = {
 ],
 
 	"sport": [
-				"Brutus Stingray",
+				"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
@@ -238,10 +237,10 @@ var cup_rewards: Dictionary = {
 	"japanese_cup": "Strandberg Turbo",
 	"all_wheel_grip": "Kestrel Speedster",
 	"speedster_tournament": "Eisenach Prince",
-	"eisenach_cup": "Berkshire Blunt",
-	"under_400_hp": "Schroder Classique Sport",
-	"schroder_cup": "Brutus Stingray",
-	"stingray_competition": "Berkshire V12-S",
+	"eisenach_cup": "Brutus Stingray",
+	"stingray_competition": "Schroder Classique Sport",
+	"under_400_hp": "Berkshire Blunt",
+	"schroder_cup": "Berkshire V12-S",
 	"gentleman_racers": "Kestrel Touring",
 	"kestrel_max": "Linetti Shepherd",
 	"sport_racing": "Linetti Firestorm",

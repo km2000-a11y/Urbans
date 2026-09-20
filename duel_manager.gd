@@ -364,6 +364,7 @@ func _update_laps_from_progress() -> void:
 		ai_laps += 1
 		ai_crossed_start = false
 		
+		
 func _estimate_ai_finish_time() -> int:
 	var lapline: Node3D = main_scene.find_child("LapLine", true, false)
 	if lapline == null:

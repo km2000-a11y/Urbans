@@ -16,6 +16,10 @@ var TEXT := {
 "brakes": "Brakes",
 "stage": "Stage",
 "sale_price": "SALE PRICE",
+"na": "NA",
+"supercharged": "Supercharged",
+"turbo": "Turbo",
+"twin_turbo": "Twin Turbo",
 "sold": "SOLD!",
 "starter_car": "Starter Car",
 		"multi_device_play": "Multi-Device Play",
@@ -182,6 +186,11 @@ var TEXT := {
 "championship_completed": "Championnat terminé !",
 "congratulations": "Félicitations !",
 
+
+"na": "Atmosphérique",
+"supercharged": "Compresseur",
+"turbo": "Turbo",
+"twin_turbo": "Bi-Turbo",
 		"back": "Retour",
 		"executive": "Voitures de Direction",
 		"urban_performance": "Performance Urbaine",
@@ -272,6 +281,13 @@ var TEXT := {
 		"zenith_competition": "Zenith-Wettbewerb",
 		"races_left": "Verbleibende Rennen",
 "challenge_complete": "Herausforderung abgeschlossen!",
+"na": "Saugmotor",
+
+"supercharged": "Kompressor",
+
+"turbo": "Turbo",
+
+"twin_turbo": "Biturbo",
 "reward": "Belohnung",
 
 "target": "Ziel",
@@ -387,6 +403,13 @@ var TEXT := {
 		"multi_device_play": "Мульти-девайс",
 		"normal_race": "Обычная гонка",
 		"radar_race": "Радарная гонка",
+		"na": "Атмосферный",
+
+"supercharged": "Компрессор",
+
+"turbo": "Турбо",
+
+"twin_turbo": "Твин-Турбо",
 		"purchased": "КУПЛЕНО!",
 
 		"duel": "Дуэль",
@@ -484,6 +507,10 @@ var TEXT := {
 		"colossus": "Colossus Kup",
 		"weight_reduction": "Smanjenje Težine",
 "engine_tune": "Podešavanje Motora",
+"na": "Atmosferski",
+"supercharged": "Kompresor",
+"turbo": "Turbo",
+"twin_turbo": "Twin Turbo",
 "steering": "Upravljanje",
 "brakes": "Kočnice",
 "stage": "Nivo",
@@ -611,6 +638,10 @@ var TEXT := {
 		"multi_device_play": "Çoklu Cihaz",
 		"enter_ip_of_host_to_join_game": "Oyuna katılmak için hostun IP’sini gir",
 "join_lan": "LAN’a Katıl",
+"na": "Atmosferik",
+"supercharged": "Süperşarj",
+"turbo": "Turbo",
+"twin_turbo": "Çift Turbo",
 "host_lan": "LAN Oluştur",
 
 		"normal_race": "Normal Yarış",

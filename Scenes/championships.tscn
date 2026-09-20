@@ -100,6 +100,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "BERKSHIRE CUP"
 
+[node name="StingrayCompetition" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BRUTUS STINGRAY COMPETITION"
+
 [node name="Under400HP" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -119,11 +124,6 @@ text = "AMERICAN THUNDER"
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "BRITISH INVASION"
-
-[node name="StingrayCompetition" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "BRUTUS STINGRAY COMPETITION"
 
 [node name="GentlemanRacers" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -193,11 +193,11 @@ text = "CAR DEALERSHIP"
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GermanCup" to="." method="_on_german_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/EisenachCup" to="." method="_on_eisenach_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BerkshireCup" to="." method="_on_berkshire_cup_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/StingrayCompetition" to="." method="_on_stingray_competition_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Under400HP" to="." method="_on_under_400hp_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SchroderCup" to="." method="_on_schroder_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AmericanThunder" to="." method="_on_american_thunder_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BritishInvasion" to="." method="_on_british_invasion_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/StingrayCompetition" to="." method="_on_stingray_competition_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GentlemanRacers" to="." method="_on_gentleman_racers_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KestrelMax" to="." method="_on_kestrel_max_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GrandTouring" to="." method="_on_grand_touring_pressed"]
