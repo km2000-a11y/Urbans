@@ -43,6 +43,29 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "LANGUAGE OPTIONS"
 
+[node name="VolUp" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 358.0
+offset_right = 166.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="VolDown" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 358.0
+offset_right = 356.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="VolumeLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 528.0
+offset_right = 327.0
+offset_bottom = 563.0
+
 [node name="LANUI" parent="." instance=ExtResource("2_48xlc")]
 
 [connection signal="pressed" from="Control/VBoxContainer/RoadChallenge" to="." method="_on_road_challenge_pressed"]
@@ -50,3 +73,5 @@ text = "LANGUAGE OPTIONS"
 [connection signal="pressed" from="Control/VBoxContainer/ClubCups" to="." method="_on_club_cups_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/MultiDevice" to="." method="_on_multi_device_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/LanguageMenu" to="." method="_on_language_menu_pressed"]
+[connection signal="pressed" from="Control/VolUp" to="." method="_on_vol_up_pressed"]
+[connection signal="pressed" from="Control/VolDown" to="." method="_on_vol_down_pressed"]

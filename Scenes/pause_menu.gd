@@ -1,11 +1,13 @@
 extends CanvasLayer
 
 var is_paused := false
-var volume := 80
+var volume := 40
+const SETTINGS_FILE = "user://settings.cfg"
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	hide()
+	load_settings()              # ⭐ Load saved volume on ready
 	update_volume_label()
 	apply_volume()
 
@@ -69,11 +71,13 @@ func _on_vol_up_btn_pressed() -> void:
 	volume = clamp(volume + 5, 0, 100)
 	update_volume_label()
 	apply_volume()
+	save_settings()              # ⭐ Save when volume changes
 
 func _on_vol_down_btn_pressed() -> void:
 	volume = clamp(volume - 5, 0, 100)
 	update_volume_label()
 	apply_volume()
+	save_settings()              # ⭐ Save when volume changes
 
 func update_volume_label():
 	$Control/Panel/VolumeLabel.text = "%s: %d%%" % [
@@ -81,13 +85,11 @@ func update_volume_label():
 		volume
 	]
 
-
 func apply_volume():
 	var linear := float(volume) / 100.0
 	AudioServer.set_bus_volume_db(0, linear_to_db(linear))
 
 # ⭐ SPEED UNIT SLIDER — rewritten cleanly
-
 
 func _on_kmh_btn_pressed() -> void:
 	SpeedSettings.set_unit("kmh")
@@ -100,3 +102,17 @@ func _on_mph_btn_pressed() -> void:
 	Global.speed_unit = SpeedSettings.get_unit_label()
 	Global.speed = SpeedSettings.convert_speed(Global.speed)
 	Localization.refresh_ui()
+
+# --- SAVE & LOAD FUNCTIONS ---
+
+func save_settings():
+	var config = ConfigFile.new()
+	config.load(SETTINGS_FILE) # Load existing settings first so we don't overwrite other data if you expand later
+	config.set_value("audio", "volume", volume)
+	config.save(SETTINGS_FILE)
+
+func load_settings():
+	var config = ConfigFile.new()
+	var err = config.load(SETTINGS_FILE)
+	if err == OK:
+		volume = config.get_value("audio", "volume", 40)
