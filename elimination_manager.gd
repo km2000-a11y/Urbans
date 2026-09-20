@@ -31,7 +31,7 @@ signal elimination_timer_updated(time_left)
 
 func spawn_race(scene: Node) -> void:
 	race_active = false
-	
+	RaceResults.clear()
 	# Remove old cars
 	if player_car and player_car.is_inside_tree():
 		player_car.queue_free()

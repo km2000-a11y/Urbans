@@ -140,7 +140,7 @@ func spawn_chase(scene: Node) -> void:
 
 
 
-
+	RaceResults.clear()
 	MusicManager.stop_music()
 	MusicManager.play_race_music()
 	var all_cars = get_all_race_cars()

@@ -484,12 +484,12 @@ var urban_racers = {
 	"Berkshire Blunt":[
 		"", "Country: UK", "HP: 370", "WEIGHT: 1750 KG",
 		"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 520 NM",
+		"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 520 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Eisenach Prince":[
 		"", "Country: Germany", "HP: 400", "WEIGHT: 1725 KG",
-		"0-100 KM/H: 5.1s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 253 KM/H",
 		"ENGINE: V8 4.9L", "ASPIRATION: NA", "TORQUE: 500 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
