@@ -45,27 +45,28 @@ albedo_color = Color(1, 0, 0.0470588, 1)
 [sub_resource type="TextMesh" id="TextMesh_khth7"]
 text = "WELCOME
 "
-font_size = 100
+font_size = 127
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ehp2"]
 albedo_color = Color(0, 0, 0.705882, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_fcnyu"]
 text = "TO FABULOUS"
-font_size = 30
+font_size = 70
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epqbs"]
 albedo_color = Color(1, 0, 0.0470588, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_ighhn"]
 text = "LAS VEGAS"
-font_size = 65
+font_size = 125
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6elf"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_0vx5m"]
 text = "NEVADA"
+font_size = 30
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uejxc"]
 size = Vector3(2, 10, 3)
@@ -230,7 +231,7 @@ material_override = SubResource("StandardMaterial3D_epqbs")
 mesh = SubResource("TextMesh_ighhn")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D4/MeshInstance3D/MeshInstance3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.63498e-08, -1.19484, -0.786423)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.63498e-08, -1.24194, -0.786423)
 material_override = SubResource("StandardMaterial3D_u6elf")
 mesh = SubResource("TextMesh_0vx5m")
 
