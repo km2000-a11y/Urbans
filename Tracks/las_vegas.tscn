@@ -141,7 +141,6 @@ background_mode = 1
 background_color = Color(0.658824, 0.396078, 0.0823529, 1)
 
 [node name="LasVegas" type="Node3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_uejxc")
