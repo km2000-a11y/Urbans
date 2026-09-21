@@ -48,7 +48,7 @@ text = "WELCOME
 font_size = 127
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ehp2"]
-albedo_color = Color(0, 0, 0.705882, 1)
+albedo_color = Color(0.219608, 0.176471, 0.705882, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_fcnyu"]
 text = "TO FABULOUS"
@@ -1319,7 +1319,7 @@ mesh = SubResource("BoxMesh_a6a85")
 shape = SubResource("BoxShape3D_cpkdv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4259, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99, -5.4259, 0, 0)
 mesh = SubResource("BoxMesh_3c63i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3/MeshInstance3D"]
@@ -1437,7 +1437,7 @@ mesh = SubResource("BoxMesh_a6a85")
 shape = SubResource("BoxShape3D_cpkdv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.98, -5.4259, 0, 1.97517)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.95, -5.4259, 0, 1.97517)
 mesh = SubResource("BoxMesh_3c63i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D7/MeshInstance3D"]
@@ -1493,7 +1493,7 @@ mesh = SubResource("BoxMesh_a6a85")
 shape = SubResource("BoxShape3D_cpkdv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4259, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.98, -5.4259, 0, 0)
 mesh = SubResource("BoxMesh_3c63i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2/MeshInstance3D"]
@@ -3269,7 +3269,7 @@ mesh = SubResource("BoxMesh_a6a85")
 shape = SubResource("BoxShape3D_cpkdv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4259, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.98, -5.4259, 0, 0)
 mesh = SubResource("BoxMesh_3c63i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D5/MeshInstance3D"]
@@ -7793,7 +7793,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -179.9
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -174.975, 0, 443.595)
 
 [node name="WP20" type="Node3D" parent="Waypoints"]
-transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -111.228, 0, 426.514)
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -110.958, 3.8147e-06, 427.426)
 
 [node name="WP21" type="Node3D" parent="Waypoints"]
 transform = Transform3D(0.766044, 0, -0.642787, 0, 1, 0, 0.642787, 0, 0.766044, -100.586, 0, 423.663)

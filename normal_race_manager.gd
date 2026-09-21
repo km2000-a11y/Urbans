@@ -659,7 +659,6 @@ func _estimate_ai_finish_time_for(ai: CarController) -> int:
 	if lapline == null:
 		return ai.total_race_time
 
-	# 1) Compute full lap distance from waypoints
 	var wp: Array = ai.waypoints
 	if wp.is_empty():
 		return ai.total_race_time
@@ -670,33 +669,28 @@ func _estimate_ai_finish_time_for(ai: CarController) -> int:
 		var b: Vector3 = wp[(i + 1) % wp.size()].global_position
 		lap_dist += a.distance_to(b)
 
-	# 2) Remaining laps
 	var laps_done: int = car_laps.get(ai, 0)
-	var laps_left: int = max(total_laps - laps_done, 0)
-
-	# 3) Distance from current position to LapLine on this lap
 	var remaining_dist: float = ai.distance_to_finish_line(lapline)
 
-	# Add full laps still to go
-	remaining_dist += lap_dist * float(laps_left)
+	# ⭐ FIX: If the car is very close to the finish line (e.g. within 15% of a lap), 
+	# and it's on the last active lap, don't add a phantom full lap.
+	var laps_left: int = total_laps - laps_done
+	if remaining_dist < (lap_dist * 0.15) and laps_left > 0:
+		laps_left -= 1  # It's basically finished, don't add an extra lap
 
-	# 4) Use average race speed instead of raw current speed
-	# Assume ai.total_race_time is in ms and current_speed is km/h or m/s depending on your setup.
+	remaining_dist += lap_dist * float(max(laps_left, 0))
+
+	# Average speed calculation
 	var race_time_sec: float = max(float(ai.total_race_time) / 1000.0, 0.1)
-	var avg_speed: float = ai.distance_travelled / race_time_sec  # you should track this on the car
+	var avg_speed: float = ai.distance_travelled / race_time_sec  
 
-	# Fallback if avg_speed is not tracked or too small
 	if avg_speed <= 1.0:
 		avg_speed = clamp(ai.current_speed * 0.8, 10.0, 120.0)
 
-	# 5) Time = distance / speed
 	var remaining_time_ms: int = int((remaining_dist / avg_speed) * 1000)
-
-	# Slight smoothing
 	remaining_time_ms = int(remaining_time_ms * 1.03)
 
 	return ai.total_race_time + remaining_time_ms
-
 
 		
 

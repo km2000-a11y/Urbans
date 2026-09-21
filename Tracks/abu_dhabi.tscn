@@ -13,7 +13,7 @@ size = Vector3(12, 1, 450)
 size = Vector3(6000, 1, 6000)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ub2w8"]
-size = Vector3(1, 6, 450)
+size = Vector3(1, 3.5, 450)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_24xue"]
 size = Vector3(1, 100, 450)
