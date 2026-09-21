@@ -31,3 +31,8 @@ func _on_back_btn_pressed() -> void:
 
 func _on_new_york_pressed() -> void:
 	_start_race_with_track("NewYork")
+
+
+
+func _on_las_vegas_pressed() -> void:
+	_start_race_with_track("LasVegas")

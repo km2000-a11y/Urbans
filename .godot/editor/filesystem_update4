@@ -1,3 +1,4 @@
+res://Tracks/abu_dhabi.tscn
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -47,7 +48,6 @@ res://Scenes/zonda.tscn
 res://Scenes/cop_chase_hud.tscn
 res://Tracks/chernobyl.tscn
 res://Scenes/track_select.tscn
-res://Tracks/abu_dhabi.tscn
 res://Scenes/tvr_cerbera.tscn
 res://Tracks/split.tscn
 res://Scenes/win_screen_duel.tscn
@@ -58,6 +58,7 @@ res://Scenes/lexus_sc.tscn
 res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Scenes/jaguar_s_type.tscn
-res://Scenes/main_menu.gd
-res://Scenes/pause_menu.gd
 res://Tracks/las_vegas.tscn
+res://Scenes/track_select.gd
+res://track_registry.gd
+res://music_manager.gd
