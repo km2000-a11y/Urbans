@@ -141,8 +141,6 @@ func spawn_chase(scene: Node) -> void:
 
 
 	RaceResults.clear()
-	MusicManager.stop_music()
-	MusicManager.play_race_music()
 	var all_cars = get_all_race_cars()
 	scene.get_node("Start").start_countdown(all_cars)
 
@@ -152,7 +150,7 @@ func on_countdown_finished():
 	player_car.controls_enabled = true
 	for ai in ai_cars:
 		ai.controls_enabled = true
-
+	MusicManager.play_race_music()
 
 
 # UPDATE CHASE

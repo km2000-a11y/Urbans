@@ -139,8 +139,7 @@ func spawn_race(scene: Node) -> void:
 	hud.update_position(1, ai_cars.size() + 1)
 	hud.update_elimination_timer(elimination_timer)
 
-	MusicManager.stop_music()
-	MusicManager.play_race_music()
+
 	var all_cars = get_all_race_cars()
 	scene.get_node("Start").start_countdown(all_cars)
 
@@ -165,6 +164,7 @@ func on_countdown_finished():
 	player_car.controls_enabled = true
 	for ai in ai_cars:
 		ai.controls_enabled = true
+	MusicManager.play_race_music()
 
 func _do_elimination(sorted: Array) -> void:
 	if ai_cars.size() + 1 <= 1:

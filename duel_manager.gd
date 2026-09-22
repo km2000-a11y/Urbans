@@ -35,47 +35,34 @@ func _process(delta):
 
 func spawn_duel(main_scene: Node) -> void:
 	RaceResults.clear()
-	# If Club Cups already set ai_car_path, DO NOT override it
+
 	if GameMode.game_mode != "Club Cups":
 		ai_car_path = _pick_unique_ai_car()
 
-	# Reset unique AI name pool for this race
-	# Reset unique AI name pool for this race
 	CarController.used_ai_names = CarController.ai_names.duplicate()
-
-
 
 	if player_car_path == "" or ai_car_path == "":
 		push_error("DuelManager: Car paths not set!")
 		return
 
 	hud = main_scene.get_node("HUD")
-	hud.update_lap(player_laps, total_laps)
+	hud.update_lap(0, total_laps)
 	hud.update_position(2, 2)
 
 	# PLAYER
-	# PLAYER
-		# PLAYER
 	var player_scene := load(player_car_path)
 	player_car = player_scene.instantiate() as CarController
 	player_car.global_position = player_spawn
 	player_car.is_ai = false
-	player_car.controls_enabled = true
+	player_car.controls_enabled = false
 
 	player_car.driver_name = "Player"
 	player_car.car_name = Cars.selected_car_name
 
 	main_scene.add_child(player_car)
 	_apply_player_color(player_car)
-	var all_cars = get_all_race_cars()
-	# WAYPOINTS
-	main_scene.get_node("Start").start_countdown(all_cars)
-	# FIX: Auto-detect class for any mode that is NOT Club Cups
+
 	Cars.apply_auto_class_if_not_club()
-
-
-	player_laps = 0
-	ai_laps = 0
 
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -83,18 +70,20 @@ func spawn_duel(main_scene: Node) -> void:
 	if player_car.has_node("Camera3D"):
 		player_car.get_node("Camera3D").current = true
 
-
 	# AI
 	var ai_scene := load(ai_car_path)
 	ai_car = ai_scene.instantiate() as CarController
 	ai_car.global_position = ai_spawn
 	ai_car.is_ai = true
-	ai_car.controls_enabled = true
+	ai_car.controls_enabled = false
+
 	main_scene.add_child(ai_car)
 	_apply_random_ai_color(ai_car)
 
 	ai_car.driver_name = ai_car.ai_names[randi() % ai_car.ai_names.size()]
+
 	await get_tree().process_frame
+
 	ai_car.car_name = Cars.selected_ai_car_name
 
 	if ai_car.has_node("Camera3D"):
@@ -105,25 +94,28 @@ func spawn_duel(main_scene: Node) -> void:
 	player_car.set_waypoints(wp_root)
 	ai_car.set_waypoints(wp_root)
 
-	# START
-	# START
+	# RESET RACE STATE
 	player_laps = 0
 	ai_laps = 0
 	player_crossed_start = false
 	ai_crossed_start = false
+	player_finished = false
+	ai_finished = false
 	winner = ""
-	duel_active = true
+
 	player_car.finished_time = -1
 	ai_car.finished_time = -1
 
-	# HUD MUST BE UPDATED AFTER START
-	hud.update_lap(player_laps + 1, total_laps)
+	duel_active = true
+
+	hud.update_lap(1, total_laps)
 	hud.update_position(2, 2)
 
+	# START COUNTDOWN AFTER BOTH CARS EXIST
+	var all_cars = get_all_race_cars()
+	main_scene.get_node("Start").start_countdown(all_cars)
 
 	print("DuelManager: Duel started.")
-	MusicManager.stop_music()
-	MusicManager.play_race_music()
 
 
 func _pick_unique_ai_car() -> String:

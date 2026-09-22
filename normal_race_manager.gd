@@ -165,8 +165,7 @@ func spawn_race(scene: Node) -> void:
 	hud.update_position(ai_cars.size() + 1, ai_cars.size() + 1)
 
 
-	MusicManager.stop_music()
-	MusicManager.play_race_music()			
+
 	var all_cars = get_all_race_cars()
 	scene.get_node("Start").start_countdown(all_cars)
 
@@ -174,8 +173,10 @@ func spawn_race(scene: Node) -> void:
 func on_countdown_finished():
 	race_active = true
 
+	MusicManager.play_race_music()
 
 	player_car.controls_enabled = true
+
 	for ai in ai_cars:
 		ai.controls_enabled = true
 

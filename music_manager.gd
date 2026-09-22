@@ -44,3 +44,6 @@ func play_race_music() -> void:
 
 func stop_music() -> void:
 	player.stop()
+func start_countdown() -> void:
+	player.stop()
+	player.stream = null

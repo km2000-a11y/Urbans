@@ -1,4 +1,6 @@
 res://main.tscn
+res://Scripts/camera.gd
+res://Scripts/start.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -59,3 +61,9 @@ res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Tracks/las_vegas.tscn
+res://main.gd
+res://duel_manager.gd
+res://normal_race_manager.gd
+res://cop_chase_manager.gd
+res://elimination_manager.gd
+res://music_manager.gd

@@ -8,6 +8,8 @@ extends Camera3D
 @export var chase_height := 2.0
 @export var smooth_speed := 10.0
 @export var collision_offset := 0.2
+var countdown_mode := false
+var countdown_stage := 0
 @export var min_distance := 3.0
 
 # --- Windshield cam (half meter in front) ---
@@ -26,13 +28,26 @@ var shake_strength := 0.0
 func _physics_process(delta):
 	if target == null:
 		return
+	if countdown_mode:
+		var car_pos := target.global_transform.origin
+		var forward := -target.global_transform.basis.z.normalized()
+		var right := target.global_transform.basis.x.normalized()
 
+		match countdown_stage:
+			0: # Front view
+				global_position = car_pos + forward * 5.0 + Vector3.UP * 1.5
+
+			1: # Side view
+				global_position = car_pos + right * 5.0 + Vector3.UP * 1.5
+
+			2: # Rear view
+				global_position = car_pos - forward * 5.0 + Vector3.UP * 1.5
+
+		look_at(car_pos, Vector3.UP)
+		return
 	# ---------------------------------------------------------
 	# CAMERA MODE TOGGLE
 	# ---------------------------------------------------------
-	if Input.is_action_just_pressed("change_cam"):
-		alt_cam_mode = not alt_cam_mode
-
 	# ---------------------------------------------------------
 	# REAR VIEW TOGGLE
 	# ---------------------------------------------------------
@@ -118,3 +133,9 @@ func _physics_process(delta):
 	# Apply rear-view rotation if toggled
 	if rear_view:
 		rotate_y(deg_to_rad(180))
+func set_countdown_view(stage:int):
+	countdown_mode = true
+	countdown_stage = stage
+
+func end_countdown_view():
+	countdown_mode = false

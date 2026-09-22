@@ -23,13 +23,13 @@ func safe_get(node: Node, path: String) -> Node:
 	return null
 
 func _ready():
+	start_countdown.countdown_finished.connect(_on_countdown_finished)
 	mode = Modes.mode if Modes.mode != null else ""
 	if mode == "":
 		mode = "Normal Race"
 
 
 	Cars.load_color()
-	MusicManager.play_race_music()
 	career_progress = ClubCups.career_progress
 	is_lan = GameMode.game_mode == "Multi-Device"
 	$EliminationWinScreen.visible = false
@@ -58,21 +58,19 @@ func _ready():
 
 	if mode == "Duel":
 		_setup_duel()
-		_start_mode_countdown(DuelManager.get_all_race_cars())
+		
 
 	elif mode.to_lower() == "normal race":
 		_setup_normal_race()       # now safe
 
-		_start_mode_countdown(NormalRaceManager.get_all_race_cars())
-
-
+	
 	elif mode == "Elimination":
 		_setup_elimination()
-		_start_mode_countdown(EliminationManager.get_all_race_cars())
+
 
 	elif mode == "Cop Chase":
 		_setup_cop_chase()
-		_start_mode_countdown(CopChaseManager.get_all_race_cars())
+
 	else:
 		if is_lan:
 			_spawn_lan_player()
@@ -568,3 +566,5 @@ func _format_radar_speed(speed_kmh: float) -> String:
 		return "%d mph" % mph
 	else:
 		return "%d km/h" % speed_kmh
+func _on_countdown_finished():
+	MusicManager.play_race_music()
