@@ -23,6 +23,8 @@ func safe_get(node: Node, path: String) -> Node:
 	return null
 
 func _ready():
+	if Modes.mode=="Radar Race":
+		MusicManager.play_race_music()
 	start_countdown.countdown_finished.connect(_on_countdown_finished)
 	mode = Modes.mode if Modes.mode != null else ""
 	if mode == "":

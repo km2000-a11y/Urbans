@@ -4,9 +4,18 @@ extends CanvasLayer
 @onready var entries: VBoxContainer = $Control/VBoxContainer
 @onready var retry_button: Button = $Control/RetryBtn
 @onready var quit_button: Button = $Control/QuitBtn
+@onready var player :=$AudioStreamPlayer
+const WIN_SOUND = preload("res://SFX/Victory Lap.mp3")
+const LOSE_SOUND = preload("res://SFX/Game Over.mp3")
 
 func show_results(player_won: bool) -> void:
 	# Title
+	if player_won:
+		player.stream = WIN_SOUND
+		player.play()
+	else:
+		player.stream = LOSE_SOUND
+		player.play()
 	if player_won:
 		Localization.set_text(title_label, "YOU WIN!")
 	else:

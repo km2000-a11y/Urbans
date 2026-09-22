@@ -3,9 +3,17 @@ extends CanvasLayer
 @onready var title_label := $Control/Panel/TitleLabel
 @onready var retry_button := $Control/Panel/RetryBtn
 @onready var quit_button := $Control/Panel/QuitBtn
-
+@onready var player :=$AudioStreamPlayer
+const WIN_SOUND = preload("res://SFX/Victory Lap.mp3")
+const LOSE_SOUND = preload("res://SFX/Game Over.mp3")
 func show_results(player_won: bool) -> void:
 	var text := ""
+	if player_won:
+		player.stream = WIN_SOUND
+		player.play()
+	else:
+		player.stream = LOSE_SOUND
+		player.play()
 
 	# WIN / LOSE
 	if player_won:

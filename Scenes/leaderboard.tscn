@@ -62,5 +62,7 @@ offset_bottom = 655.0
 theme_override_font_sizes/font_size = 30
 text = "QUIT"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="Control/RetryBtn" to="." method="_on_retry_btn_pressed"]
 [connection signal="pressed" from="Control/QuitBtn" to="." method="_on_quit_btn_pressed"]

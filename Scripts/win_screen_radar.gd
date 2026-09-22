@@ -1,7 +1,16 @@
 extends CanvasLayer
+@onready var player :=$AudioStreamPlayer
+const WIN_SOUND = preload("res://SFX/Victory Lap.mp3")
+const LOSE_SOUND = preload("res://SFX/Game Over.mp3")
 
 func show_win(success: bool) -> void:
 	var text := ""
+	if success:
+		player.stream = WIN_SOUND
+		player.play()
+	else:
+		player.stream = LOSE_SOUND
+		player.play()
 
 	# WIN / LOSE
 	if success:
