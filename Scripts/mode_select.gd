@@ -2,9 +2,29 @@ extends CanvasLayer
 
 func _ready():
 	MusicManager.play_menu_music()
-	if GameMode.game_mode=="Club Cups":
-			$Control/CopChaseBtn.hide()
+	if GameMode.game_mode == "Club Cups":
+		$Control/CopChaseBtn.hide()
+		
+		# Moved definitions up here first!
+		var cup_id = ChampionshipState.active_cup
+		var progress = ClubCups.career_progress.get(cup_id, {})
 
+		# Now 'progress' safely exists for this check
+		var complete :bool= (
+			progress.get("normal", false)
+			and progress.get("duel", false)
+			and progress.get("elimination", false)
+			and progress.get("radar", false)
+		)
+
+		$Control/NormalRaceTrophy.text = "🏆" if progress.get("normal", false) else ""
+		$Control/EliminationTrophy.text = "🏆" if progress.get("elimination", false) else ""
+		$Control/DuelTrophy.text = "🏆" if progress.get("duel", false) else ""
+		$Control/RadarTrophy.text = "🏆" if progress.get("radar", false) else ""
+		
+		if complete:
+			$Control/ClaimLabel.text = "PRESS M TO CLAIM CHAMPIONSHIP"
+	
 
 func _on_radar_race_btn_pressed() -> void:
 	Modes.mode = "Radar Race"

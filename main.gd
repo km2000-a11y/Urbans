@@ -135,6 +135,7 @@ func _input(event):
 		if has_node("PauseMenu"):
 			$PauseMenu.toggle_pause()
 
+
 func _spawn_player_free_drive():
 	var path := Cars.selected_car
 	if path == "":
@@ -432,6 +433,9 @@ func _screech_to_halt():
 			node.velocity = Vector3.ZERO
 
 func show_finish(player_won: bool):
+	print("SHOW FINISH CALLED")
+	print("PLAYER WON =", player_won)
+	print("GAME MODE =", GameMode.game_mode)
 	finish_flash.visible = true
 	finish_flash.flash()
 
@@ -535,10 +539,18 @@ func _spawn_lan_remote_player(id, car_path):
 func spawn_remote_player(id, car_path):
 	_spawn_lan_remote_player(id, car_path)
 func _update_career_progress():
+	print("UPDATE CAREER PROGRESS CALLED")
 	var cup_id = ChampionshipState.active_cup
-	if not career_progress.has(cup_id):
-		career_progress[cup_id] = { "normal":false, "duel":false, "elimination":false, "radar":false }
 
+	
+	if not career_progress.has(cup_id):
+		career_progress[cup_id] = {
+			"normal": false,
+			"duel": false,
+			"elimination": false,
+			"radar": false
+		}
+	
 	match mode:
 		"Normal Race":
 			career_progress[cup_id]["normal"] = true
@@ -549,11 +561,16 @@ func _update_career_progress():
 		"Radar Race":
 			career_progress[cup_id]["radar"] = true
 
-	# Check completion
+	ClubCups.career_progress = career_progress
+
 	var cup_data = career_progress[cup_id]
+
+	print(cup_id, cup_data)
+
 	if cup_data["normal"] and cup_data["duel"] and cup_data["elimination"] and cup_data["radar"]:
 		print("Cup completed:", cup_id)
 		ClubCups.complete_cup(cup_id)
+
 func _show_championship_reward(cup_id: String):
 	if ClubCups.cup_rewards.has(cup_id):
 		var reward :String= ClubCups.cup_rewards[cup_id]

@@ -1,5 +1,4 @@
-res://Scenes/start.tscn
-res://Scripts/start.gd
+res://Scenes/mode_select.tscn
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -23,7 +22,6 @@ res://Scenes/dodge_viper.tscn
 res://Scenes/tvr t 440r.tscn
 res://Tracks/bogota_airport.tscn
 res://Scenes/granturismo_police.tscn
-res://Scenes/mode_select.tscn
 res://Scenes/win_screen_radar.tscn
 res://Scenes/leaderboard.tscn
 res://Scenes/saleen_s7.tscn
@@ -34,6 +32,7 @@ res://Scenes/lexus_is250.tscn
 res://Scenes/main_menu.tscn
 res://Scenes/FinishFlash.tscn
 res://Scenes/HUD.tscn
+res://Scenes/start.tscn
 res://Scenes/bmw_535d.tscn
 res://Scenes/morgan_aero_8.tscn
 res://Scenes/audi_a3.tscn
@@ -60,7 +59,8 @@ res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Tracks/las_vegas.tscn
-res://Scenes/elimination_win_screen.gd
 res://Scripts/leaderboard.gd
+res://Scripts/mode_select.gd
+res://Scenes/elimination_win_screen.gd
 res://Scripts/win_screen_radar.gd
 res://main.gd

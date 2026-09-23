@@ -4,7 +4,7 @@ func _ready():
 	MusicManager.play_menu_music()
 	set_process_input(true)
 	_update_button_states()
-
+	
 # ============================================================
 # INPUT HANDLING (DEBUG KEY)
 # =====================================================================================

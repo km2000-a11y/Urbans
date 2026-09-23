@@ -60,6 +60,40 @@ offset_bottom = 361.0
 theme_override_font_sizes/font_size = 40
 text = "COP CHASE"
 
+[node name="RadarTrophy" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 887.0
+offset_right = 1015.0
+offset_bottom = 62.0
+
+[node name="DuelTrophy" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 73.0
+offset_right = 1008.0
+offset_bottom = 132.0
+
+[node name="NormalRaceTrophy" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 159.0
+offset_right = 1024.0
+offset_bottom = 222.0
+
+[node name="EliminationTrophy" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 234.0
+offset_right = 1024.0
+offset_bottom = 295.0
+
+[node name="ClaimLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 474.0
+offset_right = 762.0
+offset_bottom = 541.0
+theme_override_font_sizes/font_size = 30
+
 [connection signal="pressed" from="Control/RadarRaceBtn" to="." method="_on_radar_race_btn_pressed"]
 [connection signal="pressed" from="Control/DuelBtn" to="." method="_on_duel_btn_pressed"]
 [connection signal="pressed" from="Control/NormalRaceBtn" to="." method="_on_normal_race_btn_pressed"]

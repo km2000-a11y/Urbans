@@ -294,6 +294,8 @@ func get_current_cup() -> String:
 func is_cup_unlocked(cup_id: String) -> bool:
 	return unlocked_cups.has(cup_id)
 func complete_cup(cup_id: String) -> void:
+	print("COMPLETE_CUP CALLED:", cup_id)
+
 	var idx = career_order.find(cup_id)
 
 	if idx != -1 and idx == current_stage:
@@ -302,27 +304,10 @@ func complete_cup(cup_id: String) -> void:
 		if current_stage < career_order.size():
 			var next_cup = career_order[current_stage]
 			unlocked_cups.append(next_cup)
-			print("Unlocked next cup: ", next_cup)
-		else:
-			print("Career completed!")
 
-	# Award reward car
-	if cup_rewards.has(cup_id):
-		var reward_car = cup_rewards[cup_id]
-		Cars.unlock_car(reward_car, cup_id)
-		print("Unlocked car: ", reward_car)
+			print("Unlocked next cup:", next_cup)
 
-	# Award championship cash
-	if cash_rewards.has(cup_id):
-		var cash_reward: int = cash_rewards[cup_id]
-
-		Cars.add_money(cash_reward)
-
-		print("Awarded cash: $", cash_reward)
-		print("Player balance: $", Cars.player_money)
-
-	save_progress()
-	
+	save_progress()	
 	
 var cups: Dictionary = {
 	"colossus": {
@@ -630,6 +615,7 @@ func load_progress():
 			career_progress = data.get("career_progress", {})
 			print("Career progress loaded")
 		file.close()
+	
 func get_shuffled_under_400_hp() -> Array:
 	var cars: Array = class_lists["under_400_hp"].duplicate()
 	cars.shuffle()

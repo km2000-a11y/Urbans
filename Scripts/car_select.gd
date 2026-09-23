@@ -820,22 +820,44 @@ func update_car_ui(stats: Array, name: String):
 		$Control/CarStats/TransmissionLabel.set_meta("source_text", final_stats[9])
 
 	else:
+		
 		if GameMode.game_mode == "Club Cups" and preview_car != null:
+
 			var cc = find_car_controller(preview_car)
 
 			if cc != null:
-				var top_speed_kmh: int = cc.top_speed_kmh
-				var zero_to_hundred: float = cc.zero_to_hundred
 
-				if SpeedSettings.SPEED_UNIT.to_lower() == "mph":
-					var mph_speed := int(top_speed_kmh * 0.621371)
+				$Control/CarStats/HPLabel.text = "HP: " + str(int(cc.horsepower))
+				$Control/CarStats/WeightLabel.text = "WEIGHT: " + str(int(cc.mass)) + " KG"
 
-					$Control/CarStats/ZeroToHundredLabel.text = "0-62 MPH: %.2fs" % zero_to_hundred
-					$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: %d MPH" % mph_speed
+				if SpeedSettings.SPEED_UNIT == "mph":
+					$Control/CarStats/ZeroToHundredLabel.text = \
+						"0-62 MPH: %.2fs" % cc.zero_to_hundred
+
+					$Control/CarStats/TopSpeedLabel.text = \
+						"TOP SPEED: %d MPH" % int(cc.top_speed_kmh * 0.621371)
 				else:
-					$Control/CarStats/ZeroToHundredLabel.text = "0-100 KM/H: %.2fs" % zero_to_hundred
-					$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: %d KM/H" % int(top_speed_kmh)
+					$Control/CarStats/ZeroToHundredLabel.text = \
+						"0-100 KM/H: %.2fs" % cc.zero_to_hundred
 
+					$Control/CarStats/TopSpeedLabel.text = \
+						"TOP SPEED: %d KM/H" % int(cc.top_speed_kmh)
+					
+				
+		else:
+
+			var zero_text = final_stats[4]
+			var top_text = final_stats[5]
+
+			var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
+			var top_val = float(top_text.split(" ")[2])
+
+			if SpeedSettings.SPEED_UNIT == "mph":
+				$Control/CarStats/ZeroToHundredLabel.text = "0-62 MPH: " + str(zero_val) + "s"
+				$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: " + str(int(top_val * 0.621371)) + " MPH"
+			else:
+				$Control/CarStats/ZeroToHundredLabel.text = "0-100 KM/H: " + str(zero_val) + "s"
+				$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: " + str(int(top_val)) + " KM/H"
 	# ============================
 	# APPLY STATS TO UI
 	# ============================
@@ -845,8 +867,11 @@ func update_car_ui(stats: Array, name: String):
 	$Control/CarStats/CountryLabel.text = final_stats[1]
 	$Control/CarStats/HPLabel.text = final_stats[2]
 	$Control/CarStats/WeightLabel.text = final_stats[3]
-	$Control/CarStats/ZeroToHundredLabel.text = final_stats[4]
-	$Control/CarStats/TopSpeedLabel.text = final_stats[5]
+	if GameMode.game_mode != "Club Cups":
+		$Control/CarStats/ZeroToHundredLabel.text = final_stats[4]
+		$Control/CarStats/TopSpeedLabel.text = final_stats[5]
+		$Control/CarStats/HPLabel.text = final_stats[2]
+		$Control/CarStats/WeightLabel.text = final_stats[3]
 	$Control/CarStats/EngineLabel.text = final_stats[6]
 	$Control/CarStats/AspirationLabel.text = final_stats[7]
 	$Control/CarStats/TorqueLabel.text = final_stats[8]
@@ -896,31 +921,54 @@ func update_car_ui(stats: Array, name: String):
 	# SPEED UNIT DISPLAY
 	# ============================
 
-	if SpeedSettings.SPEED_UNIT == "mph":
+	# ============================
+# SPEED UNIT DISPLAY
+# ============================
 
-		var zero_text = final_stats[4]
-		var top_text = final_stats[5]
+	if GameMode.game_mode == "Club Cups" and preview_car != null:
 
-		var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
-		var top_val = float(top_text.split(" ")[2])
+		var cc = find_car_controller(preview_car)
 
-		var mph_speed = int(top_val * 0.621371)
+		if cc != null:
 
-		$Control/CarStats/ZeroToHundredLabel.text = "0-62 MPH: " + str(zero_val) + "s"
-		$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: " + str(mph_speed) + " MPH"
+			if SpeedSettings.SPEED_UNIT == "mph":
+				$Control/CarStats/ZeroToHundredLabel.text = \
+					"0-62 MPH: %.2fs" % cc.zero_to_hundred
 
-	else:
+				$Control/CarStats/TopSpeedLabel.text = \
+					"TOP SPEED: %d MPH" % int(cc.top_speed_kmh * 0.621371)
 
-		var zero_text = final_stats[4]
-		var top_text = final_stats[5]
+			else:
+				$Control/CarStats/ZeroToHundredLabel.text = \
+					"0-100 KM/H: %.2fs" % cc.zero_to_hundred
 
-		var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
-		var top_val = float(top_text.split(" ")[2])
+				$Control/CarStats/TopSpeedLabel.text = \
+					"TOP SPEED: %d KM/H" % int(cc.top_speed_kmh)
 
-		$Control/CarStats/ZeroToHundredLabel.text = "0-100 KM/H: " + str(zero_val) + "s"
-		$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: " + str(int(top_val)) + " KM/H"
-#---------------	-------
-# 3D PREVIEW LOADING
+		else:
+
+			var zero_text = final_stats[4]
+			var top_text = final_stats[5]
+
+			var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
+			var top_val = float(top_text.split(" ")[2])
+
+			if SpeedSettings.SPEED_UNIT == "mph":
+
+				$Control/CarStats/ZeroToHundredLabel.text = \
+					"0-62 MPH: " + str(zero_val) + "s"
+
+				$Control/CarStats/TopSpeedLabel.text = \
+					"TOP SPEED: " + str(int(top_val * 0.621371)) + " MPH"
+
+			else:
+
+				$Control/CarStats/ZeroToHundredLabel.text = \
+					"0-100 KM/H: " + str(zero_val) + "s"
+
+				$Control/CarStats/TopSpeedLabel.text = \
+					"TOP SPEED: " + str(int(top_val)) + " KM/H"
+	# 3D PREVIEW LOADING
 # -------------------------
 func load_preview_car(path: String):
 	if preview_car:
@@ -936,8 +984,11 @@ func load_preview_car(path: String):
 
 	var car = car_scene.instantiate()
 	car.car_name = car_name
+
 	preview_holder.add_child(car)
 	preview_car = car
+
+	car.apply_stats()
 
 	var model_root: Node3D = null
 	if car.has_node("ModelRoot"):

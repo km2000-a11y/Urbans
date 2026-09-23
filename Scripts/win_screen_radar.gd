@@ -4,6 +4,7 @@ const WIN_SOUND = preload("res://SFX/Victory Lap.mp3")
 const LOSE_SOUND = preload("res://SFX/Game Over.mp3")
 
 func show_win(success: bool) -> void:
+	print(ClubCups.career_progress)
 	var text := ""
 	if success:
 		player.stream = WIN_SOUND
@@ -11,7 +12,8 @@ func show_win(success: bool) -> void:
 	else:
 		player.stream = LOSE_SOUND
 		player.play()
-
+	if success and GameMode.game_mode=="Club Cups":
+		ClubCups.save_progress()
 	# WIN / LOSE
 	if success:
 		text = Localization.translate("you_win")

@@ -1,10 +1,10 @@
+Label
 AudioStreamPlayer
 WorldEnvironment
 Node3D
 CollisionShape3D
 StaticBody3D
 MeshInstance3D
-Label
 Button
 HSlider
 Area3D

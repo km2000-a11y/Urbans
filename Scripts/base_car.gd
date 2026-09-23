@@ -6,7 +6,8 @@ const ENGINE_BRAKE := 0.5
 const DRAG := 0.1
 const HARD_LIMIT_KMH := 400.0
 const HARD_LIMIT := HARD_LIMIT_KMH / 3.6
-
+var display_hp := 0.0
+var display_weight := 0.0
 
 
 # --- ROLE FLAGS ---
