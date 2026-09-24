@@ -50,11 +50,10 @@ func show_results(player_won: bool) -> void:
 	for i: int in raw.size():
 		var r: Dictionary = raw[i]
 		var line := Label.new()
-		line.text = "%d. %s — %s — %s" % [
+		line.text = "%d. %s — %s" % [
 			i + 1,
 			r["name"],
 			r["car"],
-			_format_time(r["time"])
 		]
 		entries.add_child(line)
 

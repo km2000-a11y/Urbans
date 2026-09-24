@@ -1,5 +1,4 @@
 res://main.tscn
-res://main.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -60,5 +59,4 @@ res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Tracks/las_vegas.tscn
-res://Scenes/championships.gd
-res://club_cups.gd
+res://Scripts/leaderboard.gd
