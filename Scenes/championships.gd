@@ -9,17 +9,6 @@ func _ready():
 # INPUT HANDLING (DEBUG KEY)
 # =====================================================================================
 # INPUT HANDLING (DEBUG UNLOCK ACTION)
-# ============================================================
-func _input(event):
-	if event.is_action_pressed("champ_unlock"):
-		var current = ClubCups.get_current_cup()
-		ClubCups.complete_cup(current)
-		print("Debug: advanced career, unlocked next cup")
-		_update_button_states()
-	if $Control.has_node("Money"):
-		var balance_key := Localization.translate("balance")
-		$Control/Money.text = "%s: $%d" % [balance_key, Cars.player_money]
-
 
 # ============================================================
 # CAREER-AWARE CUP START

@@ -467,19 +467,10 @@ func show_finish(player_won: bool):
 		var cup_data = ClubCups.career_progress.get(cup_id, {})
 		var completed = cup_data["normal"] and cup_data["duel"] and cup_data["elimination"] and cup_data["radar"]
 		if completed:
-			if ClubCups.cash_rewards.has(cup_id):
-				Cars.add_money(ClubCups.cash_rewards[cup_id])
-
-			if ClubCups.cup_rewards.has(cup_id):
-				Cars.unlock_car(
-					ClubCups.cup_rewards[cup_id],
-					"championship"
-				)
-
 			_show_championship_reward(cup_id)
-
 			ClubCups.complete_cup(cup_id)
 			ClubCups.save_progress()
+
 	# Leaderboard ALWAYS shows in Free Race and Normal Race
 	if leaderboard:
 		leaderboard.visible = true
@@ -585,11 +576,22 @@ func _update_career_progress():
 		ClubCups.complete_cup(cup_id)
 
 func _show_championship_reward(cup_id: String):
+	var reward_car := ""
+	var reward_cash := 0
+
 	if ClubCups.cup_rewards.has(cup_id):
-		var reward :String= ClubCups.cup_rewards[cup_id]
-		if leaderboard:
-			leaderboard.visible = true
-			leaderboard.show_reward("Championship Completed!\nCongratulations! You have won a " + reward)
+		reward_car = ClubCups.cup_rewards[cup_id]
+
+	if ClubCups.cash_rewards.has(cup_id):
+		reward_cash = ClubCups.cash_rewards[cup_id]
+
+	if leaderboard:
+		leaderboard.visible = true
+		leaderboard.show_reward(
+			"Championship Completed!\n" +
+			"Reward Car: " + reward_car + "\n" +
+			"Cash Reward: $" + str(reward_cash)
+		)
 func _format_radar_speed(speed_kmh: float) -> String:
 	var use_mph := SpeedSettings.SPEED_UNIT == "mph"
 

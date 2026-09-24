@@ -60,3 +60,5 @@ res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Tracks/las_vegas.tscn
+res://Scenes/championships.gd
+res://club_cups.gd
