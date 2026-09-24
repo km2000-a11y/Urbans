@@ -63,3 +63,4 @@ res://main.gd
 res://Scenes/championships.gd
 res://Scripts/mode_select.gd
 res://club_cups.gd
+res://export_presets.cfg
