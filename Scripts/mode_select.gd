@@ -22,9 +22,6 @@ func _ready():
 		$Control/DuelTrophy.text = "🏆" if progress.get("duel", false) else ""
 		$Control/RadarTrophy.text = "🏆" if progress.get("radar", false) else ""
 		
-		if complete:
-			$Control/ClaimLabel.text = "PRESS M TO CLAIM CHAMPIONSHIP"
-	
 
 func _on_radar_race_btn_pressed() -> void:
 	Modes.mode = "Radar Race"

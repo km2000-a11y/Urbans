@@ -3,6 +3,7 @@ extends Node
 # ============================================================
 #  FULL CLASS LIST (LOCAL — SELF-CONTAINED)
 # ============================================================
+var completed_cups: Array = []
 var cash_rewards: Dictionary = {
 	"colossus": 5000,
 	"street_tuners": 10000,
@@ -296,6 +297,9 @@ func is_cup_unlocked(cup_id: String) -> bool:
 func complete_cup(cup_id: String) -> void:
 	print("COMPLETE_CUP CALLED:", cup_id)
 
+	if not completed_cups.has(cup_id):
+		completed_cups.append(cup_id)
+
 	var idx = career_order.find(cup_id)
 
 	if idx != -1 and idx == current_stage:
@@ -303,12 +307,23 @@ func complete_cup(cup_id: String) -> void:
 
 		if current_stage < career_order.size():
 			var next_cup = career_order[current_stage]
-			unlocked_cups.append(next_cup)
+
+			if not unlocked_cups.has(next_cup):
+				unlocked_cups.append(next_cup)
 
 			print("Unlocked next cup:", next_cup)
+	if cup_rewards.has(cup_id):
+		var reward_car: String = cup_rewards[cup_id]
 
-	save_progress()	
-	
+		Cars.unlock_car(reward_car, "championship")
+		print("Unlocked reward car:", reward_car)
+	if cash_rewards.has(cup_id):
+		var reward_cash: int = cash_rewards[cup_id]
+
+		Cars.add_money(reward_cash)
+		print("Awarded cash:", reward_cash)
+
+	save_progress()
 var cups: Dictionary = {
 	"colossus": {
 		"eligible_classes": ["suv"],
@@ -593,10 +608,11 @@ func save_progress():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	if file:
 		file.store_string(JSON.stringify({
-			"current_stage": current_stage,
-			"unlocked_cups": unlocked_cups,
-			"career_progress": career_progress
-		}))
+	"current_stage": current_stage,
+	"unlocked_cups": unlocked_cups,
+	"completed_cups": completed_cups,
+	"career_progress": career_progress
+}))
 		file.close()
 		print("Career progress saved")
 
@@ -613,6 +629,7 @@ func load_progress():
 			current_stage = data.get("current_stage", 0)
 			unlocked_cups = data.get("unlocked_cups", ["colossus"])
 			career_progress = data.get("career_progress", {})
+			completed_cups = data.get("completed_cups", [])
 			print("Career progress loaded")
 		file.close()
 	
@@ -620,3 +637,5 @@ func get_shuffled_under_400_hp() -> Array:
 	var cars: Array = class_lists["under_400_hp"].duplicate()
 	cars.shuffle()
 	return cars
+func is_cup_completed(cup_id: String) -> bool:
+	return completed_cups.has(cup_id)

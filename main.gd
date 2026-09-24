@@ -393,8 +393,12 @@ func _on_radar_trap_body_entered(body):
 		player_car.controls_enabled = false
 		win_screen_radar.show_win(success)
 
-		MusicManager.stop_music()
+		if success and GameMode.game_mode == "Club Cups":
+			_update_career_progress()
+			ClubCups.save_progress()
 
+		MusicManager.stop_music()
+		
 	finish_flash.flash()
 	_screech_to_halt()
 

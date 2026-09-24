@@ -71,7 +71,32 @@ func _update_button_states():
 	$Control/ScrollContainer/VBoxContainer/Supercars.disabled = not ClubCups.is_cup_unlocked("supercars")
 	$Control/ScrollContainer/VBoxContainer/TrackCars.disabled = not ClubCups.is_cup_unlocked("track_cars")
 	$Control/ScrollContainer/VBoxContainer/SportRacing.disabled = not ClubCups.is_cup_unlocked("sport_racing")
-
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/Colossus", "colossus", "Colossus")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/StreetTuners", "street_tuners", "Street Tuners")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/MuscleHustle", "muscle_hustle", "Muscle Hustle")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/V6Engines", "v6_engines", "V6 Engines")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/ZenithCompetition", "zenith_competition", "Zenith Competition")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/BusinessmanRacers", "businessman_racers", "Businessman Racers")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/SpeedsterTournament", "speedster_tournament", "Speedster Tournament")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/KuroCup", "kuro_cup", "Kuro Cup")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/AllWheelGrip", "all_wheel_grip", "All Wheel Grip")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/EisenachCup", "eisenach_cup", "Eisenach Cup")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/Under400HP", "under_400_hp", "Under 400 HP")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/StingrayCompetition", "stingray_competition", "Stingray Competition")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/SchroderCup", "schroder_cup", "Schroder Cup")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/DieselMasters", "diesel_masters", "Diesel Masters")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/AmericanThunder", "american_thunder", "American Thunder")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/BritishInvasion", "british_invasion", "British Invasion")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/GrandTouring", "grand_touring", "Grand Touring")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/BerkshireCup", "berkshire_cup", "Berkshire Cup")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/GentlemanRacers", "gentleman_racers", "Gentleman Racers")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/JapaneseCup", "japanese_cup", "Japanese Cup")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/GermanCup", "german_cup", "German Cup")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/KestrelMax", "kestrel_max", "Kestrel Max")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/V12Engines", "v12_engines", "V12 Engines")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/Supercars", "supercars", "Supercars")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/TrackCars", "track_cars", "Track Cars")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/SportRacing", "sport_racing", "Sport Racing")
 # ============================================================
 
 func _on_colossus_pressed() -> void:
@@ -307,3 +332,10 @@ func _on_grand_touring_pressed() -> void:
 	ChampionshipState.championship_mode=true
 	
 	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
+func _update_cup_text(button_path: String, cup_id: String, base_text: String):
+	var button = get_node(button_path)
+
+	if ClubCups.is_cup_completed(cup_id):
+		button.text = "🏆 " + base_text
+	else:
+		button.text = base_text

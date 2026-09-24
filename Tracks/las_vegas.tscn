@@ -7804,6 +7804,15 @@ transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 
 [node name="WP23" type="Node3D" parent="Waypoints"]
 transform = Transform3D(0.939692, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939692, -96.4696, 0, 412.822)
 
+[node name="WP24" type="Node3D" parent="Waypoints"]
+transform = Transform3D(0.939692, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939692, -12.0314, 0, 180.83)
+
+[node name="WP25" type="Node3D" parent="Waypoints"]
+transform = Transform3D(0.984807, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984807, 0.404237, 0, 146.663)
+
+[node name="WP26" type="Node3D" parent="Waypoints"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.962533, 0, 127.408)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a6a85")
 
