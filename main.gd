@@ -467,10 +467,19 @@ func show_finish(player_won: bool):
 		var cup_data = ClubCups.career_progress.get(cup_id, {})
 		var completed = cup_data["normal"] and cup_data["duel"] and cup_data["elimination"] and cup_data["radar"]
 		if completed:
+			if ClubCups.cash_rewards.has(cup_id):
+				Cars.add_money(ClubCups.cash_rewards[cup_id])
+
+			if ClubCups.cup_rewards.has(cup_id):
+				Cars.unlock_car(
+					ClubCups.cup_rewards[cup_id],
+					"championship"
+				)
+
 			_show_championship_reward(cup_id)
+
 			ClubCups.complete_cup(cup_id)
 			ClubCups.save_progress()
-
 	# Leaderboard ALWAYS shows in Free Race and Normal Race
 	if leaderboard:
 		leaderboard.visible = true
