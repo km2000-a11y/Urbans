@@ -55,6 +55,7 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Eisenach Prince",
 				"Brutus Stingray",
+				"Berkshire Blunt",
 		"Kuro Serenity"
 	],
 
@@ -66,7 +67,7 @@ var class_lists: Dictionary = {
 ],
 
 	"sport": [
-				"Berkshire Blunt",
+				"Kronstadt Blazer",
 		"Berkshire V12-S",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
@@ -211,6 +212,8 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Schroder Classique Sport",
 		"Schroder Atrocity",
+		"Kronstadt Blazer",
+		"Eisenach Prince",
 				"Eisenach Suppressor",
 		"Eisenach Bengal",
 
@@ -239,8 +242,9 @@ var cup_rewards: Dictionary = {
 	"all_wheel_grip": "Kestrel Speedster",
 	"speedster_tournament": "Eisenach Prince",
 	"eisenach_cup": "Brutus Stingray",
-	"stingray_competition": "Schroder Classique Sport",
-	"under_400_hp": "Berkshire Blunt",
+	"stingray_competition": "Berkshire Blunt",
+	"under_400_hp": "Schroder Classique Sport",
+	"german_cup":"Kronstadt Blazer",
 	"schroder_cup": "Berkshire V12-S",
 	"gentleman_racers": "Kestrel Touring",
 	"kestrel_max": "Linetti Shepherd",
@@ -273,12 +277,12 @@ var career_order: Array = [
 	"stingray_competition",
 	"berkshire_cup",
 	"under_400_hp",
+	"german_cup",
 	"schroder_cup",
 	"american_thunder",
 	"british_invasion",
 	"gentleman_racers",
 	"kestrel_max",
-	"grand_touring",
 	"sport_racing",
 	"v12_engines",
 	"supercars",
@@ -475,7 +479,7 @@ var cups: Dictionary = {
 	"Brutus Stingray",
 	"Mir Cars Transporter",
 	"Eisenach Suppressor",
-
+	"Kronstadt Blazer",
 	"Kestrel Speedster",
 	"Colossus Behemoth",
 	"Eisenach Bengal",
@@ -524,7 +528,7 @@ var cups: Dictionary = {
 		"Schroder Classique Sport",
 		"Schroder Atrocity",
 				"Eisenach Suppressor",
-
+		"Kronstadt Blazer",
 		"Eisenach Bengal",
 		"Eisenach Prince",
 	]

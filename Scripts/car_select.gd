@@ -40,8 +40,8 @@ var car_sell_prices := {
 	"Kuro Serenity": 51000,
 	"Kestrel Speedster": 57000,
 	"Eisenach Prince": 72000,
-	"Berkshire Blunt": 100000,
-	"Kronstadt Blazer": 84000,
+	"Berkshire Blunt": 8000,
+	"Kronstadt Blazer": 100000,
 
 	"Schroder Classique Sport": 96000,
 	"Brutus Stingray": 84000,
@@ -364,6 +364,7 @@ var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Speedster",
 	"Eisenach Prince",
+	"Berkshire Blunt",
 	"Brutus Stingray",
 ]
 
@@ -379,7 +380,7 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-		"Berkshire Blunt",
+		"Kronstadt Blazer",
 	"Berkshire V12-S",
 	"Kestrel Touring"
 ]
@@ -482,9 +483,9 @@ var urban_racers = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Eisenach Prince":[
-		"", "Country: Germany", "HP: 400", "WEIGHT: 1725 KG",
+		"", "Country: Germany", "HP: 282", "WEIGHT: 1725 KG",
 		"0-100 KM/H: 5.2s", "TOP SPEED: 253 KM/H",
-		"ENGINE: V8 4.9L", "ASPIRATION: NA", "TORQUE: 500 NM",
+		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kuro Serenity":[
@@ -497,6 +498,12 @@ var urban_racers = {
 		"", "Country: USA", "HP: 340", "WEIGHT: 1460 KG",
 		"0-100 KM/H: 5.0s", "TOP SPEED: 257 KM/H",
 		"ENGINE: V8 5.7L", "ASPIRATION: NA", "TORQUE: 475 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Berkshire Blunt":[
+		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
+		"0-100 KM/H: 5.9s", "TOP SPEED: 265 KM/H",
+		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 }
@@ -534,6 +541,12 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Kronstadt Blazer":[
+		"", "Country: Germany", "HP: 360", "WEIGHT: 1540 KG",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 272 KM/H",
+		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 	"Schroder Classique Sport":[
 		"", "Country: Germany", "HP: 280", "WEIGHT: 1420 KG",
 		"0-100 KM/H: 4.9s", "TOP SPEED: 263 KM/H",
@@ -544,12 +557,6 @@ var sport = {
 		"", "Country: UK", "HP: 360", "WEIGHT: 1150 KG",
 		"0-100 KM/H: 4.3s", "TOP SPEED: 292 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 390 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
-	"Berkshire Blunt":[
-		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
-		"0-100 KM/H: 5.5s", "TOP SPEED: 280 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 }

@@ -85,7 +85,6 @@ theme_override_font_sizes/font_size = 30
 text = "KURO CUP"
 
 [node name="GermanCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "GERMAN CUP"
@@ -136,6 +135,7 @@ theme_override_font_sizes/font_size = 30
 text = "KESTREL MAX CHAMPIONSHIP"
 
 [node name="GrandTouring" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "GRAND TOURING

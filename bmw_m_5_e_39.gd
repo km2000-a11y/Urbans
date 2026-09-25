@@ -3,14 +3,14 @@ extends CarController
 # COSMETIC INFO (UI only)
 var def_car_name := "Eisenach Prince"
 var country := "Germany"
-var engine := "V8 4.9L"
+var engine := "V8 4.4L"
 var weight_kg := 1725
 var zero_to_hundred_display := 4.60
 
 func _ready():
 	# GAMEPLAY STATS — heavy, overhyped executive brute
-	mass = 1740.0
-	horsepower =400
+	mass = 1725.0
+	horsepower =282
 	max_rpm = 7000.0                 # High‑rev V8 but not torque‑friendly
 	zero_to_hundred =5.2
 	top_speed_kmh = 253
