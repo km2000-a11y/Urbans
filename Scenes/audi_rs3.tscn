@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://fnwphrhg0lwk"]
+[gd_scene load_steps=36 format=3 uid="uid://fnwphrhg0lwk"]
 
 [ext_resource type="Script" uid="uid://306d2b8jcb3k" path="res://Scenes/rs3.gd" id="1_vsi4x"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_hf4um"]
@@ -18,7 +18,7 @@ height = 0.2
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_i0x3i"]
-size = Vector3(0.7, 0.2, 0.1)
+size = Vector3(0.7, 0.3, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8q3ki"]
 albedo_color = Color(1, 0.729412, 0, 1)
@@ -54,7 +54,7 @@ size = Vector3(0.8, 0.1, 0.4)
 albedo_color = Color(0, 0.752941, 0.752941, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_epe3n"]
-size = Vector3(0.1, 0.4, 0.6)
+size = Vector3(0.1, 0.55, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d3fy"]
 albedo_color = Color(0, 0.752941, 0.752941, 1)
@@ -76,13 +76,6 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8cb1"]
 size = Vector3(0.1, 0.2, 0.35)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8cb1"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="PrismMesh" id="PrismMesh_hl6ua"]
-left_to_right = 0.1
-size = Vector3(0.2, 0.135, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08euy"]
 size = Vector3(1, 1, 1.7)
@@ -299,25 +292,25 @@ mesh = SubResource("BoxMesh_dtqb8")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="ModelRoot/Body"]
-transform = Transform3D(1, 0, 0, 0, 0.984808, -0.0607769, 0, 0.173648, 0.344683, -4.9989e-08, 0.530616, 0.655672)
-material_override = SubResource("StandardMaterial3D_vsi4x")
-mesh = SubResource("BoxMesh_dtqb8")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="ModelRoot/Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.35, -4.9989e-08, 0.54715, 0.451974)
-material_override = SubResource("StandardMaterial3D_vsi4x")
-mesh = SubResource("BoxMesh_dtqb8")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="ModelRoot/Body"]
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.119707, 0, -0.34202, 0.328892, -4.9989e-08, 0.526746, 0.23955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9989e-08, 0.564091, 0.388334)
 material_override = SubResource("StandardMaterial3D_vsi4x")
 mesh = SubResource("BoxMesh_dtqb8")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.430759, 0.44786, 0.516901)
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.430759, 0.476003, 0.516901)
+material_override = SubResource("StandardMaterial3D_hf4um")
+mesh = SubResource("BoxMesh_j8cb1")
+skeleton = NodePath("../Body/MeshInstance3D3")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 0.6, 0.430759, 0.476003, 0.237783)
+material_override = SubResource("StandardMaterial3D_hf4um")
+mesh = SubResource("BoxMesh_j8cb1")
+skeleton = NodePath("../Body/MeshInstance3D3")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 0.6, -0.41756, 0.476003, 0.237783)
 material_override = SubResource("StandardMaterial3D_hf4um")
 mesh = SubResource("BoxMesh_j8cb1")
 skeleton = NodePath("../Body/MeshInstance3D3")
@@ -327,18 +320,6 @@ transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.42468, 0.450519, 0.578
 material_override = SubResource("StandardMaterial3D_hf4um")
 mesh = SubResource("BoxMesh_j8cb1")
 skeleton = NodePath("../Body/MeshInstance3D3")
-
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1.94707e-07, 0, 1, 0, 1, 0, -1, 0, 1.94707e-07, 0.445968, 0.44327, 0.246689)
-material_override = SubResource("StandardMaterial3D_j8cb1")
-mesh = SubResource("PrismMesh_hl6ua")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1.94707e-07, 0, 1, 0, 1, 0, -1, 0, 1.94707e-07, -0.438758, 0.44327, 0.269773)
-material_override = SubResource("StandardMaterial3D_j8cb1")
-mesh = SubResource("PrismMesh_hl6ua")
-skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383226, 0.144474, -0.156084)
