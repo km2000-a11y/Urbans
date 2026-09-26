@@ -364,6 +364,22 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
+		if other is CarController:
+			var other_car := other as CarController
+
+			var hit_dir := (other_car.global_position - global_position).normalized()
+			hit_dir.y = 0.0
+
+			# Compare masses
+			var mass_ratio :int= mass / max(other_car.mass, 1.0)
+
+			# Prevent crazy outcomes
+			mass_ratio = clamp(mass_ratio, 0.5, 2.0)
+
+			# Speed contributes to shove force
+			var shove_force := velocity.length() * mass_ratio * 0.08
+
+			other_car.velocity += hit_dir * shove_force
 
 		# Raw normal
 		var n := col.get_normal()
@@ -375,7 +391,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
-
+		
 		# Raw normal
 		var n := col.get_normal()
 		n.y = 0.0

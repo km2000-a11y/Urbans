@@ -1,10 +1,10 @@
+MeshInstance3D
 Label
 AudioStreamPlayer
 WorldEnvironment
 Node3D
 CollisionShape3D
 StaticBody3D
-MeshInstance3D
 Button
 HSlider
 Area3D

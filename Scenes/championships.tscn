@@ -76,7 +76,7 @@ text = "ALL-WHEEL GRIP"
 [node name="SpeedsterTournament" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "SPEEDSTER TOURNAMENT"
+text = "SEABIRD TOURNAMENT"
 
 [node name="KuroCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 visible = false

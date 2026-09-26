@@ -67,49 +67,49 @@ var car_sell_prices := {
 var car_prices := {
 	"Colossus Titan Max": 15000,
 	"Colossus Behemoth": 0,
-	"Mir Cars Nightwolf": 28000,
-	"Schroder Colosso": 35000,
+	"Mir Cars Nightwolf": 25000,
+	"Schroder Colosso": 32000,
 
-	"Kuro Zephyr": 40000,
-	"Schroder Atrix Q32": 55000,
-	"Zenith Horizon": 65000,
-	"Eisenach Bengal": 70000,
+	"Brutus Viper": 45000,
+	"Mir Cars Hutch": 55000,
 
-	"Brutus Viper": 50000,
-	"Mir Cars Hutch": 60000,
+	"Kuro Zephyr": 38000,
+	"Schroder Atrix Q32": 50000,
+	"Zenith Horizon": 60000,
+	"Eisenach Bengal": 65000,
 
 	"Eisenach Suppressor": 70000,
-	"Strandberg Turbo": 80000,
+	"Strandberg Turbo": 78000,
 	"Kuro Vault": 85000,
 	"Berkshire Mocha": 90000,
 
-	"Mir Cars Transporter": 105000,
-	"Kuro Persian": 110000,
-	"Kronstadt Fortress": 120000,
+	"Mir Cars Transporter": 95000,
+	"Kuro Persian": 105000,
+	"Kronstadt Fortress": 115000,
 
-	"Kuro Serenity": 85000,
-	"Kestrel Speedster": 95000,
-	"Eisenach Prince": 120000,
-	"Berkshire Blunt": 130000,
-	"Kronstadt Blazer": 140000,
+	"Kuro Serenity": 80000,
+	"Kestrel Seabird": 90000,
+	"Eisenach Prince": 100000,
+	"Berkshire Blunt": 110000,
+	"Kronstadt Blazer": 120000,
 
-	"Schroder Classique Sport": 160000,
-	"Brutus Stingray": 180000,
-	"Eisenach Goblin": 190000,
-	"Berkshire V12-S": 220000,
-	"Kestrel Touring": 260000,
+	"Schroder Classique Sport": 135000,
+	"Brutus Stingray": 150000,
+	"Eisenach Goblin": 165000,
+	"Berkshire V12-S": 190000,
+	"Kestrel Touring": 220000,
 
-	"Schroder Atrocity": 280000,
-	"Brutus Venom": 320000,
-	"Kestrel Battleaxe": 350000,
-	"Linetti Shepherd": 380000,
+	"Schroder Atrocity": 250000,
+	"Brutus Venom": 290000,
+	"Kestrel Battleaxe": 320000,
+	"Linetti Shepherd": 350000,
 
-	"Kestrel Guillotine": 450000,
-	"Linetti Firestorm": 500000,
-	"Mir Cars Raptor": 550000,
-	"Linetti Terror": 650000,
+	"Kestrel Guillotine": 420000,
+	"Linetti Firestorm": 470000,
+	"Mir Cars Raptor": 520000,
+	"Linetti Terror": 600000,
 
-	"Bartoli Track Cruiser": 900000,
+	"Bartoli Track Cruiser": 850000,
 	"Brutus Thunderbolt": 1000000,
 	"Mir Cars Athletic C70": 1200000
 }
@@ -362,8 +362,7 @@ var muscle_list = [
 
 var urban_list = [
 	"Kuro Serenity",
-	"Kestrel Speedster",
-	"Eisenach Prince",
+	"Kestrel Seabird",
 	"Berkshire Blunt",
 	"Brutus Stingray",
 ]
@@ -371,10 +370,10 @@ var urban_list = [
 
 
 var sedans_list = [
-	"Eisenach Suppressor",
 	"Strandberg Turbo",
 	"Kuro Vault",
-	"Berkshire Mocha"
+	"Berkshire Mocha",
+	"Eisenach Suppressor",
 ]
 
 
@@ -476,16 +475,10 @@ var muscle = {
 	]
 }
 var urban_racers = {
-	"Kestrel Speedster":[
-		"", "Country: UK", "HP: 286", "WEIGHT: 1145 KG",
-		"0-100 KM/H: 4.7s", "TOP SPEED: 246 KM/H",
-		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
-	"Eisenach Prince":[
-		"", "Country: Germany", "HP: 282", "WEIGHT: 1725 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 253 KM/H",
-		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
+	"Kestrel Seabird":[
+		"", "Country: UK", "HP: 192", "WEIGHT: 935 KG",
+		"0-100 KM/H: 4.8s", "TOP SPEED: 243 KM/H",
+		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kuro Serenity":[
@@ -496,22 +489,22 @@ var urban_racers = {
 	],
 		"Brutus Stingray":[
 		"", "Country: USA", "HP: 340", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 257 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 254 KM/H",
 		"ENGINE: V8 5.7L", "ASPIRATION: NA", "TORQUE: 475 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Berkshire Blunt":[
 		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
-		"0-100 KM/H: 5.9s", "TOP SPEED: 265 KM/H",
+		"0-100 KM/H: 5.6s", "TOP SPEED: 259 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 }
 var sedans = {
 	"Eisenach Suppressor":[
-		"", "Country: Germany", "HP: 218", "WEIGHT: 1660 KG",
-		"0-100 KM/H: 6.5s", "TOP SPEED: 250 KM/H",
-		"ENGINE: L6 3.0L DIESEL", "ASPIRATION: Turbo", "TORQUE: 500 NM",
+		"", "Country: Germany", "HP: 360", "WEIGHT: 1660 KG",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 490 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 			"Strandberg Turbo":[
