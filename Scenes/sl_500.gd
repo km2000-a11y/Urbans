@@ -14,7 +14,7 @@ func _ready():
 	max_rpm = 6200.0                    # Broad, torquey AMG rev band
 	idle_rpm = 700.0
 	zero_to_hundred = 5.2
-	top_speed_kmh = 272         # Gentle GT top speed with muscle
+	top_speed_kmh = 282      # Gentle GT top speed with muscle
 	transmission = "Rear wheel drive"
 
 	# HANDLING — Calm GT with hidden aggression

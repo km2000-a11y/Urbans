@@ -9,7 +9,7 @@ var zero_to_hundred_display := 4.90
 
 func _ready():
 	# GAMEPLAY STATS — Audi TTS (8J)
-	mass = 1420.0
+	mass = 1460.0
 	horsepower = 280
 	max_rpm = 6800.0
 	zero_to_hundred = 4.9

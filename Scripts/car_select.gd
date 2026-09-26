@@ -543,12 +543,12 @@ var sport = {
 	],
 	"Kronstadt Blazer":[
 		"", "Country: Germany", "HP: 360", "WEIGHT: 1540 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 272 KM/H",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 282 KM/H",
 		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 280", "WEIGHT: 1420 KG",
+		"", "Country: Germany", "HP: 280", "WEIGHT: 1460 KG",
 		"0-100 KM/H: 4.9s", "TOP SPEED: 263 KM/H",
 		"ENGINE: L4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
