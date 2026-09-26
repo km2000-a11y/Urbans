@@ -49,7 +49,7 @@ var car_sell_prices := {
 	"Berkshire V12-S": 132000,
 	"Kestrel Touring": 156000,
 
-	"Schroder Atrocity": 168000,
+	"Kronstadt Beast": 168000,
 	"Brutus Venom": 192000,
 	"Kestrel Battleaxe": 210000,
 	"Linetti Shepherd": 228000,
@@ -99,7 +99,7 @@ var car_prices := {
 	"Berkshire V12-S": 190000,
 	"Kestrel Touring": 220000,
 
-	"Schroder Atrocity": 250000,
+	"Kronstadt Beast": 250000,
 	"Brutus Venom": 290000,
 	"Kestrel Battleaxe": 320000,
 	"Linetti Shepherd": 350000,
@@ -315,7 +315,7 @@ var car_colors := {
 	Color8(0,110,130),     # Teal Mist (compact-class signature color)
 	Color8(70,70,70)       # Graphite Shadow (dark matte grey)
 ],
-"Kronstadt Essence":[
+"Kronstadt Beast":[
 	Color8(20,20,20),     # Obsidian Black (default AMG vibe)
 	Color8(255,255,255),  # Arctic White
 	Color8(180,180,180),  # Iridium Silver
@@ -386,7 +386,7 @@ var sport_list = [
 
 var sport_racing_list = [
 	"Kestrel Battleaxe",
-	"Schroder Atrocity",
+	"Kronstadt Beast",
 	"Brutus Venom",
 	"Linetti Shepherd",
 ]
@@ -566,11 +566,11 @@ var sport_racing = {
 		"ENGINE: V10 8.0L", "ASPIRATION: NA", "TORQUE: 630 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Schroder Atrocity":[
-		"", "Country: Germany", "HP: 435", "WEIGHT: 1890 KG",
-		"0-100 KM/H: 4.5s", "TOP SPEED: 307 KM/H",
-		"ENGINE: V10 5.2L", "ASPIRATION: NA", "TORQUE: 540 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
+	"Kronstadt Beast":[
+		"", "Country: Germany", "HP: 475", "WEIGHT: 1755 KG",
+		"0-100 KM/H: 4.5s", "TOP SPEED: 297 KM/H",
+		"ENGINE: V8 6.2L", "ASPIRATION: NA", "TORQUE: 630 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kestrel Battleaxe":[
 		"", "Country: UK", "HP: 406", "WEIGHT: 1078 KG",
@@ -674,7 +674,7 @@ var car_scene_paths = {
 
 	"Schroder Atrix Q32":"res://Scenes/audi_tt.tscn",
 	"Straeda B32":"res://Scenes/new_beetle.tscn",
-	"Kronstadt Essence":"res://Scenes/clk_55.tscn",
+	"Kronstadt Beast":"res://Scenes/clk_55.tscn",
 	"Zenith Horizon":"res://Scenes/nissan_350z.tscn",
 	"Straeda G25":"res://Scenes/golf_v_gti.tscn",
 	"Schroder D-20":"res://Scenes/audi_a3.tscn",

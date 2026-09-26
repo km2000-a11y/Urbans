@@ -62,7 +62,7 @@ var class_lists: Dictionary = {
 	],
 
 	"sport_racing": [
-		"Schroder Atrocity",
+		"Kronstadt Beast",
 		"Linetti Shepherd",
 		"Brutus Venom",
 		"Kestrel Battleaxe"
@@ -182,7 +182,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Classique Sport",
-		"Schroder Atrocity"
+		
 	],
 	"gentleman_racers":[
 		"Berkshire Blunt",
@@ -199,7 +199,8 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Classique Sport",
-		"Schroder Atrocity",
+		"Kronstadt Blazer",
+		"Kronstadt Beast",
 				"Eisenach Suppressor",
 		"Eisenach Bengal",
 
@@ -263,7 +264,7 @@ var car_scene_paths := {
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
 	"Eisenach Black Panda":"res://Scenes/bmw_330d.tscn",
 	"Kuro Persian":"res://Scenes/lexus_gs430.tscn",
-		"Kronstadt Essence":"res://Scenes/clk_55.tscn",
+		"Kronstadt Beast":"res://Scenes/clk_55.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
 
 

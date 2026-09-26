@@ -10,11 +10,11 @@ var zero_to_hundred_display := 5.10   # AMG punch
 func _ready():
 	# GAMEPLAY STATS — Mature German GT with AMG shove
 	mass = 1640.0
-	horsepower = 342                    # CLK 55 AMG real-world output
+	horsepower = 475                    # CLK 55 AMG real-world output
 	max_rpm = 6200.0                    # Broad, torquey AMG rev band
 	idle_rpm = 700.0
-	zero_to_hundred = 5.6
-	top_speed_kmh = 268           # Gentle GT top speed with muscle
+	zero_to_hundred = 4.4
+	top_speed_kmh = 297          # Gentle GT top speed with muscle
 	transmission = "Rear wheel drive"
 
 	# HANDLING — Calm GT with hidden aggression
