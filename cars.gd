@@ -43,7 +43,7 @@ var class_lists: Dictionary = {
 			"Brutus Stingray",
 		"Kronstadt Blazer",
 		"Kuro Serenity",
-		"Berkshire Blunt",
+			"Kestrel Seabird",
 	],
 
 	"sedans": [
@@ -55,7 +55,7 @@ var class_lists: Dictionary = {
 
 	"sport": [
 		"Berkshire V12-S",
-		"Kestrel Seabird",
+		"Berkshire Blunt",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
 	],
