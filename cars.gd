@@ -42,7 +42,7 @@ var class_lists: Dictionary = {
 	"urban": [
 			"Brutus Stingray",
 		"Kestrel Seabird",
-
+		"Kronstadt Blazer",
 		"Kuro Serenity",
 		"Berkshire Blunt",
 	],
@@ -56,7 +56,7 @@ var class_lists: Dictionary = {
 
 	"sport": [
 		"Berkshire V12-S",
-		"Kronstadt Blazer",
+		"Berkshire Tempest",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
 	],
@@ -144,6 +144,7 @@ var class_lists: Dictionary = {
 ],
 "berkshire_cup":[
 	"Berkshire Blunt",
+	"Berkshire Tempest",
 	"Berkshire Mocha",
 	"Berkshire V12-S"
 ],
@@ -164,6 +165,7 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Berkshire Tempest",
 		"Kestrel Touring",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
@@ -173,6 +175,7 @@ var class_lists: Dictionary = {
 		"Kuro Serenity",
 		"Berkshire Blunt",
 		"Kronstadt Blazer",
+		"Berkshire Tempest",
 		"Berkshire V12-S"
 	],
 	"stingray_competition":[
@@ -187,6 +190,7 @@ var class_lists: Dictionary = {
 	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Berkshire Tempest",
 		"Kronstadt Blazer",
 	],
 		"japanese_cup":[
@@ -215,6 +219,7 @@ var class_lists: Dictionary = {
 		"v12_engines":[
 		"Berkshire V12-S",
 		"Linetti Firestorm",
+		"Berkshire Tempest",
 		"Linetti Terror"
 	]
 }

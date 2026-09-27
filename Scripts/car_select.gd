@@ -18,6 +18,7 @@ var car_sell_prices := {
 	"Colossus Titan Max": 9000,
 	"Colossus Behemoth": 0,
 	"Mir Cars Nightwolf": 16800,
+	
 	"Schroder Colosso": 21000,
 
 	"Kuro Zephyr": 24000,
@@ -46,6 +47,7 @@ var car_sell_prices := {
 	"Schroder Classique Sport": 96000,
 	"Brutus Stingray": 84000,
 	"Eisenach Goblin": 114000,
+	"Berkshire Tempest":150000,
 	"Berkshire V12-S": 132000,
 	"Kestrel Touring": 156000,
 
@@ -91,11 +93,11 @@ var car_prices := {
 	"Kestrel Seabird": 90000,
 	"Eisenach Prince": 100000,
 	"Berkshire Blunt": 110000,
-	"Kronstadt Blazer": 120000,
+	"Kronstadt Blazer": 98000,
 
 	"Schroder Classique Sport": 135000,
 	"Brutus Stingray": 150000,
-	"Eisenach Goblin": 165000,
+	"Berkshire Tempest":203000,
 	"Berkshire V12-S": 190000,
 	"Kestrel Touring": 220000,
 
@@ -363,6 +365,7 @@ var muscle_list = [
 var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Seabird",
+	"Kronstadt Blazer",
 	"Berkshire Blunt",
 	"Brutus Stingray",
 ]
@@ -379,8 +382,8 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-		"Kronstadt Blazer",
 	"Berkshire V12-S",
+	"Berkshire Tempest",
 	"Kestrel Touring"
 ]
 
@@ -495,8 +498,14 @@ var urban_racers = {
 	],
 	"Berkshire Blunt":[
 		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
-		"0-100 KM/H: 5.6s", "TOP SPEED: 259 KM/H",
+		"0-100 KM/H: 6.1s", "TOP SPEED: 265 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Kronstadt Blazer":[
+		"", "Country: Germany", "HP: 360", "WEIGHT: 1540 KG",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 257 KM/H",
+		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 }
@@ -534,10 +543,10 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kronstadt Blazer":[
-		"", "Country: Germany", "HP: 360", "WEIGHT: 1540 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 282 KM/H",
-		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
+	"Berkshire Tempest":[
+		"", "Country: UK", "HP: 460", "WEIGHT: 1780 KG",
+		"0-100 KM/H: 5.6s", "TOP SPEED: 305 KM/H",
+		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 590 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[

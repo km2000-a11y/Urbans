@@ -397,7 +397,7 @@ var cups: Dictionary = {
 	"eligible_cars": [
 		"Kuro Serenity",
 		"Berkshire Blunt",
-
+		"Berkshire Tempest",
 		"Berkshire V12-S"
 	]
 },
@@ -413,7 +413,7 @@ var cups: Dictionary = {
 		"Berkshire Mocha",
 		"Kuro Vault",
 		"Eisenach Suppressor",
-		"Mir Cars Transporter"
+		
 	]
 },
 "speedster_tournament":{
@@ -450,6 +450,7 @@ var cups: Dictionary = {
 	"eligible_classes":["berkshire_cup"],
 	"eligible_cars":[
 		"Berkshire Mocha",
+		"Berkshire Tempest",
 		"Berkshire Blunt",
 		"Berkshire V12-S"
 	]
@@ -500,6 +501,7 @@ var cups: Dictionary = {
 	"eligible_classes":["gentleman_racers"],
 	"eligible_cars":[
 		"Berkshire Blunt",
+		"Berkshire Tempest",
 		"Berkshire V12-S",
 		"Kronstadt Blazer",
 	]
@@ -538,6 +540,7 @@ var cups: Dictionary = {
 	"eligible_classes":["v12_engines"],
 	"eligible_cars":[
 		"Berkshire V12-S",
+		"Berkshire Tempest",
 		"Linetti Firestorm",
 		"Linetti Terror"
 	]
