@@ -90,7 +90,7 @@ var car_prices := {
 	"Kronstadt Fortress": 115000,
 
 	"Kuro Serenity": 80000,
-	"Kestrel Seabird": 90000,
+	"Kestrel Seabird": 120000,
 	"Eisenach Prince": 100000,
 	"Berkshire Blunt": 110000,
 	"Kronstadt Blazer": 98000,
@@ -364,13 +364,10 @@ var muscle_list = [
 
 var urban_list = [
 	"Kuro Serenity",
-	"Kestrel Seabird",
 	"Kronstadt Blazer",
 	"Berkshire Blunt",
 	"Brutus Stingray",
 ]
-
-
 
 var sedans_list = [
 	"Strandberg Turbo",
@@ -382,14 +379,14 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
+	"Kestrel Seabird",
 	"Berkshire V12-S",
-	"Berkshire Tempest",
 	"Kestrel Touring"
 ]
 
 var sport_racing_list = [
 	"Kestrel Battleaxe",
-	"Kronstadt Beast",
+	"Berkshire Tempest",
 	"Brutus Venom",
 	"Linetti Shepherd",
 ]
@@ -478,33 +475,27 @@ var muscle = {
 	]
 }
 var urban_racers = {
-	"Kestrel Seabird":[
-		"", "Country: UK", "HP: 192", "WEIGHT: 935 KG",
-		"0-100 KM/H: 4.8s", "TOP SPEED: 243 KM/H",
-		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Kuro Serenity":[
 		"", "Country: Japan", "HP: 260", "WEIGHT: 1640 KG",
-		"0-100 KM/H: 6.3s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 6.4s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 360 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 		"Brutus Stingray":[
 		"", "Country: USA", "HP: 340", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 254 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 256 KM/H",
 		"ENGINE: V8 5.7L", "ASPIRATION: NA", "TORQUE: 475 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Berkshire Blunt":[
 		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
-		"0-100 KM/H: 6.1s", "TOP SPEED: 265 KM/H",
+		"0-100 KM/H: 5.8s", "TOP SPEED: 262 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kronstadt Blazer":[
 		"", "Country: Germany", "HP: 360", "WEIGHT: 1540 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 257 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 247 KM/H",
 		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
@@ -518,7 +509,7 @@ var sedans = {
 	],
 			"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
-		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 5.8s", "TOP SPEED: 247 KM/H",
 		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
@@ -543,16 +534,16 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Tempest":[
-		"", "Country: UK", "HP: 460", "WEIGHT: 1780 KG",
-		"0-100 KM/H: 5.6s", "TOP SPEED: 305 KM/H",
-		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 590 NM",
+	"Kestrel Seabird":[
+		"", "Country: UK", "HP: 192", "WEIGHT: 935 KG",
+		"0-100 KM/H: 4.5s", "TOP SPEED: 246 KM/H",
+		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
 		"", "Country: Germany", "HP: 280", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 4.9s", "TOP SPEED: 263 KM/H",
-		"ENGINE: L4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 263 KM/H",
+		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 450 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 	"Kestrel Touring":[
@@ -569,18 +560,19 @@ var sport_racing = {
 		"ENGINE: V10 5.0L", "ASPIRATION: NA", "TORQUE: 510 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
+	"Berkshire Tempest":[
+		"", "Country: UK", "HP: 520", "WEIGHT: 1780 KG",
+		"0-100 KM/H: 4.9s", "TOP SPEED: 318 KM/H",
+		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 580 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 	"Brutus Venom":[
 		"", "Country: USA", "HP: 415", "WEIGHT: 1560 KG",
 		"0-100 KM/H: 4.1s", "TOP SPEED: 300 KM/H",
 		"ENGINE: V10 8.0L", "ASPIRATION: NA", "TORQUE: 630 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kronstadt Beast":[
-		"", "Country: Germany", "HP: 475", "WEIGHT: 1755 KG",
-		"0-100 KM/H: 4.5s", "TOP SPEED: 297 KM/H",
-		"ENGINE: V8 6.2L", "ASPIRATION: NA", "TORQUE: 630 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+	
 	"Kestrel Battleaxe":[
 		"", "Country: UK", "HP: 406", "WEIGHT: 1078 KG",
 		"0-100 KM/H: 3.5s", "TOP SPEED: 287 KM/H",

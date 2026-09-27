@@ -209,7 +209,6 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Classique Sport",
-		"Kronstadt Beast",
 		"Kronstadt Blazer",
 
 				"Eisenach Suppressor",
@@ -521,7 +520,7 @@ var cups: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Classique Sport",
-		"Kronstadt Beast",
+	
 				"Eisenach Suppressor",
 		"Kronstadt Blazer",
 		"Eisenach Bengal",
@@ -548,7 +547,7 @@ var cups: Dictionary = {
 "sport_racing": {
 	"eligible_classes": ["sport_racing"],
 	"eligible_cars": [
-		"Kronstadt Beast",
+		"Berkshire Tempest",
 		"Linetti Shepherd",
 		"Brutus Venom",
 		"Kestrel Battleaxe"

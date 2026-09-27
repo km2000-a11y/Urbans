@@ -41,7 +41,6 @@ var class_lists: Dictionary = {
 
 	"urban": [
 			"Brutus Stingray",
-		"Kestrel Seabird",
 		"Kronstadt Blazer",
 		"Kuro Serenity",
 		"Berkshire Blunt",
@@ -56,15 +55,15 @@ var class_lists: Dictionary = {
 
 	"sport": [
 		"Berkshire V12-S",
-		"Berkshire Tempest",
+		"Kestrel Seabird",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
 	],
 
 	"sport_racing": [
-		"Kronstadt Beast",
 		"Linetti Shepherd",
 		"Brutus Venom",
+		"Berkshire Tempest",
 		"Kestrel Battleaxe"
 	],
 
@@ -204,7 +203,6 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Schroder Classique Sport",
 		"Kronstadt Blazer",
-		"Kronstadt Beast",
 				"Eisenach Suppressor",
 		"Eisenach Bengal",
 

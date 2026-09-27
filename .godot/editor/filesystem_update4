@@ -1,11 +1,15 @@
-res://Scripts/car_select.gd
+res://club_cups.gd
 res://main.tscn
 res://cars.gd
-res://Scenes/clk_55.gd
-res://club_cups.gd
+res://Scripts/car_select.gd
+res://Scripts/chevrolet_corvette_c5_1998.gd
 res://Scripts/jaguar_xkr_2003.gd
+res://Scenes/lexus_sc.gd
+res://Scripts/lotus_exige_s_2007.gd
+res://Scenes/rs3.gd
 res://Scenes/sl_500.gd
 res://Scripts/vanquish_2002.gd
+res://Scenes/volvo_s_60r.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -68,4 +72,3 @@ res://Scenes/jaguar_s_type.tscn
 res://Tracks/las_vegas.tscn
 res://Scenes/sl_500.tscn
 res://Scenes/clk_55.tscn
-res://jaguar_xkr.tscn
