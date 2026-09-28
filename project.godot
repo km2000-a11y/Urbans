@@ -19,6 +19,7 @@ run/main_scene="uid://blwywdnqsnjx6"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://b4kj78i2prqlm"
+config/windows_native_icon="res://WhatsApp-Image-2026-09-05-at-09.42.43.ico"
 
 [autoload]
 

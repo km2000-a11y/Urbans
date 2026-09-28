@@ -365,7 +365,7 @@ var muscle_list = [
 var urban_list = [
 	"Kuro Serenity",
 		"Kestrel Seabird",
-	"Kronstadt Blazer",
+	"Berkshire Blunt",
 	"Brutus Stingray",
 ]
 
@@ -379,7 +379,7 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-	"Berkshire Blunt",
+	"Kronstadt Blazer",
 	"Berkshire V12-S",
 	"Kestrel Touring"
 ]
@@ -493,10 +493,10 @@ var urban_racers = {
 		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kronstadt Blazer":[
-		"", "Country: Germany", "HP: 360", "WEIGHT: 1540 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 253 KM/H",
-		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
+	"Berkshire Blunt":[
+		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
+		"0-100 KM/H: 5.7s", "TOP SPEED: 265 KM/H",
+		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 }
@@ -534,10 +534,10 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Blunt":[
-		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
-		"0-100 KM/H: 5.6s", "TOP SPEED: 280 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
+	"Kronstadt Blazer":[
+		"", "Country: Germany", "HP: 360", "WEIGHT: 1540 KG",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 273 KM/H",
+		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
