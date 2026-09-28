@@ -412,7 +412,6 @@ var cups: Dictionary = {
 		"Berkshire Mocha",
 		"Kuro Vault",
 		"Eisenach Suppressor",
-		
 	]
 },
 "speedster_tournament":{
