@@ -1,8 +1,12 @@
-res://Scripts/car_select.gd
-res://main.tscn
-res://cars.gd
-res://Scripts/jaguar_xkr_2003.gd
 res://Scenes/sl_500.gd
+res://Scenes/bmw_z8.tscn
+res://cars.gd
+res://Scripts/car_select.gd
+res://Scenes/rs3.gd
+res://Scenes/clk_55.gd
+res://main.tscn
+res://club_cups.gd
+res://Scenes/bmw_z8.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -63,6 +67,5 @@ res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Tracks/las_vegas.tscn
-res://Scenes/sl_500.tscn
 res://Scenes/clk_55.tscn
-res://export_presets.cfg
+res://Scenes/championships.gd

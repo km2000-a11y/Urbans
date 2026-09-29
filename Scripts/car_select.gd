@@ -41,8 +41,8 @@ var car_sell_prices := {
 	"Kuro Serenity": 51000,
 	"Kestrel Speedster": 57000,
 	"Eisenach Prince": 72000,
-	"Berkshire Blunt": 8000,
-	"Kronstadt Blazer": 100000,
+	"Berkshire Blunt": 80000,
+	"Kronstadt Blazer": 50000,
 
 	"Schroder Classique Sport": 96000,
 	"Brutus Stingray": 84000,
@@ -91,9 +91,9 @@ var car_prices := {
 
 	"Kuro Serenity": 80000,
 	"Kestrel Seabird": 120000,
-	"Eisenach Prince": 100000,
+	"Eisenach Roadstar": 165000,
 	"Berkshire Blunt": 110000,
-	"Kronstadt Blazer": 98000,
+	"Kronstadt Blazer": 96000,
 
 	"Schroder Classique Sport": 135000,
 	"Brutus Stingray": 150000,
@@ -199,9 +199,9 @@ var car_colors := {
 	Color8(180,180,180),
 	Color8(120,0,0)
 ],
-"Kuro Persian":[
-	Color8(0,110,130),   # Teal Torque (same as Mammoth)
-	Color8(255,255,255), # White
+"Kronstadt Blazer":[
+	Color8(0,0,0), # White
+	Color8(0,110,130),   # Teal Torque (same as Mammothte
 	Color8(60,60,60),    # Dark Grey
 	Color8(180,20,20)    # Deep Muscle Red
 ],
@@ -234,7 +234,7 @@ var car_colors := {
 	Color8(0,70,120)       # Cavansite Blue
 ],
 
-"Kronstadt Blazer":[
+"Eisenach Roadstar":[
 	Color8(180,180,180),   # Silver (default)
 	Color8(200,40,40),     # ⭐ Deep Mercedes Red
 	Color8(60,60,60),      # Graphite
@@ -282,12 +282,7 @@ var car_colors := {
 	"Berkshire Tempest":[Color8(192,192,192), Color8(255,255,255), Color8(0,80,120), Color8(160,160,160)],
 	"Berkshire V12-S":[Color8(46,54,64), Color8(255,255,255), Color8(80,120,160), Color8(160,160,160)],
 	"Bartoli Cruiser":[Color8(0,157,192), Color8(255,255,255), Color8(180,180,180), Color8(0,90,160)],
-	"Eisenach Bengal":[
-	Color8(113,115,120),   # Same default as Roadstar
-	Color8(255,255,255),
-	Color8(0,90,180),
-	Color8(180,180,180)
-],
+	
 
    
 "Schroder Classique Sport":[
@@ -364,6 +359,7 @@ var muscle_list = [
 
 var urban_list = [
 	"Kuro Serenity",
+		"Kronstadt Blazer",
 		"Kestrel Seabird",
 	"Berkshire Blunt",
 	"Brutus Stingray",
@@ -379,7 +375,7 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-	"Kronstadt Blazer",
+	"Eisenach Roadstar",
 	"Berkshire V12-S",
 	"Kestrel Touring"
 ]
@@ -493,6 +489,12 @@ var urban_racers = {
 		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Kronstadt Blazer":[
+		"", "Country: Germany", "HP: 278", "WEIGHT: 1570 KG",
+		"0-100 KM/H: 6.1s", "TOP SPEED: 256 KM/H",
+		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 400 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 	"Berkshire Blunt":[
 		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
 		"0-100 KM/H: 5.7s", "TOP SPEED: 265 KM/H",
@@ -534,16 +536,16 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kronstadt Blazer":[
-		"", "Country: Germany", "HP: 360", "WEIGHT: 1540 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 273 KM/H",
-		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
+	"Eisenach Roadstar":[
+		"", "Country: Germany", "HP: 400", "WEIGHT: 1585 KG",
+		"0-100 KM/H: 4.9s", "TOP SPEED: 280 KM/H",
+		"ENGINE: V8 4.9L", "ASPIRATION: NA", "TORQUE: 500 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 340", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 263 KM/H",
-		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 450 NM",
+		"", "Country: Germany", "HP: 280", "WEIGHT: 1460 KG",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 265 KM/H",
+		"ENGINE: L4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 	"Kestrel Touring":[
@@ -675,7 +677,6 @@ var car_scene_paths = {
 
 	"Schroder Atrix Q32":"res://Scenes/audi_tt.tscn",
 	"Straeda B32":"res://Scenes/new_beetle.tscn",
-	"Kronstadt Beast":"res://Scenes/clk_55.tscn",
 	"Zenith Horizon":"res://Scenes/nissan_350z.tscn",
 	"Straeda G25":"res://Scenes/golf_v_gti.tscn",
 	"Schroder D-20":"res://Scenes/audi_a3.tscn",
@@ -684,7 +685,7 @@ var car_scene_paths = {
 
 
 	"Kestrel Seabird":"res://Scenes/lotus_exige_s.tscn",
-	"Eisenach Roadstar":"res://Scenes/bmw_z4.tscn",
+	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
 	"Brutus Stingray":"res://Scenes/chevrolet_corvette_c5.tscn",
 	"Kuro Zephyr V6":"res://Scenes/lexus_is350.tscn",
 	"Kestrel Speedster":"res://Scenes/morgan_aero_8.tscn",
@@ -728,7 +729,7 @@ var car_scene_paths = {
 	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
 	"Eisenach Suppressor":"res://Scenes/bmw_535d.tscn",
 	"Schroder Fastback":"res://Scenes/audi_a5_tdi.tscn",
-	"Kronstadt Blazer":"res://Scenes/sl_500.tscn",
+	"Kronstadt Blazer":"res://Scenes/clk_55.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn"
 
 }

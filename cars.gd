@@ -43,6 +43,7 @@ var class_lists: Dictionary = {
 			"Brutus Stingray",
 		"Berkshire Blunt",
 		"Kuro Serenity",
+		"Kronstadt Blazer",
 			"Kestrel Seabird",
 	],
 
@@ -55,7 +56,7 @@ var class_lists: Dictionary = {
 
 	"sport": [
 		"Berkshire V12-S",
-		"Kronstadt Blazer",
+		"Eisenach Roadstar",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
 	],
@@ -243,7 +244,7 @@ var car_scene_paths := {
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
-		"Kronstadt Blazer":"res://Scenes/sl_500.tscn",	
+		"Kronstadt Blazer":"res://Scenes/clk_55.tscn",	
 	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
 
 	"Brutus Viper":"res://Scenes/gt500.tscn",
@@ -267,7 +268,6 @@ var car_scene_paths := {
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
 	"Eisenach Black Panda":"res://Scenes/bmw_330d.tscn",
 	"Kuro Persian":"res://Scenes/lexus_gs430.tscn",
-		"Kronstadt Beast":"res://Scenes/clk_55.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
 
 
@@ -277,6 +277,7 @@ var car_scene_paths := {
 	"Brutus Venom":"res://Scenes/dodge_viper.tscn",
 	"Berkshire Mocha":"res://Scenes/jaguar_s_type.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn",
+	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
 
 
 

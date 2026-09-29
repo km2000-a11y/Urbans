@@ -222,6 +222,7 @@ script = ExtResource("1_8csix")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179, 2, 8)
+visible = false
 current = true
 fov = 55.0
 script = ExtResource("2_8csix")
@@ -347,12 +348,12 @@ mesh = SubResource("BoxMesh_rdxp4")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/Body/MeshInstance3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.157282, 0.237735, 0.0815856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.157282, 0.237735, 0.117378)
 material_override = SubResource("StandardMaterial3D_pf3kd")
 mesh = SubResource("BoxMesh_gnug7")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="ModelRoot/Body/MeshInstance3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143052, 0.238543, 0.0815856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143052, 0.238543, 0.11954)
 material_override = SubResource("StandardMaterial3D_pf3kd")
 mesh = SubResource("BoxMesh_gnug7")
 
