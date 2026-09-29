@@ -26,7 +26,7 @@ res://Scenes/gt500.tscn::d640394107d4a3a9c53d1405ad942e0f::1790676538::res://.go
 res://Scenes/HUD.tscn::34bcf78ecdc18d68941c92b643edda73::1790676542::res://.godot/exported/133200997/export-9a2cb3fea6fe1c122965a87615eba9e3-HUD.scn
 res://Scenes/hummer_h1.tscn::dcf8edb32179afb26175e27436c9c2c6::1790676536::res://.godot/exported/133200997/export-7861a8cd5ff92d5f291d86894ed1507a-hummer_h1.scn
 res://Scenes/hummer_h2.tscn::d400a344fb75dd577df9840d63c0c39e::1790676537::res://.godot/exported/133200997/export-aa62e5230abee91f7c192b32031c6ba7-hummer_h2.scn
-res://Scenes/jaguar_xkr.tscn::f0c2bb67711d9f391834ce30b83e0ea5::1790677037::res://.godot/exported/133200997/export-d9a9466c591df723141259ff74bfbf2b-jaguar_xkr.scn
+res://Scenes/jaguar_xkr.tscn::5acc15ce5353a859bab8a60f77e65736::1790677594::res://.godot/exported/133200997/export-d9a9466c591df723141259ff74bfbf2b-jaguar_xkr.scn
 res://Scenes/leaderboard.tscn::bd9a7aa068d515b3c6b7faea9306bd11::1790676541::res://.godot/exported/133200997/export-4f4bdb57979728a9227db4ae0d93af41-leaderboard.scn
 res://Scenes/lexus_is250.tscn::4d121643cc971612928dce990fcb3bbf::1790676542::res://.godot/exported/133200997/export-5e9ae49ab94cd3545096fb421a8f8a40-lexus_is250.scn
 res://Scenes/lexus_is350.tscn::f59d89b462b03d9f6f861b573d66cbc9::1787390471::res://.godot/exported/133200997/export-2fc50957b3e33832599d490e40281474-lexus_is350.scn
@@ -88,7 +88,7 @@ res://Scenes/clk_55.tscn::972e5fdded8a0829cd4ce37a636d3971::1790676555::res://.g
 res://Scenes/audi_rs3.tscn::d3538244bb6310f3dee61d7e25e59414::1790676541::res://.godot/exported/133200997/export-ec921f0b4ecb53475e91c0baed529f5a-audi_rs3.scn
 res://Scenes/jaguar_s_type.tscn::929043002f65205c26e3ee76b4a06bd2::1790676553::res://.godot/exported/133200997/export-80a535e1b1cbe98b83ca07a0c7774319-jaguar_s_type.scn
 res://Scenes/language_menu.tscn::977c9ac4e3c72ffe432f9e50f4058fda::1790676551::res://.godot/exported/133200997/export-056f52ffaca935404cd2e88003775829-language_menu.scn
-res://Tracks/new_york.tscn::4c5fc20d44417214a0d282629d8e067d::1790676552::res://.godot/exported/133200997/export-82b9d005bdcc55c6905ebc5a28de3f22-new_york.scn
+res://Tracks/new_york.tscn::4c5fc20d44417214a0d282629d8e067d::1790677600::res://.godot/exported/133200997/export-82b9d005bdcc55c6905ebc5a28de3f22-new_york.scn
 res://noto_sans.tres::04151be2c1cfc81fc938d8ebde6c9e81::1788705769::res://.godot/exported/133200997/export-aa8987076dbb7644f0cb4faffc71bc54-noto_sans.res
 res://Tracks/las_vegas.tscn::a4a188227c66fe24f3c90ffbdf079b76::1790676553::res://.godot/exported/133200997/export-56055e33ba843b15556bc8e550362bc7-las_vegas.scn
 res://Scenes/bmw_z8.tscn::74d4019a40bc76fa51acf2fae342378c::1790676554::res://.godot/exported/133200997/export-d91d5d863c958c2bea3f60079d04ea22-bmw_z8.scn
