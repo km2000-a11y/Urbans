@@ -1,22 +1,15 @@
 extends CanvasLayer
 
 func _start_race_with_track(track_name: String):
-	if GameMode.game_mode == "Multi-Device":
-		# Сначала синхронизируем цвет со всеми
-		var c := Cars.selected_color
-		LanManager.rpc("sync_my_color", c.r, c.g, c.b)
-		# Сохраняем свой цвет тоже
-		LanManager.player_colors[multiplayer.get_unique_id()] = c
+	RoadChallengeState.active_track = track_name
+	TrackName.track_name = track_name
 
-		if multiplayer.is_server():
-			LanManager.rpc("sync_track_and_start", track_name)
-	else:
-		TrackName.track_name = track_name
-		get_tree().change_scene_to_file("res://main.tscn")
+	# Works for single player AND LAN
+	get_tree().change_scene_to_file("res://main.tscn")
 
 
 func _on_bogota_airport_pressed():
-	_start_race_with_track("BogotaAirport")	
+	_start_race_with_track("BogotaAirport")
 
 func _on_chernobyl_pressed():
 	_start_race_with_track("Chernobyl")
@@ -34,3 +27,12 @@ func _on_back_btn_pressed() -> void:
 
 	else: 
 		get_tree().change_scene_to_file("res://Scenes/car_select.tscn")
+
+
+func _on_new_york_pressed() -> void:
+	_start_race_with_track("NewYork")
+
+
+
+func _on_las_vegas_pressed() -> void:
+	_start_race_with_track("LasVegas")
