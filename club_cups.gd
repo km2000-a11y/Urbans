@@ -98,6 +98,7 @@ var class_lists: Dictionary = {
 	],
 	"v6_engines":[
 		"Schroder Atrix Q32",
+		"Straeda Volant",
 		"Zenith Horizon"
 	],
 	"zenith_competition":[
@@ -106,6 +107,7 @@ var class_lists: Dictionary = {
 	"businessman_racers":[
 	"Kuro Vault",
 	"Eisenach Suppressor",
+	"Straeda Volant",
 	"Strandberg Turbo",
 	"Berkshire Mocha",
 ],
@@ -145,7 +147,7 @@ var class_lists: Dictionary = {
 	"Schroder Colosso",
 	"Mir Cars Transporter",
 	"Eisenach Suppressor",
-
+	"Straeda Volant",
 	"Kestrel Seabird",
 	"Colossus Behemoth",
 	"Schroder Classique Sport",
@@ -359,6 +361,7 @@ var cups: Dictionary = {
 	"eligible_classes": ["v6_engines"],
 	"eligible_cars": [
 		"Zenith Horizon",
+		"Straeda Volant",
 		"Schroder Atrix Q32"
 	]
 },
@@ -412,8 +415,10 @@ var cups: Dictionary = {
 	"eligible_classes":["businessman_racers"],
 	"eligible_cars":[
 		"Berkshire Mocha",
+		"Straeda Volant",
 		"Kuro Vault",
 		"Eisenach Suppressor",
+		"Strandberg Turbo"
 	]
 },
 "speedster_tournament":{
@@ -474,6 +479,7 @@ var cups: Dictionary = {
 	"Schroder Colosso",
 	"Brutus Stingray",
 	"Mir Cars Transporter",
+	"Straeda Volant",
 	"Eisenach Suppressor",
 	"Kronstadt Blazer",
 	"Eisenach Roadstar",

@@ -49,6 +49,7 @@ var car_sell_prices := {
 	"Eisenach Goblin": 114000,
 	"Berkshire Tempest":150000,
 	"Berkshire V12-S": 132000,
+	"Straeda Volant":34000,
 	"Kestrel Touring": 156000,
 
 	"Kronstadt Beast": 168000,
@@ -74,7 +75,7 @@ var car_prices := {
 
 	"Brutus Viper": 45000,
 	"Mir Cars Hutch": 55000,
-
+	"Straeda Volant":62000,
 	"Kuro Zephyr": 38000,
 	"Schroder Atrix Q32": 50000,
 	"Zenith Horizon": 60000,
@@ -264,6 +265,13 @@ var car_colors := {
 	Color8(180,180,180), # Silver
 	Color8(60,60,60)     # Graphite Grey
 ],
+"Straeda Volant":[
+	Color8(255, 255, 255),  # Taxi White
+	Color8(25, 25, 30),     # Paris Black
+	Color8(30, 55, 110),    # Midnight Blue
+	Color8(190, 190, 195)   # Silver Mist
+],
+
 "Eisenach Prince":[
 	Color8(255,99,71),    # ⭐ Tomato Red (default)
 	Color8(185,155,185),  # White
@@ -366,6 +374,7 @@ var urban_list = [
 ]
 
 var sedans_list = [
+	"Straeda Volant",
 	"Strandberg Turbo",
 	"Kuro Vault",
 	"Berkshire Mocha",
@@ -503,6 +512,12 @@ var urban_racers = {
 	],
 }
 var sedans = {
+	"Straeda Volant":[
+		"", "Country: Germany", "HP: 220", "WEIGHT: 1390 KG",
+		"0-100 KM/H: 6.9s", "TOP SPEED: 246 KM/H",
+		"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 300 NM",
+		"TRANSMISSION: FRONT-WHEEL DRIVE"
+	],
 	"Eisenach Suppressor":[
 		"", "Country: Germany", "HP: 360", "WEIGHT: 1660 KG",
 		"0-100 KM/H: 5.2s", "TOP SPEED: 250 KM/H",
@@ -700,6 +715,7 @@ var car_scene_paths = {
 	"Mir Cars Athletic C70":"res://Scenes/zonda.tscn",
 	"Bartoli Track Cruiser":"res://Scenes/mc12.tscn",
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
+	"Straeda Volant":"res://Scenes/peugeot_406.tscn",
 
 
 

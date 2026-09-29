@@ -48,6 +48,7 @@ var class_lists: Dictionary = {
 	],
 
 	"sedans": [
+		"Straeda Volant",
 	"Eisenach Suppressor",
 	"Kuro Vault",
 	"Strandberg Turbo",
@@ -86,6 +87,7 @@ var class_lists: Dictionary = {
 	],
 	"v6_engines":[
 		"Schroder Atrix Q32",
+		"Straeda Volant",
 		"Zenith Horizon"
 	],
 	"zenith_competition":[
@@ -94,6 +96,7 @@ var class_lists: Dictionary = {
 	"businessman_racers":[
 	"Kuro Vault",
 	"Eisenach Suppressor",
+	"Straeda Volant",
 	"Strandberg Turbo",
 	"Berkshire Mocha",
 ],
@@ -118,7 +121,7 @@ var class_lists: Dictionary = {
 	],
 	"under_400_hp": [
 	"Mir Cars Hutch",
-
+	"Straeda Volant",
 	"Schroder Atrix Q32",
 	"Colossus Titan Max",
 	"Kestrel Touring",
@@ -260,6 +263,7 @@ var car_scene_paths := {
 		"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
 		"Kronstadt Fortress":"res://Scenes/s600.tscn",
 			"Eisenach Goblin":"res://Scenes/bmw_1m.tscn",
+			"Straeda Volant":"res://Scenes/peugeot_406.tscn",
 
 
 	"Schroder Atrix Sport":"res://Scenes/audi_tt_rs.tscn",

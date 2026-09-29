@@ -67,3 +67,6 @@ res://main.gd
 res://Scenes/track_select.gd
 res://cars.gd
 res://Scripts/base_car.gd
+res://Scenes/peugeot_406.tscn
+res://Scenes/peugeot_406.gd
+res://club_cups.gd
