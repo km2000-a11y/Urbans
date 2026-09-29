@@ -19,7 +19,7 @@ run/main_scene="uid://blwywdnqsnjx6"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://dwdj8wuju7xbb"
-config/windows_native_icon="uid://dwdj8wuju7xbb"
+config/windows_native_icon="res://cover.ico"
 
 [autoload]
 
