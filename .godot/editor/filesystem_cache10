@@ -1,5 +1,5 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1790679748
+::res://::1790694038
 aston_db9.tscn::PackedScene/PackedScene::7422556213708327541::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 audi_a8.tscn::PackedScene/PackedScene::4017700870543264684::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 audi_tt.tscn::PackedScene/PackedScene::601921826692948676::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
@@ -12,13 +12,13 @@ chevelle_ss.tscn::PackedScene/PackedScene::7987611326639691350::1787390461::0::1
 chevrolet_corvette_c5.tscn::PackedScene/PackedScene::5176322822445342305::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 club_cups.gd::GDScript/GDScript::7575609868975430269::1790675982::0::1::::<>Node<><>0<>0<><>::
 cop_chase_manager.gd::GDScript/GDScript::7112536332080286684::1790085234::0::1::::<>Node<><>0<>0<><>::
-cover.ico::OtherFile::-1::1790678223::0::1::::<><><>0<>0<><>::
+cover.ico::OtherFile/OtherFile::-1::1790678223::0::1::::<><><>0<>0<><>::
 cover.jpeg::CompressedTexture2D/CompressedTexture2D::8710216315358676063::1790677313::1790677314::1::::<><><>0<>0<>69436a1e7594914b3a0dac81e8395058<>res://.godot/imported/cover.jpeg-c933b4af8f8ca65939112d87ed45b3cc.ctex::
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::124886015821390848::1787390461::0::1::::<><><>0<>0<><>::
 diablo_road.tscn::PackedScene/PackedScene::8595986587423486950::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 duel_manager.gd::GDScript/GDScript::7400118118596659445::1790085000::0::1::::<>Node<><>0<>0<><>::
 elimination_manager.gd::GDScript/GDScript::4518555136115562771::1790085234::0::1::::<>Node<><>0<>0<><>::
-export_presets.cfg::TextFile::-1::1790678239::0::1::::<><><>0<>0<><>::
+export_presets.cfg::TextFile/TextFile::-1::1790678239::0::1::::<><><>0<>0<><>::
 game_mode.gd::GDScript/GDScript::7546371985593095480::1787390461::0::1::::<>Node<><>0<>0<><>::
 global.gd::GDScript/GDScript::4048092237940241440::1789479657::0::1::::<>Node<><>0<>0<><>::
 hummer_h1.tscn::PackedScene/PackedScene::232344231085416083::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://cpontoff1o0wi::::res://SFX/crash.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
@@ -307,7 +307,7 @@ chernobyl.tscn::PackedScene/PackedScene::2564326864016197945::1790676544::0::1::
 crates.gd::GDScript/GDScript::4302747136314281460::1788617624::0::1::::<>CharacterBody3D<><>0<>0<><>::
 lap_line.gd::GDScript/GDScript::8508546747928964172::1789277186::0::1::::<>Area3D<><>0<>0<><>::
 las_vegas.tscn::PackedScene/PackedScene::793205717494644652::1790676553::0::1::::<><><>0<>0<><>::uid://dthur0h1nvj6s::::res://Tracks/lap_line.gd
-new_york.tscn::PackedScene::2265595137352724638::1790678260::0::1::::<><><>0<>0<><>::uid://frkq58mu2pgw::::res://Scripts/barrier_1.gd<>uid://dthur0h1nvj6s::::res://Tracks/lap_line.gd
+new_york.tscn::PackedScene/PackedScene::2265595137352724638::1790678260::0::1::::<><><>0<>0<><>::uid://frkq58mu2pgw::::res://Scripts/barrier_1.gd<>uid://dthur0h1nvj6s::::res://Tracks/lap_line.gd
 split.tscn::PackedScene/PackedScene::651277879497277858::1790676547::0::1::::<><><>0<>0<><>::uid://dthur0h1nvj6s::::res://Tracks/lap_line.gd<>uid://b5tj0bpuxvh85::::res://Tracks/barrier_3.gd
 ::res://Urban drive main/::1789805988
 ::res://Urban Drive v0.1/::1790082233
