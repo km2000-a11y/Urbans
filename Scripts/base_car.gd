@@ -691,11 +691,28 @@ func _update_player_waypoint():
 		return
 
 	var wp := waypoints[current_wp] as Node3D
-	var dist := global_position.distance_to(wp.global_position)
 
-	if dist < 6.0:
+	var to_wp := wp.global_position - global_position
+	to_wp.y = 0.0
+
+	var dist := to_wp.length()
+
+	var forward := -transform.basis.z
+	forward.y = 0.0
+	forward = forward.normalized()
+
+	var dir := to_wp.normalized()
+	var dot := forward.dot(dir)
+
+	# Normal hit
+	if dist < 12.0:
 		current_wp = (current_wp + 1) % waypoints.size()
+		return
 
+	# Forgiveness: waypoint passed behind car
+	if dot < -0.3:
+		current_wp = (current_wp + 1) % waypoints.size()
+		return
 
 func _update_ai_waypoint():
 	if waypoints.is_empty():

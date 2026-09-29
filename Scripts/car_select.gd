@@ -666,7 +666,8 @@ func _apply_dealership_ui():
 	$Control/UpgradesButton.hide()
 
 	# Update balance + price
-	$MoneyLabel.text = "BALANCE: " + str(Cars.player_money)
+	if GameMode.game_mode=="Club Cups":
+		$MoneyLabel.text = "BALANCE: " + str(Cars.player_money)
 	
 var car_scene_paths = {
 	"Colossus Titan Max":"res://Scenes/hummer_h1.tscn",

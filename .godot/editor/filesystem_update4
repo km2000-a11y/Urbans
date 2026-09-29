@@ -65,3 +65,5 @@ res://Scripts/car_select.gd
 res://lan_manager.gd
 res://main.gd
 res://Scenes/track_select.gd
+res://cars.gd
+res://Scripts/base_car.gd
