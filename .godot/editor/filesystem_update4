@@ -61,3 +61,7 @@ res://Scenes/jaguar_s_type.tscn
 res://Tracks/las_vegas.tscn
 res://Scenes/bmw_z8.tscn
 res://Scenes/clk_55.tscn
+res://Scripts/car_select.gd
+res://lan_manager.gd
+res://main.gd
+res://Scenes/track_select.gd

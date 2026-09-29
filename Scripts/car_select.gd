@@ -677,6 +677,7 @@ var car_scene_paths = {
 
 	"Schroder Atrix Q32":"res://Scenes/audi_tt.tscn",
 	"Straeda B32":"res://Scenes/new_beetle.tscn",
+	"Kronstadt Beast":"res://Scenes/clk_55.tscn",
 	"Zenith Horizon":"res://Scenes/nissan_350z.tscn",
 	"Straeda G25":"res://Scenes/golf_v_gti.tscn",
 	"Schroder D-20":"res://Scenes/audi_a3.tscn",
@@ -685,7 +686,7 @@ var car_scene_paths = {
 
 
 	"Kestrel Seabird":"res://Scenes/lotus_exige_s.tscn",
-	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
+	"Eisenach Roadstar":"res://Scenes/bmw_z4.tscn",
 	"Brutus Stingray":"res://Scenes/chevrolet_corvette_c5.tscn",
 	"Kuro Zephyr V6":"res://Scenes/lexus_is350.tscn",
 	"Kestrel Speedster":"res://Scenes/morgan_aero_8.tscn",
@@ -729,7 +730,7 @@ var car_scene_paths = {
 	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
 	"Eisenach Suppressor":"res://Scenes/bmw_535d.tscn",
 	"Schroder Fastback":"res://Scenes/audi_a5_tdi.tscn",
-	"Kronstadt Blazer":"res://Scenes/clk_55.tscn",
+	"Kronstadt Blazer":"res://Scenes/sl_500.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn"
 
 }
@@ -1303,7 +1304,10 @@ func _on_select_pressed() -> void:
 	Cars.on_car_selected(car_name)
 	Cars.selected_car_name = car_name
 	Cars.selected_car = Cars.car_scene_paths.get(car_name, "")
-	Cars.selected_color = car_colors.get(car_name, [])[color_index]
+	if car_name == "" or not car_colors.has(car_name):
+		push_error("car_name is invalid: '" + car_name + "'")
+		return
+	Cars.selected_color = car_colors[car_name][color_index]
 	Cars.save_color()
 
 	get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
