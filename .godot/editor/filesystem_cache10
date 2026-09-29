@@ -1,5 +1,5 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1790677313
+::res://::1790677623
 aston_db9.tscn::PackedScene/PackedScene::7422556213708327541::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 audi_a8.tscn::PackedScene/PackedScene::4017700870543264684::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 audi_tt.tscn::PackedScene/PackedScene::601921826692948676::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
@@ -12,7 +12,7 @@ chevelle_ss.tscn::PackedScene/PackedScene::7987611326639691350::1787390461::0::1
 chevrolet_corvette_c5.tscn::PackedScene/PackedScene::5176322822445342305::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 club_cups.gd::GDScript::7575609868975430269::1790675982::0::1::::<>Node<><>0<>0<><>::
 cop_chase_manager.gd::GDScript/GDScript::7112536332080286684::1790085234::0::1::::<>Node<><>0<>0<><>::
-cover.jpeg::CompressedTexture2D::8710216315358676063::1790677313::1790677314::1::::<><><>0<>0<>69436a1e7594914b3a0dac81e8395058<>res://.godot/imported/cover.jpeg-c933b4af8f8ca65939112d87ed45b3cc.ctex::
+cover.jpeg::CompressedTexture2D/CompressedTexture2D::8710216315358676063::1790677313::1790677314::1::::<><><>0<>0<>69436a1e7594914b3a0dac81e8395058<>res://.godot/imported/cover.jpeg-c933b4af8f8ca65939112d87ed45b3cc.ctex::
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::124886015821390848::1787390461::0::1::::<><><>0<>0<><>::
 diablo_road.tscn::PackedScene/PackedScene::8595986587423486950::1787390461::0::1::::<><><>0<>0<><>::uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 duel_manager.gd::GDScript/GDScript::7400118118596659445::1790085000::0::1::::<>Node<><>0<>0<><>::
@@ -131,7 +131,7 @@ NotoSans_SemiCondensed-SemiBold.ttf::FontFile/FontFile::1071779160068002212::178
 NotoSans_SemiCondensed-SemiBoldItalic.ttf::FontFile/FontFile::509534035185892298::1788705674::1788705674::1::::<><><>0<>0<>22d677538a32b53adbacaeba84e5e4c5<>res://.godot/imported/NotoSans_SemiCondensed-SemiBoldItalic.ttf-e731a8aa33371917a81c7a6bd1766677.fontdata::
 NotoSans_SemiCondensed-Thin.ttf::FontFile/FontFile::6871472864648420886::1788705674::1788705674::1::::<><><>0<>0<>fd1cc1dba2feb1687a43d5ed0d32dc07<>res://.godot/imported/NotoSans_SemiCondensed-Thin.ttf-ae159bd3fdaf6c353fcc828602237773.fontdata::
 NotoSans_SemiCondensed-ThinItalic.ttf::FontFile/FontFile::1263719636926929612::1788705674::1788705674::1::::<><><>0<>0<>b2383fe69a849b0f3841a4c097d3335b<>res://.godot/imported/NotoSans_SemiCondensed-ThinItalic.ttf-81521863535c8b855ba945dace4d1fe7.fontdata::
-::res://Scenes/::1790677150
+::res://Scenes/::1790677594
 aston_db9.tscn::PackedScene::2942269834879165477::1790676538::0::1::::<><><>0<>0<><>::uid://c7j4r626feeqh::::res://Scripts/aston_db9_2007.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 audi_a3.tscn::PackedScene::8247481859118048858::1790676543::0::1::::<><><>0<>0<><>::uid://j8t5avk4bus1::::res://Scripts/bmw_125.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 audi_a5_tdi.tscn::PackedScene/PackedScene::1711376544093276218::1787390471::0::1::::<><><>0<>0<><>::uid://cb2jjs3ko7oqh::::res://Scripts/audi_a_5_tdi.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
@@ -181,7 +181,7 @@ HUD.tscn::PackedScene::2576870695770405829::1790676542::0::1::::<><><>0<>0<><>::
 hummer_h1.tscn::PackedScene::7113350852199427499::1790676536::0::1::::<><><>0<>0<><>::uid://d2cuwdh8tfis8::::res://Scripts/hummer_h1_2000.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cpontoff1o0wi::::res://SFX/crash.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 hummer_h2.tscn::PackedScene::8469959084563512549::1790676537::0::1::::<><><>0<>0<><>::uid://c5oleqv1hg6ua::::res://Scripts/hummer_h2_2004.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cpontoff1o0wi::::res://SFX/crash.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 jaguar_s_type.tscn::PackedScene::1405027454389019104::1790676553::0::1::::<><><>0<>0<><>::uid://c75ynaxgevfv1::::res://Scripts/lexus_gs430.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
-jaguar_xkr.tscn::PackedScene::3407273380270864541::1790677037::0::1::::<><><>0<>0<><>::uid://bl6s5amr84tgr::::res://Scripts/jaguar_xkr_2003.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
+jaguar_xkr.tscn::PackedScene::3407273380270864541::1790677594::0::1::::<><><>0<>0<><>::uid://bl6s5amr84tgr::::res://Scripts/jaguar_xkr_2003.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 language_menu.tscn::PackedScene::3570620658656682498::1790676551::0::1::::<><><>0<>0<><>::uid://rcbhcbix2r3u::::res://Scripts/language_menu.gd
 lanui.gd::GDScript/GDScript::1313535854796056679::1789402797::0::1::::<>CanvasLayer<><>0<>0<><>::
 lanui.tscn::PackedScene::4943958292562482810::1790676550::0::1::::<><><>0<>0<><>::uid://syj0jvgf5bbb::::res://Scenes/lanui.gd
@@ -297,7 +297,7 @@ menu_track.mp3::AudioStreamMP3/AudioStreamMP3::5114811989266848311::1789729362::
 new_york.mp3::AudioStreamMP3/AudioStreamMP3::766951278707068522::1789277568::1789277852::1::::<><><>0<>0<>7eba846ad0ef869ee0852d0570cc158f<>res://.godot/imported/new_york.mp3-6db143788ebd68d34c44696462c0bac6.mp3str::
 race_track.mp3::AudioStreamMP3/AudioStreamMP3::4833902581714128733::1787390473::1787577488::1::::<><><>0<>0<>472d0f9098d793d7c821ce76b5d63d72<>res://.godot/imported/race_track.mp3-9b96d18e37ff2066066115d11ed6c890.mp3str::
 split.mp3::AudioStreamMP3/AudioStreamMP3::7388521942269680293::1788193010::1789277852::1::::<><><>0<>0<>b33a93fd6de74bd9fa48311f84f26553<>res://.godot/imported/split.mp3-e79b3891c8244fa97e233c7478d529a7.mp3str::
-::res://Tracks/::1790676554
+::res://Tracks/::1790677600
 abu_dhabi.tscn::PackedScene::1802622858111663973::1790676545::0::1::::<><><>0<>0<><>::uid://dthur0h1nvj6s::::res://Tracks/lap_line.gd<>uid://b5tj0bpuxvh85::::res://Tracks/barrier_3.gd
 barrier_2.gd::GDScript/GDScript::8367939222729351383::1787390473::0::1::::<>CharacterBody3D<><>0<>0<><>::
 barrier_3.gd::GDScript/GDScript::4531900344579424116::1788617620::0::1::::<>CharacterBody3D<><>0<>0<><>::
@@ -306,7 +306,7 @@ chernobyl.tscn::PackedScene::2564326864016197945::1790676544::0::1::::<><><>0<>0
 crates.gd::GDScript/GDScript::4302747136314281460::1788617624::0::1::::<>CharacterBody3D<><>0<>0<><>::
 lap_line.gd::GDScript/GDScript::8508546747928964172::1789277186::0::1::::<>Area3D<><>0<>0<><>::
 las_vegas.tscn::PackedScene::793205717494644652::1790676553::0::1::::<><><>0<>0<><>::uid://dthur0h1nvj6s::::res://Tracks/lap_line.gd
-new_york.tscn::PackedScene::2265595137352724638::1790676552::0::1::::<><><>0<>0<><>::uid://frkq58mu2pgw::::res://Scripts/barrier_1.gd<>uid://dthur0h1nvj6s::::res://Tracks/lap_line.gd
+new_york.tscn::PackedScene::2265595137352724638::1790677600::0::1::::<><><>0<>0<><>::uid://frkq58mu2pgw::::res://Scripts/barrier_1.gd<>uid://dthur0h1nvj6s::::res://Tracks/lap_line.gd
 split.tscn::PackedScene::651277879497277858::1790676547::0::1::::<><><>0<>0<><>::uid://dthur0h1nvj6s::::res://Tracks/lap_line.gd<>uid://b5tj0bpuxvh85::::res://Tracks/barrier_3.gd
 ::res://Urban drive main/::1789805988
 ::res://Urban Drive v0.1/::1790082233
