@@ -54,8 +54,8 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Kestrel Seabird",
 			"Kronstadt Blazer",
+			"Berkshire Prince",
 				"Brutus Stingray",
-				"Berkshire Blunt",
 		"Kuro Serenity"
 	],
 
@@ -69,6 +69,7 @@ var class_lists: Dictionary = {
 	"sport": [
 					"Eisenach Roadstar",
 		"Berkshire V12-S",
+		"Berkshire Blunt",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
 	],
@@ -107,8 +108,8 @@ var class_lists: Dictionary = {
 	"businessman_racers":[
 	"Kuro Vault",
 	"Eisenach Suppressor",
-	"Straeda Volant",
 	"Strandberg Turbo",
+	"Zenith Regent",
 	"Berkshire Mocha",
 ],
 	"speedster_tournament":[
@@ -132,7 +133,7 @@ var class_lists: Dictionary = {
 	],
 	"under_400_hp": [
 	"Mir Cars Hutch",
-
+	"Berkshire Prince",
 	"Schroder Atrix Q32",
 	"Colossus Titan Max",
 	"Kestrel Touring",
@@ -149,6 +150,7 @@ var class_lists: Dictionary = {
 	"Eisenach Suppressor",
 	"Straeda Volant",
 	"Kestrel Seabird",
+	"Zenith Regent",
 	"Colossus Behemoth",
 	"Schroder Classique Sport",
 	"Eisenach Bengal",
@@ -158,6 +160,8 @@ var class_lists: Dictionary = {
 "berkshire_cup":[
 	"Berkshire Blunt",
 	"Berkshire Mocha",
+	"Berkshire Prince",
+	"Berkshire Tempest",
 	"Berkshire V12-S"
 ],
 	"diesel_masters": [
@@ -176,6 +180,7 @@ var class_lists: Dictionary = {
 	"british_invasion": [
 		"Kestrel Seabird",
 		"Berkshire Blunt",
+		"Berkshire Prince",
 		"Berkshire V12-S",
 		"Kestrel Touring",
 		"Kestrel Battleaxe",
@@ -199,13 +204,15 @@ var class_lists: Dictionary = {
 	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Kronstadt Blazer",
+		"Berkshire Prince",
+				"Berkshire Tempest",
 			"Eisenach Roadstar",
 	],
 		"japanese_cup":[
 		"Zenith Horizon",
 		"Kuro Zephyr",
 		"Kuro Serenity",
+		"Zenith Regent",
 		"Kuro Vault"
 	],
 		"german_cup":[
@@ -236,7 +243,7 @@ var cup_rewards: Dictionary = {
 	"street_tuners": "Brutus Viper",
 	"muscle_hustle": "Schroder Atrix Q32",
 	"v6_engines": "Zenith Horizon",
-	"zenith_competition": "Kuro Vault",
+	"zenith_competition": "Berkshire Mocha",
 	"businessman_racers": "Kuro Serenity",
 	"japanese_cup": "Strandberg Turbo",
 	"all_wheel_grip": "Kestrel Seabird",
@@ -343,6 +350,7 @@ var cups: Dictionary = {
 		"eligible_classes": ["compact"],
 		"eligible_cars": [
 			"Schroder Atrix Q32",
+			"Straeda Volant",
 			"Zenith Horizon",
 			"Kuro Zephyr",
 			"Eisenach Bengal",
@@ -389,6 +397,7 @@ var cups: Dictionary = {
 	"eligible_cars": [
 		"Kestrel Seabird",
 		"Berkshire Blunt",
+		"Berkshire Prince",
 		"Berkshire V12-S",
 		"Kestrel Touring",
 		"Kestrel Battleaxe",
@@ -402,21 +411,23 @@ var cups: Dictionary = {
 		"Kuro Serenity",
 		"Berkshire Blunt",
 		"Berkshire Tempest",
+		
 		"Berkshire V12-S"
 	]
 },
 "zenith_competition":{
 	"eligible_classes":["zenith_competition"],
 	"eligible_cars":[
-		"Zenith Horizon"
+		"Zenith Horizon",
+		"Zenith Regent",
 	]
 },
 "businessman_racers":{
 	"eligible_classes":["businessman_racers"],
 	"eligible_cars":[
 		"Berkshire Mocha",
-		"Straeda Volant",
 		"Kuro Vault",
+		"Zenith Regent",
 		"Eisenach Suppressor",
 		"Strandberg Turbo"
 	]
@@ -456,6 +467,7 @@ var cups: Dictionary = {
 	"eligible_cars":[
 		"Berkshire Mocha",
 		"Berkshire Tempest",
+		"Berkshire Prince",
 		"Berkshire Blunt",
 		"Berkshire V12-S"
 	]
@@ -467,6 +479,7 @@ var cups: Dictionary = {
 
 	"Schroder Atrix Q32",
 	"Berkshire Mocha",
+	"Zenith Regent",
 	"Colossus Titan Max",
 	"Kestrel Touring",
 	"Berkshire Blunt",
@@ -481,6 +494,7 @@ var cups: Dictionary = {
 	"Mir Cars Transporter",
 	"Straeda Volant",
 	"Eisenach Suppressor",
+	"Berkshire Prince",
 	"Kronstadt Blazer",
 	"Eisenach Roadstar",
 	"Kestrel Seabird",
@@ -510,6 +524,7 @@ var cups: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire Tempest",
 		"Berkshire V12-S",
+		"Berkshire Prince",
 		"Kronstadt Blazer",
 	]
 },
@@ -519,6 +534,7 @@ var cups: Dictionary = {
 			"Zenith Horizon",
 		"Kuro Zephyr",
 		"Kuro Serenity",
+		"Zenith Regent",
 		"Kuro Vault"
 	]
 },

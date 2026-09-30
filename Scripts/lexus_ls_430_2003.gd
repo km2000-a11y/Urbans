@@ -12,15 +12,15 @@ func _ready():
 	mass = 1760.0
 	horsepower = 290
 	max_rpm = 5800.0
-	zero_to_hundred = 6.4
-	top_speed_kmh = 257
+	zero_to_hundred = 6.1
+	top_speed_kmh = 254
 	turn_speed = 2.6
 	brake_strength = 11.5
 	lateral_friction = 1.02
 	transmission = "Rear wheel drive"
 
 	# LS430-style handling (smooth, soft, premium)
-	
+	handling_type="luxury_boat"
 
 	# Toyota/Lexus V8 gearing (long, smooth, early shifts)
 	gear_count = 5

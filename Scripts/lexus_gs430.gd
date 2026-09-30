@@ -10,14 +10,14 @@ var zero_to_hundred_display := 6.00
 func _ready():
 	# GAMEPLAY STATS — Refined British executive sedan
 	mass = 1750.0
-	horsepower = 300
+	horsepower = 231
 	max_rpm = 6200.0
-	zero_to_hundred = 5.7
-	top_speed_kmh = 253
+	zero_to_hundred = 6.3
+	top_speed_kmh = 250
 	turn_speed = 2.40
 	brake_strength = 11.2
 	lateral_friction = 1.05
-	transmission = "Rear wheel drive"
+	transmission = "Four wheel drive"
 
 	# Smooth luxury-sedan handling
 	handling_type = "executive_sedan"

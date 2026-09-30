@@ -30,6 +30,7 @@ var class_lists: Dictionary = {
 	"compact": [
 		"Zenith Horizon",
 		"Schroder Atrix Q32",
+		"Straeda Volant",
 		"Kuro Zephyr",
 		"Eisenach Bengal",
 	],
@@ -41,15 +42,15 @@ var class_lists: Dictionary = {
 
 	"urban": [
 			"Brutus Stingray",
-		"Berkshire Blunt",
+		"Berkshire Prince",
 		"Kuro Serenity",
 		"Kronstadt Blazer",
 			"Kestrel Seabird",
 	],
 
 	"sedans": [
-		"Straeda Volant",
 	"Eisenach Suppressor",
+	"Zenith Regent",
 	"Kuro Vault",
 	"Strandberg Turbo",
 	"Berkshire Mocha"
@@ -57,6 +58,7 @@ var class_lists: Dictionary = {
 
 	"sport": [
 		"Berkshire V12-S",
+		"Berkshire Blunt",
 		"Eisenach Roadstar",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
@@ -91,12 +93,13 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"zenith_competition":[
-		"Zenith Horizon"
+		"Zenith Horizon",
+		"Zenith Regent",
 	],
 	"businessman_racers":[
 	"Kuro Vault",
 	"Eisenach Suppressor",
-	"Straeda Volant",
+	"Zenith Regent",
 	"Strandberg Turbo",
 	"Berkshire Mocha",
 ],
@@ -125,9 +128,11 @@ var class_lists: Dictionary = {
 	"Schroder Atrix Q32",
 	"Colossus Titan Max",
 	"Kestrel Touring",
+	"Berkshire Prince",
 	"Kronstadt Blazer",
 	"Berkshire Blunt",
 	"Berkshire Mocha",
+	"Zenith Regent",
 	"Brutus Stingray",
 	"Zenith Horizon",
 	"Kuro Serenity",
@@ -148,6 +153,7 @@ var class_lists: Dictionary = {
 "berkshire_cup":[
 	"Berkshire Blunt",
 	"Berkshire Tempest",
+	"Berkshire Prince",
 	"Berkshire Mocha",
 	"Berkshire V12-S"
 ],
@@ -168,6 +174,7 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Berkshire Prince",
 		"Berkshire Tempest",
 		"Kestrel Touring",
 		"Kestrel Battleaxe",
@@ -192,6 +199,7 @@ var class_lists: Dictionary = {
 	],
 	"gentleman_racers":[
 		"Berkshire Blunt",
+		"Berkshire Prince",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 		"Kronstadt Blazer",
@@ -199,6 +207,7 @@ var class_lists: Dictionary = {
 		"japanese_cup":[
 		"Zenith Horizon",
 		"Kuro Zephyr",
+		"Zenith Regent",
 		"Kuro Serenity",
 		"Kuro Vault"
 	],
@@ -246,6 +255,7 @@ var car_scene_paths := {
 	"Kuro Zephyr V6":"res://Scenes/lexus_is350.tscn",
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
+	"Zenith Regent":"res://Scenes/infiniti_q45.tscn",
 	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
 		"Kronstadt Blazer":"res://Scenes/clk_55.tscn",	
 	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
@@ -284,7 +294,7 @@ var car_scene_paths := {
 	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
 
 
-
+	"Berkshire Prince":"res://Scenes/jaguar_xjr.tscn",
 	"Linetti Terror":"res://Scenes/murcielago.tscn",
 	"Linetti Firestorm":"res://Scenes/diablo_road.tscn",
 	"Kestrel Guillotine":"res://Scenes/tvr t 440r.tscn",
@@ -350,7 +360,12 @@ var car_colors := {
 	Color8(60,60,60),     # Graphite
 	Color8(0,90,180)      # Deep Blue
 ],
-
+"Berkshire Prince":[
+	Color8(0,0,0),       # Black
+	Color8(255,255,255), # White
+	Color8(180,180,180), # Silver
+	Color8(0,40,80)      # Racing Blue
+],
 	"Eisenach Escorter":[
 		Color8(180,180,180), # Silver (default BMW SUV vibe)
 		Color8(255,255,255), # White
@@ -370,7 +385,12 @@ var car_colors := {
 	Color8(60,60,60)      # ⭐ Graphite Shadow — dark executive grey
 ],
 
-
+"Zenith Regent":[
+	Color8(20,40,60),     # ⭐ Midnight Jade Pearl (default)
+	Color8(225,225,220),  # Pearl Ivory White
+	Color8(110,120,140),  # Sapphire Grey Blue
+	Color8(90,70,50)      # Mocha Brown Metallic
+],
 "Kestrel Touring":[
 	Color8(255,54,35),     # ⭐ Midnight Blackpool (default)
 	Color8(160,40,200),   # Toxic Purple

@@ -515,7 +515,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 	if nitrous:
 		nitro.show()
-		velocity += forward * accel_force * 1.35 * delta
+		velocity += forward * accel_force * 0.35 * delta
 	else:
 		nitro.hide()
 

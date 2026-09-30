@@ -49,7 +49,7 @@ var car_sell_prices := {
 	"Eisenach Goblin": 114000,
 	"Berkshire Tempest":150000,
 	"Berkshire V12-S": 132000,
-	"Straeda Volant":34000,
+	"Straeda Volant":24000,
 	"Kestrel Touring": 156000,
 
 	"Kronstadt Beast": 168000,
@@ -58,12 +58,14 @@ var car_sell_prices := {
 	"Linetti Shepherd": 228000,
 
 	"Kestrel Guillotine": 270000,
+	"Zenith Regent":50000,
 	"Linetti Firestorm": 300000,
 	"Mir Cars Raptor": 330000,
 	"Linetti Terror": 390000,
 
 	"Bartoli Track Cruiser": 540000,
 	"Brutus Thunderbolt": 600000,
+	"Berkshire Prince": 63000,
 	"Mir Cars Athletic C70": 720000
 }
 
@@ -72,23 +74,21 @@ var car_prices := {
 	"Colossus Behemoth": 0,
 	"Mir Cars Nightwolf": 25000,
 	"Schroder Colosso": 32000,
+	"Berkshire Prince": 105000,
 
 	"Brutus Viper": 45000,
 	"Mir Cars Hutch": 55000,
-	"Straeda Volant":62000,
+	"Straeda Volant":42000,
 	"Kuro Zephyr": 38000,
 	"Schroder Atrix Q32": 50000,
 	"Zenith Horizon": 60000,
 	"Eisenach Bengal": 65000,
 
-	"Eisenach Suppressor": 70000,
-	"Strandberg Turbo": 78000,
+	"Eisenach Suppressor": 95000,
+	"Strandberg Turbo": 83000,
 	"Kuro Vault": 85000,
-	"Berkshire Mocha": 90000,
-
-	"Mir Cars Transporter": 95000,
-	"Kuro Persian": 105000,
-	"Kronstadt Fortress": 115000,
+	"Zenith Regent":83000,
+	"Berkshire Mocha": 72000,
 
 	"Kuro Serenity": 80000,
 	"Kestrel Seabird": 120000,
@@ -192,6 +192,12 @@ var car_colors := {
 	Color8(255,255,255),  # ⭐ Diamond White Pearl — classic Lexus VIP white
 	Color8(180,180,180),  # ⭐ Platinum Silver — calm GT silver
 	Color8(60,60,60)      # ⭐ Graphite Shadow — dark executive grey
+],
+"Zenith Regent":[
+	Color8(20,40,60),     # ⭐ Midnight Jade Pearl (default)
+	Color8(225,225,220),  # Pearl Ivory White
+	Color8(110,120,140),  # Sapphire Grey Blue
+	Color8(90,70,50)      # Mocha Brown Metallic
 ],
 
 "Schroder D-20":[
@@ -307,7 +313,12 @@ var car_colors := {
 	Color8(60,60,60),      # Executive Graphite
 	Color8(0,70,120)       # Deep Blue (Audi signature)
 ],
-
+"Berkshire Prince":[
+	Color8(0,0,0),       # Black
+	Color8(255,255,255), # White
+	Color8(180,180,180), # Silver
+	Color8(0,40,80)      # Racing Blue
+],
 	"Schroder Atrocity":[
 		Color8(255,0,0),    # ⭐ Default — tomato red
 		Color8(255,255,255),  # White
@@ -355,6 +366,7 @@ var suv_list = [
 
 var compact_list = [
 	"Kuro Zephyr",
+	"Straeda Volant",
 	"Schroder Atrix Q32",
 	"Eisenach Bengal",
 	"Zenith Horizon",
@@ -366,24 +378,24 @@ var muscle_list = [
 ]
 
 var urban_list = [
-	"Kuro Serenity",
-		"Kronstadt Blazer",
-		"Kestrel Seabird",
-	"Berkshire Blunt",
-	"Brutus Stingray",
+"Kuro Serenity",
+"Kronstadt Blazer",
+"Kestrel Seabird",
+"Berkshire Prince",
+"Brutus Stingray",
 ]
-
 var sedans_list = [
-	"Straeda Volant",
-	"Strandberg Turbo",
-	"Kuro Vault",
 	"Berkshire Mocha",
+	"Strandberg Turbo",
+	"Zenith Regent",
+	"Kuro Vault",
 	"Eisenach Suppressor",
 ]
 
 
 var sport_list = [
 	"Schroder Classique Sport",
+	"Berkshire Blunt",
 	"Eisenach Roadstar",
 	"Berkshire V12-S",
 	"Kestrel Touring"
@@ -457,6 +469,12 @@ var compact = {
 		"ENGINE: V6 3.5L", "ASPIRATION: NA", "TORQUE: 340 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Straeda Volant":[
+		"", "Country: France", "HP: 220", "WEIGHT: 1390 KG",
+		"0-100 KM/H: 6.9s", "TOP SPEED: 238 KM/H",
+		"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 300 NM",
+		"TRANSMISSION: FRONT-WHEEL DRIVE"
+	],
 	"Eisenach Bengal":[
 	"", "Country: Germany", "HP: 204", "WEIGHT: 1550 KG",
 	"0-100 KM/H: 6.5s", "TOP SPEED: 246 KM/H",
@@ -504,20 +522,15 @@ var urban_racers = {
 		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 400 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Blunt":[
-		"", "Country: UK", "HP: 400", "WEIGHT: 1750 KG",
-		"0-100 KM/H: 5.7s", "TOP SPEED: 265 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+	"Berkshire Prince":[
+	"", "Country: UK", "HP: 370", "WEIGHT: 1780 KG",
+	"0-100 KM/H: 5.7s", "TOP SPEED: 259 KM/H",
+	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 }
 var sedans = {
-	"Straeda Volant":[
-		"", "Country: Germany", "HP: 220", "WEIGHT: 1390 KG",
-		"0-100 KM/H: 6.9s", "TOP SPEED: 246 KM/H",
-		"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 300 NM",
-		"TRANSMISSION: FRONT-WHEEL DRIVE"
-	],
+	
 	"Eisenach Suppressor":[
 		"", "Country: Germany", "HP: 360", "WEIGHT: 1660 KG",
 		"0-100 KM/H: 5.2s", "TOP SPEED: 250 KM/H",
@@ -526,20 +539,25 @@ var sedans = {
 	],
 			"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
-		"0-100 KM/H: 5.8s", "TOP SPEED: 247 KM/H",
+		"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
 		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
-			
+	"Zenith Regent":[
+		"", "Country: Japan", "HP: 278", "WEIGHT: 1832 KG",
+		"0-100 KM/H: 6.6s", "TOP SPEED: 257 KM/H",
+		"ENGINE: V8 4.5L", "ASPIRATION: NA", "TORQUE: 396 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],		
 	"Kuro Vault":[
 		"", "Country: Japan", "HP: 290", "WEIGHT: 1760 KG",
-		"0-100 KM/H: 6.4s", "TOP SPEED: 257 KM/H",
+		"0-100 KM/H: 6.1s", "TOP SPEED: 254 KM/H",
 		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 "Berkshire Mocha":[
-	"", "Country: UK", "HP: 300", "WEIGHT: 1750 KG",
-	"0-100 KM/H: 5.7s", "TOP SPEED: 253 KM/H",
+	"", "Country: UK", "HP: 231", "WEIGHT: 1595 KG",
+	"0-100 KM/H: 6.3s", "TOP SPEED: 250 KM/H",
 	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
@@ -551,6 +569,12 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Berkshire Blunt":[
+	"", "Country: UK", "HP: 300", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 6.1s", "TOP SPEED: 268 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 	"Eisenach Roadstar":[
 		"", "Country: Germany", "HP: 400", "WEIGHT: 1585 KG",
 		"0-100 KM/H: 4.9s", "TOP SPEED: 280 KM/H",
@@ -559,7 +583,7 @@ var sport = {
 	],
 	"Schroder Classique Sport":[
 		"", "Country: Germany", "HP: 280", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 265 KM/H",
+		"0-100 KM/H: 5.5s", "TOP SPEED: 259 KM/H",
 		"ENGINE: L4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
@@ -723,10 +747,12 @@ var car_scene_paths = {
 	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
+	"Berkshire Prince":"res://Scenes/jaguar_xjr.tscn",
 	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
+	"Zenith Regent":"res://Scenes/infiniti_q45.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
 	"Eisenach Goblin":"res://Scenes/bmw_1m.tscn",
