@@ -42,7 +42,6 @@ var car_sell_prices := {
 	"Kestrel Speedster": 57000,
 	"Eisenach Prince": 72000,
 	"Berkshire Blunt": 80000,
-	"Kronstadt Blazer": 50000,
 
 	"Schroder Classique Sport": 96000,
 	"Brutus Stingray": 84000,
@@ -74,7 +73,7 @@ var car_prices := {
 	"Colossus Behemoth": 0,
 	"Mir Cars Nightwolf": 25000,
 	"Schroder Colosso": 32000,
-	"Berkshire Prince": 105000,
+	"Berkshire Prince": 95000,
 
 	"Brutus Viper": 45000,
 	"Mir Cars Hutch": 55000,
@@ -93,7 +92,7 @@ var car_prices := {
 	"Kuro Serenity": 80000,
 	"Kestrel Seabird": 120000,
 	"Eisenach Roadstar": 165000,
-	"Berkshire Blunt": 110000,
+	"Berkshire Blunt": 122000,
 	"Kronstadt Blazer": 96000,
 
 	"Schroder Classique Sport": 135000,
