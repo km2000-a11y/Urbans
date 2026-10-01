@@ -10,9 +10,9 @@ var zero_to_hundred_display := 5.40
 func _ready():
 	# GAMEPLAY STATS
 	mass = 1710.0
-	horsepower =300
+	horsepower =370
 	max_rpm = 6200.0
-	zero_to_hundred = 6.1
+	zero_to_hundred = 5.6
 	top_speed_kmh = 268
 	turn_speed = 2.55
 	brake_strength = 12.0
@@ -23,14 +23,13 @@ func _ready():
 	handling_type = "balanced"
 
 	# Mercedes 5G-Tronic automatic
-	gear_count = 6
+	gear_count = 5
 	gear_ratios = [
-		4.17,  # 1st
-		2.34,  # 2nd
-		1.52,  # 3rd
-		1.14,  # 4th
-		0.87,  # 5th
-		0.69   # 6th
+		3.59,  # 1st
+		2.19,  # 2nd
+		1.41,  # 3rd
+		1.00,  # 4th
+		0.83   # 5th
 	]
 
 	shift_up_rpm = 5600

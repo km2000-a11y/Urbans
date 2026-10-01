@@ -365,22 +365,54 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
 		if other is CarController:
+
 			var other_car := other as CarController
 
+			var my_forward := -transform.basis.z
+			my_forward.y = 0.0
+			my_forward = my_forward.normalized()
+
+			var other_forward := -other_car.transform.basis.z
+			other_forward.y = 0.0
+			other_forward = other_forward.normalized()
+
+			var to_other := (other_car.global_position - global_position).normalized()
+
+			# We are behind them
+			var behind_them := other_forward.dot(-to_other) > 0.5
+
+			# Both cars travelling roughly same direction
+			var same_direction := my_forward.dot(other_forward) > 0.7
+
+			var rear_end := behind_them and same_direction
+
+			if rear_end:
+
+				# Keep 70% of speed
+				var flat := Vector3(velocity.x, 0.0, velocity.z)
+
+				if flat.length() > 0.0:
+					flat *= 0.7
+
+					velocity.x = flat.x
+					velocity.z = flat.z
+
+				# Push victim forward
+				other_car.velocity += my_forward * flat.length() * 0.25
+
+			else:
+
+				var hit_dir := (other_car.global_position - global_position).normalized()
+				hit_dir.y = 0.0
+
+				var mass_ratio: float = mass / max(other_car.mass, 1.0)
+				mass_ratio = clamp(mass_ratio, 0.5, 2.0)
+
+				var shove_force := velocity.length() * mass_ratio * 0.08
+
+				other_car.velocity += hit_dir * shove_force
 			var hit_dir := (other_car.global_position - global_position).normalized()
-			hit_dir.y = 0.0
-
-			# Compare masses
-			var mass_ratio :int= mass / max(other_car.mass, 1.0)
-
-			# Prevent crazy outcomes
-			mass_ratio = clamp(mass_ratio, 0.5, 2.0)
-
-			# Speed contributes to shove force
-			var shove_force := velocity.length() * mass_ratio * 0.08
-
-			other_car.velocity += hit_dir * shove_force
-
+			
 		# Raw normal
 		var n := col.get_normal()
 		n.y = 0.0

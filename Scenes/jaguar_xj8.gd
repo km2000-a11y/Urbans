@@ -10,12 +10,12 @@ var zero_to_hundred_display := 5.70
 func _ready():
 	# GAMEPLAY STATS
 	mass = 1780.0
-	horsepower = 370
+	horsepower = 300
 	max_rpm = 6200.0
 	idle_rpm = 700.0
 
-	zero_to_hundred = 5.7
-	top_speed_kmh = 259
+	zero_to_hundred = 5.9
+	top_speed_kmh = 258
 
 	transmission = "Rear wheel drive"
 
@@ -27,13 +27,14 @@ func _ready():
 	handling_type = "luxury_boat"
 
 	# 5-speed automatic
-	gear_count = 5
+	gear_count = 6
 	gear_ratios = [
-		3.59,  # 1st
-		2.19,  # 2nd
-		1.41,  # 3rd
-		1.00,  # 4th
-		0.83   # 5th
+		4.17,  # 1st
+		2.34,  # 2nd
+		1.52,  # 3rd
+		1.14,  # 4th
+		0.87,  # 5th
+		0.69   # 6th
 	]
 
 	shift_up_rpm = 6000

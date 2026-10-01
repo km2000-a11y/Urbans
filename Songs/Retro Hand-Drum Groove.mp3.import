@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g6xnerp3iwqx"
+path="res://.godot/imported/Retro Hand-Drum Groove.mp3-5f3dcb098b0858fd599feef7c4cdd7ab.mp3str"
+
+[deps]
+
+source_file="res://Songs/Retro Hand-Drum Groove.mp3"
+dest_files=["res://.godot/imported/Retro Hand-Drum Groove.mp3-5f3dcb098b0858fd599feef7c4cdd7ab.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

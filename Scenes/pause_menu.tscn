@@ -80,6 +80,20 @@ offset_bottom = 399.0
 theme_override_font_sizes/font_size = 30
 text = "MPH"
 
+[node name="SongLabel" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_top = 479.0
+offset_right = 1181.0
+offset_bottom = 514.0
+theme_override_font_sizes/font_size = 25
+
+[node name="SongHelpLabel" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_top = 569.0
+offset_right = 1181.0
+offset_bottom = 604.0
+theme_override_font_sizes/font_size = 25
+
 [connection signal="pressed" from="Control/Panel/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/RetryBtn" to="." method="_on_retry_btn_pressed"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

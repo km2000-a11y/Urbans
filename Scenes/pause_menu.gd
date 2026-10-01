@@ -3,19 +3,41 @@ extends CanvasLayer
 var is_paused := false
 var volume := 40
 const SETTINGS_FILE = "user://settings.cfg"
-
+var song_names := [
+	"Electro_High",
+	"Hypnotic Groove",
+	"Indie_Tiger",
+	"Intensity",
+	"Retro Hand-Drum Groove",
+	"Smooth_Mambo",
+	"Industrial_Madness",
+	"Urban_Bass"
+]
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	hide()
 	load_settings()              # ⭐ Load saved volume on ready
 	update_volume_label()
 	apply_volume()
+func _process(_delta: float) -> void:
 
+	if not is_paused:
+		return
+
+	if Input.is_action_just_pressed("previous_song"):
+		MusicManager.previous_track()
+		update_song_label()
+
+	if Input.is_action_just_pressed("next_song"):
+		MusicManager.next_track()
+		update_song_label()
 func toggle_pause():
 	is_paused = !is_paused
 	get_tree().paused = is_paused
 	visible = is_paused
 
+	if is_paused:
+		update_song_label()
 func _on_resume_btn_pressed() -> void:
 	toggle_pause()
 
@@ -116,3 +138,15 @@ func load_settings():
 	var err = config.load(SETTINGS_FILE)
 	if err == OK:
 		volume = config.get_value("audio", "volume", 40)
+func update_song_label() -> void:
+
+	var index := MusicManager.current_track_index
+
+	if index < 0:
+		return
+
+	if index >= song_names.size():
+		return
+
+	$Control/Panel/SongLabel.text = "♪ " + song_names[index]
+	$Control/Panel/SongHelpLabel.text = "[J] Previous Song  [L] Next Song"
