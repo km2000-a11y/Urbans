@@ -476,8 +476,8 @@ var sedans_list = [
 
 
 var sport_list = [
-	"Schroder Classique Sport",
 	"Berkshire Blunt",
+	"Schroder Classique Sport",
 	"Eisenach Roadstar",
 	"Berkshire V12-S",
 	"Kestrel Touring"
@@ -664,9 +664,9 @@ var sport = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 280", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 5.4s", "TOP SPEED: 263 KM/H",
-		"ENGINE: L4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+		"", "Country: Germany", "HP: 340", "WEIGHT: 1460 KG",
+		"0-100 KM/H: 5.1s", "TOP SPEED: 265 KM/H",
+		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 450 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 	"Kestrel Touring":[
