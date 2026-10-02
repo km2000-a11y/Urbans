@@ -49,7 +49,7 @@ var class_lists: Dictionary = {
 
 	"sedans": [
 	"Eisenach Suppressor",
-	"Zenith Regent",
+	"Mir Cars Regent",
 	"Kuro Vault",
 	"Strandberg Turbo",
 	"Berkshire Mocha"
@@ -93,12 +93,11 @@ var class_lists: Dictionary = {
 	],
 	"zenith_competition":[
 		"Zenith Horizon",
-		"Zenith Regent",
 	],
 	"businessman_racers":[
 	"Kuro Vault",
 	"Eisenach Suppressor",
-	"Zenith Regent",
+	"Mir Cars Regent",
 	"Strandberg Turbo",
 	"Berkshire Mocha",
 ],
@@ -130,7 +129,7 @@ var class_lists: Dictionary = {
 	"Berkshire Prince",
 	"Berkshire Blunt",
 	"Berkshire Mocha",
-	"Zenith Regent",
+	"Mir Cars Regent",
 	"Brutus Stingray",
 	"Zenith Horizon",
 	"Kuro Serenity",
@@ -203,7 +202,7 @@ var class_lists: Dictionary = {
 		"japanese_cup":[
 		"Zenith Horizon",
 		"Kuro Zephyr",
-		"Zenith Regent",
+		"Mir Cars Regent",
 		"Kuro Serenity",
 		"Kuro Vault"
 	],
@@ -250,7 +249,7 @@ var car_scene_paths := {
 	"Kuro Zephyr V6":"res://Scenes/lexus_is350.tscn",
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
-	"Zenith Regent":"res://Scenes/infiniti_q45.tscn",
+	"Mir Cars Regent":"res://Scenes/infiniti_q45.tscn",
 	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
 		"Kronstadt Blazer":"res://Scenes/clk_55.tscn",	
 	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
@@ -455,7 +454,7 @@ var car_colors = {
 		Color8(200,40,40)
 	],
 
-	"Zenith Regent":[
+	"Mir Cars Regent":[
 		Color8(20,40,60),
 		Color8(225,225,220),
 		Color8(110,120,140),

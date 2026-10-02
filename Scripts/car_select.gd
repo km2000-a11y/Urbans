@@ -57,7 +57,7 @@ var car_sell_prices := {
 	"Linetti Shepherd": 228000,
 
 	"Kestrel Guillotine": 270000,
-	"Zenith Regent":50000,
+	"Mir Cars Regent":50000,
 	"Linetti Firestorm": 300000,
 	"Mir Cars Raptor": 330000,
 	"Linetti Terror": 390000,
@@ -86,7 +86,7 @@ var car_prices := {
 	"Eisenach Suppressor": 95000,
 	"Strandberg Turbo": 83000,
 	"Kuro Vault": 85000,
-	"Zenith Regent":83000,
+	"Mir Cars Regent":83000,
 	"Berkshire Mocha": 72000,
 
 	"Kuro Serenity": 80000,
@@ -266,7 +266,7 @@ var car_colors = {
 		Color8(200,40,40)
 	],
 
-	"Zenith Regent":[
+	"Mir Cars Regent":[
 		Color8(20,40,60),
 		Color8(225,225,220),
 		Color8(110,120,140),
@@ -469,7 +469,7 @@ var urban_list = [
 var sedans_list = [
 	"Berkshire Mocha",
 	"Strandberg Turbo",
-	"Zenith Regent",
+	"Mir Cars Regent",
 	"Kuro Vault",
 	"Eisenach Suppressor",
 ]
@@ -625,7 +625,7 @@ var sedans = {
 		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
-	"Zenith Regent":[
+	"Mir Cars Regent":[
 		"", "Country: Japan", "HP: 278", "WEIGHT: 1832 KG",
 		"0-100 KM/H: 6.6s", "TOP SPEED: 257 KM/H",
 		"ENGINE: V8 4.5L", "ASPIRATION: NA", "TORQUE: 396 NM",
@@ -834,7 +834,7 @@ var car_scene_paths = {
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
-	"Zenith Regent":"res://Scenes/infiniti_q45.tscn",
+	"Mir Cars Regent":"res://Scenes/infiniti_q45.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
 	"Eisenach Goblin":"res://Scenes/bmw_1m.tscn",

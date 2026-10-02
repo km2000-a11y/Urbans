@@ -150,7 +150,7 @@ var class_lists: Dictionary = {
 	"Eisenach Suppressor",
 	"Straeda Volant",
 	"Kestrel Seabird",
-	"Zenith Regent",
+	"Mir Cars Regent",
 	"Colossus Behemoth",
 	"Schroder Classique Sport",
 	"Eisenach Bengal",
@@ -212,7 +212,7 @@ var class_lists: Dictionary = {
 		"Zenith Horizon",
 		"Kuro Zephyr",
 		"Kuro Serenity",
-		"Zenith Regent",
+		"Mir Cars Regent",
 		"Kuro Vault"
 	],
 		"german_cup":[
@@ -419,7 +419,7 @@ var cups: Dictionary = {
 	"eligible_classes":["zenith_competition"],
 	"eligible_cars":[
 		"Zenith Horizon",
-		"Zenith Regent",
+		
 	]
 },
 "businessman_racers":{
@@ -427,7 +427,7 @@ var cups: Dictionary = {
 	"eligible_cars":[
 		"Berkshire Mocha",
 		"Kuro Vault",
-		"Zenith Regent",
+		"Mir Cars Regent",
 		"Eisenach Suppressor",
 		"Strandberg Turbo"
 	]
@@ -479,7 +479,7 @@ var cups: Dictionary = {
 
 	"Schroder Atrix Q32",
 	"Berkshire Mocha",
-	"Zenith Regent",
+	"Mir Cars Regent",
 	"Colossus Titan Max",
 	"Kestrel Touring",
 	"Berkshire Blunt",
@@ -534,7 +534,7 @@ var cups: Dictionary = {
 			"Zenith Horizon",
 		"Kuro Zephyr",
 		"Kuro Serenity",
-		"Zenith Regent",
+		"Mir Cars Regent",
 		"Kuro Vault"
 	]
 },
