@@ -1,10 +1,4 @@
 res://main.tscn
-res://cars.gd
-res://Scripts/car_select.gd
-res://club_cups.gd
-res://Scenes/jaguar_xj8.gd
-res://Scripts/jaguar_xkr_2003.gd
-res://Scenes/volvo_s_60r.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -69,8 +63,4 @@ res://Scenes/clk_55.tscn
 res://Scenes/peugeot_406.tscn
 res://Scenes/infiniti_q45.tscn
 res://Scenes/jaguar_xjr.tscn
-res://Scripts/morgan_aero_8.gd
-res://Scenes/pause_menu.gd
-res://music_manager.gd
-res://Scripts/base_car.gd
-res://Scenes/infiniti_q_45.gd
+res://localization.gd
