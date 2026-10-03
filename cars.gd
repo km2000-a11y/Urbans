@@ -643,11 +643,7 @@ var car_colors = {
 	Color8(160,160,160),
 	Color8(0,40,80),
 	Color8(0,0,0),
-	Color8(255,120,0),
-	Color8(255,215,0),
-	Color8(140,0,255),
 	Color8(0,90,180),
-	Color8(0,70,40)
 ],
 
 "Linetti Terror":[

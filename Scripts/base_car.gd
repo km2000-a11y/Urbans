@@ -490,6 +490,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	update_gears(speed_kmh)
 
 	var torque_factor := rpm / max_rpm
+	
 
 	# --- DRIVETRAIN ---
 	var traction_factor := 1.0
@@ -535,6 +536,11 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 			accel_force = acceleration_calc * torque_factor * traction_factor * launch_boost * launch_grip
 			velocity += forward * accel_force * delta
+			accel_force = acceleration_calc * torque_factor * traction_factor * launch_boost * launch_grip
+
+			if is_diesel:
+				if speed_kmh > 50.0 and speed_kmh < 160.0:
+					accel_force *= 1.35
 
 	else:
 		var flat := Vector3(velocity.x, 0, velocity.z)

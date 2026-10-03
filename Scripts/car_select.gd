@@ -453,11 +453,7 @@ var car_colors = {
 	Color8(160,160,160),
 	Color8(0,40,80),
 	Color8(0,0,0),
-	Color8(255,120,0),
-	Color8(255,215,0),
-	Color8(140,0,255),
 	Color8(0,90,180),
-	Color8(0,70,40)
 ],
 
 "Linetti Terror":[
@@ -536,9 +532,9 @@ var urban_list = [
 var sedans_list = [
 	"Strandberg Turbo",
 	"Mir Cars Regent",
-	"Berkshire Prince",
-	"Kuro Vault",
 	"Eisenach Suppressor",
+	"Kuro Vault",
+		"Berkshire Prince",
 ]
 
 
@@ -624,10 +620,10 @@ var compact = {
 		"TRANSMISSION: FRONT-WHEEL DRIVE"
 	],
 	"Eisenach Bengal":[
-	"", "Country: Germany", "HP: 204", "WEIGHT: 1550 KG",
-	"0-100 KM/H: 6.5s", "TOP SPEED: 246 KM/H",
-		"ENGINE: L4 2.0L Diesel", "ASPIRATION: Twin Turbo",
-	"TORQUE: 400 NM",
+	"", "Country: Germany", "HP: 265", "WEIGHT: 1430 KG",
+	"0-100 KM/H: 6.1s", "TOP SPEED: 246 KM/H",
+		"ENGINE: L6  3.0L", "ASPIRATION: NA",
+	"TORQUE: 320 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -680,9 +676,9 @@ var urban_racers = {
 var sedans = {
 	
 	"Eisenach Suppressor":[
-		"", "Country: Germany", "HP: 360", "WEIGHT: 1660 KG",
-		"0-100 KM/H: 5.2s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 490 NM",
+		"", "Country: Germany", "HP: 286", "WEIGHT: 1735 KG",
+		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
+		"ENGINE: L6 3.0L", "ASPIRATION: Twin Turbo", "TORQUE: 580 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 			"Strandberg Turbo":[
