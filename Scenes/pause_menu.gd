@@ -4,14 +4,14 @@ var is_paused := false
 var volume := 40
 const SETTINGS_FILE = "user://settings.cfg"
 var song_names := [
-	"Electro_High",
+	"Electro High",
 	"Hypnotic Groove",
-	"Indie_Tiger",
+	"Indie Tiger",
 	"Intensity",
 	"Retro Hand-Drum Groove",
-	"Smooth_Mambo",
-	"Industrial_Madness",
-	"Urban_Bass"
+	"Smooth Mambo",
+	"Industrial Madness",
+	"Urban Bass"
 ]
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

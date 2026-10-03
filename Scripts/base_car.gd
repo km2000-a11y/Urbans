@@ -136,7 +136,7 @@ func apply_stats() -> void:
 			brake_strength *= (1.0 + 0.10 * b)
 
 	# --- ORIGINAL STATS CALC ---
-	acceleration_calc = (27.78 / zero_to_hundred) * 2.3
+	acceleration_calc = pow(27.78 / zero_to_hundred, 0.875) * 2.8
 	torque = (horsepower * 5252.0) / max_rpm
 
 	if is_diesel:

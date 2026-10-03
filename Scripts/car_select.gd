@@ -85,6 +85,7 @@ var car_prices := {
 
 	"Eisenach Suppressor": 95000,
 	"Strandberg Turbo": 83000,
+	"Kestrel Speedster":100000,
 	"Kuro Vault": 85000,
 	"Mir Cars Regent":83000,
 	"Berkshire Mocha": 72000,
@@ -239,7 +240,16 @@ var car_colors = {
 	Color8(20,20,20),    # Black
 	Color8(180,180,180)  # Silver
 ],
-
+"Kestrel Speedster":[
+	Color8(180,180,180), # Silver (default)
+	Color8(255,255,255), # White
+	Color8(20,20,20),    # Black
+	Color8(0,70,40),     # British Racing Green
+	Color8(0,90,180),    # Blue
+	Color8(255,140,0),   # Orange
+	Color8(255,220,0),   # Yellow
+	Color8(90,90,90)     # Gunmetal
+],
 	"Berkshire Prince":[
 		Color8(0,0,0),
 		Color8(255,255,255),
@@ -248,12 +258,11 @@ var car_colors = {
 		Color8(0,60,20),
 		Color8(120,0,0)
 	],
-
-	"Brutus Stingray":[
+"Brutus Stingray":[
 		Color8(255,255,0),
 		Color8(255,255,255),
 		Color8(255,0,0),
-		Color8(160,160,160)
+		Color8(0,0,0)
 	],
 
 	# Executive
@@ -462,21 +471,21 @@ var muscle_list = [
 
 var urban_list = [
 "Kuro Serenity",
-"Berkshire Prince",
 "Kestrel Seabird",
+"Kestrel Speedster",
+"Berkshire Blunt",
 "Brutus Stingray",
 ]
 var sedans_list = [
-	"Berkshire Mocha",
 	"Strandberg Turbo",
 	"Mir Cars Regent",
+	"Berkshire Prince",
 	"Kuro Vault",
 	"Eisenach Suppressor",
 ]
 
 
 var sport_list = [
-	"Berkshire Blunt",
 	"Schroder Classique Sport",
 	"Eisenach Roadstar",
 	"Berkshire V12-S",
@@ -598,16 +607,16 @@ var urban_racers = {
 		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kronstadt Blazer":[
-		"", "Country: Germany", "HP: 278", "WEIGHT: 1570 KG",
-		"0-100 KM/H: 6.1s", "TOP SPEED: 256 KM/H",
-		"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 400 NM",
+	"Kestrel Speedster":[
+		"", "Country: UK", "HP: 285", "WEIGHT: 1135 KG",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Prince":[
-	"", "Country: UK", "HP: 300", "WEIGHT: 1780 KG",
-	"0-100 KM/H: 5.9s", "TOP SPEED: 258 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
+	"Berkshire Blunt":[
+	"", "Country: UK", "HP: 370", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 5.6s", "TOP SPEED: 265 KM/H",
+	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -621,7 +630,7 @@ var sedans = {
 	],
 			"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
-		"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
+		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
 		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
@@ -637,11 +646,11 @@ var sedans = {
 		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-"Berkshire Mocha":[
-	"", "Country: UK", "HP: 231", "WEIGHT: 1595 KG",
-	"0-100 KM/H: 6.3s", "TOP SPEED: 250 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 280 NM",
-	"TRANSMISSION: FOUR-WHEEL DRIVE"
+"Berkshire Prince":[
+	"", "Country: UK", "HP: 300", "WEIGHT: 1780 KG",
+	"0-100 KM/H: 5.7s", "TOP SPEED: 253 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
 var sport = {
@@ -651,12 +660,7 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Blunt":[
-	"", "Country: UK", "HP: 370", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.6s", "TOP SPEED: 269 KM/H",
-	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
+	
 	"Eisenach Roadstar":[
 		"", "Country: Germany", "HP: 400", "WEIGHT: 1585 KG",
 		"0-100 KM/H: 4.9s", "TOP SPEED: 280 KM/H",

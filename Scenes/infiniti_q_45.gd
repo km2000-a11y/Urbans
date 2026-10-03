@@ -13,7 +13,7 @@ func _ready():
 	horsepower = 278
 	max_rpm = 6900.0
 	idle_rpm = 700.0
-	zero_to_hundred = 6.6
+	zero_to_hundred = 6.5
 	top_speed_kmh = 257
 	transmission = "Rear wheel drive"
 

@@ -42,8 +42,9 @@ var class_lists: Dictionary = {
 
 	"urban": [
 			"Brutus Stingray",
-		"Berkshire Prince",
+		"Berkshire Blunt",
 		"Kuro Serenity",
+		"Kestrel Speedster",
 			"Kestrel Seabird",
 	],
 
@@ -52,12 +53,11 @@ var class_lists: Dictionary = {
 	"Mir Cars Regent",
 	"Kuro Vault",
 	"Strandberg Turbo",
-	"Berkshire Mocha"
+	"Berkshire Prince"
 ],
 
 	"sport": [
 		"Berkshire V12-S",
-		"Berkshire Blunt",
 		"Eisenach Roadstar",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
@@ -99,10 +99,10 @@ var class_lists: Dictionary = {
 	"Eisenach Suppressor",
 	"Mir Cars Regent",
 	"Strandberg Turbo",
-	"Berkshire Mocha",
+	"Berkshire Prince"
 ],
 	"speedster_tournament":[
-		"Kestrel Seabird"
+		"Kestrel Speedster"
 	],
 	"kuro_cup":[
 		"Kuro Zephyr",
@@ -125,10 +125,10 @@ var class_lists: Dictionary = {
 	"Straeda Volant",
 	"Schroder Atrix Q32",
 	"Colossus Titan Max",
+	"Kestrel Speedster",
 	"Kestrel Touring",
 	"Berkshire Prince",
 	"Berkshire Blunt",
-	"Berkshire Mocha",
 	"Mir Cars Regent",
 	"Brutus Stingray",
 	"Zenith Horizon",
@@ -151,7 +151,6 @@ var class_lists: Dictionary = {
 	"Berkshire Blunt",
 	"Berkshire Tempest",
 	"Berkshire Prince",
-	"Berkshire Mocha",
 	"Berkshire V12-S"
 ],
 	"diesel_masters": [
@@ -172,6 +171,7 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Berkshire Prince",
+		"Kestrel Speedster",
 		"Berkshire Tempest",
 		"Kestrel Touring",
 		"Kestrel Battleaxe",
@@ -196,6 +196,8 @@ var class_lists: Dictionary = {
 	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Berkshire Prince",
+		"Eisenach Roadstar",
+		"Kestrel Speedster",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 	],
@@ -323,6 +325,16 @@ var car_colors = {
 		Color8(210,180,90),
 		Color8(120,40,40)
 	],
+	"Kestrel Speedster":[
+	Color8(180,180,180), # Silver (default)
+	Color8(255,255,255), # White
+	Color8(20,20,20),    # Black
+	Color8(0,70,40),     # British Racing Green
+	Color8(0,90,180),    # Blue
+	Color8(255,140,0),   # Orange
+	Color8(255,220,0),   # Yellow
+	Color8(90,90,90)     # Gunmetal
+],
 
 	"Colossus Behemoth":[
 		Color8(215,255,1),
@@ -441,7 +453,7 @@ var car_colors = {
 		Color8(255,255,0),
 		Color8(255,255,255),
 		Color8(255,0,0),
-		Color8(160,160,160)
+		Color8(0,0,0)
 	],
 
 	# Executive

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccdx5p27mvwel"
+path="res://.godot/imported/Electro High.mp3-a2104fb514c60174e6d4c3f8f4bad172.mp3str"
+
+[deps]
+
+source_file="res://Songs/Electro High.mp3"
+dest_files=["res://.godot/imported/Electro High.mp3-a2104fb514c60174e6d4c3f8f4bad172.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
