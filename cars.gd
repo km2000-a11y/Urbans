@@ -318,322 +318,378 @@ var radar_target_speeds := {
 
 var car_colors = {
 
-	# 4x4 SUV
-	"Colossus Titan Max":[
-		Color8(255,0,0),
-		Color8(180,180,180),
-		Color8(210,180,90),
-		Color8(120,40,40)
-	],
-	"Kestrel Speedster":[
-	Color8(180,180,180), # Silver (default)
-	Color8(255,255,255), # White
-	Color8(20,20,20),    # Black
-	Color8(0,70,40),     # British Racing Green
-	Color8(0,90,180),    # Blue
-	Color8(255,140,0),   # Orange
-	Color8(255,220,0),   # Yellow
-	Color8(90,90,90)     # Gunmetal
+# SUV
+
+"Colossus Titan Max":[
+	Color8(255,0,0),
+	Color8(255,255,0),
+	Color8(0,0,0)
 ],
 
-	"Colossus Behemoth":[
-		Color8(215,255,1),
-		Color8(255,255,255),
-		Color8(200,180,120),
-		Color8(160,0,0)
-	],
-
-	"Schroder Colosso":[
-		Color8(180,180,180),
-		Color8(255,255,255),
-		Color8(60,60,60),
-		Color8(0,70,120)
-	],
-
-	"Mir Cars Nightwolf":[
-		Color8(0,0,192),
-		Color8(255,255,255),
-		Color8(64,64,64),
-		Color8(0,80,160)
-	],
-
-	# Compact
-	"Kuro Zephyr":[
-		Color8(240,240,240),
-		Color8(120,20,20),
-		Color8(0,110,130),
-		Color8(70,70,70)
-	],
-
-	"Straeda Volant":[
-		Color8(255,255,255),
-		Color8(25,25,30),
-		Color8(30,55,110),
-		Color8(190,190,195)
-	],
-
-	"Schroder Atrix Q32":[
-	Color8(192,192,192), # Silver (default)
-	Color8(255,255,255), # White
-	Color8(140,0,255),   # Purple
-	Color8(0,120,160),   # Aqua Blue
-	Color8(200,40,40),   # Misano Red
-	Color8(20,20,20),    # Phantom Black
-	Color8(255,140,0)    # Papaya Orange
+"Colossus Behemoth":[
+	Color8(255,255,0),
+	Color8(255,0,0),
+	Color8(0,0,0)
 ],
 
-
-	"Eisenach Bengal":[
-		Color8(255,99,71),
-		Color8(185,155,185),
-		Color8(60,60,60),
-		Color8(0,0,0)
-	],
-
-	"Zenith Horizon":[
-		Color8(255,116,49),
-		Color8(255,255,255),
-		Color8(0,90,180),
-		Color8(180,180,180)
-	],
-
-	# Muscle
-	"Brutus Viper":[
-		Color8(0,0,128),
-		Color8(255,255,255),
-		Color8(200,200,200),
-		Color8(160,0,0)
-	],
-
-	"Mir Cars Hutch":[
-		Color8(228,31,36),
-		Color8(255,255,255),
-		Color8(160,160,160),
-		Color8(0,40,120)
-	],
-
-	# Urban Performance
-	"Kuro Serenity":[
-		Color8(20,40,60),
-		Color8(255,255,255),
-		Color8(180,180,180),
-		Color8(60,60,60),
-		Color8(0,0,0),
-		Color8(90,70,50)
-	],
-
-	"Kronstadt Blazer":[
-		Color8(0,0,0),
-		Color8(0,110,130),
-		Color8(60,60,60),
-		Color8(180,20,20)
-	],
-
-	"Kestrel Seabird":[
-	Color8(50,205,50),   # Toxic Lime (default)
-	Color8(255,255,255), # White
-	Color8(255,200,0),   # Racing Yellow
-	Color8(0,120,200),   # Electric Blue
-	Color8(255,80,20),   # Exige Orange
-	Color8(200,40,40),   # Racing Red
-	Color8(20,20,20),    # Black
-	Color8(180,180,180)  # Silver
+"Schroder Colosso":[
+	Color8(180,180,180),
+	Color8(255,255,255),
+	Color8(60,60,60),
+	Color8(0,70,120),
+	Color8(0,60,20),
+	Color8(120,0,0)
 ],
 
-	"Berkshire Prince":[
-		Color8(0,0,0),
-		Color8(255,255,255),
-		Color8(180,180,180),
-		Color8(0,40,80),
-		Color8(0,60,20),
-		Color8(120,0,0)
-	],
-
-	"Brutus Stingray":[
-		Color8(255,255,0),
-		Color8(255,255,255),
-		Color8(255,0,0),
-		Color8(0,0,0)
-	],
-
-	# Executive
-	"Strandberg Turbo":[
-		Color8(133,82,141),
-		Color8(255,255,255),
-		Color8(60,60,60),
-		Color8(0,80,160),
-		Color8(180,180,180),
-		Color8(200,40,40)
-	],
-
-	"Mir Cars Regent":[
-		Color8(20,40,60),
-		Color8(225,225,220),
-		Color8(110,120,140),
-		Color8(90,70,50)
-	],
-
-	"Kuro Vault":[
-		Color8(123,3,35),
-		Color8(255,255,255),
-		Color8(60,60,60),
-		Color8(0,70,120),
-		Color8(180,180,180),
-		Color8(20,40,60)
-	],
-
-	"Berkshire Mocha":[
-		Color8(139,69,19),
-		Color8(255,255,255),
-		Color8(180,180,180),
-		Color8(0,70,120)
-	],
-
-	"Eisenach Suppressor":[
-		Color8(75,78,71),
-		Color8(180,180,180),
-		Color8(60,60,60),
-		Color8(0,70,120)
-	],
-
-	# Sport Coupe
-	"Schroder Classique Sport":[
-	Color8(0,192,192),   # Cyan (default)
-	Color8(255,255,255), # White
-	Color8(180,180,180), # Silver
-	Color8(200,40,40),   # Red
-	Color8(20,20,20),    # Black
-	Color8(0,70,120),    # Sprint Blue
-	Color8(255,140,0)    # Solar Orange
+"Mir Cars Nightwolf":[
+	Color8(0,0,192),
+	Color8(255,255,255),
+	Color8(64,64,64),
+	Color8(0,80,160),
+	Color8(20,20,20)
 ],
 
-	"Eisenach Roadstar":[
-	Color8(180,180,180), # Silver
-	Color8(200,40,40)    # BMW Red
+# COMPACT
+
+"Kuro Zephyr":[
+	Color8(240,240,240),
+	Color8(120,20,20),
+	Color8(0,110,130),
+	Color8(70,70,70),
+	Color8(255,140,0),
+	Color8(255,255,255)
 ],
 
-	"Berkshire Blunt":[
-		Color8(0,66,37),
-		Color8(173,69,67),
-		Color8(180,180,180),
-		Color8(172,213,243),
-		Color8(0,0,0),
-		Color8(255,255,255)
-	],
+"Straeda Volant":[
+	Color8(255,255,255),
+	Color8(25,25,30),
+	Color8(30,55,110),
+	Color8(190,190,195),
+	Color8(180,20,20),
+	Color8(255,140,0)
+],
 
-	"Berkshire V12-S":[
-		Color8(46,54,64),
-		Color8(255,255,255),
-		Color8(80,120,160),
-		Color8(160,160,160),
-		Color8(0,0,0),
-		Color8(120,0,0)
-	],
+"Schroder Atrix Q32":[
+	Color8(192,192,192),
+	Color8(255,255,255),
+	Color8(140,0,255),
+	Color8(0,120,160),
+	Color8(200,40,40),
+	Color8(20,20,20),
+	Color8(255,140,0),
+	Color8(255,215,0)
+],
 
-	"Kestrel Touring":[
-		Color8(255,54,35),
-		Color8(160,40,200),
-		Color8(120,255,40),
-		Color8(255,90,20),
-		Color8(255,255,255),
-		Color8(20,20,20)
-	],
+"Eisenach Bengal":[
+	Color8(255,255,255),
+	Color8(255,99,71),
+	Color8(185,155,185),
+	Color8(60,60,60),
+	Color8(0,0,0),
+	Color8(0,90,180),
+	Color8(255,200,0)
+],
 
-	# Sport Racing
-	"Kestrel Battleaxe":[
-		Color8(180,20,35),
-		Color8(255,255,255),
-		Color8(255,140,0),
-		Color8(200,40,80),
-		Color8(120,255,40),
-		Color8(160,40,200)
-	],
+"Zenith Horizon":[
+	Color8(255,116,49),
+	Color8(255,255,255),
+	Color8(0,90,180),
+	Color8(180,180,180),
+	Color8(20,20,20),
+	Color8(200,40,40),
+	Color8(120,0,180),
+	Color8(255,215,0)
+],
 
-	"Berkshire Tempest":[
-		Color8(192,192,192),
-		Color8(255,255,255),
-		Color8(0,80,120),
-		Color8(160,160,160),
-		Color8(0,0,0),
-		Color8(120,0,0)
-	],
+# MUSCLE
 
-	"Brutus Venom":[
-		Color8(255,0,0),
-		Color8(255,255,255),
-		Color8(180,180,180),
-		Color8(0,0,0),
-		Color8(0,40,120),
-		Color8(255,140,0)
-	],
+"Brutus Viper":[
+	Color8(0,0,128),
+	Color8(255,255,255),
+	Color8(200,200,200),
+	Color8(160,0,0),
+	Color8(0,0,0),
+	Color8(255,140,0),
+	Color8(255,215,0),
+	Color8(0,70,40)
+],
 
-	"Linetti Shepherd":[
-		Color8(50,220,40),
-		Color8(255,255,255),
-		Color8(255,200,0),
-		Color8(0,160,80),
-		Color8(255,120,0),
-		Color8(20,20,20)
-	],
+"Mir Cars Hutch":[
+	Color8(228,31,36),
+	Color8(255,255,255),
+	Color8(160,160,160),
+	Color8(0,40,120),
+	Color8(20,20,20),
+	Color8(255,140,0)
+],
 
-	# Supercars
-	"Kestrel Guillotine":[
-		Color8(120,0,180),
-		Color8(255,255,255),
-		Color8(200,160,255),
-		Color8(60,0,90),
-		Color8(255,120,0),
-		Color8(20,20,20)
-	],
+# URBAN
 
-	"Linetti Firestorm":[
-		Color8(225,220,40),
-		Color8(255,255,255),
-		Color8(255,80,0),
-		Color8(200,160,0),
-		Color8(200,20,20),
-		Color8(20,20,20)
-	],
+"Kuro Serenity":[
+	Color8(20,40,60),
+	Color8(255,255,255),
+	Color8(180,180,180),
+	Color8(60,60,60),
+	Color8(0,0,0),
+	Color8(90,70,50)
+],
 
-	"Mir Cars Raptor":[
-		Color8(225,20,40),
-		Color8(255,255,255),
-		Color8(160,160,160),
-		Color8(0,40,80),
-		Color8(0,0,0),
-		Color8(255,120,0)
-	],
+"Kestrel Seabird":[
+	Color8(50,205,50),
+	Color8(255,80,20),
+	Color8(255,255,255),
+	Color8(255,200,0),
+	Color8(0,120,200),
+	Color8(200,40,40),
+	Color8(20,20,20),
+	Color8(180,180,180),
+	Color8(140,0,255),
+	Color8(0,70,40)
+],
 
-	"Linetti Terror":[
-		Color8(65,66,76),
-		Color8(255,255,255),
-		Color8(255,200,0),
-		Color8(160,160,160),
-		Color8(255,120,0),
-		Color8(200,20,20)
-	],
+"Kestrel Speedster":[
+	Color8(180,180,180),
+	Color8(255,255,255),
+	Color8(20,20,20),
+	Color8(0,70,40),
+	Color8(0,90,180),
+	Color8(255,140,0),
+	Color8(255,220,0),
+	Color8(90,90,90)
+],
 
-	# Track Cars
-	"Bartoli Track Cruiser":[
-		Color8(0,157,192),
-		Color8(255,255,255),
-		Color8(180,180,180),
-		Color8(0,90,160)
-	],
+"Brutus Stingray":[
+	Color8(255,255,0),
+	Color8(255,0,0),
+	Color8(180,180,180),
+	Color8(0,0,0)
+],
 
-	"Brutus Thunderbolt":[
-		Color8(255,0,0),
-		Color8(255,255,255),
-		Color8(60,60,60),
-		Color8(0,40,120)
-	],
+"Berkshire Blunt":[
+	Color8(0,66,37),
+	Color8(173,69,67),
+	Color8(180,180,180),
+	Color8(172,213,243),
+	Color8(0,0,0),
+	Color8(255,255,255),
+	Color8(120,0,0),
+	Color8(90,70,50),
+	Color8(40,40,80),
+	Color8(160,160,160)
+],
 
-	"Mir Cars Athletic C70":[
-		Color8(255,80,20),
-		Color8(255,255,255),
-		Color8(60,60,60),
-		Color8(0,90,160)
-	]
+# EXECUTIVE
+
+"Strandberg Turbo":[
+	Color8(133,82,141),
+	Color8(255,255,255),
+	Color8(60,60,60),
+	Color8(0,80,160),
+	Color8(180,180,180),
+	Color8(200,40,40)
+],
+
+"Mir Cars Regent":[
+	Color8(20,40,60),
+	Color8(225,225,220),
+	Color8(110,120,140),
+	Color8(90,70,50)
+],
+
+"Kuro Vault":[
+	Color8(123,3,35),
+	Color8(255,255,255),
+	Color8(60,60,60),
+	Color8(0,70,120),
+	Color8(180,180,180),
+	Color8(20,40,60)
+],
+
+"Berkshire Prince":[
+	Color8(0,0,0),
+	Color8(255,255,255),
+	Color8(180,180,180),
+	Color8(0,40,80),
+	Color8(0,60,20)
+],
+
+"Eisenach Suppressor":[
+	Color8(75,78,71),
+	Color8(180,180,180),
+	Color8(60,60,60),
+	Color8(0,70,120),
+	Color8(255,255,255)
+],
+
+# SPORT COUPE
+
+"Schroder Classique Sport":[
+	Color8(0,192,192),
+	Color8(255,255,255),
+	Color8(180,180,180),
+	Color8(200,40,40),
+	Color8(20,20,20),
+	Color8(0,70,120),
+	Color8(255,140,0),
+	Color8(255,215,0)
+],
+
+"Eisenach Roadstar":[
+	Color8(180,180,180),
+	Color8(200,40,40)
+],
+
+"Berkshire V12-S":[
+	Color8(46,54,64),
+	Color8(255,255,255),
+	Color8(80,120,160),
+	Color8(160,160,160),
+	Color8(0,0,0),
+	Color8(120,0,0)
+],
+
+"Kestrel Touring":[
+	Color8(255,54,35),
+	Color8(160,40,200),
+	Color8(120,255,40),
+	Color8(255,90,20),
+	Color8(255,255,255),
+	Color8(20,20,20),
+	Color8(255,215,0),
+	Color8(0,90,180),
+	Color8(180,180,180),
+	Color8(120,0,0)
+],
+
+# SPORT RACING
+
+"Kestrel Battleaxe":[
+	Color8(180,20,35),
+	Color8(255,255,255),
+	Color8(255,140,0),
+	Color8(200,40,80),
+	Color8(120,255,40),
+	Color8(160,40,200),
+	Color8(20,20,20),
+	Color8(255,215,0),
+	Color8(0,90,180),
+	Color8(180,180,180)
+],
+
+"Berkshire Tempest":[
+	Color8(192,192,192),
+	Color8(255,255,255),
+	Color8(0,80,120),
+	Color8(160,160,160),
+	Color8(0,0,0),
+	Color8(120,0,0)
+],
+
+"Brutus Venom":[
+	Color8(255,0,0),
+	Color8(255,255,255),
+	Color8(180,180,180),
+	Color8(0,0,0),
+	Color8(0,40,120),
+	Color8(255,140,0),
+	Color8(255,215,0),
+	Color8(140,0,255)
+],
+
+"Linetti Shepherd":[
+	Color8(50,220,40),
+	Color8(255,255,255),
+	Color8(255,200,0),
+	Color8(0,160,80),
+	Color8(255,120,0),
+	Color8(20,20,20),
+	Color8(255,215,0),
+	Color8(180,180,180),
+	Color8(0,90,180),
+	Color8(200,40,40)
+],
+
+# SUPERCARS
+
+"Kestrel Guillotine":[
+	Color8(120,0,180),
+	Color8(255,255,255),
+	Color8(200,160,255),
+	Color8(60,0,90),
+	Color8(255,120,0),
+	Color8(20,20,20),
+	Color8(255,215,0),
+	Color8(0,90,180),
+	Color8(180,180,180),
+	Color8(200,40,40)
+],
+
+"Linetti Firestorm":[
+	Color8(225,220,40),
+	Color8(255,255,255),
+	Color8(255,80,0),
+	Color8(200,160,0),
+	Color8(200,20,20),
+	Color8(20,20,20),
+	Color8(180,180,180),
+	Color8(0,90,180),
+	Color8(140,0,255),
+	Color8(0,70,40)
+],
+
+"Mir Cars Raptor":[
+	Color8(225,20,40),
+	Color8(255,255,255),
+	Color8(160,160,160),
+	Color8(0,40,80),
+	Color8(0,0,0),
+	Color8(255,120,0),
+	Color8(255,215,0),
+	Color8(140,0,255),
+	Color8(0,90,180),
+	Color8(0,70,40)
+],
+
+"Linetti Terror":[
+	Color8(65,66,76),
+	Color8(255,255,255),
+	Color8(255,200,0),
+	Color8(160,160,160),
+	Color8(255,120,0),
+	Color8(200,20,20),
+	Color8(20,20,20),
+	Color8(140,0,255),
+	Color8(0,90,180),
+	Color8(0,70,40)
+],
+
+# TRACK
+
+"Bartoli Track Cruiser":[
+	Color8(0,157,192),
+	Color8(255,255,255),
+	Color8(180,180,180),
+	Color8(0,90,160)
+],
+
+"Brutus Thunderbolt":[
+	Color8(255,0,0),
+	Color8(255,255,255),
+	Color8(60,60,60),
+	Color8(0,40,120)
+],
+
+"Mir Cars Athletic C70":[
+	Color8(255,80,20),
+	Color8(255,255,255),
+	Color8(60,60,60),
+	Color8(0,90,160),
+	Color8(255,215,0),
+	Color8(140,0,255),
+	Color8(200,40,40),
+	Color8(20,20,20)
+]
+
 }
 
 func _ready() -> void:
