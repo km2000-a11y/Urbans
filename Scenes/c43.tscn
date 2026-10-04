@@ -108,13 +108,14 @@ script = ExtResource("1_uk00g")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179, 2, 8)
+visible = false
 current = true
 fov = 55.0
 script = ExtResource("2_oi8na")
 target = NodePath("..")
 
 [node name="ModelRoot" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.315375, 0)
+transform = Transform3D(-1, 0, -1.66095e-07, 0, 1, 0, 1.50996e-07, 0, -1.1, 0, -0.315375, 0)
 
 [node name="WheelHolder" type="Node3D" parent="ModelRoot"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.203167, -0.15023, 0.711363)
@@ -240,7 +241,7 @@ mesh = SubResource("BoxMesh_wromi")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="ModelRoot/Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0565882, 0.455286, -0.232922)
+transform = Transform3D(1, 0, 0, 0, 1.35, 0, 0, 0, 1, 0.0565882, 0.436747, -0.232922)
 material_override = SubResource("StandardMaterial3D_gu0u7")
 mesh = SubResource("BoxMesh_7iopj")
 skeleton = NodePath("../..")

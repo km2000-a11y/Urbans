@@ -155,6 +155,30 @@ var class_lists: Dictionary = {
 	"Berkshire Prince",
 	"Berkshire V12-S"
 ],
+"drop_top_challenge":[
+	"Schroder Atrix Q32",
+	"Kestrel Speedster",
+	"Berkshire Blunt",
+	"Eisenach Roadstar",
+],
+"low_displacement_challenge":[
+		"Kestrel Seabird",
+		"Kuro Zephyr",
+		"Schroder Classique Sport",
+		"Strandberg Turbo"
+		
+	],
+	"v8_fury":[
+	"Mir Cars Regent",
+	"Mir Cars Hutch",
+	"Brutus Viper",
+	"Kuro Vault",
+	"Kuro Serenity",
+	"Brutus Stingray",
+	"Berkshire Blunt",
+	"Berkshire Prince",
+	"Kestrel Touring",
+],
 	"diesel_masters": [
 		
 		"Eisenach Suppressor",

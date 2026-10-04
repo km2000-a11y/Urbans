@@ -82,11 +82,16 @@ func _update_button_states():
 	$Control/ScrollContainer/VBoxContainer/GermanCup.disabled = not ClubCups.is_cup_unlocked("german_cup")
 	$Control/ScrollContainer/VBoxContainer/KestrelMax.disabled = not ClubCups.is_cup_unlocked("kestrel_max")
 	$Control/ScrollContainer/VBoxContainer/V12Engines.disabled = not ClubCups.is_cup_unlocked("v12_engines")
+	$Control/ScrollContainer/VBoxContainer/DropTopChallenge.disabled=not ClubCups.is_cup_unlocked("drop_top_challenge")
 	$Control/ScrollContainer/VBoxContainer/Supercars.disabled = not ClubCups.is_cup_unlocked("supercars")
 	$Control/ScrollContainer/VBoxContainer/TrackCars.disabled = not ClubCups.is_cup_unlocked("track_cars")
 	$Control/ScrollContainer/VBoxContainer/SportRacing.disabled = not ClubCups.is_cup_unlocked("sport_racing")
 	$Control/ScrollContainer/VBoxContainer/UrbanPerformanceCars.disabled = not ClubCups.is_cup_unlocked("urban_performance_cars")
+	$Control/ScrollContainer/VBoxContainer/LowDisplacementChallenge.disabled = not ClubCups.is_cup_unlocked("low_displacement_challenge")
+	$Control/ScrollContainer/VBoxContainer/V8Fury.disabled = not ClubCups.is_cup_unlocked("v8_fury")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/Colossus", "colossus", "Colossus")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/DropTopChallenge", "drop_top_challenge", "Drop Top Challenge")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/LowDisplacementChallenge", "low_displacement_challenge", "Low Displacement Challenge")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/UrbanPerformanceCars", "urban_performance_cars", "Urban Performance Cars")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/StreetTuners", "street_tuners", "Street Tuners")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/MuscleHustle", "muscle_hustle", "Muscle Hustle")
@@ -98,7 +103,7 @@ func _update_button_states():
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/AllWheelGrip", "all_wheel_grip", "All Wheel Grip")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/EisenachCup", "eisenach_cup", "Eisenach Cup")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/Under400HP", "under_400_hp", "Under 400 HP")
-	_update_cup_text("Control/ScrollContainer/VBoxContainer/StingrayCompetition", "stingray_competition", "Stingray Competition")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/StingrayCompetition", "brutus_stingray_competition", "Stingray Competition")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/SchroderCup", "schroder_cup", "Schroder Cup")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/DieselMasters", "diesel_masters", "Diesel Masters")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/AmericanThunder", "american_thunder", "American Thunder")
@@ -108,11 +113,12 @@ func _update_button_states():
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/GentlemanRacers", "gentleman_racers", "Gentleman Racers")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/JapaneseCup", "japanese_cup", "Japanese Cup")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/GermanCup", "german_cup", "German Cup")
-	_update_cup_text("Control/ScrollContainer/VBoxContainer/KestrelMax", "kestrel_max", "Kestrel Max")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/KestrelMax", "kestrel_max_championship", "Kestrel Max")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/V12Engines", "v12_engines", "V12 Engines")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/Supercars", "supercars", "Supercars")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/TrackCars", "track_cars", "Track Cars")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/SportRacing", "sport_racing", "Sport Racing")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/V8Fury", "v8_fury", "V8 Fury")
 # ============================================================
 
 func _on_colossus_pressed() -> void:
@@ -276,3 +282,15 @@ func _on_back_btn_pressed():
 	ChampionshipState.reset()
 	GameMode.game_mode = ""
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
+
+func _on_drop_top_challenge_pressed() -> void:
+	_show_cup("drop_top_challenge")
+
+
+func _on_low_displacement_challenge_pressed() -> void:
+	_show_cup("low_displacement_challenge")
+
+
+func _on_v_8_fury_pressed() -> void:
+	_show_cup("v8_fury")

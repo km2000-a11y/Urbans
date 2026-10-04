@@ -34,9 +34,6 @@ var car_sell_prices := {
 	"Kuro Vault": 51000,
 	"Berkshire Mocha": 54000,
 
-	"Mir Cars Transporter": 63000,
-	"Kuro Persian": 66000,
-	"Kronstadt Fortress": 72000,
 
 	"Kuro Serenity": 51000,
 	"Kestrel Speedster": 57000,
@@ -854,6 +851,7 @@ func _ready():
 		$Control/ClassList/TrackCars.disabled = not _class_has_eligible(track_cars_list)
 	if upgrade_mode:
 		$Select.hide()
+		
 func _apply_dealership_ui():
 	$MoneyLabel.show()
 	$Control/CarStats/PriceLabel.show()
@@ -1046,8 +1044,6 @@ func update_car_ui(stats: Array, name: String):
 
 					$Control/CarStats/TopSpeedLabel.text = \
 						"TOP SPEED: %d KM/H" % int(cc.top_speed_kmh)
-					
-				
 		else:
 
 			var zero_text = final_stats[4]
@@ -1091,7 +1087,7 @@ func update_car_ui(stats: Array, name: String):
 		var sale_price :int= car_sell_prices.get(name, 0)
 		var balance := Cars.player_money
 
-		$MoneyLabel.text = "BALANCE: $" + str(balance)
+		$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
 
 		$Control/Label.text = ""
 		$Control/Label.modulate = Color.WHITE
@@ -1482,7 +1478,7 @@ func _on_select_pressed() -> void:
 			$Control/Label.text = Localization.translate("sold")
 			$Control/Label.modulate = Color.GREEN
 
-			$MoneyLabel.text = "balance: $" + str(Cars.player_money)
+			$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
 
 			update_car_ui(get_stats_for(car_name), car_name)
 
@@ -1502,8 +1498,7 @@ func _on_select_pressed() -> void:
 		$Control/Label.text = Localization.translate("purchased")
 		$Control/Label.modulate = Color.GREEN
 
-		$MoneyLabel.text = "balance: $" + str(Cars.player_money)
-
+		$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
 		update_car_ui(get_stats_for(car_name), car_name)
 
 		return
@@ -1579,7 +1574,7 @@ func attempt_purchase(car_name: String):
 	print("Purchased:", car_name, "for $", price)
 
 	# Refresh UI
-	$MoneyLabel.text = "Money: $" + str(Cars.player_money)
+	$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
 	$Control/PriceLabel.text = "Price: $" + str(price)
 
 
@@ -1594,6 +1589,9 @@ func _on_upgrades_pressed() -> void:
 
 	$Control.hide()
 	$UpgradeMenu.show()
+	$Select.hide()
+	$MoneyLabel.show()
+	$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
 	_update_upgrade_menu()
 func _update_upgrade_menu():
 	if not Cars.upgrades.has(car_name):

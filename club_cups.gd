@@ -12,14 +12,13 @@ var cash_rewards: Dictionary = {
 	"zenith_competition": 18000,
 	"businessman_racers": 20000,
 	"japanese_cup": 22000,
-	"all_wheel_grip": 25000,
-	"speedster_tournament": 28000,
 	"urban_performance_cars":35000,
 	"eisenach_cup": 30000,
+	"v8_fury":37000,
 	"berkshire_cup": 35000,
+	"drop_top_challenge":20000,
 	"under_400_hp": 40000,
 	"schroder_cup": 45000,
-	"stingray_competition": 50000,
 	"gentleman_racers": 55000,
 	"kestrel_max": 60000,
 	"diesel_masters": 65000,
@@ -160,6 +159,23 @@ var class_lists: Dictionary = {
 	"Mir Cars Nightwolf",
 	"Kuro Zephyr"
 ],
+"v8_fury":[
+	"Mir Cars Regent",
+	"Mir Cars Hutch",
+	"Brutus Viper",
+	"Kuro Vault",
+	"Kuro Serenity",
+	"Brutus Stingray",
+	"Berkshire Blunt",
+	"Berkshire Prince",
+	"Kestrel Touring",
+],
+"drop_top_challenge":[
+	"Schroder Atrix Q32",
+	"Kestrel Speedster",
+	"Berkshire Blunt",
+	"Eisenach Roadstar",
+],
 "berkshire_cup":[
 	"Berkshire Blunt",
 	"Berkshire Prince",
@@ -200,6 +216,13 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Classique Sport",
+		
+	],
+	"low_displacement_challenge":[
+		"Kestrel Seabird",
+		"Kuro Zephyr",
+		"Schroder Classique Sport",
+		"Strandberg Turbo"
 		
 	],
 	"gentleman_racers":[
@@ -257,10 +280,13 @@ var cup_rewards: Dictionary = {
 	"all_wheel_grip": "Kestrel Speedster",
 	"speedster_tournament": "Eisenach Suppressor",
 	"eisenach_cup": "Berkshire Blunt",
+	"low_displacement_challenge":"Berkshire Prince",
+	"drop_top_challenge":"Kronstadt Blazer",
 	"under_400_hp": "Schroder Classique Sport",
 	"german_cup":"Eisenach Roadstar",
 	"schroder_cup": "Brutus Stingray",
 	"stingray_competition": "Berkshire V12-S",
+	"v8_fury":"Brutus Venom",
 	"gentleman_racers": "Kestrel Touring",
 	"kestrel_max": "Linetti Shepherd",
 	"sport_racing": "Linetti Firestorm",
@@ -291,12 +317,14 @@ var career_order: Array = [
 	"urban_performance_cars",
 	"eisenach_cup",
 	"berkshire_cup",
+	"drop_top_challenge",
 	"under_400_hp",
 	"german_cup",
 	"schroder_cup",
 	"american_thunder",
 	"british_invasion",
 	"stingray_competition",
+	"v8_fury",
 	"gentleman_racers",
 	"kestrel_max",
 	"sport_racing",
@@ -400,7 +428,15 @@ var cups: Dictionary = {
 		"Schroder Colosso"
 	]
 },
-
+"low_displacement_challenge": {
+	"eligible_classes": ["low_displacement_challenge"],
+	"eligible_cars": [
+"Kestrel Seabird",
+		"Kuro Zephyr",
+		"Schroder Classique Sport",
+		"Strandberg Turbo"
+	]
+},
 "american_thunder": {
 	"eligible_classes": ["american_thunder"],
 	"eligible_cars": [
@@ -422,6 +458,30 @@ var cups: Dictionary = {
 		"Kestrel Touring",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
+	]
+},
+"v8_fury": {
+	"eligible_classes": ["v8_fury"],
+	"eligible_cars": [
+	"Mir Cars Regent",
+	"Mir Cars Hutch",
+	"Brutus Viper",
+	"Kuro Vault",
+	"Kuro Serenity",
+	"Brutus Stingray",
+	"Berkshire Blunt",
+	"Berkshire Prince",
+	"Kestrel Touring",
+
+	]
+},
+"drop_top_challenge": {
+	"eligible_classes": ["drop_top_challenge"],
+	"eligible_cars": [
+		"Schroder Atrix Q32",
+	"Kestrel Speedster",
+	"Berkshire Blunt",
+	"Eisenach Roadstar",
 	]
 },
 

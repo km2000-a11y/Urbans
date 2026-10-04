@@ -4763,7 +4763,7 @@ transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -185.125
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -216.936, 0.623142, 569.563)
 
 [node name="RadarTrap" type="Area3D" parent="."]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -117.253, 0, 391.104)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -218.607, 0, 566.655)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RadarTrap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.3549, 3.33868, -5.40106)

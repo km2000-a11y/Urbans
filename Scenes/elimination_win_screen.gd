@@ -42,7 +42,7 @@ func show_results(player_won: bool) -> void:
 
 	# ⭐ CLUB CUPS REWARD BLOCK
 	if player_won and GameMode.game_mode == "Club Cups":
-		Cars.add_money(6000)
+		Cars.add_money(4000)
 
 		if has_node("Control/Panel/MoneyLabel"):
 			var money_label := $Control/Panel/MoneyLabel

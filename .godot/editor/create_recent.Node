@@ -1,3 +1,5 @@
+TextureProgressBar
+ProgressBar
 Label
 VBoxContainer
 HBoxContainer
@@ -11,4 +13,3 @@ CollisionShape3D
 StaticBody3D
 HSlider
 Area3D
-Control

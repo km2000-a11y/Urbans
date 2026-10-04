@@ -28,7 +28,7 @@ func show_win(success: bool) -> void:
 
 	# ⭐ CLUB CUPS MONEY REWARD
 	if success and GameMode.game_mode == "Club Cups":
-		Cars.add_money(6000)
+		Cars.add_money(4000)
 
 		var reward := Localization.translate("reward")
 		var balance := Localization.translate("balance")

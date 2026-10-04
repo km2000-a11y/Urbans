@@ -59,7 +59,7 @@ func show_results(player_won: bool) -> void:
 
 	# Club Cups reward
 	if player_won and GameMode.game_mode == "Club Cups":
-		Cars.add_money(6000)
+		Cars.add_money(4000)
 		var money_label: Label = $Control/Panel/MoneyLabel
 		Localization.set_text(money_label, "Reward: $6000\nBalance: $" + str(Cars.player_money))
 

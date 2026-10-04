@@ -1,11 +1,3 @@
-res://Scenes/c43.tscn
-res://Scenes/bmw_z8.gd
-res://cars.gd
-res://Scripts/car_select.gd
-res://Scripts/chevrolet_corvette_c5_1998.gd
-res://Scenes/c43.gd
-res://club_cups.gd
-res://Scenes/rs3.gd
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -67,6 +59,15 @@ res://Tracks/new_york.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Tracks/las_vegas.tscn
 res://Scenes/bmw_z8.tscn
+res://Scenes/c43.tscn
 res://Scenes/peugeot_406.tscn
 res://Scenes/infiniti_q45.tscn
 res://Scenes/jaguar_xjr.tscn
+res://Scripts/car_select.gd
+res://Scenes/championships.gd
+res://cars.gd
+res://club_cups.gd
+res://Scenes/elimination_win_screen.gd
+res://Scripts/leaderboard.gd
+res://Scripts/win_screen_radar.gd
+res://localization.gd
