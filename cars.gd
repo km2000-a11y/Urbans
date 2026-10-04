@@ -41,7 +41,7 @@ var class_lists: Dictionary = {
 	],
 
 	"urban": [
-			"Brutus Stingray",
+			"Kronstadt Blazer",
 		"Berkshire Blunt",
 		"Kuro Serenity",
 		"Kestrel Speedster",
@@ -59,6 +59,7 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Berkshire V12-S",
 		"Eisenach Roadstar",
+		"Brutus Stingray",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
 	],
@@ -118,6 +119,7 @@ var class_lists: Dictionary = {
 	"eisenach_cup":[
 		"Eisenach Suppressor",
 		"Eisenach Bengal",
+		"Eisenach Roadstar",
 
 	],
 	"under_400_hp": [
@@ -154,7 +156,7 @@ var class_lists: Dictionary = {
 	"Berkshire V12-S"
 ],
 	"diesel_masters": [
-		"Eisenach Bengal",
+		
 		"Eisenach Suppressor",
 		"Schroder Colosso"
 	],
@@ -253,7 +255,7 @@ var car_scene_paths := {
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Mir Cars Regent":"res://Scenes/infiniti_q45.tscn",
 	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
-		"Kronstadt Blazer":"res://Scenes/clk_55.tscn",	
+		"Kronstadt Blazer":"res://Scenes/c43.tscn",	
 	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
 
 	"Brutus Viper":"res://Scenes/gt500.tscn",
@@ -534,9 +536,21 @@ var car_colors = {
 	Color8(255,215,0)
 ],
 
-"Eisenach Roadstar":[
-	Color8(180,180,180),
-	Color8(200,40,40)
+"Eisenach Roadstar": [
+	Color8(192, 192, 192), # Silver (default)
+	Color8(255, 255, 255), # White
+	Color8(15, 15, 15),    # Black
+	Color8(25, 70, 180),   # Interlagos Blue
+	Color8(190, 20, 30),   # Imola Red
+	Color8(0, 140, 90)     # Deep Emerald Green
+],
+"Kronstadt Blazer": [
+	Color8(15, 15, 15),    # Obsidian Black (default)
+	Color8(192, 192, 192), # Brilliant Silver
+	Color8(255, 255, 255), # Polar White
+	Color8(55, 75, 145),   # Tanzanite Blue
+	Color8(20, 65, 35),    # Designo Green
+	Color8(120, 20, 20)    # Designo Red
 ],
 
 "Berkshire V12-S":[

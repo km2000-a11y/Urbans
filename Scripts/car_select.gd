@@ -49,6 +49,7 @@ var car_sell_prices := {
 	"Berkshire Tempest":150000,
 	"Berkshire V12-S": 132000,
 	"Straeda Volant":24000,
+	"Kronstadt Blazer": 85000,
 	"Kestrel Touring": 156000,
 
 	"Kronstadt Beast": 168000,
@@ -94,7 +95,7 @@ var car_prices := {
 	"Kestrel Seabird": 120000,
 	"Eisenach Roadstar": 165000,
 	"Berkshire Blunt": 122000,
-	"Kronstadt Blazer": 96000,
+	"Kronstadt Blazer": 130000,
 
 	"Schroder Classique Sport": 135000,
 	"Brutus Stingray": 150000,
@@ -344,9 +345,13 @@ var car_colors = {
 	Color8(255,215,0)
 ],
 
-"Eisenach Roadstar":[
-	Color8(180,180,180),
-	Color8(200,40,40)
+"Eisenach Roadstar": [
+	Color8(192, 192, 192), # Silver (default)
+	Color8(255, 255, 255), # White
+	Color8(15, 15, 15),    # Black
+	Color8(25, 70, 180),   # Interlagos Blue
+	Color8(190, 20, 30),   # Imola Red
+	Color8(0, 140, 90)     # Deep Emerald Green
 ],
 
 "Berkshire V12-S":[
@@ -418,6 +423,15 @@ var car_colors = {
 	Color8(0,90,180),
 	Color8(200,40,40)
 ],
+"Kronstadt Blazer": [
+	Color8(15, 15, 15),    # Obsidian Black (default)
+	Color8(192, 192, 192), # Brilliant Silver
+	Color8(255, 255, 255), # Polar White
+	Color8(55, 75, 145),   # Tanzanite Blue
+	Color8(20, 65, 35),    # Designo Green
+	Color8(120, 20, 20)    # Designo Red
+],
+
 
 # SUPERCARS
 
@@ -527,7 +541,7 @@ var urban_list = [
 "Kestrel Seabird",
 "Kestrel Speedster",
 "Berkshire Blunt",
-"Brutus Stingray",
+"Kronstadt Blazer"
 ]
 var sedans_list = [
 	"Strandberg Turbo",
@@ -541,6 +555,7 @@ var sedans_list = [
 var sport_list = [
 	"Schroder Classique Sport",
 	"Eisenach Roadstar",
+	"Brutus Stingray",
 	"Berkshire V12-S",
 	"Kestrel Touring"
 ]
@@ -648,12 +663,6 @@ var urban_racers = {
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 360 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-		"Brutus Stingray":[
-		"", "Country: USA", "HP: 340", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 256 KM/H",
-		"ENGINE: V8 5.7L", "ASPIRATION: NA", "TORQUE: 475 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Kestrel Seabird":[
 		"", "Country: UK", "HP: 192", "WEIGHT: 935 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 243 KM/H",
@@ -670,6 +679,12 @@ var urban_racers = {
 	"", "Country: UK", "HP: 370", "WEIGHT: 1785 KG",
 	"0-100 KM/H: 5.6s", "TOP SPEED: 265 KM/H",
 	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
+"Kronstadt Blazer":[
+	"", "Country: Germany", "HP: 349", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 5.0s", "TOP SPEED: 256 KM/H",
+	"ENGINE: V6 3.2L", "ASPIRATION: Supercharged", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -713,17 +728,22 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	
 	"Eisenach Roadstar":[
-		"", "Country: Germany", "HP: 400", "WEIGHT: 1585 KG",
-		"0-100 KM/H: 4.9s", "TOP SPEED: 280 KM/H",
-		"ENGINE: V8 4.9L", "ASPIRATION: NA", "TORQUE: 500 NM",
+		"", "Country: Germany", "HP: 343", "WEIGHT: 1585 KG",
+		"0-100 KM/H: 4.6s", "TOP SPEED: 250 KM/H",
+		"ENGINE: L6 3.2L", "ASPIRATION: NA", "TORQUE: 500 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Brutus Stingray":[
+		"", "Country: USA", "HP: 400", "WEIGHT: 1460 KG",
+		"0-100 KM/H: 4.8s", "TOP SPEED: 284 KM/H",
+		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 545 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 340", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 5.1s", "TOP SPEED: 265 KM/H",
-		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 450 NM",
+		"", "Country: Germany", "HP: 280", "WEIGHT: 1460 KG",
+		"0-100 KM/H: 5.4s", "TOP SPEED: 265 KM/H",
+		"ENGINE: L4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 	"Kestrel Touring":[
@@ -911,7 +931,7 @@ var car_scene_paths = {
 	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
 	"Eisenach Suppressor":"res://Scenes/bmw_535d.tscn",
 	"Schroder Fastback":"res://Scenes/audi_a5_tdi.tscn",
-	"Kronstadt Blazer":"res://Scenes/clk_55.tscn",
+	"Kronstadt Blazer":"res://Scenes/c43.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn"
 
 }

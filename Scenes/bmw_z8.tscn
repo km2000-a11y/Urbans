@@ -47,13 +47,6 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_wlqbx"]
 size = Vector3(0.3, 0.07, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0514d"]
-albedo_color = Color(1, 0.752941, 0, 1)
-
-[sub_resource type="PrismMesh" id="PrismMesh_31f0t"]
-left_to_right = 0.1
-size = Vector3(0.2, 0.1, 0.1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2uno"]
 albedo_color = Color(0.101961, 0.152941, 0.196078, 1)
 
@@ -113,7 +106,7 @@ size = Vector3(0.15, 0.25, 0.1)
 albedo_color = Color(0.752941, 0, 0.2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g6kl6"]
-size = Vector3(0.15, 0.03, 0.05)
+size = Vector3(0.15, 0.06, 0.05)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6kl6"]
 albedo_color = Color(1, 0.752941, 0, 1)
@@ -121,6 +114,12 @@ albedo_color = Color(1, 0.752941, 0, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3xema"]
 radius = 0.05
 height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0514d"]
+albedo_color = Color(1, 0.729412, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_31f0t"]
+size = Vector3(0.2, 0.07, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08euy"]
 size = Vector3(1, 1, 1.7)
@@ -208,7 +207,7 @@ func _physics_process(delta: float) -> void:
 		spring_length = lerp(spring_length, target_zoom, delta * 4.0)
 "
 
-[node name="Z8" type="CharacterBody3D"]
+[node name="Z4M" type="CharacterBody3D"]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_0514d")
@@ -285,24 +284,14 @@ material_override = SubResource("StandardMaterial3D_15cy3")
 mesh = SubResource("BoxMesh_y35jj")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74348e-07, 0.212087, 1.15465)
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -1.74348e-07, 0.212087, 1.15465)
 material_override = SubResource("StandardMaterial3D_o0rqx")
 mesh = SubResource("BoxMesh_wlqbx")
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.75, -1.74348e-07, 0.105409, 1.15465)
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.75, -1.74348e-07, 0.105409, 1.15465)
 material_override = SubResource("StandardMaterial3D_o0rqx")
 mesh = SubResource("BoxMesh_wlqbx")
-
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="ModelRoot/MeshInstance3D11"]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 0.35, 0, 1.50996e-07, 0, -1, 0.374224, 0.128846, 0.028748)
-material_override = SubResource("StandardMaterial3D_0514d")
-mesh = SubResource("PrismMesh_31f0t")
-
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="ModelRoot/MeshInstance3D11"]
-transform = Transform3D(1, 0, 0, 0, 0.35, 0, 0, 0, 1, -0.353089, 0.128846, 0.028748)
-material_override = SubResource("StandardMaterial3D_0514d")
-mesh = SubResource("PrismMesh_31f0t")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="ModelRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.114934, 0.28644, 0.222561)
@@ -393,6 +382,18 @@ transform = Transform3D(-1.1, 3.01992e-08, -6.60025e-15, 0, -8.74228e-09, -1, -1
 material_override = SubResource("StandardMaterial3D_g6kl6")
 mesh = SubResource("CapsuleMesh_3xema")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(0.6, 0, 0, 0, 0.7, 0, -1.42109e-14, 0, 1, 0.225206, 0.219117, 1.17062)
+material_override = SubResource("StandardMaterial3D_0514d")
+mesh = SubResource("BoxMesh_31f0t")
+skeleton = NodePath("../MeshInstance3D10")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(0.6, 0, 0, 0, 0.7, 0, -2.13163e-14, 0, 1, -0.229435, 0.219117, 1.17062)
+material_override = SubResource("StandardMaterial3D_0514d")
+mesh = SubResource("BoxMesh_31f0t")
+skeleton = NodePath("../MeshInstance3D10")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383226, 0.144474, -0.581317)
