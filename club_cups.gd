@@ -14,6 +14,7 @@ var cash_rewards: Dictionary = {
 	"japanese_cup": 22000,
 	"all_wheel_grip": 25000,
 	"speedster_tournament": 28000,
+	"urban_performance_cars":35000,
 	"eisenach_cup": 30000,
 	"berkshire_cup": 35000,
 	"under_400_hp": 40000,
@@ -53,7 +54,7 @@ var class_lists: Dictionary = {
 
 	"urban": [
 		"Kestrel Seabird",
-			"Kronstadt Blazer",
+			"Kestrel Speedster",
 			"Berkshire Blunt",
 				"Brutus Stingray",
 		"Kuro Serenity"
@@ -109,11 +110,11 @@ var class_lists: Dictionary = {
 	"Kuro Vault",
 	"Eisenach Suppressor",
 	"Strandberg Turbo",
-	"Zenith Regent",
+	"Mir Cars Regent",
 	"Berkshire Prince",
 ],
 	"speedster_tournament":[
-		"Kestrel Seabird"
+		"Kestrel Speedster"
 	],
 	"kuro_cup":[
 		"Kuro Zephyr",
@@ -226,6 +227,13 @@ var class_lists: Dictionary = {
 
 
 	],
+	"urban_performance_cars":[
+		"Kuro Serenity",
+		"Berkshire Blunt",
+		"Brutus Stingray",
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+	],
 		"kestrel_max":[
 		"Kestrel Touring",
 		"Kestrel Battleaxe",
@@ -279,6 +287,7 @@ var career_order: Array = [
 	"diesel_masters",
 	"all_wheel_grip",
 	"speedster_tournament",
+	"urban_performance_cars",
 	"eisenach_cup",
 	"stingray_competition",
 	"berkshire_cup",
@@ -332,7 +341,7 @@ func complete_cup(cup_id: String) -> void:
 
 		Cars.add_money(reward_cash)
 		print("Awarded cash:", reward_cash)
-
+	print("ACTIVE CUP:", ChampionshipState.active_cup)
 	save_progress()
 var cups: Dictionary = {
 	"colossus": {
@@ -370,6 +379,16 @@ var cups: Dictionary = {
 		"Zenith Horizon",
 		"Straeda Volant",
 		"Schroder Atrix Q32"
+	]
+},
+"urban_performance_cars": {
+	"eligible_classes": ["urban"],
+	"eligible_cars": [
+		"Kestrel Seabird",
+			"Kestrel Speedster",
+			"Berkshire Blunt",
+				"Brutus Stingray",
+		"Kuro Serenity"
 	]
 },
 "diesel_masters": {
@@ -460,6 +479,7 @@ var cups: Dictionary = {
 	"eligible_cars":[
 		"Eisenach Suppressor",
 		"Eisenach Bengal",
+		"Eisenach Roadstar",
 	]
 },
 "berkshire_cup":{
@@ -663,3 +683,64 @@ func get_shuffled_under_400_hp() -> Array:
 	return cars
 func is_cup_completed(cup_id: String) -> bool:
 	return completed_cups.has(cup_id)
+func debug_reset_career():
+	current_stage = 0
+	unlocked_cups = ["colossus"]
+	completed_cups = []
+	career_progress.clear()
+
+	save_progress()
+
+	print("DEBUG: Career reset")
+func debug_unlock_next_cup():
+	if current_stage >= career_order.size() - 1:
+		print("DEBUG: Already at final cup")
+		return
+
+	current_stage += 1
+
+	var next_cup = career_order[current_stage]
+
+	if not unlocked_cups.has(next_cup):
+		unlocked_cups.append(next_cup)
+
+	save_progress()
+
+	print("DEBUG: Unlocked ", next_cup)
+func debug_complete_current_cup():
+	if current_stage >= career_order.size():
+		return
+
+	var cup_id = career_order[current_stage]
+
+	print("DEBUG: Completing ", cup_id)
+
+	complete_cup(cup_id)
+func debug_unlock_all_cups():
+	unlocked_cups.clear()
+
+	for cup_id in career_order:
+		unlocked_cups.append(cup_id)
+
+	current_stage = career_order.size() - 1
+
+	save_progress()
+
+	print("DEBUG: All cups unlocked")
+func get_cup_details_text(cup_id: String) -> String:
+	var text := ""
+
+	text += "Reward Car: "
+	text += cup_rewards.get(cup_id, "None")
+	text += "\n"
+
+	text += "Cash Reward: $"
+	text += str(cash_rewards.get(cup_id, 0))
+	text += "\n\n"
+
+	text += "Eligible Cars:\n"
+
+	for car in get_available_cars(cup_id):
+		text += "• " + car + "\n"
+
+	return text

@@ -1,8 +1,7 @@
+res://Scenes/championships.gd
+res://Scenes/championships.tscn
+res://club_cups.gd
 res://main.tscn
-res://Scripts/base_car.gd
-res://Scripts/bmw_135i.gd
-res://Scenes/bmw_530d.gd
-res://Scripts/car_select.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -55,7 +54,6 @@ res://Scenes/tvr_cerbera.tscn
 res://Tracks/split.tscn
 res://Scenes/win_screen_duel.tscn
 res://Scenes/bmw_m5_e39.tscn
-res://Scenes/championships.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/language_menu.tscn
@@ -67,5 +65,4 @@ res://Scenes/clk_55.tscn
 res://Scenes/peugeot_406.tscn
 res://Scenes/infiniti_q45.tscn
 res://Scenes/jaguar_xjr.tscn
-res://cars.gd
-res://export_presets.cfg
+res://localization.gd

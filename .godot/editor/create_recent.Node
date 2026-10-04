@@ -1,4 +1,6 @@
 Label
+VBoxContainer
+HBoxContainer
 Button
 CarController
 MeshInstance3D
@@ -9,6 +11,4 @@ CollisionShape3D
 StaticBody3D
 HSlider
 Area3D
-VBoxContainer
 Control
-CanvasLayer

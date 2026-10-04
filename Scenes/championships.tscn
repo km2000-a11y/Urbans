@@ -76,7 +76,12 @@ text = "ALL-WHEEL GRIP"
 [node name="SpeedsterTournament" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "SEABIRD TOURNAMENT"
+text = "SPEEDSTER TOURNAMENT"
+
+[node name="UrbanPerformanceCars" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "URBAN PERFORMANCE CARS"
 
 [node name="KuroCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 visible = false
@@ -84,15 +89,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "KURO CUP"
 
-[node name="GermanCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "GERMAN CUP"
-
 [node name="EisenachCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "EISENACH CUP"
+
+[node name="GermanCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "GERMAN CUP"
 
 [node name="BerkshireCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -164,19 +169,41 @@ text = "TRACK CARS"
 [node name="Money" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 810.0
-offset_top = 570.0
+offset_top = 42.0
 offset_right = 1282.0
-offset_bottom = 612.0
+offset_bottom = 84.0
 theme_override_font_sizes/font_size = 30
 
 [node name="Dealership" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 744.0
-offset_top = 454.0
-offset_right = 1244.0
-offset_bottom = 490.0
+offset_left = 530.0
+offset_top = 4.0
+offset_right = 1271.0
+offset_bottom = 40.0
 theme_override_font_sizes/font_size = 20
 text = "CAR DEALERSHIP"
+
+[node name="CupInfo" type="VBoxContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 767.0
+offset_top = 355.0
+offset_right = 1192.0
+offset_bottom = 404.0
+
+[node name="ListBtn" type="Button" parent="Control/CupInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "LIST"
+
+[node name="GoBtn" type="Button" parent="Control/CupInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "GO!"
+
+[node name="Label" type="Label" parent="Control/CupInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 
 [connection signal="pressed" from="Control/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Colossus" to="." method="_on_colossus_pressed"]
@@ -189,9 +216,10 @@ text = "CAR DEALERSHIP"
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/DieselMasters" to="." method="_on_diesel_masters_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AllWheelGrip" to="." method="_on_all_wheel_grip_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SpeedsterTournament" to="." method="_on_speedster_tournament_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/UrbanPerformanceCars" to="." method="_on_urban_performance_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KuroCup" to="." method="_on_kuro_cup_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GermanCup" to="." method="_on_german_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/EisenachCup" to="." method="_on_eisenach_cup_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GermanCup" to="." method="_on_german_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BerkshireCup" to="." method="_on_berkshire_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/StingrayCompetition" to="." method="_on_stingray_competition_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Under400HP" to="." method="_on_under_400hp_pressed"]
@@ -206,3 +234,5 @@ text = "CAR DEALERSHIP"
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Supercars" to="." method="_on_supercars_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/TrackCars" to="." method="_on_track_cars_pressed"]
 [connection signal="pressed" from="Control/Dealership" to="." method="_on_dealership_pressed"]
+[connection signal="pressed" from="Control/CupInfo/ListBtn" to="." method="_on_list_btn_pressed"]
+[connection signal="pressed" from="Control/CupInfo/GoBtn" to="." method="_on_go_pressed"]
