@@ -161,9 +161,10 @@ text = "UPGRADES"
 [node name="GarageInfo" type="Label" parent="Control"]
 visible = false
 layout_mode = 0
-offset_top = 520.0
-offset_right = 345.0
-offset_bottom = 583.0
+offset_left = 429.0
+offset_top = 581.0
+offset_right = 1175.0
+offset_bottom = 638.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = -1

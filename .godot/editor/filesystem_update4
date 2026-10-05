@@ -1,3 +1,8 @@
+res://Scenes/audi_a4.tscn
+res://Scenes/bmw_530d.gd
+res://cars.gd
+res://Scripts/car_select.gd
+res://club_cups.gd
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -33,7 +38,6 @@ res://Scenes/main_menu.tscn
 res://Scenes/FinishFlash.tscn
 res://Scenes/HUD.tscn
 res://Scenes/start.tscn
-res://Scenes/bmw_535d.tscn
 res://Scenes/audi_a3.tscn
 res://Scenes/audi_q7.tscn
 res://Scenes/pause_menu.tscn
@@ -62,11 +66,9 @@ res://Scenes/c43.tscn
 res://Scenes/peugeot_406.tscn
 res://Scenes/infiniti_q45.tscn
 res://Scenes/jaguar_xjr.tscn
-res://music_manager.gd
-res://Scenes/pause_menu.gd
-res://Scenes/career.gd
 res://Scenes/career.tscn
-res://cars.gd
-res://Scripts/car_select.gd
-res://Scenes/championships.gd
-res://Scenes/main_menu.gd
+res://Scenes/career.gd
+res://music_manager.gd
+res://localization.gd
+res://Scenes/gs300.tscn
+res://Scenes/infiniti_q_45.gd

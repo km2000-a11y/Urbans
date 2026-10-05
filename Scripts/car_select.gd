@@ -29,13 +29,14 @@ var car_sell_prices := {
 	"Brutus Viper": 30000,
 	"Mir Cars Hutch": 36000,
 
-	"Eisenach Suppressor": 42000,
+	"Schroder Suppressor": 42000,
 	"Strandberg Turbo": 48000,
 	"Kuro Vault": 51000,
 	"Berkshire Mocha": 54000,
 
 
 	"Kuro Serenity": 51000,
+	"Kestrel Seabird":63000,
 	"Kestrel Speedster": 57000,
 	"Eisenach Prince": 72000,
 	"Berkshire Blunt": 80000,
@@ -81,7 +82,7 @@ var car_prices := {
 	"Zenith Horizon": 60000,
 	"Eisenach Bengal": 65000,
 
-	"Eisenach Suppressor": 95000,
+	"Schroder Suppressor": 95000,
 	"Strandberg Turbo": 83000,
 	"Kestrel Speedster":100000,
 	"Kuro Vault": 85000,
@@ -321,7 +322,7 @@ var car_colors = {
 	Color8(0,60,20)
 ],
 
-"Eisenach Suppressor":[
+"Schroder Suppressor":[
 	Color8(75,78,71),
 	Color8(180,180,180),
 	Color8(60,60,60),
@@ -541,9 +542,9 @@ var urban_list = [
 "Kronstadt Blazer"
 ]
 var sedans_list = [
-	"Strandberg Turbo",
 	"Mir Cars Regent",
-	"Eisenach Suppressor",
+	"Strandberg Turbo",
+	"Schroder Suppressor",
 	"Kuro Vault",
 		"Berkshire Prince",
 ]
@@ -686,12 +687,11 @@ var urban_racers = {
 ],
 }
 var sedans = {
-	
-	"Eisenach Suppressor":[
-		"", "Country: Germany", "HP: 286", "WEIGHT: 1735 KG",
+	"Schroder Suppressor":[
+		"", "Country: Germany", "HP: 240", "WEIGHT: 1665 KG",
 		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
-		"ENGINE: L6 3.0L", "ASPIRATION: Twin Turbo", "TORQUE: 580 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
+		"ENGINE: V6 3.0L", "ASPIRATION: Turbo", "TORQUE: 500 NM",
+		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 			"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
@@ -700,9 +700,9 @@ var sedans = {
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 	"Mir Cars Regent":[
-		"", "Country: Japan", "HP: 278", "WEIGHT: 1832 KG",
-		"0-100 KM/H: 6.6s", "TOP SPEED: 257 KM/H",
-		"ENGINE: V8 4.5L", "ASPIRATION: NA", "TORQUE: 396 NM",
+		"", "Country: UAE", "HP: 225", "WEIGHT: 1650 KG",
+		"0-100 KM/H: 6.4s", "TOP SPEED: 250 KM/H",
+		"ENGINE: L6 3.0L", "ASPIRATION: NA", "TORQUE: 300 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],		
 	"Kuro Vault":[
@@ -837,7 +837,7 @@ func _ready():
 		$Control/UpgradesButton.show()
 
 		var owned_cars = Cars.unlocked_cars.size()
-		$Control/GarageInfo.text = "YOU HAVE " + str(owned_cars) + " CARS"
+		$Control/GarageInfo.text = Localization.translate("you_have_cars") % owned_cars
 		$Control/GarageInfo.show()
 
 	elif Cars.dealership_mode:
@@ -923,7 +923,7 @@ var car_scene_paths = {
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
-	"Mir Cars Regent":"res://Scenes/infiniti_q45.tscn",
+	"Mir Cars Regent":"res://Scenes/gs300.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
 	"Eisenach Goblin":"res://Scenes/bmw_1m.tscn",
@@ -941,7 +941,7 @@ var car_scene_paths = {
 	"Kestrel Guillotine":"res://Scenes/tvr t 440r.tscn",
 	"Mir Cars Raptor":"res://Scenes/saleen_s7.tscn",
 	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
-	"Eisenach Suppressor":"res://Scenes/bmw_535d.tscn",
+	"Schroder Suppressor":"res://Scenes/audi_a4.tscn",
 	"Schroder Fastback":"res://Scenes/audi_a5_tdi.tscn",
 	"Kronstadt Blazer":"res://Scenes/c43.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn"
@@ -952,6 +952,10 @@ var car_scene_paths = {
 # UI UPDATE
 # -------------------------
 func _get_filtered_list(raw_list: Array) -> Array:
+
+	# Dealership -> show everything
+	if Cars.dealership_mode:
+		return raw_list
 
 	# Garage -> owned cars only
 	if Cars.garage_mode:
@@ -968,7 +972,7 @@ func _get_filtered_list(raw_list: Array) -> Array:
 		return raw_list
 
 	# Club Cups -> only unlocked + eligible cars
-	if GameMode.game_mode == "Club Cups" and ChampionshipState.championship_mode and not Cars.dealership_mode:
+	if GameMode.game_mode == "Club Cups" and ChampionshipState.championship_mode:
 		var allowed := ClubCups.get_available_cars(ChampionshipState.active_cup)
 		var filtered := []
 
@@ -978,7 +982,7 @@ func _get_filtered_list(raw_list: Array) -> Array:
 
 		return filtered
 
-	# Road Challenge -> respect class unlocks
+	# Road Challenge
 	if GameMode.game_mode == "Road Challenge":
 		var filtered := []
 
@@ -1114,7 +1118,7 @@ func update_car_ui(stats: Array, name: String):
 		var sale_price :int= car_sell_prices.get(name, 0)
 		var balance := Cars.player_money
 
-		$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
+		$MoneyLabel.text = Localization.translate("balance") + ": $" + str(Cars.player_money)
 
 		$Control/Label.text = ""
 		$Control/Label.modulate = Color.WHITE
@@ -1505,7 +1509,7 @@ func _on_select_pressed() -> void:
 			$Control/Label.text = Localization.translate("sold")
 			$Control/Label.modulate = Color.GREEN
 
-			$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
+			$MoneyLabel.text = Localization.translate("balance") + ": $" + str(Cars.player_money)
 
 			update_car_ui(get_stats_for(car_name), car_name)
 
@@ -1525,7 +1529,7 @@ func _on_select_pressed() -> void:
 		$Control/Label.text = Localization.translate("purchased")
 		$Control/Label.modulate = Color.GREEN
 
-		$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
+		$MoneyLabel.text = Localization.translate("balance") + ": $" + str(Cars.player_money)
 		update_car_ui(get_stats_for(car_name), car_name)
 
 		return
@@ -1601,7 +1605,7 @@ func attempt_purchase(car_name: String):
 	print("Purchased:", car_name, "for $", price)
 
 	# Refresh UI
-	$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
+	$MoneyLabel.text = Localization.translate("balance") + ": $" + str(Cars.player_money)
 	$Control/PriceLabel.text = "Price: $" + str(price)
 
 
@@ -1618,7 +1622,7 @@ func _on_upgrades_pressed() -> void:
 	$UpgradeMenu.show()
 	$Select.hide()
 	$MoneyLabel.show()
-	$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
+	$MoneyLabel.text = Localization.translate("balance") + ": $" + str(Cars.player_money)
 	_update_upgrade_menu()
 func _update_upgrade_menu():
 	if not Cars.upgrades.has(car_name):
@@ -1659,7 +1663,7 @@ func _update_upgrade_menu():
 		"$" + str(1800 * (u["brakes"] + 1))
 
 	# Money
-	$MoneyLabel.text = Localization.translate("money") + ": $" + str(Cars.player_money)
+	$MoneyLabel.text = Localization.translate("balance") + ": $" + str(Cars.player_money)
 func get_list_for_class(class_id: String) -> Array:
 	match class_id:
 		"suv":

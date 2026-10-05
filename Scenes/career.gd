@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _process(delta: float) -> void:
-	$Control/VBoxContainer/Money.text = Localization.translate("money") + ": $" + str(Cars.player_money)
+	$Control/VBoxContainer/Money.text = Localization.translate("balance") + ": $" + str(Cars.player_money)
 	
 func _on_dealership_pressed() -> void:
 	# Enable dealership mode globally

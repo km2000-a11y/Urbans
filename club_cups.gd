@@ -12,6 +12,7 @@ var cash_rewards: Dictionary = {
 	"zenith_competition": 18000,
 	"businessman_racers": 20000,
 	"japanese_cup": 22000,
+	"speedster_tournament":36000,
 	"urban_performance_cars":35000,
 	"eisenach_cup": 30000,
 	"v8_fury":37000,
@@ -61,9 +62,10 @@ var class_lists: Dictionary = {
 	],
 
 	"sedans": [
-	"Eisenach Suppressor",
+	"Schroder Suppressor",
 	"Kuro Vault",
 	"Strandberg Turbo",
+	"Mir Cars Regent",
 	"Berkshire Prince"
 ],
 
@@ -108,7 +110,7 @@ var class_lists: Dictionary = {
 	],
 	"businessman_racers":[
 	"Kuro Vault",
-	"Eisenach Suppressor",
+	"Schroder Suppressor",
 	"Strandberg Turbo",
 	"Mir Cars Regent",
 	"Berkshire Prince",
@@ -128,7 +130,6 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 	],
 	"eisenach_cup":[
-		"Eisenach Suppressor",
 		"Eisenach Bengal",
 					"Eisenach Roadstar",
 	],
@@ -149,7 +150,7 @@ var class_lists: Dictionary = {
 	"Strandberg Turbo",
 	"Schroder Colosso",
 	"Mir Cars Transporter",
-	"Eisenach Suppressor",
+	"Schroder Suppressor",
 	"Straeda Volant",
 	"Kestrel Seabird",
 	"Mir Cars Regent",
@@ -183,7 +184,7 @@ var class_lists: Dictionary = {
 	"Berkshire V12-S"
 ],
 	"diesel_masters": [
-		"Eisenach Suppressor",
+		"Schroder Suppressor",
 		"Schroder Colosso"
 	],
 
@@ -246,7 +247,7 @@ var class_lists: Dictionary = {
 		"Kronstadt Blazer",
 			"Eisenach Roadstar",
 
-				"Eisenach Suppressor",
+				"Schroder Suppressor",
 		"Eisenach Bengal",
 
 
@@ -278,7 +279,6 @@ var cup_rewards: Dictionary = {
 	"businessman_racers": "Kuro Serenity",
 	"japanese_cup": "Strandberg Turbo",
 	"all_wheel_grip": "Kestrel Speedster",
-	"speedster_tournament": "Eisenach Suppressor",
 	"eisenach_cup": "Berkshire Blunt",
 	"low_displacement_challenge":"Berkshire Prince",
 	"drop_top_challenge":"Kronstadt Blazer",
@@ -315,6 +315,7 @@ var career_order: Array = [
 	"all_wheel_grip",
 	"speedster_tournament",
 	"urban_performance_cars",
+	"low_displacement_challenge",
 	"eisenach_cup",
 	"berkshire_cup",
 	"drop_top_challenge",
@@ -424,7 +425,7 @@ var cups: Dictionary = {
 	"eligible_classes": ["diesel_masters"],
 	"eligible_cars": [
 
-		"Eisenach Suppressor",
+		"Schroder Suppressor",
 		"Schroder Colosso"
 	]
 },
@@ -508,7 +509,7 @@ var cups: Dictionary = {
 		"Berkshire Prince",
 		"Kuro Vault",
 		"Mir Cars Regent",
-		"Eisenach Suppressor",
+		"Schroder Suppressor",
 		"Strandberg Turbo"
 	]
 },
@@ -538,7 +539,7 @@ var cups: Dictionary = {
 "eisenach_cup":{
 	"eligible_classes":["eisenach_cup"],
 	"eligible_cars":[
-		"Eisenach Suppressor",
+
 		"Eisenach Bengal",
 		"Eisenach Roadstar",
 	]
@@ -573,7 +574,7 @@ var cups: Dictionary = {
 	"Brutus Stingray",
 	"Mir Cars Transporter",
 	"Straeda Volant",
-	"Eisenach Suppressor",
+	"Schroder Suppressor",
 	"Berkshire Prince",
 	"Kronstadt Blazer",
 	"Eisenach Roadstar",
@@ -627,7 +628,7 @@ var cups: Dictionary = {
 		"Schroder Colosso",
 		"Schroder Classique Sport",
 	
-				"Eisenach Suppressor",
+				"Schroder Suppressor",
 		"Kronstadt Blazer",
 		"Eisenach Bengal",
 

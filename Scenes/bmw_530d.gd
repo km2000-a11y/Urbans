@@ -1,41 +1,48 @@
 extends CarController
 
 # COSMETIC INFO (UI only)
-var def_car_name := "Eisenach Suppressor"
+var def_car_name := "Schroder Fastback"
 var country := "Germany"
-var engine := "I6 3.0L Twin Turbo Diesel"
-var weight_kg := 1735
-var zero_to_hundred_display := 6.00
+var engine := "V6 3.0L Turbo Diesel"
+var weight_kg := 1680
+var zero_to_hundred_display := 5.9
 
 func _ready():
+
 	# GAMEPLAY STATS
-	mass = 1735.0
-	horsepower = 286
+	mass = 1680.0
+	horsepower = 240
 	max_rpm = 5000.0
-	zero_to_hundred = 5.8
+
+	zero_to_hundred = 5.9
 	top_speed_kmh = 250
-	turn_speed = 2.60
+
+	turn_speed = 2.70
 	brake_strength = 13.0
-	lateral_friction = 1.05
-	transmission = "Rear wheel drive"
+	lateral_friction = 1.08
 
-	# E60 535d handling (massive mid-range torque, stable cruiser)
+	transmission = "Four wheel drive"
 
-	# 6-speed automatic inspired gearing
+	# Audi A4 3.0 TDI Quattro
+	# Fast executive cruiser with strong diesel torque
+
 	gear_count = 6
+
 	gear_ratios = [
-		4.17, # 1st
-		2.34, # 2nd
-		1.52, # 3rd
-		1.14, # 4th
-		0.87, # 5th
-		0.69  # 6th
+		3.67, # 1st
+		2.05, # 2nd
+		1.36, # 3rd
+		0.97, # 4th
+		0.74, # 5th
+		0.62  # 6th
 	]
 
-	# SHIFT LOGIC (high-torque diesel)
+	# DIESEL SHIFT LOGIC
 	shift_up_rpm = 4700
-	shift_down_rpm = 1600
+	shift_down_rpm = 1500
+
 	is_diesel = true
 
 	apply_stats()
+
 	print("Child READY loaded:", def_car_name)

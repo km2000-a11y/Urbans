@@ -51,7 +51,7 @@ var class_lists: Dictionary = {
 	],
 
 	"sedans": [
-	"Eisenach Suppressor",
+	"Schroder Suppressor",
 	"Mir Cars Regent",
 	"Kuro Vault",
 	"Strandberg Turbo",
@@ -99,7 +99,7 @@ var class_lists: Dictionary = {
 	],
 	"businessman_racers":[
 	"Kuro Vault",
-	"Eisenach Suppressor",
+	"Schroder Suppressor",
 	"Mir Cars Regent",
 	"Strandberg Turbo",
 	"Berkshire Prince"
@@ -119,7 +119,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 	],
 	"eisenach_cup":[
-		"Eisenach Suppressor",
+		
 		"Eisenach Bengal",
 		"Eisenach Roadstar",
 
@@ -142,7 +142,7 @@ var class_lists: Dictionary = {
 	"Strandberg Turbo",
 	"Schroder Colosso",
 	"Mir Cars Transporter",
-	"Eisenach Suppressor",
+	"Schroder Suppressor",
 
 	"Kestrel Seabird",
 	"Colossus Behemoth",
@@ -183,7 +183,7 @@ var class_lists: Dictionary = {
 ],
 	"diesel_masters": [
 		
-		"Eisenach Suppressor",
+		"Schroder Suppressor",
 		"Schroder Colosso"
 	],
 
@@ -218,6 +218,7 @@ var class_lists: Dictionary = {
 	"schroder_cup":[
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
+		"Schroder Suppressor",
 		"Schroder Classique Sport",
 		
 	],
@@ -240,8 +241,10 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Classique Sport",
-				"Eisenach Suppressor",
+				"Schroder Suppressor",
 		"Eisenach Bengal",
+		"Eisenach Roadstar",
+		"Kronstadt Blazer",
 
 
 
@@ -279,7 +282,7 @@ var car_scene_paths := {
 	"Kuro Zephyr V6":"res://Scenes/lexus_is350.tscn",
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
-	"Mir Cars Regent":"res://Scenes/infiniti_q45.tscn",
+	"Mir Cars Regent":"res://Scenes/gs300.tscn",
 	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
 		"Kronstadt Blazer":"res://Scenes/c43.tscn",	
 	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
@@ -292,7 +295,7 @@ var car_scene_paths := {
 	"Eisenach Monarch":"res://Scenes/bmw_745.tscn",
 	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
-	"Eisenach Suppressor":"res://Scenes/bmw_535d.tscn",
+	"Schroder Suppressor":"res://Scenes/audi_a4.tscn",
 	"Schroder D-20":"res://Scenes/audi_a3.tscn",
 		"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
 		"Kronstadt Fortress":"res://Scenes/s600.tscn",
@@ -541,7 +544,7 @@ var car_colors = {
 	Color8(0,60,20)
 ],
 
-"Eisenach Suppressor":[
+"Schroder Suppressor":[
 	Color8(75,78,71),
 	Color8(180,180,180),
 	Color8(60,60,60),
