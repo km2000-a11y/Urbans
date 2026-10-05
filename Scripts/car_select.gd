@@ -832,11 +832,25 @@ func _ready():
 	RoadChallengeSave.load_progress()
 	$UpgradeMenu.visible = false
 	MusicManager.play_menu_music()
+	if Cars.garage_mode:
+		$Select.hide()
+		$Control/UpgradesButton.show()
 
+		var owned_cars = Cars.unlocked_cars.size()
+		$Control/GarageInfo.text = "YOU HAVE " + str(owned_cars) + " CARS"
+		$Control/GarageInfo.show()
+
+	elif Cars.dealership_mode:
+		_apply_dealership_ui()
+		$Control/GarageInfo.hide()
+
+	else:
+		$Select.show()
+		$Control/UpgradesButton.hide()
+		$Control/GarageInfo.hide()
 	unlocked_cars = Cars.unlocked_cars
 	_update_class_locks()
-	if GameMode.game_mode!="Club Cups":
-		$Control/UpgradesButton.visible=false
+	$Control/UpgradesButton.visible = Cars.garage_mode
 
 	# Disable class buttons in Club Cups if empty
 	if GameMode.game_mode == "Club Cups":
@@ -938,12 +952,23 @@ var car_scene_paths = {
 # UI UPDATE
 # -------------------------
 func _get_filtered_list(raw_list: Array) -> Array:
-	# Free Race → all cars available
+
+	# Garage -> owned cars only
+	if Cars.garage_mode:
+		var filtered := []
+
+		for car_name in raw_list:
+			if Cars.unlocked_cars.has(car_name) and Cars.unlocked_cars[car_name]["unlocked"]:
+				filtered.append(car_name)
+
+		return filtered
+
+	# Free Race -> all cars available
 	if GameMode.game_mode == "Free Race":
 		return raw_list
 
-	# Club Cups → only unlocked cars + eligible cars
-	if GameMode.game_mode == "Club Cups" and ChampionshipState.championship_mode:
+	# Club Cups -> only unlocked + eligible cars
+	if GameMode.game_mode == "Club Cups" and ChampionshipState.championship_mode and not Cars.dealership_mode:
 		var allowed := ClubCups.get_available_cars(ChampionshipState.active_cup)
 		var filtered := []
 
@@ -953,12 +978,14 @@ func _get_filtered_list(raw_list: Array) -> Array:
 
 		return filtered
 
-	# Road Challenge → respect class unlocks
+	# Road Challenge -> respect class unlocks
 	if GameMode.game_mode == "Road Challenge":
 		var filtered := []
+
 		for car_name in raw_list:
 			if RoadChallengeSave.unlocked.get(car_class, false):
 				filtered.append(car_name)
+
 		return filtered
 
 	return raw_list
@@ -1517,7 +1544,7 @@ func _on_back_btn_pressed() -> void:
 	if GameMode.game_mode == "Road Challenge":
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	elif GameMode.game_mode=="Club Cups":
-		get_tree().change_scene_to_file("res://Scenes/championships.tscn")
+		get_tree().change_scene_to_file("res://Scenes/career.tscn")
 	elif upgrade_mode==true:
 		$Control.show()
 		$UpgradeMenu.hide()

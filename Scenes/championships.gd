@@ -6,7 +6,6 @@ func _ready():
 	MusicManager.play_menu_music()
 	set_process_input(true)
 	_update_button_states()
-	$Control/Money.text = "$" + str(Cars.player_money)
 	Localization.set_text($Control/CupInfo/ListBtn, "list")
 	Localization.set_text($Control/CupInfo/GoBtn, "go")
 	
@@ -269,19 +268,11 @@ func _on_go_pressed() -> void:
 	ChampionshipState.championship_mode = true
 
 	get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
-func _on_dealership_pressed() -> void:
-	# Enable dealership mode globally
-	Cars.enable_dealership_mode()
-
-	# Reset championship state so dealership is clean
-	ChampionshipState.reset()
-
-	# Go to Car Select scene in dealership mode
-	get_tree().change_scene_to_file("res://Scenes/car_select.tscn")
+	
 func _on_back_btn_pressed():
 	ChampionshipState.reset()
 	GameMode.game_mode = ""
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/career.tscn")
 
 
 func _on_drop_top_challenge_pressed() -> void:

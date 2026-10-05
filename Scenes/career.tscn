@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://g0to465rsyto"]
+
+[ext_resource type="Script" uid="uid://dk5t7g4p5tgt5" path="res://Scenes/career.gd" id="1_nngd8"]
+
+[node name="Career" type="CanvasLayer"]
+script = ExtResource("1_nngd8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 1259.0
+offset_bottom = 204.0
+
+[node name="Garage" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "GARAGE"
+
+[node name="Championships" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CHAMPIONSHIPS"
+
+[node name="CarDealership" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CAR DEALERSHIP"
+
+[node name="BackBtn" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BACK"
+
+[node name="Money" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[connection signal="pressed" from="Control/VBoxContainer/Garage" to="." method="_on_garage_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Championships" to="." method="_on_championships_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/CarDealership" to="." method="_on_car_dealership_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/BackBtn" to="." method="_on_back_btn_pressed"]

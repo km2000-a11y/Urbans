@@ -10,6 +10,8 @@ var race_tracks := [
 	"res://Songs/Hypnotic Groove.mp3",
 	"res://Songs/Indie Tiger.mp3",
 	"res://Songs/Intensity.mp3",
+	"res://Songs/Dance of the Pixies.mp3",
+	"res://Songs/End of Mankind.mp3",
 	"res://Songs/Retro Hand-Drum Groove.mp3",
 	"res://Songs/Smooth Mambo.mp3",
 	"res://Songs/Industrial Madness.mp3",

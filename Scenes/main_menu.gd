@@ -27,7 +27,7 @@ func _on_free_race_pressed() -> void:
 
 func _on_club_cups_pressed() -> void:
 	GameMode.game_mode = "Club Cups"
-	get_tree().change_scene_to_file("res://Scenes/championships.tscn")
+	get_tree().change_scene_to_file("res://Scenes/career.tscn")
 
 func _on_multi_device_pressed() -> void:
 	GameMode.game_mode = "Multi-Device"

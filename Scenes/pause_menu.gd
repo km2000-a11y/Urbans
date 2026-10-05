@@ -9,6 +9,8 @@ var song_names := [
 	"Indie Tiger",
 	"Intensity",
 	"Retro Hand-Drum Groove",
+	"Dance of the Pixies",
+	"End of Mankind",
 	"Smooth Mambo",
 	"Industrial Madness",
 	"Urban Bass"

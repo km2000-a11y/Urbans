@@ -189,15 +189,6 @@ offset_right = 1282.0
 offset_bottom = 84.0
 theme_override_font_sizes/font_size = 30
 
-[node name="Dealership" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 530.0
-offset_top = 4.0
-offset_right = 1271.0
-offset_bottom = 40.0
-theme_override_font_sizes/font_size = 20
-text = "CAR DEALERSHIP"
-
 [node name="CupInfo" type="VBoxContainer" parent="Control"]
 visible = false
 layout_mode = 0
@@ -251,6 +242,5 @@ theme_override_font_sizes/font_size = 20
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/V12Engines" to="." method="_on_v_12_engines_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Supercars" to="." method="_on_supercars_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/TrackCars" to="." method="_on_track_cars_pressed"]
-[connection signal="pressed" from="Control/Dealership" to="." method="_on_dealership_pressed"]
 [connection signal="pressed" from="Control/CupInfo/ListBtn" to="." method="_on_list_btn_pressed"]
 [connection signal="pressed" from="Control/CupInfo/GoBtn" to="." method="_on_go_pressed"]
