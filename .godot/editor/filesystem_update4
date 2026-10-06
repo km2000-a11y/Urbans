@@ -1,6 +1,8 @@
+res://Scenes/new_beetle.tscn
+res://music_manager.gd
+res://Scenes/pause_menu.gd
 res://main.tscn
 res://Scenes/hummer_h1.tscn
-res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
 res://Scenes/speedometer.tscn
 res://Scenes/hummer_h2.tscn
@@ -62,4 +64,4 @@ res://Scenes/peugeot_406.tscn
 res://Scenes/gs300.tscn
 res://Scenes/jaguar_xjr.tscn
 res://Scenes/career.tscn
-res://music_manager.gd
+res://Scenes/career.gd

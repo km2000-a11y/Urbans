@@ -38,5 +38,9 @@ func _on_garage_pressed() -> void:
 
 func _on_back_btn_pressed() -> void:
 	ChampionshipState.reset()
+
+	Cars.garage_mode = false
+	Cars.dealership_mode = false
 	GameMode.game_mode = ""
+
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

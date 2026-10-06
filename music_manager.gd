@@ -14,7 +14,6 @@ var race_tracks := [
 	"res://Songs/Smooth Mambo.mp3",
 	"res://Songs/Urban Bass.mp3",
 	"res://Songs/Afterlife City.mp3",
-	"res://Songs/Infected Euphoria.mp3",
 ]
 
 func _ready() -> void:
