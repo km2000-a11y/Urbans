@@ -22,23 +22,7 @@ func _ready():
 # ============================================================
 # INPUT HANDLING (DEBUG KEY)
 # ============================================================
-func _input(event):
-	if event is InputEventKey and event.pressed and not event.echo:
 
-		# G = reset career
-		if event.keycode == KEY_G:
-			ClubCups.debug_reset_career()
-			_update_button_states()
-
-		# M = unlock next cup
-		if event.keycode == KEY_M:
-			ClubCups.debug_complete_current_cup()
-			_update_button_states()
-
-		# N = unlock everything
-		if event.keycode == KEY_N:
-			ClubCups.debug_unlock_all_cups()
-			_update_button_states()
 # ============================================================
 # CAREER-AWARE CUP START
 # ============================================================
