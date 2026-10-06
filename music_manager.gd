@@ -8,7 +8,6 @@ var current_race_path := ""
 var race_tracks := [
 	"res://Songs/Electro High.mp3",
 	"res://Songs/Hypnotic Groove.mp3",
-	"res://Songs/Indie Tiger.mp3",
 	"res://Songs/Retro Hand-Drum Groove.mp3",
 	"res://Songs/Dance of the Pixies.mp3",
 	"res://Songs/End of Mankind.mp3",

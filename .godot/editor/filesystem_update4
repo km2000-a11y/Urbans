@@ -1,11 +1,6 @@
-res://Scenes/new_beetle.tscn
-res://Scripts/bmw_125.gd
-res://cars.gd
-res://Scripts/car_select.gd
-res://club_cups.gd
-res://Scripts/new_beetle_rsi_2001.gd
 res://main.tscn
 res://Scenes/hummer_h1.tscn
+res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
 res://Scenes/speedometer.tscn
 res://Scenes/hummer_h2.tscn
@@ -68,7 +63,3 @@ res://Scenes/gs300.tscn
 res://Scenes/jaguar_xjr.tscn
 res://Scenes/career.tscn
 res://music_manager.gd
-res://Scenes/pause_menu.gd
-res://Scenes/elimination_win_screen.gd
-res://Scripts/leaderboard.gd
-res://Scripts/win_screen_radar.gd
