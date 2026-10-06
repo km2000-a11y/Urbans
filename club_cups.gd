@@ -102,7 +102,6 @@ var class_lists: Dictionary = {
 	],
 	"v6_engines":[
 		"Schroder Atrix Q32",
-		"Straeda Volant",
 		"Zenith Horizon"
 	],
 	"zenith_competition":[
@@ -223,6 +222,7 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Kuro Zephyr",
 		"Schroder Classique Sport",
+		"Straeda Volant",
 		"Strandberg Turbo"
 		
 	],
@@ -407,7 +407,6 @@ var cups: Dictionary = {
 	"eligible_classes": ["v6_engines"],
 	"eligible_cars": [
 		"Zenith Horizon",
-		"Straeda Volant",
 		"Schroder Atrix Q32"
 	]
 },
@@ -435,6 +434,7 @@ var cups: Dictionary = {
 "Kestrel Seabird",
 		"Kuro Zephyr",
 		"Schroder Classique Sport",
+		"Straeda Volant",
 		"Strandberg Turbo"
 	]
 },

@@ -170,12 +170,14 @@ var car_colors = {
 ],
 
 "Straeda Volant":[
-	Color8(255,255,255),
-	Color8(25,25,30),
-	Color8(30,55,110),
-	Color8(190,190,195),
-	Color8(180,20,20),
-	Color8(255,140,0)
+	Color8(132, 132, 132), # Default Grey
+Color8(0, 0, 0), # Black
+Color8(220, 20, 60), # Crimson Red
+Color8(255, 255, 255), # White
+Color8(0, 80, 180), # Deep Blue
+Color8(0, 150, 80), # Cyber Green
+Color8(255, 210, 0), # Sunflower Yellow
+Color8(255, 160, 200) # Pink
 ],
 
 "Schroder Atrix Q32":[
@@ -627,9 +629,9 @@ var compact = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Straeda Volant":[
-		"", "Country: France", "HP: 220", "WEIGHT: 1390 KG",
+		"", "Country: Germany", "HP: 180", "WEIGHT: 1375 KG",
 		"0-100 KM/H: 6.9s", "TOP SPEED: 238 KM/H",
-		"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 300 NM",
+		"ENGINE: L4 1.8L", "ASPIRATION: Turbo", "TORQUE: 260 NM",
 		"TRANSMISSION: FRONT-WHEEL DRIVE"
 	],
 	"Eisenach Bengal":[
@@ -910,7 +912,7 @@ var car_scene_paths = {
 	"Mir Cars Athletic C70":"res://Scenes/zonda.tscn",
 	"Bartoli Track Cruiser":"res://Scenes/mc12.tscn",
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
-	"Straeda Volant":"res://Scenes/peugeot_406.tscn",
+	"Straeda Volant":"res://Scenes/new_beetle.tscn",
 
 
 

@@ -18,7 +18,7 @@ func _ready():
 	turn_speed = 2.70                # More playful, GTI-like rotation
 	brake_strength = 11.6            # Hot hatch brake feel
 	lateral_friction = 1.14          # Grippy but not twitchy — diesel weight up front
-	transmission = "Front wheel drive"
+	transmission = "Four wheel drive"
 	is_diesel = true                 # Enables diesel torque behavior
 
 	# HOT-HATCH DIESEL HANDLING

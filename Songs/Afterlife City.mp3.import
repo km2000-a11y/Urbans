@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b06mh8piaggw6"
+path="res://.godot/imported/Afterlife City.mp3-b857522652ab10b2497971a234ff53ac.mp3str"
+
+[deps]
+
+source_file="res://Songs/Afterlife City.mp3"
+dest_files=["res://.godot/imported/Afterlife City.mp3-b857522652ab10b2497971a234ff53ac.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

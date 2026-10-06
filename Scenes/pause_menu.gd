@@ -6,14 +6,14 @@ const SETTINGS_FILE = "user://settings.cfg"
 var song_names := [
 	"Electro High",
 	"Hypnotic Groove",
-	"Indie Tiger",
-	"Intensity",
 	"Retro Hand-Drum Groove",
 	"Dance of the Pixies",
 	"End of Mankind",
 	"Smooth Mambo",
 	"Industrial Madness",
-	"Urban Bass"
+	"Urban Bass",
+	"Afterlife City",
+	"Infected Euphoria"
 ]
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

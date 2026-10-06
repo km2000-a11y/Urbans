@@ -34,7 +34,7 @@ func show_win(success: bool) -> void:
 		var balance := Localization.translate("balance")
 
 		var money_label := $Control/Panel/MoneyLabel
-		money_label.text = "%s: $6000\n%s: $%d" % [
+		money_label.text = "%s: $4000\n%s: $%d" % [
 			reward,
 			balance,
 			Cars.player_money

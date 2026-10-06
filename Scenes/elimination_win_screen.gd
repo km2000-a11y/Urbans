@@ -50,7 +50,7 @@ func show_results(player_won: bool) -> void:
 			var reward := Localization.translate("reward")
 			var balance := Localization.translate("balance")
 
-			money_label.text = "%s: $6000\n%s: $%d" % [
+			money_label.text = "%s: $4000\n%s: $%d" % [
 				reward,
 				balance,
 				Cars.player_money
