@@ -4,15 +4,14 @@ var is_paused := false
 var volume := 40
 const SETTINGS_FILE = "user://settings.cfg"
 var song_names := [
-	"Electro High",
-	"Hypnotic Groove",
-	"Retro Hand-Drum Groove",
-	"Dance of the Pixies",
-	"End of Mankind",
-	"Smooth Mambo",
-	"Industrial Madness",
-	"Urban Bass",
+	"After Dark",
 	"Afterlife City",
+	"Electroids",
+	"End of Mankind",
+	"Incursion",
+	"Infected Euphoria",
+	"Queen of the Night",
+	"They Found Us"
 ]
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

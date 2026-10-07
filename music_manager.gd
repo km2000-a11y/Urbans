@@ -6,14 +6,14 @@ var user_selected_track := false
 var current_race_path := ""
 
 var race_tracks := [
-	"res://Songs/Electro High.mp3",
-	"res://Songs/Hypnotic Groove.mp3",
-	"res://Songs/Retro Hand-Drum Groove.mp3",
-	"res://Songs/Dance of the Pixies.mp3",
-	"res://Songs/End of Mankind.mp3",
-	"res://Songs/Smooth Mambo.mp3",
-	"res://Songs/Urban Bass.mp3",
+	"res://Songs/After Dark.mp3",
 	"res://Songs/Afterlife City.mp3",
+	"res://Songs/Electroids.mp3",
+	"res://Songs/End of Mankind.mp3",
+	"res://Songs/Incursion.mp3",
+	"res://Songs/Infected Euphoria.mp3",
+	"res://Songs/Queen of the Night.mp3",
+	"res://Songs/They Found Us.mp3"
 ]
 
 func _ready() -> void:

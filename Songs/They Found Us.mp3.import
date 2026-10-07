@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2ldwmeqtasfr"
+path="res://.godot/imported/They Found Us.mp3-54904c4603108bf95df8fbc1487094e2.mp3str"
+
+[deps]
+
+source_file="res://Songs/They Found Us.mp3"
+dest_files=["res://.godot/imported/They Found Us.mp3-54904c4603108bf95df8fbc1487094e2.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
