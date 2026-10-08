@@ -32,6 +32,8 @@ func _ready():
 		0.87, # 5th
 		0.74  # 6th
 	]
+	shift_up_rpm = 5900
+	shift_down_rpm = 2400
 
 	# APPLY STATS + HANDLING
 	apply_stats()

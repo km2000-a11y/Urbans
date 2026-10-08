@@ -63,7 +63,7 @@ var car_sell_prices := {
 
 	"Bartoli Track Cruiser": 540000,
 	"Brutus Thunderbolt": 600000,
-	"Berkshire Prince": 63000,
+	"Brutus Prince": 63000,
 	"Mir Cars Athletic C70": 720000
 }
 
@@ -72,7 +72,7 @@ var car_prices := {
 	"Colossus Behemoth": 0,
 	"Mir Cars Nightwolf": 25000,
 	"Schroder Colosso": 32000,
-	"Berkshire Prince": 95000,
+	"Brutus Prince": 95000,
 
 	"Brutus Viper": 45000,
 	"Mir Cars Hutch": 55000,
@@ -316,7 +316,7 @@ Color8(255, 160, 200) # Pink
 	Color8(20,40,60)
 ],
 
-"Berkshire Prince":[
+"Brutus Prince":[
 	Color8(0,0,0),
 	Color8(255,255,255),
 	Color8(180,180,180),
@@ -548,7 +548,7 @@ var sedans_list = [
 	"Strandberg Turbo",
 	"Schroder Suppressor",
 	"Kuro Vault",
-		"Berkshire Prince",
+		"Brutus Prince",
 ]
 
 
@@ -713,10 +713,10 @@ var sedans = {
 		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-"Berkshire Prince":[
-	"", "Country: UK", "HP: 300", "WEIGHT: 1780 KG",
+"Brutus Prince":[
+	"", "Country: USA", "HP: 300", "WEIGHT: 1780 KG",
 	"0-100 KM/H: 5.7s", "TOP SPEED: 253 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
+	"ENGINE: V8 3.9L", "ASPIRATION: NA", "TORQUE: 387 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -729,8 +729,8 @@ var sport = {
 	],
 	"Eisenach Roadstar":[
 		"", "Country: Germany", "HP: 343", "WEIGHT: 1585 KG",
-		"0-100 KM/H: 4.6s", "TOP SPEED: 250 KM/H",
-		"ENGINE: L6 3.2L", "ASPIRATION: NA", "TORQUE: 500 NM",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 272 KM/H",
+		"ENGINE: L6 3.2L", "ASPIRATION: NA", "TORQUE: 370 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Brutus Stingray":[
@@ -920,7 +920,7 @@ var car_scene_paths = {
 	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
-	"Berkshire Prince":"res://Scenes/jaguar_xjr.tscn",
+	"Brutus Prince":"res://Scenes/lincoln_ls.tscn",
 	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",

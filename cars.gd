@@ -55,7 +55,7 @@ var class_lists: Dictionary = {
 	"Mir Cars Regent",
 	"Kuro Vault",
 	"Strandberg Turbo",
-	"Berkshire Prince"
+	"Brutus Prince"
 ],
 
 	"sport": [
@@ -101,7 +101,7 @@ var class_lists: Dictionary = {
 	"Schroder Suppressor",
 	"Mir Cars Regent",
 	"Strandberg Turbo",
-	"Berkshire Prince"
+	"Brutus Prince"
 ],
 	"speedster_tournament":[
 		"Kestrel Speedster"
@@ -130,7 +130,7 @@ var class_lists: Dictionary = {
 	"Colossus Titan Max",
 	"Kestrel Speedster",
 	"Kestrel Touring",
-	"Berkshire Prince",
+	"Brutus Prince",
 	"Berkshire Blunt",
 	"Mir Cars Regent",
 	"Brutus Stingray",
@@ -153,7 +153,6 @@ var class_lists: Dictionary = {
 "berkshire_cup":[
 	"Berkshire Blunt",
 	"Berkshire Tempest",
-	"Berkshire Prince",
 	"Berkshire V12-S"
 ],
 "drop_top_challenge":[
@@ -178,7 +177,7 @@ var class_lists: Dictionary = {
 	"Kuro Serenity",
 	"Brutus Stingray",
 	"Berkshire Blunt",
-	"Berkshire Prince",
+	"Brutus Prince",
 	"Kestrel Touring",
 ],
 	"diesel_masters": [
@@ -190,6 +189,7 @@ var class_lists: Dictionary = {
 	"american_thunder": [
 		"Mir Cars Hutch",
 		"Brutus Viper",
+		"Brutus Prince",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -198,7 +198,6 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Berkshire Prince",
 		"Kestrel Speedster",
 		"Berkshire Tempest",
 		"Kestrel Touring",
@@ -224,7 +223,6 @@ var class_lists: Dictionary = {
 	],
 	"gentleman_racers":[
 		"Berkshire Blunt",
-		"Berkshire Prince",
 		"Eisenach Roadstar",
 		"Kestrel Speedster",
 		"Berkshire V12-S",
@@ -321,7 +319,7 @@ var car_scene_paths := {
 	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
 
 
-	"Berkshire Prince":"res://Scenes/jaguar_xjr.tscn",
+	"Brutus Prince":"res://Scenes/lincoln_ls.tscn",
 	"Linetti Terror":"res://Scenes/murcielago.tscn",
 	"Linetti Firestorm":"res://Scenes/diablo_road.tscn",
 	"Kestrel Guillotine":"res://Scenes/tvr t 440r.tscn",

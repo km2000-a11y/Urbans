@@ -10,9 +10,12 @@ var race_tracks := [
 	"res://Songs/Afterlife City.mp3",
 	"res://Songs/Electroids.mp3",
 	"res://Songs/End of Mankind.mp3",
+	"res://Songs/Ephermal Reign.mp3",
 	"res://Songs/Incursion.mp3",
 	"res://Songs/Infected Euphoria.mp3",
 	"res://Songs/Queen of the Night.mp3",
+	"res://Songs/Skirt Shaker.mp3",
+	"res://Songs/Summer Shade.mp3",
 	"res://Songs/They Found Us.mp3"
 ]
 

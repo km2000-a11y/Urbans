@@ -8,9 +8,12 @@ var song_names := [
 	"Afterlife City",
 	"Electroids",
 	"End of Mankind",
+	"Ephermal Reign",
 	"Incursion",
 	"Infected Euphoria",
 	"Queen of the Night",
+	"Skirt Shaker",
+	"Summer Shade",
 	"They Found Us"
 ]
 func _ready() -> void:

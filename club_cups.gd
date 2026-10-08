@@ -66,7 +66,7 @@ var class_lists: Dictionary = {
 	"Kuro Vault",
 	"Strandberg Turbo",
 	"Mir Cars Regent",
-	"Berkshire Prince"
+	"Brutus Prince"
 ],
 
 	"sport": [
@@ -112,7 +112,7 @@ var class_lists: Dictionary = {
 	"Schroder Suppressor",
 	"Strandberg Turbo",
 	"Mir Cars Regent",
-	"Berkshire Prince",
+	"Brutus Prince",
 ],
 	"speedster_tournament":[
 		"Kestrel Speedster"
@@ -134,7 +134,7 @@ var class_lists: Dictionary = {
 	],
 	"under_400_hp": [
 	"Mir Cars Hutch",
-	"Berkshire Prince",
+	"Brutus Prince",
 	"Schroder Atrix Q32",
 	"Colossus Titan Max",
 	"Kestrel Touring",
@@ -167,7 +167,7 @@ var class_lists: Dictionary = {
 	"Kuro Serenity",
 	"Brutus Stingray",
 	"Berkshire Blunt",
-	"Berkshire Prince",
+	"Brutus Prince",
 	"Kestrel Touring",
 ],
 "drop_top_challenge":[
@@ -178,7 +178,6 @@ var class_lists: Dictionary = {
 ],
 "berkshire_cup":[
 	"Berkshire Blunt",
-	"Berkshire Prince",
 	"Berkshire Tempest",
 	"Berkshire V12-S"
 ],
@@ -190,6 +189,7 @@ var class_lists: Dictionary = {
 	"american_thunder": [
 		"Mir Cars Hutch",
 		"Brutus Viper",
+		"Brutus Prince",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -197,7 +197,6 @@ var class_lists: Dictionary = {
 	"british_invasion": [
 		"Kestrel Seabird",
 		"Berkshire Blunt",
-		"Berkshire Prince",
 		"Berkshire V12-S",
 		"Kestrel Touring",
 		"Kestrel Battleaxe",
@@ -230,7 +229,7 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Kronstadt Blazer",
-		"Berkshire Prince",
+		"Brutus Prince",
 				"Berkshire Tempest",
 	],
 		"japanese_cup":[
@@ -280,7 +279,6 @@ var cup_rewards: Dictionary = {
 	"japanese_cup": "Strandberg Turbo",
 	"all_wheel_grip": "Kestrel Speedster",
 	"eisenach_cup": "Berkshire Blunt",
-	"low_displacement_challenge":"Berkshire Prince",
 	"drop_top_challenge":"Kronstadt Blazer",
 	"under_400_hp": "Schroder Classique Sport",
 	"german_cup":"Eisenach Roadstar",
@@ -443,6 +441,7 @@ var cups: Dictionary = {
 	"eligible_cars": [
 		"Mir Cars Hutch",
 		"Brutus Viper",
+		"Brutus Prince",
 		"Brutus Stingray",
 		"Brutus Venom"
 	]
@@ -453,7 +452,6 @@ var cups: Dictionary = {
 	"eligible_cars": [
 		"Kestrel Seabird",
 		"Berkshire Blunt",
-		"Berkshire Prince",
 		"Kestrel Speedster",
 		"Berkshire V12-S",
 		"Kestrel Touring",
@@ -471,7 +469,7 @@ var cups: Dictionary = {
 	"Kuro Serenity",
 	"Brutus Stingray",
 	"Berkshire Blunt",
-	"Berkshire Prince",
+	"Brutus Prince",
 	"Kestrel Touring",
 
 	]
@@ -506,7 +504,7 @@ var cups: Dictionary = {
 "businessman_racers":{
 	"eligible_classes":["businessman_racers"],
 	"eligible_cars":[
-		"Berkshire Prince",
+		"Brutus Prince",
 		"Kuro Vault",
 		"Mir Cars Regent",
 		"Schroder Suppressor",
@@ -549,7 +547,6 @@ var cups: Dictionary = {
 	"eligible_cars":[
 	
 		"Berkshire Tempest",
-		"Berkshire Prince",
 		"Berkshire Blunt",
 		"Berkshire V12-S"
 	]
@@ -575,7 +572,7 @@ var cups: Dictionary = {
 	"Mir Cars Transporter",
 	"Straeda Volant",
 	"Schroder Suppressor",
-	"Berkshire Prince",
+	"Brutus Prince",
 	"Kronstadt Blazer",
 	"Eisenach Roadstar",
 	"Kestrel Seabird",
@@ -605,7 +602,7 @@ var cups: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire Tempest",
 		"Berkshire V12-S",
-		"Berkshire Prince",
+	
 		"Eisenach Roadstar",
 		"Kestrel Speedster",
 		"Kronstadt Blazer",
