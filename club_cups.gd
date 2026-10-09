@@ -65,12 +65,10 @@ var class_lists: Dictionary = {
 	"Schroder Suppressor",
 	"Kuro Vault",
 	"Strandberg Turbo",
-	"Mir Cars Regent",
 	"Brutus Prince"
 ],
 
 	"sport": [
-					"Eisenach Roadstar",
 		"Berkshire V12-S",
 		"Brutus Stingray",
 		"Schroder Classique Sport",
@@ -111,7 +109,6 @@ var class_lists: Dictionary = {
 	"Kuro Vault",
 	"Schroder Suppressor",
 	"Strandberg Turbo",
-	"Mir Cars Regent",
 	"Brutus Prince",
 ],
 	"speedster_tournament":[
@@ -130,7 +127,6 @@ var class_lists: Dictionary = {
 	],
 	"eisenach_cup":[
 		"Eisenach Bengal",
-					"Eisenach Roadstar",
 	],
 	"under_400_hp": [
 	"Mir Cars Hutch",
@@ -152,7 +148,6 @@ var class_lists: Dictionary = {
 	"Schroder Suppressor",
 	"Straeda Volant",
 	"Kestrel Seabird",
-	"Mir Cars Regent",
 	"Colossus Behemoth",
 	"Schroder Classique Sport",
 	"Eisenach Bengal",
@@ -160,7 +155,6 @@ var class_lists: Dictionary = {
 	"Kuro Zephyr"
 ],
 "v8_fury":[
-	"Mir Cars Regent",
 	"Mir Cars Hutch",
 	"Brutus Viper",
 	"Kuro Vault",
@@ -174,7 +168,6 @@ var class_lists: Dictionary = {
 	"Schroder Atrix Q32",
 	"Kestrel Speedster",
 	"Berkshire Blunt",
-	"Eisenach Roadstar",
 ],
 "berkshire_cup":[
 	"Berkshire Blunt",
@@ -236,7 +229,7 @@ var class_lists: Dictionary = {
 		"Zenith Horizon",
 		"Kuro Zephyr",
 		"Kuro Serenity",
-		"Mir Cars Regent",
+
 		"Kuro Vault"
 	],
 		"german_cup":[
@@ -244,7 +237,6 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Schroder Classique Sport",
 		"Kronstadt Blazer",
-			"Eisenach Roadstar",
 
 				"Schroder Suppressor",
 		"Eisenach Bengal",
@@ -274,17 +266,15 @@ var cup_rewards: Dictionary = {
 	"street_tuners": "Brutus Viper",
 	"muscle_hustle": "Schroder Atrix Q32",
 	"v6_engines": "Zenith Horizon",
-	"zenith_competition": "Mir Cars Regent",
+	"zenith_competition": "Brutus Prince",
 	"businessman_racers": "Kuro Serenity",
 	"japanese_cup": "Strandberg Turbo",
 	"all_wheel_grip": "Kestrel Speedster",
 	"eisenach_cup": "Berkshire Blunt",
 	"drop_top_challenge":"Kronstadt Blazer",
 	"under_400_hp": "Schroder Classique Sport",
-	"german_cup":"Eisenach Roadstar",
 	"schroder_cup": "Brutus Stingray",
 	"stingray_competition": "Berkshire V12-S",
-	"v8_fury":"Brutus Venom",
 	"gentleman_racers": "Kestrel Touring",
 	"kestrel_max": "Linetti Shepherd",
 	"sport_racing": "Linetti Firestorm",
@@ -462,7 +452,6 @@ var cups: Dictionary = {
 "v8_fury": {
 	"eligible_classes": ["v8_fury"],
 	"eligible_cars": [
-	"Mir Cars Regent",
 	"Mir Cars Hutch",
 	"Brutus Viper",
 	"Kuro Vault",
@@ -480,7 +469,7 @@ var cups: Dictionary = {
 		"Schroder Atrix Q32",
 	"Kestrel Speedster",
 	"Berkshire Blunt",
-	"Eisenach Roadstar",
+	""
 	]
 },
 
@@ -506,7 +495,6 @@ var cups: Dictionary = {
 	"eligible_cars":[
 		"Brutus Prince",
 		"Kuro Vault",
-		"Mir Cars Regent",
 		"Schroder Suppressor",
 		"Strandberg Turbo"
 	]
@@ -539,7 +527,6 @@ var cups: Dictionary = {
 	"eligible_cars":[
 
 		"Eisenach Bengal",
-		"Eisenach Roadstar",
 	]
 },
 "berkshire_cup":{
@@ -574,7 +561,6 @@ var cups: Dictionary = {
 	"Schroder Suppressor",
 	"Brutus Prince",
 	"Kronstadt Blazer",
-	"Eisenach Roadstar",
 	"Kestrel Seabird",
 	"Colossus Behemoth",
 	"Eisenach Bengal",
@@ -602,8 +588,6 @@ var cups: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire Tempest",
 		"Berkshire V12-S",
-	
-		"Eisenach Roadstar",
 		"Kestrel Speedster",
 		"Kronstadt Blazer",
 	]
@@ -614,7 +598,6 @@ var cups: Dictionary = {
 			"Zenith Horizon",
 		"Kuro Zephyr",
 		"Kuro Serenity",
-		"Mir Cars Regent",
 		"Kuro Vault"
 	]
 },

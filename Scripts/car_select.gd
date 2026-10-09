@@ -97,7 +97,7 @@ var car_prices := {
 
 	"Schroder Classique Sport": 135000,
 	"Brutus Stingray": 150000,
-	"Berkshire Tempest":203000,
+	"Berkshire Tempest":275000,
 	"Berkshire V12-S": 190000,
 	"Kestrel Touring": 220000,
 
@@ -544,7 +544,6 @@ var urban_list = [
 "Kronstadt Blazer"
 ]
 var sedans_list = [
-	"Mir Cars Regent",
 	"Strandberg Turbo",
 	"Schroder Suppressor",
 	"Kuro Vault",
@@ -554,7 +553,6 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-	"Eisenach Roadstar",
 	"Brutus Stingray",
 	"Berkshire V12-S",
 	"Kestrel Touring"
@@ -701,12 +699,6 @@ var sedans = {
 		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
-	"Mir Cars Regent":[
-		"", "Country: UAE", "HP: 225", "WEIGHT: 1650 KG",
-		"0-100 KM/H: 6.4s", "TOP SPEED: 250 KM/H",
-		"ENGINE: L6 3.0L", "ASPIRATION: NA", "TORQUE: 300 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],		
 	"Kuro Vault":[
 		"", "Country: Japan", "HP: 290", "WEIGHT: 1760 KG",
 		"0-100 KM/H: 6.1s", "TOP SPEED: 254 KM/H",
@@ -725,12 +717,6 @@ var sport = {
 		"", "Country: UK", "HP: 450", "WEIGHT: 1740 KG",
 		"0-100 KM/H: 5.1s", "TOP SPEED: 296 KM/H",
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
-	"Eisenach Roadstar":[
-		"", "Country: Germany", "HP: 343", "WEIGHT: 1585 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 272 KM/H",
-		"ENGINE: L6 3.2L", "ASPIRATION: NA", "TORQUE: 370 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Brutus Stingray":[
