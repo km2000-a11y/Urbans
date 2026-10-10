@@ -1,8 +1,7 @@
-[gd_scene load_steps=44 format=3 uid="uid://b6x50a7k8nxcq"]
+[gd_scene load_steps=43 format=3 uid="uid://b6x50a7k8nxcq"]
 
 [ext_resource type="Script" uid="uid://qrurmeq5fg2u" path="res://mc_12.gd" id="1_phg7e"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_3dll7"]
-[ext_resource type="AudioStream" uid="uid://bq4u8syx73uiv" path="res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav" id="3_0lwkq"]
 [ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="4_qs8a5"]
 [ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="5_g43ni"]
 
@@ -378,7 +377,6 @@ process_material = SubResource("ParticleProcessMaterial_sibdw")
 draw_pass_1 = SubResource("QuadMesh_twcfh")
 
 [node name="RevPlayer" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_0lwkq")
 max_polyphony = 4
 
 [node name="BrakePlayer" type="AudioStreamPlayer3D" parent="."]

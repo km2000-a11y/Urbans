@@ -31,6 +31,7 @@ func _ready():
 	]
 	shift_up_rpm = 6200
 	shift_down_rpm = 2800
+	has_turbo = true
 
 	apply_stats()
 	print("Child READY loaded:", def_car_name)

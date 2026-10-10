@@ -23,11 +23,16 @@ var distance_travelled:=0.0
 var finished_time: int = -1
 var reversing: bool = false
 var reverse_speed_limit := 40.0 / 3.6  # 40 km/h in m/s
+var has_turbo := false
 
 
 @export var sync_velocity: Vector3
 @export var sync_transform: Transform3D
-
+@onready var RevPlayer = $RevPlayer
+@onready var BrakePlayer = $BrakePlayer
+@onready var CrashPlayer = $CrashPlayer
+@onready var SkidPlayer = $SkidPlayer
+var TurboPlayer: AudioStreamPlayer
 
 # --- AI INPUT ---
 var ai_throttle: float = 0.0
@@ -43,7 +48,10 @@ static var ai_names := [
 var throttle_input: float = 0.0
 var brake_input: float = 0.0
 var steer_input: float = 0.0
-
+const PETROL_AUDIO = preload("res://SFX/petrol.mp3")
+const DIESEL_AUDIO = preload("res://SFX/diesel.mp3")
+const TURBO_AUDIO = preload("res://SFX/turbo.mp3")
+const CRASH_AUDIO = preload("res://SFX/crash.mp3")
 # --- CAR STATS ---
 var mass := 1200.0
 var zero_to_hundred := 7.0
@@ -79,7 +87,10 @@ var current_gear := 1
 var shift_up_rpm := 6200
 var shift_down_rpm := 2000
 var total_race_time: int = 0
-
+var petrol_stream: AudioStream
+var diesel_stream: AudioStream
+var turbo_stream: AudioStream
+var crash_stream: AudioStream
 
 
 var acceleration_calc := 0.0
@@ -181,27 +192,66 @@ func apply_handling_profile() -> void:
 			mass *= 0.9
 		"balanced":
 			pass
+var generator_playback: AudioStreamGeneratorPlayback = null
+var procedural_generator: AudioStreamGenerator = null
+var phase: float = 0.0
+# Change this at the top if your old RevPlayer was a node variable, 
+# we will now override it safely as a standard AudioStreamPlayer object:
+var custom_rev_player: AudioStreamPlayer = null
 
 func _ready() -> void:
+	# 1. Create a brand new standard AudioStreamPlayer completely in code (100% immune to 3D bugs/missing listeners)
+	custom_rev_player = AudioStreamPlayer.new()
+	custom_rev_player.name = "CodeRevPlayer"
+	custom_rev_player.bus = "Master"
+	add_child(custom_rev_player)
+
+	# 2. Select and duplicate the correct preloaded stream
+	var source_stream = diesel_stream if is_diesel else petrol_stream
+	if source_stream:
+		var playable_stream = source_stream.duplicate()
+		if playable_stream is AudioStreamMP3:
+			playable_stream.loop = true
+		custom_rev_player.stream = playable_stream
+
+	# 3. Force play immediately
+	custom_rev_player.volume_db = 0.0
+	custom_rev_player.pitch_scale = 1.0
+	if custom_rev_player.stream:
+		custom_rev_player.play()
+		print("SUCCESS: CodeRevPlayer is playing!")
+	else:
+		printerr("CRITICAL: Stream is null!")
+
+	# Turbo Setup
+	if turbo_stream:
+		TurboPlayer = AudioStreamPlayer.new()
+		TurboPlayer.name = "TurboPlayer"
+		TurboPlayer.stream = turbo_stream.duplicate()
+		TurboPlayer.bus = "Master"
+		add_child(TurboPlayer)
+
+	if crash_stream: 
+		CrashPlayer.stream = crash_stream
+
 	apply_stats()
 	apply_handling_profile()
+
 	nitro.hide()
-	floor_stop_on_slope=false
+	floor_stop_on_slope = false
+
 	if is_ai:
-		# Build a fresh pool if empty
 		if used_ai_names.is_empty():
 			used_ai_names = ai_names.duplicate()
-
-		# Pick a unique name
 		var idx := randi() % used_ai_names.size()
 		driver_name = used_ai_names[idx]
-
-		# Remove it so no other AI can use it
 		used_ai_names.remove_at(idx)
 	else:
 		driver_name = "Player"
-
-
+# --- BULLETPROOF RESTART HANDLER ---
+func _on_rev_finished() -> void:
+	if RevPlayer and RevPlayer.stream:
+		RevPlayer.play()	
 func update_gears(speed_kmh: float) -> void:
 	if rpm > shift_up_rpm and current_gear < gear_count:
 		current_gear += 1
@@ -321,7 +371,12 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 	drift_factor = lerp(drift_factor, target_drift, delta * 6.0)
 	drifting = drift_factor > 0.1
-
+	if drifting:
+		if not SkidPlayer.playing:
+			SkidPlayer.play()
+		else:
+			if SkidPlayer.playing:
+				SkidPlayer.stop()
 	steering = lerp(steering, steer, delta * 6.0)
 
 	var forward := -transform.basis.z
@@ -364,6 +419,10 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
+		if not (other is CarController):
+			if velocity.length() > 8.0:
+				if not CrashPlayer.playing:
+					CrashPlayer.play()
 		if other is CarController:
 
 			var other_car := other as CarController
@@ -488,7 +547,25 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 	rpm = clamp(rpm, idle_rpm, max_rpm)
 	update_gears(speed_kmh)
+	var rpm_ratio := rpm / max_rpm
 
+	# --- CODE REV PLAYER UPDATE ---
+	# --- CODE REV PLAYER UPDATE ---
+	if custom_rev_player != null:
+		if not custom_rev_player.playing and custom_rev_player.stream:
+			custom_rev_player.play()
+			
+		var target_pitch :float= clamp(lerp(0.6, 2.4, rpm_ratio), 0.6, 3.0)
+		custom_rev_player.pitch_scale = lerp(custom_rev_player.pitch_scale, target_pitch, delta * 10.0)
+		
+		var target_db :float= lerp(-10.0, 2.0, max(throttle_input, rpm_ratio * 0.5))
+		custom_rev_player.volume_db = lerp(custom_rev_player.volume_db, target_db, delta * 10.0)
+	if has_turbo and TurboPlayer != null:
+		if accel > 0.7 and rpm > max_rpm * 0.6:
+			if not TurboPlayer.playing:
+				TurboPlayer.play()
+		else:
+			TurboPlayer.stop()
 	var torque_factor := rpm / max_rpm
 	
 
@@ -560,6 +637,8 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	if brake > 0.1:
 		var brake_force := brake_strength * (mass / 1200.0) * 1.4
 		velocity = velocity.move_toward(Vector3.ZERO, brake_force * delta)
+		if not BrakePlayer.playing:
+			BrakePlayer.play()
 
 	velocity -= velocity * DRAG * delta
 

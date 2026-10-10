@@ -42,6 +42,7 @@ func _ready():
 	shift_down_rpm = 1500
 
 	is_diesel = true
+	has_turbo = true
 
 	apply_stats()
 

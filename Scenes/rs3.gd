@@ -33,6 +33,7 @@ func _ready():
 		0.92,  # 5th
 		0.76   # 6th
 	]
+	has_turbo = true
 
 	apply_stats()
 	print("Child READY loaded:", def_car_name)

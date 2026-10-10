@@ -31,6 +31,7 @@ func _ready():
 		1.00,  # 4th
 		0.83   # 5th
 	]
+	has_turbo = true
 
 	shift_up_rpm = 5600
 	shift_down_rpm = 2000
