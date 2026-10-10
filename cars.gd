@@ -43,7 +43,7 @@ var class_lists: Dictionary = {
 	],
 
 	"urban": [
-			"Kronstadt Blazer",
+			"Mir Cars Blazer",
 		"Berkshire Blunt",
 		"Kuro Serenity",
 		"Kestrel Speedster",
@@ -232,7 +232,7 @@ var class_lists: Dictionary = {
 		"Schroder Classique Sport",
 				"Schroder Suppressor",
 		"Eisenach Bengal",
-		"Kronstadt Blazer",
+		"Mir Cars Blazer",
 
 
 
@@ -272,7 +272,7 @@ var car_scene_paths := {
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
 	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
-		"Kronstadt Blazer":"res://Scenes/c43.tscn",	
+		"Mir Cars Blazer":"res://Scenes/c43.tscn",	
 	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
 
 	"Brutus Viper":"res://Scenes/gt500.tscn",
@@ -323,11 +323,11 @@ var car_scene_paths := {
 	"Bartoli Cruiser Interceptor": "res://Scenes/granturismo_police.tscn"
 }
 var radar_target_speeds := {
-	"suv": 170,
+	"suv": 160,
 	"compact": 185,
 	"track_cars": 300,
 	"muscle": 200,
-	"urban": 190,
+	"urban": 200,
 	"sedans": 195,
 	"sport": 210,
 	"sport_racing": 250,
@@ -563,7 +563,7 @@ Color8(255, 160, 200) # Pink
 	Color8(190, 20, 30),   # Imola Red
 	Color8(0, 140, 90)     # Deep Emerald Green
 ],
-"Kronstadt Blazer": [
+"Mir Cars Blazer": [
 	Color8(15, 15, 15),    # Obsidian Black (default)
 	Color8(192, 192, 192), # Brilliant Silver
 	Color8(255, 255, 255), # Polar White

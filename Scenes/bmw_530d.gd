@@ -14,7 +14,7 @@ func _ready():
 	horsepower = 240
 	max_rpm = 5000.0
 
-	zero_to_hundred = 5.9
+	zero_to_hundred = 5.6
 	top_speed_kmh = 250
 
 	turn_speed = 2.70

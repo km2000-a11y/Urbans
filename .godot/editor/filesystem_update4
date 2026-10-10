@@ -1,5 +1,4 @@
 res://main.tscn
-res://Scripts/base_car.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -57,12 +56,14 @@ res://Scenes/lexus_sc.tscn
 res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Tracks/las_vegas.tscn
-res://Scenes/bmw_z8.tscn
 res://Scenes/c43.tscn
-res://Scenes/peugeot_406.tscn
-res://Scenes/gs300.tscn
 res://Scenes/lincoln_ls.tscn
 res://Scenes/career.tscn
 res://cars.gd
 res://Scripts/car_select.gd
 res://club_cups.gd
+res://Scripts/audi_tt_roadster_32_2004.gd
+res://Scenes/bmw_530d.gd
+res://Scenes/c43.gd
+res://Scripts/jaguar_xkr_2003.gd
+res://Scripts/morgan_aero_8.gd

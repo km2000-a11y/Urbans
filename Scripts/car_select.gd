@@ -47,7 +47,7 @@ var car_sell_prices := {
 	"Berkshire Tempest":150000,
 	"Berkshire V12-S": 132000,
 	"Straeda Volant":24000,
-	"Kronstadt Blazer": 85000,
+	"Mir Cars Blazer": 85000,
 	"Kestrel Touring": 156000,
 
 	"Kronstadt Beast": 168000,
@@ -93,7 +93,7 @@ var car_prices := {
 	"Kestrel Seabird": 120000,
 	"Eisenach Roadstar": 165000,
 	"Berkshire Blunt": 122000,
-	"Kronstadt Blazer": 130000,
+	"Mir Cars Blazer": 130000,
 
 	"Schroder Classique Sport": 135000,
 	"Brutus Stingray": 150000,
@@ -423,7 +423,7 @@ Color8(255, 160, 200) # Pink
 	Color8(0,90,180),
 	Color8(200,40,40)
 ],
-"Kronstadt Blazer": [
+"Mir Cars Blazer": [
 	Color8(15, 15, 15),    # Obsidian Black (default)
 	Color8(192, 192, 192), # Brilliant Silver
 	Color8(255, 255, 255), # Polar White
@@ -541,7 +541,7 @@ var urban_list = [
 "Kestrel Seabird",
 "Kestrel Speedster",
 "Berkshire Blunt",
-"Kronstadt Blazer"
+"Mir Cars Blazer"
 ]
 var sedans_list = [
 	"Strandberg Turbo",
@@ -616,7 +616,7 @@ var compact = {
 	],
 	"Schroder Atrix Q32":[
 		"", "Country: Germany", "HP: 247", "WEIGHT: 1470 KG",
-		"0-100 KM/H: 6.6s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 6.6s", "TOP SPEED: 247 KM/H",
 		"ENGINE: V6 3.2L", "ASPIRATION: NA", "TORQUE: 320 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
@@ -669,19 +669,19 @@ var urban_racers = {
 	],
 	"Kestrel Speedster":[
 		"", "Country: UK", "HP: 285", "WEIGHT: 1135 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 247 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Berkshire Blunt":[
 	"", "Country: UK", "HP: 370", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.6s", "TOP SPEED: 265 KM/H",
+	"0-100 KM/H: 5.2s", "TOP SPEED: 250 KM/H",
 	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-"Kronstadt Blazer":[
-	"", "Country: Germany", "HP: 349", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.0s", "TOP SPEED: 256 KM/H",
+"Mir Cars Blazer":[
+	"", "Country: UAE", "HP: 349", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 5.6s", "TOP SPEED: 257 KM/H",
 	"ENGINE: V6 3.2L", "ASPIRATION: Supercharged", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
@@ -689,7 +689,7 @@ var urban_racers = {
 var sedans = {
 	"Schroder Suppressor":[
 		"", "Country: Germany", "HP: 240", "WEIGHT: 1665 KG",
-		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 5.6s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V6 3.0L", "ASPIRATION: Turbo", "TORQUE: 500 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
@@ -931,7 +931,7 @@ var car_scene_paths = {
 	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
 	"Schroder Suppressor":"res://Scenes/audi_a4.tscn",
 	"Schroder Fastback":"res://Scenes/audi_a5_tdi.tscn",
-	"Kronstadt Blazer":"res://Scenes/c43.tscn",
+	"Mir Cars Blazer":"res://Scenes/c43.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn"
 
 }

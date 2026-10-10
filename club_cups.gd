@@ -55,7 +55,7 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Kestrel Seabird",
 			"Kestrel Speedster",
-			"Kronstadt Blazer",
+			"Mir Cars Blazer",
 			"Berkshire Blunt",
 				
 		"Kuro Serenity"
@@ -141,7 +141,7 @@ var class_lists: Dictionary = {
 	"Kuro Serenity",
 	"Brutus Viper",
 	"Kuro Vault",
-	"Kronstadt Blazer",
+	"Mir Cars Blazer",
 	"Strandberg Turbo",
 	"Schroder Colosso",
 	"Mir Cars Transporter",
@@ -221,7 +221,6 @@ var class_lists: Dictionary = {
 	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Kronstadt Blazer",
 		"Brutus Prince",
 				"Berkshire Tempest",
 	],
@@ -236,7 +235,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Classique Sport",
-		"Kronstadt Blazer",
+		"Mir Cars Blazer",
 
 				"Schroder Suppressor",
 		"Eisenach Bengal",
@@ -246,7 +245,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kuro Serenity",
 		"Berkshire Blunt",
-		"Kronstadt Blazer",
+		"Mir Cars Blazer",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 	],
@@ -271,7 +270,7 @@ var cup_rewards: Dictionary = {
 	"japanese_cup": "Strandberg Turbo",
 	"all_wheel_grip": "Kestrel Speedster",
 	"eisenach_cup": "Berkshire Blunt",
-	"drop_top_challenge":"Kronstadt Blazer",
+	"drop_top_challenge":"Mir Cars Blazer",
 	"under_400_hp": "Schroder Classique Sport",
 	"schroder_cup": "Brutus Stingray",
 	"stingray_competition": "Berkshire V12-S",
@@ -404,7 +403,7 @@ var cups: Dictionary = {
 		"Kestrel Seabird",
 			"Kestrel Speedster",
 			"Berkshire Blunt",
-				"Kronstadt Blazer",
+				"Mir Cars Blazer",
 		"Kuro Serenity"
 	]
 },
@@ -560,7 +559,7 @@ var cups: Dictionary = {
 	"Straeda Volant",
 	"Schroder Suppressor",
 	"Brutus Prince",
-	"Kronstadt Blazer",
+	"Mir Cars Blazer",
 	"Kestrel Seabird",
 	"Colossus Behemoth",
 	"Eisenach Bengal",
@@ -589,7 +588,6 @@ var cups: Dictionary = {
 		"Berkshire Tempest",
 		"Berkshire V12-S",
 		"Kestrel Speedster",
-		"Kronstadt Blazer",
 	]
 },
 "japanese_cup":{
@@ -609,7 +607,7 @@ var cups: Dictionary = {
 		"Schroder Classique Sport",
 	
 				"Schroder Suppressor",
-		"Kronstadt Blazer",
+		"Mir Cars Blazer",
 		"Eisenach Bengal",
 
 	]
