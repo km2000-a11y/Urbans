@@ -536,6 +536,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			wall_scrape = true
 
 	# --- RPM & GEARS ---
+	#Good
 	if speed_kmh < 2.0:
 		if accel > 0.1:
 			rpm = lerp(rpm, idle_rpm + 2500.0, delta * 2.5)
