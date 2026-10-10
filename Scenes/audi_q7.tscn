@@ -1,7 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://bpgo5tshq0k51"]
+[gd_scene load_steps=40 format=3 uid="uid://bpgo5tshq0k51"]
 
 [ext_resource type="Script" uid="uid://bvduopof30vx4" path="res://Scripts/audi_q_7.gd" id="1_jow4p"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_rle36"]
+[ext_resource type="AudioStream" uid="uid://d2xqdma33ld30" path="res://SFX/diesel.mp3" id="3_jow4p"]
 [ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="4_hi5oi"]
 [ext_resource type="AudioStream" uid="uid://cpontoff1o0wi" path="res://SFX/crash.mp3" id="5_t6xsc"]
 [ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="6_dffnq"]
@@ -303,6 +304,7 @@ process_material = SubResource("ParticleProcessMaterial_sibdw")
 draw_pass_1 = SubResource("QuadMesh_twcfh")
 
 [node name="RevPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_jow4p")
 
 [node name="BrakePlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_hi5oi")

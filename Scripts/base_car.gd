@@ -24,15 +24,35 @@ var finished_time: int = -1
 var reversing: bool = false
 var reverse_speed_limit := 40.0 / 3.6  # 40 km/h in m/s
 var has_turbo := false
-
+# --- ENGINE AUDIO PROFILE VARIABLES ---
+@export_category("Engine Audio Profile")
+@export var audio_base_pitch: float = 1.0       # Starting pitch scale for the engine
+@export var audio_pitch_range: float = 1.8      # How much the pitch climbs across RPM range
+@export var audio_volume_offset: float = 0.0    # Fine-tunes individual car loudness (in dB)
+@export var audio_character_type: int = 0       # 0 = Normal/Standard, 1 = Deep V8/Diesel Growl, 2 = High-Rev VTEC/Exotic
 
 @export var sync_velocity: Vector3
 @export var sync_transform: Transform3D
+# --- AUDIO NODES ---
 @onready var RevPlayer = $RevPlayer
 @onready var BrakePlayer = $BrakePlayer
 @onready var CrashPlayer = $CrashPlayer
 @onready var SkidPlayer = $SkidPlayer
 var TurboPlayer: AudioStreamPlayer
+var custom_rev_player: AudioStreamPlayer = null
+
+# --- SFX PRELOADS ---
+const PETROL_AUDIO = preload("res://SFX/petrol.mp3")
+const DIESEL_AUDIO = preload("res://SFX/diesel.mp3")
+const TURBO_AUDIO = preload("res://SFX/turbo.mp3")
+const CRASH_AUDIO = preload("res://SFX/crash.mp3")
+
+# Assign preloads to streams automatically
+var petrol_stream: AudioStream = PETROL_AUDIO
+var diesel_stream: AudioStream = DIESEL_AUDIO
+var turbo_stream: AudioStream = TURBO_AUDIO
+var crash_stream: AudioStream = CRASH_AUDIO
+
 
 # --- AI INPUT ---
 var ai_throttle: float = 0.0
@@ -48,10 +68,6 @@ static var ai_names := [
 var throttle_input: float = 0.0
 var brake_input: float = 0.0
 var steer_input: float = 0.0
-const PETROL_AUDIO = preload("res://SFX/petrol.mp3")
-const DIESEL_AUDIO = preload("res://SFX/diesel.mp3")
-const TURBO_AUDIO = preload("res://SFX/turbo.mp3")
-const CRASH_AUDIO = preload("res://SFX/crash.mp3")
 # --- CAR STATS ---
 var mass := 1200.0
 var zero_to_hundred := 7.0
@@ -62,6 +78,7 @@ var brake_strength := 20.0
 var lateral_friction := 1.2
 var driver_name: String = "Unknown"
 var car_name: String = ""
+var has_supercharger :=false
 
 
 
@@ -87,10 +104,6 @@ var current_gear := 1
 var shift_up_rpm := 6200
 var shift_down_rpm := 2000
 var total_race_time: int = 0
-var petrol_stream: AudioStream
-var diesel_stream: AudioStream
-var turbo_stream: AudioStream
-var crash_stream: AudioStream
 
 
 var acceleration_calc := 0.0
@@ -197,41 +210,250 @@ var procedural_generator: AudioStreamGenerator = null
 var phase: float = 0.0
 # Change this at the top if your old RevPlayer was a node variable, 
 # we will now override it safely as a standard AudioStreamPlayer object:
-var custom_rev_player: AudioStreamPlayer = null
 
 func _ready() -> void:
-	# 1. Create a brand new standard AudioStreamPlayer completely in code (100% immune to 3D bugs/missing listeners)
-	custom_rev_player = AudioStreamPlayer.new()
-	custom_rev_player.name = "CodeRevPlayer"
-	custom_rev_player.bus = "Master"
-	add_child(custom_rev_player)
+	match Cars.selected_car:
+		
+		# =============================================
+		# 4x4 SUV (Deep, heavy, sluggish low-end torque)
+		# =============================================
+		# =============================================
+		# 4x4 SUV (Fixed to prevent popping/stretching artifacts)
+		# =============================================
+		"Colossus Titan Max": # 2000 Hummer H1
+			audio_base_pitch = 0.85  # Safe floor - completely eliminates crackling
+			audio_pitch_range = 0.8
+			audio_character_type = 1
+			audio_volume_offset = 2.0 # Louder to compensate for higher pitch
+		"Colossus Behemoth": # 2004 Hummer H2
+			audio_base_pitch = 0.85  # Safe floor
+			audio_pitch_range = 0.9
+			audio_character_type = 1
+			audio_volume_offset = 1.8
+		"Schroder Colosso": # 2007 Audi Q7 3.0 TDI
+			audio_base_pitch = 0.85
+			audio_pitch_range = 1.15
+			audio_character_type = 1
+			audio_volume_offset = 1.0
+		"Mir Cars Nightwolf": # 1998 Lexus LX470
+			audio_base_pitch = 0.9
+			audio_pitch_range = 1.2
+			audio_character_type = 1
+			audio_volume_offset = 1.0
 
-	# 2. Select and duplicate the correct preloaded stream
-	var source_stream = diesel_stream if is_diesel else petrol_stream
-	if source_stream:
-		var playable_stream = source_stream.duplicate()
-		if playable_stream is AudioStreamMP3:
-			playable_stream.loop = true
-		custom_rev_player.stream = playable_stream
+		# =============================================
+		# Compact Cars (Buzzy, agile, mid-to-high revs)
+		# =============================================
+		"Kuro Zephyr": # 2011 Lexus IS250
+			audio_base_pitch = 0.95
+			audio_pitch_range = 1.6
+			audio_character_type = 0
+			audio_volume_offset = -0.5
+		"Straeda Volant": # 2003 VW New Beetle Turbo S
+			audio_base_pitch = 1.0
+			audio_pitch_range = 1.7
+			audio_character_type = 0
+			audio_volume_offset = 0.0
+		"Schroder Atrix Q32": # 2004 Audi TT Roadster 3.2 Quattro
+			audio_base_pitch = 1.05
+			audio_pitch_range = 1.8
+			audio_character_type = 2
+			audio_volume_offset = 0.0
+		"Eisenach Bengal": # 2008 BMW 130i
+			audio_base_pitch = 1.1
+			audio_pitch_range = 1.85
+			audio_character_type = 2
+			audio_volume_offset = 0.0
+		"Zenith Horizon": # 2002 Nissan 350Z
+			audio_base_pitch = 1.15
+			audio_pitch_range = 1.95
+			audio_character_type = 2
+			audio_volume_offset = 0.2
 
-	# 3. Force play immediately
-	custom_rev_player.volume_db = 0.0
-	custom_rev_player.pitch_scale = 1.0
-	if custom_rev_player.stream:
-		custom_rev_player.play()
-		print("SUCCESS: CodeRevPlayer is playing!")
-	else:
-		printerr("CRITICAL: Stream is null!")
+		# =============================================
+		# Muscle Cars (Raw, heavy-hitting V8 roar)
+		# =============================================
+		"Brutus Viper": # 1967 Shelby GT500
+			audio_base_pitch = 0.72
+			audio_pitch_range = 1.35
+			audio_character_type = 1
+			audio_volume_offset = 1.4
+		"Mir Cars Hutch": # 1972 Chevrolet Chevelle SS
+			audio_base_pitch = 0.75
+			audio_pitch_range = 1.4
+			audio_character_type = 1
+			audio_volume_offset = 1.2
 
-	# Turbo Setup
+		# =============================================
+		# Executive Cars (Smooth, muffled, refined hum)
+		# =============================================
+		"Strandberg Turbo": # 2005 Volvo S60R
+			audio_base_pitch = 0.9
+			audio_pitch_range = 1.5
+			audio_character_type = 0
+			audio_volume_offset = -0.3
+		"Kuro Vault": # 2002 Lexus LS430
+			audio_base_pitch = 0.8
+			audio_pitch_range = 1.3
+			audio_character_type = 0
+			audio_volume_offset = -0.8
+		"Brutus Prince": # 2004 Lincoln LS
+			audio_base_pitch = 0.85
+			audio_pitch_range = 1.4
+			audio_character_type = 1
+			audio_volume_offset = -0.5
+		"Schroder Suppressor": # 2008 Audi A4 3.0 TDI quattro
+			audio_base_pitch = 0.78
+			audio_pitch_range = 1.3
+			audio_character_type = 1
+			audio_volume_offset = -0.5
+
+		# =============================================
+		# Urban Performance Cars (Balanced agility)
+		# =============================================
+		"Kuro Serenity": # 1997 Lexus SC400
+			audio_base_pitch = 0.95
+			audio_pitch_range = 1.65
+			audio_character_type = 0
+			audio_volume_offset = 0.0
+		"Berkshire Blunt": # 1999 Jaguar XKR
+			audio_base_pitch = 0.88
+			audio_pitch_range = 1.55
+			audio_character_type = 1
+			audio_volume_offset = 0.5
+		"Kestrel Seabird": # 2005 Lotus Exige
+			audio_base_pitch = 1.2
+			audio_pitch_range = 2.0
+			audio_character_type = 2
+			audio_volume_offset = 0.0
+		"Kestrel Speedster": # 2004 Morgan Aero 8
+			audio_base_pitch = 0.85
+			audio_pitch_range = 1.5
+			audio_character_type = 1
+			audio_volume_offset = 0.8
+		"Kronstadt Blazer": # 2002 Mercedes C32 AMG
+			audio_base_pitch = 0.92
+			audio_pitch_range = 1.6
+			audio_character_type = 1
+			audio_volume_offset = 0.3
+
+		# =============================================
+		# Sport Coupe (Aggressive mid-tier performance)
+		# =============================================
+		"Schroder Classique Sport": # 2008 Audi TTS
+			audio_base_pitch = 1.15
+			audio_pitch_range = 1.9
+			audio_character_type = 2
+			audio_volume_offset = 0.2
+		"Brutus Stingray": # 2005 Chevrolet Corvette C6
+			audio_base_pitch = 0.78
+			audio_pitch_range = 1.45
+			audio_character_type = 1
+			audio_volume_offset = 1.0
+		"Berkshire V12-S": # 2004 Aston Martin DB9
+			audio_base_pitch = 0.85
+			audio_pitch_range = 1.8
+			audio_character_type = 1
+			audio_volume_offset = 0.8
+		"Kestrel Touring": # 2001 TVR Cerbera Speed Eight
+			audio_base_pitch = 1.18
+			audio_pitch_range = 2.1
+			audio_character_type = 2
+			audio_volume_offset = 0.5
+
+		# =============================================
+		# Sport Racing (High-strung track machines)
+		# =============================================
+		"Kestrel Battleaxe": # 2005 TVR Sagaris
+			audio_base_pitch = 1.22
+			audio_pitch_range = 2.15
+			audio_character_type = 2
+			audio_volume_offset = 0.6
+		"Berkshire Tempest": # 2006 Aston Martin Vanquish S
+			audio_base_pitch = 0.82
+			audio_pitch_range = 1.75
+			audio_character_type = 1
+			audio_volume_offset = 0.8
+		"Brutus Venom": # 1998 Dodge Viper RT10
+			audio_base_pitch = 0.7
+			audio_pitch_range = 1.4
+			audio_character_type = 1
+			audio_volume_offset = 1.5
+		"Linetti Shepherd": # 2004 Lamborghini Gallardo
+			audio_base_pitch = 1.25
+			audio_pitch_range = 2.2
+			audio_character_type = 2
+			audio_volume_offset = 0.5
+
+		# =============================================
+		# Supercars (Exotic, screaming top-end notes)
+		# =============================================
+		"Kestrel Guillotine": # 2004 TVR T440R
+			audio_base_pitch = 1.2
+			audio_pitch_range = 2.1
+			audio_character_type = 2
+			audio_volume_offset = 0.5
+		"Linetti Firestorm": # 1997 Lamborghini Diablo Roadster
+			audio_base_pitch = 1.28
+			audio_pitch_range = 2.25
+			audio_character_type = 2
+			audio_volume_offset = 0.8
+		"Mir Cars Raptor": # 2002 Saleen S7
+			audio_base_pitch = 0.75
+			audio_pitch_range = 1.6
+			audio_character_type = 1
+			audio_volume_offset = 1.2
+		"Linetti Terror": # 2005 Lamborghini Murciélago
+			audio_base_pitch = 1.3
+			audio_pitch_range = 2.3
+			audio_character_type = 2
+			audio_volume_offset = 1.0
+
+		# =============================================
+		# Track Cars (Pure unadulterated high-performance)
+		# =============================================
+		"Bartoli Track Cruiser": # 2005 Maserati MC12
+			audio_base_pitch = 1.26
+			audio_pitch_range = 2.3
+			audio_character_type = 2
+			audio_volume_offset = 1.0
+		"Brutus Thunderbolt": # 2004 Ford Shelby Cobra Concept
+			audio_base_pitch = 0.68
+			audio_pitch_range = 1.35
+			audio_character_type = 1
+			audio_volume_offset = 1.6
+		"Mir Cars Athletic C70": # 2002 Pagani Zonda
+			audio_base_pitch = 1.32
+			audio_pitch_range = 2.45
+			audio_character_type = 2
+			audio_volume_offset = 1.2
+
+		# =============================================
+		# Fallback / Default
+		# =============================================
+		_:
+			audio_base_pitch = 1.0
+			audio_pitch_range = 1.8
+			audio_character_type = 0
+			audio_volume_offset = 0.0
+	custom_rev_player.volume_db = -10.0  # Changed from 0.0 to -5.0
+	# --- REV PLAYER SETUP ---
+	if RevPlayer:
+		RevPlayer.stream = diesel_stream if is_diesel else petrol_stream
+		RevPlayer.volume_db = 0.0
+		RevPlayer.pitch_scale = 1.0
+		RevPlayer.play()
+
+	# --- TURBO PLAYER SETUP ---
 	if turbo_stream:
 		TurboPlayer = AudioStreamPlayer.new()
 		TurboPlayer.name = "TurboPlayer"
-		TurboPlayer.stream = turbo_stream.duplicate()
+		TurboPlayer.stream = turbo_stream
 		TurboPlayer.bus = "Master"
 		add_child(TurboPlayer)
 
-	if crash_stream: 
+	# --- CRASH SETUP ---
+	if crash_stream and CrashPlayer: 
 		CrashPlayer.stream = crash_stream
 
 	apply_stats()
@@ -248,6 +470,7 @@ func _ready() -> void:
 		used_ai_names.remove_at(idx)
 	else:
 		driver_name = "Player"
+			
 # --- BULLETPROOF RESTART HANDLER ---
 func _on_rev_finished() -> void:
 	if RevPlayer and RevPlayer.stream:
@@ -552,21 +775,77 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 	# --- CODE REV PLAYER UPDATE ---
 	# --- CODE REV PLAYER UPDATE ---
-	if custom_rev_player != null:
-		if not custom_rev_player.playing and custom_rev_player.stream:
-			custom_rev_player.play()
+	# --- REV PLAYER UPDATE ---
+	# --- REV PLAYER & TURBO BLEND UPDATE ---
+	# --- DYNAMIC VOLUME SCALING (RPM, Gearing, Nitro) ---
+	# --- REVPLAYER AUDIO UPDATE (RPM, Gearing, Nitro, Turbo, Supercharger) ---
+	# --- REVPLAYER AUDIO UPDATE (Music-Friendly Balance) ---
+	# --- REVPLAYER AUDIO UPDATE (Realistic Cruise & Hum) ---
+	# --- REVPLAYER AUDIO UPDATE (With Idle Rumble) ---
+	# --- REVPLAYER AUDIO UPDATE (Crackling Fixed & True Highway Cruise) ---
+	# --- REVPLAYER AUDIO UPDATE (For Idle-to-Rev Audio Files) ---
+	# --- REVPLAYER AUDIO UPDATE (Handling Full Throttle at Top Speed) ---
+	if RevPlayer:
+		if not RevPlayer.playing:
+			RevPlayer.play()
 			
-		var target_pitch :float= clamp(lerp(0.6, 2.4, rpm_ratio), 0.6, 3.0)
-		custom_rev_player.pitch_scale = lerp(custom_rev_player.pitch_scale, target_pitch, delta * 10.0)
+		var is_idling := accel == 0.0 and rpm_ratio < 0.15
 		
-		var target_db :float= lerp(-10.0, 2.0, max(throttle_input, rpm_ratio * 0.5))
-		custom_rev_player.volume_db = lerp(custom_rev_player.volume_db, target_db, delta * 10.0)
-	if has_turbo and TurboPlayer != null:
-		if accel > 0.7 and rpm > max_rpm * 0.6:
-			if not TurboPlayer.playing:
-				TurboPlayer.play()
-		else:
-			TurboPlayer.stop()
+		# 1. IDENTIFY DRIVING STATES
+		# Cruising: High speed, but letting off the gas (light throttle hum)
+		var is_cruising_high_speed := rpm_ratio > 0.7 and accel < 0.3
+		
+		# Pinned / Redline: High speed AND still flooring the gas pedal
+		var is_pinned_at_top_speed := rpm_ratio > 0.9 and accel > 0.8
+		
+		var load_factor :float= lerp(0.3, 1.0, accel)
+		
+		# 2. STABLE PITCH MAPPING
+		var target_pitch := audio_base_pitch + (rpm_ratio * 0.8)
+		
+		if audio_character_type == 1:
+			target_pitch *= 0.9
+			
+		# State-based pitch overrides
+		if is_pinned_at_top_speed:
+			# Pinned at top speed: Lock it to maximum pitch so it roars/screams against the limit
+			target_pitch = audio_base_pitch + 0.8
+		elif is_cruising_high_speed:
+			# Cruising at top speed with low throttle: Relaxed, steady highway hum
+			target_pitch = audio_base_pitch + 0.55 
+			
+		target_pitch = clamp(target_pitch, 0.75, 2.2)
+		
+		# 3. VOLUME MAPPING
+		var base_db :float= lerp(-22.0, -8.0, rpm_ratio * load_factor) + audio_volume_offset
+		
+		# State-based volume overrides
+		if is_pinned_at_top_speed:
+			# Pinned at top speed: Max out the volume because the engine is working at full tilt
+			base_db = -6.0 + audio_volume_offset
+		elif is_cruising_high_speed:
+			# Cruising: Drop the volume cleanly for a background hum
+			base_db -= 5.0
+			
+		if is_idling:
+			base_db = -18.0 + audio_volume_offset + (sin(Time.get_ticks_msec() * 0.001 * 10.0) * 1.0)
+			target_pitch = audio_base_pitch
+			
+		var gear_load_modifier := float(gear_count - current_gear) * 0.2 * accel
+		var nitro_boost := 2.5 if nitrous else 0.0
+		
+		var induction_db := 0.0
+		if has_turbo and accel > 0.5 and rpm > max_rpm * 0.5:
+			induction_db += 1.5  
+		elif has_supercharger and rpm > idle_rpm:
+			induction_db += (rpm_ratio * 1.2 * load_factor)  
+			
+		var target_db :float= base_db + gear_load_modifier + nitro_boost + induction_db
+		target_db = clamp(target_db, -28.0, -3.0)
+		
+		# Apply smoothly
+		RevPlayer.pitch_scale = lerp(RevPlayer.pitch_scale, target_pitch, delta * 6.0)
+		RevPlayer.volume_db = lerp(RevPlayer.volume_db, target_db, delta * 6.0)
 	var torque_factor := rpm / max_rpm
 	
 

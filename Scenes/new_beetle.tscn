@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://biqgwfdnkllcs"]
+[gd_scene load_steps=39 format=3 uid="uid://biqgwfdnkllcs"]
 
 [ext_resource type="Script" uid="uid://cb582snb2vx44" path="res://Scripts/new_beetle_rsi_2001.gd" id="1_q1kep"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_21584"]
 [ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="3_21584"]
+[ext_resource type="AudioStream" uid="uid://b74orx6rrqevj" path="res://SFX/petrol.mp3" id="3_xwjyd"]
 [ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="4_2unij"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08euy"]
@@ -320,6 +321,7 @@ process_material = SubResource("ParticleProcessMaterial_sibdw")
 draw_pass_1 = SubResource("QuadMesh_twcfh")
 
 [node name="RevPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_xwjyd")
 max_polyphony = 4
 
 [node name="BrakePlayer" type="AudioStreamPlayer3D" parent="."]

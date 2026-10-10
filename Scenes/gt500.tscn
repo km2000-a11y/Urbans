@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://c1c8cpynqamkv"]
+[gd_scene load_steps=37 format=3 uid="uid://c1c8cpynqamkv"]
 
 [ext_resource type="Script" uid="uid://cjknvqs0siy0c" path="res://Scripts/shelby_gt500_1968.gd" id="1_madci"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_1hchx"]
+[ext_resource type="AudioStream" uid="uid://b74orx6rrqevj" path="res://SFX/petrol.mp3" id="3_madci"]
 [ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="3_q2nk6"]
 [ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="4_vclxy"]
 
@@ -331,6 +332,7 @@ process_material = SubResource("ParticleProcessMaterial_sibdw")
 draw_pass_1 = SubResource("QuadMesh_twcfh")
 
 [node name="RevPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_madci")
 max_polyphony = 4
 
 [node name="BrakePlayer" type="AudioStreamPlayer3D" parent="."]

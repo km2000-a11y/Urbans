@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://dyc4getn8fxo8"]
+[gd_scene load_steps=35 format=3 uid="uid://dyc4getn8fxo8"]
 
 [ext_resource type="Script" uid="uid://xk5rmy267nqi" path="res://Scenes/lexus_sc.gd" id="1_7ny7l"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_g5vhw"]
+[ext_resource type="AudioStream" uid="uid://b74orx6rrqevj" path="res://SFX/petrol.mp3" id="3_7ny7l"]
 [ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="4_o7eu7"]
 [ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="5_1llxr"]
 
@@ -275,6 +276,7 @@ process_material = SubResource("ParticleProcessMaterial_sibdw")
 draw_pass_1 = SubResource("QuadMesh_twcfh")
 
 [node name="RevPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_7ny7l")
 max_polyphony = 4
 
 [node name="BrakePlayer" type="AudioStreamPlayer3D" parent="."]

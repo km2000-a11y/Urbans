@@ -1,5 +1,5 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1791618138
+::res://::1791628750
 bmw_m_5_e_39.gd::GDScript/GDScript::5282119813987018108::1791468555::0::1::::<>CarController<><>0<>0<><>::
 cars.gd::GDScript/GDScript::4638379143861819802::1791605051::0::1::::<>Node<><>0<>0<><>::
 championship_state.gd::GDScript/GDScript::4460228152252344566::1791468557::0::1::::<>Node<><>0<>0<><>::
@@ -143,7 +143,7 @@ chevrolet_corvette_c5.tscn::PackedScene/PackedScene::4874735922167300702::179161
 cop_chase_hud.gd::GDScript/GDScript::4373036419273499752::1791468558::0::1::::<>CanvasLayer<><>0<>0<><>::
 cop_chase_hud.tscn::PackedScene/PackedScene::5520008973316176631::1791614187::0::1::::<><><>0<>0<><>::uid://b3kljhgd5qodk::::res://Scenes/cop_chase_hud.gd<>uid://2ifcw57gbncp::::res://Scenes/crosshair_draw.gd
 crosshair_draw.gd::GDScript/GDScript::1911922160130836335::1791468559::0::1::::<>Node2D<><>0<>0<><>::
-diablo_road.tscn::PackedScene::620976180229287114::1791614605::0::1::::<><><>0<>0<><>::uid://psdajcpubghk::::res://Scripts/diablo_roadster_1997.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
+diablo_road.tscn::PackedScene/PackedScene::620976180229287114::1791614605::0::1::::<><><>0<>0<><>::uid://psdajcpubghk::::res://Scripts/diablo_roadster_1997.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 dodge_viper.tscn::PackedScene/PackedScene::2596778686009226465::1791614179::0::1::::<><><>0<>0<><>::uid://daheu4so14bai::::res://Scenes/dodge_viper_rt10_1997.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 dodge_viper_rt10_1997.gd::GDScript/GDScript::7173992830862500692::1791468560::0::1::::<>CarController<><>0<>0<><>::
 elimination_hud.gd::GDScript/GDScript::6225413565470833169::1791468560::0::1::::<>CanvasLayer<><>0<>0<><>::
@@ -227,7 +227,7 @@ audi_q_7.gd::GDScript/GDScript::3867819684067074471::1787390472::0::1::::<>CarCo
 audi_tt_roadster_32_2004.gd::GDScript/GDScript::4158760324198881456::1791605478::0::1::::<>CarController<><>0<>0<><>::
 AutoRotate.gd::GDScript/GDScript::546707858965989979::1787390472::0::1::::<>Node3D<><>0<>0<><>::
 barrier_1.gd::GDScript/GDScript::386676009891401718::1791468553::0::1::::<>CharacterBody3D<><>0<>0<><>::
-base_car.gd::GDScript::2507978259736890772::1791614605::0::1::::CarController<>CharacterBody3D<><>0<>0<><>::
+base_car.gd::GDScript/GDScript::2507978259736890772::1791614605::0::1::::CarController<>CharacterBody3D<><>0<>0<><>::
 bmw_125.gd::GDScript/GDScript::701031288240037542::1791468554::0::1::::<>CarController<><>0<>0<><>::
 bmw_135i.gd::GDScript/GDScript::179483170219479152::1791468554::0::1::::<>CarController<><>0<>0<><>::
 bmw_330d.gd::GDScript/GDScript::4339602991501195329::1791468554::0::1::::<>CarController<><>0<>0<><>::

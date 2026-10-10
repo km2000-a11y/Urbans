@@ -31,7 +31,7 @@ func _ready():
 		1.00,  # 4th - direct drive
 		0.83   # 5th - high-speed cruising
 	]
-	has_turbo = true
+	has_supercharger = true
 
 	shift_up_rpm = 6200
 	shift_down_rpm = 2400

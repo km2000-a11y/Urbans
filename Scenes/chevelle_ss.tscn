@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://bnsxtjfepabvf"]
+[gd_scene load_steps=37 format=3 uid="uid://bnsxtjfepabvf"]
 
 [ext_resource type="Script" uid="uid://bgysrb1eh8kea" path="res://Scripts/chevelle_ss_454_1970.gd" id="1_webrg"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_2iasq"]
 [ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="3_2iasq"]
+[ext_resource type="AudioStream" uid="uid://b74orx6rrqevj" path="res://SFX/petrol.mp3" id="3_webrg"]
 [ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="4_wh84s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08euy"]
@@ -339,6 +340,7 @@ process_material = SubResource("ParticleProcessMaterial_sibdw")
 draw_pass_1 = SubResource("QuadMesh_twcfh")
 
 [node name="RevPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_webrg")
 max_polyphony = 4
 
 [node name="BrakePlayer" type="AudioStreamPlayer3D" parent="."]
