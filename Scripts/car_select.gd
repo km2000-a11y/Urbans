@@ -546,8 +546,8 @@ var urban_list = [
 var sedans_list = [
 	"Strandberg Turbo",
 	"Schroder Suppressor",
-	"Kuro Vault",
 		"Brutus Prince",
+		"Kuro Vault",
 ]
 
 
@@ -701,13 +701,13 @@ var sedans = {
 	],
 	"Kuro Vault":[
 		"", "Country: Japan", "HP: 290", "WEIGHT: 1760 KG",
-		"0-100 KM/H: 6.1s", "TOP SPEED: 254 KM/H",
+		"0-100 KM/H: 6.1s", "TOP SPEED: 256 KM/H",
 		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 "Brutus Prince":[
-	"", "Country: USA", "HP: 300", "WEIGHT: 1780 KG",
-	"0-100 KM/H: 5.7s", "TOP SPEED: 253 KM/H",
+	"", "Country: USA", "HP: 280", "WEIGHT: 1780 KG",
+	"0-100 KM/H: 6.1s", "TOP SPEED: 253 KM/H",
 	"ENGINE: V8 3.9L", "ASPIRATION: NA", "TORQUE: 387 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],

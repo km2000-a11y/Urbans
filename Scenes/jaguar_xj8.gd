@@ -10,11 +10,11 @@ var zero_to_hundred_display := 5.6
 func _ready():
 	# GAMEPLAY STATS
 	mass = 1780.0
-	horsepower = 285
+	horsepower = 280
 	max_rpm = 6100.0
 	idle_rpm = 700.0
 
-	zero_to_hundred = 5.7
+	zero_to_hundred = 6.1
 	top_speed_kmh = 253
 
 	transmission = "Rear wheel drive"
