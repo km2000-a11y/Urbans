@@ -316,7 +316,7 @@ func _ready() -> void:
 			audio_pitch_range = 1.65
 			audio_character_type = 0
 			audio_volume_offset = 0.0
-		"Berkshire Blunt": # 1999 Jaguar XKR
+		"Berkshire Falcon ": # 2004 Jaguar XK8
 			audio_base_pitch = 0.88
 			audio_pitch_range = 1.4
 			audio_character_type = 1
@@ -445,8 +445,6 @@ func _ready() -> void:
 	# --- REV PLAYER SETUP ---
 	if RevPlayer:
 		RevPlayer.stream = diesel_stream if is_diesel else petrol_stream
-		RevPlayer.volume_db = 0.0
-		RevPlayer.pitch_scale = 1.0
 		RevPlayer.play()
 
 	# --- TURBO PLAYER SETUP ---
@@ -822,7 +820,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		target_pitch = clamp(target_pitch, 0.75, 2.2)
 		
 		# 3. VOLUME MAPPING
-		var base_db :float= lerp(-22.0, -8.0, rpm_ratio * load_factor) + audio_volume_offset
+		var base_db :float= lerp(-25.5, -10.0, rpm_ratio * load_factor) + audio_volume_offset
 		
 		# State-based volume overrides
 		if is_pinned_at_top_speed:
