@@ -911,12 +911,44 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	if nitrous:
 		nitro.show()
 
-		var hp_factor :float= clamp(horsepower / 300.0, 0.7, 1.5)
-		var nitro_strength := 0.35 * hp_factor
+		var nitro_strength := 0.20
+		nitro_top_speed_multiplier = 1.05
+
+		# Sweet spot: 280-500 hp
+		if horsepower < 220.0:
+			nitro_strength = 0.20
+			nitro_top_speed_multiplier = 1.05
+
+		elif horsepower < 280.0:
+			nitro_strength = 0.30
+			nitro_top_speed_multiplier = 1.08
+
+		elif horsepower < 350.0:
+			nitro_strength = 0.70
+			nitro_top_speed_multiplier = 1.12
+
+		elif horsepower < 450.0:
+			nitro_strength = 1.00
+			nitro_top_speed_multiplier = 1.18
+
+		elif horsepower <= 500.0:
+			nitro_strength = 1.25
+			nitro_top_speed_multiplier = 1.22
+
+		# Diminishing returns above 500 hp
+		elif horsepower <= 600.0:
+			nitro_strength = 1.00
+			nitro_top_speed_multiplier = 1.16
+
+		else:
+			nitro_strength = 0.80
+			nitro_top_speed_multiplier = 1.12
 
 		velocity += forward * accel_force * nitro_strength * delta
+
 	else:
 			nitro.hide()
+			nitro_top_speed_multiplier = 1.0
 
 	if brake > 0.1:
 		var brake_force := brake_strength * (mass / 1200.0) * 1.4

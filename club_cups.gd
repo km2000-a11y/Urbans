@@ -221,6 +221,8 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Kestrel Speedster",
+		"Kuro Serenity",
+		"Kronstadt Blazer",
 				"Berkshire Tempest",
 	],
 		"japanese_cup":[
@@ -585,6 +587,8 @@ var cups: Dictionary = {
 		"Berkshire Tempest",
 		"Berkshire V12-S",
 		"Kestrel Speedster",
+		"Kuro Serenity",
+		"Kronstadt Blazer",
 	]
 },
 "japanese_cup":{

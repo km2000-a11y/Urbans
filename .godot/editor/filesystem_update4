@@ -1,9 +1,6 @@
 res://Scenes/m35.tscn
-res://Scripts/base_car.gd
 res://cars.gd
-res://Scripts/car_select.gd
 res://club_cups.gd
-res://Scenes/jaguar_xj8.gd
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -65,3 +62,4 @@ res://Scenes/career.tscn
 res://Scenes/morgan_aero_8.tscn
 res://Scenes/lotus_exige_s.tscn
 res://Scenes/vanquish.tscn
+res://Scripts/base_car.gd
