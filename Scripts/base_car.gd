@@ -293,15 +293,15 @@ func _ready() -> void:
 			audio_character_type = 0
 			audio_volume_offset = -0.3
 		"Kuro Vault": # 2002 Lexus LS430
-			audio_base_pitch = 0.8
+			audio_base_pitch = 0.85
 			audio_pitch_range = 1.3
 			audio_character_type = 0
 			audio_volume_offset = -0.8
-		"Brutus Prince": # 2004 Lincoln LS
-			audio_base_pitch = 0.85
-			audio_pitch_range = 1.4
-			audio_character_type = 1
-			audio_volume_offset = -0.5
+		"Zenith Prince": # 2006 Infiniti M35
+			audio_base_pitch = 1.15
+			audio_pitch_range = 1.95
+			audio_character_type = 2
+			audio_volume_offset = 0.2
 		"Schroder Suppressor": # 2008 Audi A4 3.0 TDI quattro
 			audio_base_pitch = 0.78
 			audio_pitch_range = 1.3
@@ -910,9 +910,13 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 	if nitrous:
 		nitro.show()
-		velocity += forward * accel_force * 0.35 * delta
+
+		var hp_factor :float= clamp(horsepower / 300.0, 0.7, 1.5)
+		var nitro_strength := 0.35 * hp_factor
+
+		velocity += forward * accel_force * nitro_strength * delta
 	else:
-		nitro.hide()
+			nitro.hide()
 
 	if brake > 0.1:
 		var brake_force := brake_strength * (mass / 1200.0) * 1.4

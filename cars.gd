@@ -54,7 +54,7 @@ var class_lists: Dictionary = {
 	"Schroder Suppressor",
 	"Kuro Vault",
 	"Strandberg Turbo",
-	"Brutus Prince"
+	"Zenith Prince"
 ],
 
 	"sport": [
@@ -93,12 +93,13 @@ var class_lists: Dictionary = {
 	],
 	"zenith_competition":[
 		"Zenith Horizon",
+		"Zenith Prince",
 	],
 	"businessman_racers":[
 	"Kuro Vault",
 	"Schroder Suppressor",
 	"Strandberg Turbo",
-	"Brutus Prince"
+	"Zenith Prince"
 ],
 	"speedster_tournament":[
 		"Kestrel Speedster"
@@ -126,7 +127,7 @@ var class_lists: Dictionary = {
 	"Colossus Titan Max",
 	"Kestrel Speedster",
 	"Kestrel Touring",
-	"Brutus Prince",
+	"Zenith Prince",
 	"Berkshire Blunt",
 	"Brutus Stingray",
 	"Zenith Horizon",
@@ -170,7 +171,6 @@ var class_lists: Dictionary = {
 	"Kuro Serenity",
 	"Brutus Stingray",
 	"Berkshire Blunt",
-	"Brutus Prince",
 	"Kestrel Touring",
 ],
 	"diesel_masters": [
@@ -182,7 +182,6 @@ var class_lists: Dictionary = {
 	"american_thunder": [
 		"Mir Cars Hutch",
 		"Brutus Viper",
-		"Brutus Prince",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -223,6 +222,7 @@ var class_lists: Dictionary = {
 		"japanese_cup":[
 		"Zenith Horizon",
 		"Kuro Zephyr",
+		"Zenith Prince",
 		"Kuro Serenity",
 		"Kuro Vault"
 	],
@@ -309,7 +309,7 @@ var car_scene_paths := {
 	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
 
 
-	"Brutus Prince":"res://Scenes/lincoln_ls.tscn",
+	"Zenith Prince":"res://Scenes/m35.tscn",
 	"Linetti Terror":"res://Scenes/murcielago.tscn",
 	"Linetti Firestorm":"res://Scenes/diablo_road.tscn",
 	"Kestrel Guillotine":"res://Scenes/tvr t 440r.tscn",

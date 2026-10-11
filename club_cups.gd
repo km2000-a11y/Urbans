@@ -65,7 +65,7 @@ var class_lists: Dictionary = {
 	"Schroder Suppressor",
 	"Kuro Vault",
 	"Strandberg Turbo",
-	"Brutus Prince"
+	"Zenith Prince"
 ],
 
 	"sport": [
@@ -103,13 +103,14 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"zenith_competition":[
-		"Zenith Horizon"
+		"Zenith Horizon",
+		"Zenith Prince"
 	],
 	"businessman_racers":[
 	"Kuro Vault",
 	"Schroder Suppressor",
 	"Strandberg Turbo",
-	"Brutus Prince",
+	"Zenith Prince",
 ],
 	"speedster_tournament":[
 		"Kestrel Speedster"
@@ -130,7 +131,7 @@ var class_lists: Dictionary = {
 	],
 	"under_400_hp": [
 	"Mir Cars Hutch",
-	"Brutus Prince",
+	"Zenith Prince",
 	"Schroder Atrix Q32",
 	"Colossus Titan Max",
 	"Kestrel Touring",
@@ -161,7 +162,6 @@ var class_lists: Dictionary = {
 	"Kuro Serenity",
 	"Brutus Stingray",
 	"Berkshire Blunt",
-	"Brutus Prince",
 	"Kestrel Touring",
 ],
 "drop_top_challenge":[
@@ -182,7 +182,6 @@ var class_lists: Dictionary = {
 	"american_thunder": [
 		"Mir Cars Hutch",
 		"Brutus Viper",
-		"Brutus Prince",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -221,14 +220,14 @@ var class_lists: Dictionary = {
 	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Brutus Prince",
+		"Kestrel Speedster",
 				"Berkshire Tempest",
 	],
 		"japanese_cup":[
 		"Zenith Horizon",
 		"Kuro Zephyr",
 		"Kuro Serenity",
-
+		"Zenith Prince",
 		"Kuro Vault"
 	],
 		"german_cup":[
@@ -265,7 +264,7 @@ var cup_rewards: Dictionary = {
 	"street_tuners": "Brutus Viper",
 	"muscle_hustle": "Schroder Atrix Q32",
 	"v6_engines": "Zenith Horizon",
-	"zenith_competition": "Brutus Prince",
+	"zenith_competition": "Zenith Prince",
 	"businessman_racers": "Kuro Serenity",
 	"japanese_cup": "Strandberg Turbo",
 	"all_wheel_grip": "Kestrel Speedster",
@@ -430,7 +429,6 @@ var cups: Dictionary = {
 	"eligible_cars": [
 		"Mir Cars Hutch",
 		"Brutus Viper",
-		"Brutus Prince",
 		"Brutus Stingray",
 		"Brutus Venom"
 	]
@@ -457,7 +455,6 @@ var cups: Dictionary = {
 	"Kuro Serenity",
 	"Brutus Stingray",
 	"Berkshire Blunt",
-	"Brutus Prince",
 	"Kestrel Touring",
 
 	]
@@ -486,13 +483,13 @@ var cups: Dictionary = {
 	"eligible_classes":["zenith_competition"],
 	"eligible_cars":[
 		"Zenith Horizon",
-		
+		"Zenith Prince",
 	]
 },
 "businessman_racers":{
 	"eligible_classes":["businessman_racers"],
 	"eligible_cars":[
-		"Brutus Prince",
+		"Zenith Prince",
 		"Kuro Vault",
 		"Schroder Suppressor",
 		"Strandberg Turbo"
@@ -558,7 +555,7 @@ var cups: Dictionary = {
 	"Mir Cars Transporter",
 	"Straeda Volant",
 	"Schroder Suppressor",
-	"Brutus Prince",
+	"Zenith Prince",
 	"Mir Cars Blazer",
 	"Kestrel Seabird",
 	"Colossus Behemoth",

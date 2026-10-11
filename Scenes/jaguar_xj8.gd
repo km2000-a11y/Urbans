@@ -2,8 +2,8 @@ extends CarController
 
 # COSMETIC INFO (UI only)
 var def_car_name := "Brutus Prince"
-var country := "USA"
-var engine := "V8 3.9L"
+var country := "Japan"
+var engine := "V6 3.5L"
 var weight_kg := 1780
 var zero_to_hundred_display := 5.6
 
@@ -14,7 +14,7 @@ func _ready():
 	max_rpm = 6100.0
 	idle_rpm = 700.0
 
-	zero_to_hundred = 6.1
+	zero_to_hundred = 5.9
 	top_speed_kmh = 253
 
 	transmission = "Rear wheel drive"
@@ -24,7 +24,6 @@ func _ready():
 	brake_strength = 12.2
 	lateral_friction = 1.14
 
-	handling_type = "luxury_boat"
 
 	# 6-speed automatic
 	gear_count = 6

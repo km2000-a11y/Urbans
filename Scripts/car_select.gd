@@ -63,7 +63,7 @@ var car_sell_prices := {
 
 	"Bartoli Track Cruiser": 540000,
 	"Brutus Thunderbolt": 600000,
-	"Brutus Prince": 63000,
+	"Zenith Prince": 63000,
 	"Mir Cars Athletic C70": 720000
 }
 
@@ -72,7 +72,7 @@ var car_prices := {
 	"Colossus Behemoth": 0,
 	"Mir Cars Nightwolf": 25000,
 	"Schroder Colosso": 32000,
-	"Brutus Prince": 95000,
+	"Zenith Prince": 95000,
 
 	"Brutus Viper": 45000,
 	"Mir Cars Hutch": 55000,
@@ -316,12 +316,12 @@ Color8(255, 160, 200) # Pink
 	Color8(20,40,60)
 ],
 
-"Brutus Prince":[
-	Color8(0,0,0),
-	Color8(255,255,255),
-	Color8(180,180,180),
-	Color8(0,40,80),
-	Color8(0,60,20)
+"Zenith Prince":[
+	Color8(0,0,0),        # Black (default)
+	Color8(255,255,255),  # White
+	Color8(128,128,128),  # Silver
+	Color8(25,35,80),     # Midnight Blue
+	Color8(80,20,20)      # Burgundy
 ],
 
 "Schroder Suppressor":[
@@ -546,8 +546,8 @@ var urban_list = [
 var sedans_list = [
 	"Strandberg Turbo",
 	"Schroder Suppressor",
-		"Brutus Prince",
 		"Kuro Vault",
+			"Zenith Prince",
 ]
 
 
@@ -705,10 +705,10 @@ var sedans = {
 		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-"Brutus Prince":[
-	"", "Country: USA", "HP: 280", "WEIGHT: 1780 KG",
-	"0-100 KM/H: 6.1s", "TOP SPEED: 253 KM/H",
-	"ENGINE: V8 3.9L", "ASPIRATION: NA", "TORQUE: 387 NM",
+"Zenith Prince":[
+	"", "Country: Japan", "HP: 280", "WEIGHT: 1780 KG",
+	"0-100 KM/H: 5.9s", "TOP SPEED: 253 KM/H",
+	"ENGINE: V6 3.5L", "ASPIRATION: NA", "TORQUE: 370 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -906,7 +906,7 @@ var car_scene_paths = {
 	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
-	"Brutus Prince":"res://Scenes/lincoln_ls.tscn",
+	"Zenith Prince":"res://Scenes/m35.tscn",
 	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
