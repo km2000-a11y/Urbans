@@ -1,7 +1,13 @@
-res://Scenes/m35.tscn
-res://cars.gd
-res://club_cups.gd
+res://Scenes/diablo_road.tscn
+res://Scenes/xk8.tscn
+res://Scripts/base_car.gd
+res://Scripts/jaguar_xk8_2003.gd
 res://main.tscn
+res://Scenes/c43.gd
+res://cars.gd
+res://Scripts/car_select.gd
+res://club_cups.gd
+res://Scripts/jaguar_xkr_2003.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -13,7 +19,6 @@ res://Scenes/jaguar_xkr.tscn
 res://Scenes/chevrolet_corvette_c5.tscn
 res://Scenes/aston_db9.tscn
 res://Scenes/gt500.tscn
-res://Scenes/diablo_road.tscn
 res://Scenes/sagaris.tscn
 res://Scenes/gallardo.tscn
 res://Scenes/murcielago.tscn
@@ -58,8 +63,8 @@ res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Tracks/las_vegas.tscn
 res://Scenes/c43.tscn
+res://Scenes/m35.tscn
 res://Scenes/career.tscn
 res://Scenes/morgan_aero_8.tscn
 res://Scenes/lotus_exige_s.tscn
 res://Scenes/vanquish.tscn
-res://Scripts/base_car.gd

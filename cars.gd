@@ -43,12 +43,12 @@ var class_lists: Dictionary = {
 	],
 
 	"urban": [
-			"Mir Cars Blazer",
-		"Berkshire Blunt",
-		"Kuro Serenity",
-		"Kestrel Speedster",
-			"Kestrel Seabird",
-	],
+	"Mir Cars Blazer",
+	"Berkshire Blunt",
+	"Kuro Serenity",
+	"Kestrel Speedster",
+	"Kestrel Seabird",
+],
 
 	"sedans": [
 	"Schroder Suppressor",
@@ -60,6 +60,7 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Berkshire V12-S",
 		"Brutus Stingray",
+		"Berkshire Falcon",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
 	],
@@ -125,6 +126,7 @@ var class_lists: Dictionary = {
 	"Straeda Volant",
 	"Schroder Atrix Q32",
 	"Colossus Titan Max",
+	"Berkshire Falcon",
 	"Kestrel Speedster",
 	"Kestrel Touring",
 	"Zenith Prince",
@@ -149,7 +151,8 @@ var class_lists: Dictionary = {
 "berkshire_cup":[
 	"Berkshire Blunt",
 	"Berkshire Tempest",
-	"Berkshire V12-S"
+	"Berkshire V12-S",
+	"Berkshire Falcon",
 ],
 "drop_top_challenge":[
 	"Schroder Atrix Q32",
@@ -168,6 +171,7 @@ var class_lists: Dictionary = {
 	"Mir Cars Hutch",
 	"Brutus Viper",
 	"Kuro Vault",
+	"Berkshire Falcon",
 	"Kuro Serenity",
 	"Brutus Stingray",
 	"Berkshire Blunt",
@@ -190,6 +194,7 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Berkshire Falcon",
 		"Kestrel Speedster",
 		"Berkshire Tempest",
 		"Kestrel Touring",
@@ -216,6 +221,7 @@ var class_lists: Dictionary = {
 	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Kestrel Speedster",
+		"Berkshire Falcon",
 		"Berkshire V12-S",
 		"Kuro Serenity",
 		"Kronstadt Blazer",
@@ -308,6 +314,7 @@ var car_scene_paths := {
 	"Brutus Venom":"res://Scenes/dodge_viper.tscn",
 	"Berkshire Mocha":"res://Scenes/jaguar_s_type.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn",
+	"Berkshire Falcon":"res://Scenes/xk8.tscn",
 	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
 
 
@@ -391,7 +398,16 @@ Color8(0, 150, 80), # Cyber Green
 Color8(255, 210, 0), # Sunflower Yellow
 Color8(255, 160, 200) # Pink
 ],
-
+"Berkshire Falcon":[
+	Color8(180,180,180),  # Platinum Silver (default)
+	Color8(212,175,55),   # Champagne Gold
+	Color8(25,35,80),     # Sapphire Blue
+	Color8(110,20,20),    # Bordeaux Red
+	Color8(255,248,220),  # Ivory White
+	Color8(70,70,70),     # Anthracite Grey
+	Color8(0,0,0),        # Black
+	Color8(145,145,125)   # Willow Green Metallic
+],
 "Schroder Atrix Q32":[
 	Color8(192,192,192),
 	Color8(255,255,255),

@@ -318,6 +318,11 @@ func _ready() -> void:
 			audio_volume_offset = 0.0
 		"Berkshire Blunt": # 1999 Jaguar XKR
 			audio_base_pitch = 0.88
+			audio_pitch_range = 1.4
+			audio_character_type = 1
+			audio_volume_offset = 0.2
+		"Berkshire Blunt": # 1999 Jaguar XKR
+			audio_base_pitch = 0.88
 			audio_pitch_range = 1.55
 			audio_character_type = 1
 			audio_volume_offset = 0.5

@@ -64,6 +64,7 @@ var car_sell_prices := {
 	"Bartoli Track Cruiser": 540000,
 	"Brutus Thunderbolt": 600000,
 	"Zenith Prince": 63000,
+	"Berkshire Falcon": 72000,
 	"Mir Cars Athletic C70": 720000
 }
 
@@ -81,6 +82,7 @@ var car_prices := {
 	"Schroder Atrix Q32": 50000,
 	"Zenith Horizon": 60000,
 	"Eisenach Bengal": 65000,
+	"Berkshire Falcon": 105000,
 
 	"Schroder Suppressor": 95000,
 	"Strandberg Turbo": 83000,
@@ -423,6 +425,16 @@ Color8(255, 160, 200) # Pink
 	Color8(0,90,180),
 	Color8(200,40,40)
 ],
+"Berkshire Falcon":[
+	Color8(180,180,180),  # Platinum Silver (default)
+	Color8(212,175,55),   # Champagne Gold
+	Color8(25,35,80),     # Sapphire Blue
+	Color8(110,20,20),    # Bordeaux Red
+	Color8(255,248,220),  # Ivory White
+	Color8(70,70,70),     # Anthracite Grey
+	Color8(0,0,0),        # Black
+	Color8(145,145,125)   # Willow Green Metallic
+],
 "Mir Cars Blazer": [
 	Color8(15, 15, 15),    # Obsidian Black (default)
 	Color8(192, 192, 192), # Brilliant Silver
@@ -537,11 +549,11 @@ var muscle_list = [
 ]
 
 var urban_list = [
-"Kuro Serenity",
-"Kestrel Seabird",
-"Kestrel Speedster",
-"Berkshire Blunt",
-"Mir Cars Blazer"
+	"Kuro Serenity",
+	"Kestrel Seabird",
+	"Kestrel Speedster",
+	"Berkshire Blunt",
+	"Mir Cars Blazer"
 ]
 var sedans_list = [
 	"Strandberg Turbo",
@@ -553,6 +565,7 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
+	"Berkshire Falcon",
 	"Brutus Stingray",
 	"Berkshire V12-S",
 	"Kestrel Touring"
@@ -673,15 +686,15 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Blunt":[
-	"", "Country: UK", "HP: 370", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.2s", "TOP SPEED: 250 KM/H",
-	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
+	"Berkshire Falcon":[
+	"", "Country: UK", "HP: 300", "WEIGHT: 1715 KG",
+	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Mir Cars Blazer":[
 	"", "Country: UAE", "HP: 349", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.6s", "TOP SPEED: 257 KM/H",
+	"0-100 KM/H: 5.0s", "TOP SPEED: 256 KM/H",
 	"ENGINE: V6 3.2L", "ASPIRATION: Supercharged", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
@@ -719,6 +732,12 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Berkshire Blunt":[
+	"", "Country: UK", "HP: 370", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 5.5s", "TOP SPEED: 280 KM/H",
+	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 	"Brutus Stingray":[
 		"", "Country: USA", "HP: 400", "WEIGHT: 1460 KG",
 		"0-100 KM/H: 4.8s", "TOP SPEED: 284 KM/H",
@@ -904,6 +923,7 @@ var car_scene_paths = {
 
 	"Eisenach Monarch":"res://Scenes/bmw_745.tscn",
 	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",
+	"Berkshire Falcon":"res://Scenes/xk8.tscn",
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
 	"Zenith Prince":"res://Scenes/m35.tscn",

@@ -70,6 +70,7 @@ var class_lists: Dictionary = {
 
 	"sport": [
 		"Berkshire V12-S",
+		"Berkshire Falcon",
 		"Brutus Stingray",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
@@ -191,6 +192,7 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Kestrel Touring",
+		"Berkshire Falcon",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
 	],
@@ -245,7 +247,7 @@ var class_lists: Dictionary = {
 	],
 	"urban_performance_cars":[
 		"Kuro Serenity",
-		"Berkshire Blunt",
+		"Berkshire Falcon",
 		"Mir Cars Blazer",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
@@ -403,7 +405,7 @@ var cups: Dictionary = {
 	"eligible_cars": [
 		"Kestrel Seabird",
 			"Kestrel Speedster",
-			"Berkshire Blunt",
+			"Berkshire Falcon",
 				"Mir Cars Blazer",
 		"Kuro Serenity"
 	]
@@ -443,6 +445,7 @@ var cups: Dictionary = {
 		"Berkshire Blunt",
 		"Kestrel Speedster",
 		"Berkshire V12-S",
+		"Berkshire Falcon",
 		"Kestrel Touring",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
@@ -455,6 +458,7 @@ var cups: Dictionary = {
 	"Brutus Viper",
 	"Kuro Vault",
 	"Kuro Serenity",
+	"Berkshire Falcon",
 	"Brutus Stingray",
 	"Berkshire Blunt",
 	"Kestrel Touring",
@@ -532,6 +536,7 @@ var cups: Dictionary = {
 	"eligible_cars":[
 	
 		"Berkshire Tempest",
+		"Berkshire Falcon",
 		"Berkshire Blunt",
 		"Berkshire V12-S"
 	]
@@ -546,6 +551,7 @@ var cups: Dictionary = {
 	"Colossus Titan Max",
 	"Kestrel Touring",
 	"Berkshire Blunt",
+	"Berkshire Falcon",
 	"Zenith Horizon",
 	"Kuro Serenity",
 	"Brutus Viper",
@@ -589,6 +595,7 @@ var cups: Dictionary = {
 		"Kestrel Speedster",
 		"Kuro Serenity",
 		"Kronstadt Blazer",
+		"Berkshire Falcon",
 	]
 },
 "japanese_cup":{
