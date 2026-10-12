@@ -82,7 +82,7 @@ var car_prices := {
 	"Schroder Atrix Q32": 50000,
 	"Zenith Horizon": 60000,
 	"Eisenach Bengal": 65000,
-	"Berkshire Falcon": 120000,
+	"Berkshire Falcon": 117000,
 
 	"Schroder Suppressor": 95000,
 	"Strandberg Turbo": 83000,
@@ -94,7 +94,7 @@ var car_prices := {
 	"Kuro Serenity": 80000,
 	"Kestrel Seabird": 120000,
 	"Eisenach Roadstar": 165000,
-	"Berkshire Blunt": 122000,
+	"Berkshire Blunt": 135000,
 	"Mir Cars Blazer": 130000,
 
 	"Schroder Classique Sport": 135000,

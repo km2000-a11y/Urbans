@@ -832,60 +832,73 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			RevPlayer.play()
 			
 		var is_idling := accel == 0.0 and rpm_ratio < 0.15
-		
-		# 1. IDENTIFY DRIVING STATES
-		# Cruising: High speed, but letting off the gas (light throttle hum)
 		var is_cruising_high_speed := rpm_ratio > 0.7 and accel < 0.3
-		
-		# Pinned / Redline: High speed AND still flooring the gas pedal
 		var is_pinned_at_top_speed := rpm_ratio > 0.9 and accel > 0.8
-		
 		var load_factor :float= lerp(0.3, 1.0, accel)
 		
-		# 2. STABLE PITCH MAPPING
-		var target_pitch := audio_base_pitch + (rpm_ratio * 0.8)
+		# ==========================================
+		# 1. CHARACTER-BASED DISTINCT PITCH PROFILES
+		# ==========================================
+		var target_pitch := audio_base_pitch + (rpm_ratio * audio_pitch_range)
 		
-		if audio_character_type == 1:
-			target_pitch *= 0.9
-			
+		match audio_character_type:
+			1: # Deep V8 / Muscle / Diesel: Heavy low-end, sluggish pitch climb, aggressive cam shake under heavy load
+				target_pitch = audio_base_pitch + (rpm_ratio * audio_pitch_range * 0.65)
+				if accel > 0.7:
+					target_pitch += sin(Time.get_ticks_msec() * 0.03) * 0.04 # Simulates a pulsing muscle car rumble
+					
+			2: # High-Rev Exotic / Supercar: Lazy low end, but aggressively screams and explodes in pitch past mid-RPM
+				if rpm_ratio > 0.5:
+					target_pitch += (rpm_ratio - 0.5) * 1.2
+				else:
+					target_pitch *= 0.85
+					
+			_: # Type 0: Normal / Standard Car (Linear, balanced pitch response)
+				target_pitch = audio_base_pitch + (rpm_ratio * audio_pitch_range)
+
 		# State-based pitch overrides
 		if is_pinned_at_top_speed:
-			# Pinned at top speed: Lock it to maximum pitch so it roars/screams against the limit
-			target_pitch = audio_base_pitch + 0.8
+			target_pitch = audio_base_pitch + audio_pitch_range
 		elif is_cruising_high_speed:
-			# Cruising at top speed with low throttle: Relaxed, steady highway hum
-			target_pitch = audio_base_pitch + 0.55 
+			target_pitch = audio_base_pitch + (audio_pitch_range * 0.5)
 			
-		target_pitch = clamp(target_pitch, 0.75, 2.2)
+		target_pitch = clamp(target_pitch, 0.5, 2.5)
 		
-		# 3. VOLUME MAPPING
-		var base_db :float= lerp(-25.5, -10.0, rpm_ratio * load_factor) + audio_volume_offset
+		# ==========================================
+		# 2. CHARACTER-BASED DISTINCT VOLUME MAPPING
+		# ==========================================
+		var base_db :float= lerp(-26.0, -10.0, rpm_ratio * load_factor) + audio_volume_offset
 		
-		# State-based volume overrides
+		match audio_character_type:
+			1: # Muscle cars are louder and punchier on throttle transients
+				base_db += (accel * 3.5)
+			2: # Exotics are quieter at low speed/idle, but deafeningly loud at high RPM scream
+				base_db = lerp(-30.0, -4.0, pow(rpm_ratio, 2.0)) + audio_volume_offset
+			_:
+				pass
+
 		if is_pinned_at_top_speed:
-			# Pinned at top speed: Max out the volume because the engine is working at full tilt
-			base_db = -6.0 + audio_volume_offset
+			base_db = -5.0 + audio_volume_offset
 		elif is_cruising_high_speed:
-			# Cruising: Drop the volume cleanly for a background hum
-			base_db -= 5.0
+			base_db -= 6.0
 			
 		if is_idling:
-			base_db = -18.0 + audio_volume_offset + (sin(Time.get_ticks_msec() * 0.001 * 10.0) * 1.0)
-			target_pitch = audio_base_pitch
+			# Different idle breathing patterns per type
+			var idle_pulse := sin(Time.get_ticks_msec() * 0.001 * (12.0 if audio_character_type == 1 else 6.0))
+			base_db = -18.0 + audio_volume_offset + (idle_pulse * (1.5 if audio_character_type == 1 else 0.8))
+			target_pitch = audio_base_pitch * (0.9 if audio_character_type == 1 else 1.0)
 			
+		# ==========================================
+		# 3. MECHANICAL MODIFIERS & FINAL APPLICATION
+		# ==========================================
 		var gear_load_modifier := float(gear_count - current_gear) * 0.2 * accel
 		var nitro_boost := 2.5 if nitrous else 0.0
+		var induction_db := 2.0 if (has_turbo or has_supercharger) and accel > 0.4 else 0.0
 		
-		var induction_db := 0.0
-		if has_turbo and accel > 0.5 and rpm > max_rpm * 0.5:
-			induction_db += 1.5  
-		elif has_supercharger and rpm > idle_rpm:
-			induction_db += (rpm_ratio * 1.2 * load_factor)  
-			
 		var target_db :float= base_db + gear_load_modifier + nitro_boost + induction_db
-		target_db = clamp(target_db, -28.0, -3.0)
+		target_db = clamp(target_db, -30.0, -2.0)
 		
-		# Apply smoothly
+		# Apply smoothly to the single RevPlayer
 		RevPlayer.pitch_scale = lerp(RevPlayer.pitch_scale, target_pitch, delta * 6.0)
 		RevPlayer.volume_db = lerp(RevPlayer.volume_db, target_db, delta * 6.0)
 	var torque_factor := rpm / max_rpm
@@ -952,12 +965,14 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 	if nitrous:
 		nitro.show()
-
-		var nitro_strength := 0.20
-		var nitro_top_speed_multiplier := 1.10
+		nitro_top_speed_multiplier = 1.08 # Smaller top speed boost (5% over limit)
+		
+		# Gentle, smooth push forward (scaled down from 1.08 to 0.4)
+		var nitro_force := acceleration_calc * 0.4
+		velocity += forward * nitro_force * delta
 	else:
-			nitro.hide()
-			nitro_top_speed_multiplier = 1.0
+		nitro.hide()
+		nitro_top_speed_multiplier = 1.0
 
 	if brake > 0.1:
 		var brake_force := brake_strength * (mass / 1200.0) * 1.4
@@ -982,6 +997,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			Global.speed = SpeedSettings.convert_speed(speed_kmh)
 			Global.gear = current_gear
 			Global.speed_unit = SpeedSettings.get_unit_label()
+			Global.tachometer = rpm # Added digital tachometer tracking
 
 			if reversing:
 				Global.gear = -1

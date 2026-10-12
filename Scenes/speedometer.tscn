@@ -20,6 +20,13 @@ offset_top = 480.0
 offset_right = 1271.0
 offset_bottom = 524.0
 
+[node name="Tachometer" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1110.0
+offset_top = 612.0
+offset_right = 1285.0
+offset_bottom = 667.0
+
 [node name="Gear" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 1102.0

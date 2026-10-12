@@ -1,4 +1,5 @@
 res://main.tscn
+res://Scripts/car_select.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -62,9 +63,5 @@ res://Scenes/lotus_exige_s.tscn
 res://Scenes/vanquish.tscn
 res://Scenes/xk8.tscn
 res://Scripts/base_car.gd
-res://Scenes/c43.gd
-res://cars.gd
-res://Scripts/car_select.gd
-res://club_cups.gd
-res://Scripts/jaguar_xk8_2003.gd
-res://Scripts/jaguar_xkr_2003.gd
+res://global.gd
+res://Scripts/speedometer.gd
