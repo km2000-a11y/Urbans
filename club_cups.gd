@@ -226,6 +226,7 @@ var class_lists: Dictionary = {
 		"Berkshire V12-S",
 		"Kestrel Speedster",
 		"Kuro Serenity",
+		"Berkshire Falcon",
 		"Kronstadt Blazer",
 				"Berkshire Tempest",
 	],

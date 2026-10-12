@@ -326,7 +326,7 @@ material_override = SubResource("StandardMaterial3D_gnug7")
 mesh = SubResource("PrismMesh_ssfej")
 
 [node name="MeshInstance3D16" type="MeshInstance3D" parent="ModelRoot/Body/MeshInstance3D4"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.757631, 0.144954, -0.209309)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.732192, 0.144954, -0.209309)
 material_override = SubResource("StandardMaterial3D_gnug7")
 mesh = SubResource("PrismMesh_ssfej")
 
