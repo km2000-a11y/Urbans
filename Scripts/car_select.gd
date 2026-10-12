@@ -82,7 +82,7 @@ var car_prices := {
 	"Schroder Atrix Q32": 50000,
 	"Zenith Horizon": 60000,
 	"Eisenach Bengal": 65000,
-	"Berkshire Falcon": 105000,
+	"Berkshire Falcon": 120000,
 
 	"Schroder Suppressor": 95000,
 	"Strandberg Turbo": 83000,
