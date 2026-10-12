@@ -44,8 +44,8 @@ var class_lists: Dictionary = {
 
 	"urban": [
 	"Mir Cars Blazer",
-	"Berkshire Blunt",
 	"Kuro Serenity",
+	"Berkshire Falcon",
 	"Kestrel Speedster",
 	"Kestrel Seabird",
 ],
@@ -60,7 +60,7 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Berkshire V12-S",
 		"Brutus Stingray",
-		"Berkshire Falcon",
+		"Berkshire Blunt",
 		"Schroder Classique Sport",
 		"Kestrel Touring"
 	],
@@ -406,7 +406,8 @@ Color8(255, 160, 200) # Pink
 	Color8(255,248,220),  # Ivory White
 	Color8(70,70,70),     # Anthracite Grey
 	Color8(0,0,0),        # Black
-	Color8(145,145,125)   # Willow Green Metallic
+	Color8(145,145,125),   # Willow Green Metallic
+	Color8(48, 78, 58)
 ],
 "Schroder Atrix Q32":[
 	Color8(192,192,192),

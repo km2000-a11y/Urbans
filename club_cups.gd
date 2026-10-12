@@ -170,7 +170,7 @@ var class_lists: Dictionary = {
 "drop_top_challenge":[
 	"Schroder Atrix Q32",
 	"Kestrel Speedster",
-	"Berkshire Blunt",
+	"Berkshire Falcon",
 ],
 "berkshire_cup":[
 	"Berkshire Blunt",
@@ -274,7 +274,7 @@ var cup_rewards: Dictionary = {
 	"businessman_racers": "Kuro Serenity",
 	"japanese_cup": "Strandberg Turbo",
 	"all_wheel_grip": "Kestrel Speedster",
-	"eisenach_cup": "Berkshire Blunt",
+	"eisenach_cup": "Berkshire Falcon",
 	"drop_top_challenge":"Mir Cars Blazer",
 	"under_400_hp": "Schroder Classique Sport",
 	"schroder_cup": "Brutus Stingray",
@@ -472,7 +472,7 @@ var cups: Dictionary = {
 	"eligible_cars": [
 		"Schroder Atrix Q32",
 	"Kestrel Speedster",
-	"Berkshire Blunt",
+	"Berkshire Falcon",
 	""
 	]
 },

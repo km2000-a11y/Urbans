@@ -213,225 +213,264 @@ var phase: float = 0.0
 
 func _ready() -> void:
 	match Cars.selected_car:
-		
+				
+				# =============================================
+				# 4x4 SUV (Deep, heavy, sluggish low-end torque)
+				# =============================================
+				# =============================================
+				# 4x4 SUV (Fixed to prevent popping/stretching artifacts)
+				# =============================================
+				# =============================================
+		# 4x4 SUV
 		# =============================================
-		# 4x4 SUV (Deep, heavy, sluggish low-end torque)
-		# =============================================
-		# =============================================
-		# 4x4 SUV (Fixed to prevent popping/stretching artifacts)
-		# =============================================
-		"Colossus Titan Max": # 2000 Hummer H1
-			audio_base_pitch = 0.85  # Safe floor - completely eliminates crackling
-			audio_pitch_range = 0.8
+
+		"Colossus Titan Max": # Hummer H1
+			audio_base_pitch = 0.65
+			audio_pitch_range = 1.10
 			audio_character_type = 1
-			audio_volume_offset = 2.0 # Louder to compensate for higher pitch
-		"Colossus Behemoth": # 2004 Hummer H2
-			audio_base_pitch = 0.85  # Safe floor
-			audio_pitch_range = 0.9
+			audio_volume_offset = 2.4
+
+		"Colossus Behemoth": # Hummer H2
+			audio_base_pitch = 0.75
+			audio_pitch_range = 1.25
 			audio_character_type = 1
-			audio_volume_offset = 1.8
-		"Schroder Colosso": # 2007 Audi Q7 3.0 TDI
-			audio_base_pitch = 0.85
-			audio_pitch_range = 1.15
+			audio_volume_offset = 2.0
+
+		"Schroder Colosso": # Audi Q7 3.0 TDI
+			audio_base_pitch = 0.78
+			audio_pitch_range = 1.05
 			audio_character_type = 1
-			audio_volume_offset = 1.0
-		"Mir Cars Nightwolf": # 1998 Lexus LX470
-			audio_base_pitch = 0.9
-			audio_pitch_range = 1.2
-			audio_character_type = 1
-			audio_volume_offset = 1.0
+			audio_volume_offset = 0.3
+
+		"Mir Cars Nightwolf": # Lexus LX470
+			audio_base_pitch = 0.90
+			audio_pitch_range = 1.25
+			audio_character_type = 0
+			audio_volume_offset = 0.5
 
 		# =============================================
-		# Compact Cars (Buzzy, agile, mid-to-high revs)
+		# Compact Cars
 		# =============================================
-		"Kuro Zephyr": # 2011 Lexus IS250
-			audio_base_pitch = 0.95
-			audio_pitch_range = 1.6
+
+		"Kuro Zephyr": # Lexus IS250
+			audio_base_pitch = 1.05
+			audio_pitch_range = 1.65
 			audio_character_type = 0
 			audio_volume_offset = -0.5
-		"Straeda Volant": # 2003 VW New Beetle Turbo S
-			audio_base_pitch = 1.0
-			audio_pitch_range = 1.7
+
+		"Straeda Volant": # Beetle Turbo S
+			audio_base_pitch = 1.15
+			audio_pitch_range = 1.80
 			audio_character_type = 0
 			audio_volume_offset = 0.0
-		"Schroder Atrix Q32": # 2004 Audi TT Roadster 3.2 Quattro
-			audio_base_pitch = 1.05
-			audio_pitch_range = 1.8
+
+		"Schroder Atrix Q32": # TT 3.2
+			audio_base_pitch = 1.00
+			audio_pitch_range = 1.75
 			audio_character_type = 2
 			audio_volume_offset = 0.0
-		"Eisenach Bengal": # 2008 BMW 130i
-			audio_base_pitch = 1.1
-			audio_pitch_range = 1.85
-			audio_character_type = 2
-			audio_volume_offset = 0.0
-		"Zenith Horizon": # 2002 Nissan 350Z
-			audio_base_pitch = 1.15
-			audio_pitch_range = 1.95
+
+		"Eisenach Bengal": # BMW 130i
+			audio_base_pitch = 1.20
+			audio_pitch_range = 2.00
 			audio_character_type = 2
 			audio_volume_offset = 0.2
 
+		"Zenith Horizon": # 350Z
+			audio_base_pitch = 1.10
+			audio_pitch_range = 1.90
+			audio_character_type = 2
+			audio_volume_offset = 0.4
+
 		# =============================================
-		# Muscle Cars (Raw, heavy-hitting V8 roar)
+		# Muscle
 		# =============================================
-		"Brutus Viper": # 1967 Shelby GT500
-			audio_base_pitch = 0.72
-			audio_pitch_range = 1.35
+
+		"Brutus Viper": # Shelby GT500
+			audio_base_pitch = 0.68
+			audio_pitch_range = 1.30
 			audio_character_type = 1
-			audio_volume_offset = 1.4
-		"Mir Cars Hutch": # 1972 Chevrolet Chevelle SS
-			audio_base_pitch = 0.75
-			audio_pitch_range = 1.4
+			audio_volume_offset = 1.5
+
+		"Mir Cars Hutch": # Chevelle SS
+			audio_base_pitch = 0.73
+			audio_pitch_range = 1.38
 			audio_character_type = 1
 			audio_volume_offset = 1.2
 
 		# =============================================
-		# Executive Cars (Smooth, muffled, refined hum)
+		# Executive
 		# =============================================
-		"Strandberg Turbo": # 2005 Volvo S60R
-			audio_base_pitch = 0.9
-			audio_pitch_range = 1.5
+
+		"Strandberg Turbo": # Volvo S60R
+			audio_base_pitch = 1.00
+			audio_pitch_range = 1.55
 			audio_character_type = 0
-			audio_volume_offset = -0.3
-		"Kuro Vault": # 2002 Lexus LS430
-			audio_base_pitch = 0.85
-			audio_pitch_range = 1.3
+			audio_volume_offset = -0.2
+
+		"Kuro Vault": # LS430
+			audio_base_pitch = 0.82
+			audio_pitch_range = 1.20
 			audio_character_type = 0
 			audio_volume_offset = -0.8
-		"Zenith Prince": # 2006 Infiniti M35
-			audio_base_pitch = 1.15
-			audio_pitch_range = 1.95
+
+		"Zenith Prince": # Infiniti M35
+			audio_base_pitch = 1.12
+			audio_pitch_range = 1.85
 			audio_character_type = 2
 			audio_volume_offset = 0.2
-		"Schroder Suppressor": # 2008 Audi A4 3.0 TDI quattro
-			audio_base_pitch = 0.78
-			audio_pitch_range = 1.3
+
+		"Schroder Suppressor": # A4 TDI
+			audio_base_pitch = 0.74
+			audio_pitch_range = 1.10
 			audio_character_type = 1
-			audio_volume_offset = -0.5
+			audio_volume_offset = -0.4
 
 		# =============================================
-		# Urban Performance Cars (Balanced agility)
+		# Urban Performance
 		# =============================================
-		"Kuro Serenity": # 1997 Lexus SC400
-			audio_base_pitch = 0.95
+
+		"Kuro Serenity": # SC400
+			audio_base_pitch = 0.92
+			audio_pitch_range = 1.45
+			audio_character_type = 0
+			audio_volume_offset = -0.1
+
+		"Berkshire Falcon": # XK8
+			audio_base_pitch = 1.00
 			audio_pitch_range = 1.65
 			audio_character_type = 0
 			audio_volume_offset = 0.0
-		"Berkshire Falcon ": # 2004 Jaguar XK8
-			audio_base_pitch = 0.88
-			audio_pitch_range = 1.4
+
+		"Berkshire Blunt": # XKR
+			audio_base_pitch = 0.82
+			audio_pitch_range = 1.50
 			audio_character_type = 1
-			audio_volume_offset = 0.2
-		"Berkshire Blunt": # 1999 Jaguar XKR
+			audio_volume_offset = 0.7
+
+		"Kestrel Seabird": # Exige
+			audio_base_pitch = 1.25
+			audio_pitch_range = 2.10
+			audio_character_type = 2
+			audio_volume_offset = 0.0
+
+		"Kestrel Speedster": # Aero 8
 			audio_base_pitch = 0.88
 			audio_pitch_range = 1.55
 			audio_character_type = 1
-			audio_volume_offset = 0.5
-		"Kestrel Seabird": # 2005 Lotus Exige
-			audio_base_pitch = 1.2
-			audio_pitch_range = 2.0
-			audio_character_type = 2
-			audio_volume_offset = 0.0
-		"Kestrel Speedster": # 2004 Morgan Aero 8
-			audio_base_pitch = 0.85
-			audio_pitch_range = 1.5
+			audio_volume_offset = 0.8
+
+		"Kronstadt Blazer": # C32 AMG
+			audio_base_pitch = 0.86
+			audio_pitch_range = 1.55
 			audio_character_type = 1
 			audio_volume_offset = 0.8
-		"Kronstadt Blazer": # 2002 Mercedes C32 AMG
-			audio_base_pitch = 0.92
-			audio_pitch_range = 1.6
-			audio_character_type = 1
-			audio_volume_offset = 0.3
 
 		# =============================================
-		# Sport Coupe (Aggressive mid-tier performance)
+		# Sport Coupe
 		# =============================================
-		"Schroder Classique Sport": # 2008 Audi TTS
+
+		"Schroder Classique Sport":
 			audio_base_pitch = 1.15
-			audio_pitch_range = 1.9
+			audio_pitch_range = 1.95
 			audio_character_type = 2
-			audio_volume_offset = 0.2
-		"Brutus Stingray": # 2005 Chevrolet Corvette C6
+			audio_volume_offset = 0.3
+
+		"Brutus Stingray": # C6
 			audio_base_pitch = 0.78
 			audio_pitch_range = 1.45
 			audio_character_type = 1
-			audio_volume_offset = 1.0
-		"Berkshire V12-S": # 2004 Aston Martin DB9
-			audio_base_pitch = 0.85
-			audio_pitch_range = 1.8
-			audio_character_type = 1
-			audio_volume_offset = 0.8
-		"Kestrel Touring": # 2001 TVR Cerbera Speed Eight
-			audio_base_pitch = 1.18
-			audio_pitch_range = 2.1
-			audio_character_type = 2
-			audio_volume_offset = 0.5
+			audio_volume_offset = 1.1
 
-		# =============================================
-		# Sport Racing (High-strung track machines)
-		# =============================================
-		"Kestrel Battleaxe": # 2005 TVR Sagaris
+		"Berkshire V12-S": # DB9
+			audio_base_pitch = 0.95
+			audio_pitch_range = 1.90
+			audio_character_type = 2
+			audio_volume_offset = 0.8
+
+		"Kestrel Touring": # Cerbera
 			audio_base_pitch = 1.22
-			audio_pitch_range = 2.15
+			audio_pitch_range = 2.20
 			audio_character_type = 2
-			audio_volume_offset = 0.6
-		"Berkshire Tempest": # 2006 Aston Martin Vanquish S
-			audio_base_pitch = 0.82
-			audio_pitch_range = 1.75
-			audio_character_type = 1
-			audio_volume_offset = 0.8
-		"Brutus Venom": # 1998 Dodge Viper RT10
-			audio_base_pitch = 0.7
-			audio_pitch_range = 1.4
-			audio_character_type = 1
-			audio_volume_offset = 1.5
-		"Linetti Shepherd": # 2004 Lamborghini Gallardo
-			audio_base_pitch = 1.25
-			audio_pitch_range = 2.2
-			audio_character_type = 2
-			audio_volume_offset = 0.5
+			audio_volume_offset = 0.7
 
 		# =============================================
-		# Supercars (Exotic, screaming top-end notes)
+		# Sport Racing
 		# =============================================
-		"Kestrel Guillotine": # 2004 TVR T440R
-			audio_base_pitch = 1.2
-			audio_pitch_range = 2.1
-			audio_character_type = 2
-			audio_volume_offset = 0.5
-		"Linetti Firestorm": # 1997 Lamborghini Diablo Roadster
+
+		"Kestrel Battleaxe": # Sagaris
 			audio_base_pitch = 1.28
 			audio_pitch_range = 2.25
 			audio_character_type = 2
 			audio_volume_offset = 0.8
-		"Mir Cars Raptor": # 2002 Saleen S7
-			audio_base_pitch = 0.75
-			audio_pitch_range = 1.6
-			audio_character_type = 1
-			audio_volume_offset = 1.2
-		"Linetti Terror": # 2005 Lamborghini Murciélago
-			audio_base_pitch = 1.3
-			audio_pitch_range = 2.3
-			audio_character_type = 2
-			audio_volume_offset = 1.0
 
-		# =============================================
-		# Track Cars (Pure unadulterated high-performance)
-		# =============================================
-		"Bartoli Track Cruiser": # 2005 Maserati MC12
-			audio_base_pitch = 1.26
-			audio_pitch_range = 2.3
+		"Berkshire Tempest": # Vanquish S
+			audio_base_pitch = 0.90
+			audio_pitch_range = 1.85
 			audio_character_type = 2
-			audio_volume_offset = 1.0
-		"Brutus Thunderbolt": # 2004 Ford Shelby Cobra Concept
-			audio_base_pitch = 0.68
+			audio_volume_offset = 0.9
+
+		"Brutus Venom": # Viper RT10
+			audio_base_pitch = 0.65
 			audio_pitch_range = 1.35
 			audio_character_type = 1
-			audio_volume_offset = 1.6
-		"Mir Cars Athletic C70": # 2002 Pagani Zonda
-			audio_base_pitch = 1.32
-			audio_pitch_range = 2.45
+			audio_volume_offset = 1.8
+
+		"Linetti Shepherd": # Gallardo
+			audio_base_pitch = 1.30
+			audio_pitch_range = 2.25
 			audio_character_type = 2
-			audio_volume_offset = 1.2
+			audio_volume_offset = 0.6
+
+		# =============================================
+		# Supercars
+		# =============================================
+
+		"Kestrel Guillotine": # T440R
+			audio_base_pitch = 1.25
+			audio_pitch_range = 2.20
+			audio_character_type = 2
+			audio_volume_offset = 0.7
+
+		"Linetti Firestorm": # Diablo
+			audio_base_pitch = 1.20
+			audio_pitch_range = 2.10
+			audio_character_type = 2
+			audio_volume_offset = 0.9
+
+		"Mir Cars Raptor": # Saleen S7
+			audio_base_pitch = 0.72
+			audio_pitch_range = 1.60
+			audio_character_type = 1
+			audio_volume_offset = 1.4
+
+		"Linetti Terror": # Murcielago
+			audio_base_pitch = 1.35
+			audio_pitch_range = 2.35
+			audio_character_type = 2
+			audio_volume_offset = 1.1
+
+		# =============================================
+		# Track Cars
+		# =============================================
+
+		"Bartoli Track Cruiser": # MC12
+			audio_base_pitch = 1.32
+			audio_pitch_range = 2.40
+			audio_character_type = 2
+			audio_volume_offset = 1.1
+
+		"Brutus Thunderbolt": # Cobra Concept
+			audio_base_pitch = 0.62
+			audio_pitch_range = 1.25
+			audio_character_type = 1
+			audio_volume_offset = 1.8
+
+		"Mir Cars Athletic C70": # Zonda
+			audio_base_pitch = 1.40
+			audio_pitch_range = 2.50
+			audio_character_type = 2
+			audio_volume_offset = 1.3
 
 		# =============================================
 		# Fallback / Default
@@ -915,40 +954,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		nitro.show()
 
 		var nitro_strength := 0.20
-		nitro_top_speed_multiplier = 1.05
-
-		# Sweet spot: 280-500 hp
-		if horsepower < 220.0:
-			nitro_strength = 0.20
-			nitro_top_speed_multiplier = 1.05
-
-		elif horsepower < 280.0:
-			nitro_strength = 0.30
-			nitro_top_speed_multiplier = 1.08
-
-		elif horsepower < 350.0:
-			nitro_strength = 0.70
-			nitro_top_speed_multiplier = 1.12
-
-		elif horsepower < 450.0:
-			nitro_strength = 1.00
-			nitro_top_speed_multiplier = 1.18
-
-		elif horsepower <= 500.0:
-			nitro_strength = 1.25
-			nitro_top_speed_multiplier = 1.22
-
-		# Diminishing returns above 500 hp
-		elif horsepower <= 600.0:
-			nitro_strength = 1.00
-			nitro_top_speed_multiplier = 1.16
-
-		else:
-			nitro_strength = 0.80
-			nitro_top_speed_multiplier = 1.12
-
-		velocity += forward * accel_force * nitro_strength * delta
-
+		var nitro_top_speed_multiplier := 1.10
 	else:
 			nitro.hide()
 			nitro_top_speed_multiplier = 1.0

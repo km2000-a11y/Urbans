@@ -433,6 +433,8 @@ Color8(255, 160, 200) # Pink
 	Color8(255,248,220),  # Ivory White
 	Color8(70,70,70),     # Anthracite Grey
 	Color8(0,0,0),        # Black
+	Color8(0,66,37),
+	Color8(48, 78, 58),
 	Color8(145,145,125)   # Willow Green Metallic
 ],
 "Mir Cars Blazer": [
@@ -552,7 +554,7 @@ var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Seabird",
 	"Kestrel Speedster",
-	"Berkshire Blunt",
+	"Berkshire Falcon",
 	"Mir Cars Blazer"
 ]
 var sedans_list = [
@@ -565,7 +567,7 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-	"Berkshire Falcon",
+	"Berkshire Blunt",
 	"Brutus Stingray",
 	"Berkshire V12-S",
 	"Kestrel Touring"
@@ -686,16 +688,16 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Blunt":[
-	"", "Country: UK", "HP: 370", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.2s", "TOP SPEED: 250 KM/H",
-	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
 "Mir Cars Blazer":[
 	"", "Country: UAE", "HP: 349", "WEIGHT: 1785 KG",
 	"0-100 KM/H: 5.5s", "TOP SPEED: 257 KM/H",
 	"ENGINE: V6 3.2L", "ASPIRATION: Supercharged", "TORQUE: 450 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
+"Berkshire Falcon":[
+	"", "Country: UK", "HP: 300", "WEIGHT: 1715 KG",
+	"0-100 KM/H: 6.1s", "TOP SPEED: 265 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -732,10 +734,10 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-"Berkshire Falcon":[
-	"", "Country: UK", "HP: 300", "WEIGHT: 1715 KG",
-	"0-100 KM/H: 5.9s", "TOP SPEED: 273 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
+	"Berkshire Blunt":[
+	"", "Country: UK", "HP: 370", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 5.4s", "TOP SPEED: 280 KM/H",
+	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	"Brutus Stingray":[
