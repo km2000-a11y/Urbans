@@ -13,32 +13,22 @@ func _ready():
 # ============================================================
 # INPUT HANDLING (DEBUG KEY)
 func _input(event):
-	
-	print("INPUT RECEIVED")
 	if event is InputEventKey and event.pressed and not event.echo:
 
-		if event.unicode != 0:
+		# G = reset career
+		if event.keycode == KEY_G:
+			ClubCups.debug_reset_career()
+			_update_button_states()
 
-			var key_text := char(event.unicode).to_upper()
+		# M = unlock next cup
+		if event.keycode == KEY_M:
+			ClubCups.debug_complete_current_cup()
+			_update_button_states()
 
-			cheat_buffer += key_text
-
-			print("Buffer:", cheat_buffer)
-
-			if cheat_buffer.length() > 20:
-				cheat_buffer = cheat_buffer.substr(
-					cheat_buffer.length() - 20
-				)
-
-			if cheat_buffer.ends_with("CAREERKING"):
-				print("CAREERKING activated!")
-
-				ClubCups.debug_complete_career()
-				ClubCups.save_progress()
-
-				_update_button_states()
-
-				cheat_buffer = ""
+		# N = unlock everything
+		if event.keycode == KEY_N:
+			ClubCups.debug_unlock_all_cups()
+			_update_button_states()
 # ============================================================
 # ============================================================
 # INPUT HANDLING (DEBUG KEY)
