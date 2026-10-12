@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var selected_cup := ""
+var cheat_buffer := ""
 
 func _ready():
 	MusicManager.play_menu_music()
@@ -11,10 +12,33 @@ func _ready():
 	
 # ============================================================
 # INPUT HANDLING (DEBUG KEY)
-# =====================================================================================
-# INPUT HANDLING (DEBUG UNLOCK ACTION)
-# ============================================================
-# CAREER-AWARE CUP START
+func _input(event):
+	
+	print("INPUT RECEIVED")
+	if event is InputEventKey and event.pressed and not event.echo:
+
+		if event.unicode != 0:
+
+			var key_text := char(event.unicode).to_upper()
+
+			cheat_buffer += key_text
+
+			print("Buffer:", cheat_buffer)
+
+			if cheat_buffer.length() > 20:
+				cheat_buffer = cheat_buffer.substr(
+					cheat_buffer.length() - 20
+				)
+
+			if cheat_buffer.ends_with("CAREERKING"):
+				print("CAREERKING activated!")
+
+				ClubCups.debug_complete_career()
+				ClubCups.save_progress()
+
+				_update_button_states()
+
+				cheat_buffer = ""
 # ============================================================
 # ============================================================
 # INPUT HANDLING (DEBUG KEY)

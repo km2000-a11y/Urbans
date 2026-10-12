@@ -19,6 +19,7 @@ var cash_rewards: Dictionary = {
 	"berkshire_cup": 35000,
 	"drop_top_challenge":20000,
 	"under_400_hp": 40000,
+	"low_displacement_challenge":23000,
 	"schroder_cup": 45000,
 	"gentleman_racers": 55000,
 	"kestrel_max": 60000,
@@ -44,6 +45,7 @@ var class_lists: Dictionary = {
 		"Zenith Horizon",
 		"Schroder Atrix Q32",
 		"Kuro Zephyr",
+		"Straeda Volant",
 		"Eisenach Bengal",
 	],
 
@@ -792,3 +794,10 @@ func get_cup_details_text(cup_id: String) -> String:
 		text += "• " + car + "\n"
 
 	return text
+func debug_complete_career():
+	while current_stage < career_order.size():
+		debug_complete_current_cup()
+
+	save_progress()
+
+	print("DEBUG: Career completed")

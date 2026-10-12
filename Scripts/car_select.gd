@@ -745,9 +745,9 @@ var sport = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 280", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 5.4s", "TOP SPEED: 265 KM/H",
-		"ENGINE: L4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+		"", "Country: Germany", "HP: 230", "WEIGHT: 1390 KG",
+		"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
+		"ENGINE: L5 2.2L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 	"Kestrel Touring":[
@@ -927,7 +927,7 @@ var car_scene_paths = {
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
 	"Zenith Prince":"res://Scenes/m35.tscn",
-	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
+	"Schroder Classique Sport":"res://Scenes/audi_s2.tscn",
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
@@ -1562,6 +1562,7 @@ func _on_back_btn_pressed() -> void:
 		$UpgradeMenu.hide()
 	else:
 		get_tree().change_scene_to_file("res://Scenes/mode_select.tscn")
+	Cars.garage_mode=false
 
 func _on_track_cars_pressed():
 	car_class = "track_cars"

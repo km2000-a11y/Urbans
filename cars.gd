@@ -281,7 +281,7 @@ var car_scene_paths := {
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
 	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
 		"Mir Cars Blazer":"res://Scenes/c43.tscn",	
-	"Schroder Classique Sport":"res://Scenes/audi_rs3.tscn",
+	"Schroder Classique Sport":"res://Scenes/audi_s2.tscn",
 
 	"Brutus Viper":"res://Scenes/gt500.tscn",
 	"Mir Cars Hutch":"res://Scenes/chevelle_ss.tscn",

@@ -236,15 +236,36 @@ func _start_lap_cooldown() -> void:
 
 
 func _check_finish() -> void:
-	# Duel ends instantly when ANY car finishes
+	if not is_instance_valid(player_car):
+		return
+
+	if not is_instance_valid(ai_car):
+		return
+
 	if player_car.finished_time >= 0 or ai_car.finished_time >= 0:
 		_end_duel()
 
-
 func _end_duel() -> void:
+	# Prevent double execution
+	if not duel_active:
+		return
+
 	duel_active = false
+
+	# Cars were freed during scene change
+	if not is_instance_valid(player_car):
+		return
+
+	if not is_instance_valid(ai_car):
+		return
+
+	# Disable controls safely
 	player_car.controls_enabled = false
 	ai_car.controls_enabled = false
+
+	# Need waypoints for calculations
+	if player_car.waypoints.is_empty():
+		return
 
 	var participants: Array = []
 	var total_wp: int = player_car.waypoints.size()
@@ -285,25 +306,19 @@ func _end_duel() -> void:
 		"finished": ai_car.finished_time >= 0
 	})
 
-	# --- FINAL SORT (same flawless logic as NormalRaceManager) ---
 	participants.sort_custom(func(a, b):
-		# Finished cars first
 		if a["finished"] != b["finished"]:
 			return a["finished"] and not b["finished"]
 
-		# Both finished → sort by real_time only
 		if a["finished"] and b["finished"]:
 			return a["real_time"] < b["real_time"]
 
-		# Neither finished → sort by progress
 		if a["progress"] != b["progress"]:
 			return a["progress"] > b["progress"]
 
-		# Tie-breaker: distance
 		return a["dist"] < b["dist"]
 	)
 
-	# --- FINAL TIMES ---
 	RaceResults.clear()
 
 	for p in participants:
@@ -315,13 +330,22 @@ func _end_duel() -> void:
 			p["dist"]
 		)
 
-	# Winner = whoever sorted first
 	var winner_car: CarController = participants[0]["car_obj"]
-	main_scene.show_finish(winner_car == player_car)
-	hud.visible = false
-	MusicManager.stop_music()
 
+	if is_instance_valid(main_scene):
+		main_scene.show_finish(winner_car == player_car)
+
+	if is_instance_valid(hud):
+		hud.visible = false
+
+	MusicManager.stop_music()		
 func _calculate_position() -> int:
+	if not is_instance_valid(player_car):
+		return 2
+
+	if not is_instance_valid(ai_car):
+		return 1
+
 	# LAP FIRST
 	if player_laps > ai_laps:
 		return 1
@@ -337,12 +361,23 @@ func _calculate_position() -> int:
 	elif a_wp > p_wp:
 		return 2
 
+	# Safety check
+	if player_car.waypoints.is_empty():
+		return 1
+
+	if p_wp >= player_car.waypoints.size():
+		return 1
+
 	# DISTANCE TO SAME WP
 	var wp := player_car.waypoints[p_wp]
+
 	var p_dist := player_car.global_position.distance_to(wp.global_position)
 	var a_dist := ai_car.global_position.distance_to(wp.global_position)
 
-	return 1 if p_dist < a_dist else 2
+	if p_dist < a_dist:
+		return 1
+
+	return 2
 
 
 func _update_laps_from_progress() -> void:
