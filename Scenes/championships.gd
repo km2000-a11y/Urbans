@@ -110,7 +110,7 @@ func _update_button_states():
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/GentlemanRacers", "gentleman_racers", "Gentleman Racers")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/JapaneseCup", "japanese_cup", "Japanese Cup")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/GermanCup", "german_cup", "German Cup")
-	_update_cup_text("Control/ScrollContainer/VBoxContainer/KestrelMax", "kestrel_max_championship", "Kestrel Max")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/KestrelMax", "kestrel_max", "Kestrel Max")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/V12Engines", "v12_engines", "V12 Engines")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/Supercars", "supercars", "Supercars")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/TrackCars", "track_cars", "Track Cars")

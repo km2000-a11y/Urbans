@@ -99,11 +99,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "EISENACH CUP"
 
-[node name="GermanCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "GERMAN CUP"
-
 [node name="BerkshireCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -118,6 +113,11 @@ text = "DROP TOP CHALLENGE"
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "UNDER 400 HP"
+
+[node name="GermanCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "GERMAN CUP"
 
 [node name="SchroderCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -226,10 +226,10 @@ theme_override_font_sizes/font_size = 20
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/LowDisplacementChallenge" to="." method="_on_low_displacement_challenge_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KuroCup" to="." method="_on_kuro_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/EisenachCup" to="." method="_on_eisenach_cup_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GermanCup" to="." method="_on_german_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BerkshireCup" to="." method="_on_berkshire_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/DropTopChallenge" to="." method="_on_drop_top_challenge_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Under400HP" to="." method="_on_under_400hp_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GermanCup" to="." method="_on_german_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SchroderCup" to="." method="_on_schroder_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AmericanThunder" to="." method="_on_american_thunder_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BritishInvasion" to="." method="_on_british_invasion_pressed"]

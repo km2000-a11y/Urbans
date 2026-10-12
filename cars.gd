@@ -33,7 +33,6 @@ var class_lists: Dictionary = {
 		"Zenith Horizon",
 		"Schroder Atrix Q32",
 		"Straeda Volant",
-		"Kuro Zephyr",
 		"Eisenach Bengal",
 	],
 
@@ -62,7 +61,6 @@ var class_lists: Dictionary = {
 		"Brutus Stingray",
 		"Berkshire Blunt",
 		"Schroder Classique Sport",
-		"Kestrel Touring"
 	],
 
 	"sport_racing": [
@@ -106,7 +104,6 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster"
 	],
 	"kuro_cup":[
-		"Kuro Zephyr",
 		"Kuro Vault",
 		"Kuro Serenity"
 	],
@@ -128,7 +125,6 @@ var class_lists: Dictionary = {
 	"Colossus Titan Max",
 	"Berkshire Falcon",
 	"Kestrel Speedster",
-	"Kestrel Touring",
 	"Zenith Prince",
 	"Berkshire Blunt",
 	"Brutus Stingray",
@@ -146,7 +142,6 @@ var class_lists: Dictionary = {
 	"Schroder Classique Sport",
 	"Eisenach Bengal",
 	"Mir Cars Nightwolf",
-	"Kuro Zephyr"
 ],
 "berkshire_cup":[
 	"Berkshire Blunt",
@@ -161,7 +156,7 @@ var class_lists: Dictionary = {
 ],
 "low_displacement_challenge":[
 		"Kestrel Seabird",
-		"Kuro Zephyr",
+
 		"Schroder Classique Sport",
 		"Straeda Volant",
 		"Strandberg Turbo"
@@ -175,7 +170,6 @@ var class_lists: Dictionary = {
 	"Kuro Serenity",
 	"Brutus Stingray",
 	"Berkshire Blunt",
-	"Kestrel Touring",
 ],
 	"diesel_masters": [
 		
@@ -197,7 +191,6 @@ var class_lists: Dictionary = {
 		"Berkshire Falcon",
 		"Kestrel Speedster",
 		"Berkshire Tempest",
-		"Kestrel Touring",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
 	],
@@ -229,7 +222,7 @@ var class_lists: Dictionary = {
 	],
 		"japanese_cup":[
 		"Zenith Horizon",
-		"Kuro Zephyr",
+
 		"Zenith Prince",
 		"Kuro Serenity",
 		"Kuro Vault"
@@ -246,7 +239,6 @@ var class_lists: Dictionary = {
 
 	],
 		"kestrel_max":[
-		"Kestrel Touring",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
 	],

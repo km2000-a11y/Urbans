@@ -538,7 +538,6 @@ var suv_list = [
 ]
 
 var compact_list = [
-	"Kuro Zephyr",
 	"Straeda Volant",
 	"Schroder Atrix Q32",
 	"Eisenach Bengal",
@@ -568,9 +567,8 @@ var sedans_list = [
 var sport_list = [
 	"Schroder Classique Sport",
 	"Berkshire Blunt",
-	"Brutus Stingray",
 	"Berkshire V12-S",
-	"Kestrel Touring"
+	"Brutus Stingray",
 ]
 
 var sport_racing_list = [
@@ -730,19 +728,19 @@ var sedans = {
 var sport = {
 	"Berkshire V12-S":[
 		"", "Country: UK", "HP: 450", "WEIGHT: 1740 KG",
-		"0-100 KM/H: 5.1s", "TOP SPEED: 296 KM/H",
+		"0-100 KM/H: 4.9s", "TOP SPEED: 300 KM/H",
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Berkshire Blunt":[
-	"", "Country: UK", "HP: 370", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.4s", "TOP SPEED: 280 KM/H",
-	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
+	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 5.2s", "TOP SPEED: 280 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	"Brutus Stingray":[
 		"", "Country: USA", "HP: 400", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 4.8s", "TOP SPEED: 284 KM/H",
+		"0-100 KM/H: 4.3s", "TOP SPEED: 293 KM/H",
 		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 545 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],

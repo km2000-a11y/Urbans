@@ -44,7 +44,6 @@ var class_lists: Dictionary = {
 	"compact": [
 		"Zenith Horizon",
 		"Schroder Atrix Q32",
-		"Kuro Zephyr",
 		"Straeda Volant",
 		"Eisenach Bengal",
 	],
@@ -75,7 +74,6 @@ var class_lists: Dictionary = {
 		"Berkshire Falcon",
 		"Brutus Stingray",
 		"Schroder Classique Sport",
-		"Kestrel Touring"
 	],
 
 	"sport_racing": [
@@ -119,7 +117,6 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster"
 	],
 	"kuro_cup":[
-		"Kuro Zephyr",
 		"Kuro Vault",
 		"Kuro Serenity"
 	],
@@ -137,7 +134,7 @@ var class_lists: Dictionary = {
 	"Zenith Prince",
 	"Schroder Atrix Q32",
 	"Colossus Titan Max",
-	"Kestrel Touring",
+
 	"Berkshire Blunt",
 	"Kestrel Speedster",
 	"Brutus Stingray",
@@ -156,7 +153,6 @@ var class_lists: Dictionary = {
 	"Schroder Classique Sport",
 	"Eisenach Bengal",
 	"Mir Cars Nightwolf",
-	"Kuro Zephyr"
 ],
 "v8_fury":[
 	"Mir Cars Hutch",
@@ -165,7 +161,6 @@ var class_lists: Dictionary = {
 	"Kuro Serenity",
 	"Brutus Stingray",
 	"Berkshire Blunt",
-	"Kestrel Touring",
 ],
 "drop_top_challenge":[
 	"Schroder Atrix Q32",
@@ -193,7 +188,7 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Kestrel Touring",
+
 		"Berkshire Falcon",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
@@ -215,7 +210,6 @@ var class_lists: Dictionary = {
 	],
 	"low_displacement_challenge":[
 		"Kestrel Seabird",
-		"Kuro Zephyr",
 		"Schroder Classique Sport",
 		"Straeda Volant",
 		"Strandberg Turbo"
@@ -232,7 +226,6 @@ var class_lists: Dictionary = {
 	],
 		"japanese_cup":[
 		"Zenith Horizon",
-		"Kuro Zephyr",
 		"Kuro Serenity",
 		"Zenith Prince",
 		"Kuro Vault"
@@ -256,7 +249,6 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 	],
 		"kestrel_max":[
-		"Kestrel Touring",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
 	],
@@ -267,7 +259,7 @@ var class_lists: Dictionary = {
 	]
 }
 var cup_rewards: Dictionary = {
-	"colossus": "Kuro Zephyr",
+	"colossus": "Eisenach Bengal",
 	"street_tuners": "Brutus Viper",
 	"muscle_hustle": "Schroder Atrix Q32",
 	"v6_engines": "Zenith Horizon",
@@ -280,7 +272,7 @@ var cup_rewards: Dictionary = {
 	"under_400_hp": "Schroder Classique Sport",
 	"schroder_cup": "Brutus Stingray",
 	"stingray_competition": "Berkshire V12-S",
-	"gentleman_racers": "Kestrel Touring",
+	"gentleman_racers": "Kestrel Battleaxe",
 	"kestrel_max": "Linetti Shepherd",
 	"sport_racing": "Linetti Firestorm",
 	"v12_engines": "Linetti Terror",
@@ -383,7 +375,6 @@ var cups: Dictionary = {
 			"Schroder Atrix Q32",
 			"Straeda Volant",
 			"Zenith Horizon",
-			"Kuro Zephyr",
 			"Eisenach Bengal",
 		]
 	},
@@ -425,7 +416,6 @@ var cups: Dictionary = {
 	"eligible_classes": ["low_displacement_challenge"],
 	"eligible_cars": [
 "Kestrel Seabird",
-		"Kuro Zephyr",
 		"Schroder Classique Sport",
 		"Straeda Volant",
 		"Strandberg Turbo"
@@ -513,7 +503,6 @@ var cups: Dictionary = {
 "kuro_cup":{
 	"eligible_classes":["kuro_cup"],
 	"eligible_cars":[
-		"Kuro Zephyr",
 		"Kuro Vault",
 		"Kuro Serenity"
 	]
@@ -572,7 +561,6 @@ var cups: Dictionary = {
 	"Colossus Behemoth",
 	"Eisenach Bengal",
 	"Mir Cars Nightwolf",
-	"Kuro Zephyr"
 	]
 },
 "stingray_competition":{
@@ -605,7 +593,7 @@ var cups: Dictionary = {
 	"eligible_classes":["japanese_cup"],
 	"eligible_cars":[
 			"Zenith Horizon",
-		"Kuro Zephyr",
+			"Zenith Prince",
 		"Kuro Serenity",
 		"Kuro Vault"
 	]
