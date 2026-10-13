@@ -8,7 +8,8 @@ const HARD_LIMIT_KMH := 400.0
 const HARD_LIMIT := HARD_LIMIT_KMH / 3.6
 var display_hp := 0.0
 var display_weight := 0.0
-
+var ai_dodge_timer:=0.0
+var ai_dodge_dir:=0.0
 
 # --- ROLE FLAGS ---
 var is_ai: bool = false
@@ -60,7 +61,7 @@ var ai_brake: float = 0.0
 var ai_steer: float = 0.0
 static var ai_names := [
 	"David", "Takashi", "Ricco", "Chris", "Petar", "Nina",
-	"Steve", "Linus", "Chris", "Jesse", "Dimitri", "Mirko",
+	"Steve", "Linus", "Chris", "Jesse", "Dimitri", "Mirko","Jared","Kyle","Victor",
 	"Abdullah", "Will", "Jimmy M.", "Gandi", "Tiffany", "Hoff", "Jake", "Britney","Laura","Francesca","Looping","Alex","Math","Sam","Gordon"
 ]
 
@@ -89,7 +90,7 @@ var is_diesel := false
 var nitro_time: float = 0.0
 var nitro_cooldown: float = 0.0
 var nitro_active: bool = false
-
+var ai_dodge_bias: float = 1.0
 
 var horsepower := 150.0
 var max_rpm := 6500.0
@@ -1058,7 +1059,6 @@ func _update_ai_inputs(delta: float) -> void:
 	var to_wp := target - global_position
 	var dist := to_wp.length()
 
-	# Skip waypoint if close
 	if dist < 6.0:
 		current_wp = (current_wp + 1) % waypoints.size()
 
@@ -1071,29 +1071,24 @@ func _update_ai_inputs(delta: float) -> void:
 		current_wp = (current_wp + 1) % waypoints.size()
 		return
 
-	# --- RUN TRAFFIC DODGE EVALUATION ---
-	traffic_dodge = _check_traffic()
+	# Scan traffic with persistent dodge memory
+	traffic_dodge = _check_traffic(delta)
 
-	# --- STEERING COMBINED WITH TRAFFIC AVOIDANCE ---
 	var angle := forward.signed_angle_to(dir, Vector3.UP)
 	
-	# Blend waypoint tracking angle with the traffic dodge offset
-	ai_steer = clamp(
-		(angle * 2.0) + (traffic_dodge * 1.5),
-		-1.0,
-		1.0
-	)
-
-	# --- THROTTLE & CORNER/TRAFFIC BRAKING ---
-	ai_throttle = 1.0
-
-	if abs(angle) > 0.6:
-		ai_brake = max(ai_brake, 0.3) # Keep existing corner braking
-	
-	# If we are actively dodging or hemmed in, scale back throttle slightly for better control
-	if abs(traffic_dodge) > 0.2:
-		ai_throttle = 0.7
-		
+	# --- AGGRESSIVE OVERTAKE & DODGE OVERRIDE ---
+	if traffic_dodge != 0.0:
+		# Steer sharply away from the obstacle, but FORCE forward throttle
+		ai_steer = clamp(traffic_dodge * 2.5, -1.0, 1.0) 
+		ai_throttle = 1.0       # Keep full forward throttle
+		ai_brake = 0.0          # Absolutely no braking or reversing
+	else:
+		ai_steer = clamp(angle * 2.0, -1.0, 1.0)
+		ai_throttle = 1.0
+		ai_brake = 0.0
+		if abs(angle) > 0.7:
+			ai_brake = 0.15
+			
 func update_waypoint():
 	if is_ai:
 		_update_ai_waypoint()
@@ -1218,38 +1213,55 @@ func distance_travelled_in_current_lap() -> float:
 
 	# Clamp to lap length
 	return clamp(dist, 0.0, lap_dist)
-func _check_traffic() -> float:
 
-	var space := get_world_3d().direct_space_state
-
-	var forward := -transform.basis.z.normalized()
-
-	var query := PhysicsRayQueryParameters3D.create(
-		global_position,
-		global_position + forward * traffic_detect_distance
-	)
-
-	query.exclude = [get_rid()]
-
-	var result := space.intersect_ray(query)
-
-	if result.is_empty():
-		return 0.0
-
-	var collider = result["collider"]
-
-	if collider.is_in_group("traffic"):
-
-			var right := transform.basis.x.normalized()
-
-			var to_car :Vector3= collider.global_position - global_position
-
-			var side := right.dot(to_car)
-
-			if side > 0.0:
-				return -0.75
-
+func _check_traffic(delta: float) -> float:
+	var space: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	var forward := -transform.basis.z
+	forward.y = 0.0
+	forward = forward.normalized()
+	var right := transform.basis.x.normalized()
+	
+	# Raise the origin slightly above the car body to prevent false self-hits
+	var origin := global_position + Vector3.UP * 0.8
+	
+	# 1. Cast a wider, longer check ahead (look 25 meters out)
+	var front_query := PhysicsRayQueryParameters3D.create(origin, origin + forward * 25.0)
+	front_query.exclude = [get_rid()]
+	var hit := space.intersect_ray(front_query)
+	
+	if not hit.is_empty():
+		var collider = hit.get("collider")
+		
+		# Check if we are looking at another car (Traffic or AI)
+		if collider and (collider is CharacterBody3D) and collider != self:
+			
+			# Check left and right clearance to see which escape route is open
+			var left_origin = origin - right * 1.5
+			var right_origin = origin + right * 1.5
+			
+			var left_query := PhysicsRayQueryParameters3D.create(left_origin, left_origin + forward * 15.0)
+			left_query.exclude = [get_rid()]
+			var left_hit := space.intersect_ray(left_query)
+			
+			var right_query := PhysicsRayQueryParameters3D.create(right_origin, right_origin + forward * 15.0)
+			right_query.exclude = [get_rid()]
+			var right_hit := space.intersect_ray(right_query)
+			
+			var left_clear = left_hit.is_empty()
+			var right_clear = right_hit.is_empty()
+			
+			# Steer toward whichever side is actually clear!
+			if left_clear and not right_clear:
+				return -1.0 # Steer Left safely
+			elif right_clear and not left_clear:
+				return 1.0  # Steer Right safely
+			elif left_clear and right_clear:
+				# Both open? Check where the car is relative to us and go opposite
+				var to_other = collider.global_position - global_position
+				var side_dot = right.dot(to_other.normalized())
+				return -1.0 if side_dot >= 0.0 else 1.0
 			else:
-				return 0.75
-
-	return 0.0
+				# Both sides blocked, default to a safe side instead of freezing/reversing
+				return 1.0
+				
+	return 0.0 # Path completely clear, no dodge needed

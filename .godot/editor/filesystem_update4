@@ -1,9 +1,5 @@
-res://Tracks/new_york.tscn
-res://Scripts/audi_tt_roadster_32_2004.gd
-res://Scripts/car_select.gd
-res://club_cups.gd
-res://Scenes/rs3.gd
 res://main.tscn
+res://Scripts/base_car.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -56,6 +52,7 @@ res://Scenes/championships.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/language_menu.tscn
+res://Tracks/new_york.tscn
 res://Tracks/las_vegas.tscn
 res://Scenes/c43.tscn
 res://Scenes/m35.tscn
@@ -64,11 +61,10 @@ res://Scenes/morgan_aero_8.tscn
 res://Scenes/lotus_exige_s.tscn
 res://Scenes/vanquish.tscn
 res://Scenes/xk8.tscn
-res://Scripts/traffic.gd
 res://nissan_micra.tscn
 res://toyota_camry.tscn
 res://mercedes_sl.tscn
-res://main.gd
 res://astro.tscn
-res://Scripts/base_car.gd
 res://bus.tscn
+res://volvo_850.tscn
+res://Scripts/traffic.gd

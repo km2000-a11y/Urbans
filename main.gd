@@ -612,54 +612,59 @@ func _format_radar_speed(speed_kmh: float) -> String:
 func _on_countdown_finished():
 	MusicManager.play_race_music()
 func spawn_traffic() -> void:
-
 	var root: Node = get_node(TrackName.track_name)
-
 	var wp_root: Node = safe_get(root, "Waypoints")
 
 	if wp_root == null:
 		return
 
 	var waypoints: Array = wp_root.get_children()
-
 	if waypoints.is_empty():
 		return
 
 	var random_wp: Node3D = waypoints.pick_random()
-
-
-	var choice: int = randi() % 4
-
 	var chosen_path: String = get_random_traffic_path()
-
 	var car_scene: PackedScene = load(chosen_path)
 
 	if car_scene == null:
 		push_error("Traffic scene missing: " + chosen_path)
 		return
 
-
 	var traffic_car: CharacterBody3D = car_scene.instantiate()
+	
+	if not traffic_car.is_in_group("traffic"):
+		traffic_car.add_to_group("traffic")
 
 	add_child(traffic_car)
 
 	var spawn_pos: Vector3 = random_wp.global_position
-
 	var space = random_wp.get_world_3d().direct_space_state
 
-	var query := PhysicsRayQueryParameters3D.create(
-		spawn_pos + Vector3.UP * 50.0,
-		spawn_pos + Vector3.DOWN * 200.0
-	)
+	# Start right at the waypoint's height, casting down just far enough 
+	# to find the road directly beneath the waypoint (e.g., 2 meters up to 3 meters down)
+	var ray_start = spawn_pos + Vector3.UP * 2.0
+	var ray_end = spawn_pos + Vector3.DOWN * 3.0
+
+	var query := PhysicsRayQueryParameters3D.create(ray_start, ray_end)
+	query.exclude = [traffic_car]
 
 	var result := space.intersect_ray(query)
 
 	if not result.is_empty():
-		spawn_pos = result["position"] + Vector3.UP * 0.5
+		var normal: Vector3 = result["normal"]
+		if normal.dot(Vector3.UP) > 0.5:
+			# Adjust this 1.05 offset if your cars still float slightly or clip the road
+			spawn_pos = result["position"] + Vector3.UP * 1.05 
+		else:
+			spawn_pos.y += 1.05
+	else:
+		spawn_pos.y += 1.05
 
 	traffic_car.global_position = spawn_pos
-	traffic_car.rotation.y = random_wp.rotation.y * 0.5
+	traffic_car.global_transform.basis = random_wp.global_transform.basis
 
+	traffic_car.global_position = spawn_pos
+	traffic_car.global_transform.basis = random_wp.global_transform.basis
 func get_random_traffic_path() -> String:
 
 	var roll := randi_range(1, 100)
