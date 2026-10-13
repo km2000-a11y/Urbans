@@ -61,7 +61,7 @@ func _ready():
 		await get_tree().process_frame
 
 		# Трафик только в одиночной игре (в LAN он не синхронизируется)
-		if not is_lan:
+		if Modes.mode!="Radar Race":
 			for i: int in range(20):
 				spawn_traffic()
 	else:
