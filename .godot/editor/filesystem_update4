@@ -1,5 +1,5 @@
 res://main.tscn
-res://Scripts/base_car.gd
+res://main.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -67,4 +67,3 @@ res://mercedes_sl.tscn
 res://astro.tscn
 res://bus.tscn
 res://volvo_850.tscn
-res://Scripts/traffic.gd

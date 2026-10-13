@@ -61,7 +61,7 @@ func _ready():
 		await get_tree().process_frame
 		await get_tree().process_frame
 		
-		for i: int in range(13):
+		for i: int in range(20):
 			spawn_traffic()
 	else:
 		push_error("Track file missing: " + track_file)
