@@ -14,7 +14,7 @@ func _ready():
 	horsepower = 230
 	max_rpm = 7200.0
 	zero_to_hundred = 5.4
-	top_speed_kmh = 259
+	top_speed_kmh = 263
 
 	# Older chassis, but excellent quattro grip
 	turn_speed = 2.75

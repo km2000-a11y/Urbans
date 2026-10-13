@@ -639,7 +639,7 @@ var cups: Dictionary = {
 },
 
 "supercars":{
-	"eligible_classess":["supercars"],
+	"eligible_classes":["supercars"],
 	"eligible_cars":[
 				"Linetti Terror",
 		"Linetti Firestorm",

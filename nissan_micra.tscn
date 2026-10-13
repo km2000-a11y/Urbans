@@ -61,7 +61,7 @@ top_radius = 0.12
 bottom_radius = 0.12
 height = 0.1
 
-[node name="NissanMicra" type="CharacterBody3D"]
+[node name="NissanMicra" type="CharacterBody3D" groups=["traffic"]]
 script = ExtResource("1_3suvb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -139,11 +139,11 @@ material_override = SubResource("StandardMaterial3D_7uggn")
 mesh = SubResource("CylinderMesh_6dw11")
 
 [node name="MeshInstance3D15" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0.405071, 0.0516084, 0.721559)
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0.329608, 0.0516084, 0.721559)
 material_override = SubResource("StandardMaterial3D_7uggn")
 mesh = SubResource("CylinderMesh_6dw11")
 
 [node name="MeshInstance3D16" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0.405071, 0.0821174, 0.234245)
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0.345885, 0.0821174, 0.234245)
 material_override = SubResource("StandardMaterial3D_7uggn")
 mesh = SubResource("CylinderMesh_6dw11")

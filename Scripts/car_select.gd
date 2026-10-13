@@ -81,7 +81,7 @@ var car_prices := {
 	"Kuro Zephyr": 38000,
 	"Schroder Atrix Q32": 50000,
 	"Zenith Horizon": 60000,
-	"Eisenach Bengal": 65000,
+	"Eisenach Bengal": 50000,
 	"Berkshire Falcon": 117000,
 
 	"Schroder Suppressor": 95000,
@@ -98,9 +98,9 @@ var car_prices := {
 	"Mir Cars Blazer": 130000,
 
 	"Schroder Classique Sport": 135000,
-	"Brutus Stingray": 150000,
+	"Brutus Stingray": 200000,
 	"Berkshire Tempest":275000,
-	"Berkshire V12-S": 190000,
+	"Berkshire V12-S": 170000,
 	"Kestrel Touring": 220000,
 
 	"Kronstadt Beast": 250000,
@@ -629,7 +629,7 @@ var compact = {
 	],
 	"Schroder Atrix Q32":[
 		"", "Country: Germany", "HP: 247", "WEIGHT: 1470 KG",
-		"0-100 KM/H: 6.6s", "TOP SPEED: 247 KM/H",
+		"0-100 KM/H: 6.6s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V6 3.2L", "ASPIRATION: NA", "TORQUE: 320 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
@@ -746,7 +746,7 @@ var sport = {
 	],
 	"Schroder Classique Sport":[
 		"", "Country: Germany", "HP: 230", "WEIGHT: 1390 KG",
-		"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
+		"0-100 KM/H: 5.4s", "TOP SPEED: 263 KM/H",
 		"ENGINE: L5 2.2L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],

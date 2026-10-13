@@ -494,7 +494,7 @@ transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -4.85344, 12, 3.55271e-15)
 mesh = SubResource("BoxMesh_bvsrs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D37/MeshInstance3D3/MeshInstance3D2/MeshInstance3D4/MeshInstance3D"]
-transform = Transform3D(-1.31134e-07, 2.5, 0, -3, -1.09278e-07, 0, 0, 0, 1, -5.81136e-08, -1.32948, 2.734)
+transform = Transform3D(-1.31134e-07, 2.5, 0, -3, -1.09278e-07, 0, 0, 0, 1, -5.81136e-08, -1.32948, 0.568423)
 material_override = SubResource("StandardMaterial3D_xqb1n")
 mesh = SubResource("TextMesh_u54si")
 
@@ -512,7 +512,7 @@ material_override = SubResource("StandardMaterial3D_78s01")
 mesh = SubResource("BoxMesh_soy68")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D37/MeshInstance3D3/MeshInstance3D2/MeshInstance3D6/MeshInstance3D"]
-transform = Transform3D(-1.31134e-07, 1.5, 0, -3, -6.55671e-08, 0, 0, 0, 1, 1.30975, 1.42109e-14, 2)
+transform = Transform3D(-1.31134e-07, 1.5, 0, -3, -6.55671e-08, 0, 0, 0, 1, 1.30975, 8.9407e-08, 0.740033)
 material_override = SubResource("StandardMaterial3D_av7yq")
 mesh = SubResource("TextMesh_etfcr")
 

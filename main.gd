@@ -6,7 +6,13 @@ var player_car: CarController
 var race_started: bool = false
 var is_lan := false
 var career_progress: Dictionary = {}  # cup_id -> { "normal":false, "duel":false, "elimination":false, "radar":false }
-
+var traffic_scene_paths: Array[String] = [
+	"res://nissan_micra.tscn",
+	"res://toyota_camry.tscn",
+	"res://mercedes_sl.tscn",
+	"res://astro.tscn",
+	"res://bus.tscn"
+]
 
 @onready var finish_flash := $FinishFlash
 @onready var start_countdown := $Start
@@ -54,6 +60,9 @@ func _ready():
 
 		await get_tree().process_frame
 		await get_tree().process_frame
+		
+		for i: int in range(13):
+			spawn_traffic()
 	else:
 		push_error("Track file missing: " + track_file)
 		return
@@ -602,3 +611,70 @@ func _format_radar_speed(speed_kmh: float) -> String:
 		return "%d km/h" % speed_kmh
 func _on_countdown_finished():
 	MusicManager.play_race_music()
+func spawn_traffic() -> void:
+
+	var root: Node = get_node(TrackName.track_name)
+
+	var wp_root: Node = safe_get(root, "Waypoints")
+
+	if wp_root == null:
+		return
+
+	var waypoints: Array = wp_root.get_children()
+
+	if waypoints.is_empty():
+		return
+
+	var random_wp: Node3D = waypoints.pick_random()
+
+
+	var choice: int = randi() % 4
+
+	var chosen_path: String = get_random_traffic_path()
+
+	var car_scene: PackedScene = load(chosen_path)
+
+	if car_scene == null:
+		push_error("Traffic scene missing: " + chosen_path)
+		return
+
+
+	var traffic_car: CharacterBody3D = car_scene.instantiate()
+
+	add_child(traffic_car)
+
+	var spawn_pos: Vector3 = random_wp.global_position
+
+	var space = random_wp.get_world_3d().direct_space_state
+
+	var query := PhysicsRayQueryParameters3D.create(
+		spawn_pos + Vector3.UP * 50.0,
+		spawn_pos + Vector3.DOWN * 200.0
+	)
+
+	var result := space.intersect_ray(query)
+
+	if not result.is_empty():
+		spawn_pos = result["position"] + Vector3.UP * 0.5
+
+	traffic_car.global_position = spawn_pos
+	traffic_car.rotation.y = random_wp.rotation.y * 0.5
+
+func get_random_traffic_path() -> String:
+
+	var roll := randi_range(1, 100)
+
+	if roll <= 35:
+		return "res://nissan_micra.tscn"      # 35%
+
+	elif roll <= 65:
+		return "res://toyota_camry.tscn"      # 30%
+
+	elif roll <= 85:
+		return "res://astro.tscn"             # 20%
+
+	elif roll <= 97:
+		return "res://mercedes_sl.tscn"       # 12%
+
+	else:
+		return "res://bus.tscn"               # 3%

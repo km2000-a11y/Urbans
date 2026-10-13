@@ -104,6 +104,8 @@ var current_gear := 1
 var shift_up_rpm := 6200
 var shift_down_rpm := 2000
 var total_race_time: int = 0
+var traffic_dodge := 0.0
+var traffic_detect_distance := 20.0
 
 
 var acceleration_calc := 0.0
@@ -1053,62 +1055,45 @@ func _update_ai_inputs(delta: float) -> void:
 
 	var wp := waypoints[current_wp] as Node3D
 	var target := wp.global_position
-
 	var to_wp := target - global_position
-
-
 	var dist := to_wp.length()
 
-	# skip waypoint if too close
+	# Skip waypoint if close
 	if dist < 6.0:
 		current_wp = (current_wp + 1) % waypoints.size()
 
-
 	var dir := to_wp.normalized()
-
 	var forward := -transform.basis.z
 	forward = forward.normalized()
 
-	# --- NEVER REVERSE ---
 	var dot := forward.dot(dir)
-
-	# waypoint behind the car
 	if dot < -0.4:
 		current_wp = (current_wp + 1) % waypoints.size()
 		return
 
+	# --- RUN TRAFFIC DODGE EVALUATION ---
+	traffic_dodge = _check_traffic()
 
-	# --- UNSTICK FROM WALLS ---
-	for i in range(get_slide_collision_count()):
-		var col := get_slide_collision(i)
-		var other := col.get_collider()
-
-		if other is CharacterBody3D and not (other is CarController):
-			continue
-
-		var n := col.get_normal()
-		n.y = 0.0
-		n = n.normalized()
-
-		if n.length() < 0.35:
-			continue
-
-		var push := velocity.dot(n)
-		if push > 0.0:
-			velocity -= n * push
-
-	# --- STEERING ---
+	# --- STEERING COMBINED WITH TRAFFIC AVOIDANCE ---
 	var angle := forward.signed_angle_to(dir, Vector3.UP)
-	ai_steer = clamp(angle * 2.0, -1.0, 1.0)
+	
+	# Blend waypoint tracking angle with the traffic dodge offset
+	ai_steer = clamp(
+		(angle * 2.0) + (traffic_dodge * 1.5),
+		-1.0,
+		1.0
+	)
 
-	# --- THROTTLE ---
+	# --- THROTTLE & CORNER/TRAFFIC BRAKING ---
 	ai_throttle = 1.0
 
-	# --- CORNER BRAKING ---
 	if abs(angle) > 0.6:
-		ai_brake = 0.3
-	else:
-		ai_brake = 0.0
+		ai_brake = max(ai_brake, 0.3) # Keep existing corner braking
+	
+	# If we are actively dodging or hemmed in, scale back throttle slightly for better control
+	if abs(traffic_dodge) > 0.2:
+		ai_throttle = 0.7
+		
 func update_waypoint():
 	if is_ai:
 		_update_ai_waypoint()
@@ -1233,3 +1218,38 @@ func distance_travelled_in_current_lap() -> float:
 
 	# Clamp to lap length
 	return clamp(dist, 0.0, lap_dist)
+func _check_traffic() -> float:
+
+	var space := get_world_3d().direct_space_state
+
+	var forward := -transform.basis.z.normalized()
+
+	var query := PhysicsRayQueryParameters3D.create(
+		global_position,
+		global_position + forward * traffic_detect_distance
+	)
+
+	query.exclude = [get_rid()]
+
+	var result := space.intersect_ray(query)
+
+	if result.is_empty():
+		return 0.0
+
+	var collider = result["collider"]
+
+	if collider.is_in_group("traffic"):
+
+			var right := transform.basis.x.normalized()
+
+			var to_car :Vector3= collider.global_position - global_position
+
+			var side := right.dot(to_car)
+
+			if side > 0.0:
+				return -0.75
+
+			else:
+				return 0.75
+
+	return 0.0
