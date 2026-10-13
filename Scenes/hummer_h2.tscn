@@ -250,6 +250,7 @@ draw_pass_1 = SubResource("QuadMesh_twcfh")
 
 [node name="RevPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_bh44a")
+volume_db = -10.0
 
 [node name="BrakePlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_2o1hv")

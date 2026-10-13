@@ -714,18 +714,24 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			var rear_end := behind_them and same_direction
 
 			if rear_end:
+				# --- MASS-BASED MOMENTUM RETENTION ---
+				# Heavier cars lose less speed. mass_ratio compares our mass to the victim's mass.
+				# If we are much heavier, our speed reduction multiplier is much closer to 1.0 (no slowdown).
+				var mass_ratio :float= mass / max(other_car.mass, 1.0)
+				var speed_retention :float= clamp(0.7 + (mass_ratio - 1.0) * 0.15, 0.7, 0.98)
 
-				# Keep 70% of speed
+				# Keep a high percentage of speed based on weight
 				var flat := Vector3(velocity.x, 0.0, velocity.z)
 
 				if flat.length() > 0.0:
-					flat *= 0.7
+					flat *= speed_retention
 
 					velocity.x = flat.x
 					velocity.z = flat.z
 
-				# Push victim forward
-				other_car.velocity += my_forward * flat.length() * 0.25
+				# Push victim forward more forcefully if we are heavy
+				var push_power :float= clamp(0.25 * mass_ratio, 0.1, 0.6)
+				other_car.velocity += my_forward * flat.length() * push_power
 
 			else:
 

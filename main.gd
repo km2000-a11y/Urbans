@@ -24,18 +24,17 @@ var traffic_scene_paths: Array[String] = [
 @onready var radar_target_label := $HUD/Control/RadarTargetLabel
 
 func safe_get(node: Node, path: String) -> Node:
-	if node.has_node(path):
+	if node and node.has_node(path):
 		return node.get_node(path)
 	return null
 
 func _ready():
-	if Modes.mode=="Radar Race":
+	if Modes.mode == "Radar Race":
 		MusicManager.play_race_music()
 	start_countdown.countdown_finished.connect(_on_countdown_finished)
 	mode = Modes.mode if Modes.mode != null else ""
 	if mode == "":
 		mode = "Normal Race"
-
 
 	Cars.load_color()
 	career_progress = ClubCups.career_progress
@@ -43,7 +42,7 @@ func _ready():
 	$EliminationWinScreen.visible = false
 	if GameMode.game_mode == "Road Challenge":
 		Modes.mode = "Normal Race"
-	
+
 	var track_name := TrackName.track_name
 
 	if not TrackRegistry.tracks.has(track_name):
@@ -60,41 +59,33 @@ func _ready():
 
 		await get_tree().process_frame
 		await get_tree().process_frame
-		
-		for i: int in range(20):
-			spawn_traffic()
+
+		# Трафик только в одиночной игре (в LAN он не синхронизируется)
+		if not is_lan:
+			for i: int in range(20):
+				spawn_traffic()
 	else:
 		push_error("Track file missing: " + track_file)
 		return
 
-	if mode == "Duel":
+	if is_lan:
+		_spawn_lan_player()
+	elif mode == "Duel":
 		_setup_duel()
-		
-
 	elif mode.to_lower() == "normal race":
-		_setup_normal_race()       # now safe
-
-	
+		_setup_normal_race()
 	elif mode == "Elimination":
 		_setup_elimination()
-
-
 	elif mode == "Cop Chase":
 		_setup_cop_chase()
-
 	else:
-		if is_lan:
-			_spawn_lan_player()
-		else:
-			_spawn_player_free_drive()
+		_spawn_player_free_drive()
 
 	if mode == "Radar Race":
 		var target := Cars.get_radar_target_speed()
 		var formatted := _format_radar_speed(target)
 		radar_target_label.text = "Target: %s" % formatted
 
-		
-		
 		var ws_scene = load("res://Scenes/win_screen_radar.tscn")
 		win_screen_radar = ws_scene.instantiate()
 		add_child(win_screen_radar)
@@ -109,35 +100,39 @@ func _ready():
 
 func _start_mode_countdown(cars: Array):
 	start_countdown.start_countdown(cars)
+func _format_radar_speed(speed_kmh: float) -> String:
+	var use_mph := SpeedSettings.SPEED_UNIT == "mph"
 
+	if use_mph:
+		var mph := speed_kmh * 0.621371
+		return "%d mph" % mph
+	else:
+		return "%d km/h" % speed_kmh
 func _process(delta):
 	if not race_started:
 		return
 
 	match mode:
-			"Duel":
-				DuelManager.update_duel()
+		"Duel":
+			DuelManager.update_duel()
 
-			"Radar Race":
-				pass
+		"Radar Race":
+			pass
 
-			_:
-				if mode.to_lower() == "normal race":
-					if is_lan:
-						# LAN safety: only update if car is valid
-						if player_car and is_instance_valid(player_car):
-							NormalRaceManager.update_race()
-					else:
-						# SINGLE PLAYER: always update
+		_:
+			if mode.to_lower() == "normal race":
+				if is_lan:
+					# LAN safety: only update if car is valid
+					if player_car and is_instance_valid(player_car):
 						NormalRaceManager.update_race()
+				else:
+					NormalRaceManager.update_race()
 
-				elif mode == "Elimination":
-					EliminationManager.update_race()
+			elif mode == "Elimination":
+				EliminationManager.update_race()
 
-				elif mode == "Cop Chase":
-					CopChaseManager.update_chase(delta)
-
-
+			elif mode == "Cop Chase":
+				CopChaseManager.update_chase(delta)
 
 func _input(event):
 	if event.is_action_pressed("pause_menu"):
@@ -223,7 +218,6 @@ func _setup_normal_race():
 		if player_car:
 			player_car.queue_free()
 		player_car = null
-
 
 	var root := get_node(TrackName.track_name)
 
@@ -377,14 +371,16 @@ func _force_player_camera():
 	if player_car.has_node("Camera3D"):
 		player_car.get_node("Camera3D").current = true
 
-func _apply_color_to_car(car: CarController, color: Color):
+func _apply_color_to_car(car: Node, color: Color):
 	if car.has_node("ModelRoot/Body"):
 		var body = car.get_node("ModelRoot/Body")
 		for child in body.get_children():
 			if child is MeshInstance3D:
 				var mat = child.get_active_material(0)
 				if mat:
-					mat.albedo_color = color
+					var unique_mat = mat.duplicate()
+					unique_mat.albedo_color = color
+					child.set_surface_override_material(0, unique_mat)
 
 func _on_radar_trap_body_entered(body):
 	if mode != "Radar Race":
@@ -407,7 +403,7 @@ func _on_radar_trap_body_entered(body):
 			ClubCups.save_progress()
 
 		MusicManager.stop_music()
-		
+
 	finish_flash.flash()
 	_screech_to_halt()
 
@@ -421,7 +417,7 @@ func _fix_wrong_way(car: CarController, root: Node):
 		print("No WP1 in this track, skipping direction fix")
 		return
 
-	var dir :Vector3= (wp1.global_position - car.global_position).normalized()
+	var dir: Vector3 = (wp1.global_position - car.global_position).normalized()
 	if dir.length() < 0.1:
 		dir = Vector3.FORWARD
 
@@ -468,7 +464,7 @@ func show_finish(player_won: bool):
 		_update_career_progress()
 		ClubCups.save_progress()
 
-# Club Cups reward logic stays here
+	# Club Cups reward logic stays here
 	if player_won and GameMode.game_mode == "Club Cups":
 		_update_career_progress()
 		ClubCups.save_progress()
@@ -485,105 +481,10 @@ func show_finish(player_won: bool):
 		leaderboard.visible = true
 		leaderboard.show_results(player_won)
 
-
 		if player_won:
 			print("YOU WIN!")
 		else:
 			print("YOU LOSE!")
-
-func _face_away_from_lap_line(car: CarController, root: Node):
-	var lap_line := safe_get(root, "LapLine")
-	if lap_line == null:
-		print("No LapLine found in track:", TrackName.track_name)
-		return
-
-	var forward :Vector3= lap_line.global_transform.basis.z.normalized()
-	var away := -forward
-
-	var target_pos := car.global_position + away
-	car.look_at(target_pos, Vector3.UP)
-
-func _spawn_lan_player():
-	var path := Cars.selected_car
-	var scene := load(path)
-	player_car = scene.instantiate()
-
-	var sync := MultiplayerSynchronizer.new()
-	player_car.add_child(sync)
-
-	player_car.set_multiplayer_authority(multiplayer.get_unique_id())
-	add_child(player_car)
-
-	_apply_color_to_car(player_car, Cars.selected_color)
-
-	var root := get_node(TrackName.track_name)
-	var spawn := safe_get(root, "SpawnPoint")
-	player_car.global_transform = spawn.global_transform
-
-	_force_player_camera()
-
-	# Tell others to spawn this player
-	rpc("spawn_remote_player", multiplayer.get_unique_id(), path)
-
-	print("Spawned local LAN player:", multiplayer.get_unique_id())
-
-func _spawn_lan_remote_player(id, car_path):
-	var scene := load(car_path)
-	if scene == null:
-		push_error("Remote car scene missing: " + car_path)
-		return
-
-	var car :CarController= scene.instantiate()
-
-	var sync := MultiplayerSynchronizer.new()
-	car.add_child(sync)
-
-	car.set_multiplayer_authority(id)
-	add_child(car)
-
-	# Spawn position
-	var root := get_node(TrackName.track_name)
-	var spawn := safe_get(root, "AISpawnPoint" + str(id))
-	if spawn:
-		car.global_transform = spawn.global_transform
-
-	print("Spawned remote player", id)
-@rpc("any_peer")
-func spawn_remote_player(id, car_path):
-	_spawn_lan_remote_player(id, car_path)
-func _update_career_progress():
-	print("UPDATE CAREER PROGRESS CALLED")
-	var cup_id = ChampionshipState.active_cup
-
-	
-	if not career_progress.has(cup_id):
-		career_progress[cup_id] = {
-			"normal": false,
-			"duel": false,
-			"elimination": false,
-			"radar": false
-		}
-	
-	match mode:
-		"Normal Race":
-			career_progress[cup_id]["normal"] = true
-		"Duel":
-			career_progress[cup_id]["duel"] = true
-		"Elimination":
-			career_progress[cup_id]["elimination"] = true
-		"Radar Race":
-			career_progress[cup_id]["radar"] = true
-
-	ClubCups.career_progress = career_progress
-
-	var cup_data = career_progress[cup_id]
-
-	print(cup_id, cup_data)
-
-	if cup_data["normal"] and cup_data["duel"] and cup_data["elimination"] and cup_data["radar"]:
-		print("Cup completed:", cup_id)
-		ClubCups.complete_cup(cup_id)
-
 func _show_championship_reward(cup_id: String):
 	var reward_car := ""
 	var reward_cash := 0
@@ -601,16 +502,121 @@ func _show_championship_reward(cup_id: String):
 			"Reward Car: " + reward_car + "\n" +
 			"Cash Reward: $" + str(reward_cash)
 		)
-func _format_radar_speed(speed_kmh: float) -> String:
-	var use_mph := SpeedSettings.SPEED_UNIT == "mph"
+func _face_away_from_lap_line(car: CarController, root: Node):
+	var lap_line := safe_get(root, "LapLine")
+	if lap_line == null:
+		print("No LapLine found in track:", TrackName.track_name)
+		return
 
-	if use_mph:
-		var mph := speed_kmh * 0.621371
-		return "%d mph" % mph
-	else:
-		return "%d km/h" % speed_kmh
+	var forward: Vector3 = lap_line.global_transform.basis.z.normalized()
+	var away := -forward
+
+	var target_pos := car.global_position + away
+	car.look_at(target_pos, Vector3.UP)
+
+# =========================================================
+# LAN / MULTIPLAYER
+# =========================================================
+
+func _spawn_lan_player():
+	var path := Cars.selected_car
+	var my_id := multiplayer.get_unique_id()
+	var scene := load(path)
+	if scene == null:
+		push_error("Player car scene missing: " + path)
+		return
+
+	player_car = scene.instantiate()
+	player_car.name = str(my_id)
+
+	setup_multiplayer_sync(player_car)
+	player_car.set_multiplayer_authority(my_id)
+	add_child(player_car, true)
+	_apply_color_to_car(player_car, Cars.selected_color)
+
+	var root := get_node(TrackName.track_name)
+	var spawn = safe_get(root, "SpawnPoint")
+	if spawn:
+		var t: Transform3D = spawn.global_transform
+		if my_id == 1:
+			t.origin -= spawn.global_transform.basis.x * 3.0
+		player_car.global_transform = t
+
+	_force_player_camera()
+
+	var c := Cars.selected_color
+	rpc("spawn_remote_player", my_id, path, c.r, c.g, c.b)
+
+	print("Spawned local LAN player:", my_id)
+
+@rpc("any_peer")
+func spawn_remote_player(id: int, car_path: String, cr: float, cg: float, cb: float):
+	if has_node(str(id)):
+		return
+
+	var scene := load(car_path)
+	if scene == null:
+		push_error("Remote car scene missing: " + car_path)
+		return
+
+	var car = scene.instantiate()
+	car.name = str(id)
+
+	setup_multiplayer_sync(car)
+	car.set_multiplayer_authority(id)
+	add_child(car, true)
+	_apply_color_to_car(car, Color(cr, cg, cb))
+
+	# Камера удалённой машины не должна перехватывать вид
+	if car.has_node("Camera3D"):
+		car.get_node("Camera3D").current = false
+
+	var root := get_node(TrackName.track_name)
+	var spawn = safe_get(root, "SpawnPoint")
+	if spawn:
+		var t: Transform3D = spawn.global_transform
+		if id == 1:
+			t.origin -= spawn.global_transform.basis.x * 3.0
+		car.global_transform = t
+
+	print("Spawned remote player", id)
+
+func setup_multiplayer_sync(car_node: Node3D):
+	if car_node.has_node("MultiplayerSynchronizer"):
+		return
+	var sync = MultiplayerSynchronizer.new()
+	sync.name = "MultiplayerSynchronizer"
+	var config = SceneReplicationConfig.new()
+	config.add_property(":sync_transform")
+	config.add_property(":sync_velocity")
+	sync.replication_config = config
+	car_node.add_child(sync)
+
+# =========================================================
+# CAREER / REWARDS
+# =========================================================
+
+func _update_career_progress():
+	print("UPDATE CAREER PROGRESS CALLED")
+	var cup_id = ChampionshipState.active_cup
+
+	if not career_progress.has(cup_id):
+		career_progress[cup_id] = {
+			"normal": false,
+			"duel": false,
+			"elimination": false,
+			"radar": false
+		}
+
+	match mode:
+		"Normal Race":
+			career_progress[cup_id]["normal"] = true
+		"Duel":
+			career_progress[cup_id]["duel"] = true
+			
 func _on_countdown_finished():
 	MusicManager.play_race_music()
+	
 func spawn_traffic() -> void:
 	var root: Node = get_node(TrackName.track_name)
 	var wp_root: Node = safe_get(root, "Waypoints")
@@ -631,7 +637,7 @@ func spawn_traffic() -> void:
 		return
 
 	var traffic_car: CharacterBody3D = car_scene.instantiate()
-	
+
 	if not traffic_car.is_in_group("traffic"):
 		traffic_car.add_to_group("traffic")
 
@@ -640,8 +646,6 @@ func spawn_traffic() -> void:
 	var spawn_pos: Vector3 = random_wp.global_position
 	var space = random_wp.get_world_3d().direct_space_state
 
-	# Start right at the waypoint's height, casting down just far enough 
-	# to find the road directly beneath the waypoint (e.g., 2 meters up to 3 meters down)
 	var ray_start = spawn_pos + Vector3.UP * 2.0
 	var ray_end = spawn_pos + Vector3.DOWN * 3.0
 
@@ -653,8 +657,7 @@ func spawn_traffic() -> void:
 	if not result.is_empty():
 		var normal: Vector3 = result["normal"]
 		if normal.dot(Vector3.UP) > 0.5:
-			# Adjust this 1.05 offset if your cars still float slightly or clip the road
-			spawn_pos = result["position"] + Vector3.UP * 1.05 
+			spawn_pos = result["position"] + Vector3.UP * 1.05
 		else:
 			spawn_pos.y += 1.05
 	else:
@@ -663,23 +666,17 @@ func spawn_traffic() -> void:
 	traffic_car.global_position = spawn_pos
 	traffic_car.global_transform.basis = random_wp.global_transform.basis
 
-	traffic_car.global_position = spawn_pos
-	traffic_car.global_transform.basis = random_wp.global_transform.basis
-func get_random_traffic_path() -> String:
 
+func get_random_traffic_path() -> String:
 	var roll := randi_range(1, 100)
 
 	if roll <= 35:
 		return "res://nissan_micra.tscn"      # 35%
-
 	elif roll <= 65:
 		return "res://toyota_camry.tscn"      # 30%
-
 	elif roll <= 85:
 		return "res://astro.tscn"             # 20%
-
 	elif roll <= 97:
 		return "res://mercedes_sl.tscn"       # 12%
-
 	else:
 		return "res://bus.tscn"               # 3%

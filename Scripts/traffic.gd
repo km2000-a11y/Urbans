@@ -3,13 +3,14 @@ extends CharacterBody3D
 @export var base_speed: float = 18.0
 var current_speed: float = 18.0
 @export var turn_speed: float = 4.0
-
 @export var front_ray_length: float = 30.0
 
 const GRAVITY := 30.0
 
 var dodge_timer: float = 0.0
 var dodge_dir: float = 0.0
+var current_steer_angle: float = 0.0
+var target_steer_angle: float = 0.0
 var stuck_timer: float = 0.0
 var lane_bias: float = 0.0
 
@@ -37,16 +38,15 @@ func _physics_process(delta: float) -> void:
 
 	if stuck_timer > 1.5 and dodge_timer <= 0.0:
 		dodge_dir = lane_bias
-		dodge_timer = 1.2
+		target_steer_angle = dodge_dir * 0.4
+		dodge_timer = 1.5
 		stuck_timer = 0.0
 
-	# --- EVASION SWERVE ---
+	# --- COMMUTER DRIVING & CARCONTROLLER EVASION ---
 	if dodge_timer > 0.0:
 		dodge_timer -= delta
-		rotation.y += dodge_dir * turn_speed * delta
-		current_speed = move_toward(current_speed, base_speed * 0.6, delta * 8.0)
+		current_speed = move_toward(current_speed, base_speed * 0.7, delta * 8.0)
 	else:
-		# Only look for new obstacles if we aren't currently dodging
 		var front_query := PhysicsRayQueryParameters3D.create(origin, origin + forward * front_ray_length)
 		front_query.exclude = [get_rid()]
 		var front_hit: Dictionary = space.intersect_ray(front_query)
@@ -56,44 +56,76 @@ func _physics_process(delta: float) -> void:
 			var hit_pos = front_hit.get("position", origin)
 			var dist := origin.distance_to(hit_pos)
 
-			if hit_collider and (hit_collider is CharacterBody3D or hit_collider is RigidBody3D):
-				
-				# Fan-out diagonal rays to find gaps
-				var left_dir = (forward - right * 1.5).normalized()
-				var right_dir = (forward + right * 1.5).normalized()
+			# Check if the hit collider is a CarController (or in the "car_controller" group)
+			var is_target_car = false
+			if hit_collider:
+				# Option A: If your CarController script uses "class_name CarController"
+				if hit_collider is CarController:
+					is_target_car = true
+				# Option B: Fallback check if you prefer using groups (add your CarController to group "car_controller")
+				elif hit_collider.is_in_group("car_controller"):
+					is_target_car = true
 
-				var left_query := PhysicsRayQueryParameters3D.create(origin, origin + left_dir * 18.0)
+			if is_target_car or (hit_collider and (hit_collider is CharacterBody3D or hit_collider is RigidBody3D)):
+				
+				# Fan-out diagonal rays to check for open lanes to swerve into
+				var left_dir = (forward - right * 1.2).normalized()
+				var right_dir = (forward + right * 1.2).normalized()
+
+				var left_query := PhysicsRayQueryParameters3D.create(origin, origin + left_dir * 22.0)
 				left_query.exclude = [get_rid()]
 				var left_hit := space.intersect_ray(left_query)
 
-				var right_query := PhysicsRayQueryParameters3D.create(origin, origin + right_dir * 18.0)
+				var right_query := PhysicsRayQueryParameters3D.create(origin, origin + right_dir * 22.0)
 				right_query.exclude = [get_rid()]
 				var right_hit := space.intersect_ray(right_query)
 
 				var left_clear = left_hit.is_empty()
 				var right_clear = right_hit.is_empty()
 
-				# Trigger dodge ONLY if timer is finished (prevents infinite spinning loops)
-				if left_clear and right_clear and dodge_timer <= 0.0:
-					dodge_dir = lane_bias
-					dodge_timer = 1.2
-				elif left_clear and not right_clear and dodge_timer <= 0.0:
+				# If it's specifically a CarController, make them react more proactively (swerve sooner)
+				var urge_to_swerve = is_target_car and dist < 25.0
+				var urge_to_brake = dist < 10.0
+
+				if (left_clear and right_clear) or urge_to_swerve:
+					# Choose the safer side or use lane bias
+					if left_clear and not right_clear:
+						dodge_dir = -1.0
+					elif right_clear and not left_clear:
+						dodge_dir = 1.0
+					else:
+						dodge_dir = lane_bias
+						
+					target_steer_angle = dodge_dir * 0.4
+					dodge_timer = 1.5
+				elif left_clear:
 					dodge_dir = -1.0
-					dodge_timer = 1.2
-				elif right_clear and not left_clear and dodge_timer <= 0.0:
+					target_steer_angle = -0.4
+					dodge_timer = 1.5
+				elif right_clear:
 					dodge_dir = 1.0
-					dodge_timer = 1.2
+					target_steer_angle = 0.4
+					dodge_timer = 1.5
 				else:
-					# Both blocked: maintain smooth spacing buffer
-					if dist < 8.0:
+					# Trapped behind the CarController / traffic: brake smoothly
+					target_steer_angle = 0.0
+					if urge_to_brake:
 						current_speed = move_toward(current_speed, 0.0, delta * 20.0)
 					else:
 						current_speed = move_toward(current_speed, base_speed * 0.3, delta * 10.0)
 			else:
+				# Static obstacle (walls, barriers)
+				target_steer_angle = 0.0
 				current_speed = move_toward(current_speed, 0.0, delta * 15.0)
 		else:
+			# Road clear: straighten out and cruise
+			target_steer_angle = 0.0
 			current_speed = move_toward(current_speed, base_speed, delta * 6.0)
 			dodge_timer = 0.0
+
+	# Smooth steering interpolation
+	current_steer_angle = move_toward(current_steer_angle, target_steer_angle, turn_speed * delta)
+	rotation.y += current_steer_angle * delta * turn_speed
 
 	# Smooth physics movement
 	var target_velocity := -transform.basis.z * current_speed

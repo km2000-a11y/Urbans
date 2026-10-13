@@ -426,8 +426,8 @@ Color8(255, 160, 200) # Pink
 	Color8(200,40,40)
 ],
 "Berkshire Falcon":[
-	Color8(180,180,180),  # Platinum Silver (default)
-	Color8(212,175,55),   # Champagne Gold
+	Color8(232,214,179),  # Platinum Silver (default)
+	Color8(180,180,180),   # Champagne Gold
 	Color8(25,35,80),     # Sapphire Blue
 	Color8(110,20,20),    # Bordeaux Red
 	Color8(255,248,220),  # Ivory White
