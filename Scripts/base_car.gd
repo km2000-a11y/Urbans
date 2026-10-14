@@ -10,6 +10,10 @@ var display_hp := 0.0
 var display_weight := 0.0
 var ai_dodge_timer:=0.0
 var ai_dodge_dir:=0.0
+var stuck_time := 0.0
+var race_finished := false
+var unstuck_time := 0.0
+var unstucking := false
 
 # --- ROLE FLAGS ---
 var is_ai: bool = false
@@ -532,6 +536,18 @@ func update_gears(speed_kmh: float) -> void:
 	current_gear = clamp(current_gear, 1, gear_count)
 
 func _physics_process(delta: float) -> void:
+	if race_finished:
+		velocity = velocity.move_toward(
+			Vector3.ZERO,
+			brake_strength * 2.0 * delta
+		)
+
+		move_and_slide()
+
+		if velocity.length() < 0.5:
+			velocity = Vector3.ZERO
+
+		return
 	if is_multiplayer_authority():
 		sync_velocity = velocity
 		sync_transform = global_transform
@@ -1094,6 +1110,33 @@ func _update_ai_inputs(delta: float) -> void:
 		ai_brake = 0.0
 		if abs(angle) > 0.7:
 			ai_brake = 0.15
+	if avg_speed < 5.0:
+		stuck_time += delta
+	else:
+		stuck_time = 0.0
+
+	if stuck_time > 2.0 and not unstucking:
+		unstucking = true
+		unstuck_time = 1.5
+		reversing = true
+		stuck_time = 0.0
+
+	if unstucking:
+		unstuck_time -= delta
+
+		ai_throttle = 1.0
+		ai_brake = 0.0
+
+		if traffic_dodge != 0.0:
+			ai_steer = -traffic_dodge
+		else:
+			ai_steer = randf_range(-1.0, 1.0)
+
+		if unstuck_time <= 0.0:
+			unstucking = false
+			reversing = false
+
+		return
 			
 func update_waypoint():
 	if is_ai:
@@ -1271,3 +1314,56 @@ func _check_traffic(delta: float) -> float:
 				return 1.0
 				
 	return 0.0 # Path completely clear, no dodge needed
+	if not hit.is_empty():
+		var collider = hit["collider"]
+
+		if collider is StaticBody3D:
+			var normal : Vector3 = hit["normal"]
+
+			# Ignore roads, hills and ramps
+			if normal.y > 0.25:
+				return 0.0
+
+			var left_query := PhysicsRayQueryParameters3D.create(
+				origin,
+				origin - right * 4.0 + forward * 8.0
+			)
+			left_query.exclude = [get_rid()]
+
+			var right_query := PhysicsRayQueryParameters3D.create(
+				origin,
+				origin + right * 4.0 + forward * 8.0
+			)
+			right_query.exclude = [get_rid()]
+
+			var left_hit := space.intersect_ray(left_query)
+			var right_hit := space.intersect_ray(right_query)
+
+			var left_clear := true
+			var right_clear := true
+
+			if not left_hit.is_empty():
+				var left_normal : Vector3 = left_hit["normal"]
+
+				if left_normal.y < 0.25:
+					left_clear = false
+
+			if not right_hit.is_empty():
+				var right_normal : Vector3 = right_hit["normal"]
+
+				if right_normal.y < 0.25:
+					right_clear = false
+
+			if left_clear and not right_clear:
+				return -1.0
+
+			if right_clear and not left_clear:
+				return 1.0
+
+			if left_clear and right_clear:
+				if randf() < 0.5:
+					return -1.0
+				else:
+					return 1.0
+
+			return 0.0

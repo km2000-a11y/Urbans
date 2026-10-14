@@ -176,10 +176,13 @@ func _do_elimination(sorted: Array) -> void:
 	var last: CarController = sorted[-1]
 
 	# PLAYER eliminated
+	# PLAYER eliminated
 	if last == player_car:
 		race_active = false
+
 		player_car.controls_enabled = false
-		player_car.current_speed = 0
+		player_car.race_finished = true
+
 		emit_signal("player_eliminated")
 		return
 
@@ -192,10 +195,13 @@ func _do_elimination(sorted: Array) -> void:
 
 	# WIN
 	# WIN
+	# WIN
 	if ai_cars.size() == 0:
 		race_active = false
+
 		player_car.controls_enabled = false
-		player_car.current_speed = 0
+		player_car.race_finished = true
+
 		emit_signal("elimination_win", player_car)
 
 

@@ -310,7 +310,7 @@ var car_scene_paths := {
 	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
 
 
-	"Zenith Prince":"res://Scenes/m35.tscn",
+	"Zenith Prince":"res://Scenes/q45.tscn",
 	"Linetti Terror":"res://Scenes/murcielago.tscn",
 	"Linetti Firestorm":"res://Scenes/diablo_road.tscn",
 	"Kestrel Guillotine":"res://Scenes/tvr t 440r.tscn",

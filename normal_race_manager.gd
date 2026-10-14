@@ -230,10 +230,8 @@ func register_lap(body: Node) -> void:
 	# Freeze finish time the moment the car finishes
 	if car_laps[car] >= total_laps and car.finished_time < 0:
 		car.finished_time = car.total_race_time
-	# Freeze AI movement immediately when they finish
-	if car != player_car and car_laps[car] >= total_laps:
 		car.controls_enabled = false
-		car.hard_frozen = true
+		car.race_finished = true
 
 
 

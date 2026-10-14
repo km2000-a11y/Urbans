@@ -719,9 +719,9 @@ var sedans = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 "Zenith Prince":[
-	"", "Country: Japan", "HP: 280", "WEIGHT: 1780 KG",
-	"0-100 KM/H: 5.9s", "TOP SPEED: 253 KM/H",
-	"ENGINE: V6 3.5L", "ASPIRATION: NA", "TORQUE: 370 NM",
+	"", "Country: Japan", "HP: 340", "WEIGHT: 1850 KG",
+	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
+	"ENGINE: V8 4.5L", "ASPIRATION: NA", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -926,7 +926,7 @@ var car_scene_paths = {
 	"Berkshire Falcon":"res://Scenes/xk8.tscn",
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
-	"Zenith Prince":"res://Scenes/m35.tscn",
+	"Zenith Prince":"res://Scenes/q45.tscn",
 	"Schroder Classique Sport":"res://Scenes/audi_s2.tscn",
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",

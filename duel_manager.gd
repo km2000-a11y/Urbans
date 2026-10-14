@@ -220,6 +220,7 @@ func register_lap(body: Node) -> void:
 
 		if player_laps >= total_laps and player_car.finished_time < 0:
 			player_car.finished_time = player_car.total_race_time
+			player_car.race_finished = true
 			_end_duel()   # Duel ends immediately (Option A)
 
 	# AI LAP
@@ -228,6 +229,7 @@ func register_lap(body: Node) -> void:
 
 		if ai_laps >= total_laps and ai_car.finished_time < 0:
 			ai_car.finished_time = ai_car.total_race_time
+			ai_car.race_finished = true
 			_end_duel()   # Duel ends immediately (Option A)
 
 func _start_lap_cooldown() -> void:
