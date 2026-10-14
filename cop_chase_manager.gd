@@ -165,6 +165,10 @@ func update_chase(delta: float) -> void:
 
 	if time_left <= 0.0:
 		chase_active = false
+
+		player_car.controls_enabled = false
+		player_car.race_finished = true
+
 		emit_signal("chase_failed")
 		return
 

@@ -62,7 +62,7 @@ func _ready():
 
 		# Трафик только в одиночной игре (в LAN он не синхронизируется)
 		if Modes.mode!="Radar Race":
-			for i: int in range(20):
+			for i: int in range(14):
 				spawn_traffic()
 	else:
 		push_error("Track file missing: " + track_file)

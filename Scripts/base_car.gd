@@ -865,22 +865,150 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		# 1. CHARACTER-BASED DISTINCT PITCH PROFILES
 		# ==========================================
 		var target_pitch := audio_base_pitch + (rpm_ratio * audio_pitch_range)
-		
-		match audio_character_type:
-			1: # Deep V8 / Muscle / Diesel: Heavy low-end, sluggish pitch climb, aggressive cam shake under heavy load
-				target_pitch = audio_base_pitch + (rpm_ratio * audio_pitch_range * 0.65)
-				if accel > 0.7:
-					target_pitch += sin(Time.get_ticks_msec() * 0.03) * 0.04 # Simulates a pulsing muscle car rumble
-					
-			2: # High-Rev Exotic / Supercar: Lazy low end, but aggressively screams and explodes in pitch past mid-RPM
-				if rpm_ratio > 0.5:
-					target_pitch += (rpm_ratio - 0.5) * 1.2
-				else:
-					target_pitch *= 0.85
-					
-			_: # Type 0: Normal / Standard Car (Linear, balanced pitch response)
-				target_pitch = audio_base_pitch + (rpm_ratio * audio_pitch_range)
 
+		var base_db :float= lerp(-26.0, -10.0, rpm_ratio * load_factor) + audio_volume_offset
+		match audio_character_type:
+
+			# ==================================================
+			# 0 = LUXURY
+			# LS430, SC400, XK8, LX470, Q45
+			# ==================================================
+			0:
+				target_pitch = audio_base_pitch + rpm_ratio * 0.25
+
+				base_db = lerp(
+					-30.0,
+					-16.0,
+					rpm_ratio
+				) + audio_volume_offset
+
+				if accel < 0.3:
+					target_pitch *= 0.95
+
+
+			# ==================================================
+			# 1 = MUSCLE
+			# GT500, Chevelle, Vette, Viper
+			# ==================================================
+			1:
+				target_pitch = audio_base_pitch + rpm_ratio * 0.60
+
+				target_pitch += sin(
+					Time.get_ticks_msec() * 0.018
+				) * 0.04
+
+				base_db += accel * 5.0
+
+				if rpm_ratio > 0.8:
+					target_pitch += 0.10
+
+
+			# ==================================================
+			# 2 = EXOTIC
+			# Gallardo, Murcielago, Diablo, MC12, Zonda
+			# ==================================================
+			2:
+				if rpm_ratio < 0.5:
+					target_pitch = (
+						audio_base_pitch
+						+ rpm_ratio * 0.6
+					)
+				else:
+					target_pitch = (
+						audio_base_pitch
+						+ 0.3
+						+ pow(
+							(rpm_ratio - 0.5) * 2.0,
+							3.0
+						) * 4.5
+					)
+
+				base_db = lerp(
+					-28.0,
+					0.0,
+					pow(rpm_ratio, 2.0)
+				) + audio_volume_offset
+
+
+			# ==================================================
+			# 3 = RALLY
+			# S60R, S2, TT, Beetle Turbo, 130i
+			# ==================================================
+			3:
+				target_pitch = (
+					audio_base_pitch
+					+ rpm_ratio * 1.60
+				)
+
+				target_pitch += sin(
+					Time.get_ticks_msec() * 0.012
+				) * 0.08
+
+				if has_turbo:
+					target_pitch += rpm_ratio * 0.25
+
+				base_db += 3.0
+
+
+			# ==================================================
+			# 4 = SUPERCHARGED
+			# XKR, C32 AMG
+			# ==================================================
+			4:
+				target_pitch = (
+					audio_base_pitch
+					+ rpm_ratio * 1.10
+				)
+
+				if has_supercharger:
+					target_pitch += (
+						rpm_ratio * rpm_ratio
+					) * 1.2
+
+				base_db += 4.0
+
+				if accel > 0.7:
+					target_pitch += 0.25
+
+
+			# ==================================================
+			# 5 = TVR INSANITY
+			# Sagaris, T440R, Cerbera
+			# ==================================================
+			5:
+				target_pitch = (
+					audio_base_pitch
+					+ rpm_ratio * 3.5
+				)
+
+				target_pitch += sin(
+					Time.get_ticks_msec() * 0.035
+				) * 0.12
+
+				base_db += 6.0
+
+				if rpm_ratio > 0.7:
+					target_pitch += 0.8
+
+
+			# ==================================================
+			# 6 = DIESEL
+			# A4 TDI, Q7 TDI
+			# ==================================================
+			6:
+				target_pitch = (
+					audio_base_pitch
+					+ rpm_ratio * 0.15
+				)
+
+				target_pitch += sin(
+					Time.get_ticks_msec() * 0.008
+				) * 0.02
+
+				base_db += 2.0
+
+				if accel > 0.5:
+					base_db += 1.0
 		# State-based pitch overrides
 		if is_pinned_at_top_speed:
 			target_pitch = audio_base_pitch + audio_pitch_range
@@ -892,15 +1020,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		# ==========================================
 		# 2. CHARACTER-BASED DISTINCT VOLUME MAPPING
 		# ==========================================
-		var base_db :float= lerp(-26.0, -10.0, rpm_ratio * load_factor) + audio_volume_offset
 		
-		match audio_character_type:
-			1: # Muscle cars are louder and punchier on throttle transients
-				base_db += (accel * 3.5)
-			2: # Exotics are quieter at low speed/idle, but deafeningly loud at high RPM scream
-				base_db = lerp(-30.0, -4.0, pow(rpm_ratio, 2.0)) + audio_volume_offset
-			_:
-				pass
 
 		if is_pinned_at_top_speed:
 			base_db = -5.0 + audio_volume_offset

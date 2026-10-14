@@ -1,8 +1,4 @@
-res://Scenes/q45.tscn
 res://main.tscn
-res://cars.gd
-res://Scripts/car_select.gd
-res://Scenes/jaguar_xj8.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -57,6 +53,7 @@ res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Tracks/las_vegas.tscn
 res://Scenes/c43.tscn
+res://Scenes/q45.tscn
 res://Scenes/career.tscn
 res://Scenes/morgan_aero_8.tscn
 res://Scenes/lotus_exige_s.tscn
@@ -69,8 +66,6 @@ res://astro.tscn
 res://bus.tscn
 res://volvo_850.tscn
 res://lincoln_town_car.tscn
+res://cop_chase_manager.gd
 res://Scripts/base_car.gd
-res://Scripts/traffic.gd
-res://duel_manager.gd
-res://elimination_manager.gd
-res://normal_race_manager.gd
+res://main.gd
