@@ -1,5 +1,7 @@
 extends Camera3D
 
+#Nice
+
 @export var target: Node3D
 @onready var forward_ref: Node3D = target.get_node("ForwardRef")
 
