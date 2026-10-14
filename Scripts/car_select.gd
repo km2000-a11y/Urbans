@@ -779,7 +779,7 @@ var sport_racing = {
 	
 	"Kestrel Battleaxe":[
 		"", "Country: UK", "HP: 406", "WEIGHT: 1078 KG",
-		"0-100 KM/H: 3.5s", "TOP SPEED: 287 KM/H",
+		"0-100 KM/H: 3.9s", "TOP SPEED: 293 KM/H",
 		"ENGINE: L6 4.0L", "ASPIRATION: NA", "TORQUE: 390 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	]

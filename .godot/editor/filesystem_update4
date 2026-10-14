@@ -66,6 +66,6 @@ res://astro.tscn
 res://bus.tscn
 res://volvo_850.tscn
 res://lincoln_town_car.tscn
-res://cop_chase_manager.gd
-res://Scripts/base_car.gd
+res://Scripts/car_select.gd
+res://Scripts/tvr_sagaris_2005.gd
 res://main.gd

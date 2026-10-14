@@ -668,15 +668,22 @@ func spawn_traffic() -> void:
 
 
 func get_random_traffic_path() -> String:
-	var roll := randi_range(1, 100)
+	var roll: int = randi_range(1, 100)
 
 	if roll <= 35:
 		return "res://nissan_micra.tscn"      # 35%
+
 	elif roll <= 65:
 		return "res://toyota_camry.tscn"      # 30%
+
 	elif roll <= 85:
 		return "res://astro.tscn"             # 20%
-	elif roll <= 97:
-		return "res://mercedes_sl.tscn"       # 12%
+
+	elif roll <= 90:
+		return "res://mercedes_sl.tscn"       # 5%
+
+	elif roll <= 94:
+		return "res://lincoln.tscn"           # 4%
+
 	else:
-		return "res://bus.tscn"               # 3%
+		return "res://lincoln_town_car.tscn"         # 6%
