@@ -1,3 +1,5 @@
+res://Scenes/dodge_viper.tscn
+res://Scripts/camera.gd
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -17,7 +19,6 @@ res://Scenes/murcielago.tscn
 res://Scenes/chevelle_ss.tscn
 res://Scenes/car_select.tscn
 res://Scenes/lexus_lx470.tscn
-res://Scenes/dodge_viper.tscn
 res://Scenes/tvr t 440r.tscn
 res://Tracks/bogota_airport.tscn
 res://Scenes/granturismo_police.tscn
@@ -66,6 +67,3 @@ res://astro.tscn
 res://bus.tscn
 res://volvo_850.tscn
 res://lincoln_town_car.tscn
-res://Scripts/car_select.gd
-res://Scripts/tvr_sagaris_2005.gd
-res://main.gd

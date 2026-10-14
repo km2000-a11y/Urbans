@@ -11,6 +11,8 @@ var traffic_scene_paths: Array[String] = [
 	"res://toyota_camry.tscn",
 	"res://mercedes_sl.tscn",
 	"res://astro.tscn",
+	"res://lincoln_town_car.tscn",
+	"res://volvo_850.tscn",
 	"res://bus.tscn"
 ]
 
@@ -62,7 +64,7 @@ func _ready():
 
 		# Трафик только в одиночной игре (в LAN он не синхронизируется)
 		if Modes.mode!="Radar Race":
-			for i: int in range(14):
+			for i: int in range(30):
 				spawn_traffic()
 	else:
 		push_error("Track file missing: " + track_file)
@@ -670,20 +672,20 @@ func spawn_traffic() -> void:
 func get_random_traffic_path() -> String:
 	var roll: int = randi_range(1, 100)
 
-	if roll <= 35:
-		return "res://nissan_micra.tscn"      # 35%
+	if roll <= 30:
+		return "res://nissan_micra.tscn"      # 30%
 
-	elif roll <= 65:
-		return "res://toyota_camry.tscn"      # 30%
+	elif roll <= 55:
+		return "res://toyota_camry.tscn"      # 25%
 
-	elif roll <= 85:
+	elif roll <= 75:
 		return "res://astro.tscn"             # 20%
 
-	elif roll <= 90:
-		return "res://mercedes_sl.tscn"       # 5%
+	elif roll <= 85:
+		return "res://mercedes_sl.tscn"       # 10%
 
-	elif roll <= 94:
-		return "res://lincoln.tscn"           # 4%
+	elif roll <= 93:
+		return "res://lincoln_town_car.tscn"  # 8%
 
 	else:
-		return "res://lincoln_town_car.tscn"         # 6%
+		return "res://volvo_850.tscn"         # 7%
