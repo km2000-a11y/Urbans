@@ -11,6 +11,7 @@ extends Camera3D
 @export var smooth_speed := 10.0
 @export var collision_offset := 0.2
 var countdown_mode := false
+var front_cam_mode := false
 var countdown_stage := 0
 @export var min_distance := 3.0
 
@@ -55,6 +56,7 @@ func _physics_process(delta):
 	# ---------------------------------------------------------
 	if Input.is_action_just_pressed("rear_view"):
 		rear_view = not rear_view
+		front_cam_mode = !front_cam_mode
 
 	# ---------------------------------------------------------
 	# NITRO SHAKE (smooth sinusoidal)
@@ -85,6 +87,27 @@ func _physics_process(delta):
 	# ---------------------------------------------------------
 	# ALT CAMERA (windshield cam IN FRONT of car)
 	# ---------------------------------------------------------
+		# ---------------------------------------------------------
+	# FRONT SHOWCASE CAMERA
+	# Same camera used during countdown "3"
+	# ---------------------------------------------------------
+	if front_cam_mode:
+
+		var front_pos := car_pos + forward * 5.0 + Vector3.UP * 1.5
+
+		global_position = global_position.lerp(
+			front_pos + shake_offset,
+			delta * smooth_speed
+		)
+
+		var look_target := car_pos.lerp(
+		car_pos + car_forward * 2.0,
+			0.5
+		)
+
+		look_at(look_target, Vector3.UP)
+
+		return
 	if alt_cam_mode:
 		var forward_dist := car_pos.distance_to(forward_ref.global_transform.origin)
 

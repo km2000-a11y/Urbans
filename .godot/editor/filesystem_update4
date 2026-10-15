@@ -1,11 +1,6 @@
-res://Scenes/c43.tscn
-res://Scenes/clk500.tscn
-res://Scenes/clk500.gd
-res://cars.gd
-res://Scripts/car_select.gd
-res://club_cups.gd
-res://Scenes/lotus_exige_s.tscn
 res://main.tscn
+res://Scripts/base_car.gd
+res://Scripts/camera.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -59,9 +54,11 @@ res://Scenes/lexus_sc.tscn
 res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Tracks/las_vegas.tscn
+res://Scenes/clk_500.tscn
 res://Scenes/q45.tscn
 res://Scenes/career.tscn
 res://Scenes/morgan_aero_8.tscn
+res://Scenes/lotus_exige_s.tscn
 res://Scenes/vanquish.tscn
 res://Scenes/xk8.tscn
 res://nissan_micra.tscn
@@ -71,5 +68,3 @@ res://astro.tscn
 res://bus.tscn
 res://volvo_850.tscn
 res://lincoln_town_car.tscn
-res://Scenes/clk_500.tscn
-res://Scripts/morgan_aero_8.gd

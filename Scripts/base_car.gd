@@ -336,10 +336,10 @@ func _ready() -> void:
 			audio_character_type = 1
 			audio_volume_offset = 0.9
 
-		"Kronstadt Blazer":
+		"Mir Cars Blazer":
 			audio_base_pitch = 0.80
 			audio_pitch_range = 1.55
-			audio_character_type = 4
+			audio_character_type = 0
 			audio_volume_offset = 1.0
 
 
