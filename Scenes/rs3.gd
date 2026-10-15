@@ -11,10 +11,10 @@ func _ready():
 	# GAMEPLAY STATS — Audi S2 Coupe (1994)
 
 	mass = 1495.0
-	horsepower = 230
+	horsepower = 250
 	max_rpm = 7200.0
-	zero_to_hundred = 5.4
-	top_speed_kmh = 263
+	zero_to_hundred = 5.3
+	top_speed_kmh = 265
 
 	# Older chassis, but excellent quattro grip
 	turn_speed = 2.75

@@ -44,7 +44,6 @@ var class_lists: Dictionary = {
 	"urban": [
 	"Mir Cars Blazer",
 	"Kuro Serenity",
-	"Berkshire Falcon",
 	"Kestrel Speedster",
 	"Kestrel Seabird",
 ],
@@ -123,7 +122,7 @@ var class_lists: Dictionary = {
 	"Straeda Volant",
 	"Schroder Atrix Q32",
 	"Colossus Titan Max",
-	"Berkshire Falcon",
+
 	"Kestrel Speedster",
 	"Zenith Prince",
 	"Berkshire Blunt",
@@ -147,7 +146,7 @@ var class_lists: Dictionary = {
 	"Berkshire Blunt",
 	"Berkshire Tempest",
 	"Berkshire V12-S",
-	"Berkshire Falcon",
+
 ],
 "drop_top_challenge":[
 	"Schroder Atrix Q32",
@@ -166,7 +165,7 @@ var class_lists: Dictionary = {
 	"Mir Cars Hutch",
 	"Brutus Viper",
 	"Kuro Vault",
-	"Berkshire Falcon",
+
 	"Kuro Serenity",
 	"Brutus Stingray",
 	"Berkshire Blunt",
@@ -188,7 +187,7 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Berkshire Falcon",
+
 		"Kestrel Speedster",
 		"Berkshire Tempest",
 		"Kestrel Battleaxe",
@@ -214,7 +213,7 @@ var class_lists: Dictionary = {
 	"gentleman_racers":[
 		"Berkshire Blunt",
 		"Kestrel Speedster",
-		"Berkshire Falcon",
+
 		"Berkshire V12-S",
 		"Kuro Serenity",
 		"Kronstadt Blazer",

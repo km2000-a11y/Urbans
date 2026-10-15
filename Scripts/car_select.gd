@@ -553,7 +553,7 @@ var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Seabird",
 	"Kestrel Speedster",
-	"Berkshire Falcon",
+
 	"Mir Cars Blazer"
 ]
 var sedans_list = [
@@ -688,14 +688,8 @@ var urban_racers = {
 	],
 "Mir Cars Blazer":[
 	"", "Country: UAE", "HP: 349", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.5s", "TOP SPEED: 257 KM/H",
+	"0-100 KM/H: 5.0s", "TOP SPEED: 257 KM/H",
 	"ENGINE: V6 3.2L", "ASPIRATION: Supercharged", "TORQUE: 450 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
-"Berkshire Falcon":[
-	"", "Country: UK", "HP: 300", "WEIGHT: 1715 KG",
-	"0-100 KM/H: 6.1s", "TOP SPEED: 265 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -734,7 +728,7 @@ var sport = {
 	],
 	"Berkshire Blunt":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.2s", "TOP SPEED: 280 KM/H",
+	"0-100 KM/H: 5.6s", "TOP SPEED: 280 KM/H",
 	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
@@ -745,8 +739,8 @@ var sport = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 230", "WEIGHT: 1390 KG",
-		"0-100 KM/H: 5.4s", "TOP SPEED: 263 KM/H",
+		"", "Country: Germany", "HP: 250", "WEIGHT: 1390 KG",
+		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
 		"ENGINE: L5 2.2L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
