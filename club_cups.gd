@@ -157,6 +157,7 @@ var class_lists: Dictionary = {
 	"Brutus Viper",
 	"Kuro Vault",
 	"Kuro Serenity",
+	"Mir Cars Blazer",
 	"Brutus Stingray",
 	"Berkshire Blunt",
 ],
@@ -218,7 +219,7 @@ var class_lists: Dictionary = {
 		"Berkshire V12-S",
 		"Kestrel Speedster",
 		"Kuro Serenity",
-		"Kronstadt Blazer",
+		"Mir Cars Blazer",
 				"Berkshire Tempest",
 	],
 		"japanese_cup":[
@@ -445,6 +446,7 @@ var cups: Dictionary = {
 	"Brutus Viper",
 	"Kuro Vault",
 	"Kuro Serenity",
+	"Mir Cars Blazer",
 	"Brutus Stingray",
 	"Berkshire Blunt",
 	"Kestrel Touring",
@@ -575,7 +577,7 @@ var cups: Dictionary = {
 		"Berkshire V12-S",
 		"Kestrel Speedster",
 		"Kuro Serenity",
-		"Kronstadt Blazer",
+		"Mir Cars Blazer",
 	]
 },
 "japanese_cup":{

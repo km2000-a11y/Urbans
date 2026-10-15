@@ -682,14 +682,14 @@ var urban_racers = {
 	],
 	"Kestrel Speedster":[
 		"", "Country: UK", "HP: 285", "WEIGHT: 1135 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 247 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 "Mir Cars Blazer":[
-	"", "Country: UAE", "HP: 349", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.0s", "TOP SPEED: 257 KM/H",
-	"ENGINE: V6 3.2L", "ASPIRATION: Supercharged", "TORQUE: 450 NM",
+	"", "Country: UAE", "HP: 302", "WEIGHT: 1626 KG",
+	"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
+	"ENGINE: V8 5.0L", "ASPIRATION: NA", "TORQUE: 460 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -945,7 +945,7 @@ var car_scene_paths = {
 	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
 	"Schroder Suppressor":"res://Scenes/audi_a4.tscn",
 	"Schroder Fastback":"res://Scenes/audi_a5_tdi.tscn",
-	"Mir Cars Blazer":"res://Scenes/c43.tscn",
+	"Mir Cars Blazer":"res://Scenes/clk_500.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn"
 
 }

@@ -1,10 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://mg7eko711g5j"]
+[gd_scene load_steps=36 format=3 uid="uid://mg7eko711g5j"]
 
-[ext_resource type="Script" uid="uid://crqk5iylyqjd3" path="res://Scenes/c43.gd" id="1_uk00g"]
-[ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_oi8na"]
-[ext_resource type="AudioStream" uid="uid://b74orx6rrqevj" path="res://SFX/petrol.mp3" id="3_uk00g"]
-[ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="4_blo52"]
-[ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="5_fd4r4"]
+[ext_resource type="Script" uid="uid://crqk5iylyqjd3" path="res://Scenes/clk500.gd" id="1_ubaux"]
+[ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_poec2"]
+[ext_resource type="AudioStream" uid="uid://b74orx6rrqevj" path="res://SFX/petrol.mp3" id="3_xutrq"]
+[ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="4_udrol"]
+[ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="5_m2nix"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08euy"]
 albedo_color = Color(0, 0, 0, 1)
@@ -64,6 +64,13 @@ albedo_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_wromi"]
 size = Vector3(0.1, 0.4, 0.6)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uk00g"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_oi8na"]
+left_to_right = 0.1
+size = Vector3(0.2, 0.15, 0.1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gu0u7"]
 albedo_color = Color(0.0745098, 0.0784314, 0.0784314, 1)
 
@@ -104,13 +111,13 @@ size = Vector2(0.5, 0.5)
 [node name="CLK" type="CharacterBody3D"]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-script = ExtResource("1_uk00g")
+script = ExtResource("1_ubaux")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179, 2, 8)
 current = true
 fov = 55.0
-script = ExtResource("2_oi8na")
+script = ExtResource("2_poec2")
 target = NodePath("..")
 
 [node name="ModelRoot" type="Node3D" parent="."]
@@ -163,18 +170,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329322, 0.686325, 0.30087)
 material_override = SubResource("StandardMaterial3D_j171l")
 mesh = SubResource("BoxMesh_rmeoq")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329322, 0.686325, -0.048782)
-material_override = SubResource("StandardMaterial3D_j171l")
-mesh = SubResource("BoxMesh_rmeoq")
-
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="ModelRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422633, 0.688293, 0.282994)
-material_override = SubResource("StandardMaterial3D_j171l")
-mesh = SubResource("BoxMesh_rmeoq")
-
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422633, 0.688293, -0.0693407)
 material_override = SubResource("StandardMaterial3D_j171l")
 mesh = SubResource("BoxMesh_rmeoq")
 
@@ -239,6 +236,16 @@ material_override = SubResource("StandardMaterial3D_b5b1h")
 mesh = SubResource("BoxMesh_wromi")
 skeleton = NodePath("../..")
 
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="ModelRoot/Body/MeshInstance3D4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0578235, 0.181087, -0.154981)
+material_override = SubResource("StandardMaterial3D_uk00g")
+mesh = SubResource("PrismMesh_oi8na")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="ModelRoot/Body/MeshInstance3D4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.757739, 0.181087, -0.154981)
+material_override = SubResource("StandardMaterial3D_uk00g")
+mesh = SubResource("PrismMesh_oi8na")
+
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="ModelRoot/Body"]
 transform = Transform3D(1, 0, 0, 0, 1.35, 0, 0, 0, 1, 0.0565882, 0.436747, -0.232922)
 material_override = SubResource("StandardMaterial3D_gu0u7")
@@ -272,13 +279,13 @@ process_material = SubResource("ParticleProcessMaterial_sibdw")
 draw_pass_1 = SubResource("QuadMesh_twcfh")
 
 [node name="RevPlayer" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_uk00g")
+stream = ExtResource("3_xutrq")
 max_polyphony = 4
 
 [node name="BrakePlayer" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_blo52")
+stream = ExtResource("4_udrol")
 
 [node name="CrashPlayer" type="AudioStreamPlayer3D" parent="."]
 
 [node name="SkidPlayer" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_fd4r4")
+stream = ExtResource("5_m2nix")
