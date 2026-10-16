@@ -1,8 +1,6 @@
+res://Scenes/clk_500.tscn
+res://Scenes/jaguar_xkr.tscn
 res://main.tscn
-res://Scripts/base_car.gd
-res://duel_manager.gd
-res://elimination_manager.gd
-res://normal_race_manager.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -10,7 +8,6 @@ res://Scenes/speedometer.tscn
 res://Scenes/hummer_h2.tscn
 res://Scenes/lexus_ls430.tscn
 res://Scenes/nissan_350z.tscn
-res://Scenes/jaguar_xkr.tscn
 res://Scenes/chevrolet_corvette_c5.tscn
 res://Scenes/aston_db9.tscn
 res://Scenes/gt500.tscn
@@ -56,7 +53,6 @@ res://Scenes/lexus_sc.tscn
 res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Tracks/las_vegas.tscn
-res://Scenes/clk_500.tscn
 res://Scenes/q45.tscn
 res://Scenes/career.tscn
 res://Scenes/morgan_aero_8.tscn
@@ -69,3 +65,7 @@ res://astro.tscn
 res://bus.tscn
 res://volvo_850.tscn
 res://lincoln_town_car.tscn
+res://niva.tscn
+res://main.gd
+res://c250_turbodiesel.tscn
+res://lada_2107.tscn

@@ -6,15 +6,21 @@ var player_car: CarController
 var race_started: bool = false
 var is_lan := false
 var career_progress: Dictionary = {}  # cup_id -> { "normal":false, "duel":false, "elimination":false, "radar":false }
-var traffic_scene_paths: Array[String] = [
-	"res://nissan_micra.tscn",
-	"res://toyota_camry.tscn",
-	"res://mercedes_sl.tscn",
-	"res://astro.tscn",
-	"res://lincoln_town_car.tscn",
-	"res://volvo_850.tscn",
-	"res://bus.tscn"
-]
+var track_traffic := {
+	"BogotaAirport": [
+		"res://lincoln_town_car.tscn",
+		"res://astro.tscn",
+		"res://nissan_micra.tscn",
+		"res://toyota_camry.tscn",
+		"res://volvo_850.tscn"
+	],
+
+	"Chernobyl": [
+		"res://c250_turbodiesel.tscn",
+		"res://lada_2107.tscn",
+		"res://niva.tscn"
+	],
+}
 
 @onready var finish_flash := $FinishFlash
 @onready var start_countdown := $Start
@@ -670,22 +676,12 @@ func spawn_traffic() -> void:
 
 
 func get_random_traffic_path() -> String:
-	var roll: int = randi_range(1, 100)
 
-	if roll <= 30:
-		return "res://nissan_micra.tscn"      # 30%
+	var track_name := TrackName.track_name
 
-	elif roll <= 55:
-		return "res://toyota_camry.tscn"      # 25%
+	if not track_traffic.has(track_name):
+		return "res://toyota_camry.tscn"
 
-	elif roll <= 75:
-		return "res://astro.tscn"             # 20%
+	var cars : Array = track_traffic[track_name]
 
-	elif roll <= 85:
-		return "res://mercedes_sl.tscn"       # 10%
-
-	elif roll <= 93:
-		return "res://lincoln_town_car.tscn"  # 8%
-
-	else:
-		return "res://volvo_850.tscn"         # 7%
+	return cars[randi() % cars.size()]
