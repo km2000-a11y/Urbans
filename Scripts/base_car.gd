@@ -340,7 +340,7 @@ func _ready() -> void:
 		"Mir Cars Blazer":
 			audio_base_pitch = 0.80
 			audio_pitch_range = 1.55
-			audio_character_type = 0
+			audio_character_type = 2
 			audio_volume_offset = 1.0
 
 

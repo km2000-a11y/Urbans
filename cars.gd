@@ -42,7 +42,7 @@ var class_lists: Dictionary = {
 	],
 
 	"urban": [
-	"Mir Cars Blazer",
+	"Berkshire Blunt",
 	"Kuro Serenity",
 	"Kestrel Speedster",
 	"Kestrel Seabird",
@@ -58,7 +58,7 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Berkshire V12-S",
 		"Brutus Stingray",
-		"Berkshire Blunt",
+		"Mir Cars Blazer",
 		"Schroder Classique Sport",
 	],
 

@@ -95,7 +95,7 @@ var car_prices := {
 	"Kestrel Seabird": 120000,
 	"Eisenach Roadstar": 165000,
 	"Berkshire Blunt": 135000,
-	"Mir Cars Blazer": 130000,
+	"Mir Cars Blazer": 150000,
 
 	"Schroder Classique Sport": 135000,
 	"Brutus Stingray": 200000,
@@ -553,8 +553,7 @@ var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Seabird",
 	"Kestrel Speedster",
-
-	"Mir Cars Blazer"
+	"Berkshire Blunt",
 ]
 var sedans_list = [
 	"Strandberg Turbo",
@@ -566,7 +565,7 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-	"Berkshire Blunt",
+	"Mir Cars Blazer",
 	"Berkshire V12-S",
 	"Brutus Stingray",
 ]
@@ -686,10 +685,10 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-"Mir Cars Blazer":[
-	"", "Country: UAE", "HP: 302", "WEIGHT: 1626 KG",
-	"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
-	"ENGINE: V8 5.0L", "ASPIRATION: NA", "TORQUE: 460 NM",
+"Berkshire Blunt":[
+	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 5.2s", "TOP SPEED: 259 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -726,10 +725,10 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Blunt":[
-	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.6s", "TOP SPEED: 280 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
+	"Mir Cars Blazer":[
+	"", "Country: UAE", "HP: 362", "WEIGHT: 1796 KG",
+	"0-100 KM/H: 5.4s", "TOP SPEED: 284 KM/H",
+	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	"Brutus Stingray":[
@@ -743,13 +742,7 @@ var sport = {
 		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
 		"ENGINE: L5 2.2L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
-	],
-	"Kestrel Touring":[
-		"", "Country: UK", "HP: 360", "WEIGHT: 1150 KG",
-		"0-100 KM/H: 4.3s", "TOP SPEED: 292 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 390 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+	]
 }
 var sport_racing = {
 	"Linetti Shepherd":[
