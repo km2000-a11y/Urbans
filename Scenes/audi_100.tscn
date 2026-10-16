@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3pyr47qwkgbe" path="res://Scripts/audi_a8_42_2004.gd" id="1_qokdn"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_bkoa3"]
-[ext_resource type="AudioStream" uid="uid://bq4u8syx73uiv" path="res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav" id="3_2t7lg"]
+[ext_resource type="AudioStream" uid="uid://b74orx6rrqevj" path="res://SFX/petrol.mp3" id="3_2t7lg"]
 [ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="3_bkoa3"]
 [ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="4_3uhi0"]
 
@@ -36,7 +36,7 @@ size = Vector3(0.1, 0.2, 0.5)
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0sf7n"]
-size = Vector3(0.35, 0.15, 0.1)
+size = Vector3(0.35, 0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdcca"]
 albedo_color = Color(1, 0.729412, 0, 1)
@@ -99,7 +99,7 @@ color_ramp = SubResource("GradientTexture1D_nfu50")
 [sub_resource type="QuadMesh" id="QuadMesh_twcfh"]
 size = Vector2(0.5, 0.5)
 
-[node name="AUDI A8" type="CharacterBody3D"]
+[node name="AUDI 100" type="CharacterBody3D"]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_qokdn")
@@ -112,7 +112,7 @@ script = ExtResource("2_bkoa3")
 target = NodePath("..")
 
 [node name="ModelRoot" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.315375, 0)
+transform = Transform3D(-1, 0, -1.38916e-07, 0, 1, 0, 1.50996e-07, 0, -0.92, 0, -0.315375, 0)
 
 [node name="WheelHolder" type="Node3D" parent="ModelRoot"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.203167, -0.15023, 0.711363)

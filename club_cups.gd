@@ -266,7 +266,7 @@ var cup_rewards: Dictionary = {
 	"japanese_cup": "Strandberg Turbo",
 	"all_wheel_grip": "Kestrel Speedster",
 	"eisenach_cup": "Mir Cars Blazer",
-	"drop_top_challenge":"Mir Cars Blazer",
+	"drop_top_challenge":"Berkshire Blunt",
 	"under_400_hp": "Schroder Classique Sport",
 	"schroder_cup": "Brutus Stingray",
 	"stingray_competition": "Berkshire V12-S",

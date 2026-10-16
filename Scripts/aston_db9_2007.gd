@@ -10,9 +10,9 @@ var zero_to_hundred_display := 5.10
 func _ready():
 	# GAMEPLAY STATS
 	mass = 1740.0
-	horsepower = 450
+	horsepower = 420
 	max_rpm = 6500.0
-	zero_to_hundred = 4.9
+	zero_to_hundred = 5.5
 	top_speed_kmh = 300
 	turn_speed = 2.70
 	brake_strength = 13.2

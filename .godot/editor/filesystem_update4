@@ -1,5 +1,9 @@
+res://Scenes/audi_a8.tscn
+res://Scenes/audi_s4.tscn
+res://Scenes/aston_db9.tscn
+res://Scripts/aston_db9_2007.gd
+res://Scripts/car_select.gd
 res://main.tscn
-res://main.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -9,7 +13,6 @@ res://Scenes/lexus_ls430.tscn
 res://Scenes/nissan_350z.tscn
 res://Scenes/jaguar_xkr.tscn
 res://Scenes/chevrolet_corvette_c5.tscn
-res://Scenes/aston_db9.tscn
 res://Scenes/gt500.tscn
 res://Scenes/diablo_road.tscn
 res://Scenes/sagaris.tscn
@@ -26,7 +29,6 @@ res://Scenes/mode_select.tscn
 res://Scenes/win_screen_radar.tscn
 res://Scenes/leaderboard.tscn
 res://Scenes/saleen_s7.tscn
-res://Scenes/audi_s2.tscn
 res://Scenes/volvo_s60r.tscn
 res://Scenes/main_menu.tscn
 res://Scenes/FinishFlash.tscn
@@ -68,16 +70,12 @@ res://lincoln_town_car.tscn
 res://c250_turbodiesel.tscn
 res://lada_2107.tscn
 res://niva.tscn
-res://land_cruiser.tscn
 res://patrol.tscn
 res://corolla.tscn
 res://audi_100.tscn
 res://es350.tscn
-res://Scripts/traffic.gd
-res://Scripts/car_select.gd
-res://Scripts/lotus_exige_s_2007.gd
-res://Scripts/base_car.gd
-res://cars.gd
+res://Scripts/chevrolet_corvette_c5_1998.gd
+res://Scenes/clk500.gd
 res://club_cups.gd
+res://Scripts/jaguar_xkr_2003.gd
 res://Scenes/rs3.gd
-res://Scenes/audi_s4.tscn

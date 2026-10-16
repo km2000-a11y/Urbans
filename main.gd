@@ -636,6 +636,7 @@ func setup_multiplayer_sync(car_node: Node3D):
 
 func _update_career_progress():
 	print("UPDATE CAREER PROGRESS CALLED")
+
 	var cup_id = ChampionshipState.active_cup
 
 	if not career_progress.has(cup_id):
@@ -649,9 +650,15 @@ func _update_career_progress():
 	match mode:
 		"Normal Race":
 			career_progress[cup_id]["normal"] = true
+
 		"Duel":
 			career_progress[cup_id]["duel"] = true
-			
+
+		"Elimination":
+			career_progress[cup_id]["elimination"] = true
+
+		"Radar Race":
+			career_progress[cup_id]["radar"] = true		
 func _on_countdown_finished():
 	MusicManager.play_race_music()
 	

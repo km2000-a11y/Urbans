@@ -691,6 +691,12 @@ var urban_racers = {
 	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
+"Mir Cars Blazer":[
+	"", "Country: UAE", "HP: 362", "WEIGHT: 1796 KG",
+	"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
+	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 }
 var sedans = {
 	"Schroder Suppressor":[
@@ -720,26 +726,26 @@ var sedans = {
 }
 var sport = {
 	"Berkshire V12-S":[
-		"", "Country: UK", "HP: 450", "WEIGHT: 1740 KG",
-		"0-100 KM/H: 4.9s", "TOP SPEED: 300 KM/H",
-		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
+		"", "Country: UK", "HP: 420", "WEIGHT: 1740 KG",
+		"0-100 KM/H: 5.5s", "TOP SPEED: 300 KM/H",
+		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 550 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Mir Cars Blazer":[
 	"", "Country: UAE", "HP: 362", "WEIGHT: 1796 KG",
-	"0-100 KM/H: 5.4s", "TOP SPEED: 284 KM/H",
+	"0-100 KM/H: 4.9s", "TOP SPEED: 284 KM/H",
 	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	"Brutus Stingray":[
 		"", "Country: USA", "HP: 400", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 4.3s", "TOP SPEED: 293 KM/H",
+		"0-100 KM/H: 4.3s", "TOP SPEED: 289 KM/H",
 		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 545 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
 		"", "Country: Germany", "HP: 340", "WEIGHT: 1840 KG",
-		"0-100 KM/H: 5.5s", "TOP SPEED: 265 KM/H",
+		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	]

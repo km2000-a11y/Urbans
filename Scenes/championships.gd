@@ -7,6 +7,7 @@ func _ready():
 	MusicManager.play_menu_music()
 	set_process_input(true)
 	_update_button_states()
+	ClubCups.load_progress()
 	Localization.set_text($Control/CupInfo/ListBtn, "list")
 	Localization.set_text($Control/CupInfo/GoBtn, "go")
 	
