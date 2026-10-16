@@ -674,8 +674,8 @@ var urban_racers = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kestrel Seabird":[
-		"", "Country: UK", "HP: 192", "WEIGHT: 935 KG",
-		"0-100 KM/H: 4.7s", "TOP SPEED: 243 KM/H",
+		"", "Country: UK", "HP: 192", "WEIGHT: 875 KG",
+		"0-100 KM/H: 5.2s", "TOP SPEED: 246 KM/H",
 		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
@@ -738,9 +738,9 @@ var sport = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 250", "WEIGHT: 1390 KG",
-		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
-		"ENGINE: L5 2.2L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+		"", "Country: Germany", "HP: 340", "WEIGHT: 1840 KG",
+		"0-100 KM/H: 5.5s", "TOP SPEED: 265 KM/H",
+		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	]
 }
@@ -914,7 +914,7 @@ var car_scene_paths = {
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
 	"Zenith Prince":"res://Scenes/q45.tscn",
-	"Schroder Classique Sport":"res://Scenes/audi_s2.tscn",
+	"Schroder Classique Sport":"res://Scenes/audi_s4.tscn",
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",

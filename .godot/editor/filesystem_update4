@@ -1,7 +1,5 @@
 res://main.tscn
-res://Scripts/car_select.gd
-res://Scenes/clk500.gd
-res://Scripts/jaguar_xkr_2003.gd
+res://main.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -70,6 +68,16 @@ res://lincoln_town_car.tscn
 res://c250_turbodiesel.tscn
 res://lada_2107.tscn
 res://niva.tscn
+res://land_cruiser.tscn
+res://patrol.tscn
+res://corolla.tscn
+res://audi_100.tscn
+res://es350.tscn
+res://Scripts/traffic.gd
+res://Scripts/car_select.gd
+res://Scripts/lotus_exige_s_2007.gd
 res://Scripts/base_car.gd
 res://cars.gd
 res://club_cups.gd
+res://Scenes/rs3.gd
+res://Scenes/audi_s4.tscn

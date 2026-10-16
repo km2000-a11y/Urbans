@@ -349,7 +349,7 @@ func _ready() -> void:
 		"Schroder Classique Sport":
 			audio_base_pitch = 1.10
 			audio_pitch_range = 1.90
-			audio_character_type = 3
+			audio_character_type = 0
 			audio_volume_offset = 0.4
 
 		"Berkshire Blunt":

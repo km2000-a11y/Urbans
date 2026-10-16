@@ -7,19 +7,49 @@ var race_started: bool = false
 var is_lan := false
 var career_progress: Dictionary = {}  # cup_id -> { "normal":false, "duel":false, "elimination":false, "radar":false }
 var track_traffic := {
+
 	"BogotaAirport": [
 		"res://lincoln_town_car.tscn",
 		"res://astro.tscn",
 		"res://nissan_micra.tscn",
 		"res://toyota_camry.tscn",
-		"res://volvo_850.tscn"
+		"res://toyota_corolla.tscn"
 	],
 
 	"Chernobyl": [
 		"res://c250_turbodiesel.tscn",
 		"res://lada_2107.tscn",
-		"res://niva.tscn"
+		"res://niva.tscn",
+		"res://audi_100.tscn"
 	],
+
+	"AbuDhabi": [
+		"res://patrol.tscn",
+		"res://corolla.tscn",
+		"res://es350.tscn",
+		"res://toyota_camry.tscn"
+	],
+
+	"Split": [
+		"res://audi_100.tscn",
+		"res://volvo_850.tscn",
+		"res://c250_turbodiesel.tscn",
+		"res://toyota_corolla.tscn"
+	],
+
+	"NewYork": [
+		"res://lincoln_town_car.tscn",
+		"res://toyota_camry.tscn",
+		"res://es350.tscn",
+		"res://corolla.tscn"
+	],
+
+	"LasVegas": [
+		"res://sl500.tscn",
+		"res://es350.tscn",
+		"res://toyota_camry.tscn",
+		"res://lincoln_town_car.tscn"
+	]
 }
 
 @onready var finish_flash := $FinishFlash
@@ -404,6 +434,7 @@ func _on_radar_trap_body_entered(body):
 		var success := speed >= target_speed
 
 		player_car.controls_enabled = false
+		player_car.race_finished = true
 		win_screen_radar.show_win(success)
 
 		if success and GameMode.game_mode == "Club Cups":
@@ -413,7 +444,6 @@ func _on_radar_trap_body_entered(body):
 		MusicManager.stop_music()
 
 	finish_flash.flash()
-	_screech_to_halt()
 
 func _fix_wrong_way(car: CarController, root: Node):
 	if car == null:
@@ -673,6 +703,7 @@ func spawn_traffic() -> void:
 
 	traffic_car.global_position = spawn_pos
 	traffic_car.global_transform.basis = random_wp.global_transform.basis
+	traffic_car.set_waypoints(wp_root)
 
 
 func get_random_traffic_path() -> String:

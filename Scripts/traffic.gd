@@ -1,123 +1,126 @@
 extends CharacterBody3D
 
-@export var base_speed: float = 18.0
-var current_speed: float = 18.0
-@export var turn_speed: float = 4.0
-@export var front_ray_length: float = 30.0
+@export var base_speed := 18.0
+@export var turn_speed := 3.0
+@export var waypoint_reach_distance := 8.0
+@export var front_ray_length := 25.0
 
 const GRAVITY := 30.0
 
-var dodge_timer: float = 0.0
-var dodge_dir: float = 0.0
-var current_steer_angle: float = 0.0
-var target_steer_angle: float = 0.0
-var stuck_timer: float = 0.0
-var lane_bias: float = 0.0
+var current_speed := 18.0
 
-func _ready() -> void:
-	lane_bias = 1.0 if randf() > 0.5 else -1.0
+var current_wp := 0
+var waypoints : Array = []
 
-func _physics_process(delta: float) -> void:
-	var space: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+var target_steer := 0.0
+var current_steer := 0.0
 
-	var forward: Vector3 = -transform.basis.z
+func set_waypoints(root: Node) -> void:
+	waypoints.clear()
+
+	for child in root.get_children():
+		if child is Node3D:
+			waypoints.append(child)
+
+func _physics_process(delta):
+
+	if waypoints.is_empty():
+		return
+
+	var space := get_world_3d().direct_space_state
+
+	var wp : Node3D = waypoints[current_wp]
+
+	var to_wp : Vector3 = wp.global_position - global_position
+	to_wp.y = 0.0
+
+	if to_wp.length() < waypoint_reach_distance:
+		current_wp += 1
+
+		if current_wp >= waypoints.size():
+			current_wp = 0
+
+		wp = waypoints[current_wp]
+
+	to_wp = (wp.global_position - global_position).normalized()
+
+	var forward := -transform.basis.z
 	forward.y = 0.0
 	forward = forward.normalized()
-	
-	var right: Vector3 = transform.basis.x
-	right.y = 0.0
-	right = right.normalized()
 
-	var origin: Vector3 = global_position + Vector3.UP * 0.5
+	var angle := forward.signed_angle_to(to_wp, Vector3.UP)
 
-	# --- ANTI-STUCK SYSTEM ---
-	if current_speed < 1.0:
-		stuck_timer += delta
-	else:
-		stuck_timer = 0.0
+	target_steer = clamp(angle, -0.25, 0.25)
 
-	if stuck_timer > 1.5 and dodge_timer <= 0.0:
-		dodge_dir = lane_bias
-		target_steer_angle = dodge_dir * 0.4
-		dodge_timer = 1.5
-		stuck_timer = 0.0
+	var origin := global_position + Vector3.UP * 0.5
 
-	# --- COMMUTER DRIVING & CARCONTROLLER EVASION ---
-	if dodge_timer > 0.0:
-		dodge_timer -= delta
-		current_speed = move_toward(current_speed, base_speed * 0.7, delta * 8.0)
-	else:
-		var front_query := PhysicsRayQueryParameters3D.create(origin, origin + forward * front_ray_length)
-		front_query.exclude = [get_rid()]
-		var front_hit: Dictionary = space.intersect_ray(front_query)
+	var ray := PhysicsRayQueryParameters3D.create(
+		origin,
+		origin + forward * front_ray_length
+	)
 
-		if not front_hit.is_empty():
-			var hit_collider = front_hit.get("collider")
-			var hit_pos = front_hit.get("position", origin)
+	ray.exclude = [get_rid()]
 
-			var dist := origin.distance_to(hit_pos)
+	var hit := space.intersect_ray(ray)
 
-			if hit_collider is CarController:
+	if not hit.is_empty():
 
-				# Far away? Ignore it.
-				if dist > 20.0:
-					target_steer_angle = 0.0
-					current_speed = move_toward(
-						current_speed,
-						base_speed,
-						delta * 4.0
-					)
+		var dist := origin.distance_to(hit.position)
 
-				# Racer approaching but still safely ahead
-				elif dist > 12.0:
-					current_speed = move_toward(
-						current_speed,
-						base_speed * 0.6,
-						delta * 4.0
-					)
+		if hit.collider is CarController:
 
-					target_steer_angle = lane_bias * 0.15
-
-				else:
-					# OH CRAP MOVE OVER
-					dodge_dir = lane_bias
-
-					target_steer_angle = dodge_dir * 0.35
-
-					current_speed = move_toward(
-						current_speed,
-						base_speed * 0.5,
-						delta * 8.0
-					)
-
-					dodge_timer = 1.0
-
-			else:
-				# Static obstacle
+			if dist < 10.0:
 				current_speed = move_toward(
 					current_speed,
-					0.0,
-					delta * 10.0
+					base_speed * 0.8,
+					delta * 2.0
 				)
 
-				target_steer_angle = 0.0
+				target_steer += 0.08
+
+			else:
+				current_speed = move_toward(
+					current_speed,
+					base_speed,
+					delta * 1.5
+				)
 
 		else:
-			target_steer_angle = 0.0
-
 			current_speed = move_toward(
 				current_speed,
-				base_speed,
+				0.0,
 				delta * 4.0
 			)
-	# Smooth steering interpolation
-	current_steer_angle = move_toward(current_steer_angle, target_steer_angle, turn_speed * delta)
-	rotation.y += current_steer_angle * delta * turn_speed
 
-	# Smooth physics movement
+	else:
+
+		current_speed = move_toward(
+			current_speed,
+			base_speed,
+			delta * 1.0
+		)
+
+	current_steer = move_toward(
+		current_steer,
+		target_steer,
+		turn_speed * delta
+	)
+
+	rotation.y += current_steer * delta * turn_speed
+
 	var target_velocity := -transform.basis.z * current_speed
-	velocity.x = lerp(velocity.x, target_velocity.x, delta * 8.0)
-	velocity.z = lerp(velocity.z, target_velocity.z, delta * 8.0)
+
+	velocity.x = lerp(
+		velocity.x,
+		target_velocity.x,
+		delta * 4.0
+	)
+
+	velocity.z = lerp(
+		velocity.z,
+		target_velocity.z,
+		delta * 4.0
+	)
 
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
