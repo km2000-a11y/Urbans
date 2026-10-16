@@ -474,12 +474,21 @@ func update_race() -> void:
 
 
 	var sorted := _sorted_cars()
+
+	for i in range(sorted.size()):
+		var car := sorted[i] as CarController
+
+		if car:
+			car.race_position = i + 1
+			car.update_position_label()
+
 	var player_pos := _calculate_position()
 
 
 	hud.update_stopwatch(player_car.total_race_time)
 	hud.update_lap(car_laps[player_car] + 1, total_laps)
 	hud.update_position(player_pos, ai_cars.size() + 1)
+	
 
 
 	# Freeze any AI that finished

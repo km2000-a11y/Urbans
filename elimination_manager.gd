@@ -149,8 +149,17 @@ func update_race() -> void:
 
 	# Take ONE stable snapshot for this frame
 	var sorted := _sorted_cars()
+
+	for i in range(sorted.size()):
+		var car := sorted[i] as CarController
+
+		if car:
+			car.race_position = i + 1
+			car.update_position_label()
+
 	var player_pos := _position_from_sorted(sorted)
 
+	# Update HUD
 	hud.update_position(player_pos, ai_cars.size() + 1)
 
 	elimination_timer -= get_process_delta_time()

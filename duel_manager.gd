@@ -195,7 +195,15 @@ func update_duel() -> void:
 		hud.update_stopwatch(player_car.total_race_time)
 			
 	hud.update_lap(player_laps + 1, total_laps)
-	hud.update_position(_calculate_position(), 2)
+	var player_pos := _calculate_position()
+
+	player_car.race_position = player_pos
+	ai_car.race_position = 3 - player_pos
+
+	hud.update_position(player_pos, 2)
+
+	player_car.update_position_label()
+	ai_car.update_position_label()
 	_check_finish()
 
 

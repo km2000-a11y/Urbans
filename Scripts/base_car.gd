@@ -14,7 +14,8 @@ var stuck_time := 0.0
 var race_finished := false
 var unstuck_time := 0.0
 var unstucking := false
-
+var position_label: Label3D = null
+var race_position: int = 1
 # --- ROLE FLAGS ---
 var is_ai: bool = false
 var waypoint_root: Node3D = null
@@ -483,7 +484,10 @@ func _ready() -> void:
 		used_ai_names.remove_at(idx)
 	else:
 		driver_name = "Player"
-			
+
+		add_child(position_label)
+		position_label.hide()
+				
 # --- BULLETPROOF RESTART HANDLER ---
 func _on_rev_finished() -> void:
 	if RevPlayer and RevPlayer.stream:
@@ -500,6 +504,8 @@ func update_gears(speed_kmh: float) -> void:
 	current_gear = clamp(current_gear, 1, gear_count)
 
 func _physics_process(delta: float) -> void:
+	if is_ai:
+		update_position_label()
 	if race_finished:
 		velocity = velocity.move_toward(
 			Vector3.ZERO,
@@ -1462,3 +1468,45 @@ func _check_traffic(delta: float) -> float:
 					return 1.0
 
 			return 0.0
+func update_position_label() -> void:
+	if not is_ai:
+		return
+	ensure_position_label()
+	if position_label == null:
+		return
+
+	var show_label :bool= (
+		Modes.mode == "Normal Race"
+		or Modes.mode == "Duel"
+		or Modes.mode == "Elimination"
+	)
+
+	position_label.visible = show_label
+
+	if not show_label:
+		return
+
+	position_label.text = get_position_text()
+func get_position_text() -> String:
+	match race_position:
+		1:
+			return "1st"
+		2:
+			return "2nd"
+		3:
+			return "3rd"
+		_:
+			return str(race_position) + "th"
+func ensure_position_label():
+	if position_label != null:
+		return
+
+	position_label = Label3D.new()
+	position_label.name = "PositionLabel"
+	position_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	position_label.position = Vector3(0, 4.0, 0)
+	position_label.pixel_size = 0.02
+	position_label.modulate = Color.YELLOW
+	position_label.text = "1st"
+
+	add_child(position_label)
