@@ -693,9 +693,9 @@ var urban_racers = {
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Mir Cars Blazer":[
-	"", "Country: UAE", "HP: 280", "WEIGHT: 1678 KG",
+	"", "Country: UAE", "HP: 346", "WEIGHT: 1678 KG",
 	"0-100 KM/H: 5.6s", "TOP SPEED: 265 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 400 NM",
+	"ENGINE: V8 5.5L", "ASPIRATION: NA", "TORQUE: 540 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }

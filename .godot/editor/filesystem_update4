@@ -1,7 +1,2 @@
-res://Scenes/400e.tscn
-res://Scenes/bmw_530d.gd
-res://cars.gd
-res://Scripts/car_select.gd
-res://Scenes/clk500.gd
-res://Scenes/e_430.gd
 res://Scenes/e55.tscn
+res://Scripts/car_select.gd
