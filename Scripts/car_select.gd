@@ -554,8 +554,8 @@ var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Seabird",
 	"Kestrel Speedster",
-		"Mir Cars Blazer",
 	"Berkshire Blunt",
+	"Mir Cars Blazer",
 ]
 var sedans_list = [
 	"Strandberg Turbo",
@@ -693,18 +693,24 @@ var urban_racers = {
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Mir Cars Blazer":[
-	"", "Country: UAE", "HP: 280", "WEIGHT: 1470 KG",
+	"", "Country: UAE", "HP: 280", "WEIGHT: 1678 KG",
 	"0-100 KM/H: 5.6s", "TOP SPEED: 265 KM/H",
-	"ENGINE: L6 3.6L", "ASPIRATION: NA", "TORQUE: 380 NM",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 400 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
 var sedans = {
 	"Schroder Suppressor":[
 		"", "Country: Germany", "HP: 240", "WEIGHT: 1665 KG",
-		"0-100 KM/H: 5.6s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 5.7s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V6 3.0L", "ASPIRATION: Turbo", "TORQUE: 500 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
+	],
+	"Kronstadt Monarch":[
+		"", "Country: Germany", "HP: 275", "WEIGHT: 1660 KG",
+		"0-100 KM/H: 6.4s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 410 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 			"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
@@ -940,7 +946,7 @@ var car_scene_paths = {
 	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
 	"Schroder Suppressor":"res://Scenes/audi_a4.tscn",
 	"Schroder Fastback":"res://Scenes/audi_a5_tdi.tscn",
-	"Mir Cars Blazer":"res://Scenes/clk_500.tscn",
+	"Mir Cars Blazer":"res://Scenes/e55.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn"
 
 }

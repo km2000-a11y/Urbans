@@ -3,17 +3,17 @@ extends CarController
 # COSMETIC INFO (UI only)
 var def_car_name := "Kronstadt Monarch"
 var country := "Germany"
-var engine := "V8 5.0L"
+var engine := "V8 4.2L"
 var weight_kg := 1565
 var zero_to_hundred_display := 5.30
 
 func _ready():
 	# GAMEPLAY STATS — Refined German luxury GT with effortless V8 torque
-	mass = 1796.0
-	horsepower = 280
+	mass = 1678.0
+	horsepower = 350
 	max_rpm = 6500.0
 	idle_rpm = 700.0
-	zero_to_hundred = 5.6
+	zero_to_hundred = 5.4
 	top_speed_kmh = 265
 	transmission = "Rear wheel drive"
 

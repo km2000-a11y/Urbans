@@ -269,7 +269,7 @@ var car_scene_paths := {
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
 	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
-		"Mir Cars Blazer":"res://Scenes/clk_500.tscn",	
+		"Mir Cars Blazer":"res://Scenes/e55.tscn",	
 	"Schroder Classique Sport":"res://Scenes/audi_s4.tscn",
 
 	"Brutus Viper":"res://Scenes/gt500.tscn",

@@ -1,3 +1,4 @@
+CarController
 Label
 Button
 VBoxContainer
@@ -6,7 +7,6 @@ CanvasLayer
 TextureProgressBar
 ProgressBar
 HBoxContainer
-CarController
 MeshInstance3D
 AudioStreamPlayer
 WorldEnvironment
