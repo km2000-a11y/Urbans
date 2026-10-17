@@ -15,6 +15,9 @@ var race_finished := false
 var unstuck_time := 0.0
 var unstucking := false
 var position_label: Label3D = null
+var engine_pitch_smoothed := 1.0
+var engine_volume_smoothed := -24.0
+var engine_time := 0.0
 var race_position: int = 1
 # --- ROLE FLAGS ---
 var is_ai: bool = false
@@ -45,7 +48,7 @@ var has_turbo := false
 @onready var CrashPlayer = $CrashPlayer
 @onready var SkidPlayer = $SkidPlayer
 var TurboPlayer: AudioStreamPlayer
-var custom_rev_player: AudioStreamPlayer = null
+
 
 # --- SFX PRELOADS ---
 const PETROL_AUDIO = preload("res://SFX/petrol.mp3")
@@ -220,6 +223,7 @@ var phase: float = 0.0
 # we will now override it safely as a standard AudioStreamPlayer object:
 
 func _ready() -> void:
+	
 	# SUVs
 	match Cars.selected_car:
 		"Colossus Titan Max":
@@ -265,7 +269,7 @@ func _ready() -> void:
 			audio_character_type = 3
 
 		"Kuro Vault":
-			audio_character_type = 12 # Lexus V8
+			audio_character_type = 0 # Lexus V8
 
 		"Zenith Prince":
 			audio_character_type = 0
@@ -277,7 +281,7 @@ func _ready() -> void:
 		# Urban Performance
 
 		"Kuro Serenity":
-			audio_character_type = 12
+			audio_character_type = 0
 
 		"Kestrel Seabird":
 			audio_character_type = 2
@@ -295,7 +299,7 @@ func _ready() -> void:
 		# Sport Coupe
 
 		"Schroder Classique Sport":
-			audio_character_type = 0
+			audio_character_type = 7
 
 		"Berkshire Tempest":
 			audio_character_type = 8 # Aston V12
@@ -328,7 +332,7 @@ func _ready() -> void:
 			audio_character_type = 2
 
 		"Mir Cars Raptor":
-			audio_character_type = 13 # Saleen
+			audio_character_type = 12 # Saleen
 
 		"Linetti Terror":
 			audio_character_type = 2
@@ -350,10 +354,16 @@ func _ready() -> void:
 
 		"Bartoli Cruiser Interceptor":
 			audio_character_type = 9 # Maserati
-	custom_rev_player.volume_db = -10.0  # Changed from 0.0 to -5.0
+	# --- REV PLAYER SETUP ---
 	# --- REV PLAYER SETUP ---
 	if RevPlayer:
+		# Choose the correct bus for this car's engine type.
+		setup_engine_bus()
+
+		# Set the engine recording.
 		RevPlayer.stream = diesel_stream if is_diesel else petrol_stream
+
+		# Start the engine.
 		RevPlayer.play()
 
 	# --- TURBO PLAYER SETUP ---
@@ -701,12 +711,29 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		else:
 			rpm = lerp(rpm, idle_rpm, delta * 3.0)
 	else:
-		var wheel_rpm: float = speed_kmh * gear_ratios[current_gear - 1] * 35.0
+		var gear_index: int = clamp(current_gear - 1, 0, gear_ratios.size() - 1)
+		var wheel_rpm: float = speed_kmh * gear_ratios[gear_index] * 35.0
 		rpm = lerp(rpm, wheel_rpm, delta * 4.0)
 
 	rpm = clamp(rpm, idle_rpm, max_rpm)
 	update_gears(speed_kmh)
 	var rpm_ratio := rpm / max_rpm
+	# --- RPM & GEARS ---
+	if speed_kmh < 2.0:
+		if accel > 0.1:
+			rpm = lerp(rpm, idle_rpm + 2500.0, delta * 2.5)
+		else:
+			rpm = lerp(rpm, idle_rpm, delta * 3.0)
+	else:
+		var gear_index: int = clamp(current_gear - 1, 0, gear_ratios.size() - 1)
+		var wheel_rpm: float = speed_kmh * gear_ratios[gear_index] * 35.0
+		rpm = lerp(rpm, wheel_rpm, delta * 4.0)
+
+	rpm = clamp(rpm, idle_rpm, max_rpm)
+	update_gears(speed_kmh)
+
+	# UPDATE ENGINE AUDIO HERE
+	update_engine_audio(delta, accel, speed_kmh)
 
 	# --- CODE REV PLAYER UPDATE ---
 	# --- CODE REV PLAYER UPDATE ---
@@ -720,324 +747,6 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	# --- REVPLAYER AUDIO UPDATE (Crackling Fixed & True Highway Cruise) ---
 	# --- REVPLAYER AUDIO UPDATE (For Idle-to-Rev Audio Files) ---
 	# --- REVPLAYER AUDIO UPDATE (Handling Full Throttle at Top Speed) ---
-	if RevPlayer:
-		if not RevPlayer.playing:
-			RevPlayer.play()
-			
-		var is_idling := accel == 0.0 and rpm_ratio < 0.15
-		var is_cruising_high_speed := rpm_ratio > 0.7 and accel < 0.3
-		var is_pinned_at_top_speed := rpm_ratio > 0.9 and accel > 0.8
-		var load_factor :float= lerp(0.3, 1.0, accel)
-		
-		# ==========================================
-		# 1. CHARACTER-BASED DISTINCT PITCH PROFILES
-		# ==========================================
-		var target_pitch := audio_base_pitch + (rpm_ratio * audio_pitch_range)
-
-		var base_db :float= lerp(-26.0, -10.0, rpm_ratio * load_factor) + audio_volume_offset
-		match audio_character_type:
-
-				# ==================================================
-				# 0 = LUXURY V8
-				# LS430, SC400, LX470, Q45
-				# Quiet, smooth, lazy
-				# ==================================================
-				0:
-					target_pitch = audio_base_pitch + rpm_ratio * 0.10
-
-					target_pitch += sin(
-						Time.get_ticks_msec() * 0.002
-					) * 0.002
-
-					base_db = lerp(
-						-42.0,
-						-25.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-					if accel < 0.4:
-						target_pitch *= 0.96
-
-
-				# ==================================================
-				# 1 = AMERICAN V8
-				# GT500, Chevelle, Corvette, Cobra
-				# Loud and cammy
-				# ==================================================
-				1:
-					target_pitch = audio_base_pitch + rpm_ratio * 0.60
-
-					target_pitch += sin(
-						Time.get_ticks_msec() * 0.030
-					) * 0.25
-
-					base_db = lerp(
-						-8.0,
-						12.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-					if accel > 0.5:
-						target_pitch += 0.30
-
-
-				# ==================================================
-				# 2 = ITALIAN EXOTIC
-				# Gallardo, Diablo, Murcielago, Zonda
-				# Nothing... then absolute screaming
-				# ==================================================
-				2:
-					if rpm_ratio < 0.60:
-						target_pitch = audio_base_pitch + rpm_ratio * 0.30
-					else:
-						target_pitch = audio_base_pitch + 0.2 + pow(
-							(rpm_ratio - 0.60) * 2.5,
-							4.0
-						) * 14.0
-
-					base_db = lerp(
-						-32.0,
-						12.0,
-						pow(rpm_ratio, 3.0)
-					) + audio_volume_offset
-
-
-				# ==================================================
-				# 3 = TURBO COMPACT
-				# TT, Beetle Turbo, S60R
-				# Buzzy little psycho
-				# ==================================================
-				3:
-					target_pitch = audio_base_pitch + rpm_ratio * 4.0
-
-					target_pitch += sin(
-						Time.get_ticks_msec() * 0.022
-					) * 0.20
-
-					base_db = lerp(
-						-28.0,
-						4.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-
-				# ==================================================
-				# 4 = XKR SUPERCHARGER
-				# Blower noise dominates
-				# ==================================================
-				4:
-					target_pitch = audio_base_pitch + rpm_ratio * 0.75
-
-					target_pitch += pow(
-						rpm_ratio,
-						3.0
-					) * 4.0
-
-					base_db = lerp(
-						-24.0,
-						8.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-					if accel > 0.5:
-						target_pitch += rpm_ratio * 1.2
-
-
-				# ==================================================
-				# 5 = TVR INSANITY
-				# Sagaris, T440R
-				# Sounds possessed
-				# ==================================================
-				5:
-					target_pitch = audio_base_pitch + rpm_ratio * 9.5
-
-					target_pitch += sin(
-						Time.get_ticks_msec() * 0.060
-					) * 0.50
-
-					target_pitch += randf_range(
-						-0.05,
-						0.05
-					)
-
-					base_db = lerp(
-						-4.0,
-						14.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-					if rpm_ratio > 0.55:
-						target_pitch += 2.0
-
-
-				# ==================================================
-				# 6 = DIESEL
-				# Q7 TDI, A4 TDI
-				# Tractor energy
-				# ==================================================
-				6:
-					target_pitch = audio_base_pitch + rpm_ratio * 0.015
-
-					target_pitch += sin(
-						Time.get_ticks_msec() * 0.004
-					) * 0.04
-
-					base_db = lerp(
-						-18.0,
-						2.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-
-				# ==================================================
-				# 7 = AMG
-				# C36, C43, CLK55
-				# Deep angry growl
-				# ==================================================
-				7:
-					target_pitch = audio_base_pitch + rpm_ratio * 0.5
-
-					target_pitch += sin(
-						Time.get_ticks_msec() * 0.010
-					) * 0.10
-
-					base_db = lerp(
-						-16.0,
-						6.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-					if accel > 0.5:
-						target_pitch += 0.15
-
-
-				# ==================================================
-				# 8 = ASTON MARTIN V12
-				# DB7, Vanquish
-				# Smooth grand howl
-				# ==================================================
-				8:
-					target_pitch = audio_base_pitch + rpm_ratio * 2.5
-
-					if rpm_ratio > 0.65:
-						target_pitch += 1.0
-
-					base_db = lerp(
-						-30.0,
-						4.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-
-				# ==================================================
-				# 9 = MASERATI
-				# MC12, GranTurismo Police
-				# Deep Italian bark
-				# ==================================================
-				9:
-					target_pitch = audio_base_pitch + rpm_ratio * 1.5
-
-					target_pitch += sin(
-						Time.get_ticks_msec() * 0.014
-					) * 0.08
-
-					base_db = lerp(
-						-18.0,
-						10.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-
-				# ==================================================
-				# 10 = BMW M
-				# 130i, E60 M5
-				# Metallic scream
-				# ==================================================
-				10:
-					target_pitch = audio_base_pitch + rpm_ratio * 3.5
-
-					if rpm_ratio > 0.50:
-						target_pitch += pow(
-							rpm_ratio,
-							2.0
-						) * 2.5
-
-					base_db = lerp(
-						-24.0,
-						8.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-
-				# ==================================================
-				# 11 = VIPER V10
-				# Sounds like a warship
-				# ==================================================
-				11:
-					target_pitch = audio_base_pitch + rpm_ratio * 0.25
-
-					target_pitch += sin(
-						Time.get_ticks_msec() * 0.025
-					) * 0.30
-
-					base_db = lerp(
-						-2.0,
-						14.0,
-						rpm_ratio
-					) + audio_volume_offset
-
-
-				# ==================================================
-				# 12 = SALEEN S7
-				# GT racer
-				# ==================================================
-				12:
-					target_pitch = audio_base_pitch + rpm_ratio * 3.0
-
-					if rpm_ratio > 0.60:
-						target_pitch += 1.5
-
-					base_db = lerp(
-						-12.0,
-						12.0,
-						rpm_ratio
-					) + audio_volume_offset
-		if is_pinned_at_top_speed:
-			target_pitch = audio_base_pitch + audio_pitch_range
-		elif is_cruising_high_speed:
-			target_pitch = audio_base_pitch + (audio_pitch_range * 0.5)
-			
-		target_pitch = clamp(target_pitch, 0.5, 2.5)
-		
-		# ==========================================
-		# 2. CHARACTER-BASED DISTINCT VOLUME MAPPING
-		# ==========================================
-		
-
-		if is_pinned_at_top_speed:
-			base_db = -5.0 + audio_volume_offset
-		elif is_cruising_high_speed:
-			base_db -= 6.0
-			
-		if is_idling:
-			# Different idle breathing patterns per type
-			var idle_pulse := sin(Time.get_ticks_msec() * 0.001 * (12.0 if audio_character_type == 1 else 6.0))
-			base_db = -18.0 + audio_volume_offset + (idle_pulse * (1.5 if audio_character_type == 1 else 0.8))
-			target_pitch = audio_base_pitch * (0.9 if audio_character_type == 1 else 1.0)
-			
-		# ==========================================
-		# 3. MECHANICAL MODIFIERS & FINAL APPLICATION
-		# ==========================================
-		var gear_load_modifier := float(gear_count - current_gear) * 0.2 * accel
-		var nitro_boost := 2.5 if nitrous else 0.0
-		var induction_db := 2.0 if (has_turbo or has_supercharger) and accel > 0.4 else 0.0
-		
-		var target_db :float= base_db + gear_load_modifier + nitro_boost + induction_db
-		target_db = clamp(target_db, -30.0, -2.0)
-		
-		# Apply smoothly to the single RevPlayer
-		RevPlayer.pitch_scale = lerp(RevPlayer.pitch_scale, target_pitch, delta * 6.0)
-		RevPlayer.volume_db = lerp(RevPlayer.volume_db, target_db, delta * 6.0)
 	var torque_factor := rpm / max_rpm
 	
 
@@ -1521,3 +1230,261 @@ func ensure_position_label():
 	position_label.text = "1st"
 
 	add_child(position_label)
+
+
+func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
+	if not is_instance_valid(RevPlayer):
+		return
+
+	if not RevPlayer.playing:
+		RevPlayer.play()
+
+	engine_time += delta
+
+	var rpm_ratio: float = clamp(
+		(rpm - idle_rpm) / max(max_rpm - idle_rpm, 1.0),
+		0.0,
+		1.0
+	)
+
+	var load: float = clamp(accel, 0.0, 1.0)
+	var curve: float = rpm_ratio
+	var pitch_range: float = 0.8
+	var throttle_response: float = 0.2
+	var idle_db: float = -25.0
+	var load_db: float = -8.0
+	var rumble: float = 0.0
+	var rumble_speed: float = 10.0
+	var rasp: float = 0.0
+	var rasp_speed: float = 30.0
+
+	# Each family has its own RPM curve and sound behavior.
+	match audio_character_type:
+		0: # Luxury V8: quiet, smooth, restrained
+			curve = pow(rpm_ratio, 1.6)
+			pitch_range = 0.30
+			throttle_response = 0.08
+			idle_db = -31.0
+			load_db = -15.0
+			rumble = 0.002
+			rumble_speed = 3.0
+
+		1: # American V8: low, heavy, pulsing
+			curve = pow(rpm_ratio, 0.8)
+			pitch_range = 0.70
+			throttle_response = 0.28
+			idle_db = -20.0
+			load_db = -5.0
+			rumble = 0.035
+			rumble_speed = 7.0
+
+		2: # Italian exotic: smooth low RPM, screaming top end
+			curve = pow(rpm_ratio, 2.0)
+			pitch_range = 1.65
+			throttle_response = 0.42
+			idle_db = -26.0
+			load_db = -3.0
+			rumble = 0.006
+			rumble_speed = 9.0
+			rasp = 0.025
+			rasp_speed = 45.0
+
+		3: # Turbo four-cylinder: buzzy and eager
+			curve = pow(rpm_ratio, 1.15)
+			pitch_range = 1.35
+			throttle_response = 0.55
+			idle_db = -24.0
+			load_db = -5.0
+			rumble = 0.012
+			rumble_speed = 16.0
+			rasp = 0.018
+			rasp_speed = 55.0
+
+		4: # Supercharged Jaguar: smooth whine under load
+			curve = pow(rpm_ratio, 1.35)
+			pitch_range = 0.95
+			throttle_response = 0.35
+			idle_db = -25.0
+			load_db = -4.0
+			rumble = 0.008
+			rumble_speed = 12.0
+			rasp = 0.025
+			rasp_speed = 38.0
+
+		5: # TVR: raw, unstable, aggressive
+			curve = pow(rpm_ratio, 1.35)
+			pitch_range = 1.8
+			throttle_response = 0.65
+			idle_db = -19.0
+			load_db = -2.0
+			rumble = 0.045
+			rumble_speed = 18.0
+			rasp = 0.045
+			rasp_speed = 65.0
+
+		6: # Diesel: low-pitched, slow-revving
+			curve = pow(rpm_ratio, 0.65)
+			pitch_range = 0.28
+			throttle_response = 0.09
+			idle_db = -23.0
+			load_db = -7.0
+			rumble = 0.012
+			rumble_speed = 5.0
+
+		7: # AMG: muscular V8 with a sharp bark
+			curve = pow(rpm_ratio, 1.0)
+			pitch_range = 0.80
+			throttle_response = 0.35
+			idle_db = -21.0
+			load_db = -3.0
+			rumble = 0.022
+			rumble_speed = 10.0
+			rasp = 0.012
+			rasp_speed = 36.0
+
+		8: # Aston Martin V12: refined, rising howl
+			curve = pow(rpm_ratio, 1.7)
+			pitch_range = 1.35
+			throttle_response = 0.32
+			idle_db = -27.0
+			load_db = -3.0
+			rumble = 0.004
+			rumble_speed = 6.0
+			rasp = 0.012
+			rasp_speed = 32.0
+
+		9: # Maserati: resonant, theatrical, slightly rough
+			curve = pow(rpm_ratio, 1.4)
+			pitch_range = 1.15
+			throttle_response = 0.38
+			idle_db = -23.0
+			load_db = -3.0
+			rumble = 0.016
+			rumble_speed = 11.0
+			rasp = 0.022
+			rasp_speed = 40.0
+
+		10: # BMW M: crisp, responsive, fast-revving
+			curve = pow(rpm_ratio, 1.25)
+			pitch_range = 1.45
+			throttle_response = 0.50
+			idle_db = -23.0
+			load_db = -4.0
+			rumble = 0.010
+			rumble_speed = 15.0
+			rasp = 0.018
+			rasp_speed = 48.0
+
+		11: # Viper V10: deep, thunderous, uneven
+			curve = pow(rpm_ratio, 0.9)
+			pitch_range = 0.55
+			throttle_response = 0.30
+			idle_db = -18.0
+			load_db = -1.0
+			rumble = 0.055
+			rumble_speed = 5.5
+			rasp = 0.012
+			rasp_speed = 24.0
+
+		12: # Saleen S7: race-bred, urgent, hard-edged
+			curve = pow(rpm_ratio, 1.55)
+			pitch_range = 1.55
+			throttle_response = 0.48
+			idle_db = -22.0
+			load_db = -2.0
+			rumble = 0.008
+			rumble_speed = 13.0
+			rasp = 0.025
+			rasp_speed = 52.0
+
+	var target_pitch: float = audio_base_pitch * (
+		0.75 + curve * pitch_range
+	)
+
+	# Throttle changes the pitch more aggressively under load.
+	target_pitch += load * throttle_response * (0.35 + rpm_ratio)
+
+	# Individual mechanical character.
+	target_pitch += sin(engine_time * rumble_speed) * rumble * rpm_ratio
+	target_pitch += sin(engine_time * rasp_speed) * rasp * rpm_ratio
+
+	# Forced induction.
+	if has_turbo and load > 0.1:
+		target_pitch += 0.10 * rpm_ratio * load
+
+	if has_supercharger and load > 0.1:
+		target_pitch += pow(rpm_ratio, 1.5) * load * 0.18
+
+	# Engines relax slightly when the throttle is released.
+	if load < 0.05:
+		target_pitch -= rpm_ratio * 0.07
+
+	target_pitch = clamp(target_pitch, 0.55, 3.0)
+
+	var target_db: float = lerp(idle_db, load_db, load)
+	target_db += rpm_ratio * 3.0
+	target_db += audio_volume_offset
+
+	# Distinct idle behavior.
+	if speed_kmh < 2.0 and load < 0.05:
+		target_db = idle_db + audio_volume_offset
+		target_pitch = audio_base_pitch * (
+			0.94 if audio_character_type == 1
+			or audio_character_type == 11
+			else 1.0
+		)
+
+	# Turbo and supercharger increase load loudness.
+	if load > 0.2 and has_turbo:
+		target_db += 1.5
+
+	if load > 0.2 and has_supercharger:
+		target_db += 2.0
+
+	engine_pitch_smoothed = lerp(
+		engine_pitch_smoothed,
+		target_pitch,
+		1.0 - exp(-delta * 5.0)
+	)
+
+	engine_volume_smoothed = lerp(
+		engine_volume_smoothed,
+		target_db,
+		1.0 - exp(-delta * 7.0)
+	)
+
+	RevPlayer.pitch_scale = engine_pitch_smoothed
+	RevPlayer.volume_db = clamp(engine_volume_smoothed, -40.0, 3.0)
+func setup_engine_bus() -> void:
+	if not is_instance_valid(RevPlayer):
+		return
+
+	var bus_names := {
+		0: "Engine_Luxury",
+		1: "Engine_Muscle",
+		2: "Engine_Exotic",
+		3: "Engine_Turbo",
+		4: "Engine_Supercharged",
+		5: "Engine_TVR",
+		6: "Engine_Diesel",
+		7: "Engine_AMG",
+		8: "Engine_V12",
+		9: "Engine_Maserati",
+		10: "Engine_BMW_M",
+		11: "Engine_Viper",
+		12: "Engine_Saleen"
+	}
+
+	var bus_name: String = bus_names.get(
+		audio_character_type,
+		"Engine_Luxury"
+	)
+
+	var bus_index := AudioServer.get_bus_index(bus_name)
+
+	if bus_index == -1:
+		push_warning("Missing audio bus: " + bus_name)
+		RevPlayer.bus = "Master"
+		return
+
+	RevPlayer.bus = bus_name
