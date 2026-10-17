@@ -220,238 +220,136 @@ var phase: float = 0.0
 # we will now override it safely as a standard AudioStreamPlayer object:
 
 func _ready() -> void:
+	# SUVs
 	match Cars.selected_car:
-		# SUV
-
 		"Colossus Titan Max":
-			audio_base_pitch = 0.55
-			audio_pitch_range = 1.00
-			audio_character_type = 1
-			audio_volume_offset = 3.0
+			audio_character_type = 1 # American Muscle
 
 		"Colossus Behemoth":
-			audio_base_pitch = 0.65
-			audio_pitch_range = 1.10
 			audio_character_type = 1
-			audio_volume_offset = 2.5
 
 		"Schroder Colosso":
-			audio_base_pitch = 0.65
-			audio_pitch_range = 0.90
-			audio_character_type = 6
-			audio_volume_offset = 0.8
+			audio_character_type = 6 # Diesel
 
 		"Mir Cars Nightwolf":
-			audio_base_pitch = 0.78
-			audio_pitch_range = 1.15
-			audio_character_type = 0
-			audio_volume_offset = 0.4
+			audio_character_type = 0 # Lexus Luxury
 
 
-		# Compact
+		# Compacts
 
 		"Straeda Volant":
-			audio_base_pitch = 1.15
-			audio_pitch_range = 1.90
-			audio_character_type = 3
-			audio_volume_offset = 0.0
+			audio_character_type = 3 # Turbo Compact
 
 		"Schroder Atrix Q32":
-			audio_base_pitch = 1.05
-			audio_pitch_range = 1.80
 			audio_character_type = 3
-			audio_volume_offset = 0.1
 
 		"Eisenach Bengal":
-			audio_base_pitch = 1.12
-			audio_pitch_range = 1.85
-			audio_character_type = 3
-			audio_volume_offset = 0.2
+			audio_character_type = 10 # BMW M
 
 		"Zenith Horizon":
-			audio_base_pitch = 1.05
-			audio_pitch_range = 1.80
-			audio_character_type = 2
-			audio_volume_offset = 0.4
+			audio_character_type = 2 # Japanese Exotic
 
 
 		# Muscle
 
 		"Brutus Viper":
-			audio_base_pitch = 0.65
-			audio_pitch_range = 1.25
 			audio_character_type = 1
-			audio_volume_offset = 1.6
 
 		"Mir Cars Hutch":
-			audio_base_pitch = 0.70
-			audio_pitch_range = 1.30
 			audio_character_type = 1
-			audio_volume_offset = 1.4
 
 
 		# Executive
 
 		"Strandberg Turbo":
-			audio_base_pitch = 1.00
-			audio_pitch_range = 1.65
 			audio_character_type = 3
-			audio_volume_offset = 0.0
 
 		"Kuro Vault":
-			audio_base_pitch = 0.75
-			audio_pitch_range = 1.10
-			audio_character_type = 0
-			audio_volume_offset = -0.8
+			audio_character_type = 12 # Lexus V8
 
 		"Zenith Prince":
-			audio_base_pitch = 0.95
-			audio_pitch_range = 1.45
 			audio_character_type = 0
-			audio_volume_offset = 0.0
 
 		"Schroder Suppressor":
-			audio_base_pitch = 0.68
-			audio_pitch_range = 0.90
 			audio_character_type = 6
-			audio_volume_offset = -0.2
 
 
 		# Urban Performance
 
 		"Kuro Serenity":
-			audio_base_pitch = 0.82
-			audio_pitch_range = 1.30
-			audio_character_type = 0
-			audio_volume_offset = -0.1
+			audio_character_type = 12
 
 		"Kestrel Seabird":
-			audio_base_pitch = 1.25
-			audio_pitch_range = 2.05
 			audio_character_type = 2
-			audio_volume_offset = 0.3
 
 		"Kestrel Speedster":
-			audio_base_pitch = 0.82
-			audio_pitch_range = 1.45
 			audio_character_type = 1
-			audio_volume_offset = 0.9
 
 		"Mir Cars Blazer":
-			audio_base_pitch = 0.80
-			audio_pitch_range = 1.55
-			audio_character_type = 2
-			audio_volume_offset = 1.0
+			audio_character_type = 7 # AMG
+
+		"Berkshire Blunt":
+			audio_character_type = 4 # Jaguar SC
 
 
 		# Sport Coupe
 
 		"Schroder Classique Sport":
-			audio_base_pitch = 1.10
-			audio_pitch_range = 1.90
 			audio_character_type = 0
-			audio_volume_offset = 0.4
 
-		"Berkshire Blunt":
-			audio_base_pitch = 0.82
-			audio_pitch_range = 1.60
-			audio_character_type = 4
-			audio_volume_offset = 1.1
+		"Berkshire Tempest":
+			audio_character_type = 8 # Aston V12
 
 		"Brutus Stingray":
-			audio_base_pitch = 0.74
-			audio_pitch_range = 1.45
 			audio_character_type = 1
-			audio_volume_offset = 1.2
 
 		"Berkshire V12-S":
-			audio_base_pitch = 0.95
-			audio_pitch_range = 1.90
-			audio_character_type = 2
-			audio_volume_offset = 0.8
+			audio_character_type = 8
 
 
 		# Sport Racing
 
 		"Kestrel Battleaxe":
-			audio_base_pitch = 1.25
-			audio_pitch_range = 2.40
-			audio_character_type = 5
-			audio_volume_offset = 1.0
-
-		"Berkshire Tempest":
-			audio_base_pitch = 0.92
-			audio_pitch_range = 1.95
-			audio_character_type = 2
-			audio_volume_offset = 1.0
+			audio_character_type = 5 # TVR
 
 		"Brutus Venom":
-			audio_base_pitch = 0.60
-			audio_pitch_range = 1.30
-			audio_character_type = 1
-			audio_volume_offset = 2.0
+			audio_character_type = 11 # Viper V10
 
 		"Linetti Shepherd":
-			audio_base_pitch = 1.25
-			audio_pitch_range = 2.25
 			audio_character_type = 2
-			audio_volume_offset = 0.8
 
 
 		# Supercars
 
 		"Kestrel Guillotine":
-			audio_base_pitch = 1.30
-			audio_pitch_range = 2.50
 			audio_character_type = 5
-			audio_volume_offset = 1.2
 
 		"Linetti Firestorm":
-			audio_base_pitch = 1.18
-			audio_pitch_range = 2.10
 			audio_character_type = 2
-			audio_volume_offset = 1.0
 
 		"Mir Cars Raptor":
-			audio_base_pitch = 0.72
-			audio_pitch_range = 1.55
-			audio_character_type = 1
-			audio_volume_offset = 1.5
+			audio_character_type = 13 # Saleen
 
 		"Linetti Terror":
-			audio_base_pitch = 1.35
-			audio_pitch_range = 2.35
 			audio_character_type = 2
-			audio_volume_offset = 1.2
 
 
 		# Track Cars
 
 		"Bartoli Track Cruiser":
-			audio_base_pitch = 1.35
-			audio_pitch_range = 2.45
-			audio_character_type = 2
-			audio_volume_offset = 1.2
+			audio_character_type = 9 # Maserati
 
 		"Brutus Thunderbolt":
-			audio_base_pitch = 0.58
-			audio_pitch_range = 1.20
 			audio_character_type = 1
-			audio_volume_offset = 2.0
 
 		"Mir Cars Athletic C70":
-			audio_base_pitch = 1.40
-			audio_pitch_range = 2.60
 			audio_character_type = 2
-			audio_volume_offset = 1.4
-		# =============================================
-		# Fallback / Default
-		# =============================================
-		_:
-			audio_base_pitch = 1.0
-			audio_pitch_range = 1.8
-			audio_character_type = 0
-			audio_volume_offset = 0.0
+
+
+		# Special
+
+		"Bartoli Cruiser Interceptor":
+			audio_character_type = 9 # Maserati
 	custom_rev_player.volume_db = -10.0  # Changed from 0.0 to -5.0
 	# --- REV PLAYER SETUP ---
 	if RevPlayer:
@@ -839,158 +737,271 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		var base_db :float= lerp(-26.0, -10.0, rpm_ratio * load_factor) + audio_volume_offset
 		match audio_character_type:
 
-			# ==================================================
-			# 0 = LUXURY
-			# LS430, SC400, LX470, Q45
-			# Smooth, deep, relaxed
-			# ==================================================
-			0:
-				target_pitch = audio_base_pitch + rpm_ratio * 0.18
+				# ==================================================
+				# 0 = LUXURY V8
+				# LS430, SC400, LX470, Q45
+				# Quiet, smooth, lazy
+				# ==================================================
+				0:
+					target_pitch = audio_base_pitch + rpm_ratio * 0.10
 
-				base_db = lerp(
-					-34.0,
-					-12.0,
-					rpm_ratio
-				) + audio_volume_offset
+					target_pitch += sin(
+						Time.get_ticks_msec() * 0.002
+					) * 0.002
 
-				if accel < 0.3:
-					target_pitch *= 0.92
+					base_db = lerp(
+						-42.0,
+						-25.0,
+						rpm_ratio
+					) + audio_volume_offset
 
-				target_pitch += sin(
-					Time.get_ticks_msec() * 0.004
-				) * 0.01
-
-
-			# ==================================================
-			# 1 = MUSCLE
-			# GT500, Chevelle, Corvette, Viper
-			# Loud, rowdy, rough
-			# ==================================================
-			1:
-				target_pitch = audio_base_pitch + rpm_ratio * 0.85
-
-				target_pitch += sin(
-					Time.get_ticks_msec() * 0.020
-				) * 0.08
-
-				base_db += 8.0
-
-				if accel > 0.5:
-					target_pitch += 0.08
-
-				if rpm_ratio > 0.75:
-					target_pitch += 0.20
+					if accel < 0.4:
+						target_pitch *= 0.96
 
 
-			# ==================================================
-			# 2 = EXOTIC
-			# Gallardo, Diablo, Murcielago, MC12, Zonda
-			# Calm low revs, screaming top end
-			# ==================================================
-			2:
-				if rpm_ratio < 0.5:
-					target_pitch = (
-						audio_base_pitch
-						+ rpm_ratio * 0.9
+				# ==================================================
+				# 1 = AMERICAN V8
+				# GT500, Chevelle, Corvette, Cobra
+				# Loud and cammy
+				# ==================================================
+				1:
+					target_pitch = audio_base_pitch + rpm_ratio * 0.60
+
+					target_pitch += sin(
+						Time.get_ticks_msec() * 0.030
+					) * 0.25
+
+					base_db = lerp(
+						-8.0,
+						12.0,
+						rpm_ratio
+					) + audio_volume_offset
+
+					if accel > 0.5:
+						target_pitch += 0.30
+
+
+				# ==================================================
+				# 2 = ITALIAN EXOTIC
+				# Gallardo, Diablo, Murcielago, Zonda
+				# Nothing... then absolute screaming
+				# ==================================================
+				2:
+					if rpm_ratio < 0.60:
+						target_pitch = audio_base_pitch + rpm_ratio * 0.30
+					else:
+						target_pitch = audio_base_pitch + 0.2 + pow(
+							(rpm_ratio - 0.60) * 2.5,
+							4.0
+						) * 14.0
+
+					base_db = lerp(
+						-32.0,
+						12.0,
+						pow(rpm_ratio, 3.0)
+					) + audio_volume_offset
+
+
+				# ==================================================
+				# 3 = TURBO COMPACT
+				# TT, Beetle Turbo, S60R
+				# Buzzy little psycho
+				# ==================================================
+				3:
+					target_pitch = audio_base_pitch + rpm_ratio * 4.0
+
+					target_pitch += sin(
+						Time.get_ticks_msec() * 0.022
+					) * 0.20
+
+					base_db = lerp(
+						-28.0,
+						4.0,
+						rpm_ratio
+					) + audio_volume_offset
+
+
+				# ==================================================
+				# 4 = XKR SUPERCHARGER
+				# Blower noise dominates
+				# ==================================================
+				4:
+					target_pitch = audio_base_pitch + rpm_ratio * 0.75
+
+					target_pitch += pow(
+						rpm_ratio,
+						3.0
+					) * 4.0
+
+					base_db = lerp(
+						-24.0,
+						8.0,
+						rpm_ratio
+					) + audio_volume_offset
+
+					if accel > 0.5:
+						target_pitch += rpm_ratio * 1.2
+
+
+				# ==================================================
+				# 5 = TVR INSANITY
+				# Sagaris, T440R
+				# Sounds possessed
+				# ==================================================
+				5:
+					target_pitch = audio_base_pitch + rpm_ratio * 9.5
+
+					target_pitch += sin(
+						Time.get_ticks_msec() * 0.060
+					) * 0.50
+
+					target_pitch += randf_range(
+						-0.05,
+						0.05
 					)
-				else:
-					target_pitch = (
-						audio_base_pitch
-						+ 0.45
-						+ pow(
-							(rpm_ratio - 0.5) * 2.0,
-							3.0
-						) * 6.0
-					)
 
-				base_db = lerp(
-					-24.0,
-					4.0,
-					pow(rpm_ratio, 2.0)
-				) + audio_volume_offset
+					base_db = lerp(
+						-4.0,
+						14.0,
+						rpm_ratio
+					) + audio_volume_offset
+
+					if rpm_ratio > 0.55:
+						target_pitch += 2.0
 
 
-			# ==================================================
-			# 3 = RALLY / TURBO
-			# S60R, S2, TT, Beetle Turbo, 130i
-			# Frantic, busy, rev-happy
-			# ==================================================
-			3:
-				target_pitch = (
-					audio_base_pitch
-					+ rpm_ratio * 2.0
-				)
+				# ==================================================
+				# 6 = DIESEL
+				# Q7 TDI, A4 TDI
+				# Tractor energy
+				# ==================================================
+				6:
+					target_pitch = audio_base_pitch + rpm_ratio * 0.015
 
-				target_pitch += sin(
-					Time.get_ticks_msec() * 0.015
-				) * 0.12
+					target_pitch += sin(
+						Time.get_ticks_msec() * 0.004
+					) * 0.04
 
-				if has_turbo:
-					target_pitch += rpm_ratio * 0.35
-
-				base_db += 5.0
+					base_db = lerp(
+						-18.0,
+						2.0,
+						rpm_ratio
+					) + audio_volume_offset
 
 
-			# ==================================================
-			# 4 = SUPERCHARGED
-			# XKR, C32 AMG
-			# Mechanical whine and endless pull
-			# ==================================================
-			4:
-				target_pitch = (
-					audio_base_pitch
-					+ rpm_ratio * 1.4
-				)
+				# ==================================================
+				# 7 = AMG
+				# C36, C43, CLK55
+				# Deep angry growl
+				# ==================================================
+				7:
+					target_pitch = audio_base_pitch + rpm_ratio * 0.5
 
-				if has_supercharger:
-					target_pitch += (
-						rpm_ratio * rpm_ratio
-					) * 1.8
+					target_pitch += sin(
+						Time.get_ticks_msec() * 0.010
+					) * 0.10
 
-				base_db += 6.0
+					base_db = lerp(
+						-16.0,
+						6.0,
+						rpm_ratio
+					) + audio_volume_offset
 
-				if accel > 0.7:
-					target_pitch += 0.35
-
-
-			# ==================================================
-			# 5 = TVR INSANITY
-			# Sagaris, T440R
-			# Sounds like it's trying to escape
-			# ==================================================
-			5:
-				target_pitch = (
-					audio_base_pitch
-					+ rpm_ratio * 4.5
-				)
-
-				target_pitch += sin(
-					Time.get_ticks_msec() * 0.040
-				) * 0.18
-
-				base_db += 10.0
-
-				if rpm_ratio > 0.65:
-					target_pitch += 1.0
+					if accel > 0.5:
+						target_pitch += 0.15
 
 
-			# ==================================================
-			# 6 = DIESEL
-			# A4 TDI, Q7 TDI
-			# Low revving torque monster
-			# ==================================================
-			6:
-				target_pitch = (
-					audio_base_pitch
-					+ rpm_ratio * 0.08
-				)
+				# ==================================================
+				# 8 = ASTON MARTIN V12
+				# DB7, Vanquish
+				# Smooth grand howl
+				# ==================================================
+				8:
+					target_pitch = audio_base_pitch + rpm_ratio * 2.5
 
-				target_pitch += sin(
-					Time.get_ticks_msec() * 0.006
-				) * 0.03
+					if rpm_ratio > 0.65:
+						target_pitch += 1.0
 
-				base_db += 4.0
-		# State-based pitch overrides
+					base_db = lerp(
+						-30.0,
+						4.0,
+						rpm_ratio
+					) + audio_volume_offset
+
+
+				# ==================================================
+				# 9 = MASERATI
+				# MC12, GranTurismo Police
+				# Deep Italian bark
+				# ==================================================
+				9:
+					target_pitch = audio_base_pitch + rpm_ratio * 1.5
+
+					target_pitch += sin(
+						Time.get_ticks_msec() * 0.014
+					) * 0.08
+
+					base_db = lerp(
+						-18.0,
+						10.0,
+						rpm_ratio
+					) + audio_volume_offset
+
+
+				# ==================================================
+				# 10 = BMW M
+				# 130i, E60 M5
+				# Metallic scream
+				# ==================================================
+				10:
+					target_pitch = audio_base_pitch + rpm_ratio * 3.5
+
+					if rpm_ratio > 0.50:
+						target_pitch += pow(
+							rpm_ratio,
+							2.0
+						) * 2.5
+
+					base_db = lerp(
+						-24.0,
+						8.0,
+						rpm_ratio
+					) + audio_volume_offset
+
+
+				# ==================================================
+				# 11 = VIPER V10
+				# Sounds like a warship
+				# ==================================================
+				11:
+					target_pitch = audio_base_pitch + rpm_ratio * 0.25
+
+					target_pitch += sin(
+						Time.get_ticks_msec() * 0.025
+					) * 0.30
+
+					base_db = lerp(
+						-2.0,
+						14.0,
+						rpm_ratio
+					) + audio_volume_offset
+
+
+				# ==================================================
+				# 12 = SALEEN S7
+				# GT racer
+				# ==================================================
+				12:
+					target_pitch = audio_base_pitch + rpm_ratio * 3.0
+
+					if rpm_ratio > 0.60:
+						target_pitch += 1.5
+
+					base_db = lerp(
+						-12.0,
+						12.0,
+						rpm_ratio
+					) + audio_volume_offset
 		if is_pinned_at_top_speed:
 			target_pitch = audio_base_pitch + audio_pitch_range
 		elif is_cruising_high_speed:

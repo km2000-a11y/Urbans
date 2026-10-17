@@ -45,6 +45,7 @@ var class_lists: Dictionary = {
 	"Berkshire Blunt",
 	"Kuro Serenity",
 	"Kestrel Speedster",
+	"Mir Cars Blazer",
 	"Kestrel Seabird",
 ],
 
@@ -58,14 +59,13 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Berkshire V12-S",
 		"Brutus Stingray",
-		"Mir Cars Blazer",
+		"Berkshire Tempest",
 		"Schroder Classique Sport",
 	],
 
 	"sport_racing": [
 		"Linetti Shepherd",
 		"Brutus Venom",
-		"Berkshire Tempest",
 		"Kestrel Battleaxe"
 	],
 
@@ -108,7 +108,7 @@ var class_lists: Dictionary = {
 	],
 	"all_wheel_grip":[
 		"Strandberg Turbo",
-		"Mir Cars Transporter",
+		
 		"Schroder Classique Sport",
 		"Schroder Atrix Q32",
 	],
@@ -151,12 +151,10 @@ var class_lists: Dictionary = {
 "drop_top_challenge":[
 	"Schroder Atrix Q32",
 	"Kestrel Speedster",
-	"Berkshire Blunt",
+	"Schroder Classique Sport",
 ],
 "low_displacement_challenge":[
 		"Kestrel Seabird",
-
-		"Schroder Classique Sport",
 		"Straeda Volant",
 		"Strandberg Turbo"
 		

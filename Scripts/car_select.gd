@@ -95,17 +95,18 @@ var car_prices := {
 	"Kestrel Seabird": 120000,
 	"Eisenach Roadstar": 165000,
 	"Berkshire Blunt": 135000,
-	"Mir Cars Blazer": 150000,
+	"Mir Cars Blazer": 128000,
 
 	"Schroder Classique Sport": 135000,
 	"Brutus Stingray": 200000,
-	"Berkshire Tempest":275000,
+	"Berkshire Tempest":180000,
 	"Berkshire V12-S": 170000,
 	"Kestrel Touring": 220000,
 
 	"Kronstadt Beast": 250000,
 	"Brutus Venom": 290000,
 	"Kestrel Battleaxe": 320000,
+	"Schroder Atrocity":275000,
 	"Linetti Shepherd": 350000,
 
 	"Kestrel Guillotine": 420000,
@@ -553,6 +554,7 @@ var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Seabird",
 	"Kestrel Speedster",
+		"Mir Cars Blazer",
 	"Berkshire Blunt",
 ]
 var sedans_list = [
@@ -565,14 +567,13 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-	"Mir Cars Blazer",
 	"Berkshire V12-S",
+	"Berkshire Tempest",
 	"Brutus Stingray",
 ]
 
 var sport_racing_list = [
 	"Kestrel Battleaxe",
-	"Berkshire Tempest",
 	"Brutus Venom",
 	"Linetti Shepherd",
 ]
@@ -668,8 +669,8 @@ var muscle = {
 }
 var urban_racers = {
 	"Kuro Serenity":[
-		"", "Country: Japan", "HP: 260", "WEIGHT: 1640 KG",
-		"0-100 KM/H: 6.4s", "TOP SPEED: 250 KM/H",
+		"", "Country: Japan", "HP: 290", "WEIGHT: 1640 KG",
+		"0-100 KM/H: 6.3s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 360 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
@@ -685,16 +686,16 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-"Berkshire Blunt":[
+	"Berkshire Blunt":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
 	"0-100 KM/H: 5.2s", "TOP SPEED: 259 KM/H",
 	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Mir Cars Blazer":[
-	"", "Country: UAE", "HP: 362", "WEIGHT: 1796 KG",
-	"0-100 KM/H: 5.4s", "TOP SPEED: 259 KM/H",
-	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
+	"", "Country: UAE", "HP: 280", "WEIGHT: 1470 KG",
+	"0-100 KM/H: 5.6s", "TOP SPEED: 265 KM/H",
+	"ENGINE: L6 3.6L", "ASPIRATION: NA", "TORQUE: 380 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -727,20 +728,20 @@ var sedans = {
 var sport = {
 	"Berkshire V12-S":[
 		"", "Country: UK", "HP: 420", "WEIGHT: 1740 KG",
-		"0-100 KM/H: 5.5s", "TOP SPEED: 300 KM/H",
+		"0-100 KM/H: 5.0s", "TOP SPEED: 295 KM/H",
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 550 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Mir Cars Blazer":[
-	"", "Country: UAE", "HP: 362", "WEIGHT: 1796 KG",
-	"0-100 KM/H: 4.9s", "TOP SPEED: 284 KM/H",
-	"ENGINE: V8 5.4L", "ASPIRATION: NA", "TORQUE: 510 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
 	"Brutus Stingray":[
 		"", "Country: USA", "HP: 400", "WEIGHT: 1460 KG",
 		"0-100 KM/H: 4.3s", "TOP SPEED: 289 KM/H",
 		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 545 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Berkshire Tempest":[
+		"", "Country: UK", "HP: 460", "WEIGHT: 1780 KG",
+		"0-100 KM/H: 5.6s", "TOP SPEED: 305 KM/H",
+		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 580 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
@@ -757,12 +758,7 @@ var sport_racing = {
 		"ENGINE: V10 5.0L", "ASPIRATION: NA", "TORQUE: 510 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
-	"Berkshire Tempest":[
-		"", "Country: UK", "HP: 520", "WEIGHT: 1780 KG",
-		"0-100 KM/H: 4.9s", "TOP SPEED: 318 KM/H",
-		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 580 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+	
 	"Brutus Venom":[
 		"", "Country: USA", "HP: 415", "WEIGHT: 1560 KG",
 		"0-100 KM/H: 4.1s", "TOP SPEED: 300 KM/H",

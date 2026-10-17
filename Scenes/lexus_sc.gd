@@ -10,7 +10,7 @@ var zero_to_hundred_display := 6.40   # Smooth V8 launch
 func _ready():
 	# GAMEPLAY STATS
 	mass = 1640.0
-	horsepower = 260                  # 1UZ-FE output (Urban Racers spec)
+	horsepower = 290                  # 1UZ-FE output (Urban Racers spec)
 	max_rpm = 6200.0                  # Smooth Lexus V8 rev band
 	idle_rpm = 700.0
 	zero_to_hundred = 6.4
