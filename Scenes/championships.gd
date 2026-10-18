@@ -87,6 +87,7 @@ func _update_button_states():
 	$Control/ScrollContainer/VBoxContainer/UrbanPerformanceCars.disabled = not ClubCups.is_cup_unlocked("urban_performance_cars")
 	$Control/ScrollContainer/VBoxContainer/LowDisplacementChallenge.disabled = not ClubCups.is_cup_unlocked("low_displacement_challenge")
 	$Control/ScrollContainer/VBoxContainer/V8Fury.disabled = not ClubCups.is_cup_unlocked("v8_fury")
+	$Control/ScrollContainer/VBoxContainer/ColinTribute.disabled = not ClubCups.is_cup_unlocked("colin_tribute")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/Colossus", "colossus", "Colossus")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/DropTopChallenge", "drop_top_challenge", "Drop Top Challenge")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/LowDisplacementChallenge", "low_displacement_challenge", "Low Displacement Challenge")
@@ -101,9 +102,10 @@ func _update_button_states():
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/AllWheelGrip", "all_wheel_grip", "All Wheel Grip")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/EisenachCup", "eisenach_cup", "Eisenach Cup")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/Under400HP", "under_400_hp", "Under 400 HP")
-	_update_cup_text("Control/ScrollContainer/VBoxContainer/StingrayCompetition", "brutus_stingray_competition", "Stingray Competition")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/StingrayCompetition","stingray_competition", "Stingray Competition")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/SchroderCup", "schroder_cup", "Schroder Cup")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/DieselMasters", "diesel_masters", "Diesel Masters")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/ColinTribute", "colin_tribute", "Colin Tribute")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/AmericanThunder", "american_thunder", "American Thunder")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/BritishInvasion", "british_invasion", "British Invasion")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/GrandTouring", "grand_touring", "Grand Touring")
@@ -284,3 +286,7 @@ func _on_low_displacement_challenge_pressed() -> void:
 
 func _on_v_8_fury_pressed() -> void:
 	_show_cup("v8_fury")
+
+
+func _on_colin_tribute_pressed() -> void:
+	_show_cup("colin_tribute")

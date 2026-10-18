@@ -16,6 +16,7 @@ var cash_rewards: Dictionary = {
 	"urban_performance_cars":35000,
 	"eisenach_cup": 30000,
 	"v8_fury":37000,
+	"colin_tribute":27000,
 	"berkshire_cup": 35000,
 	"drop_top_challenge":20000,
 	"under_400_hp": 40000,
@@ -162,6 +163,9 @@ var class_lists: Dictionary = {
 		"Mir Cars Blazer",
 		"Berkshire Blunt",
 		"Brutus Stingray"
+	],
+	"colin_tribute":[
+		"Kestrel Seabird"
 	],
 
 	"berkshire_cup":[
@@ -326,6 +330,7 @@ var career_order: Array = [
 	"low_displacement_challenge",
 	"eisenach_cup",
 	"berkshire_cup",
+	"colin_tribute",
 	"drop_top_challenge",
 	"under_400_hp",
 	"german_cup",
@@ -441,6 +446,9 @@ var cups: Dictionary = {
 
 	"drop_top_challenge": {
 		"eligible_classes": ["drop_top_challenge"]
+	},
+	"colin_tribute": {
+		"eligible_classes": ["colin_tribute"]
 	},
 
 	"under_400_hp": {

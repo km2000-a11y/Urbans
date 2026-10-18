@@ -125,6 +125,9 @@ var class_lists: Dictionary = {
 		"Schroder Suppressor",
 		"Schroder Colosso"
 	],
+	"colin_tribute":[
+		"Kestrel Seabird"
+	],
 
 	"speedster_tournament":[
 		"Kestrel Speedster"

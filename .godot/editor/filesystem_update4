@@ -1,6 +1,4 @@
 res://main.tscn
-res://cars.gd
-res://club_cups.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -75,3 +73,9 @@ res://es350.tscn
 res://Scenes/bmw_m5_e39.tscn
 res://Scenes/audi_s6.tscn
 res://Scenes/xk8.tscn
+res://Scripts/car_select.gd
+res://road_challenge_save.gd
+res://cars.gd
+res://club_cups.gd
+res://localization.gd
+res://Scenes/championships.gd

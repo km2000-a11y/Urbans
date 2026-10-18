@@ -2,10 +2,15 @@ extends Node
 
 var save_path := "user://road_challenge.json"
 
+# ============================================================
+# STARTING UNLOCKS
+# ============================================================
+
 var unlocked := {
 	"suv": true,
-	"muscle": false,
-	"compact": false,
+	"compact": true,
+	"muscle": true,
+
 	"sedans": false,
 	"urban": false,
 	"sport": false,
@@ -14,10 +19,11 @@ var unlocked := {
 	"track_cars": false
 }
 
+# ============================================================
+# PROGRESS
+# ============================================================
+
 var progress := {
-	"suv": 0,
-	"muscle": 0,
-	"compact": 0,
 	"sedans": 0,
 	"urban": 0,
 	"sport": 0,
@@ -26,63 +32,149 @@ var progress := {
 	"track_cars": 0
 }
 
+const CLASS_ORDER := [
+	"sedans",
+	"urban",
+	"sport",
+	"sport_racing",
+	"supercars",
+	"track_cars"
+]
+
 # ============================================================
 # SAVE / LOAD
 # ============================================================
 
 func save_progress():
-	var data = {
+
+	var data := {
 		"unlocked": unlocked,
 		"progress": progress
 	}
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
+
+	var file := FileAccess.open(save_path, FileAccess.WRITE)
+
 	if file:
 		file.store_string(JSON.stringify(data))
 		file.close()
 
 func load_progress():
+
 	if not FileAccess.file_exists(save_path):
-		save_progress() # create default save file
+		save_progress()
 		return
-	var file = FileAccess.open(save_path, FileAccess.READ)
-	if file:
-		var text = file.get_as_text()
-		file.close()
-		var result = JSON.parse_string(text)
-		if typeof(result) == TYPE_DICTIONARY:
-			if result.has("unlocked"):
-				unlocked = result["unlocked"]
-			if result.has("progress"):
-				progress = result["progress"]
+
+	var file := FileAccess.open(save_path, FileAccess.READ)
+
+	if not file:
+		return
+
+	var text := file.get_as_text()
+
+	file.close()
+
+	var data = JSON.parse_string(text)
+
+	if typeof(data) != TYPE_DICTIONARY:
+		return
+
+	if data.has("unlocked"):
+		unlocked = data["unlocked"]
+
+	if data.has("progress"):
+		progress = data["progress"]
 
 # ============================================================
-# UNLOCK LOGIC
+# CHALLENGE REQUIREMENTS
 # ============================================================
 
-func unlock_next_group(group_id: String):
-	var order := [
-		"suv",
-		"muscle",
-		"compact",
-		"sedans",
-		"urban",
-		"sport",
-		"sport_racing",
-		"supercars",
-		"track_cars"
-	]
+func get_required_races(class_id: String) -> int:
 
-	var idx := order.find(group_id)
+	if class_id == "sedans":
+		return 2
+
+	return 3
+
+# ============================================================
+# REGISTER WIN
+# NORMAL RACE ONLY
+# ============================================================
+
+func register_win(class_id: String):
+
+	if not progress.has(class_id):
+		return
+
+	progress[class_id] += 1
+
+	var required := get_required_races(class_id)
+
+	print(
+		class_id,
+		" Progress: ",
+		progress[class_id],
+		"/",
+		required
+	)
+
+	if progress[class_id] >= required:
+		unlock_next_class(class_id)
+
+	save_progress()
+
+# ============================================================
+# UNLOCK NEXT CLASS
+# ============================================================
+
+func unlock_next_class(class_id: String):
+
+	var idx := CLASS_ORDER.find(class_id)
+
 	if idx == -1:
 		return
 
-	# Require ALL previous groups to be completed (5 wins each)
-	for i in range(idx + 1):
-		var g : String = order[i]
-		if progress[g] < 5:
-			return
+	if idx >= CLASS_ORDER.size() - 1:
+		return
 
-	# Unlock the next group
-	if idx < order.size() - 1:
-		unlocked[order[idx + 1]] = true
-		save_progress()  # auto-save after unlocking
+	var next_class :String= CLASS_ORDER[idx + 1]
+
+	if unlocked.get(next_class, false):
+		return
+
+	unlocked[next_class] = true
+
+	print("UNLOCKED CLASS: ", next_class)
+
+	save_progress()
+
+# ============================================================
+# DEBUG
+# ============================================================
+
+func reset_progress():
+
+	unlocked = {
+		"suv": true,
+		"compact": true,
+		"muscle": true,
+
+		"sedans": false,
+		"urban": false,
+		"sport": false,
+		"sport_racing": false,
+		"supercars": false,
+		"track_cars": false
+	}
+
+	progress = {
+		"sedans": 0,
+		"urban": 0,
+		"sport": 0,
+		"sport_racing": 0,
+		"supercars": 0,
+		"track_cars": 0
+	}
+
+	save_progress()
+
+	print("Road Challenge reset")
