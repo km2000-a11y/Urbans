@@ -20,233 +20,255 @@ var upgrades_save_path := "user://car_upgrades.json"
 var money_save_path := "user://money.save"
 
 
-
 var class_lists: Dictionary = {
+
+	# MAIN CLASSES
+
 	"suv": [
-		"Schroder Colosso",
+		"Colossus Titan Max",
 		"Colossus Behemoth",
-		"Mir Cars Nightwolf",
-		"Colossus Titan Max"
+		"Schroder Colosso",
+		"Mir Cars Nightwolf"
 	],
 
 	"compact": [
-		"Zenith Horizon",
-		"Schroder Atrix Q32",
 		"Straeda Volant",
+		"Schroder Atrix Q32",
 		"Eisenach Bengal",
+		"Zenith Horizon"
 	],
 
 	"muscle": [
-		"Mir Cars Hutch",
-		"Brutus Viper"
+		"Brutus Viper",
+		"Mir Cars Hutch"
+	],
+
+	"sedans": [
+		"Strandberg Turbo",
+		"Kuro Vault",
+		"Zenith Prince",
+		"Schroder Suppressor"
 	],
 
 	"urban": [
-	"Berkshire Blunt",
-	"Kuro Serenity",
-	"Kestrel Speedster",
-	"Mir Cars Blazer",
-	"Kestrel Seabird",
-],
-
-	"sedans": [
-	"Schroder Suppressor",
-	"Kuro Vault",
-	"Strandberg Turbo",
-	"Zenith Prince"
-],
+		"Kuro Serenity",
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Berkshire Blunt",
+		"Mir Cars Blazer"
+	],
 
 	"sport": [
-		"Berkshire V12-S",
-		"Brutus Stingray",
-		"Berkshire Tempest",
 		"Schroder Classique Sport",
+		"Brutus Stingray",
+		"Berkshire V12-S",
+		"Berkshire Tempest"
 	],
 
 	"sport_racing": [
-		"Linetti Shepherd",
+		"Kestrel Battleaxe",
 		"Brutus Venom",
-		"Kestrel Battleaxe"
+		"Linetti Shepherd"
 	],
 
 	"supercars": [
-		"Linetti Terror",
-		"Linetti Firestorm",
 		"Kestrel Guillotine",
-		"Mir Cars Raptor"
+		"Linetti Firestorm",
+		"Mir Cars Raptor",
+		"Linetti Terror"
 	],
 
 	"track_cars": [
-		"Mir Cars Athletic C70",
 		"Bartoli Track Cruiser",
-		"Brutus Thunderbolt"
+		"Brutus Thunderbolt",
+		"Mir Cars Athletic C70"
 	],
 
 	"special": [
 		"Bartoli Cruiser Interceptor"
 	],
+
+	# CHAMPIONSHIP CLASSES
+
 	"v6_engines":[
 		"Schroder Atrix Q32",
 		"Zenith Horizon"
 	],
+
 	"zenith_competition":[
 		"Zenith Horizon",
-		"Zenith Prince",
+		"Zenith Prince"
 	],
+
 	"businessman_racers":[
-	"Kuro Vault",
-	"Schroder Suppressor",
-	"Strandberg Turbo",
-	"Zenith Prince"
-],
-	"speedster_tournament":[
-		"Kestrel Speedster"
-	],
-	"kuro_cup":[
-		"Kuro Vault",
-		"Kuro Serenity"
-	],
-	"all_wheel_grip":[
 		"Strandberg Turbo",
-		
-		"Schroder Classique Sport",
+		"Kuro Vault",
+		"Zenith Prince",
+		"Schroder Suppressor"
+	],
+
+	"japanese_cup":[
+		"Zenith Horizon",
+		"Kuro Serenity",
+		"Zenith Prince",
+		"Kuro Vault"
+	],
+
+	"diesel_masters":[
+		"Schroder Colosso",
+		"Schroder Suppressor"
+	],
+
+	"all_wheel_grip":[
 		"Schroder Atrix Q32",
-	],
-	"eisenach_cup":[
-		
-		"Eisenach Bengal",
-
-	],
-	"under_400_hp": [
-	"Mir Cars Hutch",
-	"Straeda Volant",
-	"Schroder Atrix Q32",
-	"Colossus Titan Max",
-
-	"Kestrel Speedster",
-	"Zenith Prince",
-	"Berkshire Blunt",
-	"Brutus Stingray",
-	"Zenith Horizon",
-	"Kuro Serenity",
-	"Brutus Viper",
-	"Kuro Vault",
-	"Strandberg Turbo",
-	"Schroder Colosso",
-	"Mir Cars Transporter",
-	"Schroder Suppressor",
-
-	"Kestrel Seabird",
-	"Colossus Behemoth",
-	"Schroder Classique Sport",
-	"Eisenach Bengal",
-	"Mir Cars Nightwolf",
-],
-"berkshire_cup":[
-	"Berkshire Blunt",
-	"Berkshire Tempest",
-	"Berkshire V12-S",
-
-],
-"drop_top_challenge":[
-	"Schroder Atrix Q32",
-	"Kestrel Speedster",
-	"Schroder Classique Sport",
-],
-"low_displacement_challenge":[
-		"Kestrel Seabird",
-		"Straeda Volant",
-		"Strandberg Turbo"
-		
-	],
-	"v8_fury":[
-	"Mir Cars Hutch",
-	"Brutus Viper",
-	"Kuro Vault",
-
-	"Kuro Serenity",
-	"Brutus Stingray",
-	"Berkshire Blunt",
-],
-	"diesel_masters": [
-		
+		"Strandberg Turbo",
 		"Schroder Suppressor",
 		"Schroder Colosso"
 	],
 
-	"american_thunder": [
-		"Mir Cars Hutch",
-		"Brutus Viper",
-		"Brutus Stingray",
-		"Brutus Venom"
+	"speedster_tournament":[
+		"Kestrel Speedster"
 	],
 
-	"british_invasion": [
-		"Kestrel Seabird",
-		"Berkshire Blunt",
-		"Berkshire V12-S",
-
-		"Kestrel Speedster",
-		"Berkshire Tempest",
-		"Kestrel Battleaxe",
-		"Kestrel Guillotine"
-	],
-
-	"grand_touring": [
+	"urban_performance_cars":[
 		"Kuro Serenity",
+		"Kestrel Seabird",
+		"Kestrel Speedster",
 		"Berkshire Blunt",
-		"Berkshire Tempest",
-		"Berkshire V12-S"
+		"Mir Cars Blazer"
 	],
-	"stingray_competition":[
+
+	"eisenach_cup":[
+		"Eisenach Bengal"
+	],
+
+	"v8_fury":[
+		"Brutus Viper",
+		"Mir Cars Hutch",
+		"Kuro Vault",
+		"Kuro Serenity",
+		"Mir Cars Blazer",
+		"Berkshire Blunt",
 		"Brutus Stingray"
 	],
+
+	"berkshire_cup":[
+		"Berkshire Blunt",
+		"Berkshire V12-S",
+		"Berkshire Tempest"
+	],
+
+	"drop_top_challenge":[
+		"Schroder Atrix Q32",
+		"Kestrel Speedster",
+		"Berkshire Blunt"
+	],
+
+	"under_400_hp":[
+		"Colossus Titan Max",
+		"Colossus Behemoth",
+		"Mir Cars Nightwolf",
+		"Schroder Colosso",
+
+		"Straeda Volant",
+		"Schroder Atrix Q32",
+		"Eisenach Bengal",
+		"Zenith Horizon",
+
+		"Brutus Viper",
+		"Mir Cars Hutch",
+
+		"Strandberg Turbo",
+		"Kuro Vault",
+		"Zenith Prince",
+		"Schroder Suppressor",
+
+		"Kuro Serenity",
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Mir Cars Blazer",
+		"Berkshire Blunt",
+
+		"Schroder Classique Sport",
+		"Brutus Stingray",
+		"Berkshire V12-S"
+	],
+
+	"low_displacement_challenge":[
+		"Straeda Volant",
+		"Strandberg Turbo",
+		"Schroder Classique Sport",
+		"Kestrel Seabird"
+	],
+
 	"schroder_cup":[
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Suppressor",
-		"Schroder Classique Sport",
-		
+		"Schroder Classique Sport"
 	],
+
 	"gentleman_racers":[
-		"Berkshire Blunt",
+		"Kuro Serenity",
 		"Kestrel Speedster",
-		"Schroder Classique Sport",
+		"Mir Cars Blazer",
+		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Kuro Serenity",
-		"Mir Cars Blazer",
 		"Berkshire Tempest",
+		"Schroder Classique Sport"
 	],
-		"japanese_cup":[
-		"Zenith Horizon",
 
-		"Zenith Prince",
-		"Kuro Serenity",
-		"Kuro Vault"
+	"american_thunder":[
+		"Brutus Viper",
+		"Mir Cars Hutch",
+		"Brutus Stingray",
+		"Brutus Venom"
 	],
-		"german_cup":[
-		"Schroder Atrix Q32",
-		"Schroder Colosso",
-		"Schroder Classique Sport",
-				"Schroder Suppressor",
-		"Eisenach Bengal",
-		"Mir Cars Blazer",
 
-
-
-	],
-		"kestrel_max":[
+	"british_invasion":[
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Berkshire Blunt",
+		"Berkshire V12-S",
+		"Berkshire Tempest",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
 	],
-		"v12_engines":[
+
+	"grand_touring":[
+		"Kuro Serenity",
+		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Linetti Firestorm",
+		"Berkshire Tempest"
+	],
+
+	"stingray_competition":[
+		"Brutus Stingray"
+	],
+
+	"german_cup":[
+		"Schroder Atrix Q32",
+		"Schroder Colosso",
+		"Schroder Suppressor",
+		"Schroder Classique Sport",
+		"Eisenach Bengal",
+		"Mir Cars Blazer"
+	],
+
+	"kestrel_max":[
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Kestrel Battleaxe",
+		"Kestrel Guillotine"
+	],
+
+	"v12_engines":[
+		"Berkshire V12-S",
 		"Berkshire Tempest",
+		"Linetti Firestorm",
 		"Linetti Terror"
 	]
 }
-
 
 var car_scene_paths := {
 	"Colossus Titan Max":"res://Scenes/hummer_h1.tscn",

@@ -32,227 +32,251 @@ var cash_rewards: Dictionary = {
 	"supercars": 100000,
 	"track_cars": 120000
 }
-
 var class_lists: Dictionary = {
+
+	# MAIN CLASSES
+
 	"suv": [
-		"Schroder Colosso",
+		"Colossus Titan Max",
 		"Colossus Behemoth",
-		"Mir Cars Nightwolf",
-		"Colossus Titan Max"
+		"Schroder Colosso",
+		"Mir Cars Nightwolf"
 	],
 
 	"compact": [
-		"Zenith Horizon",
-		"Schroder Atrix Q32",
 		"Straeda Volant",
+		"Schroder Atrix Q32",
 		"Eisenach Bengal",
+		"Zenith Horizon"
 	],
 
 	"muscle": [
-		"Mir Cars Hutch",
-		"Brutus Viper"
-	],
-
-	"urban": [
-		"Kestrel Seabird",
-			"Kestrel Speedster",
-				"Mir Cars Blazer",
-			"Berkshire Blunt",
-		"Kuro Serenity"
+		"Brutus Viper",
+		"Mir Cars Hutch"
 	],
 
 	"sedans": [
-	"Schroder Suppressor",
-	"Kuro Vault",
-	"Strandberg Turbo",
-	"Zenith Prince"
-],
+		"Strandberg Turbo",
+		"Kuro Vault",
+		"Zenith Prince",
+		"Schroder Suppressor"
+	],
+
+	"urban": [
+		"Kuro Serenity",
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Berkshire Blunt",
+		"Mir Cars Blazer"
+	],
 
 	"sport": [
-		"Berkshire V12-S",
-		"Berkshire Tempest",
-		"Brutus Stingray",
 		"Schroder Classique Sport",
+		"Brutus Stingray",
+		"Berkshire V12-S",
+		"Berkshire Tempest"
 	],
 
 	"sport_racing": [
-		"Linetti Shepherd",
+		"Kestrel Battleaxe",
 		"Brutus Venom",
-		"Kestrel Battleaxe"
+		"Linetti Shepherd"
 	],
 
 	"supercars": [
-		"Linetti Terror",
-		"Linetti Firestorm",
 		"Kestrel Guillotine",
-		"Mir Cars Raptor"
+		"Linetti Firestorm",
+		"Mir Cars Raptor",
+		"Linetti Terror"
 	],
 
 	"track_cars": [
-		"Mir Cars Athletic C70",
 		"Bartoli Track Cruiser",
-		"Brutus Thunderbolt"
+		"Brutus Thunderbolt",
+		"Mir Cars Athletic C70"
 	],
 
 	"special": [
 		"Bartoli Cruiser Interceptor"
 	],
+
+	# CHAMPIONSHIP CLASSES
+
 	"v6_engines":[
 		"Schroder Atrix Q32",
 		"Zenith Horizon"
 	],
+
 	"zenith_competition":[
 		"Zenith Horizon",
 		"Zenith Prince"
 	],
+
 	"businessman_racers":[
-	"Kuro Vault",
-	"Schroder Suppressor",
-	"Strandberg Turbo",
-	"Zenith Prince",
-],
-	"speedster_tournament":[
-		"Kestrel Speedster"
-	],
-	"kuro_cup":[
-		"Kuro Vault",
-		"Kuro Serenity"
-	],
-	"all_wheel_grip":[
 		"Strandberg Turbo",
-		"Mir Cars Transporter",
-		"Schroder Classique Sport",
-		"Schroder Atrix Q32",
-	],
-	"eisenach_cup":[
-		"Eisenach Bengal",
-	],
-	"under_400_hp": [
-	"Mir Cars Hutch",
-	"Zenith Prince",
-	"Schroder Atrix Q32",
-	"Colossus Titan Max",
-
-	"Berkshire Blunt",
-	"Kestrel Speedster",
-	"Brutus Stingray",
-	"Zenith Horizon",
-	"Kuro Serenity",
-	"Brutus Viper",
-	"Kuro Vault",
-	"Mir Cars Blazer",
-	"Strandberg Turbo",
-	"Schroder Colosso",
-	"Mir Cars Transporter",
-	"Schroder Suppressor",
-	"Straeda Volant",
-	"Kestrel Seabird",
-	"Colossus Behemoth",
-	"Schroder Classique Sport",
-	"Eisenach Bengal",
-	"Mir Cars Nightwolf",
-],
-"v8_fury":[
-	"Mir Cars Hutch",
-	"Brutus Viper",
-	"Kuro Vault",
-	"Kuro Serenity",
-	"Mir Cars Blazer",
-	"Brutus Stingray",
-	"Berkshire Blunt",
-],
-"drop_top_challenge":[
-	"Schroder Atrix Q32",
-	"Kestrel Speedster",
-	"Berkshire Blunt",
-],
-"berkshire_cup":[
-	"Berkshire Blunt",
-	"Berkshire Tempest",
-	"Berkshire V12-S"
-],
-	"diesel_masters": [
-		"Schroder Suppressor",
-		"Schroder Colosso"
+		"Kuro Vault",
+		"Zenith Prince",
+		"Schroder Suppressor"
 	],
 
-	"american_thunder": [
-		"Mir Cars Hutch",
-		"Brutus Viper",
-		"Brutus Stingray",
-		"Brutus Venom"
-	],
-
-	"british_invasion": [
-		"Kestrel Seabird",
-		"Berkshire Blunt",
-		"Berkshire V12-S",
-
-		"Berkshire Blunt",
-		"Kestrel Battleaxe",
-		"Kestrel Guillotine"
-	],
-
-	"grand_touring": [
-		"Kuro Serenity",
-		"Berkshire Blunt",
-		"Berkshire V12-S"
-	],
-	"stingray_competition":[
-		"Brutus Stingray"
-	],
-	"schroder_cup":[
-		"Schroder Atrix Q32",
-		"Schroder Colosso",
-		"Schroder Classique Sport",
-		
-	],
-	"low_displacement_challenge":[
-		"Kestrel Seabird",
-		"Schroder Classique Sport",
-		"Straeda Volant",
-		"Strandberg Turbo"
-		
-	],
-	"gentleman_racers":[
-		"Berkshire Blunt",
-		"Berkshire V12-S",
-		"Kestrel Speedster",
-		"Schroder Classique Sport",
-		"Kuro Serenity",
-		"Mir Cars Blazer",
-				"Berkshire Tempest",
-	],
-		"japanese_cup":[
+	"japanese_cup":[
 		"Zenith Horizon",
 		"Kuro Serenity",
 		"Zenith Prince",
 		"Kuro Vault"
 	],
-		"german_cup":[
-		"Schroder Atrix Q32",
+
+	"diesel_masters":[
 		"Schroder Colosso",
-		"Schroder Classique Sport",
-		"Mir Cars Blazer",
-
-				"Schroder Suppressor",
-		"Eisenach Bengal",
-
-
+		"Schroder Suppressor"
 	],
+
+	"all_wheel_grip":[
+		"Schroder Atrix Q32",
+		"Strandberg Turbo",
+		"Schroder Suppressor",
+		"Schroder Colosso"
+	],
+
+	"speedster_tournament":[
+		"Kestrel Speedster"
+	],
+
 	"urban_performance_cars":[
+		"Kuro Serenity",
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Berkshire Blunt",
+		"Mir Cars Blazer"
+	],
+
+	"eisenach_cup":[
+		"Eisenach Bengal"
+	],
+
+	"v8_fury":[
+		"Brutus Viper",
+		"Mir Cars Hutch",
+		"Kuro Vault",
 		"Kuro Serenity",
 		"Mir Cars Blazer",
 		"Berkshire Blunt",
+		"Brutus Stingray"
+	],
+
+	"berkshire_cup":[
+		"Berkshire Blunt",
+		"Berkshire V12-S",
+		"Berkshire Tempest"
+	],
+
+	"drop_top_challenge":[
+		"Schroder Atrix Q32",
+		"Kestrel Speedster",
+		"Berkshire Blunt"
+	],
+
+	"under_400_hp":[
+		"Colossus Titan Max",
+		"Colossus Behemoth",
+		"Mir Cars Nightwolf",
+		"Schroder Colosso",
+
+		"Straeda Volant",
+		"Schroder Atrix Q32",
+		"Eisenach Bengal",
+		"Zenith Horizon",
+
+		"Brutus Viper",
+		"Mir Cars Hutch",
+
+		"Strandberg Turbo",
+		"Kuro Vault",
+		"Zenith Prince",
+		"Schroder Suppressor",
+
+		"Kuro Serenity",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Mir Cars Blazer",
+		"Berkshire Blunt",
+
+		"Schroder Classique Sport",
+		"Brutus Stingray",
+		"Berkshire V12-S"
 	],
-		"kestrel_max":[
+
+	"low_displacement_challenge":[
+		"Straeda Volant",
+		"Strandberg Turbo",
+		"Schroder Classique Sport",
+		"Kestrel Seabird"
+	],
+
+	"schroder_cup":[
+		"Schroder Atrix Q32",
+		"Schroder Colosso",
+		"Schroder Suppressor",
+		"Schroder Classique Sport"
+	],
+
+	"gentleman_racers":[
+		"Kuro Serenity",
+		"Kestrel Speedster",
+		"Mir Cars Blazer",
+		"Berkshire Blunt",
+		"Berkshire V12-S",
+		"Berkshire Tempest",
+		"Schroder Classique Sport"
+	],
+
+	"american_thunder":[
+		"Brutus Viper",
+		"Mir Cars Hutch",
+		"Brutus Stingray",
+		"Brutus Venom"
+	],
+
+	"british_invasion":[
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Berkshire Blunt",
+		"Berkshire V12-S",
+		"Berkshire Tempest",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
 	],
-		"v12_engines":[
+
+	"grand_touring":[
+		"Kuro Serenity",
+		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Berkshire Tempest"
+	],
+
+	"stingray_competition":[
+		"Brutus Stingray"
+	],
+
+	"german_cup":[
+		"Schroder Atrix Q32",
+		"Schroder Colosso",
+		"Schroder Suppressor",
+		"Schroder Classique Sport",
+		"Eisenach Bengal",
+		"Mir Cars Blazer"
+	],
+
+	"kestrel_max":[
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Kestrel Battleaxe",
+		"Kestrel Guillotine"
+	],
+
+	"v12_engines":[
+		"Berkshire V12-S",
+		"Berkshire Tempest",
 		"Linetti Firestorm",
 		"Linetti Terror"
 	]
@@ -358,298 +382,118 @@ func complete_cup(cup_id: String) -> void:
 	print("ACTIVE CUP:", ChampionshipState.active_cup)
 	save_progress()
 var cups: Dictionary = {
+
 	"colossus": {
-		"eligible_classes": ["suv"],
-		"eligible_cars": [
-			"Schroder Colosso",
-			"Colossus Behemoth",
-			"Mir Cars Nightwolf",
-			"Colossus Titan Max"
-		]
+		"eligible_classes": ["suv"]
 	},
 
 	"street_tuners": {
-		"eligible_classes": ["compact"],
-		"eligible_cars": [
-			"Schroder Atrix Q32",
-			"Straeda Volant",
-			"Zenith Horizon",
-			"Eisenach Bengal",
-		]
+		"eligible_classes": ["compact"]
 	},
 
 	"muscle_hustle": {
-		"eligible_classes": ["muscle"],
-		"eligible_cars": [
-			"Brutus Viper",
-			"Mir Cars Hutch"
-		]
+		"eligible_classes": ["muscle"]
 	},
 
-"v6_engines": {
-	"eligible_classes": ["v6_engines"],
-	"eligible_cars": [
-		"Zenith Horizon",
-		"Schroder Atrix Q32"
-	]
-},
-"urban_performance_cars": {
-	"eligible_classes": ["urban"],
-	"eligible_cars": [
-		"Kestrel Seabird",
-			"Kestrel Speedster",
-				"Mir Cars Blazer",
-				"Berkshire Blunt",
-		"Kuro Serenity"
-	]
-},
-"diesel_masters": {
-	"eligible_classes": ["diesel_masters"],
-	"eligible_cars": [
+	"v6_engines": {
+		"eligible_classes": ["v6_engines"]
+	},
 
-		"Schroder Suppressor",
-		"Schroder Colosso"
-	]
-},
-"low_displacement_challenge": {
-	"eligible_classes": ["low_displacement_challenge"],
-	"eligible_cars": [
-"Kestrel Seabird",
-		"Schroder Classique Sport",
-		"Straeda Volant",
-		"Strandberg Turbo"
-	]
-},
-"american_thunder": {
-	"eligible_classes": ["american_thunder"],
-	"eligible_cars": [
-		"Mir Cars Hutch",
-		"Brutus Viper",
-		"Brutus Stingray",
-		"Brutus Venom"
-	]
-},
+	"zenith_competition": {
+		"eligible_classes": ["zenith_competition"]
+	},
 
-"british_invasion": {
-	"eligible_classes": ["british_invasion"],
-	"eligible_cars": [
-		"Kestrel Seabird",
-		"Berkshire Blunt",
-		"Kestrel Speedster",
-		"Berkshire V12-S",
-		"Kestrel Touring",
-		"Kestrel Battleaxe",
-		"Kestrel Guillotine"
-	]
-},
-"v8_fury": {
-	"eligible_classes": ["v8_fury"],
-	"eligible_cars": [
-	"Mir Cars Hutch",
-	"Brutus Viper",
-	"Kuro Vault",
-	"Kuro Serenity",
-	"Mir Cars Blazer",
-	"Brutus Stingray",
-	"Berkshire Blunt",
-	"Kestrel Touring",
+	"businessman_racers": {
+		"eligible_classes": ["businessman_racers"]
+	},
 
-	]
-},
-"drop_top_challenge": {
-	"eligible_classes": ["drop_top_challenge"],
-	"eligible_cars": [
-		"Schroder Atrix Q32",
-	"Kestrel Speedster",
-	"Berkshire Blunt"
-	]
-},
+	"japanese_cup": {
+		"eligible_classes": ["japanese_cup"]
+	},
 
-"grand_touring": {
-	"eligible_classes": ["grand_touring"],
-	"eligible_cars": [
-		"Kuro Serenity",
-		"Berkshire Blunt",
-		"Berkshire Tempest",
-		
-		"Berkshire V12-S"
-	]
-},
-"zenith_competition":{
-	"eligible_classes":["zenith_competition"],
-	"eligible_cars":[
-		"Zenith Horizon",
-		"Zenith Prince",
-	]
-},
-"businessman_racers":{
-	"eligible_classes":["businessman_racers"],
-	"eligible_cars":[
-		"Zenith Prince",
-		"Kuro Vault",
-		"Schroder Suppressor",
-		"Strandberg Turbo"
-	]
-},
-"speedster_tournament":{
-	"eligible_classes":["speedster_tournament"],
-	"eligible_cars":[
-		"Kestrel Speedster"
-	]
-},
-"kuro_cup":{
-	"eligible_classes":["kuro_cup"],
-	"eligible_cars":[
-		"Kuro Vault",
-		"Kuro Serenity"
-	]
-},
-"all_wheel_grip":{
-	"eligible_classes":["all_wheel_grip"],
-	"eligible_cars":[
-		"Strandberg Turbo",
-		"Mir Cars Transporter",
-		"Schroder Classique Sport",
-		"Schroder Atrix Q32",
-	]
-},
-"eisenach_cup":{
-	"eligible_classes":["eisenach_cup"],
-	"eligible_cars":[
+	"diesel_masters": {
+		"eligible_classes": ["diesel_masters"]
+	},
 
-		"Eisenach Bengal",
-	]
-},
-"berkshire_cup":{
-	"eligible_classes":["berkshire_cup"],
-	"eligible_cars":[
-	
-		"Berkshire Tempest",
-		"Berkshire Blunt",
-		"Berkshire V12-S"
-	]
-},
-"under_400_hp":{
-	"eligible_classes":["under_400_hp"],
-	"eligible_cars":[
-	"Mir Cars Hutch",
-	"Kestrel Speedster",
-	"Schroder Atrix Q32",
-	"Berkshire Mocha",
-	"Colossus Titan Max",
-	"Kestrel Touring",
-	"Berkshire Blunt",
-	"Zenith Horizon",
-	"Kuro Serenity",
-	"Brutus Viper",
-	"Kuro Vault",
-	"Schroder Classique Sport",
-	"Strandberg Turbo",
-	"Schroder Colosso",
-	"Brutus Stingray",
-	"Mir Cars Transporter",
-	"Straeda Volant",
-	"Schroder Suppressor",
-	"Zenith Prince",
-	"Mir Cars Blazer",
-	"Kestrel Seabird",
-	"Colossus Behemoth",
-	"Eisenach Bengal",
-	"Mir Cars Nightwolf",
-	]
-},
-"stingray_competition":{
-	"eligible_classes":["stingray_competition"],
-	"eligible_cars":[
-		"Brutus Stingray"
-	]
-},
-"schroder_cup":{
-	"eligible_classes":["schroder_cup"],
-	"eligible_cars":[
-		"Schroder Atrix Q32",
-		"Schroder Colosso",
-		"Schroder Classique Sport",
-	]
-},
-"gentleman_racers":{
-	"eligible_classes":["gentleman_racers"],
-	"eligible_cars":[
-		"Berkshire Blunt",
-		"Berkshire Tempest",
-		"Berkshire V12-S",
-		"Schroder Classique Sport",
-		"Kestrel Speedster",
-		"Kuro Serenity",
-		"Mir Cars Blazer",
-	]
-},
-"japanese_cup":{
-	"eligible_classes":["japanese_cup"],
-	"eligible_cars":[
-			"Zenith Horizon",
-			"Zenith Prince",
-		"Kuro Serenity",
-		"Kuro Vault"
-	]
-},
-"german_cup":{
-	"eligible_classes":["german_cup"],
-	"eligible_cars":[
-		"Schroder Atrix Q32",
-		"Schroder Colosso",
-		"Schroder Classique Sport",
-	
-				"Schroder Suppressor",
-		"Mir Cars Blazer",
-		"Eisenach Bengal",
+	"all_wheel_grip": {
+		"eligible_classes": ["all_wheel_grip"]
+	},
 
-	]
-},
-"kestrel_max":{
-	"eligible_classes":["kestrel_max"],
-	"eligible_cars":[
-				"Kestrel Touring",
-		"Kestrel Battleaxe",
-		"Kestrel Guillotine"
-	]
-},
-"v12_engines":{
-	"eligible_classes":["v12_engines"],
-	"eligible_cars":[
-		"Berkshire V12-S",
-		"Berkshire Tempest",
-		"Linetti Firestorm",
-		"Linetti Terror"
-	]
-},
-"sport_racing": {
-	"eligible_classes": ["sport_racing"],
-	"eligible_cars": [
-		"Berkshire Tempest",
-		"Linetti Shepherd",
-		"Brutus Venom",
-		"Kestrel Battleaxe"
-	]
-},
+	"speedster_tournament": {
+		"eligible_classes": ["speedster_tournament"]
+	},
 
-"supercars":{
-	"eligible_classes":["supercars"],
-	"eligible_cars":[
-				"Linetti Terror",
-		"Linetti Firestorm",
-		"Kestrel Guillotine",
-		"Mir Cars Raptor"
-	]
-},
-"track_cars":{
-	"eligible_classes":["track_cars"],
-	"eligible_cars":[
-		"Mir Cars Athletic C70",
-		"Bartoli Track Cruiser",
-		"Brutus Thunderbolt"
-	]
-}
+	"urban_performance_cars": {
+		"eligible_classes": ["urban_performance_cars"]
+	},
+
+	"low_displacement_challenge": {
+		"eligible_classes": ["low_displacement_challenge"]
+	},
+
+	"eisenach_cup": {
+		"eligible_classes": ["eisenach_cup"]
+	},
+
+	"berkshire_cup": {
+		"eligible_classes": ["berkshire_cup"]
+	},
+
+	"drop_top_challenge": {
+		"eligible_classes": ["drop_top_challenge"]
+	},
+
+	"under_400_hp": {
+		"eligible_classes": ["under_400_hp"]
+	},
+
+	"german_cup": {
+		"eligible_classes": ["german_cup"]
+	},
+
+	"schroder_cup": {
+		"eligible_classes": ["schroder_cup"]
+	},
+
+	"american_thunder": {
+		"eligible_classes": ["american_thunder"]
+	},
+
+	"british_invasion": {
+		"eligible_classes": ["british_invasion"]
+	},
+
+	"stingray_competition": {
+		"eligible_classes": ["stingray_competition"]
+	},
+
+	"v8_fury": {
+		"eligible_classes": ["v8_fury"]
+	},
+
+	"gentleman_racers": {
+		"eligible_classes": ["gentleman_racers"]
+	},
+
+	"kestrel_max": {
+		"eligible_classes": ["kestrel_max"]
+	},
+
+	"sport_racing": {
+		"eligible_classes": ["sport_racing"]
+	},
+
+	"v12_engines": {
+		"eligible_classes": ["v12_engines"]
+	},
+
+	"supercars": {
+		"eligible_classes": ["supercars"]
+	},
+
+	"track_cars": {
+		"eligible_classes": ["track_cars"]
+	}
 }
 
 # ============================================================
@@ -660,25 +504,22 @@ func _ready():
 	get_shuffled_under_400_hp()
 		
 func get_available_cars(cup_id: String) -> Array[String]:
-	var cup: Dictionary = cups[cup_id]
 
-	var eligible_classes: Array = cup["eligible_classes"]
-	var eligible_cars: Array = cup["eligible_cars"]
+	var cup: Dictionary = cups[cup_id]
 
 	var result: Array[String] = []
 
-	for class_id: String in eligible_classes:
-		var cars_in_class: Array = class_lists.get(class_id, [])
+	for class_id in cup["eligible_classes"]:
 
-		for car_name: String in cars_in_class:
-			if eligible_cars.has(car_name):
-				result.append(car_name)
-				print("MATCH: ",car_name)
+		if class_lists.has(class_id):
 
-				
+			for car_name in class_lists[class_id]:
 
-	print("ClubCups.gd USED")
+				if not result.has(car_name):
+					result.append(car_name)
+
 	return result
+	
 var save_path := "user://career_progress.json"
 var career_progress: Dictionary = {}  # cup_id -> { "normal":false, "duel":false, "elimination":false, "radar":false }
 
