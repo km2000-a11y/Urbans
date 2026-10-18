@@ -14,6 +14,14 @@ var stuck_time := 0.0
 var race_finished := false
 var unstuck_time := 0.0
 var unstucking := false
+var nitro_bottles := 3
+var max_nitro_bottles := 4
+
+var drift_charge_timer := 0.0
+var nitro_burn_timer := 0.0
+
+const NITRO_CHARGE_TIME := 5.0    # 5 sec drift = 1 bottle
+const NITRO_BURN_TIME := 4.0      # 1 bottle lasts 4 sec
 var position_label: Label3D = null
 var engine_pitch_smoothed := 1.0
 var engine_volume_smoothed := -24.0
@@ -299,7 +307,7 @@ func _ready() -> void:
 		# Sport Coupe
 
 		"Schroder Classique Sport":
-			audio_character_type = 7
+			audio_character_type = 3
 
 		"Berkshire Tempest":
 			audio_character_type = 8 # Aston V12
@@ -496,35 +504,22 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		if Input.is_action_pressed("drift"):
 			drift_input = true
 
+	# BOTTLE-BASED NITRO
+
 	if not is_ai:
-		# Player is holding NOS
-		if Input.is_action_pressed("nos"):
-			# Only allow nitro if not cooling down
-			if nitro_cooldown <= 0.0:
-				nitrous = true
-		else:
-			nitrous = false
 
-		# --- NITRO TIMER SYSTEM ---
-		if nitrous:
-			nitro_time += delta
-			nitro_active = true
+		if Input.is_action_just_pressed("nos"):
+			if nitro_bottles > 0 and not nitro_active:
+				nitro_active = true
+				nitro_burn_timer = NITRO_BURN_TIME
 
-			# If nitro exceeds 4 seconds, block it
-			if nitro_time >= 4.0:
+		if nitro_active:
+
+			nitro_burn_timer -= delta
+
+			if nitro_burn_timer <= 0.0:
 				nitro_active = false
-				nitro_cooldown = 8.0  # start cooldown
-		else:
-			nitro_active = false
-
-		# Count down cooldown
-		if nitro_cooldown > 0.0:
-			nitro_cooldown -= delta
-
-		# Reset nitro timer ONLY when cooldown is finished
-		if nitro_cooldown <= 0.0 and not nitro_active:
-			nitro_time = 0.0
-
+				nitro_bottles -= 1
 
 
 	var target_drift := 0.0
@@ -533,6 +528,18 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 	drift_factor = lerp(drift_factor, target_drift, delta * 6.0)
 	drifting = drift_factor > 0.1
+	# DRIFT TO CHARGE NITRO
+	if drifting and current_speed > 40.0:
+		drift_charge_timer += delta
+
+		if drift_charge_timer >= NITRO_CHARGE_TIME:
+			drift_charge_timer = 0.0
+
+			if nitro_bottles < max_nitro_bottles:
+				nitro_bottles += 1
+	else:
+		# Optional: keep progress between drifts
+		pass
 	if drifting:
 		if not SkidPlayer.playing:
 			SkidPlayer.play()
@@ -719,16 +726,29 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	update_gears(speed_kmh)
 	var rpm_ratio := rpm / max_rpm
 	# --- RPM & GEARS ---
-	if speed_kmh < 2.0:
+	# --- RPM & GEARS ---
+	if reversing:
+
+		rpm = lerp(
+			rpm,
+			idle_rpm + (speed_kmh * 60.0),
+			delta * 4.0
+		)
+
+		rpm = clamp(rpm, idle_rpm, 3500.0)
+
+	elif speed_kmh < 2.0:
+
 		if accel > 0.1:
 			rpm = lerp(rpm, idle_rpm + 2500.0, delta * 2.5)
 		else:
 			rpm = lerp(rpm, idle_rpm, delta * 3.0)
+
 	else:
+
 		var gear_index: int = clamp(current_gear - 1, 0, gear_ratios.size() - 1)
 		var wheel_rpm: float = speed_kmh * gear_ratios[gear_index] * 35.0
 		rpm = lerp(rpm, wheel_rpm, delta * 4.0)
-
 	rpm = clamp(rpm, idle_rpm, max_rpm)
 	update_gears(speed_kmh)
 
@@ -809,16 +829,16 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		velocity.x = flat.x
 		velocity.z = flat.z
 
-	if nitrous:
+	if nitro_active:
 		nitro.show()
-		nitro_top_speed_multiplier = 1.08 # Smaller top speed boost (5% over limit)
-		
-		# Gentle, smooth push forward (scaled down from 1.08 to 0.4)
+		nitro_top_speed_multiplier = 1.088
+
 		var nitro_force := acceleration_calc * 0.4
 		velocity += forward * nitro_force * delta
 	else:
 		nitro.hide()
 		nitro_top_speed_multiplier = 1.0
+
 
 	if brake > 0.1:
 		var brake_force := brake_strength * (mass / 1200.0) * 1.4
@@ -830,7 +850,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 	var flat2 := Vector3(velocity.x, 0, velocity.z)
 	var current_top_speed := top_speed
-	if nitrous:
+	if nitro_active:
 		current_top_speed = top_speed * nitro_top_speed_multiplier
 
 	if flat2.length() > current_top_speed:
@@ -844,6 +864,9 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			Global.gear = current_gear
 			Global.speed_unit = SpeedSettings.get_unit_label()
 			Global.tachometer = rpm # Added digital tachometer tracking
+			Global.nitro_bottles = nitro_bottles
+			Global.nitro_active = nitro_active
+			Global.nitro_timer = nitro_burn_timer
 
 			if reversing:
 				Global.gear = -1

@@ -27,6 +27,14 @@ offset_top = 612.0
 offset_right = 1285.0
 offset_bottom = 667.0
 
+[node name="Nitro" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 1110.0
+offset_top = 683.0
+offset_right = 1285.0
+offset_bottom = 724.0
+bbcode_enabled = true
+
 [node name="Gear" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 1102.0

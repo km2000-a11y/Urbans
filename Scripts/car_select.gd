@@ -669,7 +669,7 @@ var muscle = {
 }
 var urban_racers = {
 	"Kuro Serenity":[
-		"", "Country: Japan", "HP: 290", "WEIGHT: 1640 KG",
+		"", "Country: Japan", "HP: 260", "WEIGHT: 1640 KG",
 		"0-100 KM/H: 6.3s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 360 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
@@ -693,8 +693,8 @@ var urban_racers = {
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Mir Cars Blazer":[
-	"", "Country: UAE", "HP: 346", "WEIGHT: 1678 KG",
-	"0-100 KM/H: 5.6s", "TOP SPEED: 265 KM/H",
+	"", "Country: UAE", "HP: 346", "WEIGHT: 1740 KG",
+	"0-100 KM/H: 5.6s", "TOP SPEED: 263 KM/H",
 	"ENGINE: V8 5.5L", "ASPIRATION: NA", "TORQUE: 540 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
@@ -751,9 +751,9 @@ var sport = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 340", "WEIGHT: 1840 KG",
+		"", "Country: Germany", "HP: 270", "WEIGHT: 1490 KG",
 		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
+		"ENGINE: L5 2.2L", "ASPIRATION: Turbo", "TORQUE: 360 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	]
 }
