@@ -509,9 +509,20 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	if not is_ai:
 
 		if Input.is_action_just_pressed("nos"):
-			if nitro_bottles > 0 and not nitro_active:
+
+			# Turn OFF nitro and keep remaining bottle time
+			if nitro_active:
+
+				nitro_active = false
+
+			# Turn ON nitro if we have bottles
+			elif nitro_bottles > 0:
+
 				nitro_active = true
-				nitro_burn_timer = NITRO_BURN_TIME
+
+				# Only start a fresh bottle if not already partially used
+				if nitro_burn_timer <= 0.0:
+					nitro_burn_timer = NITRO_BURN_TIME
 
 		if nitro_active:
 
