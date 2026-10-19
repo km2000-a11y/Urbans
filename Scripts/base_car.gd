@@ -12,6 +12,8 @@ var ai_dodge_timer:=0.0
 var ai_dodge_dir:=0.0
 var stuck_time := 0.0
 var race_finished := false
+var clean_drive_timer := 0.0
+const CLEAN_DRIVE_TIME := 15.0
 var unstuck_time := 0.0
 var unstucking := false
 var nitro_bottles := 3
@@ -233,7 +235,7 @@ var phase: float = 0.0
 func _ready() -> void:
 	
 	# SUVs
-	match Cars.selected_car:
+	match car_name:
 		"Colossus Titan Max":
 			audio_character_type = 1 # American Muscle
 
@@ -536,7 +538,16 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	var target_drift := 0.0
 	if drift_input:
 		target_drift = 1.0
+	if not nitro_active and not drifting and accel > 0.1:
+		clean_drive_timer += delta
 
+		if clean_drive_timer >= CLEAN_DRIVE_TIME:
+			clean_drive_timer = 0.0
+
+			if nitro_bottles < max_nitro_bottles:
+				nitro_bottles += 1
+	else:
+			clean_drive_timer = 0.0
 	drift_factor = lerp(drift_factor, target_drift, delta * 6.0)
 	drifting = drift_factor > 0.1
 	# DRIFT TO CHARGE NITRO
@@ -1443,12 +1454,7 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 	target_pitch += sin(engine_time * rasp_speed) * rasp * rpm_ratio
 
 	# Forced induction.
-	if has_turbo and load > 0.1:
-		target_pitch += 0.10 * rpm_ratio * load
-
-	if has_supercharger and load > 0.1:
-		target_pitch += pow(rpm_ratio, 1.5) * load * 0.18
-
+	
 	# Engines relax slightly when the throttle is released.
 	if load < 0.05:
 		target_pitch -= rpm_ratio * 0.07
@@ -1458,6 +1464,13 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 	var target_db: float = lerp(idle_db, load_db, load)
 	target_db += rpm_ratio * 3.0
 	target_db += audio_volume_offset
+	if has_turbo:
+		target_pitch += pow(rpm_ratio, 2.0) * load * 0.35
+		target_db += rpm_ratio * load * 3.0
+
+	if has_supercharger:
+		target_pitch += rpm_ratio * 0.30
+		target_db += rpm_ratio * 2.0
 
 	# Distinct idle behavior.
 	if speed_kmh < 2.0 and load < 0.05:

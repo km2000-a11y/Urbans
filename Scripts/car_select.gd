@@ -688,13 +688,13 @@ var urban_racers = {
 	],
 	"Berkshire Blunt":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 5.2s", "TOP SPEED: 259 KM/H",
+	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
 	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Mir Cars Blazer":[
 	"", "Country: UAE", "HP: 346", "WEIGHT: 1740 KG",
-	"0-100 KM/H: 5.6s", "TOP SPEED: 263 KM/H",
+	"0-100 KM/H: 5.3s", "TOP SPEED: 254 KM/H",
 	"ENGINE: V8 5.5L", "ASPIRATION: NA", "TORQUE: 540 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],

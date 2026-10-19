@@ -57,12 +57,6 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_yav2k"]
 size = Vector3(0.65, 0.2, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8q3ki"]
-albedo_color = Color(1, 0.729412, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4f12l"]
-size = Vector3(0.16, 0.1, 0.1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cljdu"]
 albedo_color = Color(0, 0, 0, 1)
 
@@ -119,6 +113,14 @@ albedo_color = Color(0.752941, 0.752941, 0.752941, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6d3fy"]
 size = Vector3(0.8, 0.35, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtqb8"]
+albedo_color = Color(1, 0.752941, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4a4rh"]
+top_radius = 0.055
+bottom_radius = 0.07
+height = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08euy"]
 size = Vector3(1, 1, 1.7)
@@ -304,16 +306,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03479e-07, 0.298393, 0.685
 material_override = SubResource("StandardMaterial3D_jlic8")
 mesh = SubResource("BoxMesh_yav2k")
 
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.278712, 0.294345, 1.13956)
-material_override = SubResource("StandardMaterial3D_8q3ki")
-mesh = SubResource("BoxMesh_4f12l")
-
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3127, 0.294345, 1.13956)
-material_override = SubResource("StandardMaterial3D_8q3ki")
-mesh = SubResource("BoxMesh_4f12l")
-
 [node name="MeshInstance3D19" type="MeshInstance3D" parent="ModelRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0239183, 0.249552, 1.10798)
 material_override = SubResource("StandardMaterial3D_cljdu")
@@ -380,6 +372,18 @@ transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195
 material_override = SubResource("StandardMaterial3D_s0kkr")
 mesh = SubResource("BoxMesh_6d3fy")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.282526, 0.25506, 1.12554)
+material_override = SubResource("StandardMaterial3D_dtqb8")
+mesh = SubResource("CylinderMesh_4a4rh")
+skeleton = NodePath("../Body/MeshInstance3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.324434, 0.273506, 1.13525)
+material_override = SubResource("StandardMaterial3D_dtqb8")
+mesh = SubResource("CylinderMesh_4a4rh")
+skeleton = NodePath("../Body/MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383226, 0.144474, -0.156084)

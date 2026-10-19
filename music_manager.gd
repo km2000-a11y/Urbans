@@ -8,6 +8,7 @@ var current_race_path := ""
 var race_tracks := [
 	"res://Songs/After Dark.mp3",
 	"res://Songs/Afterlife City.mp3",
+	"res://Songs/Dance of the Pixies.mp3",
 	"res://Songs/Electroids.mp3",
 	"res://Songs/End of Mankind.mp3",
 	"res://Songs/Ephermal Reign.mp3",

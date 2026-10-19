@@ -1,3 +1,6 @@
+res://Scenes/e55.tscn
+res://music_manager.gd
+res://Scenes/pause_menu.gd
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -51,7 +54,6 @@ res://Scenes/lexus_sc.tscn
 res://Scenes/language_menu.tscn
 res://Tracks/new_york.tscn
 res://Tracks/las_vegas.tscn
-res://Scenes/e55.tscn
 res://Scenes/q45.tscn
 res://Scenes/career.tscn
 res://Scenes/morgan_aero_8.tscn
@@ -73,9 +75,7 @@ res://es350.tscn
 res://Scenes/bmw_m5_e39.tscn
 res://Scenes/audi_s6.tscn
 res://Scenes/xk8.tscn
+res://Scripts/base_car.gd
 res://Scripts/car_select.gd
-res://road_challenge_save.gd
-res://cars.gd
-res://club_cups.gd
-res://localization.gd
-res://Scenes/championships.gd
+res://Scenes/clk500.gd
+res://Scripts/jaguar_xkr_2003.gd
