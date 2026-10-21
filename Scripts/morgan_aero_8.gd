@@ -3,17 +3,17 @@ extends CarController
 # COSMETIC INFO (UI only)
 var def_car_name := "Kestrel Speedster"
 var country := "UK"
-var engine := "V8 4.4L"
+var engine := "V8 4.8L"
 var weight_kg := 1145
 var zero_to_hundred_display := 4.50
 
 func _ready():
 	# GAMEPLAY STATS
 	mass = 1145.0
-	horsepower = 286
+	horsepower = 362
 	max_rpm = 6500.0
-	zero_to_hundred = 5.0
-	top_speed_kmh = 250
+	zero_to_hundred = 4.7
+	top_speed_kmh = 272
 	turn_speed = 3.05
 	brake_strength = 12.2
 	lateral_friction = 1.14

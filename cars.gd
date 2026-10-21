@@ -53,7 +53,6 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Kuro Serenity",
 		"Kestrel Seabird",
-		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -62,13 +61,14 @@ var class_lists: Dictionary = {
 		"Schroder Classique Sport",
 		"Brutus Stingray",
 		"Berkshire V12-S",
-		"Berkshire Tempest"
+		"Kestrel Speedster",
 	],
 
 	"sport_racing": [
 		"Kestrel Battleaxe",
 		"Brutus Venom",
-		"Linetti Shepherd"
+		"Linetti Shepherd",
+		"Berkshire Tempest",
 	],
 
 	"supercars": [
@@ -136,7 +136,6 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kuro Serenity",
 		"Kestrel Seabird",
-		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -224,6 +223,9 @@ var class_lists: Dictionary = {
 	"american_thunder":[
 		"Brutus Viper",
 		"Mir Cars Hutch",
+		"Colossus Titan Max",
+		"Brutus Thunderbolt",
+		"Colossus Behemoth",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -877,8 +879,13 @@ func get_ai_paths_for_class(_unused: Variant) -> Array[String]:
 
 
 func get_radar_target_speed() -> int:
-	return radar_target_speeds.get(selected_class, 180)
+	var real_class := get_class_of_car(selected_car_name)
 
+	# convert championship IDs to main classes if needed
+	if real_class in radar_target_speeds:
+		return radar_target_speeds[real_class]
+
+	return 180
 
 func get_unlocked_cars() -> Array:
 	var result: Array = []

@@ -86,7 +86,7 @@ var car_prices := {
 
 	"Schroder Suppressor": 95000,
 	"Strandberg Turbo": 83000,
-	"Kestrel Speedster":100000,
+	"Kestrel Speedster":150000,
 	"Kuro Vault": 85000,
 	"Mir Cars Regent":83000,
 	"Berkshire Mocha": 72000,
@@ -553,7 +553,6 @@ var muscle_list = [
 var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Seabird",
-	"Kestrel Speedster",
 	"Berkshire Blunt",
 	"Mir Cars Blazer",
 ]
@@ -567,14 +566,15 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
+	"Kestrel Speedster",
 	"Berkshire V12-S",
-	"Berkshire Tempest",
 	"Brutus Stingray",
 ]
 
 var sport_racing_list = [
-	"Kestrel Battleaxe",
 	"Brutus Venom",
+	"Kestrel Battleaxe",
+	"Berkshire Tempest",
 	"Linetti Shepherd",
 ]
 
@@ -680,12 +680,6 @@ var urban_racers = {
 		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kestrel Speedster":[
-		"", "Country: UK", "HP: 285", "WEIGHT: 1135 KG",
-		"0-100 KM/H: 5.0s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 440 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Berkshire Blunt":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
 	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
@@ -705,12 +699,6 @@ var sedans = {
 		"0-100 KM/H: 5.7s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V6 3.0L", "ASPIRATION: Turbo", "TORQUE: 500 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
-	],
-	"Kronstadt Monarch":[
-		"", "Country: Germany", "HP: 275", "WEIGHT: 1660 KG",
-		"0-100 KM/H: 6.4s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 410 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 			"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
@@ -744,10 +732,10 @@ var sport = {
 		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 545 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Tempest":[
-		"", "Country: UK", "HP: 460", "WEIGHT: 1780 KG",
-		"0-100 KM/H: 5.6s", "TOP SPEED: 305 KM/H",
-		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 580 NM",
+	"Kestrel Speedster":[
+		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
+		"0-100 KM/H: 4.7s", "TOP SPEED: 273 KM/H",
+		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 490 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
@@ -764,7 +752,12 @@ var sport_racing = {
 		"ENGINE: V10 5.0L", "ASPIRATION: NA", "TORQUE: 510 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
-	
+	"Berkshire Tempest":[
+		"", "Country: UK", "HP: 460", "WEIGHT: 1780 KG",
+		"0-100 KM/H: 4.7s", "TOP SPEED: 311 KM/H",
+		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 580 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 	"Brutus Venom":[
 		"", "Country: USA", "HP: 415", "WEIGHT: 1560 KG",
 		"0-100 KM/H: 4.1s", "TOP SPEED: 300 KM/H",

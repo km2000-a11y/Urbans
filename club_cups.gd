@@ -8,30 +8,48 @@ var cash_rewards: Dictionary = {
 	"colossus": 5000,
 	"street_tuners": 10000,
 	"muscle_hustle": 12000,
+
 	"v6_engines": 15000,
 	"zenith_competition": 18000,
-	"businessman_racers": 20000,
-	"japanese_cup": 22000,
-	"speedster_tournament":36000,
-	"urban_performance_cars":35000,
-	"eisenach_cup": 30000,
-	"v8_fury":37000,
-	"colin_tribute":27000,
-	"berkshire_cup": 35000,
-	"drop_top_challenge":20000,
-	"under_400_hp": 40000,
-	"low_displacement_challenge":23000,
-	"schroder_cup": 45000,
-	"gentleman_racers": 55000,
-	"kestrel_max": 60000,
-	"diesel_masters": 65000,
-	"american_thunder": 70000,
-	"british_invasion": 75000,
-	"grand_touring": 80000,
-	"sport_racing": 85000,
-	"v12_engines": 90000,
-	"supercars": 100000,
-	"track_cars": 120000
+
+	"businessman_racers": 22000,
+	"japanese_cup": 25000,
+	"diesel_masters": 28000,
+
+	"all_wheel_grip": 32000,
+	"urban_performance_cars": 35000,
+
+	"eisenach_cup": 38000,
+	"colin_tribute": 35000,
+	"drop_top_challenge": 40000,
+
+	"low_displacement_challenge": 45000,
+	"under_400_hp": 50000,
+
+	"german_cup": 55000,
+	"schroder_cup": 65000,
+
+	"speedster_tournament": 70000,
+
+	"berkshire_cup": 75000,
+
+	"american_thunder": 80000,
+	"british_invasion": 85000,
+
+	"stingray_competition": 90000,
+	"v8_fury": 100000,
+
+	"gentleman_racers": 110000,
+
+	"kestrel_max": 125000,
+
+	"sport_racing": 150000,
+
+	"v12_engines": 175000,
+
+	"supercars": 225000,
+
+	"track_cars": 300000
 }
 var class_lists: Dictionary = {
 
@@ -66,7 +84,6 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Kuro Serenity",
 		"Kestrel Seabird",
-		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -74,14 +91,15 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Schroder Classique Sport",
 		"Brutus Stingray",
+		"Kestrel Speedster",
 		"Berkshire V12-S",
-		"Berkshire Tempest"
 	],
 
 	"sport_racing": [
 		"Kestrel Battleaxe",
 		"Brutus Venom",
-		"Linetti Shepherd"
+		"Linetti Shepherd",
+		"Berkshire Tempest"
 	],
 
 	"supercars": [
@@ -146,7 +164,6 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kuro Serenity",
 		"Kestrel Seabird",
-		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -237,6 +254,9 @@ var class_lists: Dictionary = {
 	"american_thunder":[
 		"Brutus Viper",
 		"Mir Cars Hutch",
+		"Colossus Titan Max",
+		"Brutus Thunderbolt",
+		"Colossus Behemoth",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -290,23 +310,41 @@ var cup_rewards: Dictionary = {
 	"street_tuners": "Brutus Viper",
 	"muscle_hustle": "Schroder Atrix Q32",
 	"v6_engines": "Zenith Horizon",
+
 	"zenith_competition": "Schroder Suppressor",
+
 	"businessman_racers": "Kuro Serenity",
+
 	"japanese_cup": "Strandberg Turbo",
-	"all_wheel_grip": "Kestrel Speedster",
+
+	"all_wheel_grip": "Kuro Vault",
+
 	"eisenach_cup": "Mir Cars Blazer",
-	"drop_top_challenge":"Berkshire Blunt",
+
+	"drop_top_challenge": "Berkshire Blunt",
+
 	"under_400_hp": "Schroder Classique Sport",
-	"schroder_cup": "Brutus Stingray",
-	"stingray_competition": "Berkshire V12-S",
+
+	"german_cup": "Kestrel Speedster",
+
+	"schroder_cup": "Berkshire V12-S",
+
+	"berkshire_cup": "Berkshire Tempest",
+
+	"stingray_competition": "Brutus Stingray",
+
 	"gentleman_racers": "Kestrel Battleaxe",
+
 	"kestrel_max": "Linetti Shepherd",
+
 	"sport_racing": "Linetti Firestorm",
+
 	"v12_engines": "Linetti Terror",
+
 	"supercars": "Bartoli Track Cruiser",
+
 	"track_cars": "Mir Cars Athletic C70"
 }
-
 
 # ============================================================
 #  CHAMPIONSHIPS (ONLY THESE FOUR)
@@ -325,21 +363,29 @@ var career_order: Array = [
 	"japanese_cup",
 	"diesel_masters",
 	"all_wheel_grip",
-	"speedster_tournament",
+
 	"urban_performance_cars",
-	"low_displacement_challenge",
+
 	"eisenach_cup",
-	"berkshire_cup",
 	"colin_tribute",
 	"drop_top_challenge",
+	"berkshire_cup",
+
+	"low_displacement_challenge",
 	"under_400_hp",
+
 	"german_cup",
 	"schroder_cup",
+	"speedster_tournament",
+
 	"american_thunder",
 	"british_invasion",
+
 	"stingray_competition",
 	"v8_fury",
+
 	"gentleman_racers",
+
 	"kestrel_max",
 	"sport_racing",
 	"v12_engines",

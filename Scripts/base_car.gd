@@ -16,8 +16,8 @@ var clean_drive_timer := 0.0
 const CLEAN_DRIVE_TIME := 15.0
 var unstuck_time := 0.0
 var unstucking := false
-var nitro_bottles := 3
-var max_nitro_bottles := 4
+var nitro_bottles := 4
+var max_nitro_bottles := 5
 
 var drift_charge_timer := 0.0
 var nitro_burn_timer := 0.0

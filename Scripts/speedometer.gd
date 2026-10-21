@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 
 	var nitro_text := ""
 
-	for i in range(4):
+	for i in range(5):
 
 		var filled :int= i < Global.nitro_bottles
 

@@ -11,11 +11,11 @@ var ai_spawns: Array = []
 
 var chase_active: bool = false
 
-var total_time: float = 210.0       # 3 minutes
-var time_left: float = 210.0
+var total_time: float = 270.0       # 3 minutes
+var time_left: float = 270.0
 
 var captured_count: int = 0
-var captured_total: int = 7
+var captured_total: int = 6
 
 var hud: Node = null
 var main_scene: Node = null
@@ -31,7 +31,7 @@ signal time_left_updated(time_left)
 # BUILD AI LIST FROM 4 CLASSES (sport, sport_racing, urban, sedans)
 # ============================================================
 func build_chase_ai_paths() -> Array:
-	var chase_classes = ["sport", "sport_racing", "urban", "sedans"]
+	var chase_classes = ["sport", "sport_racing", "urban", "sedans","compact","suv","muscle"]
 	var paths: Array = []
 
 	for cls in chase_classes:
