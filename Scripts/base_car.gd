@@ -277,6 +277,8 @@ func _ready() -> void:
 
 		"Strandberg Turbo":
 			audio_character_type = 3
+		"Brutus Goblin":
+			audio_character_type = 3
 
 		"Kuro Vault":
 			audio_character_type = 0 # Lexus V8

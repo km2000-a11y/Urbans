@@ -24,6 +24,7 @@ var car_sell_prices := {
 	"Kuro Zephyr": 24000,
 	"Schroder Atrix Q32": 33000,
 	"Zenith Horizon": 39000,
+	"Brutus Goblin": 52800,
 	"Eisenach Bengal": 42000,
 
 	"Brutus Viper": 30000,
@@ -94,12 +95,13 @@ var car_prices := {
 	"Kuro Serenity": 80000,
 	"Kestrel Seabird": 120000,
 	"Eisenach Roadstar": 165000,
+	"Brutus Goblin": 68000,
 	"Berkshire Blunt": 135000,
 	"Mir Cars Blazer": 128000,
 
 	"Schroder Classique Sport": 135000,
 	"Brutus Stingray": 200000,
-	"Berkshire Tempest":180000,
+	"Berkshire Tempest":250000,
 	"Berkshire V12-S": 170000,
 	"Kestrel Touring": 220000,
 
@@ -301,6 +303,14 @@ Color8(255, 160, 200) # Pink
 	Color8(0,80,160),
 	Color8(180,180,180),
 	Color8(200,40,40)
+],
+"Brutus Goblin":[
+	Color8(20,20,20),
+	Color8(255,255,255),
+	Color8(180,180,180),
+	Color8(0,70,140),
+	Color8(120,20,20),
+	Color8(40,80,40)
 ],
 
 "Mir Cars Regent":[
@@ -557,10 +567,11 @@ var urban_list = [
 	"Mir Cars Blazer",
 ]
 var sedans_list = [
+	"Brutus Goblin",
 	"Strandberg Turbo",
 	"Schroder Suppressor",
-		"Kuro Vault",
-			"Zenith Prince",
+	"Kuro Vault",
+	"Zenith Prince",
 ]
 
 
@@ -717,6 +728,12 @@ var sedans = {
 	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
 	"ENGINE: V8 4.5L", "ASPIRATION: NA", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
+"Brutus Goblin":[
+	"", "Country: USA", "HP: 230", "WEIGHT: 1580 KG",
+	"0-100 KM/H: 6.6s", "TOP SPEED: 250 KM/H",
+	"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+	"TRANSMISSION: FOUR-WHEEL DRIVE"
 ],
 }
 var sport = {
@@ -923,6 +940,7 @@ var car_scene_paths = {
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
 	"Eisenach Goblin":"res://Scenes/bmw_1m.tscn",
+	"Brutus Goblin":"res://Scenes/ford_mondeo.tscn",
 
 
 	"Schroder Atrocity":"res://Scenes/audi_s6.tscn",

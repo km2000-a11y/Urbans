@@ -47,6 +47,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Zenith Prince",
+		"Brutus Goblin",
 		"Schroder Suppressor"
 	],
 
@@ -104,6 +105,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Zenith Prince",
+		"Brutus Goblin",
 		"Schroder Suppressor"
 	],
 
@@ -122,6 +124,8 @@ var class_lists: Dictionary = {
 	"all_wheel_grip":[
 		"Schroder Atrix Q32",
 		"Strandberg Turbo",
+		"Brutus Goblin",
+		"Schroder Classique Sport"<
 		"Schroder Suppressor",
 		"Schroder Colosso"
 	],
@@ -176,7 +180,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Eisenach Bengal",
 		"Zenith Horizon",
-
+		"Brutus Goblin",
 		"Brutus Viper",
 		"Mir Cars Hutch",
 
@@ -198,6 +202,7 @@ var class_lists: Dictionary = {
 
 	"low_displacement_challenge":[
 		"Straeda Volant",
+		"Brutus Goblin",
 		"Strandberg Turbo",
 		"Schroder Classique Sport",
 		"Kestrel Seabird"
@@ -226,6 +231,7 @@ var class_lists: Dictionary = {
 		"Colossus Titan Max",
 		"Brutus Thunderbolt",
 		"Colossus Behemoth",
+		"Brutus Goblin",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -316,6 +322,7 @@ var car_scene_paths := {
 
 
 	"Schroder Atrix Sport":"res://Scenes/audi_tt_rs.tscn",
+	"Brutus Goblin":"res://Scenes/ford_mondeo.tscn",
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",

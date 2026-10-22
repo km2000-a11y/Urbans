@@ -1,3 +1,4 @@
+res://Scenes/morgan_aero_8.tscn
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -54,7 +55,6 @@ res://Tracks/las_vegas.tscn
 res://Scenes/e55.tscn
 res://Scenes/q45.tscn
 res://Scenes/career.tscn
-res://Scenes/morgan_aero_8.tscn
 res://Scenes/lotus_exige_s.tscn
 res://Scenes/vanquish.tscn
 res://nissan_micra.tscn
@@ -70,11 +70,11 @@ res://patrol.tscn
 res://corolla.tscn
 res://audi_100.tscn
 res://es350.tscn
-res://cop_chase_manager.gd
-res://Scripts/car_select.gd
-res://cars.gd
-res://club_cups.gd
-res://Scripts/morgan_aero_8.gd
-res://Scripts/vanquish_2002.gd
+res://Scenes/ford_mondeo.tscn
 res://Scripts/base_car.gd
-res://Scripts/speedometer.gd
+res://Scenes/volvo_s_60r.gd
+res://Scenes/bmw_530d.gd
+res://cars.gd
+res://Scripts/car_select.gd
+res://club_cups.gd
+res://Scenes/jaguar_s_type.tscn

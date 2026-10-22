@@ -78,7 +78,8 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Zenith Prince",
-		"Schroder Suppressor"
+		"Schroder Suppressor",
+		"Brutus Goblin",
 	],
 
 	"urban": [
@@ -134,6 +135,7 @@ var class_lists: Dictionary = {
 	"businessman_racers":[
 		"Strandberg Turbo",
 		"Kuro Vault",
+		"Brutus Goblin",
 		"Zenith Prince",
 		"Schroder Suppressor"
 	],
@@ -215,6 +217,7 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Zenith Prince",
 		"Schroder Suppressor",
+		"Brutus Goblin",
 
 		"Kuro Serenity",
 		"Kestrel Seabird",
@@ -231,6 +234,7 @@ var class_lists: Dictionary = {
 		"Straeda Volant",
 		"Strandberg Turbo",
 		"Schroder Classique Sport",
+		"Brutus Goblin",
 		"Kestrel Seabird"
 	],
 
@@ -256,6 +260,7 @@ var class_lists: Dictionary = {
 		"Mir Cars Hutch",
 		"Colossus Titan Max",
 		"Brutus Thunderbolt",
+		"Brutus Goblin",
 		"Colossus Behemoth",
 		"Brutus Stingray",
 		"Brutus Venom"
@@ -311,7 +316,7 @@ var cup_rewards: Dictionary = {
 	"muscle_hustle": "Schroder Atrix Q32",
 	"v6_engines": "Zenith Horizon",
 
-	"zenith_competition": "Schroder Suppressor",
+	"zenith_competition": "Brutus Goblin",
 
 	"businessman_racers": "Kuro Serenity",
 
