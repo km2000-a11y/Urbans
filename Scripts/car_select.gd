@@ -22,6 +22,7 @@ var car_sell_prices := {
 	"Schroder Colosso": 21000,
 
 	"Kuro Zephyr": 24000,
+	"Bartoli Cruiser": 130000,
 	"Schroder Atrix Q32": 33000,
 	"Zenith Horizon": 39000,
 	"Brutus Goblin": 52800,
@@ -93,17 +94,18 @@ var car_prices := {
 	"Berkshire Mocha": 72000,
 
 	"Kuro Serenity": 80000,
-	"Kestrel Seabird": 120000,
+	"Kestrel Seabird": 100000,
 	"Eisenach Roadstar": 165000,
 	"Brutus Goblin": 68000,
-	"Berkshire Blunt": 135000,
+	"Berkshire Blunt": 120000,
 	"Mir Cars Blazer": 128000,
 
 	"Schroder Classique Sport": 135000,
-	"Brutus Stingray": 200000,
+	"Brutus Stingray": 150000,
 	"Berkshire Tempest":250000,
 	"Berkshire V12-S": 170000,
 	"Kestrel Touring": 220000,
+	"Bartoli Cruiser": 200000,
 
 	"Kronstadt Beast": 250000,
 	"Brutus Venom": 290000,
@@ -292,6 +294,15 @@ Color8(255, 160, 200) # Pink
 	Color8(90,70,50),
 	Color8(40,40,80),
 	Color8(160,160,160)
+],
+"Bartoli Cruiser":[
+	Color8(0,157,196),
+	Color8(180,180,180),
+	Color8(255,255,255),
+	Color8(20,20,20),
+	Color8(120,0,0),
+	Color8(0,70,120),
+	Color8(90,90,90)
 ],
 
 # EXECUTIVE
@@ -565,6 +576,8 @@ var urban_list = [
 	"Kestrel Seabird",
 	"Berkshire Blunt",
 	"Mir Cars Blazer",
+	"Brutus Stingray",
+	
 ]
 var sedans_list = [
 	"Brutus Goblin",
@@ -579,7 +592,7 @@ var sport_list = [
 	"Schroder Classique Sport",
 	"Kestrel Speedster",
 	"Berkshire V12-S",
-	"Brutus Stingray",
+	"Bartoli Cruiser",
 ]
 
 var sport_racing_list = [
@@ -703,6 +716,12 @@ var urban_racers = {
 	"ENGINE: V8 5.5L", "ASPIRATION: NA", "TORQUE: 540 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
+"Brutus Stingray":[
+		"", "Country: USA", "HP: 350", "WEIGHT: 1460 KG",
+		"0-100 KM/H: 4.7s", "TOP SPEED: 258 KM/H",
+		"ENGINE: V8 5.7L", "ASPIRATION: NA", "TORQUE: 520 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 }
 var sedans = {
 	"Schroder Suppressor":[
@@ -743,16 +762,16 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 550 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Brutus Stingray":[
-		"", "Country: USA", "HP: 400", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 4.3s", "TOP SPEED: 289 KM/H",
-		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 545 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+	"Bartoli Cruiser":[
+	"", "Country: Italy", "HP: 434", "WEIGHT: 1880 KG",
+	"0-100 KM/H: 4.7s", "TOP SPEED: 295 KM/H",
+	"ENGINE: V8 4.7L", "ASPIRATION: NA", "TORQUE: 490 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 	"Kestrel Speedster":[
 		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 273 KM/H",
-		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 490 NM",
+		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 490 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
@@ -841,6 +860,7 @@ var track_cars = {
 # -------------------------
 
 func _ready():
+	Localization.language_changed.connect(_on_language_changed)
 	RoadChallengeSave.load_progress()
 	$UpgradeMenu.visible = false
 	MusicManager.play_menu_music()
@@ -923,6 +943,7 @@ var car_scene_paths = {
 	"Bartoli Track Cruiser":"res://Scenes/mc12.tscn",
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
 	"Straeda Volant":"res://Scenes/new_beetle.tscn",
+	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 
 
 
@@ -933,7 +954,6 @@ var car_scene_paths = {
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
 	"Zenith Prince":"res://Scenes/q45.tscn",
 	"Schroder Classique Sport":"res://Scenes/audi_s4.tscn",
-	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
@@ -1049,193 +1069,123 @@ func get_base_stats_for(name: String) -> Array:
 	return []
 
 func update_car_ui(stats: Array, name: String):
+
 	var final_stats = stats.duplicate()
 
-	# ============================
-	# STOCK STATS IN DEALERSHIP
-	# ============================
-
-	if Cars.dealership_mode:
-		$Control/CarStats/CountryLabel.set_meta("source_text", final_stats[1])
-		$Control/CarStats/HPLabel.set_meta("source_text", final_stats[2])
-		$Control/CarStats/WeightLabel.set_meta("source_text", final_stats[3])
-		$Control/CarStats/ZeroToHundredLabel.set_meta("source_text", final_stats[4])
-		$Control/CarStats/TopSpeedLabel.set_meta("source_text", final_stats[5])
-		$Control/CarStats/EngineLabel.set_meta("source_text", final_stats[6])
-		$Control/CarStats/AspirationLabel.set_meta("source_text", final_stats[7])
-		$Control/CarStats/TorqueLabel.set_meta("source_text", final_stats[8])
-		$Control/CarStats/TransmissionLabel.set_meta("source_text", final_stats[9])
-
-	else:
-		
-		if GameMode.game_mode == "Club Cups" and preview_car != null:
-
-			var cc = find_car_controller(preview_car)
-
-			if cc != null:
-
-				$Control/CarStats/HPLabel.text = "HP: " + str(int(cc.horsepower))
-				$Control/CarStats/WeightLabel.text = "WEIGHT: " + str(int(cc.mass)) + " KG"
-
-				if SpeedSettings.SPEED_UNIT == "mph":
-					$Control/CarStats/ZeroToHundredLabel.text = \
-						"0-62 MPH: %.2fs" % cc.zero_to_hundred
-
-					$Control/CarStats/TopSpeedLabel.text = \
-						"TOP SPEED: %d MPH" % int(cc.top_speed_kmh * 0.621371)
-				else:
-					$Control/CarStats/ZeroToHundredLabel.text = \
-						"0-100 KM/H: %.2fs" % cc.zero_to_hundred
-
-					$Control/CarStats/TopSpeedLabel.text = \
-						"TOP SPEED: %d KM/H" % int(cc.top_speed_kmh)
-		else:
-
-			var zero_text = final_stats[4]
-			var top_text = final_stats[5]
-
-			var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
-			var top_val = float(top_text.split(" ")[2])
-
-			if SpeedSettings.SPEED_UNIT == "mph":
-				$Control/CarStats/ZeroToHundredLabel.text = "0-62 MPH: " + str(zero_val) + "s"
-				$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: " + str(int(top_val * 0.621371)) + " MPH"
-			else:
-				$Control/CarStats/ZeroToHundredLabel.text = "0-100 KM/H: " + str(zero_val) + "s"
-				$Control/CarStats/TopSpeedLabel.text = "TOP SPEED: " + str(int(top_val)) + " KM/H"
-	# ============================
-	# APPLY STATS TO UI
-	# ============================
-
 	$Control/Cars/CarName.text = name
-	$Control/CarStats/PPLabel.text = stats[0]
-	$Control/CarStats/CountryLabel.text = final_stats[1]
+
+	$Control/CarStats/CountryLabel.text = \
+	localize_stat_line(final_stats[1])
+
+	var engine_value = final_stats[6].split(":")[1].strip_edges()
+	$Control/CarStats/EngineLabel.text = \
+		Localization.translate("engine") + ": " + engine_value
+
+	var torque_value = final_stats[8].split(":")[1].strip_edges()
+	$Control/CarStats/TorqueLabel.text = \
+		Localization.translate("torque") + ": " + torque_value
+
+	$Control/CarStats/AspirationLabel.text = \
+		localize_stat_line(final_stats[7])
+	var zero_value = final_stats[4].split(":")[1].strip_edges()
+
+	$Control/CarStats/ZeroToHundredLabel.text = \
+		Localization.translate("zero_to_hundred") + ": " + zero_value
+
+	$Control/CarStats/TransmissionLabel.text = \
+		localize_stat_line(final_stats[9])
+
+	# Default / stock values
 	$Control/CarStats/HPLabel.text = final_stats[2]
 	$Control/CarStats/WeightLabel.text = final_stats[3]
-	if GameMode.game_mode != "Club Cups":
-		$Control/CarStats/ZeroToHundredLabel.text = final_stats[4]
-		$Control/CarStats/TopSpeedLabel.text = final_stats[5]
-		$Control/CarStats/HPLabel.text = final_stats[2]
-		$Control/CarStats/WeightLabel.text = final_stats[3]
-	$Control/CarStats/EngineLabel.text = final_stats[6]
-	$Control/CarStats/AspirationLabel.text = final_stats[7]
-	$Control/CarStats/TorqueLabel.text = final_stats[8]
-	$Control/CarStats/TransmissionLabel.text = final_stats[9]
 
-	# ============================
-	# DEALERSHIP LOGIC
-	# ============================
+	var zero_text = final_stats[4]
+	var top_text = final_stats[5]
 
+	var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
+	var top_val = float(top_text.split(" ")[2])
+
+	if SpeedSettings.SPEED_UNIT == "mph":
+		$Control/CarStats/ZeroToHundredLabel.text = \
+			"0-62 MPH: %.2fs" % zero_val
+
+		$Control/CarStats/TopSpeedLabel.text = \
+			"TOP SPEED: %d MPH" % int(top_val * 0.621371)
+	else:
+		$Control/CarStats/ZeroToHundredLabel.text = \
+			"0-100 KM/H: %.2fs" % zero_val
+
+		$Control/CarStats/TopSpeedLabel.text = \
+			"TOP SPEED: %d KM/H" % int(top_val)
+
+	# Show ACTUAL upgraded stats whenever available
+	if preview_car != null:
+		var cc = find_car_controller(preview_car)
+
+		if cc != null:
+			_update_live_stats(cc)
+
+	# Dealership pricing
 	if Cars.dealership_mode:
 
-		var price :int= car_prices.get(name, 0)
-		var sale_price :int= car_sell_prices.get(name, 0)
-		var balance := Cars.player_money
+		var price: int = car_prices.get(name, 0)
+		var sale_price: int = car_sell_prices.get(name, 0)
 
-		$MoneyLabel.text = Localization.translate("balance") + ": $" + str(Cars.player_money)
+		$MoneyLabel.text = \
+			Localization.translate("balance") + ": $" + str(Cars.player_money)
 
 		$Control/Label.text = ""
 		$Control/Label.modulate = Color.WHITE
 
-		# Already owned = SELL
 		if Cars.unlocked_cars.has(name) and Cars.unlocked_cars[name]["unlocked"]:
 
-			$Control/CarStats/PriceLabel.text = "%s: $%d" % [
-	Localization.translate("sale_price"),
-	sale_price
-]
+			$Control/CarStats/PriceLabel.text = \
+				"%s: $%d" % [
+					Localization.translate("sale_price"),
+					sale_price
+				]
+
 			$Select.text = Localization.translate("sell")
 			$Select.disabled = false
 
-		
-
-		# Not owned = BUY
 		else:
 
-			$Control/CarStats/PriceLabel.text = "PRICE: $" + str(price)
+			$Control/CarStats/PriceLabel.text = \
+				"PRICE: $" + str(price)
 
 			$Select.text = "BUY"
 			$Select.disabled = false
 
-			if balance < price:
+			if Cars.player_money < price:
 				$Control/Label.text = "INSUFFICIENT CASH"
 				$Control/Label.modulate = Color.RED
 				$Select.disabled = true
-
-	# ============================
-	# SPEED UNIT DISPLAY
-	# ============================
-
-	# ============================
-# SPEED UNIT DISPLAY
-# ============================
-
-	if GameMode.game_mode == "Club Cups" and preview_car != null:
-
-		var cc = find_car_controller(preview_car)
-
-		if cc != null:
-
-			if SpeedSettings.SPEED_UNIT == "mph":
-				$Control/CarStats/ZeroToHundredLabel.text = \
-					"0-62 MPH: %.2fs" % cc.zero_to_hundred
-
-				$Control/CarStats/TopSpeedLabel.text = \
-					"TOP SPEED: %d MPH" % int(cc.top_speed_kmh * 0.621371)
-
-			else:
-				$Control/CarStats/ZeroToHundredLabel.text = \
-					"0-100 KM/H: %.2fs" % cc.zero_to_hundred
-
-				$Control/CarStats/TopSpeedLabel.text = \
-					"TOP SPEED: %d KM/H" % int(cc.top_speed_kmh)
-
-		else:
-
-			var zero_text = final_stats[4]
-			var top_text = final_stats[5]
-
-			var zero_val = float(zero_text.split(" ")[2].replace("s", ""))
-			var top_val = float(top_text.split(" ")[2])
-
-			if SpeedSettings.SPEED_UNIT == "mph":
-
-				$Control/CarStats/ZeroToHundredLabel.text = \
-					"0-62 MPH: " + str(zero_val) + "s"
-
-				$Control/CarStats/TopSpeedLabel.text = \
-					"TOP SPEED: " + str(int(top_val * 0.621371)) + " MPH"
-
-			else:
-
-				$Control/CarStats/ZeroToHundredLabel.text = \
-					"0-100 KM/H: " + str(zero_val) + "s"
-
-				$Control/CarStats/TopSpeedLabel.text = \
-					"TOP SPEED: " + str(int(top_val)) + " KM/H"
 	# 3D PREVIEW LOADING
 # -------------------------
 func load_preview_car(path: String):
+
 	if preview_car:
 		preview_car.queue_free()
 
 	var car_scene = load(path)
+
 	if car_scene == null:
 		return
 
 	await get_tree().process_frame
 	await get_tree().process_frame
-	# ❌ DO NOT update UI here
 
 	var car = car_scene.instantiate()
 	car.car_name = car_name
 
 	preview_holder.add_child(car)
+
 	preview_car = car
 
 	car.apply_stats()
 
-	var model_root: Node3D = null
+	var model_root: Node3D
+
 	if car.has_node("ModelRoot"):
 		model_root = car.get_node("ModelRoot")
 	else:
@@ -1244,10 +1194,14 @@ func load_preview_car(path: String):
 	model_root.scale = Vector3.ONE * 1.5
 	model_root.position = Vector3.ZERO
 
-	# ⭐ Correct place to update UI
-	if GameMode.game_mode == "Club Cups" and car_name != "":
-		update_car_ui(get_base_stats_for(car_name), car_name)
+	await get_tree().process_frame
 
+	var cc = find_car_controller(car)
+
+	if cc != null:
+		_update_live_stats(cc)
+
+	update_car_ui(get_base_stats_for(car_name), car_name)
 # -------------------------
 
 func _process(delta):
@@ -1804,20 +1758,91 @@ func _zero_to_hundred_to_mph(time: float) -> float:
 	return time  # acceleration time stays the SAME
 
 func _apply_speed_unit_to_ui():
+
 	var zero_label = $Control/CarStats/ZeroToHundredLabel
 	var top_label = $Control/CarStats/TopSpeedLabel
 
 	var zero_text = zero_label.text
 	var top_text = top_label.text
 
-	# Extract numbers
-	var zero_val = float(zero_text.split(" ")[1].replace("KM/H:", "").replace("MPH:", "").replace("s", ""))
-	var top_val = float(top_text.split(" ")[2])
+	var zero_val := 0.0
+	var top_val := 0.0
+
+	if ":" in zero_text:
+		zero_val = float(
+			zero_text.split(":")[1]
+			.strip_edges()
+			.replace("s", "")
+		)
+
+	if ":" in top_text:
+		var speed_part = top_text.split(":")[1].strip_edges()
+		top_val = float(speed_part.split(" ")[0])
 
 	if SpeedSettings.SPEED_UNIT == "mph":
-		var mph_speed = int(top_val * 0.621371)
-		zero_label.text = "0-62 MPH: " + str(zero_val) + "s"
-		top_label.text = "TOP SPEED: " + str(mph_speed) + " MPH"
+
+		zero_label.text = \
+			"0-62 MPH: %.2fs" % zero_val
+
+		top_label.text = \
+			Localization.translate("top_speed") + ": " \
+			+ str(int(top_val * 0.621371)) \
+			+ " MPH"
+
 	else:
-		zero_label.text = "0-100 KM/H: " + str(zero_val) + "s"
-		top_label.text = "TOP SPEED: " + str(int(top_val)) + " KM/H"
+
+		zero_label.text = \
+			Localization.translate("zero_to_hundred") + ": " \
+			+ ("%.2fs" % zero_val)
+
+		top_label.text = \
+			Localization.translate("top_speed") + ": " \
+			+ str(int(top_val)) \
+			+ " " \
+			+ Localization.translate("kmh")
+func _update_live_stats(cc):
+
+	if cc == null:
+		return
+
+	$Control/CarStats/HPLabel.text = \
+		Localization.translate("hp") + ": " + str(int(cc.horsepower))
+
+	$Control/CarStats/WeightLabel.text = \
+		Localization.translate("weight") + ": " + str(int(cc.mass)) + " KG"
+
+	if SpeedSettings.SPEED_UNIT == "mph":
+
+		$Control/CarStats/ZeroToHundredLabel.text = \
+			"0-62 MPH: %.2fs" % cc.zero_to_hundred
+
+		$Control/CarStats/TopSpeedLabel.text = \
+			Localization.translate("top_speed") + ": " \
+			+ str(int(cc.top_speed_kmh * 0.621371)) \
+			+ " MPH"
+
+	else:
+
+		$Control/CarStats/ZeroToHundredLabel.text = \
+			Localization.translate("zero_to_hundred") + ": " \
+			+ ("%.2fs" % cc.zero_to_hundred)
+
+		$Control/CarStats/TopSpeedLabel.text = \
+			Localization.translate("top_speed") + ": " \
+			+ str(int(cc.top_speed_kmh)) \
+			+ " " \
+			+ Localization.translate("kmh")
+func _on_language_changed():
+	if car_name != "":
+		update_car_ui(get_stats_for(car_name), car_name)
+func localize_stat_line(line: String) -> String:
+	var parts = line.split(":")
+
+	if parts.size() != 2:
+		return line
+
+	var left = Localization.normalize_key(parts[0])
+	var right = Localization.normalize_key(parts[1].strip_edges())
+
+	return Localization.translate(left) + ": " + \
+		Localization.translate(right)

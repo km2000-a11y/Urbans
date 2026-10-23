@@ -321,6 +321,8 @@ func _ready() -> void:
 
 		"Berkshire V12-S":
 			audio_character_type = 8
+		"Bartoli Cruiser":
+			audio_character_type = 9
 
 
 		# Sport Racing

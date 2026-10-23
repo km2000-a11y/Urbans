@@ -78,29 +78,30 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Zenith Prince",
-		"Schroder Suppressor",
 		"Brutus Goblin",
+		"Schroder Suppressor"
 	],
 
 	"urban": [
 		"Kuro Serenity",
 		"Kestrel Seabird",
+		"Brutus Stingray",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
 
 	"sport": [
 		"Schroder Classique Sport",
-		"Brutus Stingray",
-		"Kestrel Speedster",
 		"Berkshire V12-S",
+		"Bartoli Cruiser",
+		"Kestrel Speedster",
 	],
 
 	"sport_racing": [
 		"Kestrel Battleaxe",
 		"Brutus Venom",
 		"Linetti Shepherd",
-		"Berkshire Tempest"
+		"Berkshire Tempest",
 	],
 
 	"supercars": [
@@ -135,8 +136,8 @@ var class_lists: Dictionary = {
 	"businessman_racers":[
 		"Strandberg Turbo",
 		"Kuro Vault",
-		"Brutus Goblin",
 		"Zenith Prince",
+		"Brutus Goblin",
 		"Schroder Suppressor"
 	],
 
@@ -155,8 +156,13 @@ var class_lists: Dictionary = {
 	"all_wheel_grip":[
 		"Schroder Atrix Q32",
 		"Strandberg Turbo",
+		"Brutus Goblin",
+		"Schroder Classique Sport"<
 		"Schroder Suppressor",
 		"Schroder Colosso"
+	],
+	"colin_tribute":[
+		"Kestrel Seabird"
 	],
 
 	"speedster_tournament":[
@@ -166,6 +172,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kuro Serenity",
 		"Kestrel Seabird",
+		"Brutus Stingray",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -178,13 +185,11 @@ var class_lists: Dictionary = {
 		"Brutus Viper",
 		"Mir Cars Hutch",
 		"Kuro Vault",
+		"Bartoli Cruiser",
 		"Kuro Serenity",
 		"Mir Cars Blazer",
 		"Berkshire Blunt",
 		"Brutus Stingray"
-	],
-	"colin_tribute":[
-		"Kestrel Seabird"
 	],
 
 	"berkshire_cup":[
@@ -209,7 +214,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Eisenach Bengal",
 		"Zenith Horizon",
-
+		"Brutus Goblin",
 		"Brutus Viper",
 		"Mir Cars Hutch",
 
@@ -217,7 +222,6 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Zenith Prince",
 		"Schroder Suppressor",
-		"Brutus Goblin",
 
 		"Kuro Serenity",
 		"Kestrel Seabird",
@@ -232,9 +236,9 @@ var class_lists: Dictionary = {
 
 	"low_displacement_challenge":[
 		"Straeda Volant",
+		"Brutus Goblin",
 		"Strandberg Turbo",
 		"Schroder Classique Sport",
-		"Brutus Goblin",
 		"Kestrel Seabird"
 	],
 
@@ -251,6 +255,7 @@ var class_lists: Dictionary = {
 		"Mir Cars Blazer",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Bartoli Cruiser",
 		"Berkshire Tempest",
 		"Schroder Classique Sport"
 	],
@@ -260,8 +265,8 @@ var class_lists: Dictionary = {
 		"Mir Cars Hutch",
 		"Colossus Titan Max",
 		"Brutus Thunderbolt",
-		"Brutus Goblin",
 		"Colossus Behemoth",
+		"Brutus Goblin",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -314,6 +319,7 @@ var cup_rewards: Dictionary = {
 	"colossus": "Eisenach Bengal",
 	"street_tuners": "Brutus Viper",
 	"muscle_hustle": "Schroder Atrix Q32",
+
 	"v6_engines": "Zenith Horizon",
 
 	"zenith_competition": "Brutus Goblin",
@@ -324,31 +330,36 @@ var cup_rewards: Dictionary = {
 
 	"all_wheel_grip": "Kuro Vault",
 
-	"eisenach_cup": "Mir Cars Blazer",
+	"eisenach_cup": "Berkshire Blunt",
 
-	"drop_top_challenge": "Berkshire Blunt",
+	"drop_top_challenge": "Mir Cars Blazer",
 
-	"under_400_hp": "Schroder Classique Sport",
+	"under_400_hp": "Brutus Stingray",       
 
-	"german_cup": "Kestrel Speedster",
+	"stingray_competition": "Schroder Classique Sport", 
 
-	"schroder_cup": "Berkshire V12-S",
+	"german_cup": "Kestrel Speedster",      
 
-	"berkshire_cup": "Berkshire Tempest",
+	"speedster_tournament": "Berkshire V12-S",
 
-	"stingray_competition": "Brutus Stingray",
+	"schroder_cup": "Bartoli Cruiser",       
 
-	"gentleman_racers": "Kestrel Battleaxe",
+	"gentleman_racers": "Berkshire Tempest", 
 
-	"kestrel_max": "Linetti Shepherd",
+	"american_thunder": "Brutus Venom",     
+	"british_invasion": "Kestrel Battleaxe", 
 
-	"sport_racing": "Linetti Firestorm",
+	"v8_fury": "Linetti Shepherd",           
 
-	"v12_engines": "Linetti Terror",
+	"kestrel_max": "Kestrel Guillotine",     
 
-	"supercars": "Bartoli Track Cruiser",
+	"sport_racing": "Linetti Firestorm",  
 
-	"track_cars": "Mir Cars Athletic C70"
+	"v12_engines": "Linetti Terror",         
+
+	"supercars": "Bartoli Track Cruiser",   
+
+	"track_cars": "Mir Cars Athletic C70" 
 }
 
 # ============================================================
@@ -357,24 +368,24 @@ var cup_rewards: Dictionary = {
 # ============================================================
 #  CAREER PROGRESSION LOGIC
 # ============================================================
-
 var career_order: Array = [
 	"colossus",
 	"street_tuners",
 	"muscle_hustle",
+
 	"v6_engines",
 	"zenith_competition",
+
 	"businessman_racers",
 	"japanese_cup",
 	"diesel_masters",
-	"all_wheel_grip",
 
+	"all_wheel_grip",
 	"urban_performance_cars",
 
 	"eisenach_cup",
 	"colin_tribute",
 	"drop_top_challenge",
-	"berkshire_cup",
 
 	"low_displacement_challenge",
 	"under_400_hp",
@@ -383,18 +394,23 @@ var career_order: Array = [
 	"schroder_cup",
 	"speedster_tournament",
 
-	"american_thunder",
-	"british_invasion",
-
 	"stingray_competition",
-	"v8_fury",
 
 	"gentleman_racers",
 
+	"american_thunder",
+	"british_invasion",
+
+	"v8_fury",
+
 	"kestrel_max",
+
 	"sport_racing",
+
 	"v12_engines",
+
 	"supercars",
+
 	"track_cars"
 ]
 

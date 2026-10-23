@@ -54,14 +54,15 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Kuro Serenity",
 		"Kestrel Seabird",
+		"Brutus Stingray",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
 
 	"sport": [
 		"Schroder Classique Sport",
-		"Brutus Stingray",
 		"Berkshire V12-S",
+		"Bartoli Cruiser",
 		"Kestrel Speedster",
 	],
 
@@ -140,6 +141,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kuro Serenity",
 		"Kestrel Seabird",
+		"Brutus Stingray",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -152,6 +154,7 @@ var class_lists: Dictionary = {
 		"Brutus Viper",
 		"Mir Cars Hutch",
 		"Kuro Vault",
+		"Bartoli Cruiser",
 		"Kuro Serenity",
 		"Mir Cars Blazer",
 		"Berkshire Blunt",
@@ -221,6 +224,7 @@ var class_lists: Dictionary = {
 		"Mir Cars Blazer",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Bartoli Cruiser",
 		"Berkshire Tempest",
 		"Schroder Classique Sport"
 	],
@@ -420,6 +424,15 @@ Color8(0, 80, 180), # Deep Blue
 Color8(0, 150, 80), # Cyber Green
 Color8(255, 210, 0), # Sunflower Yellow
 Color8(255, 160, 200) # Pink
+],
+"Bartoli Cruiser":[
+	Color8(0,157,196),
+	Color8(180,180,180),
+	Color8(255,255,255),
+	Color8(20,20,20),
+	Color8(120,0,0),
+	Color8(0,70,120),
+	Color8(90,90,90)
 ],
 "Berkshire Falcon":[
 	Color8(180,180,180),  # Platinum Silver (default)
