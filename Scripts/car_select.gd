@@ -760,7 +760,7 @@ var sport = {
 	"Berkshire V12-S":[
 		"", "Country: UK", "HP: 420", "WEIGHT: 1740 KG",
 		"0-100 KM/H: 5.0s", "TOP SPEED: 295 KM/H",
-		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 550 NM",
+		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Bartoli Cruiser":[

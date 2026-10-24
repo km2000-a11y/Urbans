@@ -330,29 +330,28 @@ var cup_rewards: Dictionary = {
 
 	"colin_tribute": "Kestrel Seabird",        # Exige
 
-	"drop_top_challenge": "Bartoli Cruiser",   # GranCabrio
+	"drop_top_challenge": "Schroder Classique Sport",   # GranCabrio
 
-	"schroder_cup": "Schroder Classique Sport", # Audi S2
+	"schroder_cup": "Bartoli Cruiser", # Audi S2
 
-	"gentleman_racers": "Berkshire V12-S",     # DB7
+	"gentleman_racers": "Berkshire V12-S",      # DB7
 
-	"american_thunder": "Brutus Venom",        # Viper RT10
+	"british_invasion": "Brutus Stingray",      # Corvette
 
-	"british_invasion": "Berkshire Tempest",   # Vanquish
+	"v8_fury": "Berkshire Tempest",             # Vanquish
 
-	"v8_fury": "Brutus Stingray",              # Corvette C6
+	"stingray_competition": "Brutus Venom",     # Viper RT10
 
-	"stingray_competition":"Kestrel Battleaxe", # Gallardo
+	"kestrel_max": "Linetti Shepherd",          # Gallardo
 
-	"kestrel_max": "Linetti Shepherd",        # TVR Sagaris
+	"sport_racing": "Kestrel Battleaxe",        # Sagaris
 
-	"sport_racing": "Linetti Firestorm",      # TVR T440R
+	"v12_engines": "Kestrel Guillotine",        # T440R
 
-	"v12_engines": "Linetti Terror",        # Diablo Roadster
+	"supercars": "Linetti Firestorm",           # Diablo
 
-	"supercars": "Bartoli Track Cruiser",      # MC12
+	"track_cars": "Mir Cars Athletic C70"       # Zonda
 
-	"track_cars": "Mir Cars Athletic C70"      # Zonda
 }
 # ============================================================
 #  CHAMPIONSHIPS (ONLY THESE FOUR)

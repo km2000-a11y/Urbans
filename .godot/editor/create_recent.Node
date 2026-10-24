@@ -1,3 +1,6 @@
+CollisionShape3D
+StaticBody3D
+MeshInstance3D
 RichTextLabel
 CarController
 Label
@@ -8,8 +11,4 @@ CanvasLayer
 TextureProgressBar
 ProgressBar
 HBoxContainer
-MeshInstance3D
 AudioStreamPlayer
-WorldEnvironment
-Node3D
-CollisionShape3D

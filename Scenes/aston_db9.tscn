@@ -51,8 +51,8 @@ size = Vector3(0.25, 0.17, 0.1)
 albedo_color = Color(0.752941, 0, 0.2, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xw5is"]
-top_radius = 0.04
-bottom_radius = 0.04
+top_radius = 0.02
+bottom_radius = 0.02
 height = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ati5w"]
@@ -267,12 +267,32 @@ material_override = SubResource("StandardMaterial3D_unmbb")
 mesh = SubResource("PrismMesh_1oqrs")
 
 [node name="MeshInstance3D16" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.286687, 0.393472, -0.135408)
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.286687, 0.422511, -0.135408)
+material_override = SubResource("StandardMaterial3D_nfcoi")
+mesh = SubResource("CylinderMesh_xw5is")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.286687, 0.341732, -0.135408)
+material_override = SubResource("StandardMaterial3D_nfcoi")
+mesh = SubResource("CylinderMesh_xw5is")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0.282496, 0.341732, -0.135408)
+material_override = SubResource("StandardMaterial3D_nfcoi")
+mesh = SubResource("CylinderMesh_xw5is")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(-4.37114e-08, -0.2, -1.31134e-07, 0, -8.74228e-09, 3, -1, 8.74228e-09, 5.73206e-15, 0.362006, 0.385167, -0.135408)
+material_override = SubResource("StandardMaterial3D_nfcoi")
+mesh = SubResource("CylinderMesh_xw5is")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="ModelRoot"]
+transform = Transform3D(-4.37114e-08, -0.2, -1.31134e-07, 0, -8.74228e-09, 3, -1, 8.74228e-09, 5.73206e-15, -0.361798, 0.385167, -0.135408)
 material_override = SubResource("StandardMaterial3D_nfcoi")
 mesh = SubResource("CylinderMesh_xw5is")
 
 [node name="MeshInstance3D17" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0.279646, 0.3932, -0.135408)
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0.279646, 0.421157, -0.135408)
 material_override = SubResource("StandardMaterial3D_nfcoi")
 mesh = SubResource("CylinderMesh_xw5is")
 

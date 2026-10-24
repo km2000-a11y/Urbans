@@ -35,7 +35,17 @@ var waypoint_root: Node3D = null
 var waypoints: Array[Node] = []
 var current_wp: int = 0
 var hard_frozen := false
-static var used_ai_names := []
+static var used_ai_names: Array[String] = []
+
+func get_unique_ai_name() -> String:
+	if used_ai_names.is_empty():
+		used_ai_names = ai_names.duplicate()
+
+	var idx := randi() % used_ai_names.size()
+	var name := used_ai_names[idx]
+	used_ai_names.remove_at(idx)
+
+	return name
 var speed_samples := []
 var avg_speed := 0.0
 var distance_travelled:=0.0
@@ -79,7 +89,7 @@ var ai_brake: float = 0.0
 var ai_steer: float = 0.0
 static var ai_names := [
 	"David", "Takashi", "Ricco", "Chris", "Petar", "Nina",
-	"Steve", "Linus", "Chris", "Jesse", "Dimitri", "Mirko","Jared","Kyle","Victor",
+	"Steve", "Linus", "Chris", "Jesse", "Dimitri", "Mirko","Jared","Kyle","Victor","Vincent",
 	"Abdullah", "Will", "Jimmy M.", "Gandi", "Tiffany", "Hoff", "Jake", "Britney","Laura","Francesca","Looping","Alex","Math","Sam","Gordon"
 ]
 
