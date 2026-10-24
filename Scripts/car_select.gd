@@ -574,8 +574,8 @@ var muscle_list = [
 var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Seabird",
-	"Berkshire Blunt",
 	"Mir Cars Blazer",
+	"Berkshire Blunt",
 	"Brutus Stingray",
 	
 ]
@@ -590,9 +590,9 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-	"Kestrel Speedster",
 	"Berkshire V12-S",
 	"Bartoli Cruiser",
+	"Kestrel Speedster",
 ]
 
 var sport_racing_list = [

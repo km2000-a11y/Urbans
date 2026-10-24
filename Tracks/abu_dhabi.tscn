@@ -317,7 +317,7 @@ albedo_color = Color(1, 0.823529, 0.431373, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_n7u5g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v2nqy"]
-size = Vector3(3, 2, 2)
+size = Vector3(3, 3, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_037cu"]
 albedo_color = Color(0.658824, 0.470588, 0.27451, 1)
@@ -4853,7 +4853,7 @@ mesh = SubResource("BoxMesh_ay1e4")
 shape = SubResource("BoxShape3D_rou1s")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D17/MeshInstance3D20/MeshInstance3D13/MeshInstance3D3"]
-transform = Transform3D(0.91, 0, -1.65569e-08, 0, 1, 0, 1.50668e-08, 0, 1, -2.07278, 0.997177, -6.15163)
+transform = Transform3D(0.92, 0, -1.65569e-08, 0, 1, 0, 1.52324e-08, 0, 1, -2.07278, 0.997177, -6.15163)
 mesh = SubResource("BoxMesh_ay1e4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D17/MeshInstance3D20/MeshInstance3D13/MeshInstance3D3/MeshInstance3D2"]
@@ -6878,7 +6878,7 @@ script = ExtResource("2_ub2w8")
 [node name="Area3D" type="Area3D" parent="CharacterBody3D6"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D6/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.200701, 3.02337, 1.54161)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.200701, 2.55154, 1.54161)
 shape = SubResource("BoxShape3D_v2nqy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D6/Area3D"]

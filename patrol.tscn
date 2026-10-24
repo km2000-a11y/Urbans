@@ -50,6 +50,7 @@ bottom_radius = 0.12
 height = 0.1
 
 [node name="NissanMicra" type="CharacterBody3D" groups=["traffic"]]
+transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_3bty5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
