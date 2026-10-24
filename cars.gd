@@ -54,7 +54,7 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Kuro Serenity",
 		"Kestrel Seabird",
-		"Brutus Stingray",
+		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -62,8 +62,8 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Schroder Classique Sport",
 		"Berkshire V12-S",
+		"Brutus Stingray",
 		"Bartoli Cruiser",
-		"Kestrel Speedster",
 	],
 
 	"sport_racing": [
@@ -141,7 +141,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kuro Serenity",
 		"Kestrel Seabird",
-		"Brutus Stingray",
+		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],

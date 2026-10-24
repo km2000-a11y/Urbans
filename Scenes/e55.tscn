@@ -247,7 +247,7 @@ mesh = SubResource("BoxMesh_7iopj")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="ModelRoot/Body"]
-transform = Transform3D(0.9, 0, 0, 0, 0.2, 0, 0, 0, 1.6, 0.0156422, 0.788698, 0.183701)
+transform = Transform3D(0.9, 0, 0, 0, 0.2, 0, 0, 0, 1.6, 0.0156422, 0.788698, 0.109283)
 material_override = SubResource("StandardMaterial3D_gu0u7")
 mesh = SubResource("BoxMesh_7iopj")
 skeleton = NodePath("../..")

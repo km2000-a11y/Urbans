@@ -85,7 +85,7 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Kuro Serenity",
 		"Kestrel Seabird",
-		"Brutus Stingray",
+		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -93,8 +93,8 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Schroder Classique Sport",
 		"Berkshire V12-S",
+		"Brutus Stingray",
 		"Bartoli Cruiser",
-		"Kestrel Speedster",
 	],
 
 	"sport_racing": [
@@ -172,7 +172,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kuro Serenity",
 		"Kestrel Seabird",
-		"Brutus Stingray",
+		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -316,52 +316,44 @@ var class_lists: Dictionary = {
 	]
 }
 var cup_rewards: Dictionary = {
-	"colossus": "Eisenach Bengal",
-	"street_tuners": "Brutus Viper",
-	"muscle_hustle": "Schroder Atrix Q32",
+	"colossus": "Eisenach Bengal",             # 130i
 
-	"v6_engines": "Zenith Horizon",
+	"muscle_hustle": "Schroder Atrix Q32",     # TT
 
-	"zenith_competition": "Brutus Goblin",
+	"businessman_racers": "Kuro Vault",        # LS430
 
-	"businessman_racers": "Kuro Serenity",
+	"all_wheel_grip": "Strandberg Turbo",      # V70R
 
-	"japanese_cup": "Strandberg Turbo",
+	"speedster_tournament": "Kestrel Speedster", # Morgan
 
-	"all_wheel_grip": "Kuro Vault",
+	"eisenach_cup": "Berkshire Blunt",         # XKR
 
-	"eisenach_cup": "Berkshire Blunt",
+	"colin_tribute": "Kestrel Seabird",        # Exige
 
-	"drop_top_challenge": "Mir Cars Blazer",
+	"drop_top_challenge": "Bartoli Cruiser",   # GranCabrio
 
-	"under_400_hp": "Brutus Stingray",       
+	"schroder_cup": "Schroder Classique Sport", # Audi S2
 
-	"stingray_competition": "Schroder Classique Sport", 
+	"gentleman_racers": "Berkshire V12-S",     # DB7
 
-	"german_cup": "Kestrel Speedster",      
+	"american_thunder": "Brutus Venom",        # Viper RT10
 
-	"speedster_tournament": "Berkshire V12-S",
+	"british_invasion": "Berkshire Tempest",   # Vanquish
 
-	"schroder_cup": "Bartoli Cruiser",       
+	"v8_fury": "Brutus Stingray",              # Corvette C6
 
-	"gentleman_racers": "Berkshire Tempest", 
+	"stingray_competition":"Kestrel Battleaxe", # Gallardo
 
-	"american_thunder": "Brutus Venom",     
-	"british_invasion": "Kestrel Battleaxe", 
+	"kestrel_max": "Linetti Shepherd",        # TVR Sagaris
 
-	"v8_fury": "Linetti Shepherd",           
+	"sport_racing": "Linetti Firestorm",      # TVR T440R
 
-	"kestrel_max": "Kestrel Guillotine",     
+	"v12_engines": "Linetti Terror",        # Diablo Roadster
 
-	"sport_racing": "Linetti Firestorm",  
+	"supercars": "Bartoli Track Cruiser",      # MC12
 
-	"v12_engines": "Linetti Terror",         
-
-	"supercars": "Bartoli Track Cruiser",   
-
-	"track_cars": "Mir Cars Athletic C70" 
+	"track_cars": "Mir Cars Athletic C70"      # Zonda
 }
-
 # ============================================================
 #  CHAMPIONSHIPS (ONLY THESE FOUR)
 # ============================================================
@@ -369,32 +361,37 @@ var cup_rewards: Dictionary = {
 #  CAREER PROGRESSION LOGIC
 # ============================================================
 var career_order: Array = [
-	"colossus",
-	"street_tuners",
-	"muscle_hustle",
+	"colossus",                 # SUVs
+
+	"street_tuners",            # Compacts
+	"muscle_hustle",            # Muscle
 
 	"v6_engines",
 	"zenith_competition",
 
-	"businessman_racers",
+	"businessman_racers",       # Executive introduction
+
 	"japanese_cup",
 	"diesel_masters",
 
 	"all_wheel_grip",
-	"urban_performance_cars",
+	
+	"speedster_tournament",
 
 	"eisenach_cup",
-	"colin_tribute",
-	"drop_top_challenge",
 
 	"low_displacement_challenge",
+
+	"colin_tribute",            # Lotus Exige reward route
+
+	"urban_performance_cars",
+
+	"drop_top_challenge",
+
 	"under_400_hp",
 
 	"german_cup",
 	"schroder_cup",
-	"speedster_tournament",
-
-	"stingray_competition",
 
 	"gentleman_racers",
 
@@ -402,6 +399,9 @@ var career_order: Array = [
 	"british_invasion",
 
 	"v8_fury",
+	
+	
+	"stingray_competition",
 
 	"kestrel_max",
 

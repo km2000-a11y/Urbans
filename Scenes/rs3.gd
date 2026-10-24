@@ -13,8 +13,8 @@ func _ready():
 	mass = 1490.0
 	horsepower = 270
 	max_rpm = 7200.0
-	zero_to_hundred = 5.4
-	top_speed_kmh = 265
+	zero_to_hundred = 5.5
+	top_speed_kmh = 264
 
 	# Compact AWD turbo gremlin
 	# Fast direction changes, excellent traction,

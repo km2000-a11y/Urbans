@@ -12,8 +12,8 @@ func _ready():
 	mass = 1780.0
 	horsepower = 372
 	max_rpm = 5600.0              # Big-displacement desert-tuned V8, strong mid-range punch
-	zero_to_hundred = 5.6
-	top_speed_kmh = 221
+	zero_to_hundred = 5.8
+	top_speed_kmh = 217
 	turn_speed = 2.50             # Heavy nose, classic muscle feel
 	brake_strength = 12.2         # Strong brakes for a 7.1L heavyweight
 	lateral_friction = 1.03       # Good RWD grip for a torque-heavy coupe

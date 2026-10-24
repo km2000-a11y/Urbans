@@ -88,7 +88,7 @@ var car_prices := {
 
 	"Schroder Suppressor": 95000,
 	"Strandberg Turbo": 83000,
-	"Kestrel Speedster":150000,
+	"Kestrel Speedster":115000,
 	"Kuro Vault": 85000,
 	"Mir Cars Regent":83000,
 	"Berkshire Mocha": 72000,
@@ -97,11 +97,11 @@ var car_prices := {
 	"Kestrel Seabird": 100000,
 	"Eisenach Roadstar": 165000,
 	"Brutus Goblin": 68000,
-	"Berkshire Blunt": 120000,
+	"Berkshire Blunt": 140000,
 	"Mir Cars Blazer": 128000,
 
 	"Schroder Classique Sport": 135000,
-	"Brutus Stingray": 150000,
+	"Brutus Stingray": 200000,
 	"Berkshire Tempest":250000,
 	"Berkshire V12-S": 170000,
 	"Kestrel Touring": 220000,
@@ -561,8 +561,8 @@ var suv_list = [
 
 var compact_list = [
 	"Straeda Volant",
-	"Schroder Atrix Q32",
 	"Eisenach Bengal",
+	"Schroder Atrix Q32",
 	"Zenith Horizon",
 ]
 
@@ -574,15 +574,16 @@ var muscle_list = [
 var urban_list = [
 	"Kuro Serenity",
 	"Kestrel Seabird",
+	"Kestrel Speedster",
 	"Mir Cars Blazer",
 	"Berkshire Blunt",
-	"Brutus Stingray",
+	
 	
 ]
 var sedans_list = [
 	"Brutus Goblin",
-	"Strandberg Turbo",
 	"Schroder Suppressor",
+	"Strandberg Turbo",
 	"Kuro Vault",
 	"Zenith Prince",
 ]
@@ -590,9 +591,9 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
-	"Berkshire V12-S",
 	"Bartoli Cruiser",
-	"Kestrel Speedster",
+	"Berkshire V12-S",
+	"Brutus Stingray",
 ]
 
 var sport_racing_list = [
@@ -710,18 +711,18 @@ var urban_racers = {
 	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
+"Kestrel Speedster":[
+		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
+		"0-100 KM/H: 4.7s", "TOP SPEED: 273 KM/H",
+		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 490 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 "Mir Cars Blazer":[
 	"", "Country: UAE", "HP: 346", "WEIGHT: 1740 KG",
 	"0-100 KM/H: 5.3s", "TOP SPEED: 254 KM/H",
 	"ENGINE: V8 5.5L", "ASPIRATION: NA", "TORQUE: 540 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-"Brutus Stingray":[
-		"", "Country: USA", "HP: 350", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 4.7s", "TOP SPEED: 258 KM/H",
-		"ENGINE: V8 5.7L", "ASPIRATION: NA", "TORQUE: 520 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 }
 var sedans = {
 	"Schroder Suppressor":[
@@ -768,10 +769,10 @@ var sport = {
 	"ENGINE: V8 4.7L", "ASPIRATION: NA", "TORQUE: 490 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-	"Kestrel Speedster":[
-		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
-		"0-100 KM/H: 4.7s", "TOP SPEED: 273 KM/H",
-		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 490 NM",
+"Brutus Stingray":[
+		"", "Country: USA", "HP: 350", "WEIGHT: 1460 KG",
+		"0-100 KM/H: 4.7s", "TOP SPEED: 258 KM/H",
+		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 545 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[

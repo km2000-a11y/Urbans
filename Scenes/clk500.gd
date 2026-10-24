@@ -13,8 +13,8 @@ func _ready():
 	horsepower = 350
 	max_rpm = 6500.0
 	idle_rpm = 700.0
-	zero_to_hundred = 5.3
-	top_speed_kmh = 254
+	zero_to_hundred = 6.1
+	top_speed_kmh = 265
 	transmission = "Rear wheel drive"
 
 	# HANDLING — Stable grand tourer with predictable high-speed manners
