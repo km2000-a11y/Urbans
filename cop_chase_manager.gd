@@ -15,7 +15,7 @@ var total_time: float = 270.0       # 3 minutes
 var time_left: float = 270.0
 
 var captured_count: int = 0
-var captured_total: int = 6
+var captured_total: int = 7
 
 var hud: Node = null
 var main_scene: Node = null

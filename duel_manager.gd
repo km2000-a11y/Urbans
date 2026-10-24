@@ -39,7 +39,6 @@ func spawn_duel(main_scene: Node) -> void:
 	if GameMode.game_mode != "Club Cups":
 		ai_car_path = _pick_unique_ai_car()
 
-	CarController.used_ai_names = CarController.ai_names.duplicate()
 
 	if player_car_path == "" or ai_car_path == "":
 		push_error("DuelManager: Car paths not set!")

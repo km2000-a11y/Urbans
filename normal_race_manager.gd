@@ -171,6 +171,7 @@ func spawn_race(scene: Node) -> void:
 
 
 func on_countdown_finished():
+	
 	race_active = true
 
 	MusicManager.play_race_music()

@@ -1,5 +1,6 @@
 res://main.tscn
-res://club_cups.gd
+res://Scripts/base_car.gd
+res://cop_chase_manager.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -73,8 +74,3 @@ res://audi_100.tscn
 res://es350.tscn
 res://Scenes/ford_mondeo.tscn
 res://Scenes/granturismo.tscn
-res://Scripts/jaguar_xkr_2003.gd
-res://Scripts/aston_db9_2007.gd
-res://Scripts/car_select.gd
-res://Scenes/volvo_v70r.gd
-res://Scripts/base_car.gd

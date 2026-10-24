@@ -243,7 +243,6 @@ var phase: float = 0.0
 # we will now override it safely as a standard AudioStreamPlayer object:
 
 func _ready() -> void:
-	
 	# SUVs
 	match car_name:
 		"Colossus Titan Max":
