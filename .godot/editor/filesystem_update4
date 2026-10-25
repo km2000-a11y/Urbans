@@ -1,6 +1,5 @@
 res://main.tscn
-res://Scripts/base_car.gd
-res://cop_chase_manager.gd
+res://normal_race_manager.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn

@@ -37,7 +37,7 @@ var lap_cooldown := {}
 
 func spawn_race(scene: Node) -> void:
 	race_active = false
-	CarController.used_ai_names = CarController.ai_names.duplicate()
+	
 
 
 	# Remove old cars
