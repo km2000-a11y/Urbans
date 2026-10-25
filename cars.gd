@@ -170,7 +170,7 @@ var class_lists: Dictionary = {
 	"drop_top_challenge":[
 		"Schroder Atrix Q32",
 		"Kestrel Speedster",
-		"Berkshire Blunt"
+		"Bartoli Cruiser"
 	],
 
 	"under_400_hp":[

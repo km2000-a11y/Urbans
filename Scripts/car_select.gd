@@ -15,112 +15,108 @@ var zero_to_hundred: float
 
 var unlocked_cars := {}
 var car_sell_prices := {
-	"Colossus Titan Max": 9000,
+	"Colossus Titan Max": 48750,
 	"Colossus Behemoth": 0,
-	"Mir Cars Nightwolf": 16800,
-	
-	"Schroder Colosso": 21000,
 
-	"Kuro Zephyr": 24000,
-	"Bartoli Cruiser": 130000,
-	"Schroder Atrix Q32": 33000,
-	"Zenith Horizon": 39000,
-	"Brutus Goblin": 52800,
-	"Eisenach Bengal": 42000,
+	"Schroder Colosso": 28125,
+	"Straeda Volant": 30000,
+	"Schroder Atrix Q32": 42000,
+	"Zenith Horizon": 48000,
+	"Eisenach Bengal": 37500,
 
-	"Brutus Viper": 30000,
-	"Mir Cars Hutch": 36000,
+	"Brutus Viper": 37500,
+	"Mir Cars Hutch": 46500,
 
-	"Schroder Suppressor": 42000,
-	"Strandberg Turbo": 48000,
-	"Kuro Vault": 51000,
-	"Berkshire Mocha": 54000,
+	"Brutus Goblin": 47250,
+	"Schroder Suppressor": 56250,
+	"Strandberg Turbo": 65250,
+	"Kuro Vault": 69000,
+	"Zenith Prince": 75000,
 
+	"Kuro Serenity": 60000,
+	"Kestrel Seabird": 69750,
+	"Kestrel Speedster": 75000,
+	"Berkshire Blunt": 93750,
+	"Mir Cars Blazer": 82500,
 
-	"Kuro Serenity": 51000,
-	"Kestrel Seabird":63000,
-	"Kestrel Speedster": 57000,
-	"Eisenach Prince": 72000,
-	"Berkshire Blunt": 80000,
-
-	"Schroder Classique Sport": 96000,
-	"Brutus Stingray": 84000,
-	"Eisenach Goblin": 114000,
-	"Berkshire Tempest":150000,
+	"Schroder Classique Sport": 105000,
+	"Brutus Stingray": 150000,
+	"Bartoli Cruiser": 117750,
 	"Berkshire V12-S": 132000,
-	"Straeda Volant":24000,
-	"Mir Cars Blazer": 85000,
-	"Kestrel Touring": 156000,
+	"Berkshire Tempest": 187500,
 
-	"Kronstadt Beast": 168000,
-	"Brutus Venom": 192000,
-	"Kestrel Battleaxe": 210000,
-	"Linetti Shepherd": 228000,
+	"Brutus Venom": 202500,
+	"Kestrel Battleaxe": 175500,
+	"Linetti Shepherd": 195000,
 
-	"Kestrel Guillotine": 270000,
-	"Mir Cars Regent":50000,
-	"Linetti Firestorm": 300000,
-	"Mir Cars Raptor": 330000,
-	"Linetti Terror": 390000,
+	"Kestrel Guillotine": 221250,
+	"Linetti Firestorm": 243750,
+	"Mir Cars Nightwolf":20000,
+	"Mir Cars Raptor": 262500,
+	"Linetti Terror": 300000,
 
-	"Bartoli Track Cruiser": 540000,
-	"Brutus Thunderbolt": 600000,
-	"Zenith Prince": 63000,
-	"Berkshire Falcon": 72000,
-	"Mir Cars Athletic C70": 720000
+	"Bartoli Track Cruiser": 375000,
+	"Brutus Thunderbolt": 337500,
+	"Mir Cars Athletic C70": 562500
 }
 
 var car_prices := {
-	"Colossus Titan Max": 15000,
-	"Colossus Behemoth": 0,
-	"Mir Cars Nightwolf": 25000,
-	"Schroder Colosso": 32000,
-	"Zenith Prince": 95000,
-
-	"Brutus Viper": 45000,
-	"Mir Cars Hutch": 55000,
-	"Straeda Volant":42000,
-	"Kuro Zephyr": 38000,
-	"Schroder Atrix Q32": 50000,
-	"Zenith Horizon": 60000,
-	"Eisenach Bengal": 50000,
-	"Berkshire Falcon": 117000,
-
-	"Schroder Suppressor": 95000,
-	"Strandberg Turbo": 83000,
-	"Kestrel Speedster":115000,
-	"Kuro Vault": 85000,
-	"Mir Cars Regent":83000,
-	"Berkshire Mocha": 72000,
-
-	"Kuro Serenity": 80000,
-	"Kestrel Seabird": 100000,
-	"Eisenach Roadstar": 165000,
-	"Brutus Goblin": 68000,
-	"Berkshire Blunt": 140000,
-	"Mir Cars Blazer": 128000,
-
-	"Schroder Classique Sport": 135000,
-	"Brutus Stingray": 200000,
+	"Schroder Suppressor":75000,
+	"Schroder Colosso":37500,
+	"Schroder Classique Sport":140000,
+	"Schroder Atrix Q32":56000,
+	
+	"Berkshire V12-S":176000,
 	"Berkshire Tempest":250000,
-	"Berkshire V12-S": 170000,
-	"Kestrel Touring": 220000,
-	"Bartoli Cruiser": 200000,
-
-	"Kronstadt Beast": 250000,
-	"Brutus Venom": 290000,
-	"Kestrel Battleaxe": 320000,
-	"Schroder Atrocity":275000,
-	"Linetti Shepherd": 350000,
-
-	"Kestrel Guillotine": 420000,
-	"Linetti Firestorm": 470000,
-	"Mir Cars Raptor": 520000,
-	"Linetti Terror": 600000,
-
-	"Bartoli Track Cruiser": 850000,
-	"Brutus Thunderbolt": 1000000,
-	"Mir Cars Athletic C70": 1200000
+	
+	"Eisenach Bengal":50000,
+	
+	"Brutus Stingray":200000,
+	"Mir Cars Hutch":62000,
+	
+	"Brutus Venom":270000,
+	
+	"Brutus Thunderbolt":450000,
+	"Brutus Goblin":63000,
+	
+	"Colossus Titan Max":65000,
+	"Colossus Behemoth":0,
+	
+	"Zenith Prince":100000,
+	
+	"Berkshire Blunt":125000,
+	
+	"Linetti Firestorm":325000,
+	"Linetti Shepherd":260000,
+	"Linetti Terror":400000,
+	
+	"Kuro Vault":92000,
+	"Mir Cars Nightwolf":30000,
+	"Kuro Serenity":80000,
+	
+	"Kestrel Seabird":93000,
+	
+	"Bartoli Cruiser":157000,
+	"Bartoli Track Cruiser":500000,
+	
+	"Mir Cars Blazer":110000,
+	
+	"Kestrel Speedster":100000,
+	
+	"Zenith Horizon":64000,
+	
+	"Mir Cars Athletic C70":750000,
+	
+	"Mir Cars Raptor":350000,
+	
+	"Brutus Viper":50000,
+	
+	"Kestrel Battleaxe":234000,
+	"Kestrel Guillotine":295000,
+	
+	"Straeda Volant":40000,
+	
+	"Strandberg Turbo":87000,
 }
 
 
@@ -988,9 +984,15 @@ var car_scene_paths = {
 # -------------------------
 func _get_filtered_list(raw_list: Array) -> Array:
 
-	# Dealership -> show everything
+	# Dealership -> show everything except starter H2
 	if Cars.dealership_mode:
-		return raw_list
+		var filtered := []
+
+		for car_name in raw_list:
+			if car_name != "Colossus Behemoth":
+				filtered.append(car_name)
+
+		return filtered
 
 	# Garage -> owned cars only
 	if Cars.garage_mode:
@@ -1002,6 +1004,7 @@ func _get_filtered_list(raw_list: Array) -> Array:
 
 		return filtered
 
+	# rest of function...
 	# Free Race -> all cars available
 	if GameMode.game_mode == "Free Race":
 		return raw_list
@@ -1028,6 +1031,7 @@ func _get_filtered_list(raw_list: Array) -> Array:
 		return filtered
 
 	return raw_list
+	
 func find_car_controller(node: Node) -> Node:
 	if node == null:
 		return null

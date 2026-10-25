@@ -201,7 +201,7 @@ var class_lists: Dictionary = {
 	"drop_top_challenge":[
 		"Schroder Atrix Q32",
 		"Kestrel Speedster",
-		"Berkshire Blunt"
+		"Bartoli Cruiser"
 	],
 
 	"under_400_hp":[
@@ -316,42 +316,27 @@ var class_lists: Dictionary = {
 	]
 }
 var cup_rewards: Dictionary = {
-	"colossus": "Eisenach Bengal",             # 130i
-
-	"muscle_hustle": "Schroder Atrix Q32",     # TT
-
-	"businessman_racers": "Kuro Vault",        # LS430
-
-	"all_wheel_grip": "Strandberg Turbo",      # V70R
-
-	"speedster_tournament": "Kestrel Speedster", # Morgan
-
-	"eisenach_cup": "Berkshire Blunt",         # XKR
-
-	"colin_tribute": "Kestrel Seabird",        # Exige
-
-	"drop_top_challenge": "Schroder Classique Sport",   # GranCabrio
-
-	"schroder_cup": "Bartoli Cruiser", # Audi S2
-
-	"gentleman_racers": "Berkshire V12-S",      # DB7
-
-	"british_invasion": "Brutus Stingray",      # Corvette
-
-	"v8_fury": "Berkshire Tempest",             # Vanquish
-
-	"stingray_competition": "Brutus Venom",     # Viper RT10
-
-	"kestrel_max": "Linetti Shepherd",          # Gallardo
-
-	"sport_racing": "Kestrel Battleaxe",        # Sagaris
-
-	"v12_engines": "Kestrel Guillotine",        # T440R
-
-	"supercars": "Linetti Firestorm",           # Diablo
-
-	"track_cars": "Mir Cars Athletic C70"       # Zonda
-
+	"colossus":"Eisenach Bengal",
+	"street_tuners":"Brutus Viper",
+	"muscle_hustle":"Schroder Atrix Q32",
+	"v6_engines":"Zenith Horizon",
+	"zenith_competition":"Brutus Goblin",
+	"businessman_racers":"Kuro Serenity",
+	"japanese_cup":"Schroder Suppressor",
+	"diesel_masters":"Strandberg Turbo",
+	"all_wheel_grip":"Kestrel Speedster",
+	"speedster_tournament":"Kestrel Seabird",
+	"colin_tribute":"Mir Cars Blazer",
+	"drop_top_challenge":"Berkshire Blunt",
+	"under_400_hp":"Schroder Classique Sport",
+	"schroder_cup":"Bartoli Cruiser",
+	"gentleman_racers":"Brutus Stingray",
+	"american_thunder":"Berkshire V12-S",
+	"stingray_competition":"Kestrel Battleaxe",
+	"sport_racing":"Linetti Firestorm",
+	"v12_engines":"Linetti Terror",
+	"supercars":"Bartoli Track Cruiser",
+	"track_cars":"Mir Cars Athletic C70"
 }
 # ============================================================
 #  CHAMPIONSHIPS (ONLY THESE FOUR)

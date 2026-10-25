@@ -1,5 +1,4 @@
 res://main.tscn
-res://normal_race_manager.gd
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
 res://Scenes/audi_tt.tscn
@@ -73,3 +72,7 @@ res://audi_100.tscn
 res://es350.tscn
 res://Scenes/ford_mondeo.tscn
 res://Scenes/granturismo.tscn
+res://Scenes/championships.gd
+res://cars.gd
+res://Scripts/car_select.gd
+res://club_cups.gd

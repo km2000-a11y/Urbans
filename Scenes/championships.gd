@@ -74,7 +74,6 @@ func _update_button_states():
 	$Control/ScrollContainer/VBoxContainer/BritishInvasion.disabled = not ClubCups.is_cup_unlocked("british_invasion")
 
 	$Control/ScrollContainer/VBoxContainer/GrandTouring.disabled = not ClubCups.is_cup_unlocked("grand_touring")
-	$Control/ScrollContainer/VBoxContainer/BerkshireCup.disabled=not ClubCups.is_cup_unlocked("berkshire_cup")
 	$Control/ScrollContainer/VBoxContainer/GentlemanRacers.disabled = not ClubCups.is_cup_unlocked("gentleman_racers")
 	$Control/ScrollContainer/VBoxContainer/JapaneseCup.disabled = not ClubCups.is_cup_unlocked("japanese_cup")
 	$Control/ScrollContainer/VBoxContainer/GermanCup.disabled = not ClubCups.is_cup_unlocked("german_cup")
@@ -109,7 +108,6 @@ func _update_button_states():
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/AmericanThunder", "american_thunder", "American Thunder")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/BritishInvasion", "british_invasion", "British Invasion")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/GrandTouring", "grand_touring", "Grand Touring")
-	_update_cup_text("Control/ScrollContainer/VBoxContainer/BerkshireCup", "berkshire_cup", "Berkshire Cup")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/GentlemanRacers", "gentleman_racers", "Gentleman Racers")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/JapaneseCup", "japanese_cup", "Japanese Cup")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/GermanCup", "german_cup", "German Cup")
