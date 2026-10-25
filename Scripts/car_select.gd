@@ -84,7 +84,7 @@ var car_prices := {
 	
 	"Zenith Prince":100000,
 	
-	"Berkshire Blunt":125000,
+	"Berkshire Blunt":89000,
 	
 	"Linetti Firestorm":325000,
 	"Linetti Shepherd":260000,
@@ -92,16 +92,15 @@ var car_prices := {
 	
 	"Kuro Vault":92000,
 	"Mir Cars Nightwolf":30000,
-	"Kuro Serenity":80000,
 	
-	"Kestrel Seabird":93000,
+	"Kestrel Seabird":96000,
 	
 	"Bartoli Cruiser":157000,
 	"Bartoli Track Cruiser":500000,
 	
 	"Mir Cars Blazer":110000,
 	
-	"Kestrel Speedster":100000,
+	"Kestrel Speedster":125000,
 	
 	"Zenith Horizon":64000,
 	
@@ -568,12 +567,10 @@ var muscle_list = [
 ]
 
 var urban_list = [
-	"Kuro Serenity",
-	"Kestrel Seabird",
-	"Kestrel Speedster",
-	"Mir Cars Blazer",
 	"Berkshire Blunt",
-	
+	"Kestrel Seabird",
+	"Mir Cars Blazer",
+	"Kestrel Speedster",
 	
 ]
 var sedans_list = [

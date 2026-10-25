@@ -1,13 +1,23 @@
 extends Node
 
+const LAN_LAPS_TO_WIN := 2
+
+var lan_laps := 0
+var lan_finished := false
+var lan_winner_id := 0
+var lan_lap_cooldown := false
+var lan_ready_ids := {}
+var lan_countdown_started := false
+var lan_begin_received := false
+
 var mode: String
 var win_screen_radar: Node
 var player_car: CarController
 var race_started: bool = false
 var is_lan := false
 var career_progress: Dictionary = {}  # cup_id -> { "normal":false, "duel":false, "elimination":false, "radar":false }
-var track_traffic := {
 
+var track_traffic := {
 	"BogotaAirport": [
 		"res://lincoln_town_car.tscn",
 		"res://astro.tscn",
@@ -15,35 +25,30 @@ var track_traffic := {
 		"res://toyota_camry.tscn",
 		"res://toyota_corolla.tscn"
 	],
-
 	"Chernobyl": [
 		"res://c250_turbodiesel.tscn",
 		"res://lada_2107.tscn",
 		"res://niva.tscn",
 		"res://audi_100.tscn"
 	],
-
 	"AbuDhabi": [
 		"res://patrol.tscn",
 		"res://corolla.tscn",
 		"res://es350.tscn",
 		"res://toyota_camry.tscn"
 	],
-
 	"Split": [
 		"res://audi_100.tscn",
 		"res://volvo_850.tscn",
 		"res://c250_turbodiesel.tscn",
 		"res://toyota_corolla.tscn"
 	],
-
 	"NewYork": [
 		"res://lincoln_town_car.tscn",
 		"res://toyota_camry.tscn",
 		"res://es350.tscn",
 		"res://corolla.tscn"
 	],
-
 	"LasVegas": [
 		"res://sl500.tscn",
 		"res://es350.tscn",
@@ -53,7 +58,7 @@ var track_traffic := {
 }
 
 @onready var finish_flash := $FinishFlash
-@onready var start_countdown := $Start
+@onready var start_countdown :=$Start
 @onready var leaderboard := $Leaderboard if has_node("Leaderboard") else null
 @onready var normal_hud := $HUD
 @onready var elimination_hud := $EliminationHud
@@ -67,17 +72,26 @@ func safe_get(node: Node, path: String) -> Node:
 	return null
 
 func _ready():
+	is_lan = GameMode.game_mode == "Multi-Device"
+
+	# В LAN режим не выбирается через меню, поэтому задаём его сами
+	if is_lan and (Modes.mode == null or Modes.mode == ""):
+		Modes.mode = "Normal Race"
+
 	if Modes.mode == "Radar Race":
 		MusicManager.play_race_music()
 	start_countdown.countdown_finished.connect(_on_countdown_finished)
+
 	mode = Modes.mode if Modes.mode != null else ""
 	if mode == "":
 		mode = "Normal Race"
 
 	Cars.load_color()
 	career_progress = ClubCups.career_progress
-	is_lan = GameMode.game_mode == "Multi-Device"
-	$EliminationWinScreen.visible = false
+
+	if has_node("EliminationWinScreen"):
+		$EliminationWinScreen.visible = false
+
 	if GameMode.game_mode == "Road Challenge":
 		Modes.mode = "Normal Race"
 
@@ -98,8 +112,8 @@ func _ready():
 		await get_tree().process_frame
 		await get_tree().process_frame
 
-		# Трафик только в одиночной игре (в LAN он не синхронизируется)
-		if Modes.mode!="Radar Race":
+		# Трафик только в одиночной игре: в LAN он не синхронизируется
+		if not is_lan and Modes.mode != "Radar Race":
 			for i: int in range(30):
 				spawn_traffic()
 	else:
@@ -138,6 +152,7 @@ func _ready():
 
 func _start_mode_countdown(cars: Array):
 	start_countdown.start_countdown(cars)
+
 func _format_radar_speed(speed_kmh: float) -> String:
 	var use_mph := SpeedSettings.SPEED_UNIT == "mph"
 
@@ -146,6 +161,7 @@ func _format_radar_speed(speed_kmh: float) -> String:
 		return "%d mph" % mph
 	else:
 		return "%d km/h" % speed_kmh
+
 func _process(delta):
 	if not race_started:
 		return
@@ -160,7 +176,6 @@ func _process(delta):
 		_:
 			if mode.to_lower() == "normal race":
 				if is_lan:
-					# LAN safety: only update if car is valid
 					if player_car and is_instance_valid(player_car):
 						NormalRaceManager.update_race()
 				else:
@@ -177,6 +192,9 @@ func _input(event):
 		if has_node("PauseMenu"):
 			$PauseMenu.toggle_pause()
 
+# =========================================================
+# SINGLE PLAYER MODES
+# =========================================================
 
 func _spawn_player_free_drive():
 	var path := Cars.selected_car
@@ -397,6 +415,10 @@ func _on_cop_chase_countdown_finished():
 	if cop_chase_hud:
 		cop_chase_hud.visible = true
 
+# =========================================================
+# COMMON
+# =========================================================
+
 func _force_player_camera():
 	if not player_car:
 		return
@@ -523,6 +545,7 @@ func show_finish(player_won: bool):
 			print("YOU WIN!")
 		else:
 			print("YOU LOSE!")
+
 func _show_championship_reward(cup_id: String):
 	var reward_car := ""
 	var reward_cash := 0
@@ -540,6 +563,7 @@ func _show_championship_reward(cup_id: String):
 			"Reward Car: " + reward_car + "\n" +
 			"Cash Reward: $" + str(reward_cash)
 		)
+
 func _face_away_from_lap_line(car: CarController, root: Node):
 	var lap_line := safe_get(root, "LapLine")
 	if lap_line == null:
@@ -551,88 +575,6 @@ func _face_away_from_lap_line(car: CarController, root: Node):
 
 	var target_pos := car.global_position + away
 	car.look_at(target_pos, Vector3.UP)
-
-# =========================================================
-# LAN / MULTIPLAYER
-# =========================================================
-
-func _spawn_lan_player():
-	var path := Cars.selected_car
-	var my_id := multiplayer.get_unique_id()
-	var scene := load(path)
-	if scene == null:
-		push_error("Player car scene missing: " + path)
-		return
-
-	player_car = scene.instantiate()
-	player_car.name = str(my_id)
-
-	setup_multiplayer_sync(player_car)
-	player_car.set_multiplayer_authority(my_id)
-	add_child(player_car, true)
-	_apply_color_to_car(player_car, Cars.selected_color)
-
-	var root := get_node(TrackName.track_name)
-	var spawn = safe_get(root, "SpawnPoint")
-	if spawn:
-		var t: Transform3D = spawn.global_transform
-		if my_id == 1:
-			t.origin -= spawn.global_transform.basis.x * 3.0
-		player_car.global_transform = t
-
-	_force_player_camera()
-
-	var c := Cars.selected_color
-	rpc("spawn_remote_player", my_id, path, c.r, c.g, c.b)
-
-	print("Spawned local LAN player:", my_id)
-
-@rpc("any_peer")
-func spawn_remote_player(id: int, car_path: String, cr: float, cg: float, cb: float):
-	if has_node(str(id)):
-		return
-
-	var scene := load(car_path)
-	if scene == null:
-		push_error("Remote car scene missing: " + car_path)
-		return
-
-	var car = scene.instantiate()
-	car.name = str(id)
-
-	setup_multiplayer_sync(car)
-	car.set_multiplayer_authority(id)
-	add_child(car, true)
-	_apply_color_to_car(car, Color(cr, cg, cb))
-
-	# Камера удалённой машины не должна перехватывать вид
-	if car.has_node("Camera3D"):
-		car.get_node("Camera3D").current = false
-
-	var root := get_node(TrackName.track_name)
-	var spawn = safe_get(root, "SpawnPoint")
-	if spawn:
-		var t: Transform3D = spawn.global_transform
-		if id == 1:
-			t.origin -= spawn.global_transform.basis.x * 3.0
-		car.global_transform = t
-
-	print("Spawned remote player", id)
-
-func setup_multiplayer_sync(car_node: Node3D):
-	if car_node.has_node("MultiplayerSynchronizer"):
-		return
-	var sync = MultiplayerSynchronizer.new()
-	sync.name = "MultiplayerSynchronizer"
-	var config = SceneReplicationConfig.new()
-	config.add_property(":sync_transform")
-	config.add_property(":sync_velocity")
-	sync.replication_config = config
-	car_node.add_child(sync)
-
-# =========================================================
-# CAREER / REWARDS
-# =========================================================
 
 func _update_career_progress():
 	print("UPDATE CAREER PROGRESS CALLED")
@@ -658,10 +600,15 @@ func _update_career_progress():
 			career_progress[cup_id]["elimination"] = true
 
 		"Radar Race":
-			career_progress[cup_id]["radar"] = true		
+			career_progress[cup_id]["radar"] = true
+
 func _on_countdown_finished():
 	MusicManager.play_race_music()
-	
+
+# =========================================================
+# TRAFFIC (только одиночная игра)
+# =========================================================
+
 func spawn_traffic() -> void:
 	var root: Node = get_node(TrackName.track_name)
 	var wp_root: Node = safe_get(root, "Waypoints")
@@ -712,14 +659,208 @@ func spawn_traffic() -> void:
 	traffic_car.global_transform.basis = random_wp.global_transform.basis
 	traffic_car.set_waypoints(wp_root)
 
-
 func get_random_traffic_path() -> String:
-
 	var track_name := TrackName.track_name
 
 	if not track_traffic.has(track_name):
 		return "res://toyota_camry.tscn"
 
-	var cars : Array = track_traffic[track_name]
+	var cars: Array = track_traffic[track_name]
 
 	return cars[randi() % cars.size()]
+
+# =========================================================
+# LAN / MULTIPLAYER
+# =========================================================
+
+func _spawn_lan_player():
+	var path := Cars.selected_car
+	var my_id := multiplayer.get_unique_id()
+	var scene := load(path)
+	if scene == null:
+		push_error("Player car scene missing: " + path)
+		return
+
+	player_car = scene.instantiate()
+	player_car.name = str(my_id)
+
+	setup_multiplayer_sync(player_car)
+	player_car.set_multiplayer_authority(my_id)
+	add_child(player_car, true)
+	_apply_color_to_car(player_car, Cars.selected_color)
+
+	var root := get_node(TrackName.track_name)
+	var spawn = safe_get(root, "SpawnPoint")
+	if spawn:
+		var t: Transform3D = spawn.global_transform
+		if my_id == 1:
+			t.origin -= spawn.global_transform.basis.x * 3.0
+		player_car.global_transform = t
+
+	_force_player_camera()
+
+	var c := Cars.selected_color
+	rpc("spawn_remote_player", my_id, path, c.r, c.g, c.b)
+
+	_setup_lan_race(root)
+	player_car.controls_enabled = false
+	print("Spawned local LAN player:", my_id)
+	_send_ready_loop()
+
+# Повторяем "готов", пока не придёт команда начать отсчёт.
+func _send_ready_loop():
+	while not lan_begin_received:
+		if not is_inside_tree():
+			return
+		rpc_id(1, "lan_player_ready")
+		await get_tree().create_timer(1.0).timeout
+
+@rpc("any_peer", "call_local", "reliable")
+func lan_player_ready():
+	if not multiplayer.is_server():
+		return
+	var id := multiplayer.get_remote_sender_id()
+	if id == 0:
+		id = 1
+	lan_ready_ids[id] = true
+	var expected := multiplayer.get_peers().size() + 1
+	if not lan_countdown_started and lan_ready_ids.size() >= expected:
+		lan_countdown_started = true
+		rpc("lan_begin_countdown")
+
+@rpc("authority", "call_local", "reliable")
+func lan_begin_countdown():
+	if lan_begin_received:
+		return
+	lan_begin_received = true
+
+	if not is_instance_valid(player_car):
+		return
+
+	# Повторно объявляем свою машину: к этому моменту все уже загрузились.
+	var c := Cars.selected_color
+	rpc("spawn_remote_player", multiplayer.get_unique_id(), Cars.selected_car, c.r, c.g, c.b)
+
+	player_car.controls_enabled = false
+	if not start_countdown.is_connected("countdown_finished", _on_lan_countdown_finished):
+		start_countdown.connect("countdown_finished", _on_lan_countdown_finished)
+	start_countdown.start_countdown([player_car])
+
+func _on_lan_countdown_finished():
+	print("LAN countdown finished")
+	race_started = true
+	if is_instance_valid(player_car):
+		player_car.controls_enabled = true
+
+func _setup_lan_race(root: Node):
+	var lapline := root.find_child("LapLine", true, false)
+	if lapline is Area3D:
+		lapline.body_entered.connect(_on_lan_lapline_entered)
+	else:
+		push_warning("LapLine (Area3D) not found on track")
+
+func _on_lan_lapline_entered(body):
+	if not race_started or lan_finished or lan_lap_cooldown or body != player_car:
+		return
+	lan_lap_cooldown = true
+	lan_laps += 1
+	print("Lap ", lan_laps, "/", LAN_LAPS_TO_WIN)
+	if lan_laps >= LAN_LAPS_TO_WIN:
+		lan_finished = true
+		rpc_id(1, "lan_report_finish")
+	await get_tree().create_timer(0.8).timeout
+	lan_lap_cooldown = false
+
+@rpc("any_peer", "call_local", "reliable")
+func lan_report_finish():
+	if not multiplayer.is_server() or lan_winner_id != 0:
+		return
+	var sender := multiplayer.get_remote_sender_id()
+	if sender == 0:
+		sender = 1
+	lan_winner_id = sender
+	rpc("lan_race_over", sender)
+
+@rpc("authority", "call_local", "reliable")
+func lan_race_over(winner_id: int):
+	lan_finished = true
+	lan_winner_id = winner_id
+	if player_car and is_instance_valid(player_car):
+		player_car.controls_enabled = false
+
+	var label := Label.new()
+	if winner_id == multiplayer.get_unique_id():
+		label.text = "YOU WIN!"
+	else:
+		label.text = "YOU LOSE (winner: %d)" % winner_id
+	label.add_theme_font_size_override("font_size", 64)
+	label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+
+	var layer := CanvasLayer.new()
+	layer.add_child(label)
+	add_child(layer)
+
+@rpc("any_peer", "reliable")
+func spawn_remote_player(id: int, car_path: String, cr: float, cg: float, cb: float):
+	if has_node(str(id)):
+		return
+
+	var scene := load(car_path)
+
+	if scene == null:
+		push_error("Remote car scene missing: " + car_path)
+		return
+
+	var car = scene.instantiate()
+	car.name = str(id)
+
+	setup_multiplayer_sync(car)
+	car.set_multiplayer_authority(id)
+
+	var root := get_node(TrackName.track_name)
+	var spawn = safe_get(root, "SpawnPoint")
+	var t := Transform3D.IDENTITY
+
+	if spawn:
+		t = spawn.global_transform
+
+		if id == 1:
+			t.origin -= spawn.global_transform.basis.x * 3.0
+
+	add_child(car, true)
+
+	car.global_transform = t
+
+	# WAIT UNTIL THE CAR FINISHES ITS OWN READY CODE
+	await get_tree().process_frame
+	await get_tree().process_frame
+
+	_apply_color_to_car(
+		car,
+		Color(cr, cg, cb)
+	)
+
+	var cam := car.get_node_or_null("Camera3D") as Camera3D
+
+	if cam:
+		cam.current = false
+
+	_force_player_camera()
+
+	print("Applied LAN color:",
+		Color(cr, cg, cb),
+		"to",
+		id
+	)
+func setup_multiplayer_sync(car_node: Node3D):
+	if car_node.has_node("MultiplayerSynchronizer"):
+		return
+	var sync = MultiplayerSynchronizer.new()
+	sync.name = "MultiplayerSynchronizer"
+	var config = SceneReplicationConfig.new()
+	config.add_property(":sync_transform")
+	config.add_property(":sync_velocity")
+	sync.replication_config = config
+	car_node.add_child(sync)

@@ -1,3 +1,10 @@
+res://Scenes/championships.tscn
+res://cars.gd
+res://Scripts/car_select.gd
+res://Scenes/clk500.gd
+res://club_cups.gd
+res://Scripts/jaguar_xkr_2003.gd
+res://Scripts/morgan_aero_8.gd
 res://main.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/new_beetle.tscn
@@ -45,7 +52,6 @@ res://Scenes/track_select.tscn
 res://Tracks/abu_dhabi.tscn
 res://Tracks/split.tscn
 res://Scenes/win_screen_duel.tscn
-res://Scenes/championships.tscn
 res://Scenes/lanui.tscn
 res://Scenes/lexus_sc.tscn
 res://Scenes/language_menu.tscn
@@ -72,7 +78,4 @@ res://audi_100.tscn
 res://es350.tscn
 res://Scenes/ford_mondeo.tscn
 res://Scenes/granturismo.tscn
-res://Scenes/championships.gd
-res://cars.gd
-res://Scripts/car_select.gd
-res://club_cups.gd
+res://main.gd

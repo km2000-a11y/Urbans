@@ -52,7 +52,6 @@ var class_lists: Dictionary = {
 	],
 
 	"urban": [
-		"Kuro Serenity",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Berkshire Blunt",
@@ -112,7 +111,6 @@ var class_lists: Dictionary = {
 
 	"japanese_cup":[
 		"Zenith Horizon",
-		"Kuro Serenity",
 		"Zenith Prince",
 		"Kuro Vault"
 	],
@@ -139,7 +137,6 @@ var class_lists: Dictionary = {
 	],
 
 	"urban_performance_cars":[
-		"Kuro Serenity",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Berkshire Blunt",
@@ -155,7 +152,6 @@ var class_lists: Dictionary = {
 		"Mir Cars Hutch",
 		"Kuro Vault",
 		"Bartoli Cruiser",
-		"Kuro Serenity",
 		"Mir Cars Blazer",
 		"Berkshire Blunt",
 		"Brutus Stingray"
@@ -192,7 +188,6 @@ var class_lists: Dictionary = {
 		"Zenith Prince",
 		"Schroder Suppressor",
 
-		"Kuro Serenity",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Mir Cars Blazer",
@@ -219,7 +214,6 @@ var class_lists: Dictionary = {
 	],
 
 	"gentleman_racers":[
-		"Kuro Serenity",
 		"Kestrel Speedster",
 		"Mir Cars Blazer",
 		"Berkshire Blunt",
@@ -251,7 +245,7 @@ var class_lists: Dictionary = {
 	],
 
 	"grand_touring":[
-		"Kuro Serenity",
+		
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Berkshire Tempest"
