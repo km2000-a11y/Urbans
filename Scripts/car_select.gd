@@ -172,16 +172,17 @@ var car_colors = {
 ],
 
 "Straeda Volant":[
-	Color8(132, 132, 132), # Default Grey
-Color8(0, 0, 0), # Black
-Color8(220, 20, 60), # Crimson Red
-Color8(255, 255, 255), # White
-Color8(0, 80, 180), # Deep Blue
-Color8(0, 150, 80), # Cyber Green
-Color8(255, 210, 0), # Sunflower Yellow
-Color8(255, 160, 200) # Pink
+	Color8(132, 132, 132), # Classic Grey (Default)
+	Color8(20, 20, 20),    # Midnight Black
+	Color8(245, 245, 245), # Cream White
+	Color8(200, 30, 50),   # Chili Red
+	Color8(25, 70, 180),   # Electric Blue
+	Color8(20, 120, 70),   # British Racing Green
+	Color8(255, 200, 0),   # Sunny Yellow
+	Color8(255, 160, 200), # Rose Pink
+	Color8(190, 150, 90),  # Mocha Brown
+	Color8(140, 40, 180)   # Velvet Purple
 ],
-
 "Schroder Atrix Q32":[
 	Color8(192,192,192),
 	Color8(255,255,255),
@@ -639,12 +640,6 @@ var suv = {
 	]
 }
 var compact = {
-	"Kuro Zephyr":[
-		"", "Country: Japan", "HP: 204", "WEIGHT: 1600 KG",
-		"0-100 KM/H: 7.3s", "TOP SPEED: 234 KM/H",
-		"ENGINE: V6 2.5L", "ASPIRATION: NA", "TORQUE: 270 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Schroder Atrix Q32":[
 		"", "Country: Germany", "HP: 247", "WEIGHT: 1470 KG",
 		"0-100 KM/H: 6.6s", "TOP SPEED: 250 KM/H",
@@ -658,9 +653,9 @@ var compact = {
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Straeda Volant":[
-		"", "Country: Germany", "HP: 180", "WEIGHT: 1375 KG",
+		"", "Country: UK", "HP: 180", "WEIGHT: 1375 KG",
 		"0-100 KM/H: 6.9s", "TOP SPEED: 238 KM/H",
-		"ENGINE: L4 1.8L", "ASPIRATION: Turbo", "TORQUE: 260 NM",
+		"ENGINE: L4 1.6L", "ASPIRATION: Turbo", "TORQUE: 260 NM",
 		"TRANSMISSION: FRONT-WHEEL DRIVE"
 	],
 	"Eisenach Bengal":[
@@ -913,7 +908,7 @@ var car_scene_paths = {
 	"Straeda Pitbull":"res://Scenes/vw_touareg_v10.tscn",
 
 	"Schroder Atrix Q32":"res://Scenes/audi_tt.tscn",
-	"Straeda B32":"res://Scenes/new_beetle.tscn",
+	"Straeda B32":"res://Scenes/cooper_s.tscn",
 	"Zenith Horizon":"res://Scenes/nissan_350z.tscn",
 	"Straeda G25":"res://Scenes/golf_v_gti.tscn",
 	"Schroder D-20":"res://Scenes/audi_a3.tscn",
@@ -936,7 +931,7 @@ var car_scene_paths = {
 	"Mir Cars Athletic C70":"res://Scenes/zonda.tscn",
 	"Bartoli Track Cruiser":"res://Scenes/mc12.tscn",
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
-	"Straeda Volant":"res://Scenes/new_beetle.tscn",
+	"Straeda Volant":"res://Scenes/cooper_s.tscn",
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 
 

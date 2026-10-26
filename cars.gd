@@ -287,7 +287,6 @@ var car_scene_paths := {
 	"Schroder Colosso":"res://Scenes/audi_q7.tscn",
 
 	"Schroder Atrix Q32":"res://Scenes/audi_tt.tscn",
-	"Straeda B32":"res://Scenes/new_beetle.tscn",
 	"Zenith Horizon":"res://Scenes/nissan_350z.tscn",
 	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
 
@@ -316,7 +315,7 @@ var car_scene_paths := {
 		"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
 		"Kronstadt Fortress":"res://Scenes/s600.tscn",
 			"Eisenach Goblin":"res://Scenes/bmw_1m.tscn",
-			"Straeda Volant":"res://Scenes/new_beetle.tscn",
+			"Straeda Volant":"res://Scenes/cooper_s.tscn",
 
 
 	"Schroder Atrix Sport":"res://Scenes/audi_tt_rs.tscn",
@@ -410,14 +409,16 @@ var car_colors = {
 ],
 
 "Straeda Volant":[
-	Color8(132, 132, 132), # Default Grey
-Color8(0, 0, 0), # Black
-Color8(220, 20, 60), # Crimson Red
-Color8(255, 255, 255), # White
-Color8(0, 80, 180), # Deep Blue
-Color8(0, 150, 80), # Cyber Green
-Color8(255, 210, 0), # Sunflower Yellow
-Color8(255, 160, 200) # Pink
+	Color8(132, 132, 132), # Classic Grey (Default)
+	Color8(20, 20, 20),    # Midnight Black
+	Color8(245, 245, 245), # Cream White
+	Color8(200, 30, 50),   # Chili Red
+	Color8(25, 70, 180),   # Electric Blue
+	Color8(20, 120, 70),   # British Racing Green
+	Color8(255, 200, 0),   # Sunny Yellow
+	Color8(255, 160, 200), # Rose Pink
+	Color8(190, 150, 90),  # Mocha Brown
+	Color8(140, 40, 180)   # Velvet Purple
 ],
 "Bartoli Cruiser":[
 	Color8(0,157,196),
