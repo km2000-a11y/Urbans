@@ -1,5 +1,5 @@
 9cad1ddce9e5a63143ba340c9520626b
-::res://::1793423236
+::res://::1793423514
 astro.tscn::PackedScene::2948525099187799555::1793381284::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
 audi_100.tscn::PackedScene::7324360801078605889::1793381284::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
 bmw_m_5_e_39.gd::GDScript::5282119813987018108::1793381284::0::1::::<>CarController<><>0<>0<><>::
@@ -235,7 +235,7 @@ win_screen_radar.tscn::PackedScene::2934901466802473566::1793381276::0::1::::<><
 xk8.tscn::PackedScene::4839294853979596452::1793381276::0::1::::<><><>0<>0<><>::uid://dvjm341uspl6p::::res://Scripts/jaguar_xk8_2003.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://b74orx6rrqevj::::res://SFX/petrol.mp3<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 zonda.gd::GDScript::19843041505884759::1793381276::0::1::::<>CarController<><>0<>0<><>::
 zonda.tscn::PackedScene::4942956194843482078::1793381276::0::1::::<><><>0<>0<><>::uid://ju2uwvqjfn8::::res://Scenes/zonda.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://b74orx6rrqevj::::res://SFX/petrol.mp3<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
-::res://Scripts/::1793422085
+::res://Scripts/::1793423439
 aston_db9_2007.gd::GDScript::7039256586225302983::1793381276::0::1::::<>CarController<><>0<>0<><>::
 audi_a8_42_2004.gd::GDScript::6770583795252445550::1793381276::0::1::::<>CarController<><>0<>0<><>::
 audi_a_5_tdi.gd::GDScript::4899331924613054335::1793381276::0::1::::<>CarController<><>0<>0<><>::
@@ -250,7 +250,7 @@ bmw_330d.gd::GDScript::4339602991501195329::1793381276::0::1::::<>CarController<
 bmw_745li.gd::GDScript::3000228770398433074::1793381276::0::1::::<>CarController<><>0<>0<><>::
 bmw_m_5_e_60.gd::GDScript::5985703137607686918::1793381276::0::1::::<>CarController<><>0<>0<><>::
 camera.gd::GDScript::362575050681860707::1793381276::0::1::::<>Camera3D<><>0<>0<><>::
-car_select.gd::GDScript::3516697369138886440::1793422084::0::1::::<>CanvasLayer<><>0<>0<><>::
+car_select.gd::GDScript::3516697369138886440::1793423439::0::1::::<>CanvasLayer<><>0<>0<><>::
 chevelle_ss_454_1970.gd::GDScript::2858222168865579304::1793381276::0::1::::<>CarController<><>0<>0<><>::
 chevrolet_corvette_c5_1998.gd::GDScript::4300331645028451739::1793381276::0::1::::<>CarController<><>0<>0<><>::
 diablo_roadster_1997.gd::GDScript::1090174081629925816::1793381276::0::1::::<>CarController<><>0<>0<><>::
