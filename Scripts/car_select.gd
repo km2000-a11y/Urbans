@@ -711,13 +711,13 @@ var urban_racers = {
 	"Berkshire Blunt":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
 	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Kestrel Speedster":[
 		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 273 KM/H",
-		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 490 NM",
+		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Berkshire Mocha":[
