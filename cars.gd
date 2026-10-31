@@ -54,6 +54,7 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Berkshire Mocha",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -139,6 +140,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Berkshire Mocha",
 		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
@@ -149,6 +151,7 @@ var class_lists: Dictionary = {
 
 	"v8_fury":[
 		"Brutus Viper",
+		"Berkshire Mocha",
 		"Mir Cars Hutch",
 		"Kuro Vault",
 		"Bartoli Cruiser",
@@ -173,6 +176,7 @@ var class_lists: Dictionary = {
 		"Colossus Titan Max",
 		"Colossus Behemoth",
 		"Mir Cars Nightwolf",
+		"Berkshire Mocha",
 		"Schroder Colosso",
 
 		"Straeda Volant",
@@ -219,8 +223,8 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Bartoli Cruiser",
+		"Berkshire Mocha",
 		"Berkshire Tempest",
-		"Schroder Classique Sport"
 	],
 
 	"american_thunder":[
@@ -238,6 +242,7 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Berkshire Blunt",
+		"Berkshire Mocha",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 		"Kestrel Battleaxe",

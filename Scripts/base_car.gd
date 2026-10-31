@@ -314,7 +314,7 @@ func _ready() -> void:
 			audio_character_type = 7 # AMG
 
 		"Berkshire Blunt":
-			audio_character_type = 4 # Jaguar SC
+			audio_character_type = 0 # Jaguar SC
 
 
 		# Sport Coupe

@@ -1,7 +1,7 @@
 extends CarController
 
 # COSMETIC INFO (UI only)
-var def_car_name := "Berkshire Persian"
+var def_car_name := "Berkshire Mocha"
 var country := "UK"
 var engine := "V8 4.2L"
 var weight_kg := 1750
@@ -9,19 +9,20 @@ var zero_to_hundred_display := 6.00
 
 func _ready():
 	# GAMEPLAY STATS — Refined British executive sedan
-	mass = 1750.0
-	horsepower = 231
+	mass = 1810.0
+	horsepower = 400
 	max_rpm = 6200.0
-	zero_to_hundred = 6.3
-	top_speed_kmh = 250
+	zero_to_hundred = 5.0
+	top_speed_kmh = 259
 	turn_speed = 2.40
 	brake_strength = 11.2
 	lateral_friction = 1.05
-	transmission = "Four wheel drive"
+	transmission = "Rear wheel drive"
 
 	# Smooth luxury-sedan handling
 	handling_type = "executive_sedan"
-
+	audio_character_type=4
+	has_supercharger=true
 	# ZF 6-speed automatic
 	gear_count = 6
 	gear_ratios = [

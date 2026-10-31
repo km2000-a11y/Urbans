@@ -38,6 +38,7 @@ var car_sell_prices := {
 	"Kestrel Speedster": 75000,
 	"Berkshire Blunt": 93750,
 	"Mir Cars Blazer": 82500,
+	"Berkshire Mocha":71250,
 
 	"Schroder Classique Sport": 105000,
 	"Brutus Stingray": 150000,
@@ -94,6 +95,7 @@ var car_prices := {
 	"Mir Cars Nightwolf":30000,
 	
 	"Kestrel Seabird":96000,
+	"Berkshire Mocha":105000,
 	
 	"Bartoli Cruiser":157000,
 	"Bartoli Track Cruiser":500000,
@@ -290,6 +292,18 @@ var car_colors = {
 	Color8(90,70,50),
 	Color8(40,40,80),
 	Color8(160,160,160)
+],
+"Berkshire Mocha":[
+	Color8(139,69,19),    # Mocha Brown (default)
+	Color8(0,0,0),        # Black
+	Color8(255,255,255),  # White
+	Color8(192,192,192),  # Silver
+	Color8(25,35,80),     # Sapphire Blue
+	Color8(110,20,20),    # Burgundy Red
+	Color8(0,66,37),      # British Racing Green
+	Color8(90,90,90),     # Gunmetal Grey
+	Color8(145,145,125),  # Willow Green
+	Color8(220,200,170)   # Champagne Gold
 ],
 "Bartoli Cruiser":[
 	Color8(0,157,196),
@@ -570,6 +584,7 @@ var muscle_list = [
 var urban_list = [
 	"Berkshire Blunt",
 	"Kestrel Seabird",
+	"Berkshire Mocha",
 	"Mir Cars Blazer",
 	"Kestrel Speedster",
 	
@@ -705,6 +720,13 @@ var urban_racers = {
 		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 490 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Berkshire Mocha":[
+	"", "Country: UK", "HP: 400", "WEIGHT: 1810 KG",
+	"0-100 KM/H: 5.0s", "TOP SPEED: 259 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged",
+	"TORQUE: 553 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 "Mir Cars Blazer":[
 	"", "Country: UAE", "HP: 346", "WEIGHT: 1740 KG",
 	"0-100 KM/H: 5.3s", "TOP SPEED: 254 KM/H",

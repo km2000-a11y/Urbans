@@ -1,0 +1,7 @@
+res://Scenes/jaguar_s_type.tscn
+res://Scripts/base_car.gd
+res://Scripts/car_select.gd
+res://Scripts/jaguar_xkr_2003.gd
+res://Scripts/lexus_gs430.gd
+res://cars.gd
+res://club_cups.gd
