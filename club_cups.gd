@@ -334,7 +334,7 @@ var cup_rewards: Dictionary = {
 
 	"colin_tribute":"Kestrel Speedster",           # E55
 
-	"drop_top_challenge":"Mir Cars Blazer",    # Morgan
+	"drop_top_challenge":"Berkshire Mocha",    # Morgan
 
 	"under_400_hp":"Schroder Classique Sport",
 

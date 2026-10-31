@@ -22,7 +22,7 @@ func _ready():
 	# Smooth luxury-sedan handling
 	handling_type = "executive_sedan"
 	audio_character_type=4
-	has_supercharger=true
+
 	# ZF 6-speed automatic
 	gear_count = 6
 	gear_ratios = [
