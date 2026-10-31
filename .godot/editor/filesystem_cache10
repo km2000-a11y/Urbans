@@ -1,5 +1,5 @@
 9cad1ddce9e5a63143ba340c9520626b
-::res://::1793423514
+::res://::1793430559
 astro.tscn::PackedScene::2948525099187799555::1793381284::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
 audi_100.tscn::PackedScene::7324360801078605889::1793381284::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
 bmw_m_5_e_39.gd::GDScript::5282119813987018108::1793381284::0::1::::<>CarController<><>0<>0<><>::
@@ -15,7 +15,7 @@ default_bus_layout.tres::AudioBusLayout::124886015821390848::1793381284::0::1:::
 duel_manager.gd::GDScript::7400118118596659445::1793381284::0::1::::<>Node<><>0<>0<><>::
 elimination_manager.gd::GDScript::4518555136115562771::1793381284::0::1::::<>Node<><>0<>0<><>::
 es350.tscn::PackedScene::3683290331777727537::1793381284::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
-export_presets.cfg::TextFile::-1::1793381284::0::1::::<><><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1793424157::0::1::::<><><>0<>0<><>::
 game_mode.gd::GDScript::7546371985593095480::1793381284::0::1::::<>Node<><>0<>0<><>::
 global.gd::GDScript::4048092237940241440::1793381284::0::1::::<>Node<><>0<>0<><>::
 lada_2107.tscn::PackedScene::2605901631314522397::1793381284::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd

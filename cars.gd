@@ -168,6 +168,7 @@ var class_lists: Dictionary = {
 
 	"drop_top_challenge":[
 		"Schroder Atrix Q32",
+		"Straeda Volant",
 		"Kestrel Speedster",
 		"Bartoli Cruiser"
 	],
