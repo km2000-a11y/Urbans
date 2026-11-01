@@ -592,7 +592,6 @@ var urban_list = [
 var sedans_list = [
 	"Brutus Goblin",
 	"Schroder Suppressor",
-	"Strandberg Turbo",
 	"Kuro Vault",
 	"Zenith Prince",
 ]
