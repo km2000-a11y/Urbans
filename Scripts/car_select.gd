@@ -85,7 +85,7 @@ var car_prices := {
 	
 	"Zenith Prince":100000,
 	
-	"Berkshire Blunt":89000,
+	"Berkshire Blunt":150000,
 	
 	"Linetti Firestorm":325000,
 	"Linetti Shepherd":260000,
@@ -100,7 +100,7 @@ var car_prices := {
 	"Bartoli Cruiser":157000,
 	"Bartoli Track Cruiser":500000,
 	
-	"Mir Cars Blazer":110000,
+	"Mir Cars Blazer":88000,
 	
 	"Kestrel Speedster":125000,
 	
@@ -582,10 +582,10 @@ var muscle_list = [
 ]
 
 var urban_list = [
-	"Berkshire Blunt",
+	"Mir Cars Blazer",
+	"Strandberg Turbo",
 	"Kestrel Seabird",
 	"Berkshire Mocha",
-	"Mir Cars Blazer",
 	"Kestrel Speedster",
 	
 ]
@@ -600,6 +600,7 @@ var sedans_list = [
 
 var sport_list = [
 	"Schroder Classique Sport",
+	"Berkshire Blunt",
 	"Bartoli Cruiser",
 	"Berkshire V12-S",
 	"Brutus Stingray",
@@ -696,29 +697,23 @@ var muscle = {
 	]
 }
 var urban_racers = {
-	"Kuro Serenity":[
-		"", "Country: Japan", "HP: 260", "WEIGHT: 1640 KG",
-		"0-100 KM/H: 6.3s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 360 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Kestrel Seabird":[
 		"", "Country: UK", "HP: 192", "WEIGHT: 875 KG",
 		"0-100 KM/H: 5.2s", "TOP SPEED: 246 KM/H",
 		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Blunt":[
-	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
 "Kestrel Speedster":[
 		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 273 KM/H",
-		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 410 NM",
+		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Strandberg Turbo":[
+		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
+		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
+		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 	"Berkshire Mocha":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1810 KG",
@@ -730,7 +725,7 @@ var urban_racers = {
 "Mir Cars Blazer":[
 	"", "Country: UAE", "HP: 346", "WEIGHT: 1740 KG",
 	"0-100 KM/H: 5.3s", "TOP SPEED: 254 KM/H",
-	"ENGINE: V8 5.5L", "ASPIRATION: NA", "TORQUE: 540 NM",
+	"ENGINE: V8 5.0L", "ASPIRATION: NA", "TORQUE: 480 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 }
@@ -739,12 +734,6 @@ var sedans = {
 		"", "Country: Germany", "HP: 240", "WEIGHT: 1665 KG",
 		"0-100 KM/H: 5.7s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V6 3.0L", "ASPIRATION: Turbo", "TORQUE: 500 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
-	],
-			"Strandberg Turbo":[
-		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
-		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
-		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 	"Kuro Vault":[
@@ -773,6 +762,12 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Berkshire Blunt":[
+	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
+	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 	"Bartoli Cruiser":[
 	"", "Country: Italy", "HP: 434", "WEIGHT: 1880 KG",
 	"0-100 KM/H: 4.7s", "TOP SPEED: 295 KM/H",
@@ -988,7 +983,7 @@ var car_scene_paths = {
 	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
 	"Schroder Suppressor":"res://Scenes/audi_a4.tscn",
 	"Schroder Fastback":"res://Scenes/audi_a5_tdi.tscn",
-	"Mir Cars Blazer":"res://Scenes/e55.tscn",
+	"Mir Cars Blazer":"res://Scenes/sl500.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn"
 
 }

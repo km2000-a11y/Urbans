@@ -44,7 +44,12 @@ var class_lists: Dictionary = {
 	],
 
 	"sedans": [
-		"Strandberg Turbo",
+		"Kuro Vault",
+		"Zenith Prince",
+		"Brutus Goblin",
+		"Schroder Suppressor"
+	],
+	"": [
 		"Kuro Vault",
 		"Zenith Prince",
 		"Brutus Goblin",
@@ -52,16 +57,17 @@ var class_lists: Dictionary = {
 	],
 
 	"urban": [
+		"Mir Cars Blazer",
 		"Kestrel Seabird",
+		"Strandberg Turbo",
 		"Kestrel Speedster",
 		"Berkshire Mocha",
-		"Berkshire Blunt",
-		"Mir Cars Blazer"
 	],
 
 	"sport": [
 		"Schroder Classique Sport",
 		"Berkshire V12-S",
+		"Berkshire Blunt",
 		"Brutus Stingray",
 		"Bartoli Cruiser",
 	],
@@ -107,6 +113,7 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Zenith Prince",
 		"Brutus Goblin",
+		"Berkshire Mocha",
 		"Schroder Suppressor"
 	],
 
@@ -141,7 +148,6 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Berkshire Mocha",
-		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
 
@@ -170,7 +176,8 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Straeda Volant",
 		"Kestrel Speedster",
-		"Bartoli Cruiser"
+		"Bartoli Cruiser",
+		"Mir Cars Blazer",
 	],
 
 	"under_400_hp":[
@@ -305,7 +312,7 @@ var car_scene_paths := {
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
 	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
-		"Mir Cars Blazer":"res://Scenes/e55.tscn",	
+		"Mir Cars Blazer":"res://Scenes/sl500.tscn",	
 	"Schroder Classique Sport":"res://Scenes/audi_s4.tscn",
 
 	"Brutus Viper":"res://Scenes/gt500.tscn",

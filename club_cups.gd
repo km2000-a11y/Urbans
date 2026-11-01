@@ -5,51 +5,51 @@ extends Node
 # ============================================================
 var completed_cups: Array = []
 var cash_rewards: Dictionary = {
-	"colossus": 5000,
-	"street_tuners": 10000,
-	"muscle_hustle": 12000,
+	"colossus": 2500,
+	"street_tuners": 5000,
+	"muscle_hustle": 7500,
 
-	"v6_engines": 15000,
-	"zenith_competition": 18000,
+	"v6_engines": 10000,
+	"zenith_competition": 12500,
 
-	"businessman_racers": 22000,
-	"japanese_cup": 25000,
-	"diesel_masters": 28000,
+	"businessman_racers": 15000,
+	"japanese_cup": 17500,
+	"diesel_masters": 20000,
 
-	"all_wheel_grip": 32000,
-	"urban_performance_cars": 35000,
+	"all_wheel_grip": 25000,
+	"urban_performance_cars": 30000,
 
-	"eisenach_cup": 38000,
+	"eisenach_cup": 32500,
 	"colin_tribute": 35000,
 	"drop_top_challenge": 40000,
 
 	"low_displacement_challenge": 45000,
 	"under_400_hp": 50000,
 
-	"german_cup": 55000,
-	"schroder_cup": 65000,
+	"german_cup": 60000,
+	"schroder_cup": 70000,
 
-	"speedster_tournament": 70000,
+	"speedster_tournament": 80000,
 
-	"berkshire_cup": 75000,
+	"berkshire_cup": 90000,
 
-	"american_thunder": 80000,
-	"british_invasion": 85000,
+	"american_thunder": 100000,
+	"british_invasion": 110000,
 
-	"stingray_competition": 90000,
-	"v8_fury": 100000,
+	"stingray_competition": 120000,
+	"v8_fury": 130000,
 
-	"gentleman_racers": 110000,
+	"gentleman_racers": 140000,
 
-	"kestrel_max": 125000,
+	"kestrel_max": 160000,
 
-	"sport_racing": 150000,
+	"sport_racing": 180000,
 
-	"v12_engines": 175000,
+	"v12_engines": 220000,
 
-	"supercars": 225000,
+	"supercars": 275000,
 
-	"track_cars": 300000
+	"track_cars": 350000
 }
 var class_lists: Dictionary = {
 
@@ -75,7 +75,6 @@ var class_lists: Dictionary = {
 	],
 
 	"sedans": [
-		"Strandberg Turbo",
 		"Kuro Vault",
 		"Zenith Prince",
 		"Brutus Goblin",
@@ -83,16 +82,17 @@ var class_lists: Dictionary = {
 	],
 
 	"urban": [
+		"Mir Cars Blazer",
 		"Kestrel Seabird",
+		"Strandberg Turbo",
 		"Kestrel Speedster",
 		"Berkshire Mocha",
-		"Berkshire Blunt",
-		"Mir Cars Blazer"
 	],
 
 	"sport": [
 		"Schroder Classique Sport",
 		"Berkshire V12-S",
+		"Berkshire Blunt",
 		"Brutus Stingray",
 		"Bartoli Cruiser",
 	],
@@ -138,6 +138,7 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Zenith Prince",
 		"Brutus Goblin",
+		"Berkshire Mocha",
 		"Schroder Suppressor"
 	],
 
@@ -172,7 +173,6 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Berkshire Mocha",
-		"Berkshire Blunt",
 		"Mir Cars Blazer"
 	],
 
@@ -199,9 +199,10 @@ var class_lists: Dictionary = {
 
 	"drop_top_challenge":[
 		"Schroder Atrix Q32",
-		"Kestrel Speedster",
 		"Straeda Volant",
-		"Bartoli Cruiser"
+		"Kestrel Speedster",
+		"Bartoli Cruiser",
+		"Mir Cars Blazer",
 	],
 
 	"under_400_hp":[
@@ -328,7 +329,7 @@ var cup_rewards: Dictionary = {
 	"japanese_cup":"Schroder Suppressor",
 	"diesel_masters":"Strandberg Turbo",
 
-	"all_wheel_grip":"Berkshire Blunt",          # XKR
+	"all_wheel_grip":"Mir Cars Blazer",          # XKR
 
 	"urban_performance_cars":"Kestrel Seabird",  # Exige
 
@@ -338,7 +339,7 @@ var cup_rewards: Dictionary = {
 
 	"under_400_hp":"Schroder Classique Sport",
 
-	"schroder_cup":"Bartoli Cruiser",
+	"schroder_cup":"Berkshire Blunt",
 
 	"gentleman_racers":"Brutus Stingray",
 

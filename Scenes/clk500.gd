@@ -10,11 +10,11 @@ var zero_to_hundred_display := 5.30
 func _ready():
 	# GAMEPLAY STATS — Refined German luxury GT with effortless V8 torque
 	mass = 1678.0
-	horsepower = 350
+	horsepower = 310
 	max_rpm = 6500.0
 	idle_rpm = 700.0
-	zero_to_hundred = 5.2
-	top_speed_kmh = 262
+	zero_to_hundred = 5.8
+	top_speed_kmh = 250
 	transmission = "Rear wheel drive"
 
 	# HANDLING — Stable grand tourer with predictable high-speed manners

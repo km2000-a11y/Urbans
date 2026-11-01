@@ -24,7 +24,7 @@ res://Scenes/gt500.tscn::d06dd52b9432ebadd7f9d3c24501b17f::1793381276::res://.go
 res://Scenes/HUD.tscn::1e73c3b5ba5d73fd9c928dd7ca008b55::1793381276::res://.godot/exported/133200997/export-9a2cb3fea6fe1c122965a87615eba9e3-HUD.scn
 res://Scenes/hummer_h1.tscn::8ca8a696cf419ddc207e8e852e176bba::1793381276::res://.godot/exported/133200997/export-7861a8cd5ff92d5f291d86894ed1507a-hummer_h1.scn
 res://Scenes/hummer_h2.tscn::cdca4a8fba969a5d4fa10283eef5b581::1793381276::res://.godot/exported/133200997/export-aa62e5230abee91f7c192b32031c6ba7-hummer_h2.scn
-res://Scenes/jaguar_xkr.tscn::6fb1cfb35a6db7377f8360f60a6f40f6::1793381276::res://.godot/exported/133200997/export-d9a9466c591df723141259ff74bfbf2b-jaguar_xkr.scn
+res://Scenes/jaguar_xkr.tscn::eb2b68469f841800a5dc5fec4a131b1d::1793530593::res://.godot/exported/133200997/export-d9a9466c591df723141259ff74bfbf2b-jaguar_xkr.scn
 res://Scenes/leaderboard.tscn::ad15ebdfb4e83fb35e51f372c108ee0d::1793381276::res://.godot/exported/133200997/export-4f4bdb57979728a9227db4ae0d93af41-leaderboard.scn
 res://Scenes/lexus_is250.tscn::6fe289be863a7992a9a09e961bc8009b::1793381276::res://.godot/exported/133200997/export-5e9ae49ab94cd3545096fb421a8f8a40-lexus_is250.scn
 res://Scenes/lexus_is350.tscn::b75408d9389764ce7be6830fc4a299ea::1793381276::res://.godot/exported/133200997/export-2fc50957b3e33832599d490e40281474-lexus_is350.scn
@@ -67,7 +67,7 @@ res://Scenes/slk.tscn::0d960e98086900de535deb55d6925ff9::1793381276::res://.godo
 res://Scenes/tvr_cerbera.tscn::4777d8263dbf3e4b2520beeeec05f508::1793381276::res://.godot/exported/133200997/export-ad4ce9ec611f84dff0b9b258a0f8c960-tvr_cerbera.scn
 res://Tracks/abu_dhabi.tscn::dd47bf17e1cfbc84df77b1b3397d5c64::1793381277::res://.godot/exported/133200997/export-6377a409e3f5e831d4d4eb3fbf1ee4ac-abu_dhabi.scn
 res://Tracks/split.tscn::f6cf22c852c9a669fd59a6e2ae6675de::1793381277::res://.godot/exported/133200997/export-b70cc23ba401d5c6eb0411fcf3447fa0-split.scn
-res://Scenes/jaguar_s_type.tscn::74fcc0959b4d5114fe7994be97e4dd0c::1793439899::res://.godot/exported/133200997/export-80a535e1b1cbe98b83ca07a0c7774319-jaguar_s_type.scn
+res://Scenes/jaguar_s_type.tscn::74fcc0959b4d5114fe7994be97e4dd0c::1793449420::res://.godot/exported/133200997/export-80a535e1b1cbe98b83ca07a0c7774319-jaguar_s_type.scn
 res://Scenes/language_menu.tscn::5806bb97b72e36339e6fb8d07940a4dd::1793381276::res://.godot/exported/133200997/export-056f52ffaca935404cd2e88003775829-language_menu.scn
 res://Tracks/new_york.tscn::87eb86cfa06d4eca9c891af27f466a9f::1793381277::res://.godot/exported/133200997/export-82b9d005bdcc55c6905ebc5a28de3f22-new_york.scn
 res://noto_sans.tres::47d8e741927f324261a255fab5cff5af::1793381284::res://.godot/exported/133200997/export-aa8987076dbb7644f0cb4faffc71bc54-noto_sans.res
@@ -85,7 +85,7 @@ res://mercedes_sl.tscn::4d5e8b4159f43b79106174b1145beb0b::1793381284::res://.god
 res://toyota_camry.tscn::37d36bb1ecb796adb37ec0706aa51d26::1793381284::res://.godot/exported/133200997/export-02bddf9d4d13902509f6a61d92bcaba0-toyota_camry.scn
 res://volvo_850.tscn::d99e069b8047c88a6f24061625a7f699::1793381284::res://.godot/exported/133200997/export-0926664e0c4fb3b237ba179fcf13958c-volvo_850.scn
 res://Scenes/q45.tscn::f26e14f5410fd45b9998388bff0c094a::1793381276::res://.godot/exported/133200997/export-8200aa5ff44e59bf3861ffb3643e82f8-q45.scn
-res://Scenes/audi_s4.tscn::ae7d1db34760934e6fab49d506727cf0::1793381276::res://.godot/exported/133200997/export-f9cad25d52df330f2e821c2548aa76e0-audi_s4.scn
+res://Scenes/audi_s4.tscn::3d19c182c1142eaaedb20fb41cbb65b3::1793463343::res://.godot/exported/133200997/export-f9cad25d52df330f2e821c2548aa76e0-audi_s4.scn
 res://audi_100.tscn::c234548d6846784445b032ceb57c656b::1793381284::res://.godot/exported/133200997/export-d11e5b0ab351f13b37b7bccad7a25273-audi_100.scn
 res://c250_turbodiesel.tscn::0c600a33742c77883c38df19cf0f38ac::1793381284::res://.godot/exported/133200997/export-8840a0b1e5b9785f81df447db0a02510-c250_turbodiesel.scn
 res://corolla.tscn::59393580a89815932f44f19e2a29e089::1793381284::res://.godot/exported/133200997/export-0649d5de60378967606b2171ed486729-corolla.scn
@@ -94,6 +94,6 @@ res://lada_2107.tscn::87ab2878530c493dd097bcf54db44c24::1793381284::res://.godot
 res://niva.tscn::8bd2bbef7b9712dc21e7afb834b27cff::1793381284::res://.godot/exported/133200997/export-2cf6bb02aad22c2e5bed861ae1806b99-niva.scn
 res://patrol.tscn::b11a4f01e6d615848e4e9d846c9dab62::1793381284::res://.godot/exported/133200997/export-d062f137865ef6457ffef3125b0407e2-patrol.scn
 res://Scenes/audi_100.tscn::59a2bd7e8522902d9e13586191311279::1793381276::res://.godot/exported/133200997/export-6f99cfb3ffdeb29fd5708c3b3f89346a-audi_100.scn
-res://Scenes/e55.tscn::139ebae6134b68be5613cb7d18bca7f4::1793381276::res://.godot/exported/133200997/export-765999746597d6027eb66826024d0315-e55.scn
 res://Scenes/ford_mondeo.tscn::b06d14a13b2a03b8d144c7e6109a4d2d::1793381276::res://.godot/exported/133200997/export-2f95ff6f49ecd4e7c7621422fc2ba47a-ford_mondeo.scn
 res://Scenes/cooper_s.tscn::4cc938abddb8b7d549aa3def39b77ad7::1793381276::res://.godot/exported/133200997/export-09a10a4eae55655fb89eff93cf11b16e-cooper_s.scn
+res://Scenes/sl500.tscn::aa07188ab3f7c8d61e327e8fd65c82d7::1793531354::res://.godot/exported/133200997/export-854f42ae28f257a1a0828476e83809d6-sl500.scn

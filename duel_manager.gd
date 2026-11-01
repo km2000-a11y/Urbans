@@ -83,7 +83,6 @@ func spawn_duel(main_scene: Node) -> void:
 
 	await get_tree().process_frame
 
-	ai_car.car_name = Cars.selected_ai_car_name
 
 	if ai_car.has_node("Camera3D"):
 		ai_car.get_node("Camera3D").current = false
