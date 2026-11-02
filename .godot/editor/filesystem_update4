@@ -1,0 +1,10 @@
+res://Scripts/base_car.gd
+res://Scripts/jaguar_xkr_2003.gd
+res://cars.gd
+res://Scripts/car_select.gd
+res://club_cups.gd
+res://Scripts/lexus_gs430.gd
+res://Scenes/chevrolet_corvette_c5.tscn
+res://Scenes/championships.gd
+res://Scenes/championships.tscn
+res://localization.gd

@@ -37,6 +37,34 @@ var class_lists: Dictionary = {
 		"Eisenach Bengal",
 		"Zenith Horizon"
 	],
+	"urban": [
+		"Mir Cars Blazer",
+		"Kestrel Seabird",
+		"Zenith Touring",
+		"Kestrel Speedster",
+		"Berkshire Blunt",
+	],
+	"japan_vs_germany":[
+	# JAPAN
+
+	"Zenith Horizon",
+	"Zenith Touring",
+
+	"Kuro Vault",
+
+
+	"Mir Cars Nightwolf",
+	"Mir Cars Blazer",
+
+	# GERMANY
+
+	"Schroder Atrix Q32",
+	"Schroder Colosso",
+	"Schroder Suppressor",
+	"Schroder Classique Sport",
+
+	"Eisenach Bengal"
+],
 
 	"muscle": [
 		"Brutus Viper",
@@ -45,29 +73,18 @@ var class_lists: Dictionary = {
 
 	"sedans": [
 		"Kuro Vault",
-		"Zenith Prince",
-		"Brutus Goblin",
-		"Schroder Suppressor"
-	],
-	"": [
-		"Kuro Vault",
-		"Zenith Prince",
-		"Brutus Goblin",
-		"Schroder Suppressor"
-	],
-
-	"urban": [
-		"Mir Cars Blazer",
-		"Kestrel Seabird",
-		"Strandberg Turbo",
-		"Kestrel Speedster",
 		"Berkshire Mocha",
+		"Brutus Goblin",
+		"Strandberg Turbo",
+		"Schroder Suppressor"
 	],
+	
+
 
 	"sport": [
 		"Schroder Classique Sport",
 		"Berkshire V12-S",
-		"Berkshire Blunt",
+	
 		"Brutus Stingray",
 		"Bartoli Cruiser",
 	],
@@ -100,18 +117,21 @@ var class_lists: Dictionary = {
 
 	"v6_engines":[
 		"Schroder Atrix Q32",
+		"Schroder Suppressor",
+		"Schroder Colosso",
+		"Zenith Touring",
+		"Schroder Classique Sport",
 		"Zenith Horizon"
 	],
 
 	"zenith_competition":[
 		"Zenith Horizon",
-		"Zenith Prince"
+		"Zenith Touring",
 	],
 
 	"businessman_racers":[
 		"Strandberg Turbo",
 		"Kuro Vault",
-		"Zenith Prince",
 		"Brutus Goblin",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
@@ -119,7 +139,8 @@ var class_lists: Dictionary = {
 
 	"japanese_cup":[
 		"Zenith Horizon",
-		"Zenith Prince",
+		"Mir Cars Nightwolf",
+		"Zenith Touring",
 		"Kuro Vault"
 	],
 
@@ -147,6 +168,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Zenith Touring",
 		"Berkshire Mocha",
 		"Mir Cars Blazer"
 	],
@@ -183,6 +205,7 @@ var class_lists: Dictionary = {
 	"under_400_hp":[
 		"Colossus Titan Max",
 		"Colossus Behemoth",
+		"Zenith Touring",
 		"Mir Cars Nightwolf",
 		"Berkshire Mocha",
 		"Schroder Colosso",
@@ -197,7 +220,6 @@ var class_lists: Dictionary = {
 
 		"Strandberg Turbo",
 		"Kuro Vault",
-		"Zenith Prince",
 		"Schroder Suppressor",
 
 		"Kestrel Seabird",
@@ -230,6 +252,7 @@ var class_lists: Dictionary = {
 		"Mir Cars Blazer",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Zenith Touring",
 		"Bartoli Cruiser",
 		"Berkshire Mocha",
 		"Berkshire Tempest",
@@ -289,7 +312,29 @@ var class_lists: Dictionary = {
 		"Berkshire Tempest",
 		"Linetti Firestorm",
 		"Linetti Terror"
-	]
+	],
+		"england_vs_italy":[
+		# ENGLAND
+
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Kestrel Battleaxe",
+		"Kestrel Guillotine",
+
+		"Berkshire Blunt",
+		"Berkshire Mocha",
+		"Berkshire V12-S",
+		"Berkshire Tempest",
+
+		# ITALY
+
+		"Bartoli Cruiser",
+		"Bartoli Track Cruiser",
+
+		"Linetti Shepherd",
+		"Linetti Firestorm",
+		"Linetti Terror"
+	],
 }
 
 var car_scene_paths := {
@@ -318,6 +363,7 @@ var car_scene_paths := {
 	"Brutus Viper":"res://Scenes/gt500.tscn",
 	"Mir Cars Hutch":"res://Scenes/chevelle_ss.tscn",
 	"Mir Cars Crawler":"res://Scenes/volvo_xc90.tscn",
+	"Zenith Touring":"res://Scenes/infiniti_g35.tscn",
 	"Eisenach Escorter":"res://Scenes/bmw_x5.tscn",
 
 	"Eisenach Monarch":"res://Scenes/bmw_745.tscn",
@@ -505,6 +551,16 @@ var car_colors = {
 	Color8(0,40,120),
 	Color8(20,20,20),
 	Color8(255,140,0)
+],
+"Zenith Touring":[
+	Color8(255,255,255),  # White (default)
+	Color8(20,20,20),     # Black
+	Color8(192,192,192),  # Silver
+	Color8(90,90,90),     # Gunmetal
+	Color8(25,35,80),     # Midnight Blue
+	Color8(120,20,20),    # Burgundy
+	Color8(145,145,125),  # Champagne
+	Color8(0,66,37)       # Emerald Green
 ],
 
 # URBAN

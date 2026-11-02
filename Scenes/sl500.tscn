@@ -61,7 +61,7 @@ size = Vector3(0.1, 0.25, 0.6)
 albedo_color = Color(0.0745098, 0.0784314, 0.0784314, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7iopj"]
-size = Vector3(0.8, 0.25, 0.35)
+size = Vector3(0.8, 0.2, 0.35)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xii43"]
 albedo_color = Color(0.65882355, 0.6117647, 0.5647059, 1)
@@ -165,7 +165,7 @@ mesh = SubResource("CylinderMesh_nfu50")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.489292, -0.192986, 0.295571)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/WheelHolder3" unique_id=117078597]
-transform = Transform3D(0.0153757, 0.999882, 4.37062e-08, 0, -4.37114e-08, 1, 0.999882, -0.0153757, -6.72093e-10, 0.170791, 0.40596, 0.407251)
+transform = Transform3D(0.0153757, 0.999882, 4.37062e-08, 0, -4.37114e-08, 1, 0.999882, -0.0153757, -6.72093e-10, 0.170791, 0.48638323, 0.407251)
 material_override = SubResource("StandardMaterial3D_08euy")
 mesh = SubResource("CylinderMesh_nfu50")
 
@@ -173,7 +173,7 @@ mesh = SubResource("CylinderMesh_nfu50")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.132687, -0.269031, -0.173557)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/WheelHolder4" unique_id=357743793]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.154448, 0.453203, -0.0271415)
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.154448, 0.51905906, -0.1521141)
 material_override = SubResource("StandardMaterial3D_08euy")
 mesh = SubResource("CylinderMesh_nfu50")
 
@@ -234,7 +234,7 @@ mesh = SubResource("BoxMesh_wromi")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="ModelRoot/Body" unique_id=262331785]
-transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 0.7, 0.00521998, 0.427478, -0.115759)
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 0.7, 0.00521998, 0.46228167, -0.10749846)
 material_override = SubResource("StandardMaterial3D_gu0u7")
 mesh = SubResource("BoxMesh_7iopj")
 skeleton = NodePath("../..")

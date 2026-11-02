@@ -249,7 +249,16 @@ var car_colors = {
 	Color8(0,0,0),
 	Color8(90,70,50)
 ],
-
+"Zenith Touring":[
+	Color8(255,255,255),  # White (default)
+	Color8(20,20,20),     # Black
+	Color8(192,192,192),  # Silver
+	Color8(90,90,90),     # Gunmetal
+	Color8(25,35,80),     # Midnight Blue
+	Color8(120,20,20),    # Burgundy
+	Color8(145,145,125),  # Champagne
+	Color8(0,66,37)       # Emerald Green
+],
 "Kestrel Seabird":[
 	Color8(50,205,50),
 	Color8(255,80,20),
@@ -583,9 +592,9 @@ var muscle_list = [
 
 var urban_list = [
 	"Mir Cars Blazer",
-	"Strandberg Turbo",
 	"Kestrel Seabird",
-	"Berkshire Mocha",
+	"Zenith Touring",
+	"Berkshire Blunt",
 	"Kestrel Speedster",
 	
 ]
@@ -594,13 +603,12 @@ var sedans_list = [
 	"Schroder Suppressor",
 	"Strandberg Turbo",
 	"Kuro Vault",
-	"Zenith Prince",
+	"Berkshire Mocha",
 ]
 
 
 var sport_list = [
 	"Schroder Classique Sport",
-	"Berkshire Blunt",
 	"Bartoli Cruiser",
 	"Berkshire V12-S",
 	"Brutus Stingray",
@@ -709,17 +717,16 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Strandberg Turbo":[
-		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
-		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
-		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
-	],
-	"Berkshire Mocha":[
-	"", "Country: UK", "HP: 400", "WEIGHT: 1810 KG",
-	"0-100 KM/H: 5.0s", "TOP SPEED: 259 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged",
-	"TORQUE: 553 NM",
+	"Zenith Touring":[
+	"", "Country: Japan", "HP: 340", "WEIGHT: 1850 KG",
+	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
+	"ENGINE: V6 3.5L", "ASPIRATION: NA", "TORQUE: 360 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
+	"Berkshire Blunt":[
+	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
+	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Mir Cars Blazer":[
@@ -736,6 +743,13 @@ var sedans = {
 		"ENGINE: V6 3.0L", "ASPIRATION: Turbo", "TORQUE: 500 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
+	"Berkshire Mocha":[
+	"", "Country: UK", "HP: 400", "WEIGHT: 1810 KG",
+	"0-100 KM/H: 5.0s", "TOP SPEED: 259 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged",
+	"TORQUE: 553 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 	"Kuro Vault":[
 		"", "Country: Japan", "HP: 290", "WEIGHT: 1760 KG",
 		"0-100 KM/H: 6.1s", "TOP SPEED: 256 KM/H",
@@ -754,6 +768,12 @@ var sedans = {
 	"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
 	"TRANSMISSION: FOUR-WHEEL DRIVE"
 ],
+"Strandberg Turbo":[
+		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
+		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
+		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+		"TRANSMISSION: FOUR-WHEEL DRIVE"
+	],
 }
 var sport = {
 	"Berkshire V12-S":[
@@ -762,12 +782,6 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Blunt":[
-	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
-	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
 	"Bartoli Cruiser":[
 	"", "Country: Italy", "HP: 434", "WEIGHT: 1880 KG",
 	"0-100 KM/H: 4.7s", "TOP SPEED: 295 KM/H",
@@ -975,6 +989,7 @@ var car_scene_paths = {
 	"Brutus Venom":"res://Scenes/dodge_viper.tscn",
 	"Kuro Persian":"res://Scenes/lexus_gs430.tscn",
 	"Kronstadt Fortress":"res://Scenes/s600.tscn",
+	"Zenith Touring":"res://Scenes/infiniti_g35.tscn",
 
 	"Linetti Terror":"res://Scenes/murcielago.tscn",
 	"Linetti Firestorm":"res://Scenes/diablo_road.tscn",

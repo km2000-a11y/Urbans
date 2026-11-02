@@ -1514,7 +1514,7 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 	)
 
 	RevPlayer.pitch_scale = engine_pitch_smoothed
-	RevPlayer.volume_db = clamp(engine_volume_smoothed, -40.0, 3.0)
+	RevPlayer.volume_db = clamp(engine_volume_smoothed - 5.0, -40.0, 0.0)
 func setup_engine_bus() -> void:
 	if not is_instance_valid(RevPlayer):
 		return

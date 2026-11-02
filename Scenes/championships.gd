@@ -54,6 +54,7 @@ func _start_cup(cup_id: String) -> void:
 # BUTTON STATE MANAGEMENT (EXPLICIT PATHS)
 # ============================================================
 func _update_button_states():
+	$Control/ScrollContainer/VBoxContainer/EnglandVsItaly.disabled = not ClubCups.is_cup_unlocked("england_vs_italy")
 	$Control/ScrollContainer/VBoxContainer/Colossus.disabled = not ClubCups.is_cup_unlocked("colossus")
 	$Control/ScrollContainer/VBoxContainer/StreetTuners.disabled = not ClubCups.is_cup_unlocked("street_tuners")
 	$Control/ScrollContainer/VBoxContainer/MuscleHustle.disabled = not ClubCups.is_cup_unlocked("muscle_hustle")
@@ -81,6 +82,7 @@ func _update_button_states():
 	$Control/ScrollContainer/VBoxContainer/V12Engines.disabled = not ClubCups.is_cup_unlocked("v12_engines")
 	$Control/ScrollContainer/VBoxContainer/DropTopChallenge.disabled=not ClubCups.is_cup_unlocked("drop_top_challenge")
 	$Control/ScrollContainer/VBoxContainer/Supercars.disabled = not ClubCups.is_cup_unlocked("supercars")
+	$Control/ScrollContainer/VBoxContainer/JapanVsGermany.disabled = not ClubCups.is_cup_unlocked("japan_vs_germany")
 	$Control/ScrollContainer/VBoxContainer/TrackCars.disabled = not ClubCups.is_cup_unlocked("track_cars")
 	$Control/ScrollContainer/VBoxContainer/SportRacing.disabled = not ClubCups.is_cup_unlocked("sport_racing")
 	$Control/ScrollContainer/VBoxContainer/UrbanPerformanceCars.disabled = not ClubCups.is_cup_unlocked("urban_performance_cars")
@@ -94,6 +96,11 @@ func _update_button_states():
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/StreetTuners", "street_tuners", "Street Tuners")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/MuscleHustle", "muscle_hustle", "Muscle Hustle")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/V6Engines", "v6_engines", "V6 Engines")
+	_update_cup_text(
+		"Control/ScrollContainer/VBoxContainer/EnglandVsItaly",
+		"england_vs_italy",
+		"England vs Italy"
+	)
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/ZenithCompetition", "zenith_competition", "Zenith Competition")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/BusinessmanRacers", "businessman_racers", "Businessman Racers")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/SpeedsterTournament", "speedster_tournament", "Speedster Tournament")
@@ -117,6 +124,7 @@ func _update_button_states():
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/TrackCars", "track_cars", "Track Cars")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/SportRacing", "sport_racing", "Sport Racing")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/V8Fury", "v8_fury", "V8 Fury")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/JapanVsGermany", "japan_vs_germany", "Japan vs Germany")
 # ============================================================
 
 func _on_colossus_pressed() -> void:
@@ -288,3 +296,11 @@ func _on_v_8_fury_pressed() -> void:
 
 func _on_colin_tribute_pressed() -> void:
 	_show_cup("colin_tribute")
+
+
+func _on_japanvs_germany_pressed() -> void:
+	_show_cup("japan_vs_germany")
+
+
+func _on_england_vs_italy_pressed() -> void:
+	_show_cup("england_vs_italy")
