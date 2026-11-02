@@ -1,5 +1,5 @@
 9cad1ddce9e5a63143ba340c9520626b
-::res://::1793639363
+::res://::1793639608
 astro.tscn::PackedScene::2948525099187799555::1793381284::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
 audi_100.tscn::PackedScene::7324360801078605889::1793381284::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
 bmw_m_5_e_39.gd::GDScript::5282119813987018108::1793381284::0::1::::<>CarController<><>0<>0<><>::
@@ -123,7 +123,7 @@ NotoSans_SemiCondensed-SemiBold.ttf::FontFile::1071779160068002212::1793381276::
 NotoSans_SemiCondensed-SemiBoldItalic.ttf::FontFile::509534035185892298::1793381276::1793553907::1::::<><><>0<>0<>cdd771255cd5e618ea65dc8646a8db31<>res://.godot/imported/NotoSans_SemiCondensed-SemiBoldItalic.ttf-e731a8aa33371917a81c7a6bd1766677.fontdata::
 NotoSans_SemiCondensed-Thin.ttf::FontFile::6871472864648420886::1793381276::1793553907::1::::<><><>0<>0<>d2d27fa0e47b265b7c2d62b5eb99b8fa<>res://.godot/imported/NotoSans_SemiCondensed-Thin.ttf-ae159bd3fdaf6c353fcc828602237773.fontdata::
 NotoSans_SemiCondensed-ThinItalic.ttf::FontFile::1263719636926929612::1793381276::1793553907::1::::<><><>0<>0<>6c083918a135f73b970782be8e21a061<>res://.godot/imported/NotoSans_SemiCondensed-ThinItalic.ttf-81521863535c8b855ba945dace4d1fe7.fontdata::
-::res://Scenes/::1793639159
+::res://Scenes/::1793639468
 aston_db9.tscn::PackedScene::2942269834879165477::1793381276::0::1::::<><><>0<>0<><>::uid://c7j4r626feeqh::::res://Scripts/aston_db9_2007.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://b74orx6rrqevj::::res://SFX/petrol.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 audi_100.tscn::PackedScene::260973396008591591::1793381276::0::1::::<><><>0<>0<><>::uid://c3pyr47qwkgbe::::res://Scripts/audi_a8_42_2004.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://b74orx6rrqevj::::res://SFX/petrol.mp3<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 audi_a3.tscn::PackedScene::8247481859118048858::1793381276::0::1::::<><><>0<>0<><>::uid://j8t5avk4bus1::::res://Scripts/bmw_125.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
@@ -148,7 +148,7 @@ career.gd::GDScript::7924292949010744532::1793381276::0::1::::<>CanvasLayer<><>0
 career.tscn::PackedScene::473922702109527444::1793381276::0::1::::<><><>0<>0<><>::uid://dk5t7g4p5tgt5::::res://Scenes/career.gd
 car_select.tscn::PackedScene::9151667227880564590::1793381276::0::1::::<><><>0<>0<><>::uid://bqdrqyuuwy61y::::res://Scripts/car_select.gd<>uid://h13g0sj0tkdf::::res://Scripts/AutoRotate.gd
 championships.gd::GDScript::9215756060298782136::1793639159::0::1::::<>CanvasLayer<><>0<>0<><>::
-championships.tscn::PackedScene::4823599038259084685::1793639159::0::1::::<><><>0<>0<><>::uid://d4kgfkgqpmgnw::::res://Scenes/championships.gd
+championships.tscn::PackedScene::4823599038259084685::1793639468::0::1::::<><><>0<>0<><>::uid://d4kgfkgqpmgnw::::res://Scenes/championships.gd
 chevelle_ss.tscn::PackedScene::3337465352114381699::1793381276::0::1::::<><><>0<>0<><>::uid://bgysrb1eh8kea::::res://Scripts/chevelle_ss_454_1970.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://b74orx6rrqevj::::res://SFX/petrol.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 chevrolet_corvette_c5.tscn::PackedScene::4874735922167300702::1793637471::0::1::::<><><>0<>0<><>::uid://b2jd3l85l4b84::::res://Scripts/chevrolet_corvette_c5_1998.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://b74orx6rrqevj::::res://SFX/petrol.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 clk500.gd::GDScript::5999742954837128838::1793527458::0::1::::<>CarController<><>0<>0<><>::
@@ -237,7 +237,7 @@ win_screen_radar.tscn::PackedScene::2934901466802473566::1793381276::0::1::::<><
 xk8.tscn::PackedScene::4839294853979596452::1793381276::0::1::::<><><>0<>0<><>::uid://dvjm341uspl6p::::res://Scripts/jaguar_xk8_2003.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://b74orx6rrqevj::::res://SFX/petrol.mp3<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 zonda.gd::GDScript::19843041505884759::1793381276::0::1::::<>CarController<><>0<>0<><>::
 zonda.tscn::PackedScene::4942956194843482078::1793381276::0::1::::<><><>0<>0<><>::uid://ju2uwvqjfn8::::res://Scenes/zonda.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://b74orx6rrqevj::::res://SFX/petrol.mp3<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
-::res://Scripts/::1793637471
+::res://Scripts/::1793639468
 aston_db9_2007.gd::GDScript::7039256586225302983::1793381276::0::1::::<>CarController<><>0<>0<><>::
 audi_a8_42_2004.gd::GDScript::6770583795252445550::1793381276::0::1::::<>CarController<><>0<>0<><>::
 audi_a_5_tdi.gd::GDScript::4899331924613054335::1793381276::0::1::::<>CarController<><>0<>0<><>::
@@ -267,7 +267,7 @@ lamborghini_gallardo_2004.gd::GDScript::3832818255708052645::1793381276::0::1:::
 lamborghini_murcielago_2005.gd::GDScript::744761190140663062::1793381276::0::1::::<>CarController<><>0<>0<><>::
 language_menu.gd::GDScript::1197412421891576472::1793381276::0::1::::<>CanvasLayer<><>0<>0<><>::
 leaderboard.gd::GDScript::6234037697804263282::1793381276::0::1::::<>CanvasLayer<><>0<>0<><>::
-lexus_gs430.gd::GDScript::7082296155381481824::1793637380::0::1::::<>CarController<><>0<>0<><>::
+lexus_gs430.gd::GDScript::7082296155381481824::1793639468::0::1::::<>CarController<><>0<>0<><>::
 lexus_is350_2009.gd::GDScript::6480360182202838767::1793381276::0::1::::<>CarController<><>0<>0<><>::
 lexus_ls_430_2003.gd::GDScript::2182284024909599163::1793381276::0::1::::<>CarController<><>0<>0<><>::
 lotus_exige_s_2007.gd::GDScript::6138488159526185486::1793381276::0::1::::<>CarController<><>0<>0<><>::
