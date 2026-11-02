@@ -12,8 +12,8 @@ func _ready():
 	mass = 1785.0
 	horsepower =370
 	max_rpm = 6200.0
-	zero_to_hundred = 5.6
-	top_speed_kmh = 280
+	zero_to_hundred = 5.4
+	top_speed_kmh = 259
 	turn_speed = 2.55
 	brake_strength = 12.0
 	lateral_friction = 1.06
@@ -32,7 +32,7 @@ func _ready():
 		0.87,  # 5th
 		0.69   # 6th
 	]
-	has_supercharger = false
+	has_supercharger = true
 
 	shift_up_rpm = 5600
 	shift_down_rpm = 2000

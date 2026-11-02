@@ -145,6 +145,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "BRITISH INVASION"
 
+[node name="EnglandVsItaly" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=832975379]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BRITISH INVASION"
+
 [node name="StingrayCompetition" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=2082952752]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -241,6 +246,7 @@ theme_override_font_sizes/font_size = 20
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GentlemanRacers" to="." method="_on_gentleman_racers_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AmericanThunder" to="." method="_on_american_thunder_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BritishInvasion" to="." method="_on_british_invasion_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/EnglandVsItaly" to="." method="_on_england_vs_italy_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/StingrayCompetition" to="." method="_on_stingray_competition_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/V8Fury" to="." method="_on_v_8_fury_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KestrelMax" to="." method="_on_kestrel_max_pressed"]

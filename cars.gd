@@ -42,14 +42,13 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Zenith Touring",
 		"Kestrel Speedster",
-		"Berkshire Mocha",
+		"Berkshire Blunt",
 	],
 	"japan_vs_germany":[
 	# JAPAN
 
 	"Zenith Horizon",
 	"Zenith Touring",
-	"Zenith Prince",
 
 	"Kuro Vault",
 
@@ -74,7 +73,7 @@ var class_lists: Dictionary = {
 
 	"sedans": [
 		"Kuro Vault",
-		"Zenith Prince",
+		"Berkshire Mocha",
 		"Brutus Goblin",
 		"Strandberg Turbo",
 		"Schroder Suppressor"
@@ -85,7 +84,7 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Schroder Classique Sport",
 		"Berkshire V12-S",
-		"Berkshire Blunt",
+	
 		"Brutus Stingray",
 		"Bartoli Cruiser",
 	],
@@ -128,13 +127,11 @@ var class_lists: Dictionary = {
 	"zenith_competition":[
 		"Zenith Horizon",
 		"Zenith Touring",
-		"Zenith Prince"
 	],
 
 	"businessman_racers":[
 		"Strandberg Turbo",
 		"Kuro Vault",
-		"Zenith Prince",
 		"Brutus Goblin",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
@@ -142,7 +139,6 @@ var class_lists: Dictionary = {
 
 	"japanese_cup":[
 		"Zenith Horizon",
-		"Zenith Prince",
 		"Mir Cars Nightwolf",
 		"Zenith Touring",
 		"Kuro Vault"
@@ -224,7 +220,6 @@ var class_lists: Dictionary = {
 
 		"Strandberg Turbo",
 		"Kuro Vault",
-		"Zenith Prince",
 		"Schroder Suppressor",
 
 		"Kestrel Seabird",
@@ -317,7 +312,29 @@ var class_lists: Dictionary = {
 		"Berkshire Tempest",
 		"Linetti Firestorm",
 		"Linetti Terror"
-	]
+	],
+		"england_vs_italy":[
+		# ENGLAND
+
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Kestrel Battleaxe",
+		"Kestrel Guillotine",
+
+		"Berkshire Blunt",
+		"Berkshire Mocha",
+		"Berkshire V12-S",
+		"Berkshire Tempest",
+
+		# ITALY
+
+		"Bartoli Cruiser",
+		"Bartoli Track Cruiser",
+
+		"Linetti Shepherd",
+		"Linetti Firestorm",
+		"Linetti Terror"
+	],
 }
 
 var car_scene_paths := {

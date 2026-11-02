@@ -19,6 +19,7 @@ var cash_rewards: Dictionary = {
 
 	"all_wheel_grip": 25000,
 	"urban_performance_cars": 30000,
+	"england_vs_italy":30000,
 
 	"eisenach_cup": 32500,
 	"colin_tribute": 35000,
@@ -69,12 +70,18 @@ var class_lists: Dictionary = {
 		"Eisenach Bengal",
 		"Zenith Horizon"
 	],
+	"urban": [
+		"Mir Cars Blazer",
+		"Kestrel Seabird",
+		"Zenith Touring",
+		"Kestrel Speedster",
+		"Berkshire Blunt",
+	],
 	"japan_vs_germany":[
 	# JAPAN
 
 	"Zenith Horizon",
 	"Zenith Touring",
-	"Zenith Prince",
 
 	"Kuro Vault",
 
@@ -99,30 +106,18 @@ var class_lists: Dictionary = {
 
 	"sedans": [
 		"Kuro Vault",
-		"Zenith Prince",
+		"Berkshire Mocha",
 		"Brutus Goblin",
 		"Strandberg Turbo",
 		"Schroder Suppressor"
 	],
-	"": [
-		"Kuro Vault",
-		"Zenith Prince",
-		"Brutus Goblin",
-		"Schroder Suppressor"
-	],
+	
 
-	"urban": [
-		"Mir Cars Blazer",
-		"Kestrel Seabird",
-		"Zenith Touring",
-		"Kestrel Speedster",
-		"Berkshire Mocha",
-	],
 
 	"sport": [
 		"Schroder Classique Sport",
 		"Berkshire V12-S",
-		"Berkshire Blunt",
+	
 		"Brutus Stingray",
 		"Bartoli Cruiser",
 	],
@@ -165,13 +160,11 @@ var class_lists: Dictionary = {
 	"zenith_competition":[
 		"Zenith Horizon",
 		"Zenith Touring",
-		"Zenith Prince"
 	],
 
 	"businessman_racers":[
 		"Strandberg Turbo",
 		"Kuro Vault",
-		"Zenith Prince",
 		"Brutus Goblin",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
@@ -179,7 +172,6 @@ var class_lists: Dictionary = {
 
 	"japanese_cup":[
 		"Zenith Horizon",
-		"Zenith Prince",
 		"Mir Cars Nightwolf",
 		"Zenith Touring",
 		"Kuro Vault"
@@ -261,7 +253,6 @@ var class_lists: Dictionary = {
 
 		"Strandberg Turbo",
 		"Kuro Vault",
-		"Zenith Prince",
 		"Schroder Suppressor",
 
 		"Kestrel Seabird",
@@ -354,7 +345,29 @@ var class_lists: Dictionary = {
 		"Berkshire Tempest",
 		"Linetti Firestorm",
 		"Linetti Terror"
-	]
+	],
+		"england_vs_italy":[
+		# ENGLAND
+
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Kestrel Battleaxe",
+		"Kestrel Guillotine",
+
+		"Berkshire Blunt",
+		"Berkshire Mocha",
+		"Berkshire V12-S",
+		"Berkshire Tempest",
+
+		# ITALY
+
+		"Bartoli Cruiser",
+		"Bartoli Track Cruiser",
+
+		"Linetti Shepherd",
+		"Linetti Firestorm",
+		"Linetti Terror"
+	],
 }
 
 var cup_rewards: Dictionary = {
@@ -378,11 +391,9 @@ var cup_rewards: Dictionary = {
 	
 	"japan_vs_germany":"Kestrel Speedster",
 
-	"drop_top_challenge":"Berkshire Mocha",    # Morgan
+	"drop_top_challenge":"Berkshire Blunt",    # Morgan
 
 	"under_400_hp":"Schroder Classique Sport",
-
-	"schroder_cup":"Berkshire Blunt",
 
 	"gentleman_racers":"Brutus Stingray",
 
@@ -444,10 +455,12 @@ var career_order: Array = [
 
 	"american_thunder",
 	"british_invasion",
-
+	
+	"england_vs_italy",
 	"v8_fury",
 
 	"stingray_competition",
+	
 
 	"kestrel_max",
 
@@ -564,6 +577,9 @@ var cups: Dictionary = {
 	},
 	"colin_tribute": {
 		"eligible_classes": ["colin_tribute"]
+	},
+	"england_vs_italy":{
+		"eligible_classes":["england_vs_italy"]
 	},
 
 	"under_400_hp": {
