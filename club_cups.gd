@@ -13,6 +13,7 @@ var cash_rewards: Dictionary = {
 	"zenith_competition": 12500,
 
 	"businessman_racers": 15000,
+	"japan_vs_germany":13000,
 	"japanese_cup": 17500,
 	"diesel_masters": 20000,
 
@@ -68,6 +69,28 @@ var class_lists: Dictionary = {
 		"Eisenach Bengal",
 		"Zenith Horizon"
 	],
+	"japan_vs_germany":[
+	# JAPAN
+
+	"Zenith Horizon",
+	"Zenith Touring",
+	"Zenith Prince",
+
+	"Kuro Vault",
+
+
+	"Mir Cars Nightwolf",
+	"Mir Cars Blazer",
+
+	# GERMANY
+
+	"Schroder Atrix Q32",
+	"Schroder Colosso",
+	"Schroder Suppressor",
+	"Schroder Classique Sport",
+
+	"Eisenach Bengal"
+],
 
 	"muscle": [
 		"Brutus Viper",
@@ -78,13 +101,20 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Zenith Prince",
 		"Brutus Goblin",
+		"Strandberg Turbo",
+		"Schroder Suppressor"
+	],
+	"": [
+		"Kuro Vault",
+		"Zenith Prince",
+		"Brutus Goblin",
 		"Schroder Suppressor"
 	],
 
 	"urban": [
 		"Mir Cars Blazer",
 		"Kestrel Seabird",
-		"Strandberg Turbo",
+		"Zenith Touring",
 		"Kestrel Speedster",
 		"Berkshire Mocha",
 	],
@@ -125,11 +155,16 @@ var class_lists: Dictionary = {
 
 	"v6_engines":[
 		"Schroder Atrix Q32",
+		"Schroder Suppressor",
+		"Schroder Colosso",
+		"Zenith Touring",
+		"Schroder Classique Sport",
 		"Zenith Horizon"
 	],
 
 	"zenith_competition":[
 		"Zenith Horizon",
+		"Zenith Touring",
 		"Zenith Prince"
 	],
 
@@ -145,6 +180,8 @@ var class_lists: Dictionary = {
 	"japanese_cup":[
 		"Zenith Horizon",
 		"Zenith Prince",
+		"Mir Cars Nightwolf",
+		"Zenith Touring",
 		"Kuro Vault"
 	],
 
@@ -172,6 +209,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Zenith Touring",
 		"Berkshire Mocha",
 		"Mir Cars Blazer"
 	],
@@ -208,6 +246,7 @@ var class_lists: Dictionary = {
 	"under_400_hp":[
 		"Colossus Titan Max",
 		"Colossus Behemoth",
+		"Zenith Touring",
 		"Mir Cars Nightwolf",
 		"Berkshire Mocha",
 		"Schroder Colosso",
@@ -255,6 +294,7 @@ var class_lists: Dictionary = {
 		"Mir Cars Blazer",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Zenith Touring",
 		"Bartoli Cruiser",
 		"Berkshire Mocha",
 		"Berkshire Tempest",
@@ -316,6 +356,7 @@ var class_lists: Dictionary = {
 		"Linetti Terror"
 	]
 }
+
 var cup_rewards: Dictionary = {
 	"colossus":"Eisenach Bengal",
 	"street_tuners":"Brutus Viper",
@@ -333,7 +374,9 @@ var cup_rewards: Dictionary = {
 
 	"urban_performance_cars":"Kestrel Seabird",  # Exige
 
-	"colin_tribute":"Kestrel Speedster",           # E55
+	"colin_tribute":"Zenith Touring",           # E55
+	
+	"japan_vs_germany":"Kestrel Speedster",
 
 	"drop_top_challenge":"Berkshire Mocha",    # Morgan
 
@@ -385,7 +428,8 @@ var career_order: Array = [
 
 	"low_displacement_challenge",
 
-	"colin_tribute",           # Exige reward
+	"colin_tribute",
+	"japan_vs_germany",           # Exige reward
 	
 	"speedster_tournament",
 
@@ -506,6 +550,9 @@ var cups: Dictionary = {
 
 	"eisenach_cup": {
 		"eligible_classes": ["eisenach_cup"]
+	},
+	"japan_vs_germany":{
+		"eligible_classes":["japan_vs_germany"]
 	},
 
 	"berkshire_cup": {

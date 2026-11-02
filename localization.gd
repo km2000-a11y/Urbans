@@ -37,6 +37,7 @@ var TEXT := {
 		"elimination": "Elimination",
 		"cop_chase": "Cop Chase",
 		"money": "Money",
+		"japan_vs_germany": "Japan vs Germany",
 		"purchased": "PURCHASED!",
 
 
@@ -144,6 +145,7 @@ var TEXT := {
 	"fr": {
 		"road_challenge": "Défi Routier",
 		"free_race": "Course Libre",
+		"japan_vs_germany": "Japon contre Allemagne",
 		"laps": "Tours",
 		"berkshire_cup": "Coupe Berkshire","reward_car": "Voiture récompense",
 "cash_reward": "Récompense en argent",
@@ -279,6 +281,7 @@ var TEXT := {
 		"career_mode": "Karrieremodus",
 		"multi_device_play": "Mehrgeräte Spiel",
 		"normal_race": "Normales Rennen",
+		"japan_vs_germany": "Japan gegen Deutschland",
 		"radar_race": "Radarrennen",
 		"drop_top_challenge":"Drop Top Herausforderung",
 		"low_displacement_challenge":"Herausforderung mit geringem Hubraum",
@@ -421,6 +424,7 @@ var TEXT := {
 "berkshire_cup": "Кубок Berkshire",
 "you_have_cars": "У ВАС %d МАШИН",
 "diesel_masters": "Мастера Дизеля",
+"japan_vs_germany": "Япония против Германии",
 "sell": "ПРОДАТЬ",
 "sale_price": "ЦЕНА ПРОДАЖИ",
 "sold": "ПРОДАНО!",
@@ -557,6 +561,7 @@ var TEXT := {
 		"elimination": "Eliminacija",
 		"you_have_cars": "IMATE %d AUTOMOBILA",
 		"uae": "UAE",
+		"japan_vs_germany": "Japan protiv Njemačke",
 		"cop_chase": "Policijska Potjera",
 		"language_options": "Jezičke opcije",
 		"colossus": "Colossus Kup",
@@ -699,6 +704,7 @@ var TEXT := {
 		"garage": "Garaj",
 		"you_have_cars": "%d ARABANIZ VAR",
 "championships": "Şampiyonalar",
+"japan_vs_germany": "Japonya ve Almanya",
 "reward": "Ödül",
 
 "target": "Hedef",
