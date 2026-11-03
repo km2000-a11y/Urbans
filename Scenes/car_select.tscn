@@ -32,6 +32,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Compact Cars"
 
+[node name="TorqueMonsters" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Torque Monsters
+"
+
 [node name="Sedans" type="Button" parent="Control/ClassList"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -64,13 +70,14 @@ text = "Track Cars"
 
 [node name="Cars" type="VBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 492.0
-offset_right = 366.0
-offset_bottom = 549.0
+offset_left = 769.0
+offset_top = 8.0
+offset_right = 1274.0
+offset_bottom = 76.0
 
 [node name="CarName" type="Label" parent="Control/Cars"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.313726, 0.588235, 0.196078, 1)
 theme_override_font_sizes/font_size = 35
 
 [node name="CarStats" type="VBoxContainer" parent="Control"]
@@ -327,6 +334,7 @@ offset_bottom = 614.0
 [connection signal="pressed" from="Control/ClassList/SUV" to="." method="_on_4x4suv_pressed"]
 [connection signal="pressed" from="Control/ClassList/MuscleCars" to="." method="_on_muscle_cars_pressed"]
 [connection signal="pressed" from="Control/ClassList/CompactCars" to="." method="_on_compact_cars_pressed"]
+[connection signal="pressed" from="Control/ClassList/TorqueMonsters" to="." method="_on_torque_monsters_pressed"]
 [connection signal="pressed" from="Control/ClassList/Sedans" to="." method="_on_sedans_pressed"]
 [connection signal="pressed" from="Control/ClassList/UrbanRacers" to="." method="_on_urban_racers_pressed"]
 [connection signal="pressed" from="Control/ClassList/SportCoupe" to="." method="_on_sport_coupe_pressed"]

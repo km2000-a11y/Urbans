@@ -44,27 +44,7 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 	],
-	"japan_vs_germany":[
-	# JAPAN
-
-	"Zenith Horizon",
-	"Zenith Touring",
-
-	"Kuro Vault",
-
-
-	"Mir Cars Nightwolf",
-	"Mir Cars Blazer",
-
-	# GERMANY
-
-	"Schroder Atrix Q32",
-	"Schroder Colosso",
-	"Schroder Suppressor",
-	"Schroder Classique Sport",
-
-	"Eisenach Bengal"
-],
+	
 
 	"muscle": [
 		"Brutus Viper",
@@ -76,7 +56,10 @@ var class_lists: Dictionary = {
 		"Berkshire Mocha",
 		"Brutus Goblin",
 		"Strandberg Turbo",
-		"Schroder Suppressor"
+	],
+	"torque_monsters":[
+		"Schroder Suppressor",
+		"Eisenach Monarch",
 	],
 	
 
@@ -133,6 +116,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Brutus Goblin",
+		"Eisenach Monarch",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
 	],
@@ -146,6 +130,7 @@ var class_lists: Dictionary = {
 
 	"diesel_masters":[
 		"Schroder Colosso",
+		"Eisenach Monarch",
 		"Schroder Suppressor"
 	],
 
@@ -184,6 +169,7 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Bartoli Cruiser",
 		"Mir Cars Blazer",
+		"Eisenach Monarch",
 		"Berkshire Blunt",
 		"Brutus Stingray"
 	],
@@ -206,6 +192,7 @@ var class_lists: Dictionary = {
 		"Colossus Titan Max",
 		"Colossus Behemoth",
 		"Zenith Touring",
+		"Eisenach Monarch",
 		"Mir Cars Nightwolf",
 		"Berkshire Mocha",
 		"Schroder Colosso",
@@ -296,6 +283,7 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Schroder Suppressor",
 		"Schroder Classique Sport",
+		"Eisenach Monarch",
 		"Eisenach Bengal",
 		"Mir Cars Blazer"
 	],
@@ -335,6 +323,28 @@ var class_lists: Dictionary = {
 		"Linetti Firestorm",
 		"Linetti Terror"
 	],
+	"japan_vs_germany":[
+	# JAPAN
+
+	"Zenith Horizon",
+	"Zenith Touring",
+
+	"Kuro Vault",
+
+
+	"Mir Cars Nightwolf",
+	"Mir Cars Blazer",
+
+	# GERMANY
+
+	"Schroder Atrix Q32",
+	"Schroder Colosso",
+	"Schroder Suppressor",
+	"Schroder Classique Sport",
+	"Eisenach Monarch",
+
+	"Eisenach Bengal"
+],
 }
 
 var car_scene_paths := {
@@ -627,6 +637,16 @@ var car_colors = {
 	Color8(0,80,160),
 	Color8(180,180,180),
 	Color8(200,40,40)
+],
+"Eisenach Monarch":[
+	Color8(0,0,80),        # Orient Blue (default)
+	Color8(0,0,0),         # Black
+	Color8(255,255,255),   # White
+	Color8(192,192,192),   # Titanium Silver
+	Color8(80,80,80),      # Graphite
+	Color8(120,20,20),     # Burgundy
+	Color8(0,66,37),       # Oxford Green
+	Color8(145,145,125)    # Champagne
 ],
 
 "Mir Cars Regent":[

@@ -854,6 +854,8 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			if is_diesel:
 				if speed_kmh > 50.0 and speed_kmh < 160.0:
 					accel_force *= 1.35
+				if speed_kmh < 50.0:
+					launch_boost*=0.8
 
 	else:
 		var flat := Vector3(velocity.x, 0, velocity.z)

@@ -3,36 +3,38 @@ extends CarController
 # COSMETIC INFO (UI only)
 var def_car_name := "Eisenach Monarch"
 var country := "Germany"
-var engine := "V8 4.4L"
+var engine := "V8 3.9L Twin Turbo Diesel"
 var weight_kg := 1985
-var zero_to_hundred_display := 6.40
+var zero_to_hundred_display := 7.10
 
 func _ready():
 	# GAMEPLAY STATS
 	mass = 1985.0
-	horsepower = 325
-	max_rpm = 6200.0
-	zero_to_hundred = 6.4
-	top_speed_kmh = 265
-	turn_speed = 2.35
-	brake_strength = 10.2
-	lateral_friction = 1.02
+	horsepower = 245
+	max_rpm = 4800.0
+	zero_to_hundred = 7.3
+	top_speed_kmh = 252
+	turn_speed = 2.20
+	brake_strength = 10.4
+	lateral_friction = 1.00
 	transmission = "Rear wheel drive"
 
-	# E66 745Li 5-speed auto (realistic ratios)
-	gear_count = 6
+	# E38 740d automatic gearbox
+	gear_count = 5
 	gear_ratios = [
-		4.17,  # 1st - strong launch torque
-		2.34,  # 2nd - smooth pull
-		1.52,  # 3rd - main acceleration gear
-		1.14,  # 4th - highway merge
-		0.87,  # 5th - high-speed cruising
-		0.69   # 6th - overdrive for 265 km/h
+		3.57, # 1st - massive diesel launch torque
+		2.20, # 2nd - strong mid-range pull
+		1.51, # 3rd - effortless overtaking
+		1.00, # 4th - direct drive
+		0.83  # 5th - autobahn cruising
 	]
+	
+	is_diesel=true
+	has_turbo=true
 
-	# SHIFT LOGIC (luxury V8 behavior)
-	shift_up_rpm = 6000
-	shift_down_rpm = 1800
+	# SHIFT LOGIC (torquey diesel behavior)
+	shift_up_rpm = 4300
+	shift_down_rpm = 1400
 
 	apply_stats()
 	print("Child READY loaded:", def_car_name)

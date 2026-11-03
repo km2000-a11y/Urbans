@@ -396,6 +396,16 @@ var car_colors = {
 	Color8(190, 20, 30),   # Imola Red
 	Color8(0, 140, 90)     # Deep Emerald Green
 ],
+"Eisenach Monarch":[
+	Color8(0,0,80),        # Orient Blue (default)
+	Color8(0,0,0),         # Black
+	Color8(255,255,255),   # White
+	Color8(192,192,192),   # Titanium Silver
+	Color8(80,80,80),      # Graphite
+	Color8(120,20,20),     # Burgundy
+	Color8(0,66,37),       # Oxford Green
+	Color8(145,145,125)    # Champagne
+],
 
 "Berkshire V12-S":[
 	Color8(46,54,64),
@@ -600,12 +610,14 @@ var urban_list = [
 ]
 var sedans_list = [
 	"Brutus Goblin",
-	"Schroder Suppressor",
 	"Strandberg Turbo",
 	"Kuro Vault",
 	"Berkshire Mocha",
 ]
-
+var torque_monsters_list = [
+	"Schroder Suppressor",
+	"Eisenach Monarch"
+]
 
 var sport_list = [
 	"Schroder Classique Sport",
@@ -737,12 +749,6 @@ var urban_racers = {
 ],
 }
 var sedans = {
-	"Schroder Suppressor":[
-		"", "Country: Germany", "HP: 240", "WEIGHT: 1665 KG",
-		"0-100 KM/H: 5.7s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V6 3.0L", "ASPIRATION: Turbo", "TORQUE: 500 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
-	],
 	"Berkshire Mocha":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1810 KG",
 	"0-100 KM/H: 5.0s", "TOP SPEED: 259 KM/H",
@@ -827,6 +833,24 @@ var sport_racing = {
 		"ENGINE: L6 4.0L", "ASPIRATION: NA", "TORQUE: 390 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	]
+}
+var torque_monsters = {
+	"Schroder Suppressor":[
+		"", "Country: Germany", "HP: 233", "WEIGHT: 1665 KG",
+		"0-100 KM/H: 6.9s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V6 3.0L DIESEL", "ASPIRATION: Turbo",
+		"TORQUE: 500 NM",
+		"TRANSMISSION: FOUR-WHEEL DRIVE"
+	],
+
+	"Eisenach Monarch":[
+		"", "Country: Germany", "HP: 245", "WEIGHT: 1985 KG",
+		"0-100 KM/H: 7.1s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V8 3.9L", "ASPIRATION: Twin Turbo",
+		"TORQUE: 560 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+
 }
 var supercars = {
 	"Kestrel Guillotine":[
@@ -962,12 +986,11 @@ var car_scene_paths = {
 	"Mir Cars Athletic C70":"res://Scenes/zonda.tscn",
 	"Bartoli Track Cruiser":"res://Scenes/mc12.tscn",
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
+	"Eisenach Monarch":"res://Scenes/bmw_745.tscn",
 	"Straeda Volant":"res://Scenes/cooper_s.tscn",
 	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
 
 
-
-	"Eisenach Monarch":"res://Scenes/bmw_745.tscn",
 	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",
 	"Berkshire Falcon":"res://Scenes/xk8.tscn",
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
@@ -1088,6 +1111,8 @@ func get_base_stats_for(name: String) -> Array:
 		return sedans[name]
 	if sport.has(name):
 		return sport[name]
+	if torque_monsters.has(name):
+		return torque_monsters[name]
 	if sport_racing.has(name):
 		return sport_racing[name]
 	if supercars.has(name):
@@ -1148,11 +1173,13 @@ func update_car_ui(stats: Array, name: String):
 			"TOP SPEED: %d KM/H" % int(top_val)
 
 	# Show ACTUAL upgraded stats whenever available
-	if preview_car != null:
-		var cc = find_car_controller(preview_car)
+	# Show upgraded stats only outside dealership
+	if not Cars.dealership_mode:
+		if preview_car != null:
+			var cc = find_car_controller(preview_car)
 
-		if cc != null:
-			_update_live_stats(cc)
+			if cc != null:
+				_update_live_stats(cc)
 
 	# Dealership pricing
 	if Cars.dealership_mode:
@@ -1492,7 +1519,6 @@ func _on_select_pressed() -> void:
 		# =========================
 		if Cars.unlocked_cars.has(car_name) and Cars.unlocked_cars[car_name]["unlocked"]:
 
-			# Prevent selling starter car
 			if car_name == "Colossus Behemoth":
 				$Control/Label.text = Localization.translate("starter_car")
 				$Control/Label.modulate = Color.RED
@@ -1501,20 +1527,27 @@ func _on_select_pressed() -> void:
 			Cars.add_money(sale_price)
 
 			Cars.unlocked_cars.erase(car_name)
+
+			# Remove upgrades
+			if Cars.upgrades.has(car_name):
+				Cars.upgrades.erase(car_name)
+				Cars.save_upgrades()
+
 			Cars.save_unlocked_cars()
 
 			$Control/Label.text = Localization.translate("sold")
 			$Control/Label.modulate = Color.GREEN
 
-			$MoneyLabel.text = Localization.translate("balance") + ": $" + str(Cars.player_money)
+			$MoneyLabel.text = \
+				Localization.translate("balance") + ": $" + str(Cars.player_money)
 
 			update_car_ui(get_stats_for(car_name), car_name)
-
 			return
 
 		# =========================
 		# BUY CAR
 		# =========================
+
 		if Cars.player_money < price:
 			$Control/Label.text = Localization.translate("insufficient_cash")
 			$Control/Label.modulate = Color.RED
@@ -1523,21 +1556,34 @@ func _on_select_pressed() -> void:
 		Cars.spend_money(price)
 		Cars.unlock_car(car_name, "dealership")
 
+		# Fresh stock upgrades
+		Cars.upgrades[car_name] = {
+			"engine": 0,
+			"weight": 0,
+			"steering": 0,
+			"brakes": 0
+		}
+
+		Cars.save_upgrades()
+
 		$Control/Label.text = Localization.translate("purchased")
 		$Control/Label.modulate = Color.GREEN
 
-		$MoneyLabel.text = Localization.translate("balance") + ": $" + str(Cars.player_money)
-		update_car_ui(get_stats_for(car_name), car_name)
+		$MoneyLabel.text = \
+			Localization.translate("balance") + ": $" + str(Cars.player_money)
 
+		update_car_ui(get_stats_for(car_name), car_name)
 		return
 
 	# =========================
 	# NORMAL CAR SELECT
 	# =========================
+
 	Cars.on_car_selected(car_name)
 	Cars.selected_car_name = car_name
 	Cars.selected_car = Cars.car_scene_paths.get(car_name, "")
 	Cars.selected_color = car_colors.get(car_name, [])[color_index]
+
 	Cars.save_color()
 
 	get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
@@ -1670,6 +1716,8 @@ func get_list_for_class(class_id: String) -> Array:
 			return compact_list
 		"muscle":
 			return muscle_list
+		"torque_monsters":
+			return torque_monsters_list
 		"urban":
 			return urban_list
 		"sedans":
@@ -1696,6 +1744,8 @@ func get_stats_for(name: String) -> Array:
 			return urban_racers[name]
 		"sedans":
 			return sedans[name]
+		"torque_monsters":
+			return torque_monsters[name]
 		"sport":
 			return sport[name]
 		"sport_racing":
@@ -1875,3 +1925,16 @@ func localize_stat_line(line: String) -> String:
 
 	return Localization.translate(left) + ": " + \
 		Localization.translate(right)
+
+
+func _on_torque_monsters_pressed() -> void:
+	car_class = "torque_monsters"
+
+	var list = _get_filtered_list(torque_monsters_list)
+	car_index = 0
+	if list.is_empty(): return
+
+	car_name = list[car_index]
+	update_car_ui(torque_monsters[car_name], car_name)
+	load_preview_car(car_scene_paths[car_name])
+	_reset_color()
