@@ -803,7 +803,7 @@ var sport = {
 	"Schroder Classique Sport":[
 		"", "Country: Germany", "HP: 270", "WEIGHT: 1490 KG",
 		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
-		"ENGINE: L5 2.2L", "ASPIRATION: Turbo", "TORQUE: 360 NM",
+		"ENGINE: V6 2.8L", "ASPIRATION: Twin Turbo", "TORQUE: 400 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	]
 }
