@@ -1,5 +1,9 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
+<<<<<<< Updated upstream
 ::res://::1793719317
+=======
+::res://::1793719256
+>>>>>>> Stashed changes
 astro.tscn::PackedScene/PackedScene::2948525099187799555::1793108414::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
 audi_100.tscn::PackedScene/PackedScene::7324360801078605889::1793108416::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
 bmw_m_5_e_39.gd::GDScript/GDScript::5282119813987018108::1791468555::0::1::::<>CarController<><>0<>0<><>::
