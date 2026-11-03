@@ -846,7 +846,7 @@ var torque_monsters = {
 	"Eisenach Monarch":[
 		"", "Country: Germany", "HP: 245", "WEIGHT: 1985 KG",
 		"0-100 KM/H: 7.1s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 3.9L", "ASPIRATION: Twin Turbo",
+		"ENGINE: V8 3.9L DIESEL", "ASPIRATION: Twin Turbo",
 		"TORQUE: 560 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],

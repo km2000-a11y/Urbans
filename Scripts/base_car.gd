@@ -1382,14 +1382,14 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 			rasp = 0.045
 			rasp_speed = 65.0
 
-		6: # Diesel: low-pitched, slow-revving
-			curve = pow(rpm_ratio, 0.65)
-			pitch_range = 0.28
-			throttle_response = 0.09
-			idle_db = -23.0
-			load_db = -7.0
-			rumble = 0.012
-			rumble_speed = 5.0
+		6: # Diesel
+			curve = pow(rpm_ratio, 0.55)
+			pitch_range = 0.40
+			throttle_response = 0.15
+			idle_db = -14.0
+			load_db = 0.0
+			rumble = 0.045
+			rumble_speed = 4.0
 
 		7: # AMG: muscular V8 with a sharp bark
 			curve = pow(rpm_ratio, 1.0)
