@@ -1,9 +1,5 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-<<<<<<< Updated upstream
-::res://::1793719317
-=======
-::res://::1793719256
->>>>>>> Stashed changes
+::res://::1793719819
 astro.tscn::PackedScene/PackedScene::2948525099187799555::1793108414::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
 audi_100.tscn::PackedScene/PackedScene::7324360801078605889::1793108416::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
 bmw_m_5_e_39.gd::GDScript/GDScript::5282119813987018108::1791468555::0::1::::<>CarController<><>0<>0<><>::
@@ -49,12 +45,12 @@ track_name.gd::GDScript/GDScript::8757337582718622616::1787390461::0::1::::<>Nod
 track_registry.gd::GDScript/GDScript::2729592444150128222::1789996471::0::1::::<>Node<><>0<>0<><>::
 ui_theme.gd::GDScript/GDScript::4135014586759479562::1788706123::0::1::::<>Node<><>0<>0<><>::
 volvo_850.tscn::PackedScene/PackedScene::6264781002214204754::1793108415::0::1::::<><><>0<>0<><>::uid://mfm3rvrotm1d::::res://Scripts/traffic.gd
-::res://Noto_Sans/::1793719317
+::res://Noto_Sans/::1793719322
 NotoSans-Italic-VariableFont_wdth,wght.ttf::FontFile/FontFile::9086091391216696841::1788705674::1793719322::1::::<><><>0<>0<>4175b1bbbba8967f20f6b4353de405bc<>res://.godot/imported/NotoSans-Italic-VariableFont_wdth,wght.ttf-73cb252e66c1536bf7bec1120b806c2f.fontdata::
 NotoSans-VariableFont_wdth,wght.ttf::FontFile/FontFile::1138418133230390158::1788705674::1793719322::1::::<><><>0<>0<>ac3e643d4947938c9a242591dd43df80<>res://.godot/imported/NotoSans-VariableFont_wdth,wght.ttf-1d1eb04421714a2a5d043b309184c3db.fontdata::
 OFL.txt::TextFile/TextFile::-1::1788705674::0::1::::<><><>0<>0<><>::
 README.txt::TextFile/TextFile::-1::1788705674::0::1::::<><><>0<>0<><>::
-::res://Noto_Sans/static/::1793719317
+::res://Noto_Sans/static/::1793719323
 NotoSans-Black.ttf::FontFile/FontFile::2089224102130226614::1788705674::1793719322::1::::<><><>0<>0<>bccc8b9b5b47c22bafc708f96fb8552b<>res://.godot/imported/NotoSans-Black.ttf-6d66e1fe673083b4b027a94de628fe6d.fontdata::
 NotoSans-BlackItalic.ttf::FontFile/FontFile::2333354651328589560::1788705674::1793719322::1::::<><><>0<>0<>ff7d75ecc2dd5c9497008bae205d974a<>res://.godot/imported/NotoSans-BlackItalic.ttf-cf6f62b6eefd7fbd51c258c6fed499da.fontdata::
 NotoSans-Bold.ttf::FontFile/FontFile::3750131027309729358::1788705674::1793719322::1::::<><><>0<>0<>9d159f676f7d98b24da6b180df9c1187<>res://.godot/imported/NotoSans-Bold.ttf-d0ed86168c2a1f7a732abd81aeff3348.fontdata::
@@ -141,7 +137,7 @@ bmw_1m.gd::GDScript/GDScript::4398081585374669178::1791468554::0::1::::<>CarCont
 bmw_1m.tscn::PackedScene/PackedScene::6273961512198854542::1789804307::0::1::::<><><>0<>0<><>::uid://b3wp0448ji4vm::::res://Scenes/bmw_1m.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 bmw_135.tscn::PackedScene/PackedScene::894682917125081441::1793108394::0::1::::<><><>0<>0<><>::uid://cs7cdg04ml8s::::res://Scripts/bmw_135i.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://b74orx6rrqevj::::res://SFX/petrol.mp3<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 bmw_330d.tscn::PackedScene/PackedScene::3613906445799008703::1787390471::0::1::::<><><>0<>0<><>::uid://b23evldjsgdph::::res://Scripts/bmw_330d.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
-bmw_530d.gd::GDScript/GDScript::5015668729143589160::1793715541::0::1::::<>CarController<><>0<>0<><>::
+bmw_530d.gd::GDScript::5015668729143589160::1793715541::0::1::::<>CarController<><>0<>0<><>::
 bmw_745.tscn::PackedScene/PackedScene::2375408369599800176::1793716996::0::1::::<><><>0<>0<><>::uid://bi0llg6bqivjm::::res://Scripts/bmw_745li.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://d2xqdma33ld30::::res://SFX/diesel.mp3<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 bmw_m5_e39.tscn::PackedScene/PackedScene::1821601118915335901::1792426827::0::1::::<><><>0<>0<><>::uid://chix0hkg2rcwq::::res://bmw_m_5_e_39.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
 bmw_x5.tscn::PackedScene/PackedScene::4864550356573391431::1787390471::0::1::::<><><>0<>0<><>::uid://bgrdc7lpqwhyp::::res://Scenes/bmw_x_5.gd<>uid://ffvs8ga7wgmd::::res://Scripts/camera.gd<>uid://bq4u8syx73uiv::::res://SFX/freesound_community-audi-v8-acceleration-sound-6067.wav<>uid://cbyhxjdmmxqg3::::res://SFX/brake.mp3<>uid://cpontoff1o0wi::::res://SFX/crash.mp3<>uid://dkqrbnoypkxrd::::res://SFX/skid.mp3
