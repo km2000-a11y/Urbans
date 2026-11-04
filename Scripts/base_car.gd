@@ -846,16 +846,31 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			var launch_boost := 1.0
 			if current_gear == 1:
 				launch_boost = 1.25
-
-			accel_force = acceleration_calc * torque_factor * traction_factor * launch_boost * launch_grip
-			velocity += forward * accel_force * delta
 			accel_force = acceleration_calc * torque_factor * traction_factor * launch_boost * launch_grip
 
 			if is_diesel:
-				if speed_kmh > 50.0 and speed_kmh < 160.0:
-					accel_force *= 1.35
-				if speed_kmh < 50.0:
-					launch_boost*=0.8
+
+				# Slightly sleepy off boost
+				if speed_kmh < 55.0:
+					accel_force *= 0.90
+
+				# Turbo woke up
+				elif speed_kmh < 80.0:
+					accel_force *= 1.25
+
+				# Freight train territory
+				elif speed_kmh < 140.0:
+					accel_force *= 1.55
+
+				# Still crushing everything
+				elif speed_kmh < 200.0:
+					accel_force *= 1.30
+
+				# Fading but still strong
+				else:
+					accel_force *= 1.05
+
+			velocity += forward * accel_force * delta
 
 	else:
 		var flat := Vector3(velocity.x, 0, velocity.z)

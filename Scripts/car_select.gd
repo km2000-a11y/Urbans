@@ -496,6 +496,18 @@ var car_colors = {
 	Color8(20, 65, 35),    # Designo Green
 	Color8(120, 20, 20)    # Designo Red
 ],
+"Kronstadt Regent": [
+	Color8(255, 255, 255), # Polar White
+	Color8(12, 12, 12),   # Obsidian Black
+	Color8(190, 190, 190),# Brilliant Silver
+	Color8(120, 120, 120),# Flint Grey
+	Color8(30, 35, 55),   # Midnight Blue
+	Color8(15, 45, 25),   # Emerald Green
+	Color8(115, 105, 85), # Travertine Beige
+	Color8(80, 20, 20),   # Bordeaux Red
+	Color8(55, 55, 70),   # Blue Black
+	Color8(140, 145, 150) # Titanium Grey
+],
 
 
 # SUPERCARS
@@ -615,6 +627,7 @@ var sedans_list = [
 	"Berkshire Mocha",
 ]
 var torque_monsters_list = [
+	"Kronstadt Regent",
 	"Schroder Suppressor",
 	"Eisenach Monarch"
 ]
@@ -842,6 +855,14 @@ var torque_monsters = {
 		"TORQUE: 500 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
+	
+	"Kronstadt Regent":[
+		"", "Country: Germany", "HP: 233", "WEIGHT: 1665 KG",
+		"0-100 KM/H: 6.9s", "TOP SPEED: 250 KM/H",
+		"ENGINE: L6 3.2L DIESEL", "ASPIRATION: Turbo",
+		"TORQUE: 470 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 
 	"Eisenach Monarch":[
 		"", "Country: Germany", "HP: 245", "WEIGHT: 1985 KG",
@@ -969,6 +990,7 @@ var car_scene_paths = {
 	"Schroder D-20":"res://Scenes/audi_a3.tscn",
 	"Mir Cars Crawler":"res://Scenes/volvo_xc90.tscn",
 	"Eisenach Escorter":"res://Scenes/bmw_x5.tscn",
+	"Kronstadt Regent":"res://Scenes/e320.tscn",
 
 
 	"Kestrel Seabird":"res://Scenes/lotus_exige_s.tscn",

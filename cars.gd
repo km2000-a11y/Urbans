@@ -60,6 +60,7 @@ var class_lists: Dictionary = {
 	"torque_monsters":[
 		"Schroder Suppressor",
 		"Eisenach Monarch",
+		"Kronstadt Regent",
 	],
 	
 
@@ -115,6 +116,7 @@ var class_lists: Dictionary = {
 	"businessman_racers":[
 		"Strandberg Turbo",
 		"Kuro Vault",
+		"Kronstadt Regent",
 		"Brutus Goblin",
 		"Eisenach Monarch",
 		"Berkshire Mocha",
@@ -131,6 +133,7 @@ var class_lists: Dictionary = {
 	"diesel_masters":[
 		"Schroder Colosso",
 		"Eisenach Monarch",
+		"Kronstadt Regent",
 		"Schroder Suppressor"
 	],
 
@@ -159,7 +162,8 @@ var class_lists: Dictionary = {
 	],
 
 	"eisenach_cup":[
-		"Eisenach Bengal"
+		"Eisenach Bengal",
+		"Eisenach Monarch"
 	],
 
 	"v8_fury":[
@@ -193,6 +197,7 @@ var class_lists: Dictionary = {
 		"Colossus Behemoth",
 		"Zenith Touring",
 		"Eisenach Monarch",
+		"Kronstadt Regent",
 		"Mir Cars Nightwolf",
 		"Berkshire Mocha",
 		"Schroder Colosso",
@@ -282,6 +287,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Suppressor",
+		"Kronstadt Regent",
 		"Schroder Classique Sport",
 		"Eisenach Monarch",
 		"Eisenach Bengal",
@@ -401,6 +407,7 @@ var car_scene_paths := {
 	"Kestrel Battleaxe":"res://Scenes/sagaris.tscn",
 	"Linetti Shepherd":"res://Scenes/gallardo.tscn",
 	"Brutus Venom":"res://Scenes/dodge_viper.tscn",
+	"Kronstadt Regent":"res://Scenes/e320.tscn",
 	"Berkshire Mocha":"res://Scenes/jaguar_s_type.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn",
 	"Berkshire Falcon":"res://Scenes/xk8.tscn",
@@ -571,6 +578,19 @@ var car_colors = {
 	Color8(120,20,20),    # Burgundy
 	Color8(145,145,125),  # Champagne
 	Color8(0,66,37)       # Emerald Green
+],
+
+"Kronstadt Regent": [
+	Color8(255, 255, 255), # Polar White
+	Color8(12, 12, 12),   # Obsidian Black
+	Color8(190, 190, 190),# Brilliant Silver
+	Color8(120, 120, 120),# Flint Grey
+	Color8(30, 35, 55),   # Midnight Blue
+	Color8(15, 45, 25),   # Emerald Green
+	Color8(115, 105, 85), # Travertine Beige
+	Color8(80, 20, 20),   # Bordeaux Red
+	Color8(55, 55, 70),   # Blue Black
+	Color8(140, 145, 150) # Titanium Grey
 ],
 
 # URBAN

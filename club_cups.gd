@@ -77,27 +77,7 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 	],
-	"japan_vs_germany":[
-	# JAPAN
-
-	"Zenith Horizon",
-	"Zenith Touring",
-
-	"Kuro Vault",
-
-
-	"Mir Cars Nightwolf",
-	"Mir Cars Blazer",
-
-	# GERMANY
-
-	"Schroder Atrix Q32",
-	"Schroder Colosso",
-	"Schroder Suppressor",
-	"Schroder Classique Sport",
-
-	"Eisenach Bengal"
-],
+	
 
 	"muscle": [
 		"Brutus Viper",
@@ -109,7 +89,11 @@ var class_lists: Dictionary = {
 		"Berkshire Mocha",
 		"Brutus Goblin",
 		"Strandberg Turbo",
-		"Schroder Suppressor"
+	],
+	"torque_monsters":[
+		"Schroder Suppressor",
+		"Eisenach Monarch",
+		"Kronstadt Regent",
 	],
 	
 
@@ -165,7 +149,9 @@ var class_lists: Dictionary = {
 	"businessman_racers":[
 		"Strandberg Turbo",
 		"Kuro Vault",
+		"Kronstadt Regent",
 		"Brutus Goblin",
+		"Eisenach Monarch",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
 	],
@@ -179,6 +165,8 @@ var class_lists: Dictionary = {
 
 	"diesel_masters":[
 		"Schroder Colosso",
+		"Eisenach Monarch",
+		"Kronstadt Regent",
 		"Schroder Suppressor"
 	],
 
@@ -207,7 +195,8 @@ var class_lists: Dictionary = {
 	],
 
 	"eisenach_cup":[
-		"Eisenach Bengal"
+		"Eisenach Bengal",
+		"Eisenach Monarch"
 	],
 
 	"v8_fury":[
@@ -217,6 +206,7 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Bartoli Cruiser",
 		"Mir Cars Blazer",
+		"Eisenach Monarch",
 		"Berkshire Blunt",
 		"Brutus Stingray"
 	],
@@ -239,6 +229,8 @@ var class_lists: Dictionary = {
 		"Colossus Titan Max",
 		"Colossus Behemoth",
 		"Zenith Touring",
+		"Eisenach Monarch",
+		"Kronstadt Regent",
 		"Mir Cars Nightwolf",
 		"Berkshire Mocha",
 		"Schroder Colosso",
@@ -328,7 +320,9 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Suppressor",
+		"Kronstadt Regent",
 		"Schroder Classique Sport",
+		"Eisenach Monarch",
 		"Eisenach Bengal",
 		"Mir Cars Blazer"
 	],
@@ -368,6 +362,28 @@ var class_lists: Dictionary = {
 		"Linetti Firestorm",
 		"Linetti Terror"
 	],
+	"japan_vs_germany":[
+	# JAPAN
+
+	"Zenith Horizon",
+	"Zenith Touring",
+
+	"Kuro Vault",
+
+
+	"Mir Cars Nightwolf",
+	"Mir Cars Blazer",
+
+	# GERMANY
+
+	"Schroder Atrix Q32",
+	"Schroder Colosso",
+	"Schroder Suppressor",
+	"Schroder Classique Sport",
+	"Eisenach Monarch",
+
+	"Eisenach Bengal"
+],
 }
 
 var cup_rewards: Dictionary = {
@@ -380,7 +396,7 @@ var cup_rewards: Dictionary = {
 
 	"businessman_racers":"Kuro Vault",
 
-	"japanese_cup":"Schroder Suppressor",
+	"japanese_cup":"Kronstadt Regent",
 	"diesel_masters":"Strandberg Turbo",
 
 	"all_wheel_grip":"Mir Cars Blazer",          # XKR
