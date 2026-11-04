@@ -1,1 +1,6 @@
+res://Scenes/main_menu.tscn
 res://Scenes/audi_s4.tscn
+res://Scenes/audi_a4.tscn
+res://Scenes/bmw_745.tscn
+res://Scenes/car_select.tscn
+res://Scripts/jaguar_xkr_2003.gd

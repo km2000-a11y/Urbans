@@ -23,14 +23,14 @@ func _ready():
 	handling_type = "balanced"
 
 	# Mercedes 5G-Tronic automatic
-	gear_count = 6
+	gear_count = 5
+
 	gear_ratios = [
-		4.17,  # 1st
-		2.34,  # 2nd
-		1.52,  # 3rd
-		1.14,  # 4th
-		0.87,  # 5th
-		0.69   # 6th
+		3.40,  # 1st
+		2.05,  # 2nd
+		1.34,  # 3rd
+		1.00,  # 4th
+		0.80   # 5th
 	]
 	has_supercharger = true
 
