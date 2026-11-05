@@ -9,7 +9,7 @@ var zero_to_hundred_display := 5.30
 
 func _ready():
 	# GAMEPLAY STATS — Refined German luxury GT with effortless V8 torque
-	mass = 1678.0
+	mass = 1880.0
 	horsepower = 310
 	max_rpm = 6500.0
 	idle_rpm = 700.0

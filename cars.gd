@@ -40,7 +40,6 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Mir Cars Blazer",
 		"Kestrel Seabird",
-		"Zenith Touring",
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 	],
@@ -55,6 +54,7 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Berkshire Mocha",
 		"Brutus Goblin",
+		"Zenith Touring",
 		"Strandberg Turbo",
 	],
 	"torque_monsters":[
@@ -119,6 +119,7 @@ var class_lists: Dictionary = {
 		"Kronstadt Regent",
 		"Brutus Goblin",
 		"Eisenach Monarch",
+		"Zenith Touring",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
 	],
@@ -156,7 +157,6 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
-		"Zenith Touring",
 		"Berkshire Mocha",
 		"Mir Cars Blazer"
 	],

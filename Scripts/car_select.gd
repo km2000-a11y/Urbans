@@ -615,7 +615,6 @@ var muscle_list = [
 var urban_list = [
 	"Mir Cars Blazer",
 	"Kestrel Seabird",
-	"Zenith Touring",
 	"Berkshire Blunt",
 	"Kestrel Speedster",
 	
@@ -624,6 +623,7 @@ var sedans_list = [
 	"Brutus Goblin",
 	"Strandberg Turbo",
 	"Kuro Vault",
+	"Zenith Touring",
 	"Berkshire Mocha",
 ]
 var torque_monsters_list = [
@@ -742,12 +742,6 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Zenith Touring":[
-	"", "Country: Japan", "HP: 340", "WEIGHT: 1850 KG",
-	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
-	"ENGINE: V6 3.5L", "ASPIRATION: NA", "TORQUE: 360 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
 	"Berkshire Blunt":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
 	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
@@ -767,6 +761,12 @@ var sedans = {
 	"0-100 KM/H: 5.0s", "TOP SPEED: 259 KM/H",
 	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged",
 	"TORQUE: 553 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
+"Zenith Touring":[
+	"", "Country: Japan", "HP: 340", "WEIGHT: 1850 KG",
+	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
+	"ENGINE: V6 3.5L", "ASPIRATION: NA", "TORQUE: 360 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	"Kuro Vault":[
