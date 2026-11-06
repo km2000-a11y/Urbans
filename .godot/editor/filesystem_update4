@@ -1,2 +1,12 @@
-res://cars.gd
-res://club_cups.gd
+res://Scenes/main_menu.tscn
+res://Scenes/audi_s4.tscn
+res://Scenes/audi_a4.tscn
+res://Scenes/bmw_745.tscn
+res://Scenes/car_select.tscn
+res://Scenes/jaguar_xkr.tscn
+res://Scenes/jaguar_s_type.tscn
+res://Scenes/sl500.tscn
+res://Scenes/e320.tscn
+res://Scenes/gt500.tscn
+res://Scenes/championships.tscn
+res://Scenes/infiniti_g35.tscn
