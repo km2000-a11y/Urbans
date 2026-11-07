@@ -45,6 +45,7 @@ var car_sell_prices := {
 	"Bartoli Cruiser": 117750,
 	"Berkshire V12-S": 132000,
 	"Berkshire Tempest": 187500,
+	"Kronstadt Monarch":84000,
 
 	"Brutus Venom": 202500,
 	"Kestrel Battleaxe": 175500,
@@ -71,7 +72,7 @@ var car_prices := {
 	"Berkshire Tempest":250000,
 	
 	"Eisenach Bengal":50000,
-	
+	"Kronstadt Monarch":112000,
 	"Brutus Stingray":200000,
 	"Mir Cars Hutch":62000,
 	
@@ -415,6 +416,18 @@ var car_colors = {
 	Color8(0,0,0),
 	Color8(120,0,0)
 ],
+"Kronstadt Predator":[
+	Color8(255,255,255),  # Polar White (default)
+	Color8(15,15,15),     # Obsidian Black
+	Color8(192,192,192),  # Brilliant Silver
+	Color8(90,90,90),     # Flint Grey
+	Color8(25,35,80),     # Midnight Blue
+	Color8(0,66,37),      # Emerald Green
+	Color8(110,20,20),    # Bordeaux Red
+	Color8(145,145,125),  # Travertine Beige
+	Color8(60,70,120),    # Capri Blue
+	Color8(180,170,145)   # Champagne Silver
+],
 
 "Kestrel Touring":[
 	Color8(255,54,35),
@@ -615,6 +628,7 @@ var muscle_list = [
 var urban_list = [
 	"Mir Cars Blazer",
 	"Kestrel Seabird",
+	"Kronstadt Predator",
 	"Berkshire Blunt",
 	"Kestrel Speedster",
 	
@@ -754,6 +768,13 @@ var urban_racers = {
 	"ENGINE: V8 5.0L", "ASPIRATION: NA", "TORQUE: 480 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
+"Kronstadt Predator":[
+	"", "Country: Germany", "HP: 342", "WEIGHT: 1720 KG",
+	"0-100 KM/H: 5.5s", "TOP SPEED: 256 KM/H",
+	"ENGINE: V8 5.4L", "ASPIRATION: NA",
+	"TORQUE: 510 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 }
 var sedans = {
 	"Berkshire Mocha":[
@@ -772,7 +793,7 @@ var sedans = {
 	"Kuro Vault":[
 		"", "Country: Japan", "HP: 290", "WEIGHT: 1760 KG",
 		"0-100 KM/H: 6.1s", "TOP SPEED: 256 KM/H",
-		"ENGINE: V8 4.3L", "ASPIRATION: NA", "TORQUE: 430 NM",
+		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 "Zenith Prince":[
@@ -784,8 +805,8 @@ var sedans = {
 "Brutus Goblin":[
 	"", "Country: USA", "HP: 230", "WEIGHT: 1580 KG",
 	"0-100 KM/H: 6.6s", "TOP SPEED: 250 KM/H",
-	"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
-	"TRANSMISSION: FOUR-WHEEL DRIVE"
+	"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 290 NM",
+	"TRANSMISSION: FRONT-WHEEL DRIVE"
 ],
 "Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
@@ -804,7 +825,7 @@ var sport = {
 	"Bartoli Cruiser":[
 	"", "Country: Italy", "HP: 434", "WEIGHT: 1880 KG",
 	"0-100 KM/H: 4.7s", "TOP SPEED: 295 KM/H",
-	"ENGINE: V8 4.7L", "ASPIRATION: NA", "TORQUE: 490 NM",
+	"ENGINE: V8 4.7L", "ASPIRATION: NA", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Brutus Stingray":[
@@ -1010,7 +1031,8 @@ var car_scene_paths = {
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
 	"Eisenach Monarch":"res://Scenes/bmw_745.tscn",
 	"Straeda Volant":"res://Scenes/cooper_s.tscn",
-	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
+	"Kronstadt Predator":"res://Scenes/clk55.tscn",
+	"Bartoli Cruiser":"res://Scenes/spyder.tscn",
 
 
 	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",

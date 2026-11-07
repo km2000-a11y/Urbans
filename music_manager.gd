@@ -15,6 +15,7 @@ var race_tracks := [
 	"res://Songs/Incursion.mp3",
 	"res://Songs/Infected Euphoria.mp3",
 	"res://Songs/Queen of the Night.mp3",
+	"res://Scenes/MachinimaSound.com_-_Sexergetic.mp3",
 	"res://Songs/Skirt Shaker.mp3",
 	"res://Songs/Summer Shade.mp3",
 	"res://Songs/They Found Us.mp3"
