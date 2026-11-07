@@ -825,7 +825,7 @@ var sport = {
 	"Bartoli Cruiser":[
 	"", "Country: Italy", "HP: 434", "WEIGHT: 1880 KG",
 	"0-100 KM/H: 4.7s", "TOP SPEED: 295 KM/H",
-	"ENGINE: V8 4.7L", "ASPIRATION: NA", "TORQUE: 450 NM",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Brutus Stingray":[
