@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://cxr82yf8vka6f"]
 
-[ext_resource type="Script" uid="uid://dc2n0tjilt6d" path="res://Scenes/volvo_s_60r.gd" id="1_7dbyq"]
+[ext_resource type="Script" uid="uid://dc2n0tjilt6d" path="res://Scenes/ford_mondeo.gd" id="1_7dbyq"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_70vs0"]
 [ext_resource type="AudioStream" uid="uid://b74orx6rrqevj" path="res://SFX/petrol.mp3" id="3_njpiy"]
 [ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="4_8sal0"]

@@ -40,6 +40,7 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Mir Cars Blazer",
 		"Kestrel Seabird",
+		"Kronstadt Predator",
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 	],
@@ -157,6 +158,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Kronstadt Predator",
 		"Berkshire Mocha",
 		"Mir Cars Blazer"
 	],
@@ -174,6 +176,7 @@ var class_lists: Dictionary = {
 		"Bartoli Cruiser",
 		"Mir Cars Blazer",
 		"Eisenach Monarch",
+		"Kronstadt Predator",
 		"Berkshire Blunt",
 		"Brutus Stingray"
 	],
@@ -198,6 +201,7 @@ var class_lists: Dictionary = {
 		"Zenith Touring",
 		"Eisenach Monarch",
 		"Kronstadt Regent",
+		"Kronstadt Predator",
 		"Mir Cars Nightwolf",
 		"Berkshire Mocha",
 		"Schroder Colosso",
@@ -245,6 +249,7 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Zenith Touring",
+		"Kronstadt Predator",
 		"Bartoli Cruiser",
 		"Berkshire Mocha",
 		"Berkshire Tempest",
@@ -288,6 +293,7 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Schroder Suppressor",
 		"Kronstadt Regent",
+		"Kronstadt Predator",
 		"Schroder Classique Sport",
 		"Eisenach Monarch",
 		"Eisenach Bengal",
@@ -334,6 +340,7 @@ var class_lists: Dictionary = {
 
 	"Zenith Horizon",
 	"Zenith Touring",
+	"Kronstadt Predator",
 
 	"Kuro Vault",
 
@@ -395,7 +402,8 @@ var car_scene_paths := {
 
 	"Schroder Atrix Sport":"res://Scenes/audi_tt_rs.tscn",
 	"Brutus Goblin":"res://Scenes/ford_mondeo.tscn",
-	"Bartoli Cruiser":"res://Scenes/granturismo.tscn",
+	"Kronstadt Predator":"res://Scenes/clk55.tscn",
+	"Bartoli Cruiser":"res://Scenes/spyder.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
 	"Eisenach Black Panda":"res://Scenes/bmw_330d.tscn",
@@ -464,7 +472,18 @@ var car_colors = {
 	Color8(0,60,20),
 	Color8(120,0,0)
 ],
-
+"Kronstadt Predator":[
+	Color8(255,255,255),  # Polar White (default)
+	Color8(15,15,15),     # Obsidian Black
+	Color8(192,192,192),  # Brilliant Silver
+	Color8(90,90,90),     # Flint Grey
+	Color8(25,35,80),     # Midnight Blue
+	Color8(0,66,37),      # Emerald Green
+	Color8(110,20,20),    # Bordeaux Red
+	Color8(145,145,125),  # Travertine Beige
+	Color8(60,70,120),    # Capri Blue
+	Color8(180,170,145)   # Champagne Silver
+],
 "Mir Cars Nightwolf":[
 	Color8(0,0,192),
 	Color8(255,255,255),

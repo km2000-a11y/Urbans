@@ -13,6 +13,7 @@ var song_names := [
 	"Incursion",
 	"Infected Euphoria",
 	"Queen of the Night",
+	"Sexergetic",
 	"Skirt Shaker",
 	"Summer Shade",
 	"They Found Us"
