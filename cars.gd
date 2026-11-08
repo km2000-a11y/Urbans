@@ -402,7 +402,7 @@ var car_scene_paths := {
 
 	"Schroder Atrix Sport":"res://Scenes/audi_tt_rs.tscn",
 	"Mir Cars Goblin":"res://Scenes/ford_mondeo.tscn",
-	"Kronstadt Predator":"res://Scenes/clk55.tscn",
+	"Kronstadt Predator":"res://Scenes/cls55.tscn",
 	"Bartoli Cruiser":"res://Scenes/4200_gt.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",

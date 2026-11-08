@@ -1,34 +1,36 @@
 extends CanvasLayer
 
-func _start_race_with_track(track_name: String):
+func _start_race_with_track(track_name: String) -> void:
 	RoadChallengeState.active_track = track_name
 
 	if GameMode.game_mode == "Multi-Device":
-		var mp := LanManager.multiplayer
-		var c := Cars.selected_color
+		var my_color: Color = Cars.selected_color
 
-		# Синхронизируем свой цвет со всеми
-		LanManager.rpc("sync_my_color", c.r, c.g, c.b)
-		LanManager.player_colors[mp.get_unique_id()] = c
+		# Сообщаем всем игрокам выбранный цвет.
+		LanManager.rpc(
+			"sync_my_color",
+			my_color.r,
+			my_color.g,
+			my_color.b
+		)
 
-		# Трассу запускает только хост, клиент ждёт
-		if mp.is_server():
+		# Трассу запускает только хост.
+		if multiplayer.is_server():
 			LanManager.rpc("sync_track_and_start", track_name)
 	else:
 		TrackName.track_name = track_name
 		get_tree().change_scene_to_file("res://main.tscn")
 
-
-func _on_bogota_airport_pressed():
+func _on_bogota_airport_pressed() -> void:
 	_start_race_with_track("BogotaAirport")
 
-func _on_chernobyl_pressed():
+func _on_chernobyl_pressed() -> void:
 	_start_race_with_track("Chernobyl")
 
-func _on_abu_dhabi_pressed():
+func _on_abu_dhabi_pressed() -> void:
 	_start_race_with_track("AbuDhabi")
 
-func _on_split_pressed():
+func _on_split_pressed() -> void:
 	_start_race_with_track("Split")
 
 func _on_new_york_pressed() -> void:
@@ -36,7 +38,6 @@ func _on_new_york_pressed() -> void:
 
 func _on_las_vegas_pressed() -> void:
 	_start_race_with_track("LasVegas")
-
 
 func _on_back_btn_pressed() -> void:
 	if Modes.mode == "Cop Chase":

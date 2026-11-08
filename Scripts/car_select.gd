@@ -1094,7 +1094,7 @@ var car_scene_paths = {
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
 	"Eisenach Monarch":"res://Scenes/bmw_745.tscn",
 	"Straeda Volant":"res://Scenes/cooper_s.tscn",
-	"Kronstadt Predator":"res://Scenes/clk55.tscn",
+	"Kronstadt Predator":"res://Scenes/cls55.tscn",
 	"Bartoli Cruiser":"res://Scenes/4200_gt.tscn",
 
 

@@ -13,7 +13,7 @@ func _ready():
 	mass = 1610.0
 	horsepower = 280
 	max_rpm = 6800.0
-	zero_to_hundred = 5.4
+	zero_to_hundred = 5.6
 	top_speed_kmh = 265
 
 	# Stable AWD sports sedan

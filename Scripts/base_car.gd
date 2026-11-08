@@ -55,7 +55,7 @@ var stability_values := {
 var stability_factor:=1.0
 const GRAVITY := 30.0
 const ENGINE_BRAKE := 0.5
-const DRAG := 0.08
+const DRAG := 0.085
 const HARD_LIMIT_KMH := 400.0
 const HARD_LIMIT := HARD_LIMIT_KMH / 3.6
 var display_hp := 0.0
@@ -350,7 +350,13 @@ var phase: float = 0.0
 # we will now override it safely as a standard AudioStreamPlayer object:
 
 func _ready() -> void:
-	
+	# Add this so cars don't block each other via Godot's rigid physics walls
+	# --- CAR-TO-CAR COLLISION EXCEPTION ---
+	# Automatically tell Godot's physics engine to ignore default solid-wall blocking 
+	# between all CarControllers so our custom script can handle the speed math instead.
+	var root := get_tree().current_scene
+	if root:
+		_find_and_add_car_exceptions(root)
 	wheelbase = front_left.global_position.distance_to(
 	rear_left.global_position
 )
@@ -791,16 +797,14 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	var wall_scrape := false
 
 	# --- UNIFIED COLLISION HANDLING ---
+	# --- UNIFIED COLLISION HANDLING ---
+	# --- UNIFIED COLLISION HANDLING ---
+	# --- UNIFIED COLLISION HANDLING ---
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
 		
-		if not (other is CarController):
-			if velocity.length() > 8.0:
-				if not CrashPlayer.playing:
-					CrashPlayer.play()
-					
-		# --- 1. CAR-TO-CAR COLLISIONS ---
+		# Check purely by node type
 		if other is CarController:
 			var other_car := other as CarController
 
@@ -809,7 +813,6 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			my_forward = my_forward.normalized()
 
 			var other_forward := -other_car.transform.basis.z
-			other_forward.y = 0.0
 			other_forward.y = 0.0
 			other_forward = other_forward.normalized()
 
@@ -820,83 +823,44 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			var rear_end := behind_them and same_direction
 
 			if rear_end:
-				var current_speed_mph := Vector3(velocity.x, 0.0, velocity.z).length() * 3.6
+				# 1. Hitter keeps 65% speed (loses exactly 35%)
+				var flat := Vector3(velocity.x, 0.0, velocity.z)
+				if flat.length() > 0.0:
+					flat *= 0.65
+					velocity.x = flat.x
+					velocity.z = flat.z
+					sync_velocity = velocity
+
+				# 2. Dynamically ignore the blocking collision for a split second 
+				#    so Godot doesn't dead-stop your 65% velocity, then reset it.
+				add_collision_exception_with(other_car)
+				other_car.add_collision_exception_with(self)
 				
-				if current_speed_mph > 60.0:
-					var mass_ratio :float= mass / max(other_car.mass, 1.0)
-					
-					# Sheds exactly 35% of speed (retains 65%)
-					var base_retention := 0.65 
-					var speed_retention :float= clamp(base_retention + (mass_ratio - 1.0) * 0.1, 0.40, 0.90)
-					
-					var flat := Vector3(velocity.x, 0.0, velocity.z)
-					if flat.length() > 0.0:
-						# Apply the 35% drop directly
-						flat *= speed_retention
-						
-						# FORCE override velocity so Godot's collision solver can't zero it out
-						velocity.x = flat.x
-						velocity.z = flat.z
-						sync_velocity = velocity # Keep multiplayer sync updated if used
+				get_tree().create_timer(0.2).timeout.connect(func():
+					if is_instance_valid(self) and is_instance_valid(other_car):
+						remove_collision_exception_with(other_car)
+						other_car.remove_collision_exception_with(self)
+				)
 
-					var push_power :float= clamp(0.35 * mass_ratio, 0.1, 0.8)
-					other_car.velocity += my_forward * flat.length() * push_power
-				else:
-					var mass_ratio :float= mass / max(other_car.mass, 1.0)
-					var speed_retention :float= clamp(0.7 + (mass_ratio - 1.0) * 0.15, 0.7, 0.98)
-					var flat := Vector3(velocity.x, 0.0, velocity.z)
-					if flat.length() > 0.0:
-						flat *= speed_retention
-						velocity.x = flat.x
-						velocity.z = flat.z
-					var push_power :float= clamp(0.25 * mass_ratio, 0.1, 0.6)
-					other_car.velocity += my_forward * flat.length() * push_power
-
+				# Car being rear-ended is scot-free (no speed penalty, no push)
+				continue
 			else:
+				# Side-swipes / head-ons (normal collision physics & bouncing)
 				var hit_dir := (other_car.global_position - global_position).normalized()
 				hit_dir.y = 0.0
-				var mass_ratio: float = mass / max(other_car.mass, 1.0)
-				mass_ratio = clamp(mass_ratio, 0.5, 2.0)
-				var shove_force := velocity.length() * mass_ratio * 0.08
-				other_car.velocity += hit_dir * shove_force
+				var mass_ratio :float= mass / max(other_car.mass, 1.0)
+
+				if mass_ratio < 0.8:
+					var bounce_dir := (global_position - other_car.global_position).normalized()
+					bounce_dir.y = 0.0
+					velocity = bounce_dir * (velocity.length() * 0.5)
+				else:
+					var speed_retention :float= clamp(0.7 + (mass_ratio - 1.0) * 0.15, 0.6, 0.95)
+					velocity *= speed_retention
+					var shove_force := velocity.length() * mass_ratio * 0.2
+					other_car.velocity += hit_dir * shove_force
 				
-			continue # Skip environmental wall checks for cars entirely
-
-		# --- 2. PROP PUSH ---
-		if other is RigidBody3D:
-			var n := col.get_normal()
-			n.y = 0.0
-			n = n.normalized()
-			var flat_n := Vector3(n.x, 0.0, n.z).normalized()
-			var mass_factor :float= clamp(1200.0 / mass, 0.4, 1.0)
-			var push_force :float= clamp(velocity.length() * 0.10, 1.0, 5.0) * mass_factor
-
-			var impulse_pos := global_position
-			impulse_pos.y -= 0.45
-
-			if col.get_normal().y <= 0.25:
-				other.apply_impulse(-flat_n * push_force, impulse_pos)
-
-			velocity.y = min(velocity.y, 0.0)
-			continue
-
-		# --- 3. ENVIRONMENT WALLS ---
-		var n := col.get_normal()
-		n.y = 0.0
-		n = n.normalized()
-
-		if n.length() < 0.45: continue
-		if n.dot(Vector3.UP) > 0.55: continue
-
-		var front_dot := forward.dot(n)
-		var side_dot := right.dot(n)
-
-		if front_dot > -0.45: continue
-		if abs(side_dot) < 0.35: continue
-
-		if front_dot < -0.85: wall_block = true
-		if abs(side_dot) > 0.55: wall_scrape = true
-	
+				continue
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
@@ -1260,34 +1224,53 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 - launch_grip
 			)
 
+				# REAL-LIFE DIESEL PROFILE: 
+				# Controlled, heavy launch (~7s 0-100 km/h), 
+				# turning into an unstoppable freight train in the midrange, 
+				# and crawling steadily to top speed.
+				
 			if is_diesel:
-
-				# Slightly sleepy off boost
-				if speed_kmh < 55.0:
-					accel_force *= 0.90
-
-				# Turbo woke up
-				elif speed_kmh < 80.0:
-					accel_force *= 1.25
-
-				# Freight train territory
-				elif speed_kmh < 140.0:
-					accel_force *= 1.55
-
-				# Still crushing everything
-				elif speed_kmh < 200.0:
-					accel_force *= 1.30
-
-				# Fading but still strong
+				if speed_kmh < 30.0:
+					accel_force = acceleration_calc * 0.30  # Heavy lag off the line (7.4s 0-100)
+				elif speed_kmh < 90.0:
+					accel_force = acceleration_calc * 0.65  # Controlled rollout
+				elif speed_kmh < 180.0:
+					accel_force = acceleration_calc * 1.50
+				elif speed_kmh<220.0:
+					accel_force=acceleration_calc*1.12
 				else:
-					accel_force *= 1.05
+					# TOP END BEHAVIOR:
+					if nitro_active:
+						accel_force = acceleration_calc * 1.85  # NOS SHOT: Shatters the aerodynamic wall!
+					else:
+						accel_force = acceleration_calc * 0.65  # Breathless and struggling without NOS
+
+				# Soft limiter / top speed handling
+				if nitro_active:
+					pass # Let nitro punch past normal limits smoothly
+				elif speed_kmh > top_speed_kmh:
+					accel_force *= 0.40
+				# Soft limiter right at max speed
 			if not is_diesel:
-				# Keep 100% engine power all the way to top speed, 
-				# only cutting power *after* it hits top_speed_kmh to act as a soft rev-limiter.
-				if speed_kmh > top_speed_kmh:
-					accel_force *= 0.50  # Soft governor right at max speed, not before!
+				# Standard petrol power drop near top speed, overridden completely by NOS
+				if nitro_active:
+					accel_force *= 1.50  # NOS SURGE: Keeps pulling hard past the top-end wall!
 				else:
-					pass  # Full power all the way up!
+					# Pushed thresholds much closer to top_speed_kmh so it pulls hard to the end
+					if speed_kmh > top_speed_kmh * 0.99:
+						accel_force *= 0.75  # Gentle final taper right at the edge
+					elif speed_kmh > top_speed_kmh * 0.96:
+						accel_force *= 0.87  # Barely touching power
+					elif speed_kmh > top_speed_kmh * 0.92:
+						accel_force *= 0.95  # Virtually full power
+
+				# Soft governor right at max speed (pushed slightly higher if NOS is on)
+				var effective_top_speed := top_speed_kmh
+				if nitro_active:
+					effective_top_speed *= nitro_top_speed_multiplier
+					
+				if speed_kmh > effective_top_speed:
+					accel_force *= 0.50
 			velocity += forward * accel_force * delta
 
 
@@ -2008,7 +1991,10 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 	)
 
 	RevPlayer.pitch_scale = engine_pitch_smoothed
-	RevPlayer.volume_db = clamp(engine_volume_smoothed - 2.0, -40.0, 0.0)
+	if not is_diesel: 
+		RevPlayer.volume_db = clamp(engine_volume_smoothed-2.0, -40.0, 0.0)
+	else:RevPlayer.volume_db = clamp(engine_volume_smoothed+1.0, -40.0, 0.0)
+		
 func setup_engine_bus() -> void:
 	if not is_instance_valid(RevPlayer):
 		return
@@ -2042,3 +2028,10 @@ func setup_engine_bus() -> void:
 		return
 
 	RevPlayer.bus = bus_name
+func _find_and_add_car_exceptions(node: Node) -> void:
+	for child in node.get_children():
+		if child is CarController and child != self:
+			add_collision_exception_with(child)
+		# Recursively search sub-nodes in case cars are nested under tracks, holders, etc.
+		if child.get_child_count() > 0:
+			_find_and_add_car_exceptions(child)

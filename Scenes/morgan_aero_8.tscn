@@ -109,7 +109,7 @@ size = Vector3(0.1, 0.3, 0.45)
 albedo_color = Color(0.752941, 0.752941, 0.752941, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_aj0wr"]
-size = Vector3(0.6, 0.3, 0.3)
+size = Vector3(0.6, 0.3, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08euy"]
 size = Vector3(1, 1, 1.7)
@@ -289,22 +289,22 @@ material_override = SubResource("StandardMaterial3D_o0rqx")
 mesh = SubResource("BoxMesh_wlqbx")
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="ModelRoot" unique_id=1627443550]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.201282, 0.201048, -0.115485)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.20128201, 0.201048, -0.1747578)
 material_override = SubResource("StandardMaterial3D_8cjtc")
 mesh = SubResource("CylinderMesh_mitkg")
 
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="ModelRoot" unique_id=1860282289]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.203262, 0.20118, -0.115485)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.20326199, 0.20118, -0.17730536)
 material_override = SubResource("StandardMaterial3D_8cjtc")
 mesh = SubResource("CylinderMesh_mitkg")
 
 [node name="MeshInstance3D20" type="MeshInstance3D" parent="ModelRoot" unique_id=63071766]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.137691, 0.166151, -0.115485)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.13769099, 0.166151, -0.17534812)
 material_override = SubResource("StandardMaterial3D_8cjtc")
 mesh = SubResource("CylinderMesh_mitkg")
 
 [node name="MeshInstance3D21" type="MeshInstance3D" parent="ModelRoot" unique_id=893870268]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.15946, 0.166151, -0.115485)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.15946001, 0.166151, -0.17017868)
 material_override = SubResource("StandardMaterial3D_8cjtc")
 mesh = SubResource("CylinderMesh_mitkg")
 
@@ -385,7 +385,7 @@ mesh = SubResource("BoxMesh_loa1l")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="ModelRoot/Body" unique_id=1053648502]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136324, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.474081e-09, 0.136324, -0.036253154)
 material_override = SubResource("StandardMaterial3D_71ar3")
 mesh = SubResource("BoxMesh_aj0wr")
 skeleton = NodePath("../..")
