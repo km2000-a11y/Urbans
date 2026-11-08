@@ -73,7 +73,6 @@ var class_lists: Dictionary = {
 	"urban": [
 		"Berkshire Falcon",
 		"Kestrel Seabird",
-		"Kronstadt Predator",
 		"Kestrel Speedster",
 		"Brutus Stingray",
 		"Berkshire Blunt",
@@ -103,7 +102,7 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Schroder Classique Sport",
 		"Berkshire V12-S",
-		"Kestrel Guillotine",
+		"Kronstadt Predator",
 		"Bartoli Cruiser",
 	],
 
@@ -115,6 +114,7 @@ var class_lists: Dictionary = {
 	],
 
 	"supercars": [
+		"Kestrel Guillotine",
 		"Linetti Firestorm",
 		"Mir Cars Raptor",
 		"Linetti Terror"
@@ -191,7 +191,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
-		"Kronstadt Predator",
+		"Brutus Stingray",
 		"Berkshire Blunt",
 		"Berkshire Falcon"
 	],
@@ -235,7 +235,6 @@ var class_lists: Dictionary = {
 		"Eisenach Monarch",
 		"Berkshire Falcon",
 		"Kronstadt Regent",
-		"Kronstadt Predator",
 		"Mir Cars Nightwolf",
 		"Berkshire Mocha",
 		"Schroder Colosso",
@@ -426,7 +425,7 @@ var cup_rewards: Dictionary = {
 	"england_vs_italy":"Berkshire V12-S",
 
 	"gentleman_racers":"Brutus Venom",
-	
+	"american_thunder":"Kronstadt Predator",
 	"v8_fury":"Kestrel Battleaxe",
 	"kestrel_max":"Berkshire Tempest",
 

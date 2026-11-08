@@ -115,6 +115,7 @@ var car_sell_prices := {
 	"Linetti Firestorm": 243750,
 	"Mir Cars Nightwolf":20000,
 	"Mir Cars Raptor": 262500,
+	"Kronstadt Predator":110000,
 	"Linetti Terror": 300000,
 
 	"Bartoli Track Cruiser": 375000,
@@ -157,7 +158,7 @@ var car_prices := {
 	
 	"Kestrel Seabird":96000,
 	"Berkshire Mocha":105000,
-	
+	"Kronstadt Predator":195000,
 	"Bartoli Cruiser":157000,
 	"Bartoli Track Cruiser":500000,
 	
@@ -687,12 +688,9 @@ var muscle_list = [
 var urban_list = [
 	"Berkshire Falcon",
 	"Kestrel Seabird",
-	"Kronstadt Predator",
 	"Kestrel Speedster",
 	"Berkshire Blunt",
 	"Brutus Stingray",
-	
-	
 ]
 var sedans_list = [
 	"Mir Cars Goblin",
@@ -711,7 +709,7 @@ var sport_list = [
 	"Schroder Classique Sport",
 	"Bartoli Cruiser",
 	"Berkshire V12-S",
-	"Kestrel Guillotine",
+	"Kronstadt Predator",
 ]
 
 var sport_racing_list = [
@@ -722,6 +720,7 @@ var sport_racing_list = [
 ]
 
 var supercars_list = [
+	"Kestrel Guillotine",
 	"Linetti Firestorm",
 	"Mir Cars Raptor",
 	"Linetti Terror",
@@ -822,13 +821,6 @@ var urban_racers = {
 	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-"Kronstadt Predator":[
-	"", "Country: Germany", "HP: 342", "WEIGHT: 1720 KG",
-	"0-100 KM/H: 5.5s", "TOP SPEED: 256 KM/H",
-	"ENGINE: V8 5.4L", "ASPIRATION: NA",
-	"TORQUE: 510 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
 "Brutus Stingray":[
 		"", "Country: USA", "HP: 350", "WEIGHT: 1460 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 258 KM/H",
@@ -888,18 +880,19 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Kronstadt Predator":[
+	"", "Country: Germany", "HP: 342", "WEIGHT: 1720 KG",
+	"0-100 KM/H: 5.5s", "TOP SPEED: 256 KM/H",
+	"ENGINE: V8 5.4L", "ASPIRATION: Supercharged",
+	"TORQUE: 700 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 	"Bartoli Cruiser":[
 	"", "Country: Italy", "HP: 434", "WEIGHT: 1880 KG",
 	"0-100 KM/H: 4.7s", "TOP SPEED: 295 KM/H",
 	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-"Kestrel Guillotine":[
-		"", "Country: UK", "HP: 440", "WEIGHT: 1100 KG",
-		"0-100 KM/H: 3.6s", "TOP SPEED: 315 KM/H",
-		"ENGINE: L6 4.0L", "ASPIRATION: NA", "TORQUE: 420 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Schroder Classique Sport":[
 		"", "Country: Germany", "HP: 270", "WEIGHT: 1490 KG",
 		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
@@ -978,7 +971,13 @@ var supercars = {
 		"0-100 KM/H: 4.2s", "TOP SPEED: 328 KM/H",
 		"ENGINE: V12 5.7L", "ASPIRATION: NA", "TORQUE: 580 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
-	]
+	],
+	"Kestrel Guillotine":[
+		"", "Country: UK", "HP: 440", "WEIGHT: 1100 KG",
+		"0-100 KM/H: 3.6s", "TOP SPEED: 315 KM/H",
+		"ENGINE: L6 4.0L", "ASPIRATION: NA", "TORQUE: 450 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 }
 var track_cars = {
 	"Mir Cars Athletic C70":[

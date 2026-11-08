@@ -10,10 +10,10 @@ var zero_to_hundred_display := 3.60
 func _ready():
 	# PERFORMANCE
 	mass = 1100.0
-	horsepower = 360
+	horsepower = 420
 	max_rpm = 8200.0
-	zero_to_hundred = 4.2
-	top_speed_kmh = 292
+	zero_to_hundred = 3.7
+	top_speed_kmh = 315
 
 	# HANDLING — razor sharp, supercar-tier
 	turn_speed = 3.45

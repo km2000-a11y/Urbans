@@ -9,19 +9,20 @@ var zero_to_hundred_display := 5.50
 
 func _ready():
 	# GAMEPLAY STATS — 2002 Mercedes-Benz CLK55 AMG
-	mass = 1720.0
-	horsepower = 342
+	mass = 1910.0
+	horsepower = 493
 	max_rpm = 6100.0
 	idle_rpm = 650.0
-	zero_to_hundred = 4.9
-	top_speed_kmh = 250
+	zero_to_hundred = 4.7
+	top_speed_kmh = 286
 	transmission = "Rear wheel drive"
 
 	# HANDLING — Stable AMG grand tourer
-	turn_speed = 2.70
+	turn_speed = 2.40
 	brake_strength = 12.8
 	audio_character_type=7
 	lateral_friction = 1.20
+	has_supercharger=true
 
 	# Mercedes 722.6 5-speed automatic
 	gear_count = 5
