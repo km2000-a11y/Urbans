@@ -112,7 +112,7 @@ albedo_color = Color(0.752941, 0.752941, 0.752941, 1)
 albedo_color = Color(0.752941, 0.752941, 0.752941, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6d3fy"]
-size = Vector3(0.85, 0.35, 0.45)
+size = Vector3(0.95, 0.35, 0.45)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtqb8"]
 albedo_color = Color(1, 0.752941, 0, 1)
@@ -312,12 +312,12 @@ material_override = SubResource("StandardMaterial3D_cljdu")
 mesh = SubResource("BoxMesh_4yiuc")
 
 [node name="MeshInstance3D20" type="MeshInstance3D" parent="ModelRoot" unique_id=901533658]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30758408, 0.272225, -0.14268564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34007055, 0.272225, -0.14268564)
 material_override = SubResource("StandardMaterial3D_srhm5")
 mesh = SubResource("BoxMesh_0cham")
 
 [node name="MeshInstance3D21" type="MeshInstance3D" parent="ModelRoot" unique_id=1706058895]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27165297, 0.272225, -0.15499559)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3330675, 0.272225, -0.15499559)
 material_override = SubResource("StandardMaterial3D_srhm5")
 mesh = SubResource("BoxMesh_0cham")
 

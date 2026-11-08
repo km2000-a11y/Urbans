@@ -55,7 +55,7 @@ var stability_values := {
 var stability_factor:=1.0
 const GRAVITY := 30.0
 const ENGINE_BRAKE := 0.5
-const DRAG := 0.1
+const DRAG := 0.08
 const HARD_LIMIT_KMH := 400.0
 const HARD_LIMIT := HARD_LIMIT_KMH / 3.6
 var display_hp := 0.0
@@ -790,17 +790,18 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	var wall_block := false
 	var wall_scrape := false
 
-	# --- COLLISION HANDLING (SEAMS + RIGIDBODIES) ---
-	# --- COLLISION HANDLING (SEAM-PROOF + WALL SCRAPE + PROPS) ---
+	# --- UNIFIED COLLISION HANDLING ---
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
+		
 		if not (other is CarController):
 			if velocity.length() > 8.0:
 				if not CrashPlayer.playing:
 					CrashPlayer.play()
+					
+		# --- 1. CAR-TO-CAR COLLISIONS ---
 		if other is CarController:
-
 			var other_car := other as CarController
 
 			var my_forward := -transform.basis.z
@@ -809,58 +810,93 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 			var other_forward := -other_car.transform.basis.z
 			other_forward.y = 0.0
+			other_forward.y = 0.0
 			other_forward = other_forward.normalized()
 
 			var to_other := (other_car.global_position - global_position).normalized()
 
-			# We are behind them
 			var behind_them := other_forward.dot(-to_other) > 0.5
-
-			# Both cars travelling roughly same direction
 			var same_direction := my_forward.dot(other_forward) > 0.7
-
 			var rear_end := behind_them and same_direction
 
 			if rear_end:
-				# --- MASS-BASED MOMENTUM RETENTION ---
-				# Heavier cars lose less speed. mass_ratio compares our mass to the victim's mass.
-				# If we are much heavier, our speed reduction multiplier is much closer to 1.0 (no slowdown).
-				var mass_ratio :float= mass / max(other_car.mass, 1.0)
-				var speed_retention :float= clamp(0.7 + (mass_ratio - 1.0) * 0.15, 0.7, 0.98)
+				var current_speed_mph := Vector3(velocity.x, 0.0, velocity.z).length() * 3.6
+				
+				if current_speed_mph > 60.0:
+					var mass_ratio :float= mass / max(other_car.mass, 1.0)
+					
+					# Sheds exactly 35% of speed (retains 65%)
+					var base_retention := 0.65 
+					var speed_retention :float= clamp(base_retention + (mass_ratio - 1.0) * 0.1, 0.40, 0.90)
+					
+					var flat := Vector3(velocity.x, 0.0, velocity.z)
+					if flat.length() > 0.0:
+						# Apply the 35% drop directly
+						flat *= speed_retention
+						
+						# FORCE override velocity so Godot's collision solver can't zero it out
+						velocity.x = flat.x
+						velocity.z = flat.z
+						sync_velocity = velocity # Keep multiplayer sync updated if used
 
-				# Keep a high percentage of speed based on weight
-				var flat := Vector3(velocity.x, 0.0, velocity.z)
-
-				if flat.length() > 0.0:
-					flat *= speed_retention
-
-					velocity.x = flat.x
-					velocity.z = flat.z
-
-				# Push victim forward more forcefully if we are heavy
-				var push_power :float= clamp(0.25 * mass_ratio, 0.1, 0.6)
-				other_car.velocity += my_forward * flat.length() * push_power
+					var push_power :float= clamp(0.35 * mass_ratio, 0.1, 0.8)
+					other_car.velocity += my_forward * flat.length() * push_power
+				else:
+					var mass_ratio :float= mass / max(other_car.mass, 1.0)
+					var speed_retention :float= clamp(0.7 + (mass_ratio - 1.0) * 0.15, 0.7, 0.98)
+					var flat := Vector3(velocity.x, 0.0, velocity.z)
+					if flat.length() > 0.0:
+						flat *= speed_retention
+						velocity.x = flat.x
+						velocity.z = flat.z
+					var push_power :float= clamp(0.25 * mass_ratio, 0.1, 0.6)
+					other_car.velocity += my_forward * flat.length() * push_power
 
 			else:
-
 				var hit_dir := (other_car.global_position - global_position).normalized()
 				hit_dir.y = 0.0
-
 				var mass_ratio: float = mass / max(other_car.mass, 1.0)
 				mass_ratio = clamp(mass_ratio, 0.5, 2.0)
-
 				var shove_force := velocity.length() * mass_ratio * 0.08
-
 				other_car.velocity += hit_dir * shove_force
-			var hit_dir := (other_car.global_position - global_position).normalized()
-			
-		# Raw normal
+				
+			continue # Skip environmental wall checks for cars entirely
+
+		# --- 2. PROP PUSH ---
+		if other is RigidBody3D:
+			var n := col.get_normal()
+			n.y = 0.0
+			n = n.normalized()
+			var flat_n := Vector3(n.x, 0.0, n.z).normalized()
+			var mass_factor :float= clamp(1200.0 / mass, 0.4, 1.0)
+			var push_force :float= clamp(velocity.length() * 0.10, 1.0, 5.0) * mass_factor
+
+			var impulse_pos := global_position
+			impulse_pos.y -= 0.45
+
+			if col.get_normal().y <= 0.25:
+				other.apply_impulse(-flat_n * push_force, impulse_pos)
+
+			velocity.y = min(velocity.y, 0.0)
+			continue
+
+		# --- 3. ENVIRONMENT WALLS ---
 		var n := col.get_normal()
 		n.y = 0.0
 		n = n.normalized()
 
-		# --- PROP PUSH (RigidBody3D) ---
-		# --- COLLISION HANDLING (SEAM-PROOF + WALL SCRAPE + PROPS) ---
+		if n.length() < 0.45: continue
+		if n.dot(Vector3.UP) > 0.55: continue
+
+		var front_dot := forward.dot(n)
+		var side_dot := right.dot(n)
+
+		if front_dot > -0.45: continue
+		if abs(side_dot) < 0.35: continue
+
+		if front_dot < -0.85: wall_block = true
+		if abs(side_dot) > 0.55: wall_scrape = true
+	
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
@@ -974,8 +1010,10 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	# --- REVPLAYER AUDIO UPDATE (Crackling Fixed & True Highway Cruise) ---
 	# --- REVPLAYER AUDIO UPDATE (For Idle-to-Rev Audio Files) ---
 	# --- REVPLAYER AUDIO UPDATE (Handling Full Throttle at Top Speed) ---
-	var torque_factor := rpm / max_rpm
-	
+	var torque_factor := (
+		0.5
+		+ sin(rpm_ratio * PI * 0.5) * 0.5
+	)
 
 	# --- DRIVETRAIN ---
 	# --- DRIVETRAIN ---
@@ -1170,7 +1208,57 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			var launch_boost := 1.0
 			if current_gear == 1:
 				launch_boost = 1.25
-			accel_force = acceleration_calc * torque_factor * traction_factor * launch_boost * launch_grip
+			var power_delivery := torque_factor
+
+			if has_turbo:
+
+				# Weak low down
+				# Huge midrange
+
+				if rpm_ratio < 0.35:
+
+					power_delivery *= 0.75
+
+				elif rpm_ratio < 0.60:
+
+					power_delivery *= 1.30
+
+				elif rpm_ratio < 0.85:
+
+					power_delivery *= 1.45
+
+				else:
+
+					power_delivery *= 1.10
+
+			elif has_supercharger:
+
+				# Power everywhere, but scaled down at launch to prevent 2-sec 0-60s
+				# Starts lower to simulate initial traction limits / belt load-up
+
+				power_delivery *= lerp(
+					0.95,  # Reduced from 1.20 (slips/hooks up gradually)
+					1.25,  # Reduced from 1.45 (peaks at a saner top-end multiplier)
+					rpm_ratio
+				)
+
+			else:
+
+				# Naturally aspirated
+
+				power_delivery *= lerp(
+					0.90,
+					1.30,
+					rpm_ratio
+				)
+
+			accel_force = (
+				acceleration_calc
+- power_delivery
+- traction_factor
+- launch_boost
+- launch_grip
+			)
 
 			if is_diesel:
 
@@ -1193,8 +1281,15 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 				# Fading but still strong
 				else:
 					accel_force *= 1.05
-
+			if not is_diesel:
+				# Keep 100% engine power all the way to top speed, 
+				# only cutting power *after* it hits top_speed_kmh to act as a soft rev-limiter.
+				if speed_kmh > top_speed_kmh:
+					accel_force *= 0.50  # Soft governor right at max speed, not before!
+				else:
+					pass  # Full power all the way up!
 			velocity += forward * accel_force * delta
+
 
 	else:
 		var flat := Vector3(velocity.x, 0, velocity.z)
@@ -1659,143 +1754,201 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 
 	# Each family has its own RPM curve and sound behavior.
 	match audio_character_type:
-		0: # Luxury V8: quiet, smooth, restrained
-			curve = pow(rpm_ratio, 1.6)
-			pitch_range = 0.30
-			throttle_response = 0.08
-			idle_db = -31.0
-			load_db = -15.0
-			rumble = 0.002
-			rumble_speed = 3.0
 
-		1: # American V8: low, heavy, pulsing
-			curve = pow(rpm_ratio, 0.8)
-			pitch_range = 0.70
-			throttle_response = 0.28
-			idle_db = -20.0
-			load_db = -5.0
-			rumble = 0.035
-			rumble_speed = 7.0
+			0: # Luxury V8 (LS400, LX470)
 
-		2: # Italian exotic: smooth low RPM, screaming top end
-			curve = pow(rpm_ratio, 2.0)
-			pitch_range = 1.65
-			throttle_response = 0.42
-			idle_db = -26.0
-			load_db = -3.0
-			rumble = 0.006
-			rumble_speed = 9.0
-			rasp = 0.025
-			rasp_speed = 45.0
+				curve = pow(rpm_ratio, 1.8)
+				pitch_range = 0.25
+				throttle_response = 0.06
 
-		3: # Turbo four-cylinder: buzzy and eager
-			curve = pow(rpm_ratio, 1.15)
-			pitch_range = 1.35
-			throttle_response = 0.55
-			idle_db = -24.0
-			load_db = -5.0
-			rumble = 0.012
-			rumble_speed = 16.0
-			rasp = 0.018
-			rasp_speed = 55.0
+				idle_db = -32.0
+				load_db = -16.0
 
-		4: # Supercharged Jaguar: smooth whine under load
-			curve = pow(rpm_ratio, 1.35)
-			pitch_range = 0.95
-			throttle_response = 0.35
-			idle_db = -25.0
-			load_db = -4.0
-			rumble = 0.008
-			rumble_speed = 12.0
-			rasp = 0.025
-			rasp_speed = 38.0
+				rumble = 0.002
+				rumble_speed = 2.5
 
-		5: # TVR: raw, unstable, aggressive
-			curve = pow(rpm_ratio, 1.35)
-			pitch_range = 1.8
-			throttle_response = 0.65
-			idle_db = -19.0
-			load_db = -2.0
-			rumble = 0.045
-			rumble_speed = 18.0
-			rasp = 0.045
-			rasp_speed = 65.0
+				rasp = 0.0
+				rasp_speed = 0.0
 
-		6: # Diesel
-			curve = pow(rpm_ratio, 0.55)
-			pitch_range = 0.40
-			throttle_response = 0.15
-			idle_db = -14.0
-			load_db = 0.0
-			rumble = 0.045
-			rumble_speed = 4.0
+			1: # American Muscle V8 (GT500, Chevelle, Cobra)
 
-		7: # AMG: muscular V8 with a sharp bark
-			curve = pow(rpm_ratio, 1.0)
-			pitch_range = 0.80
-			throttle_response = 0.35
-			idle_db = -21.0
-			load_db = -3.0
-			rumble = 0.022
-			rumble_speed = 10.0
-			rasp = 0.012
-			rasp_speed = 36.0
+				curve = pow(rpm_ratio, 0.75)
+				pitch_range = 0.70
+				throttle_response = 0.25
 
-		8: # Aston Martin V12: refined, rising howl
-			curve = pow(rpm_ratio, 1.7)
-			pitch_range = 1.35
-			throttle_response = 0.32
-			idle_db = -27.0
-			load_db = -3.0
-			rumble = 0.004
-			rumble_speed = 6.0
-			rasp = 0.012
-			rasp_speed = 32.0
+				idle_db = -18.0
+				load_db = -4.0
 
-		9: # Maserati: resonant, theatrical, slightly rough
-			curve = pow(rpm_ratio, 1.4)
-			pitch_range = 1.15
-			throttle_response = 0.38
-			idle_db = -23.0
-			load_db = -3.0
-			rumble = 0.016
-			rumble_speed = 11.0
-			rasp = 0.022
-			rasp_speed = 40.0
+				rumble = 0.050
+				rumble_speed = 6.0
 
-		10: # BMW M: crisp, responsive, fast-revving
-			curve = pow(rpm_ratio, 1.25)
-			pitch_range = 1.45
-			throttle_response = 0.50
-			idle_db = -23.0
-			load_db = -4.0
-			rumble = 0.010
-			rumble_speed = 15.0
-			rasp = 0.018
-			rasp_speed = 48.0
+				rasp = 0.010
+				rasp_speed = 22.0
 
-		11: # Viper V10: deep, thunderous, uneven
-			curve = pow(rpm_ratio, 0.9)
-			pitch_range = 0.55
-			throttle_response = 0.30
-			idle_db = -18.0
-			load_db = -1.0
-			rumble = 0.055
-			rumble_speed = 5.5
-			rasp = 0.012
-			rasp_speed = 24.0
+			2: # High Rev Exotic (Gallardo, Diablo, Murcielago, Zonda)
 
-		12: # Saleen S7: race-bred, urgent, hard-edged
-			curve = pow(rpm_ratio, 1.55)
-			pitch_range = 1.55
-			throttle_response = 0.48
-			idle_db = -22.0
-			load_db = -2.0
-			rumble = 0.008
-			rumble_speed = 13.0
-			rasp = 0.025
-			rasp_speed = 52.0
+				curve = pow(rpm_ratio, 2.20)
+				pitch_range = 1.90
+				throttle_response = 0.45
 
+				idle_db = -26.0
+				load_db = -2.0
+
+				rumble = 0.005
+				rumble_speed = 10.0
+
+				rasp = 0.040
+				rasp_speed = 58.0
+
+			3: # Turbo Four (TT, Mini, Volvo)
+
+				curve = pow(rpm_ratio, 1.25)
+				pitch_range = 1.45
+				throttle_response = 0.65
+
+				idle_db = -24.0
+				load_db = -5.0
+
+				rumble = 0.012
+				rumble_speed = 16.0
+
+				rasp = 0.025
+				rasp_speed = 65.0
+
+			4: # Supercharged Jaguar (XKR)
+
+				curve = pow(rpm_ratio, 1.35)
+				pitch_range = 1.00
+				throttle_response = 0.35
+
+				idle_db = -22.0
+				load_db = -3.0
+
+				rumble = 0.010
+				rumble_speed = 12.0
+
+				rasp = 0.030
+				rasp_speed = 35.0
+
+			5: # TVR (Tuscan, Sagaris)
+
+				curve = pow(rpm_ratio, 1.45)
+				pitch_range = 2.10
+				throttle_response = 0.80
+
+				idle_db = -16.0
+				load_db = -1.0
+
+				rumble = 0.070
+				rumble_speed = 22.0
+
+				rasp = 0.055
+				rasp_speed = 75.0
+
+			6: # Diesel
+
+				curve = pow(rpm_ratio, 0.55)
+				pitch_range = 0.35
+				throttle_response = 0.12
+
+				idle_db = -12.0
+				load_db = 0.0
+
+				rumble = 0.060
+				rumble_speed = 4.0
+
+				rasp = 0.0
+				rasp_speed = 0.0
+
+			7: # AMG V8
+
+				curve = pow(rpm_ratio, 1.0)
+				pitch_range = 0.90
+				throttle_response = 0.38
+
+				idle_db = -20.0
+				load_db = -2.0
+
+				rumble = 0.025
+				rumble_speed = 10.0
+
+				rasp = 0.015
+				rasp_speed = 34.0
+
+			8: # Aston Martin V12 (DB9, Vanquish)
+
+				curve = pow(rpm_ratio, 1.8)
+				pitch_range = 1.40
+				throttle_response = 0.30
+
+				idle_db = -27.0
+				load_db = -3.0
+
+				rumble = 0.003
+				rumble_speed = 5.0
+
+				rasp = 0.015
+				rasp_speed = 32.0
+
+			9: # Maserati V8
+
+				curve = pow(rpm_ratio, 1.45)
+				pitch_range = 1.20
+				throttle_response = 0.40
+
+				idle_db = -22.0
+				load_db = -3.0
+
+				rumble = 0.018
+				rumble_speed = 11.0
+
+				rasp = 0.028
+				rasp_speed = 42.0
+
+			10: # BMW Performance Six (130i)
+
+				curve = pow(rpm_ratio, 1.35)
+				pitch_range = 1.55
+				throttle_response = 0.55
+
+				idle_db = -22.0
+				load_db = -4.0
+
+				rumble = 0.008
+				rumble_speed = 14.0
+
+				rasp = 0.020
+				rasp_speed = 48.0
+
+			11: # Viper V10
+
+				curve = pow(rpm_ratio, 0.85)
+				pitch_range = 0.60
+				throttle_response = 0.30
+
+				idle_db = -15.0
+				load_db = 0.0
+
+				rumble = 0.080
+				rumble_speed = 5.0
+
+				rasp = 0.010
+				rasp_speed = 20.0
+
+			12: # Saleen S7
+
+				curve = pow(rpm_ratio, 1.60)
+				pitch_range = 1.75
+				throttle_response = 0.50
+
+				idle_db = -21.0
+				load_db = -1.0
+
+				rumble = 0.008
+				rumble_speed = 13.0
+
+				rasp = 0.035
+				rasp_speed = 55.0
 	var target_pitch: float = audio_base_pitch * (
 		0.75 + curve * pitch_range
 	)
