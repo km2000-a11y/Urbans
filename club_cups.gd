@@ -71,9 +71,11 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"urban": [
-		"Mir Cars Blazer",
+		"Berkshire Falcon",
 		"Kestrel Seabird",
+		"Kronstadt Predator",
 		"Kestrel Speedster",
+		"Brutus Stingray",
 		"Berkshire Blunt",
 	],
 	
@@ -86,7 +88,7 @@ var class_lists: Dictionary = {
 	"sedans": [
 		"Kuro Vault",
 		"Berkshire Mocha",
-		"Brutus Goblin",
+		"Mir Cars Goblin",
 		"Zenith Touring",
 		"Strandberg Turbo",
 	],
@@ -101,8 +103,7 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Schroder Classique Sport",
 		"Berkshire V12-S",
-	
-		"Brutus Stingray",
+		"Kestrel Guillotine",
 		"Bartoli Cruiser",
 	],
 
@@ -114,7 +115,6 @@ var class_lists: Dictionary = {
 	],
 
 	"supercars": [
-		"Kestrel Guillotine",
 		"Linetti Firestorm",
 		"Mir Cars Raptor",
 		"Linetti Terror"
@@ -150,7 +150,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Kronstadt Regent",
-		"Brutus Goblin",
+		"Mir Cars Goblin",
 		"Eisenach Monarch",
 		"Zenith Touring",
 		"Berkshire Mocha",
@@ -173,10 +173,11 @@ var class_lists: Dictionary = {
 
 	"all_wheel_grip":[
 		"Schroder Atrix Q32",
-		"Strandberg Turbo",
-		"Brutus Goblin",
 		"Schroder Classique Sport"<
 		"Schroder Suppressor",
+		"Colossus Titan Max",
+		"Colossus Behemoth",
+		"Mir Cars Nightwolf",
 		"Schroder Colosso"
 	],
 	"colin_tribute":[
@@ -190,8 +191,9 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
-		"Berkshire Mocha",
-		"Mir Cars Blazer"
+		"Kronstadt Predator",
+		"Berkshire Blunt",
+		"Berkshire Falcon"
 	],
 
 	"eisenach_cup":[
@@ -204,9 +206,10 @@ var class_lists: Dictionary = {
 		"Berkshire Mocha",
 		"Mir Cars Hutch",
 		"Kuro Vault",
+		"Berkshire Falcon",
 		"Bartoli Cruiser",
-		"Mir Cars Blazer",
 		"Eisenach Monarch",
+		"Kronstadt Predator",
 		"Berkshire Blunt",
 		"Brutus Stingray"
 	],
@@ -222,7 +225,7 @@ var class_lists: Dictionary = {
 		"Straeda Volant",
 		"Kestrel Speedster",
 		"Bartoli Cruiser",
-		"Mir Cars Blazer",
+		"Berkshire Falcon",
 	],
 
 	"under_400_hp":[
@@ -230,7 +233,9 @@ var class_lists: Dictionary = {
 		"Colossus Behemoth",
 		"Zenith Touring",
 		"Eisenach Monarch",
+		"Berkshire Falcon",
 		"Kronstadt Regent",
+		"Kronstadt Predator",
 		"Mir Cars Nightwolf",
 		"Berkshire Mocha",
 		"Schroder Colosso",
@@ -239,7 +244,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Eisenach Bengal",
 		"Zenith Horizon",
-		"Brutus Goblin",
+		"Mir Cars Goblin",
 		"Brutus Viper",
 		"Mir Cars Hutch",
 
@@ -249,7 +254,7 @@ var class_lists: Dictionary = {
 
 		"Kestrel Seabird",
 		"Kestrel Speedster",
-		"Mir Cars Blazer",
+
 		"Berkshire Blunt",
 
 		"Schroder Classique Sport",
@@ -259,7 +264,6 @@ var class_lists: Dictionary = {
 
 	"low_displacement_challenge":[
 		"Straeda Volant",
-		"Brutus Goblin",
 		"Strandberg Turbo",
 		"Schroder Classique Sport",
 		"Kestrel Seabird"
@@ -274,10 +278,11 @@ var class_lists: Dictionary = {
 
 	"gentleman_racers":[
 		"Kestrel Speedster",
-		"Mir Cars Blazer",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Zenith Touring",
+		"Berkshire Falcon",
+		"Kronstadt Predator",
 		"Bartoli Cruiser",
 		"Berkshire Mocha",
 		"Berkshire Tempest",
@@ -289,7 +294,7 @@ var class_lists: Dictionary = {
 		"Colossus Titan Max",
 		"Brutus Thunderbolt",
 		"Colossus Behemoth",
-		"Brutus Goblin",
+		"Mir Cars Goblin",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -300,6 +305,7 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire Mocha",
 		"Berkshire V12-S",
+		"Berkshire Falcon",
 		"Berkshire Tempest",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
@@ -321,10 +327,11 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Schroder Suppressor",
 		"Kronstadt Regent",
+		"Kronstadt Predator",
 		"Schroder Classique Sport",
 		"Eisenach Monarch",
 		"Eisenach Bengal",
-		"Mir Cars Blazer"
+
 	],
 
 	"kestrel_max":[
@@ -347,7 +354,7 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine",
-
+		"Berkshire Falcon",
 		"Berkshire Blunt",
 		"Berkshire Mocha",
 		"Berkshire V12-S",
@@ -367,12 +374,13 @@ var class_lists: Dictionary = {
 
 	"Zenith Horizon",
 	"Zenith Touring",
+	"Kronstadt Predator",
 
 	"Kuro Vault",
 
 
 	"Mir Cars Nightwolf",
-	"Mir Cars Blazer",
+
 
 	# GERMANY
 
@@ -397,9 +405,9 @@ var cup_rewards: Dictionary = {
 	"businessman_racers":"Kuro Vault",
 
 	"japanese_cup":"Kronstadt Regent",
-	"diesel_masters":"Strandberg Turbo",
+	"diesel_masters":"Schroder Suppressor",
 
-	"all_wheel_grip":"Mir Cars Blazer",          # XKR
+	"all_wheel_grip":"Berkshire Falcon",          # XKR
 
 	"urban_performance_cars":"Kestrel Seabird",  # Exige
 
@@ -407,15 +415,20 @@ var cup_rewards: Dictionary = {
 	
 	"japan_vs_germany":"Kestrel Speedster",
 
-	"drop_top_challenge":"Berkshire Blunt",    # Morgan
+	"drop_top_challenge":"Berkshire Blunt",
+	
+	"british_invasion":"Brutus Stingray",    # Morgan
 
 	"under_400_hp":"Schroder Classique Sport",
+	
+	"german_cup":"Bartoli Cruiser",
+	
+	"england_vs_italy":"Berkshire V12-S",
 
-	"gentleman_racers":"Brutus Stingray",
-
-	"american_thunder":"Berkshire V12-S",
-
-	"stingray_competition":"Kestrel Battleaxe",
+	"gentleman_racers":"Brutus Venom",
+	
+	"v8_fury":"Kestrel Battleaxe",
+	"kestrel_max":"Berkshire Tempest",
 
 	"sport_racing":"Linetti Firestorm",
 
@@ -458,25 +471,20 @@ var career_order: Array = [
 	"colin_tribute",
 	"japan_vs_germany",           # Exige reward
 	
-	"speedster_tournament",
-
 	"drop_top_challenge",
+	"british_invasion",
+	"stingray_competition",
 
 	"under_400_hp",
 
 	"german_cup",
 	"schroder_cup",
-
-	"gentleman_racers",
-
-	"american_thunder",
-	"british_invasion",
-	
 	"england_vs_italy",
-	"v8_fury",
-
-	"stingray_competition",
+	"gentleman_racers",
 	
+	"american_thunder",
+	
+	"v8_fury",
 
 	"kestrel_max",
 

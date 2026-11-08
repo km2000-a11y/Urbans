@@ -38,10 +38,11 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"urban": [
-		"Mir Cars Blazer",
+		"Berkshire Falcon",
 		"Kestrel Seabird",
 		"Kronstadt Predator",
 		"Kestrel Speedster",
+		"Brutus Stingray",
 		"Berkshire Blunt",
 	],
 	
@@ -54,7 +55,7 @@ var class_lists: Dictionary = {
 	"sedans": [
 		"Kuro Vault",
 		"Berkshire Mocha",
-		"Brutus Goblin",
+		"Mir Cars Goblin",
 		"Zenith Touring",
 		"Strandberg Turbo",
 	],
@@ -69,8 +70,7 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Schroder Classique Sport",
 		"Berkshire V12-S",
-	
-		"Brutus Stingray",
+		"Kestrel Guillotine",
 		"Bartoli Cruiser",
 	],
 
@@ -82,7 +82,6 @@ var class_lists: Dictionary = {
 	],
 
 	"supercars": [
-		"Kestrel Guillotine",
 		"Linetti Firestorm",
 		"Mir Cars Raptor",
 		"Linetti Terror"
@@ -118,7 +117,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Kronstadt Regent",
-		"Brutus Goblin",
+		"Mir Cars Goblin",
 		"Eisenach Monarch",
 		"Zenith Touring",
 		"Berkshire Mocha",
@@ -141,10 +140,11 @@ var class_lists: Dictionary = {
 
 	"all_wheel_grip":[
 		"Schroder Atrix Q32",
-		"Strandberg Turbo",
-		"Brutus Goblin",
 		"Schroder Classique Sport"<
 		"Schroder Suppressor",
+		"Colossus Titan Max",
+		"Colossus Behemoth",
+		"Mir Cars Nightwolf",
 		"Schroder Colosso"
 	],
 	"colin_tribute":[
@@ -159,8 +159,9 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Kronstadt Predator",
-		"Berkshire Mocha",
-		"Mir Cars Blazer"
+		"Brutus Stingray",
+		"Berkshire Blunt",
+		"Berkshire Falcon"
 	],
 
 	"eisenach_cup":[
@@ -173,8 +174,8 @@ var class_lists: Dictionary = {
 		"Berkshire Mocha",
 		"Mir Cars Hutch",
 		"Kuro Vault",
+		"Berkshire Falcon",
 		"Bartoli Cruiser",
-		"Mir Cars Blazer",
 		"Eisenach Monarch",
 		"Kronstadt Predator",
 		"Berkshire Blunt",
@@ -192,7 +193,7 @@ var class_lists: Dictionary = {
 		"Straeda Volant",
 		"Kestrel Speedster",
 		"Bartoli Cruiser",
-		"Mir Cars Blazer",
+		"Berkshire Falcon",
 	],
 
 	"under_400_hp":[
@@ -200,6 +201,7 @@ var class_lists: Dictionary = {
 		"Colossus Behemoth",
 		"Zenith Touring",
 		"Eisenach Monarch",
+		"Berkshire Falcon",
 		"Kronstadt Regent",
 		"Kronstadt Predator",
 		"Mir Cars Nightwolf",
@@ -210,7 +212,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Eisenach Bengal",
 		"Zenith Horizon",
-		"Brutus Goblin",
+		"Mir Cars Goblin",
 		"Brutus Viper",
 		"Mir Cars Hutch",
 
@@ -220,7 +222,7 @@ var class_lists: Dictionary = {
 
 		"Kestrel Seabird",
 		"Kestrel Speedster",
-		"Mir Cars Blazer",
+
 		"Berkshire Blunt",
 
 		"Schroder Classique Sport",
@@ -230,7 +232,6 @@ var class_lists: Dictionary = {
 
 	"low_displacement_challenge":[
 		"Straeda Volant",
-		"Brutus Goblin",
 		"Strandberg Turbo",
 		"Schroder Classique Sport",
 		"Kestrel Seabird"
@@ -245,10 +246,10 @@ var class_lists: Dictionary = {
 
 	"gentleman_racers":[
 		"Kestrel Speedster",
-		"Mir Cars Blazer",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Zenith Touring",
+		"Berkshire Falcon",
 		"Kronstadt Predator",
 		"Bartoli Cruiser",
 		"Berkshire Mocha",
@@ -261,7 +262,7 @@ var class_lists: Dictionary = {
 		"Colossus Titan Max",
 		"Brutus Thunderbolt",
 		"Colossus Behemoth",
-		"Brutus Goblin",
+		"Mir Cars Goblin",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -272,6 +273,7 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire Mocha",
 		"Berkshire V12-S",
+		"Berkshire Falcon",
 		"Berkshire Tempest",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
@@ -297,7 +299,7 @@ var class_lists: Dictionary = {
 		"Schroder Classique Sport",
 		"Eisenach Monarch",
 		"Eisenach Bengal",
-		"Mir Cars Blazer"
+
 	],
 
 	"kestrel_max":[
@@ -320,7 +322,7 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine",
-
+		"Berkshire Falcon",
 		"Berkshire Blunt",
 		"Berkshire Mocha",
 		"Berkshire V12-S",
@@ -346,7 +348,7 @@ var class_lists: Dictionary = {
 
 
 	"Mir Cars Nightwolf",
-	"Mir Cars Blazer",
+
 
 	# GERMANY
 
@@ -401,9 +403,9 @@ var car_scene_paths := {
 
 
 	"Schroder Atrix Sport":"res://Scenes/audi_tt_rs.tscn",
-	"Brutus Goblin":"res://Scenes/ford_mondeo.tscn",
+	"Mir Cars Goblin":"res://Scenes/ford_mondeo.tscn",
 	"Kronstadt Predator":"res://Scenes/clk55.tscn",
-	"Bartoli Cruiser":"res://Scenes/spyder.tscn",
+	"Bartoli Cruiser":"res://Scenes/4200_gt.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
 	"Eisenach Black Panda":"res://Scenes/bmw_330d.tscn",
@@ -425,7 +427,7 @@ var car_scene_paths := {
 	"Zenith Prince":"res://Scenes/q45.tscn",
 	"Linetti Terror":"res://Scenes/murcielago.tscn",
 	"Linetti Firestorm":"res://Scenes/diablo_road.tscn",
-	"Kestrel Guillotine":"res://Scenes/tvr t 440r.tscn",
+	"Kestrel Guillotine":"res://Scenes/tvr_tuscan.tscn",
 	"Mir Cars Raptor":"res://Scenes/saleen_s7.tscn",
 	"Schroder Fastback":"res://Scenes/audi_a5_tdi.tscn",
 	"Mir Cars Athletic C70":"res://Scenes/zonda.tscn",
@@ -670,12 +672,12 @@ var car_colors = {
 # EXECUTIVE
 
 "Strandberg Turbo":[
-	Color8(133,82,141),
-	Color8(255,255,255),
-	Color8(60,60,60),
-	Color8(0,80,160),
-	Color8(180,180,180),
-	Color8(200,40,40)
+	Color8(133,82,141),    # Aubergine (default)
+	Color8(255,220,70),    # Cream Yellow
+	Color8(255,255,255),   # White
+	Color8(183,0,0),       # Deep Red
+	Color8(28,74,135),     # Dark Blue
+	Color8(180,180,180)    # Silver
 ],
 "Eisenach Monarch":[
 	Color8(0,0,80),        # Orient Blue (default)
@@ -823,16 +825,16 @@ var car_colors = {
 # SUPERCARS
 
 "Kestrel Guillotine":[
-	Color8(120,0,180),
-	Color8(255,255,255),
-	Color8(200,160,255),
-	Color8(60,0,90),
-	Color8(255,120,0),
-	Color8(20,20,20),
-	Color8(255,215,0),
-	Color8(0,90,180),
-	Color8(180,180,180),
-	Color8(200,40,40)
+	Color8(120,0,180),     # Default TVR purple
+	Color8(255,255,255),   # Crystal white
+	Color8(255,220,40),    # Metallic yellow
+	Color8(255,140,0),     # Volcano orange
+	Color8(220,0,0),       # Rosso red
+	Color8(0,170,255),     # Electric blue
+	Color8(0,255,180),     # Chameleon turquoise
+	Color8(40,40,40),      # Anthracite
+	Color8(255,105,180),   # TVR pink madness
+	Color8(180,255,120)    # Lime green
 ],
 
 "Linetti Firestorm":[

@@ -13,7 +13,7 @@ func _ready():
 	horsepower = 220
 	max_rpm = 4800.0              # Low‑revving torque monster built for dunes and towing
 	zero_to_hundred = 12.0
-	top_speed_kmh = 195
+	top_speed_kmh = 190
 	turn_speed = 1.95             # Heavy steering feel; stable but not agile
 	brake_strength = 13.0         # Strong brakes needed for a 2.6‑ton chassis
 	lateral_friction = 1.02       # Good 4WD grip on pavement and sand

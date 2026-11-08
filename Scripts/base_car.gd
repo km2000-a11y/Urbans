@@ -1,6 +1,58 @@
 class_name CarController
 extends CharacterBody3D
+var stability_values := {
 
+	# ===== CERTIFIABLY INSANE =====
+
+	"Kestrel Battleaxe": 0.005,     # Sagaris
+	"Kestrel Guillotine": 0.010,    # T440R
+	"Kestrel Speedster": 0.020,     # Morgan Aero 8
+	"Kestrel Seabird": 0.080,       # Exige
+
+	# ===== DANGEROUS =====
+
+	"Brutus Venom": 0.20,
+	"Mir Cars Raptor": 0.35,
+	"Brutus Thunderbolt": 0.45,
+
+	# ===== SPORTS CARS =====
+
+	"Brutus Stingray": 0.70,
+	"Zenith Horizon": 0.80,
+	"Bartoli Cruiser": 0.90,
+
+	# ===== NORMAL =====
+
+	"Eisenach Bengal": 1.00,
+	"Strandberg Turbo": 1.00,
+	"Brutus Goblin": 1.00,
+
+	# ===== GT =====
+
+	"Berkshire Blunt": 1.60,
+	"Berkshire Falcon":1.60,
+	"Berkshire V12-S": 1.80,
+	"Berkshire Tempest": 2.00,
+	"Schroder Classique Sport": 2.20,
+
+	# ===== AWD =====
+
+	"Linetti Shepherd": 3.00,
+	"Linetti Terror": 3.50,
+
+	# ===== BOATS =====
+
+	"Kuro Vault": 5.00,
+	"Mir Cars Blazer": 4.00,
+
+	# ===== SUVS =====
+
+	"Schroder Colosso": 6.00,
+	"Mir Cars Nightwolf": 7.00,
+	"Colossus Behemoth": 10.00,
+	"Colossus Titan Max": 20.00
+}
+var stability_factor:=1.0
 const GRAVITY := 30.0
 const ENGINE_BRAKE := 0.5
 const DRAG := 0.1
@@ -13,11 +65,63 @@ var ai_dodge_dir:=0.0
 var stuck_time := 0.0
 var race_finished := false
 var clean_drive_timer := 0.0
+var oversteer_factor := 1.0
 const CLEAN_DRIVE_TIME := 15.0
 var unstuck_time := 0.0
 var unstucking := false
 var nitro_bottles := 4
 var max_nitro_bottles := 5
+var oversteer_values := {
+
+	# ===== HOMICIDAL =====
+
+	"Kestrel Battleaxe": 25.0,     # Sagaris
+	"Kestrel Guillotine": 20.0,    # T440R
+	"Kestrel Speedster": 15.0,     # Morgan
+
+	# ===== VERY BAD IDEA =====
+
+	"Kestrel Seabird": 8.0,
+	"Brutus Venom": 8.0,
+
+	# ===== SPICY =====
+
+	"Brutus Thunderbolt": 6.0,
+	"Mir Cars Raptor": 4.0,
+	"Brutus Stingray": 3.0,
+	"Zenith Horizon": 2.0,
+
+	# ===== NORMAL =====
+
+	"Eisenach Bengal": 1.0,
+	"Bartoli Cruiser": 1.0,
+	"Strandberg Turbo": 0.8,
+
+	# ===== STABLE =====
+
+	"Berkshire Blunt": 0.5,
+	"Berkshire Falcon":0.5,
+	"Berkshire V12-S": 0.4,
+	"Berkshire Tempest": 0.4,
+
+	# ===== AWD =====
+
+	"Schroder Classique Sport": 0.15,
+	"Linetti Shepherd": 0.10,
+	"Linetti Terror": 0.05,
+
+	# ===== BIG CARS =====
+
+	"Kuro Vault": 0.01,
+	"Mir Cars Blazer": 0.01,
+
+	# ===== SUVS =====
+
+	"Schroder Colosso": 0.0,
+	"Mir Cars Nightwolf": 0.0,
+	"Colossus Behemoth": 0.0,
+	"Colossus Titan Max": 0.0
+}
 
 var drift_charge_timer := 0.0
 var nitro_burn_timer := 0.0
@@ -59,7 +163,10 @@ var has_turbo := false
 @export var audio_pitch_range: float = 1.8      # How much the pitch climbs across RPM range
 @export var audio_volume_offset: float = 0.0    # Fine-tunes individual car loudness (in dB)
 @export var audio_character_type: int = 0       # 0 = Normal/Standard, 1 = Deep V8/Diesel Growl, 2 = High-Rev VTEC/Exotic
+@onready var front_left := $ModelRoot/WheelHolder
+@onready var rear_left := $ModelRoot/WheelHolder3
 
+var wheelbase := 2.5
 @export var sync_velocity: Vector3
 @export var sync_transform: Transform3D
 # --- AUDIO NODES ---
@@ -243,6 +350,14 @@ var phase: float = 0.0
 # we will now override it safely as a standard AudioStreamPlayer object:
 
 func _ready() -> void:
+	
+	wheelbase = front_left.global_position.distance_to(
+	rear_left.global_position
+)
+	oversteer_factor = oversteer_values.get(
+		car_name,
+		1.0
+	)
 	# SUVs
 	match car_name:
 		"Colossus Titan Max":
@@ -512,6 +627,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
+	
 	var drift_input := false
 	var nitrous := false
 
@@ -594,12 +710,68 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 	var speed := velocity.length()
 	var speed_kmh := speed * 3.6
+	
 	var throttle_steer := 0.0
+	var wheelbase_stability :float= clamp(
+	wheelbase / 2.7,
+	0.80,
+	1.35
+)
 
+	var wheelbase_agility :float= clamp(
+		2.7 / wheelbase,
+		0.75,
+		1.40
+	)
 	# --- CAR ORIENTATION ---
 	if not drifting:
-		rotate_y(steering * turn_speed * delta)
+	
+		var steering_factor := wheelbase_agility
+
+		if speed_kmh > 120.0:
+			steering_factor *= lerp(
+				1.0,
+				0.65,
+				clamp(
+					(speed_kmh - 120.0) / 120.0,
+					0.0,
+					1.0
+				)
+			)
+		if car_name == "Kestrel Battleaxe":
+
+			if speed_kmh > 180.0:
+
+				rotation.y += randf_range(
+					-0.0015,
+					0.0015
+				)
+
+		elif car_name == "Kestrel Guillotine":
+
+			if speed_kmh > 200.0:
+
+				rotation.y += randf_range(
+					-0.0010,
+					0.0010
+				)
+		if car_name == "Kestrel Speedster":
+
+				if abs(steering) > 0.6:
+
+					lateral_friction *= 0.75
+		if car_name == "Kestrel Seabird":
+
+			steering_factor *= 1.4
+		rotate_y(
+			steering
+			* turn_speed
+			* steering_factor
+			* delta
+		)
+
 		lateral_friction = 1.2
+	
 	else:
 		var drift_steer := steering * (turn_speed * 0.35)
 		rotation.y += drift_steer * delta
@@ -806,26 +978,178 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	
 
 	# --- DRIVETRAIN ---
+	# --- DRIVETRAIN ---
+
+	# --- DRIVETRAIN ---
+
 	var traction_factor := 1.0
 	var launch_grip := 1.0
 
-		# --- DRIVETRAIN BEHAVIOR FLAVOR ---
+	var twitch_factor := 1.0 / (
+	stability_factor * stability_factor
+)
 	if transmission == "Front wheel drive":
-		# More understeer, stable, safe
-		lateral_friction = lerp(lateral_friction, 1.05, delta * 2.0)
-		steering *= 0.95  # slightly calmer steering
+
+		lateral_friction = lerp(
+			lateral_friction,
+			1.08,
+			delta * 2.0
+		)
+
+		if speed_kmh > 80.0:
+			steering *= lerp(
+				1.0,
+				0.88,
+				clamp(speed_kmh / 250.0, 0.0, 1.0)
+			)
+
+		if accel > 0.8 and speed_kmh < 60.0:
+
+			var torque_steer :float= 0.12 * twitch_factor
+
+			if steer > 0.0:
+				rotation.y += torque_steer * delta
+			else:
+				rotation.y -= torque_steer * delta
+
+		if speed_kmh > 100.0:
+
+			var forward_velocity := forward * velocity.dot(forward)
+
+			velocity = velocity.lerp(
+				forward_velocity,
+				stability_factor * 0.08 * delta
+			)
+
 	elif transmission == "Rear wheel drive":
-		# More oversteer, playful
-		lateral_friction = lerp(lateral_friction, 0.95, delta * 2.0)
-		var yaw_boost :float= clamp(speed_kmh / 120.0, 0.0, 1.0)
-		velocity = velocity.rotated(Vector3.UP, steering * yaw_boost * 0.12 * delta)
+		
+		lateral_friction = lerp(
+			lateral_friction,
+			0.92,
+			delta * 2.0
+		)
+
+		var yaw_boost :float= clamp(
+			speed_kmh / 120.0,
+			0.0,
+			1.0
+		)
+
+		velocity = velocity.rotated(
+			Vector3.UP,
+			steering
+			* yaw_boost
+			* 0.18
+			* twitch_factor
+			* delta
+		)
+
+		if accel > 0.75 and speed_kmh > 40.0:
+
+			var oversteer_strength := (
+	accel
+	* pow(oversteer_factor, 1.5)
+	* twitch_factor
+)
+	
+		
+
+			velocity = velocity.rotated(
+				Vector3.UP,
+				steering
+				* oversteer_strength
+				* 0.15
+				* delta
+			)
+			if oversteer_strength > 20.0:
+
+				lateral_friction *= 0.35
+
+			elif oversteer_strength > 10.0:
+
+				lateral_friction *= 0.55
+
+			lateral_friction *= (
+				1.0 - clamp(
+					(oversteer_factor - 1.0) * 0.15,
+					0.0,
+					0.35
+				)
+			)
+
+		if accel > 0.9 and speed_kmh < 40.0:
+
+			var wheelspin :float= clamp(
+				horsepower / 500.0,
+				0.0,
+				1.0
+			)
+
+			lateral_friction *= (
+				1.0 - wheelspin * 0.25 * twitch_factor
+			)
+
+		if speed_kmh > 120.0:
+
+			var forward_velocity := forward * velocity.dot(forward)
+
+			velocity = velocity.lerp(
+				forward_velocity,
+				stability_factor * 0.12 * delta
+			)
+
 	elif transmission == "Four wheel drive":
-		# More grip, more stability
-		lateral_friction = lerp(lateral_friction, 1.15, delta * 2.0)
-		steering *= 1.05
+
+		lateral_friction = lerp(
+			lateral_friction,
+			1.20,
+			delta * 2.0
+		)
+
+		steering *= 1.03
+
+		traction_factor = 1.15
+		launch_grip = 1.30
+
+		var yaw_boost :float= clamp(
+			speed_kmh / 140.0,
+			0.0,
+			1.0
+		)
+
+		velocity = velocity.rotated(
+			Vector3.UP,
+			steering
+			* yaw_boost
+			* 0.08
+			* twitch_factor
+			* delta
+		)
+
+		if speed_kmh > 100.0:
+
+			var forward_velocity := forward * velocity.dot(forward)
+
+			velocity = velocity.lerp(
+				forward_velocity,
+				stability_factor * 0.16 * delta
+			)
+# Higher stability = calmer
+# Lower stability = twitchier
 
 
+	if speed_kmh > 140.0:
 
+		var stability_strength :float= clamp(
+			(wheelbase - 2.4) * 0.15,
+			0.0,
+			0.25
+		)
+
+		velocity = velocity.lerp(
+			forward * velocity.dot(forward),
+			stability_strength * delta
+		)
 	var accel_force := 0.0
 
 	if accel > 0.0:

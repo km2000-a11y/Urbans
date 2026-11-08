@@ -13,8 +13,8 @@ func _ready():
 	horsepower = 342
 	max_rpm = 6100.0
 	idle_rpm = 650.0
-	zero_to_hundred = 5.5
-	top_speed_kmh = 256
+	zero_to_hundred = 4.9
+	top_speed_kmh = 250
 	transmission = "Rear wheel drive"
 
 	# HANDLING — Stable AMG grand tourer

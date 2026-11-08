@@ -1,17 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cayt8a73gb3un"]
+[gd_scene format=3 uid="uid://cayt8a73gb3un"]
 
 [ext_resource type="Script" uid="uid://d4kgfkgqpmgnw" path="res://Scenes/championships.gd" id="1_8thtq"]
 
-[node name="Championships" type="CanvasLayer"]
+[node name="Championships" type="CanvasLayer" unique_id=305993352]
 script = ExtResource("1_8thtq")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1826738419]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="BackBtn" type="Button" parent="Control"]
+[node name="BackBtn" type="Button" parent="Control" unique_id=306109826]
 layout_mode = 0
 offset_left = 1068.0
 offset_top = 655.0
@@ -20,179 +20,179 @@ offset_bottom = 705.0
 theme_override_font_sizes/font_size = 30
 text = "BACK"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control" unique_id=2039237935]
 layout_mode = 0
 offset_right = 519.0
 offset_bottom = 719.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer" unique_id=1504318917]
 layout_mode = 2
 
-[node name="Colossus" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="Colossus" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=646876486]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "COLOSSUS"
 
-[node name="StreetTuners" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="StreetTuners" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1046279941]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "STREET TUNERS"
 
-[node name="MuscleHustle" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="MuscleHustle" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=278694107]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "MUSCLE HUSTLE"
 
-[node name="V6Engines" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="V6Engines" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1815837758]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "V6 ENGINES"
 
-[node name="ZenithCompetition" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="ZenithCompetition" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1957561363]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "ZENITH COMPETITION"
 
-[node name="BusinessmanRacers" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="BusinessmanRacers" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=213388471]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "BUSINESSMAN RACERS"
 
-[node name="JapaneseCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="JapaneseCup" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1609983909]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "JAPANESE CUP"
 
-[node name="DieselMasters" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="DieselMasters" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=689717625]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "DIESEL MASTERS"
 
-[node name="AllWheelGrip" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="AllWheelGrip" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=365104054]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "ALL-WHEEL GRIP"
 
-[node name="UrbanPerformanceCars" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="UrbanPerformanceCars" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=982837594]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "URBAN PERFORMANCE CARS"
 
-[node name="EisenachCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="EisenachCup" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=778630942]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "EISENACH CUP"
 
-[node name="LowDisplacementChallenge" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="LowDisplacementChallenge" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=934183293]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "URBAN PERFORMANCE CARS"
 
-[node name="KuroCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="KuroCup" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1749363488]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "KURO CUP"
 
-[node name="ColinTribute" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="ColinTribute" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=285256995]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "COLIN TRIBUTE"
 
-[node name="JapanVsGermany" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="JapanVsGermany" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1493288595]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "JAPAN VS GERMANY
 "
 
-[node name="SpeedsterTournament" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "SPEEDSTER TOURNAMENT"
-
-[node name="DropTopChallenge" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="DropTopChallenge" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=998839022]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "DROP TOP CHALLENGE"
 
-[node name="Under400HP" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="BritishInvasion" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=2035186477]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BRITISH INVASION"
+
+[node name="StingrayCompetition" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1187963234]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "STINGRAY COMPETITION"
+
+[node name="Under400HP" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1050620578]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "UNDER 400 HP"
 
-[node name="GermanCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="GermanCup" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1210663390]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "GERMAN CUP"
 
-[node name="SchroderCup" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="SchroderCup" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=497403165]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "SCHRODER CUP"
 
-[node name="GentlemanRacers" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="EnglandVsItaly" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=817391900]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BRITISH INVASION"
+
+[node name="GentlemanRacers" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=895131305]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "GENTLEMAN RACERS"
 
-[node name="AmericanThunder" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="SpeedsterTournament" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=232657601]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SPEEDSTER TOURNAMENT"
+
+[node name="AmericanThunder" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1531062972]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "AMERICAN THUNDER"
 
-[node name="BritishInvasion" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "BRITISH INVASION"
-
-[node name="EnglandVsItaly" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "BRITISH INVASION"
-
-[node name="StingrayCompetition" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="V8Fury" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=2113294870]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "STINGRAY COMPETITION"
 
-[node name="V8Fury" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "STINGRAY COMPETITION"
-
-[node name="KestrelMax" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="KestrelMax" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=180349592]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "KESTREL MAX CHAMPIONSHIP"
 
-[node name="GrandTouring" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="GrandTouring" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1798604407]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "GRAND TOURING
 "
 
-[node name="SportRacing" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="SportRacing" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1476398932]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "SPORT RACING"
 
-[node name="V12Engines" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="V12Engines" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=450977533]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "V12 ENGINES"
 
-[node name="Supercars" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="Supercars" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=52376466]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "SUPERCARS"
 
-[node name="TrackCars" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+[node name="TrackCars" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=299004433]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "TRACK CARS"
 
-[node name="Money" type="Label" parent="Control"]
+[node name="Money" type="Label" parent="Control" unique_id=1170900800]
 layout_mode = 0
 offset_left = 810.0
 offset_top = 42.0
@@ -200,7 +200,7 @@ offset_right = 1282.0
 offset_bottom = 84.0
 theme_override_font_sizes/font_size = 30
 
-[node name="CupInfo" type="VBoxContainer" parent="Control"]
+[node name="CupInfo" type="VBoxContainer" parent="Control" unique_id=1520007535]
 visible = false
 layout_mode = 0
 offset_left = 767.0
@@ -208,17 +208,17 @@ offset_top = 355.0
 offset_right = 1192.0
 offset_bottom = 404.0
 
-[node name="ListBtn" type="Button" parent="Control/CupInfo"]
+[node name="ListBtn" type="Button" parent="Control/CupInfo" unique_id=449146516]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "LIST"
 
-[node name="GoBtn" type="Button" parent="Control/CupInfo"]
+[node name="GoBtn" type="Button" parent="Control/CupInfo" unique_id=1751956650]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "GO!"
 
-[node name="Label" type="Label" parent="Control/CupInfo"]
+[node name="Label" type="Label" parent="Control/CupInfo" unique_id=1284685180]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 
@@ -238,16 +238,16 @@ theme_override_font_sizes/font_size = 20
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KuroCup" to="." method="_on_kuro_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ColinTribute" to="." method="_on_colin_tribute_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/JapanVsGermany" to="." method="_on_japanvs_germany_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SpeedsterTournament" to="." method="_on_speedster_tournament_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/DropTopChallenge" to="." method="_on_drop_top_challenge_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BritishInvasion" to="." method="_on_british_invasion_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/StingrayCompetition" to="." method="_on_stingray_competition_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Under400HP" to="." method="_on_under_400hp_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GermanCup" to="." method="_on_german_cup_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SchroderCup" to="." method="_on_schroder_cup_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GentlemanRacers" to="." method="_on_gentleman_racers_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AmericanThunder" to="." method="_on_american_thunder_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/BritishInvasion" to="." method="_on_british_invasion_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/EnglandVsItaly" to="." method="_on_england_vs_italy_pressed"]
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/StingrayCompetition" to="." method="_on_stingray_competition_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GentlemanRacers" to="." method="_on_gentleman_racers_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/SpeedsterTournament" to="." method="_on_speedster_tournament_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/AmericanThunder" to="." method="_on_american_thunder_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/V8Fury" to="." method="_on_v_8_fury_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/KestrelMax" to="." method="_on_kestrel_max_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GrandTouring" to="." method="_on_grand_touring_pressed"]

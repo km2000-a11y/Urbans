@@ -39,7 +39,7 @@ var track_traffic := {
 	],
 	"Split": [
 		"res://audi_100.tscn",
-		"res://volvo_850.tscn",
+		"res://volvo_940.tscn",
 		"res://c250_turbodiesel.tscn",
 		"res://toyota_corolla.tscn"
 	],

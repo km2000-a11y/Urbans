@@ -12,8 +12,8 @@ func _ready():
 	mass = 1715.0
 	horsepower = 300
 	max_rpm = 6100.0
-	zero_to_hundred = 6.1
-	top_speed_kmh = 265
+	zero_to_hundred = 5.9
+	top_speed_kmh = 250
 	turn_speed = 2.45
 	brake_strength = 11.5
 	lateral_friction = 1.03
@@ -34,6 +34,7 @@ func _ready():
 	]
 
 	has_supercharger = false
+	audio_character_type=0
 
 	shift_up_rpm = 5500
 	shift_down_rpm = 1800

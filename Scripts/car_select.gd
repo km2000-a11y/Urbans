@@ -4,7 +4,67 @@ extends CanvasLayer
 # -------------------------
 # CAR SELECT STATE
 # -------------------------
+var stability_factor := 1.0
 
+var stability_values := {
+	# SUVs
+	"Colossus Titan Max": 1.60,
+	"Colossus Behemoth": 1.45,
+	"Mir Cars Nightwolf": 1.35,
+	"Schroder Colosso": 1.25,
+
+	# Compacts
+	"Straeda Volant": 1.10,
+	"Eisenach Bengal": 0.95,
+	"Schroder Atrix Q32": 1.15,
+	"Zenith Horizon": 0.90,
+
+	# Muscle
+	"Brutus Viper": 0.75,
+	"Mir Cars Hutch": 0.70,
+
+	# Torque
+	"Kronstadt Regent": 1.25,
+	"Schroder Suppressor": 1.20,
+	"Eisenach Monarch": 1.35,
+
+	# Executive
+	"Mir Cars Goblin": 1.05,
+	"Strandberg Turbo": 0.95,
+	"Kuro Vault": 1.40,
+	"Zenith Touring": 1.00,
+	"Berkshire Mocha": 1.10,
+
+	# Urban
+	"Mir Cars Blazer": 1.30,
+	"Kestrel Seabird": 0.75,
+	"Kronstadt Predator": 1.10,
+	"Berkshire Blunt": 1.20,
+	"Kestrel Speedster": 0.60,
+
+	# Sport Coupe
+	"Schroder Classique Sport": 1.20,
+	"Bartoli Cruiser": 1.00,
+	"Berkshire V12-S": 1.15,
+	"Brutus Stingray": 0.85,
+
+	# Sport Racing
+	"Brutus Venom": 0.55,
+	"Kestrel Battleaxe": 0.50,
+	"Berkshire Tempest": 1.00,
+	"Linetti Shepherd": 1.15,
+
+	# Supercars
+	"Kestrel Guillotine": 0.65,
+	"Linetti Firestorm": 0.90,
+	"Mir Cars Raptor": 0.75,
+	"Linetti Terror": 1.10,
+
+	# Track
+	"Bartoli Track Cruiser": 1.10,
+	"Brutus Thunderbolt": 0.85,
+	"Mir Cars Athletic C70": 0.95,
+}
 var car_class := ""
 var car_name := ""
 var car_index := 0
@@ -27,7 +87,7 @@ var car_sell_prices := {
 	"Brutus Viper": 37500,
 	"Mir Cars Hutch": 46500,
 
-	"Brutus Goblin": 47250,
+	"Mir Cars Goblin": 47250,
 	"Schroder Suppressor": 56250,
 	"Strandberg Turbo": 65250,
 	"Kuro Vault": 69000,
@@ -37,11 +97,11 @@ var car_sell_prices := {
 	"Kestrel Seabird": 69750,
 	"Kestrel Speedster": 75000,
 	"Berkshire Blunt": 93750,
-	"Mir Cars Blazer": 82500,
+	"Berkshire Falcon": 82500,
 	"Berkshire Mocha":71250,
 
 	"Schroder Classique Sport": 105000,
-	"Brutus Stingray": 150000,
+	"Brutus Stingray": 100000,
 	"Bartoli Cruiser": 117750,
 	"Berkshire V12-S": 132000,
 	"Berkshire Tempest": 187500,
@@ -73,13 +133,13 @@ var car_prices := {
 	
 	"Eisenach Bengal":50000,
 	"Kronstadt Monarch":112000,
-	"Brutus Stingray":200000,
+	"Brutus Stingray":140000,
 	"Mir Cars Hutch":62000,
 	
 	"Brutus Venom":270000,
 	
 	"Brutus Thunderbolt":450000,
-	"Brutus Goblin":63000,
+	"Mir Cars Goblin":63000,
 	
 	"Colossus Titan Max":65000,
 	"Colossus Behemoth":0,
@@ -101,7 +161,7 @@ var car_prices := {
 	"Bartoli Cruiser":157000,
 	"Bartoli Track Cruiser":500000,
 	
-	"Mir Cars Blazer":88000,
+	"Berkshire Falcon":88000,
 	
 	"Kestrel Speedster":125000,
 	
@@ -114,7 +174,7 @@ var car_prices := {
 	"Brutus Viper":50000,
 	
 	"Kestrel Battleaxe":234000,
-	"Kestrel Guillotine":295000,
+	"Kestrel Guillotine":200000,
 	
 	"Straeda Volant":40000,
 	
@@ -328,14 +388,14 @@ var car_colors = {
 # EXECUTIVE
 
 "Strandberg Turbo":[
-	Color8(133,82,141),
-	Color8(255,255,255),
-	Color8(60,60,60),
-	Color8(0,80,160),
-	Color8(180,180,180),
-	Color8(200,40,40)
+	Color8(133,82,141),    # Aubergine (default)
+	Color8(255,220,70),    # Cream Yellow
+	Color8(255,255,255),   # White
+	Color8(183,0,0),       # Deep Red
+	Color8(28,74,135),     # Dark Blue
+	Color8(180,180,180)    # Silver
 ],
-"Brutus Goblin":[
+"Mir Cars Goblin":[
 	Color8(20,20,20),
 	Color8(255,255,255),
 	Color8(180,180,180),
@@ -524,18 +584,17 @@ var car_colors = {
 
 
 # SUPERCARS
-
 "Kestrel Guillotine":[
-	Color8(120,0,180),
-	Color8(255,255,255),
-	Color8(200,160,255),
-	Color8(60,0,90),
-	Color8(255,120,0),
-	Color8(20,20,20),
-	Color8(255,215,0),
-	Color8(0,90,180),
-	Color8(180,180,180),
-	Color8(200,40,40)
+	Color8(120,0,180),     # Default TVR purple
+	Color8(255,255,255),   # Crystal white
+	Color8(255,220,40),    # Metallic yellow
+	Color8(255,140,0),     # Volcano orange
+	Color8(220,0,0),       # Rosso red
+	Color8(0,170,255),     # Electric blue
+	Color8(0,255,180),     # Chameleon turquoise
+	Color8(40,40,40),      # Anthracite
+	Color8(255,105,180),   # TVR pink madness
+	Color8(180,255,120)    # Lime green
 ],
 
 "Linetti Firestorm":[
@@ -626,15 +685,17 @@ var muscle_list = [
 ]
 
 var urban_list = [
-	"Mir Cars Blazer",
+	"Berkshire Falcon",
 	"Kestrel Seabird",
 	"Kronstadt Predator",
-	"Berkshire Blunt",
 	"Kestrel Speedster",
+	"Berkshire Blunt",
+	"Brutus Stingray",
+	
 	
 ]
 var sedans_list = [
-	"Brutus Goblin",
+	"Mir Cars Goblin",
 	"Strandberg Turbo",
 	"Kuro Vault",
 	"Zenith Touring",
@@ -650,7 +711,7 @@ var sport_list = [
 	"Schroder Classique Sport",
 	"Bartoli Cruiser",
 	"Berkshire V12-S",
-	"Brutus Stingray",
+	"Kestrel Guillotine",
 ]
 
 var sport_racing_list = [
@@ -661,7 +722,6 @@ var sport_racing_list = [
 ]
 
 var supercars_list = [
-	"Kestrel Guillotine",
 	"Linetti Firestorm",
 	"Mir Cars Raptor",
 	"Linetti Terror",
@@ -750,22 +810,16 @@ var urban_racers = {
 		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-"Kestrel Speedster":[
-		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
-		"0-100 KM/H: 4.7s", "TOP SPEED: 273 KM/H",
-		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Berkshire Blunt":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
 	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
 	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-"Mir Cars Blazer":[
-	"", "Country: UAE", "HP: 346", "WEIGHT: 1740 KG",
+"Berkshire Falcon":[
+	"", "Country: UK", "HP: 346", "WEIGHT: 1740 KG",
 	"0-100 KM/H: 5.3s", "TOP SPEED: 254 KM/H",
-	"ENGINE: V8 5.0L", "ASPIRATION: NA", "TORQUE: 480 NM",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Kronstadt Predator":[
@@ -775,6 +829,18 @@ var urban_racers = {
 	"TORQUE: 510 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
+"Brutus Stingray":[
+		"", "Country: USA", "HP: 350", "WEIGHT: 1460 KG",
+		"0-100 KM/H: 4.7s", "TOP SPEED: 258 KM/H",
+		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 545 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Kestrel Speedster":[
+		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
+		"0-100 KM/H: 4.7s", "TOP SPEED: 273 KM/H",
+		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 }
 var sedans = {
 	"Berkshire Mocha":[
@@ -802,8 +868,8 @@ var sedans = {
 	"ENGINE: V8 4.5L", "ASPIRATION: NA", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-"Brutus Goblin":[
-	"", "Country: USA", "HP: 230", "WEIGHT: 1580 KG",
+"Mir Cars Goblin":[
+	"", "Country: UAE", "HP: 230", "WEIGHT: 1580 KG",
 	"0-100 KM/H: 6.6s", "TOP SPEED: 250 KM/H",
 	"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 290 NM",
 	"TRANSMISSION: FRONT-WHEEL DRIVE"
@@ -811,8 +877,8 @@ var sedans = {
 "Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
 		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
-		"ENGINE: L5 2.5L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
+		"ENGINE: L5 2.3L", "ASPIRATION: Turbo", "TORQUE: 320 NM",
+		"TRANSMISSION: FRONT-WHEEL DRIVE"
 	],
 }
 var sport = {
@@ -828,10 +894,10 @@ var sport = {
 	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-"Brutus Stingray":[
-		"", "Country: USA", "HP: 350", "WEIGHT: 1460 KG",
-		"0-100 KM/H: 4.7s", "TOP SPEED: 258 KM/H",
-		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 545 NM",
+"Kestrel Guillotine":[
+		"", "Country: UK", "HP: 440", "WEIGHT: 1100 KG",
+		"0-100 KM/H: 3.6s", "TOP SPEED: 315 KM/H",
+		"ENGINE: L6 4.0L", "ASPIRATION: NA", "TORQUE: 420 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Schroder Classique Sport":[
@@ -864,7 +930,7 @@ var sport_racing = {
 	"Kestrel Battleaxe":[
 		"", "Country: UK", "HP: 406", "WEIGHT: 1078 KG",
 		"0-100 KM/H: 3.9s", "TOP SPEED: 293 KM/H",
-		"ENGINE: L6 4.0L", "ASPIRATION: NA", "TORQUE: 390 NM",
+		"ENGINE: L6 4.0L", "ASPIRATION: NA", "TORQUE: 475 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	]
 }
@@ -895,12 +961,6 @@ var torque_monsters = {
 
 }
 var supercars = {
-	"Kestrel Guillotine":[
-		"", "Country: UK", "HP: 440", "WEIGHT: 1100 KG",
-		"0-100 KM/H: 3.6s", "TOP SPEED: 315 KM/H",
-		"ENGINE: L6 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
 	"Linetti Terror":[
 		"", "Country: Italy", "HP: 572", "WEIGHT: 1630 KG",
 		"0-100 KM/H: 3.7s", "TOP SPEED: 330 KM/H",
@@ -946,6 +1006,10 @@ var track_cars = {
 # -------------------------
 
 func _ready():
+	stability_factor = stability_values.get(
+		car_name,
+		1.0
+	)
 	Localization.language_changed.connect(_on_language_changed)
 	RoadChallengeSave.load_progress()
 	$UpgradeMenu.visible = false
@@ -1032,7 +1096,7 @@ var car_scene_paths = {
 	"Eisenach Monarch":"res://Scenes/bmw_745.tscn",
 	"Straeda Volant":"res://Scenes/cooper_s.tscn",
 	"Kronstadt Predator":"res://Scenes/clk55.tscn",
-	"Bartoli Cruiser":"res://Scenes/spyder.tscn",
+	"Bartoli Cruiser":"res://Scenes/4200_gt.tscn",
 
 
 	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",
@@ -1047,7 +1111,7 @@ var car_scene_paths = {
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
 	"Eisenach Goblin":"res://Scenes/bmw_1m.tscn",
-	"Brutus Goblin":"res://Scenes/ford_mondeo.tscn",
+	"Mir Cars Goblin":"res://Scenes/ford_mondeo.tscn",
 
 
 	"Schroder Atrocity":"res://Scenes/audi_s6.tscn",
@@ -1060,7 +1124,7 @@ var car_scene_paths = {
 
 	"Linetti Terror":"res://Scenes/murcielago.tscn",
 	"Linetti Firestorm":"res://Scenes/diablo_road.tscn",
-	"Kestrel Guillotine":"res://Scenes/tvr t 440r.tscn",
+	"Kestrel Guillotine":"res://Scenes/tvr_tuscan.tscn",
 	"Mir Cars Raptor":"res://Scenes/saleen_s7.tscn",
 	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
 	"Schroder Suppressor":"res://Scenes/audi_a4.tscn",
