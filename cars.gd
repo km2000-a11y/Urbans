@@ -102,6 +102,7 @@ var class_lists: Dictionary = {
 	"v6_engines":[
 		"Schroder Atrix Q32",
 		"Schroder Suppressor",
+		"Berkshire Mocha",
 		"Schroder Colosso",
 		"Zenith Touring",
 		"Schroder Classique Sport",
@@ -144,6 +145,7 @@ var class_lists: Dictionary = {
 		"Schroder Suppressor",
 		"Colossus Titan Max",
 		"Colossus Behemoth",
+		"Berkshire Mocha",
 		"Mir Cars Nightwolf",
 		"Schroder Colosso"
 	],
@@ -170,7 +172,6 @@ var class_lists: Dictionary = {
 
 	"v8_fury":[
 		"Brutus Viper",
-		"Berkshire Mocha",
 		"Mir Cars Hutch",
 		"Kuro Vault",
 		"Berkshire Falcon",

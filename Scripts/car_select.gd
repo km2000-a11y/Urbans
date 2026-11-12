@@ -838,9 +838,9 @@ var sedans = {
 	"Berkshire Mocha":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1810 KG",
 	"0-100 KM/H: 5.0s", "TOP SPEED: 259 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: Supercharged",
-	"TORQUE: 553 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
+	"ENGINE: V6 3.0L", "ASPIRATION: NA",
+	"TORQUE: 290 NM",
+	"TRANSMISSION: FOUR-WHEEL DRIVE"
 ],
 "Zenith Touring":[
 	"", "Country: Japan", "HP: 340", "WEIGHT: 1850 KG",

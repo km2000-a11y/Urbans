@@ -55,7 +55,7 @@ var stability_values := {
 var stability_factor:=1.0
 const GRAVITY := 30.0
 const ENGINE_BRAKE := 0.5
-const DRAG := 0.085
+const DRAG := 0.08
 const HARD_LIMIT_KMH := 400.0
 const HARD_LIMIT := HARD_LIMIT_KMH / 3.6
 var display_hp := 0.0
@@ -1992,8 +1992,8 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 
 	RevPlayer.pitch_scale = engine_pitch_smoothed
 	if not is_diesel: 
-		RevPlayer.volume_db = clamp(engine_volume_smoothed-2.0, -40.0, 0.0)
-	else:RevPlayer.volume_db = clamp(engine_volume_smoothed+1.0, -40.0, 0.0)
+		RevPlayer.volume_db = clamp(engine_volume_smoothed-3.0, -40.0, 0.0)
+	else:RevPlayer.volume_db = clamp(engine_volume_smoothed+3.0, -40.0, 0.0)
 		
 func setup_engine_bus() -> void:
 	if not is_instance_valid(RevPlayer):
