@@ -1035,38 +1035,39 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 		lateral_friction = lerp(
 			lateral_friction,
-			1.00,
+			0.92,
 			delta * 2.0
 		)
 
 		var instability :float = clamp(
-	1.0 / max(stability_factor, 1.0),
-	0.5,
-	1.5
-)
+			1.0 / max(stability_factor, 0.75),
+			0.75,
+			2.0
+		)
 
 		var yaw_boost :float = clamp(
-			speed_kmh / 150.0,
+			speed_kmh / 140.0,
 			0.0,
 			1.0
 		)
 
-		# Natural rotation
+		# Natural chassis rotation
 
 		velocity = velocity.rotated(
 			Vector3.UP,
 			steering
 			* yaw_boost
-			* 0.04
+			* 0.08
 			* delta
 		)
 
 		# Power oversteer
 
-		if accel > 0.8 and speed_kmh > 50.0:
+		if accel > 0.60 and speed_kmh > 30.0:
 
 			var oversteer_strength :float = (
-				oversteer_factor
+				accel
+				* oversteer_factor
 				* instability
 			)
 
@@ -1074,33 +1075,40 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 				Vector3.UP,
 				steering
 				* oversteer_strength
-				* 0.007
+				* 0.018
 				* delta
 			)
 
-		# Launch wheelspin
+			lateral_friction *= lerp(
+				1.0,
+				0.80,
+				accel
+			)
 
-		if accel > 0.9 and speed_kmh < 40.0:
+		# Wheelspin
+
+		if accel > 0.90 and speed_kmh < 50.0:
 
 			var wheelspin :float = clamp(
-				horsepower / 1000.0,
+				horsepower / 800.0,
 				0.0,
-				0.25
+				0.30
 			)
 
 			lateral_friction *= (
-				1.0 - wheelspin
+				1.0
+				- wheelspin
 			)
 
-		# Mild lift-off oversteer
+		# Lift-off oversteer
 
-		if accel < 0.15 and speed_kmh > 130.0:
+		if accel < 0.15 and speed_kmh > 100.0:
 
 			velocity = velocity.rotated(
 				Vector3.UP,
 				steering
 				* instability
-				* 0.015
+				* 0.025
 				* delta
 			)
 
@@ -1109,22 +1117,31 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			* velocity.dot(forward)
 		)
 
-		# Recovery
+		# Slower self-correction
 
 		velocity = velocity.lerp(
 			forward_velocity,
-			stability_factor * 0.06 * delta
+			stability_factor * 0.03 * delta
 		)
 
-		# LS400 / Vault glue mode
+		# High-speed stability
 
-		if car_name == "Kuro Vault":
-
-			lateral_friction *= 1.20
+		if speed_kmh > 180.0:
 
 			velocity = velocity.lerp(
 				forward_velocity,
-				0.30 * delta
+				0.04 * delta
+			)
+
+		# Luxury GT behaviour
+
+		if car_name == "Kuro Vault":
+
+			lateral_friction *= 1.15
+
+			velocity = velocity.lerp(
+				forward_velocity,
+				0.15 * delta
 			)
 	
 	elif transmission == "Four wheel drive":
