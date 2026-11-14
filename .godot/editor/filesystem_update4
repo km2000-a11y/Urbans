@@ -1,5 +1,9 @@
+res://Scripts/car_select.gd
+res://Scenes/bmw_m5_e39.tscn
+res://bmw_m_5_e_39.gd
+res://cars.gd
+res://club_cups.gd
 res://Scenes/main_menu.tscn
-res://Scripts/base_car.gd
 res://Scenes/cls55.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Scenes/car_select.tscn
@@ -7,3 +11,8 @@ res://Scenes/lexus_ls430.tscn
 res://Scenes/infiniti_g35.tscn
 res://Scenes/e320.tscn
 res://Scenes/language_menu.tscn
+res://Scenes/ford_mondeo.tscn
+res://Scenes/ford_mondeo.gd
+res://Scenes/volvo_s60r.tscn
+res://Scenes/volvo_v70r.gd
+res://Scripts/base_car.gd

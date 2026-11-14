@@ -86,15 +86,16 @@ var class_lists: Dictionary = {
 
 	"sedans": [
 		"Kuro Vault",
-		"Berkshire Mocha",
 		"Mir Cars Goblin",
 		"Zenith Touring",
+		"Eisenach Prince",
 		"Strandberg Turbo",
 	],
 	"torque_monsters":[
 		"Schroder Suppressor",
 		"Eisenach Monarch",
 		"Kronstadt Regent",
+		"Berkshire Mocha",
 	],
 	
 
@@ -151,6 +152,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Kronstadt Regent",
+		"Eisenach Prince",
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
 		"Zenith Touring",
@@ -168,6 +170,7 @@ var class_lists: Dictionary = {
 	"diesel_masters":[
 		"Schroder Colosso",
 		"Eisenach Monarch",
+		"Berkshire Mocha",
 		"Kronstadt Regent",
 		"Schroder Suppressor"
 	],
@@ -207,6 +210,7 @@ var class_lists: Dictionary = {
 		"Brutus Viper",
 		"Mir Cars Hutch",
 		"Kuro Vault",
+		"Eisenach Prince",
 		"Berkshire Falcon",
 		"Bartoli Cruiser",
 		"Eisenach Monarch",
@@ -231,6 +235,7 @@ var class_lists: Dictionary = {
 
 	"under_400_hp":[
 		"Colossus Titan Max",
+		"Eisenach Prince",
 		"Colossus Behemoth",
 		"Zenith Touring",
 		"Eisenach Monarch",
@@ -280,6 +285,7 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
+		"Eisenach Prince",
 		"Zenith Touring",
 		"Berkshire Falcon",
 		"Kronstadt Predator",
@@ -325,6 +331,7 @@ var class_lists: Dictionary = {
 	"german_cup":[
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
+		"Eisenach Prince",
 		"Schroder Suppressor",
 		"Kronstadt Regent",
 		"Kronstadt Predator",
@@ -387,6 +394,7 @@ var class_lists: Dictionary = {
 	"Schroder Atrix Q32",
 	"Schroder Colosso",
 	"Schroder Suppressor",
+	"Eisenach Prince",
 	"Schroder Classique Sport",
 	"Eisenach Monarch",
 

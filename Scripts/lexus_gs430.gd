@@ -9,19 +9,20 @@ var zero_to_hundred_display := 6.00
 
 func _ready():
 	# GAMEPLAY STATS — Refined British executive sedan
-	mass = 1552.0
-	horsepower = 231
-	max_rpm = 6200.0
-	zero_to_hundred =  6.1
-	top_speed_kmh = 246
+	mass = 1810.0
+	horsepower = 204
+	max_rpm = 4900.0
+	zero_to_hundred = 7.1
+	top_speed_kmh = 250
 	turn_speed = 2.40
 	brake_strength = 11.2
 	lateral_friction = 1.05
-	transmission = "Four wheel drive"
+	transmission = "Rear wheel drive"
+	is_diesel=true
 
 	# Smooth luxury-sedan handling
 	handling_type = "executive_sedan"
-	audio_character_type=3
+	audio_character_type=6
 
 	# ZF 6-speed automatic
 	gear_count = 6
@@ -34,7 +35,7 @@ func _ready():
 		0.69   # 6th
 	]
 
-	shift_up_rpm = 5900
+	shift_up_rpm = 4600
 	shift_down_rpm = 2200
 
 	apply_stats()

@@ -19,7 +19,7 @@ func _ready():
 	max_rpm = 5000.0
 	idle_rpm = 700.0
 
-	zero_to_hundred = 7.4
+	zero_to_hundred = 7.8
 
 	top_speed_kmh = 246
 

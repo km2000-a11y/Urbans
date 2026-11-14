@@ -1,8 +1,8 @@
 [gd_scene load_steps=34 format=3 uid="uid://uauukaos75ls"]
 
-[ext_resource type="Script" uid="uid://c75ynaxgevfv1" path="res://Scripts/lexus_gs430.gd" id="1_oh4a0"]
+[ext_resource type="Script" uid="uid://c75ynaxgevfv1" path="res://Scripts/lexus_gs430.gd" id="1_lfqqe"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_wa4gj"]
-[ext_resource type="AudioStream" uid="uid://b74orx6rrqevj" path="res://SFX/petrol.mp3" id="3_lfqqe"]
+[ext_resource type="AudioStream" uid="uid://d2xqdma33ld30" path="res://SFX/diesel.mp3" id="3_lfqqe"]
 [ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="4_hrmk4"]
 [ext_resource type="AudioStream" uid="uid://dkqrbnoypkxrd" path="res://SFX/skid.mp3" id="5_l5aut"]
 
@@ -30,7 +30,7 @@ size = Vector3(0.1, 0.2, 0.5)
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0sf7n"]
-size = Vector3(0.16, 0.25, 0.1)
+size = Vector3(0.16, 0.4, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq62q"]
 albedo_color = Color(0.545098, 0.270588, 0.0745098, 1)
@@ -103,10 +103,10 @@ color_ramp = SubResource("GradientTexture1D_nfu50")
 [sub_resource type="QuadMesh" id="QuadMesh_twcfh"]
 size = Vector2(0.5, 0.5)
 
-[node name="X TYPE" type="CharacterBody3D"]
+[node name="S TYPE" type="CharacterBody3D"]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-script = ExtResource("1_oh4a0")
+script = ExtResource("1_lfqqe")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179, 2, 8)
@@ -116,7 +116,7 @@ script = ExtResource("2_wa4gj")
 target = NodePath("..")
 
 [node name="ModelRoot" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.315375, 0)
+transform = Transform3D(-1, 0, -1.88745e-07, 0, 1, 0, 1.50996e-07, 0, -1.25, 0, -0.315375, 0)
 
 [node name="WheelHolder" type="Node3D" parent="ModelRoot"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.203167, -0.15023, 0.711363)
@@ -181,7 +181,7 @@ material_override = SubResource("StandardMaterial3D_xk2uh")
 mesh = SubResource("BoxMesh_jfmr0")
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 1, 0.0169016, 0.293171, 1.02575)
+transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 1, 0.0169016, 0.241532, 1.02575)
 material_override = SubResource("StandardMaterial3D_ijlge")
 mesh = SubResource("BoxMesh_0sf7n")
 

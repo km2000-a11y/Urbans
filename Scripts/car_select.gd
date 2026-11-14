@@ -81,6 +81,8 @@ var car_sell_prices := {
 	"Colossus Behemoth": 0,
 	"Mir Cars Nightwolf": 22500,
 	"Schroder Colosso": 33750,
+	"Eisenach Prince":86250,
+
 	"Colossus Titan Max": 52500,
 
 	# Muscle
@@ -170,7 +172,7 @@ var car_prices := {
 
 	"Kronstadt Regent": 60000,
 	"Schroder Suppressor": 85000,
-	"Eisenach Monarch": 115000,
+	"Eisenach Monarch": 92000,
 
 	# Executive
 
@@ -178,7 +180,8 @@ var car_prices := {
 	"Strandberg Turbo": 85000,
 	"Kuro Vault": 95000,
 	"Zenith Touring": 105000,
-	"Berkshire Mocha": 115000,
+	"Berkshire Mocha": 100000,
+	"Eisenach Prince":115000,
 
 	# Urban Performance
 
@@ -464,6 +467,16 @@ var car_colors = {
 	Color8(80,20,20)      # Burgundy
 ],
 
+"Eisenach Prince": [
+	Color8(255, 91, 79),   # Imola Red (default)
+	Color8(15, 15, 15),    # Jet Black
+	Color8(192, 192, 192), # Titanium Silver
+	Color8(25, 55, 120),   # Le Mans Blue
+	Color8(25, 45, 30),    # Oxford Green II
+	Color8(115, 110, 95),  # Sterling Grey
+	Color8(255, 255, 255)  # Alpine White
+],
+
 "Schroder Suppressor":[
 	Color8(75,78,71),
 	Color8(180,180,180),
@@ -732,12 +745,13 @@ var sedans_list = [
 	"Strandberg Turbo",
 	"Kuro Vault",
 	"Zenith Touring",
-	"Berkshire Mocha",
+	"Eisenach Prince",
 ]
 var torque_monsters_list = [
 	"Kronstadt Regent",
 	"Schroder Suppressor",
-	"Eisenach Monarch"
+	"Eisenach Monarch",
+	"Berkshire Mocha",
 ]
 
 var sport_list = [
@@ -870,13 +884,6 @@ var urban_racers = {
 	],
 }
 var sedans = {
-	"Berkshire Mocha":[
-	"", "Country: UK", "HP: 400", "WEIGHT: 1810 KG",
-	"0-100 KM/H: 5.0s", "TOP SPEED: 259 KM/H",
-	"ENGINE: V6 3.0L", "ASPIRATION: NA",
-	"TORQUE: 290 NM",
-	"TRANSMISSION: FOUR-WHEEL DRIVE"
-],
 "Zenith Touring":[
 	"", "Country: Japan", "HP: 340", "WEIGHT: 1850 KG",
 	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
@@ -889,10 +896,10 @@ var sedans = {
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-"Zenith Prince":[
-	"", "Country: Japan", "HP: 340", "WEIGHT: 1850 KG",
+"Eisenach Prince":[
+	"", "Country: Germany", "HP: 340", "WEIGHT: 1850 KG",
 	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
-	"ENGINE: V8 4.5L", "ASPIRATION: NA", "TORQUE: 450 NM",
+	"ENGINE: V8 4.9L", "ASPIRATION: NA", "TORQUE: 500 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Mir Cars Goblin":[
@@ -970,6 +977,13 @@ var torque_monsters = {
 		"TORQUE: 500 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
+	"Berkshire Mocha":[
+	"", "Country: UK", "HP: 400", "WEIGHT: 1810 KG",
+	"0-100 KM/H: 5.0s", "TOP SPEED: 259 KM/H",
+	"ENGINE: V6 2.7L", "ASPIRATION: Twin Turbo",
+	"TORQUE: 435 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 	
 	"Kronstadt Regent":[
 		"", "Country: Germany", "HP: 233", "WEIGHT: 1665 KG",

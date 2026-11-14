@@ -33,6 +33,7 @@ var stability_values := {
 	"Berkshire Blunt": 1.60,
 	"Berkshire Falcon":1.60,
 	"Berkshire V12-S": 1.80,
+	"Eisenach Prince":2.40,
 	"Berkshire Tempest": 2.00,
 	"Schroder Classique Sport": 2.20,
 
@@ -102,6 +103,7 @@ var oversteer_values := {
 
 	"Berkshire Blunt": 0.5,
 	"Berkshire Falcon":0.5,
+	"Eisenach Prince":0.8,
 	"Berkshire V12-S": 0.4,
 	"Berkshire Tempest": 0.4,
 
@@ -1305,19 +1307,25 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		# Diesel
 
 		if is_diesel:
-
-			var diesel_ratio :float= clamp(
-				speed_kmh / 160.0,
-				0.0,
-				1.0
-			)
-
-			accel_rate *= lerp(
-				0.75,
-				1.25,
-				sqrt(diesel_ratio)
-			)
-
+			var speed_norm :float = clamp(speed_kmh / 160.0, 0.0, 1.0)
+			var final_multiplier :float
+			
+			if speed_kmh < 65.0:
+				# Sluggish and lazy from 0 to 65 km/h (building boost)
+				var progress :float = speed_kmh / 65.0
+				final_multiplier = lerp(0.7, 0.9, progress)
+				
+			elif speed_kmh <= 160.0:
+				# Wakes up past 65 km/h and holds maximum surge strength up to 160 km/h
+				var high_speed_progress :float = (speed_kmh - 65.0) / (160.0 - 65.0)
+				final_multiplier = lerp(1.00, 1.45, high_speed_progress)
+				
+			else:
+				# Fades off smoothly past 160 km/h as it hits its aerodynamic/power wall
+				var overspeed_progress :float = clamp((speed_kmh - 160.0) / 40.0, 0.0, 1.0)
+				final_multiplier = lerp(1.15, 0.9, overspeed_progress)
+				
+			accel_rate *= final_multiplier
 		# NOS
 
 		if nitro_active:
@@ -2110,7 +2118,7 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 	RevPlayer.pitch_scale = engine_pitch_smoothed
 	if not is_diesel: 
 		RevPlayer.volume_db = clamp(engine_volume_smoothed-1.5, -40.0, 0.0)
-	else:RevPlayer.volume_db = clamp(engine_volume_smoothed+3.0, -40.0, 0.0)
+	else:RevPlayer.volume_db = clamp(engine_volume_smoothed+2.0, -40.0, 0.0)
 		
 func setup_engine_bus() -> void:
 	if not is_instance_valid(RevPlayer):
