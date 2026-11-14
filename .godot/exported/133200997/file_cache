@@ -7,7 +7,7 @@ res://Scenes/bmw_330d.tscn::c6d3b290d0d9813140af0940b1bd8c95::1787390471::res://
 res://Scenes/bmw_745.tscn::0c78402524d6d6d1be26fde51b612a13::1794030215::res://.godot/exported/133200997/export-96ac9c0b0dc1b869ce778c27d7fccd2c-bmw_745.scn
 res://Scenes/bmw_m5_e39.tscn::77cadca56ce01c57e28916a43d998a1a::1792426827::res://.godot/exported/133200997/export-a82d731467e96bc13eaffe1ffbb522b4-bmw_m5_e39.scn
 res://Scenes/bmw_x5.tscn::1bd1e1859aed41f9145b8a2cd9a84c4d::1787390471::res://.godot/exported/133200997/export-98dedd3c6309bf52de006a92b92a4b98-bmw_x5.scn
-res://Scenes/car_select.tscn::9d5dd6aabd4a9a2cad1ce6e8c4a7324f::1794497621::res://.godot/exported/133200997/export-fa145d97b69337d96845d1406188e9eb-car_select.scn
+res://Scenes/car_select.tscn::9d5dd6aabd4a9a2cad1ce6e8c4a7324f::1794642845::res://.godot/exported/133200997/export-fa145d97b69337d96845d1406188e9eb-car_select.scn
 res://Scenes/chevelle_ss.tscn::193c8392b0a730266c31c5850de14f49::1793108379::res://.godot/exported/133200997/export-77a5ef79c3f1c5f4034413070c0e2ab4-chevelle_ss.scn
 res://Scenes/chevrolet_corvette_c5.tscn::176ca08b49b7a2b32adf841847b38660::1794495566::res://.godot/exported/133200997/export-79e798d7ce47e0e29a79f19546db9b5f-chevrolet_corvette_c5.scn
 res://Scenes/cop_chase_hud.tscn::c846e59e582e4bc5faa855a19438ac2b::1793108398::res://.godot/exported/133200997/export-4255d137f564ff3e3dc8bfa34e19ed30-cop_chase_hud.scn
@@ -27,10 +27,10 @@ res://Scenes/jaguar_xkr.tscn::466006f562a7ad66bacead703e033321::1794030215::res:
 res://Scenes/leaderboard.tscn::bd9a7aa068d515b3c6b7faea9306bd11::1793108386::res://.godot/exported/133200997/export-4f4bdb57979728a9227db4ae0d93af41-leaderboard.scn
 res://Scenes/lexus_is250.tscn::85fe603120e139dd5e53d05b30dd9e2d::1791904912::res://.godot/exported/133200997/export-5e9ae49ab94cd3545096fb421a8f8a40-lexus_is250.scn
 res://Scenes/lexus_is350.tscn::f59d89b462b03d9f6f861b573d66cbc9::1787390471::res://.godot/exported/133200997/export-2fc50957b3e33832599d490e40281474-lexus_is350.scn
-res://Scenes/lexus_ls430.tscn::d68992f8239ebec1b56a97f6abb97b64::1794497621::res://.godot/exported/133200997/export-887a9a9978fdbfe4905c4ee8cec3f75b-lexus_ls430.scn
+res://Scenes/lexus_ls430.tscn::d68992f8239ebec1b56a97f6abb97b64::1794642845::res://.godot/exported/133200997/export-887a9a9978fdbfe4905c4ee8cec3f75b-lexus_ls430.scn
 res://Scenes/lexus_lx470.tscn::df56b8f37b12fec69812cc313a645b30::1793108380::res://.godot/exported/133200997/export-8a8c6725d878608d94fa415bfc507fdd-lexus_lx470.scn
 res://Scenes/lotus_exige_s.tscn::c00f2df2d2583a96ae95a57b2b74282c::1793108413::res://.godot/exported/133200997/export-5c6ad8b8d66e736200b428ebca7a2bcd-lotus_exige_s.scn
-res://Scenes/main_menu.tscn::0d7e8df5c4ee8705630e01c2b477d9a9::1794497822::res://.godot/exported/133200997/export-502e6a9b269597544b234abf28958cd8-main_menu.scn
+res://Scenes/main_menu.tscn::0d7e8df5c4ee8705630e01c2b477d9a9::1794642845::res://.godot/exported/133200997/export-502e6a9b269597544b234abf28958cd8-main_menu.scn
 res://Scenes/mc12.tscn::6c858b3ae5e398a081614b0b3f38cfbc::1793108396::res://.godot/exported/133200997/export-177c7eacd3a660aaec93d7d95b7cc2cf-mc12.scn
 res://Scenes/mode_select.tscn::9fb457fb73cd078533c1d19a1a8eb91a::1793108385::res://.godot/exported/133200997/export-2f8bec9312ae49403ee1b4bc30f679b5-mode_select.scn
 res://Scenes/morgan_aero_8.tscn::5ab55babd399cd18bbd3f95211893d60::1794495566::res://.godot/exported/133200997/export-cd38adc81986e318c959bcc8fbc2b0da-morgan_aero_8.scn
@@ -65,8 +65,8 @@ res://Scenes/slk.tscn::49da3b49004e4f4c6bae66aeda54ba02::1790429848::res://.godo
 res://Scenes/tvr_cerbera.tscn::53f01d38980eb50f0dc067c6fccf597c::1791824093::res://.godot/exported/133200997/export-ad4ce9ec611f84dff0b9b258a0f8c960-tvr_cerbera.scn
 res://Tracks/abu_dhabi.tscn::6b8b96603a73871d39c49109cd633bd0::1793108401::res://.godot/exported/133200997/export-6377a409e3f5e831d4d4eb3fbf1ee4ac-abu_dhabi.scn
 res://Tracks/split.tscn::690d1e3f336041b4645f6fcbec181f2e::1793108403::res://.godot/exported/133200997/export-b70cc23ba401d5c6eb0411fcf3447fa0-split.scn
-res://Scenes/jaguar_s_type.tscn::7c95b36f119107c447fe82e3e294ae86::1794497739::res://.godot/exported/133200997/export-80a535e1b1cbe98b83ca07a0c7774319-jaguar_s_type.scn
-res://Scenes/language_menu.tscn::977c9ac4e3c72ffe432f9e50f4058fda::1793108406::res://.godot/exported/133200997/export-056f52ffaca935404cd2e88003775829-language_menu.scn
+res://Scenes/jaguar_s_type.tscn::7c95b36f119107c447fe82e3e294ae86::1794642845::res://.godot/exported/133200997/export-80a535e1b1cbe98b83ca07a0c7774319-jaguar_s_type.scn
+res://Scenes/language_menu.tscn::893e697c11401a1a22858344134f8163::1794642945::res://.godot/exported/133200997/export-056f52ffaca935404cd2e88003775829-language_menu.scn
 res://Tracks/new_york.tscn::ae856fe04a8c9c8f9be6e37739370393::1793108407::res://.godot/exported/133200997/export-82b9d005bdcc55c6905ebc5a28de3f22-new_york.scn
 res://noto_sans.tres::04151be2c1cfc81fc938d8ebde6c9e81::1788705769::res://.godot/exported/133200997/export-aa8987076dbb7644f0cb4faffc71bc54-noto_sans.res
 res://Tracks/las_vegas.tscn::299458746efa995331cfaad27060a972::1793108409::res://.godot/exported/133200997/export-56055e33ba843b15556bc8e550362bc7-las_vegas.scn
@@ -95,8 +95,8 @@ res://Scenes/ford_mondeo.tscn::9310d351d381b3e7e73844b4feb19f3b::1794025478::res
 res://Scenes/cooper_s.tscn::79347ea2dbf158640a3c326f44f40325::1793108375::res://.godot/exported/133200997/export-09a10a4eae55655fb89eff93cf11b16e-cooper_s.scn
 res://Scenes/sl500.tscn::62a8e433ef292b013dcdb9a35e2bd258::1794030215::res://.godot/exported/133200997/export-854f42ae28f257a1a0828476e83809d6-sl500.scn
 res://Scenes/4200_gt.tscn::9eab8cc2d1c5d60e1bea2997ec53027b::1794495566::res://.godot/exported/133200997/export-3feebf0576f90d0530e2b9aa7db64e19-4200_gt.scn
-res://Scenes/cls55.tscn::d886872c42e54df3fb317f035852febb::1794497620::res://.godot/exported/133200997/export-c908ee93c01d28249e767f951197c23d-cls55.scn
-res://Scenes/e320.tscn::cd2c55da279638fd21cc84e7f3f30e60::1794497621::res://.godot/exported/133200997/export-b00c2980eade0c0b3ec188e64aaf2014-e320.scn
-res://Scenes/infiniti_g35.tscn::4efe4f70b43975f109c68868e5b2da73::1794497621::res://.godot/exported/133200997/export-2447b3d18a16d2678455331aa6955531-infiniti_g35.scn
+res://Scenes/cls55.tscn::d886872c42e54df3fb317f035852febb::1794642845::res://.godot/exported/133200997/export-c908ee93c01d28249e767f951197c23d-cls55.scn
+res://Scenes/e320.tscn::cd2c55da279638fd21cc84e7f3f30e60::1794642845::res://.godot/exported/133200997/export-b00c2980eade0c0b3ec188e64aaf2014-e320.scn
+res://Scenes/infiniti_g35.tscn::4efe4f70b43975f109c68868e5b2da73::1794642845::res://.godot/exported/133200997/export-2447b3d18a16d2678455331aa6955531-infiniti_g35.scn
 res://Scenes/tvr_tuscan.tscn::391b8c32680aa8b751a3b4a1eabb132a::1794495566::res://.godot/exported/133200997/export-58363b12db89c19d24eace315b14b1b4-tvr_tuscan.scn
 res://volvo_940.tscn::d99e069b8047c88a6f24061625a7f699::1794495566::res://.godot/exported/133200997/export-56f4454aa043a4f8c9773b9905cd7de0-volvo_940.scn

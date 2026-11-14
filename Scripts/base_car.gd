@@ -1,5 +1,6 @@
 class_name CarController
 extends CharacterBody3D
+var wall_recovery_timer := 0.0
 var stability_values := {
 
 	# ===== CERTIFIABLY INSANE =====
@@ -1215,14 +1216,25 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			forward * velocity.dot(forward),
 			stability_strength * delta
 		)
-	
+	wall_recovery_timer = max(
+	0.0,
+	wall_recovery_timer - delta
+)
 	if accel > 0.0:
 
 		if wall_block:
-			velocity *= 0.998
+			velocity *= 0.9
 
 		if wall_scrape:
-			velocity *= 0.999
+			velocity *= 0.95
+		if wall_block:
+			wall_recovery_timer = 1.0
+
+		if wall_scrape:
+			wall_recovery_timer = max(
+				wall_recovery_timer,
+				0.5
+			)
 
 		if nitro_active:
 
@@ -1349,7 +1361,13 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			- current_forward_speed
 		)
 
-		velocity += forward * speed_difference * 0.3
+		var recovery_factor := 0.30
+
+		if wall_recovery_timer > 0.0:
+
+			recovery_factor *= 0.45
+
+		velocity += forward * speed_difference * recovery_factor
 
 	else:
 
