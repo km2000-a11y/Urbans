@@ -46,9 +46,30 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "TURKCE"
 
+[node name="Spanish" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "ESPANOL
+"
+
+[node name="Arabic" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "العربية
+"
+
+[node name="Swahili" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "KISWAHILI
+"
+
 [connection signal="pressed" from="Control/VBoxContainer/English" to="." method="_on_english_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/French" to="." method="_on_french_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/German" to="." method="_on_german_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Russian" to="." method="_on_russian_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/SerboCroatian" to="." method="_on_serbo_croatian_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Turkish" to="." method="_on_turkish_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Spanish" to="." method="_on_spanish_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Arabic" to="." method="_on_arabic_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Swahili" to="." method="_on_swahili_pressed"]

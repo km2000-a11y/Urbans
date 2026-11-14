@@ -32,3 +32,21 @@ func _on_turkish_pressed() -> void:
 
 func _go_back() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
+
+func _on_spanish_pressed() -> void:
+	Localization.set_language("es")
+	Localization.refresh_ui()
+	_go_back()
+
+
+func _on_arabic_pressed() -> void:
+	Localization.set_language("ar")
+	Localization.refresh_ui()
+	_go_back()
+
+
+func _on_swahili_pressed() -> void:
+	Localization.set_language("sw")
+	Localization.refresh_ui()
+	_go_back()

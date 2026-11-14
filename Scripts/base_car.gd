@@ -55,7 +55,7 @@ var stability_values := {
 var stability_factor:=1.0
 const GRAVITY := 30.0
 const ENGINE_BRAKE := 0.5
-const DRAG := 0.08
+const DRAG := 0.035
 const HARD_LIMIT_KMH := 400.0
 const HARD_LIMIT := HARD_LIMIT_KMH / 3.6
 var display_hp := 0.0
@@ -703,7 +703,11 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		else:
 			if SkidPlayer.playing:
 				SkidPlayer.stop()
-	steering = lerp(steering, steer, delta * 6.0)
+	steering = lerp(
+	steering,
+	steer,
+	delta * 3.5
+)
 
 	var forward := -transform.basis.z
 	forward.y = 0.0
@@ -855,7 +859,11 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 					bounce_dir.y = 0.0
 					velocity = bounce_dir * (velocity.length() * 0.5)
 				else:
-					var speed_retention :float= clamp(0.7 + (mass_ratio - 1.0) * 0.15, 0.6, 0.95)
+					var speed_retention :float = clamp(
+	0.85 + (mass_ratio - 1.0) * 0.08,
+	0.75,
+	0.98
+)
 					velocity *= speed_retention
 					var shove_force := velocity.length() * mass_ratio * 0.2
 					other_car.velocity += hit_dir * shove_force
@@ -1024,118 +1032,156 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			)
 
 	elif transmission == "Rear wheel drive":
-		
+
 		lateral_friction = lerp(
 			lateral_friction,
-			0.92,
+			1.00,
 			delta * 2.0
 		)
 
-		var yaw_boost :float= clamp(
-			speed_kmh / 120.0,
+		var instability :float = clamp(
+	1.0 / max(stability_factor, 1.0),
+	0.5,
+	1.5
+)
+
+		var yaw_boost :float = clamp(
+			speed_kmh / 150.0,
 			0.0,
 			1.0
 		)
+
+		# Natural rotation
 
 		velocity = velocity.rotated(
 			Vector3.UP,
 			steering
 			* yaw_boost
-			* 0.18
-			* twitch_factor
+			* 0.04
 			* delta
 		)
 
-		if accel > 0.75 and speed_kmh > 40.0:
+		# Power oversteer
 
-			var oversteer_strength := (
-	accel
-	* pow(oversteer_factor, 1.5)
-	* twitch_factor
-)
-	
-		
+		if accel > 0.8 and speed_kmh > 50.0:
+
+			var oversteer_strength :float = (
+				oversteer_factor
+				* instability
+			)
 
 			velocity = velocity.rotated(
 				Vector3.UP,
 				steering
 				* oversteer_strength
-				* 0.15
+				* 0.007
 				* delta
 			)
-			if oversteer_strength > 20.0:
 
-				lateral_friction *= 0.35
-
-			elif oversteer_strength > 10.0:
-
-				lateral_friction *= 0.55
-
-			lateral_friction *= (
-				1.0 - clamp(
-					(oversteer_factor - 1.0) * 0.15,
-					0.0,
-					0.35
-				)
-			)
+		# Launch wheelspin
 
 		if accel > 0.9 and speed_kmh < 40.0:
 
-			var wheelspin :float= clamp(
-				horsepower / 500.0,
+			var wheelspin :float = clamp(
+				horsepower / 1000.0,
 				0.0,
-				1.0
+				0.25
 			)
 
 			lateral_friction *= (
-				1.0 - wheelspin * 0.25 * twitch_factor
+				1.0 - wheelspin
 			)
 
-		if speed_kmh > 120.0:
+		# Mild lift-off oversteer
 
-			var forward_velocity := forward * velocity.dot(forward)
+		if accel < 0.15 and speed_kmh > 130.0:
+
+			velocity = velocity.rotated(
+				Vector3.UP,
+				steering
+				* instability
+				* 0.015
+				* delta
+			)
+
+		var forward_velocity := (
+			forward
+			* velocity.dot(forward)
+		)
+
+		# Recovery
+
+		velocity = velocity.lerp(
+			forward_velocity,
+			stability_factor * 0.06 * delta
+		)
+
+		# LS400 / Vault glue mode
+
+		if car_name == "Kuro Vault":
+
+			lateral_friction *= 1.20
 
 			velocity = velocity.lerp(
 				forward_velocity,
-				stability_factor * 0.12 * delta
+				0.30 * delta
 			)
-
+	
 	elif transmission == "Four wheel drive":
 
 		lateral_friction = lerp(
 			lateral_friction,
-			1.20,
-			delta * 2.0
+			1.35,
+			delta * 4.0
 		)
 
-		steering *= 1.03
+		traction_factor = 1.20
+		launch_grip = 1.35
 
-		traction_factor = 1.15
-		launch_grip = 1.30
-
-		var yaw_boost :float= clamp(
+		var yaw_boost :float = clamp(
 			speed_kmh / 140.0,
 			0.0,
 			1.0
 		)
 
+		# Much less rotation than RWD
 		velocity = velocity.rotated(
 			Vector3.UP,
 			steering
 			* yaw_boost
-			* 0.08
-			* twitch_factor
+			* 0.05
 			* delta
 		)
 
+		# AWD pulls itself straight under throttle
+		if accel > 0.5:
+
+			var throttle_grip := (
+				forward
+				* velocity.dot(forward)
+			)
+
+			velocity = velocity.lerp(
+				throttle_grip,
+				0.30 * delta
+			)
+
+		# Massive high-speed stability
 		if speed_kmh > 100.0:
 
-			var forward_velocity := forward * velocity.dot(forward)
+			var forward_velocity := (
+				forward
+				* velocity.dot(forward)
+			)
 
 			velocity = velocity.lerp(
 				forward_velocity,
-				stability_factor * 0.16 * delta
+				stability_factor * 0.22 * delta
 			)
+
+		# Extra corner exit grip
+		if accel > 0.8:
+			lateral_friction *= 1.15
 # Higher stability = calmer
 # Lower stability = twitchier
 
@@ -1152,155 +1198,183 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			forward * velocity.dot(forward),
 			stability_strength * delta
 		)
-	var accel_force := 0.0
-
+	
 	if accel > 0.0:
-		if reversing:
-			# --- REVERSE MOVEMENT ---
-			var rev_force := acceleration_calc * 0.35   # MUCH WEAKER
-			velocity -= forward * rev_force * delta
 
-			# Cap reverse speed
-			var flat_rev := Vector3(velocity.x, 0, velocity.z)
-			if flat_rev.length() > reverse_speed_limit:
-				flat_rev = flat_rev.normalized() * reverse_speed_limit
-			velocity.x = flat_rev.x
-			velocity.z = flat_rev.z
+		if wall_block:
+			velocity *= 0.998
+
+		if wall_scrape:
+			velocity *= 0.999
+
+		if nitro_active:
+
+			nitro.show()
+			nitro_top_speed_multiplier = 1.10
 
 		else:
-			# --- FORWARD MOVEMENT ---
-			var launch_boost := 1.0
-			if current_gear == 1:
-				launch_boost = 1.25
-			var power_delivery := torque_factor
 
-			if has_turbo:
+			nitro.hide()
+			nitro_top_speed_multiplier = 1.0
 
-				# Weak low down
-				# Huge midrange
+		var target_speed := top_speed_kmh
 
-				if rpm_ratio < 0.35:
+		if nitro_active:
+			target_speed *= nitro_top_speed_multiplier
 
-					power_delivery *= 0.75
+		# Base acceleration from 0-100
 
-				elif rpm_ratio < 0.60:
+		var accel_rate :float = (
+			100.0
+			/ max(zero_to_hundred, 0.1)
+		)
 
-					power_delivery *= 1.30
+		# Turbo
 
-				elif rpm_ratio < 0.85:
+		if has_turbo:
 
-					power_delivery *= 1.45
+			if rpm_ratio < 0.35:
+				accel_rate *= 0.85
 
-				else:
+			elif rpm_ratio < 0.60:
+				accel_rate *= 1.25
 
-					power_delivery *= 1.10
-
-			elif has_supercharger:
-
-				# Power everywhere, but scaled down at launch to prevent 2-sec 0-60s
-				# Starts lower to simulate initial traction limits / belt load-up
-
-				power_delivery *= lerp(
-					0.95,  # Reduced from 1.20 (slips/hooks up gradually)
-					1.25,  # Reduced from 1.45 (peaks at a saner top-end multiplier)
-					rpm_ratio
-				)
+			elif rpm_ratio < 0.85:
+				accel_rate *= 1.40
 
 			else:
+				accel_rate *= 1.10
 
-				# Naturally aspirated
+		# Supercharger
 
-				power_delivery *= lerp(
-					0.90,
-					1.30,
-					rpm_ratio
-				)
+		elif has_supercharger:
 
-			accel_force = (
-				acceleration_calc
-- power_delivery
-- traction_factor
-- launch_boost
-- launch_grip
+			accel_rate *= lerp(
+				1.05,
+				1.20,
+				rpm_ratio
 			)
 
-				# REAL-LIFE DIESEL PROFILE: 
-				# Controlled, heavy launch (~7s 0-100 km/h), 
-				# turning into an unstoppable freight train in the midrange, 
-				# and crawling steadily to top speed.
-				
-			if is_diesel:
-				if speed_kmh < 30.0:
-					accel_force = acceleration_calc * 0.30  # Heavy lag off the line (7.4s 0-100)
-				elif speed_kmh < 90.0:
-					accel_force = acceleration_calc * 0.65  # Controlled rollout
-				elif speed_kmh < 180.0:
-					accel_force = acceleration_calc * 1.50
-				elif speed_kmh<220.0:
-					accel_force=acceleration_calc*1.12
-				else:
-					# TOP END BEHAVIOR:
-					if nitro_active:
-						accel_force = acceleration_calc * 1.85  # NOS SHOT: Shatters the aerodynamic wall!
-					else:
-						accel_force = acceleration_calc * 0.65  # Breathless and struggling without NOS
+		# N/A
 
-				# Soft limiter / top speed handling
-				if nitro_active:
-					pass # Let nitro punch past normal limits smoothly
-				elif speed_kmh > top_speed_kmh:
-					accel_force *= 0.40
-				# Soft limiter right at max speed
-			if not is_diesel:
-				# Standard petrol power drop near top speed, overridden completely by NOS
-				if nitro_active:
-					accel_force *= 1.50  # NOS SURGE: Keeps pulling hard past the top-end wall!
-				else:
-					# Pushed thresholds much closer to top_speed_kmh so it pulls hard to the end
-					if speed_kmh > top_speed_kmh * 0.99:
-						accel_force *= 0.75  # Gentle final taper right at the edge
-					elif speed_kmh > top_speed_kmh * 0.96:
-						accel_force *= 0.87  # Barely touching power
-					elif speed_kmh > top_speed_kmh * 0.92:
-						accel_force *= 0.95  # Virtually full power
+		else:
 
-				# Soft governor right at max speed (pushed slightly higher if NOS is on)
-				var effective_top_speed := top_speed_kmh
-				if nitro_active:
-					effective_top_speed *= nitro_top_speed_multiplier
-					
-				if speed_kmh > effective_top_speed:
-					accel_force *= 0.50
-			velocity += forward * accel_force * delta
+			accel_rate *= lerp(
+				0.95,
+				1.10,
+				rpm_ratio
+			)
 
+		# Drivetrain
+
+		if transmission == "Four wheel drive":
+			accel_rate *= 1.06
+
+		elif transmission == "Rear wheel drive":
+			accel_rate *= 0.99
+
+		# Diesel
+
+		if is_diesel:
+
+			var diesel_ratio :float= clamp(
+				speed_kmh / 160.0,
+				0.0,
+				1.0
+			)
+
+			accel_rate *= lerp(
+				0.75,
+				1.25,
+				sqrt(diesel_ratio)
+			)
+
+		# NOS
+
+		if nitro_active:
+			accel_rate *= 1.35
+
+		# Build speed naturally
+
+		var speed_ratio :float= clamp(
+			speed_kmh / target_speed,
+			0.0,
+			1.0
+		)
+
+		# Only start dying near vmax
+
+		if speed_ratio > 0.85:
+
+			accel_rate *= lerp(
+				1.0,
+				0.55,
+				(speed_ratio - 0.85) / 0.15
+			)
+
+		var forward_speed := current_speed
+
+		forward_speed = move_toward(
+			forward_speed,
+			target_speed,
+			accel_rate * 4.0 * delta
+		)
+
+		if nitro_active:
+			forward_speed += 4.0 * delta
+
+		var desired_speed := forward_speed / 3.6
+
+		var current_forward_speed := velocity.dot(forward)
+
+		var speed_difference := (
+			desired_speed
+			- current_forward_speed
+		)
+
+		velocity += forward * speed_difference * 0.3
 
 	else:
-		var flat := Vector3(velocity.x, 0, velocity.z)
+
+		var flat := Vector3(
+			velocity.x,
+			0.0,
+			velocity.z
+		)
+
 		var brake_power := ENGINE_BRAKE
+
 		if drifting:
-			brake_power = ENGINE_BRAKE * 0.05
-		flat = flat.move_toward(Vector3.ZERO, brake_power * delta)
+			brake_power *= 0.05
+
+		flat = flat.move_toward(
+			Vector3.ZERO,
+			brake_power * delta
+		)
+
 		velocity.x = flat.x
 		velocity.z = flat.z
-
-	if nitro_active:
-		nitro.show()
-		nitro_top_speed_multiplier = 1.088
-
-		var nitro_force := acceleration_calc * 0.4
-		velocity += forward * nitro_force * delta
-	else:
-		nitro.hide()
-		nitro_top_speed_multiplier = 1.0
-
-
 	if brake > 0.1:
+		# --- WALL COLLISION RESPONSE ---
+
+		if wall_block:
+
+			velocity.x *= 0.95
+			velocity.z *= 0.95
+
+		if wall_scrape:
+
+			velocity.x *= 0.99
+			velocity.z *= 0.99
 		var brake_force := brake_strength * (mass / 1200.0) * 1.4
 		velocity = velocity.move_toward(Vector3.ZERO, brake_force * delta)
 		if not BrakePlayer.playing:
 			BrakePlayer.play()
 
-	velocity -= velocity * DRAG * delta
+	if wall_scrape:
+
+		velocity += forward * 10.0 * delta
+
 
 	var flat2 := Vector3(velocity.x, 0, velocity.z)
 	var current_top_speed := top_speed
@@ -1341,9 +1415,17 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		velocity.z = flat_safe.z
 
 	velocity.y = clamp(velocity.y, -HARD_LIMIT, HARD_LIMIT)
+	
 
 	move_and_slide()
+	if wall_block:
 
+		var speed_restore :float= max(
+			speed_kmh * 0.9,
+			top_speed_kmh * 0.5
+		)
+
+		velocity = forward * (speed_restore / 3.6)
 func set_waypoints(root: Node3D) -> void:
 	waypoint_root = root
 	waypoints = root.get_children()
@@ -1992,7 +2074,7 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 
 	RevPlayer.pitch_scale = engine_pitch_smoothed
 	if not is_diesel: 
-		RevPlayer.volume_db = clamp(engine_volume_smoothed-3.0, -40.0, 0.0)
+		RevPlayer.volume_db = clamp(engine_volume_smoothed-1.5, -40.0, 0.0)
 	else:RevPlayer.volume_db = clamp(engine_volume_smoothed+3.0, -40.0, 0.0)
 		
 func setup_engine_bus() -> void:

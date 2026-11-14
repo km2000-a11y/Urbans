@@ -75,112 +75,147 @@ var zero_to_hundred: float
 
 var unlocked_cars := {}
 var car_sell_prices := {
-	"Colossus Titan Max": 48750,
+
+	# 4x4 SUV
+
 	"Colossus Behemoth": 0,
+	"Mir Cars Nightwolf": 22500,
+	"Schroder Colosso": 33750,
+	"Colossus Titan Max": 52500,
 
-	"Schroder Colosso": 28125,
+	# Muscle
+
+	"Brutus Viper": 33750,
+	"Mir Cars Hutch": 45000,
+
+	# Compact
+
 	"Straeda Volant": 30000,
-	"Schroder Atrix Q32": 42000,
-	"Zenith Horizon": 48000,
-	"Eisenach Bengal": 37500,
+	"Eisenach Bengal": 41250,
+	"Schroder Atrix Q32": 48750,
+	"Zenith Horizon": 56250,
 
-	"Brutus Viper": 37500,
-	"Mir Cars Hutch": 46500,
+	# Torque Monsters
 
-	"Mir Cars Goblin": 47250,
-	"Schroder Suppressor": 56250,
-	"Strandberg Turbo": 65250,
-	"Kuro Vault": 69000,
-	"Zenith Prince": 75000,
+	"Kronstadt Regent": 45000,
+	"Schroder Suppressor": 63750,
+	"Eisenach Monarch": 86250,
 
-	"Kuro Serenity": 60000,
-	"Kestrel Seabird": 69750,
-	"Kestrel Speedster": 75000,
-	"Berkshire Blunt": 93750,
-	"Berkshire Falcon": 82500,
-	"Berkshire Mocha":71250,
+	# Executive
 
-	"Schroder Classique Sport": 105000,
-	"Brutus Stingray": 100000,
-	"Bartoli Cruiser": 117750,
-	"Berkshire V12-S": 132000,
-	"Berkshire Tempest": 187500,
-	"Kronstadt Monarch":84000,
+	"Brutus Goblin": 52500,
+	"Strandberg Turbo": 63750,
+	"Kuro Vault": 71250,
+	"Zenith Touring": 78750,
+	"Berkshire Mocha": 86250,
 
-	"Brutus Venom": 202500,
-	"Kestrel Battleaxe": 175500,
-	"Linetti Shepherd": 195000,
+	# Urban Performance
 
-	"Kestrel Guillotine": 221250,
-	"Linetti Firestorm": 243750,
-	"Mir Cars Nightwolf":20000,
-	"Mir Cars Raptor": 262500,
-	"Kronstadt Predator":110000,
-	"Linetti Terror": 300000,
+	"Berkshire Falcon": 71250,
+	"Kestrel Seabird": 86250,
+	"Brutus Stingray": 105000,
+	"Berkshire Blunt": 116250,
+	"Kestrel Speedster": 131250,
 
-	"Bartoli Track Cruiser": 375000,
-	"Brutus Thunderbolt": 337500,
-	"Mir Cars Athletic C70": 562500
+	# Sport Coupe
+
+	"Schroder Classique Sport": 108750,
+	"Bartoli Cruiser": 131250,
+	"Kronstadt Predator": 150000,
+	"Berkshire V12-S": 172500,
+
+	# Sport Racing
+
+	"Brutus Venom": 180000,
+	"Berkshire Tempest": 202500,
+	"Kestrel Battleaxe": 217500,
+	"Linetti Shepherd": 240000,
+
+	# Supercars
+
+	"Kestrel Guillotine": 195000,
+	"Linetti Firestorm": 255000,
+	"Mir Cars Raptor": 285000,
+	"Linetti Terror": 337500,
+
+	# Track Cars
+
+	"Brutus Thunderbolt": 375000,
+	"Bartoli Track Cruiser": 487500,
+	"Mir Cars Athletic C70": 600000
 }
 
 var car_prices := {
-	"Schroder Suppressor":75000,
-	"Schroder Colosso":37500,
-	"Schroder Classique Sport":140000,
-	"Schroder Atrix Q32":56000,
-	
-	"Berkshire V12-S":176000,
-	"Berkshire Tempest":250000,
-	
-	"Eisenach Bengal":50000,
-	"Kronstadt Monarch":112000,
-	"Brutus Stingray":140000,
-	"Mir Cars Hutch":62000,
-	
-	"Brutus Venom":270000,
-	
-	"Brutus Thunderbolt":450000,
-	"Mir Cars Goblin":63000,
-	
-	"Colossus Titan Max":65000,
-	"Colossus Behemoth":0,
-	
-	"Zenith Prince":100000,
-	
-	"Berkshire Blunt":150000,
-	
-	"Linetti Firestorm":325000,
-	"Linetti Shepherd":260000,
-	"Linetti Terror":400000,
-	
-	"Kuro Vault":92000,
-	"Mir Cars Nightwolf":30000,
-	
-	"Kestrel Seabird":96000,
-	"Berkshire Mocha":105000,
-	"Kronstadt Predator":195000,
-	"Bartoli Cruiser":157000,
-	"Bartoli Track Cruiser":500000,
-	
-	"Berkshire Falcon":88000,
-	
-	"Kestrel Speedster":125000,
-	
-	"Zenith Horizon":64000,
-	
-	"Mir Cars Athletic C70":750000,
-	
-	"Mir Cars Raptor":350000,
-	
-	"Brutus Viper":50000,
-	
-	"Kestrel Battleaxe":234000,
-	"Kestrel Guillotine":200000,
-	
-	"Straeda Volant":40000,
-	
-	"Strandberg Turbo":87000,
+
+	# 4x4 SUV
+
+	"Colossus Behemoth": 0,
+	"Mir Cars Nightwolf": 30000,
+	"Schroder Colosso": 45000,
+	"Colossus Titan Max": 70000,
+
+	# Muscle
+
+	"Brutus Viper": 45000,
+	"Mir Cars Hutch": 60000,
+
+	# Compact
+
+	"Straeda Volant": 40000,
+	"Eisenach Bengal": 55000,
+	"Schroder Atrix Q32": 65000,
+	"Zenith Horizon": 75000,
+
+	# Torque Monsters
+
+	"Kronstadt Regent": 60000,
+	"Schroder Suppressor": 85000,
+	"Eisenach Monarch": 115000,
+
+	# Executive
+
+	"Brutus Goblin": 70000,
+	"Strandberg Turbo": 85000,
+	"Kuro Vault": 95000,
+	"Zenith Touring": 105000,
+	"Berkshire Mocha": 115000,
+
+	# Urban Performance
+
+	"Berkshire Falcon": 95000,
+	"Kestrel Seabird": 115000,
+	"Brutus Stingray": 140000,
+	"Berkshire Blunt": 155000,
+	"Kestrel Speedster": 175000,
+
+	# Sport Coupe
+
+	"Schroder Classique Sport": 145000,
+	"Bartoli Cruiser": 175000,
+	"Kronstadt Predator": 200000,
+	"Berkshire V12-S": 230000,
+
+	# Sport Racing
+
+	"Brutus Venom": 240000,
+	"Berkshire Tempest": 270000,
+	"Kestrel Battleaxe": 290000,
+	"Linetti Shepherd": 320000,
+
+	# Supercars
+
+	"Kestrel Guillotine": 260000,
+	"Linetti Firestorm": 340000,
+	"Mir Cars Raptor": 380000,
+	"Linetti Terror": 450000,
+
+	# Track Cars
+
+	"Brutus Thunderbolt": 500000,
+	"Bartoli Track Cruiser": 650000,
+	"Mir Cars Athletic C70": 800000
 }
+
 
 
 # 3D Preview

@@ -1,1 +1,9 @@
+res://Scenes/main_menu.tscn
 res://Scripts/base_car.gd
+res://Scenes/cls55.tscn
+res://Scenes/jaguar_s_type.tscn
+res://Scenes/car_select.tscn
+res://Scenes/lexus_ls430.tscn
+res://Scenes/infiniti_g35.tscn
+res://Scenes/e320.tscn
+res://Scenes/language_menu.tscn
