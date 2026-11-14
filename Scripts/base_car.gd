@@ -272,15 +272,22 @@ var ai_overtake_offset: float = 0.0
 var ai_overtake_side: float = 0.0 # -1 left, +1 right
 
 func apply_stats() -> void:
-	# --- APPLY UPGRADES FIRST (Arcade‑clean behavior) ---
-	if GameMode.game_mode == "Club Cups" and Cars.upgrades.has(car_name):
-		var u = Cars.upgrades[car_name]
+	# --- RESET TO RAW STOCK DEFAULTS FIRST ---
+	# (Ensure you store or reference raw base values if needed, or rely on inspector values)
+	
+	# --- CHECK IF WE SHOULD APPLY UPGRADES ---
+	# If we are in the Dealership, DO NOT apply upgrades. Use pristine stock values.
+	if Cars.dealership_mode:
+		# Keep original stock inspector values
+		pass
+	elif GameMode.game_mode == "Club Cups" and Cars.upgrades.has(car_name):
 		Cars.load_upgrades()
+		var u = Cars.upgrades[car_name]
 
 		# Weight Reduction → improves acceleration + top speed slightly
 		if u["weight"] > 0:
 			var w = u["weight"]
-			mass *= (1.0 - 0.05 * w)                 # lighter car
+			mass *= (1.0 - 0.05 * w)              # lighter car
 			zero_to_hundred *= (1.0 - 0.04 * w)     # faster 0–100
 			
 		# Engine Tune → improves HP + top speed
@@ -314,7 +321,6 @@ func apply_stats() -> void:
 		+ (100.0 / zero_to_hundred)
 		+ ((horsepower / mass) * 700.0)
 	)
-
 func apply_handling_profile() -> void:
 	match handling_type:
 		"light_sport":

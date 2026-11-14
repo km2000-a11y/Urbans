@@ -105,7 +105,7 @@ var car_sell_prices := {
 
 	# Executive
 
-	"Brutus Goblin": 52500,
+	"Mir Cars Goblin": 52500,
 	"Strandberg Turbo": 63750,
 	"Kuro Vault": 71250,
 	"Zenith Touring": 78750,
@@ -176,7 +176,7 @@ var car_prices := {
 
 	# Executive
 
-	"Brutus Goblin": 70000,
+	"Mir Cars Goblin": 70000,
 	"Strandberg Turbo": 85000,
 	"Kuro Vault": 95000,
 	"Zenith Touring": 105000,
@@ -813,7 +813,7 @@ var suv = {
 var compact = {
 	"Schroder Atrix Q32":[
 		"", "Country: Germany", "HP: 247", "WEIGHT: 1470 KG",
-		"0-100 KM/H: 6.6s", "TOP SPEED: 250 KM/H",
+		"0-100 KM/H: 6.4s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V6 3.2L", "ASPIRATION: NA", "TORQUE: 320 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
@@ -1330,8 +1330,7 @@ func update_car_ui(stats: Array, name: String):
 
 	# Show ACTUAL upgraded stats whenever available
 	# Show upgraded stats only outside dealership
-	if not Cars.dealership_mode:
-		if preview_car != null:
+	if preview_car != null:
 			var cc = find_car_controller(preview_car)
 
 			if cc != null:
