@@ -873,7 +873,7 @@ var urban_racers = {
 "Brutus Stingray":[
 		"", "Country: USA", "HP: 350", "WEIGHT: 1460 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 258 KM/H",
-		"ENGINE: V8 6.0L", "ASPIRATION: NA", "TORQUE: 545 NM",
+		"ENGINE: V8 5.7L", "ASPIRATION: NA", "TORQUE: 530 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kestrel Speedster":[
@@ -958,7 +958,7 @@ var sport_racing = {
 	"Brutus Venom":[
 		"", "Country: USA", "HP: 415", "WEIGHT: 1560 KG",
 		"0-100 KM/H: 4.1s", "TOP SPEED: 300 KM/H",
-		"ENGINE: V10 8.0L", "ASPIRATION: NA", "TORQUE: 630 NM",
+		"ENGINE: V8 7.0L", "ASPIRATION: NA", "TORQUE: 630 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	
@@ -1128,7 +1128,7 @@ var car_scene_paths = {
 
 	"Kestrel Seabird":"res://Scenes/lotus_exige_s.tscn",
 	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
-	"Brutus Stingray":"res://Scenes/chevrolet_corvette_c5.tscn",
+	"Brutus Stingray":"res://Scenes/cadillac_cts.tscn",
 	"Kuro Zephyr V6":"res://Scenes/lexus_is350.tscn",
 	"Kestrel Speedster":"res://Scenes/morgan_aero_8.tscn",
 	"Berkshire Blunt":"res://Scenes/jaguar_xkr.tscn",
@@ -1165,7 +1165,7 @@ var car_scene_paths = {
 	"Schroder Atrocity":"res://Scenes/audi_s6.tscn",
 	"Kestrel Battleaxe":"res://Scenes/sagaris.tscn",
 	"Linetti Shepherd":"res://Scenes/gallardo.tscn",
-	"Brutus Venom":"res://Scenes/dodge_viper.tscn",
+	"Brutus Venom":"res://Scenes/corvette_z06.tscn",
 	"Kuro Persian":"res://Scenes/lexus_gs430.tscn",
 	"Kronstadt Fortress":"res://Scenes/s600.tscn",
 	"Zenith Touring":"res://Scenes/infiniti_g35.tscn",

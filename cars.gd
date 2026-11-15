@@ -123,6 +123,7 @@ var class_lists: Dictionary = {
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
 		"Zenith Touring",
+		"Brutus Stingray",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
 	],
@@ -182,6 +183,7 @@ var class_lists: Dictionary = {
 		"Bartoli Cruiser",
 		"Eisenach Monarch",
 		"Kronstadt Predator",
+		"Brutus Venom",
 		"Berkshire Blunt",
 		"Brutus Stingray"
 	],
@@ -230,7 +232,6 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 
 		"Schroder Classique Sport",
-		"Brutus Stingray",
 		"Berkshire V12-S"
 	],
 
@@ -383,7 +384,7 @@ var car_scene_paths := {
 	"Kestrel Seabird":"res://Scenes/lotus_exige_s.tscn",
 	"Kestrel Speedster":"res://Scenes/morgan_aero_8.tscn",
 	"Berkshire Blunt":"res://Scenes/jaguar_xkr.tscn",
-	"Brutus Stingray":"res://Scenes/chevrolet_corvette_c5.tscn",
+	"Brutus Stingray":"res://Scenes/cadillac_cts.tscn",
 	"Kuro Zephyr V6":"res://Scenes/lexus_is350.tscn",
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
@@ -423,7 +424,7 @@ var car_scene_paths := {
 	"Schroder Atrocity":"res://Scenes/audi_s6.tscn",
 	"Kestrel Battleaxe":"res://Scenes/sagaris.tscn",
 	"Linetti Shepherd":"res://Scenes/gallardo.tscn",
-	"Brutus Venom":"res://Scenes/dodge_viper.tscn",
+	"Brutus Venom":"res://Scenes/corvette_z06.tscn",
 	"Kronstadt Regent":"res://Scenes/e320.tscn",
 	"Berkshire Mocha":"res://Scenes/jaguar_s_type.tscn",
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn",
