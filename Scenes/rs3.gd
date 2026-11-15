@@ -1,31 +1,31 @@
 extends CarController
 
 # COSMETIC INFO (UI only)
-var def_car_name := "Schroder Classique Sport"
-var country := "Germany"
-var engine := "V6 2.7L Twin Turbo"
+var def_car_name := "Strandberg Pilot"
+var country := "Sweden"
+var engine := "I4 2.3L Turbo"
 var weight_kg := 1610
 var zero_to_hundred_display := 5.40
 
 func _ready():
 
-	# GAMEPLAY STATS — 1997 Audi S4 (B5)
+	# GAMEPLAY STATS — Saab 9-5 Aero
 	mass = 1610.0
-	horsepower = 280
+	horsepower = 265
 	max_rpm = 6800.0
-	zero_to_hundred = 5.6
+	zero_to_hundred = 5.7
 	top_speed_kmh = 265
 
-	# Stable AWD sports sedan
-	# Excellent traction, planted at speed,
-	# quick but not razor-sharp like lighter sports cars
+	# Fast Swedish executive sedan
+	# Strong turbo pull, stable motorway manners,
+	# comfortable and predictable rather than aggressive
 	turn_speed = 2.50
 	brake_strength = 22.5
 	lateral_friction = 1.14
 
-	transmission = "Four wheel drive"
+	transmission = "Front wheel drive"
 
-	# Twin-turbo V6 powerband
+	# Turbocharged inline-four powerband
 	shift_up_rpm = 6500
 	shift_down_rpm = 2500
 
@@ -41,6 +41,7 @@ func _ready():
 	]
 
 	has_turbo = true
+	is_diesel=true
 
 	apply_stats()
 	print("Child READY loaded:", def_car_name)

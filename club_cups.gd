@@ -101,7 +101,7 @@ var class_lists: Dictionary = {
 
 
 	"sport": [
-		"Schroder Classique Sport",
+		"Strandberg Pilot",
 		"Berkshire V12-S",
 		"Kronstadt Predator",
 		"Bartoli Cruiser",
@@ -139,7 +139,6 @@ var class_lists: Dictionary = {
 		"Berkshire Mocha",
 		"Schroder Colosso",
 		"Zenith Touring",
-		"Schroder Classique Sport",
 		"Zenith Horizon"
 	],
 
@@ -178,7 +177,6 @@ var class_lists: Dictionary = {
 
 	"all_wheel_grip":[
 		"Schroder Atrix Q32",
-		"Schroder Classique Sport"<
 		"Schroder Suppressor",
 		"Colossus Titan Max",
 		"Colossus Behemoth",
@@ -264,22 +262,20 @@ var class_lists: Dictionary = {
 
 		"Berkshire Blunt",
 
-		"Schroder Classique Sport",
+		"Strandberg Pilot",
 		"Berkshire V12-S"
 	],
 
 	"low_displacement_challenge":[
 		"Straeda Volant",
 		"Strandberg Turbo",
-		"Schroder Classique Sport",
+		"Strandberg Pilot",
 		"Kestrel Seabird"
 	],
 
-	"schroder_cup":[
-		"Schroder Atrix Q32",
-		"Schroder Colosso",
-		"Schroder Suppressor",
-		"Schroder Classique Sport"
+	"swedish_cup":[
+		"Strandberg Turbo",
+		"Strandberg Pilot"
 	],
 
 	"gentleman_racers":[
@@ -336,7 +332,6 @@ var class_lists: Dictionary = {
 		"Schroder Suppressor",
 		"Kronstadt Regent",
 		"Kronstadt Predator",
-		"Schroder Classique Sport",
 		"Eisenach Monarch",
 		"Eisenach Bengal",
 
@@ -396,7 +391,6 @@ var class_lists: Dictionary = {
 	"Schroder Colosso",
 	"Schroder Suppressor",
 	"Eisenach Prince",
-	"Schroder Classique Sport",
 	"Eisenach Monarch",
 
 	"Eisenach Bengal"
@@ -428,7 +422,7 @@ var cup_rewards: Dictionary = {
 	
 	"british_invasion":"Brutus Stingray",    # Morgan
 
-	"under_400_hp":"Schroder Classique Sport",
+	"under_400_hp":"Strandberg Pilot",
 	
 	"german_cup":"Bartoli Cruiser",
 	
@@ -487,7 +481,7 @@ var career_order: Array = [
 	"under_400_hp",
 
 	"german_cup",
-	"schroder_cup",
+	"swedish_cup",
 	"england_vs_italy",
 	"gentleman_racers",
 	

@@ -68,7 +68,7 @@ var class_lists: Dictionary = {
 
 
 	"sport": [
-		"Schroder Classique Sport",
+		"Strandberg Pilot",
 		"Berkshire V12-S",
 		"Kronstadt Predator",
 		"Bartoli Cruiser",
@@ -106,7 +106,6 @@ var class_lists: Dictionary = {
 		"Berkshire Mocha",
 		"Schroder Colosso",
 		"Zenith Touring",
-		"Schroder Classique Sport",
 		"Zenith Horizon"
 	],
 
@@ -145,7 +144,6 @@ var class_lists: Dictionary = {
 
 	"all_wheel_grip":[
 		"Schroder Atrix Q32",
-		"Schroder Classique Sport"<
 		"Schroder Suppressor",
 		"Colossus Titan Max",
 		"Colossus Behemoth",
@@ -231,22 +229,20 @@ var class_lists: Dictionary = {
 
 		"Berkshire Blunt",
 
-		"Schroder Classique Sport",
+		"Strandberg Pilot",
 		"Berkshire V12-S"
 	],
 
 	"low_displacement_challenge":[
 		"Straeda Volant",
 		"Strandberg Turbo",
-		"Schroder Classique Sport",
+		"Strandberg Pilot",
 		"Kestrel Seabird"
 	],
 
-	"schroder_cup":[
-		"Schroder Atrix Q32",
-		"Schroder Colosso",
-		"Schroder Suppressor",
-		"Schroder Classique Sport"
+	"swedish_cup":[
+		"Strandberg Turbo",
+		"Strandberg Pilot"
 	],
 
 	"gentleman_racers":[
@@ -303,7 +299,6 @@ var class_lists: Dictionary = {
 		"Schroder Suppressor",
 		"Kronstadt Regent",
 		"Kronstadt Predator",
-		"Schroder Classique Sport",
 		"Eisenach Monarch",
 		"Eisenach Bengal",
 
@@ -363,7 +358,6 @@ var class_lists: Dictionary = {
 	"Schroder Colosso",
 	"Schroder Suppressor",
 	"Eisenach Prince",
-	"Schroder Classique Sport",
 	"Eisenach Monarch",
 
 	"Eisenach Bengal"
@@ -391,7 +385,7 @@ var car_scene_paths := {
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
 	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
 		"Mir Cars Blazer":"res://Scenes/sl500.tscn",	
-	"Schroder Classique Sport":"res://Scenes/audi_s4.tscn",
+	"Strandberg Pilot":"res://Scenes/saab_95.tscn",
 
 	"Brutus Viper":"res://Scenes/gt500.tscn",
 	"Mir Cars Hutch":"res://Scenes/chevelle_ss.tscn",
@@ -740,7 +734,7 @@ var car_colors = {
 
 # SPORT COUPE
 
-"Schroder Classique Sport":[
+"Strandberg Pilot":[
 	Color8(0,192,192),
 	Color8(255,255,255),
 	Color8(180,180,180),

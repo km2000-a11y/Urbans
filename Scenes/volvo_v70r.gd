@@ -20,15 +20,15 @@ func _ready():
 	transmission = "Front wheel drive"
 
 	# DRIVETRAIN & GEARS
-	gear_count = 6
+	gear_count = 5
+
 	gear_ratios = [
-		3.35,
-		2.10,
-		1.45,
-		1.10,
-		0.90,
-		0.73
-	]
+		3.38, # 1st
+		1.77, # 2nd
+		1.18, # 3rd
+		0.89, # 4th
+		0.70  # 5th
+]
 	shift_up_rpm = 6200
 	shift_down_rpm = 2700
 	has_turbo = true

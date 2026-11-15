@@ -449,7 +449,7 @@ func _ready() -> void:
 
 		# Sport Coupe
 
-		"Schroder Classique Sport":
+		"Strandberg Pilot":
 			audio_character_type = 3
 
 		"Berkshire Tempest":

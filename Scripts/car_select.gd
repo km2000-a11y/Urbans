@@ -43,7 +43,7 @@ var stability_values := {
 	"Kestrel Speedster": 0.60,
 
 	# Sport Coupe
-	"Schroder Classique Sport": 1.20,
+	"Strandberg Pilot": 1.20,
 	"Bartoli Cruiser": 1.00,
 	"Berkshire V12-S": 1.15,
 	"Brutus Stingray": 0.85,
@@ -121,7 +121,7 @@ var car_sell_prices := {
 
 	# Sport Coupe
 
-	"Schroder Classique Sport": 108750,
+	"Strandberg Pilot": 108750,
 	"Bartoli Cruiser": 131250,
 	"Kronstadt Predator": 150000,
 	"Berkshire V12-S": 172500,
@@ -193,7 +193,7 @@ var car_prices := {
 
 	# Sport Coupe
 
-	"Schroder Classique Sport": 145000,
+	"Strandberg Pilot": 145000,
 	"Bartoli Cruiser": 175000,
 	"Kronstadt Predator": 200000,
 	"Berkshire V12-S": 230000,
@@ -487,7 +487,7 @@ var car_colors = {
 
 # SPORT COUPE
 
-"Schroder Classique Sport":[
+"Strandberg Pilot":[
 	Color8(0,192,192),
 	Color8(255,255,255),
 	Color8(180,180,180),
@@ -755,7 +755,7 @@ var torque_monsters_list = [
 ]
 
 var sport_list = [
-	"Schroder Classique Sport",
+	"Strandberg Pilot",
 	"Bartoli Cruiser",
 	"Berkshire V12-S",
 	"Kronstadt Predator",
@@ -935,10 +935,10 @@ var sport = {
 	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-	"Schroder Classique Sport":[
-		"", "Country: Germany", "HP: 270", "WEIGHT: 1490 KG",
+	"Strandberg Pilot":[
+		"", "Country: Sweden", "HP: 270", "WEIGHT: 1490 KG",
 		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
-		"ENGINE: V6 2.8L", "ASPIRATION: Twin Turbo", "TORQUE: 400 NM",
+		"ENGINE: L4 2.3L", "ASPIRATION: Turbo", "TORQUE: 370 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	]
 }
@@ -1152,7 +1152,7 @@ var car_scene_paths = {
 	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
 	"Zenith Prince":"res://Scenes/q45.tscn",
-	"Schroder Classique Sport":"res://Scenes/audi_s4.tscn",
+	"Strandberg Pilot":"res://Scenes/saab_95.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
