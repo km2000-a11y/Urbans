@@ -41,7 +41,7 @@ func _ready():
 	]
 
 	has_turbo = true
-	is_diesel=true
+
 
 	apply_stats()
 	print("Child READY loaded:", def_car_name)

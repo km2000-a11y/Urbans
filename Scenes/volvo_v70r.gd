@@ -17,7 +17,7 @@ func _ready():
 	turn_speed = 2.8
 	brake_strength = 11.8
 	lateral_friction = 1.08
-	transmission = "Front wheel drive"
+	transmission = "Four wheel drive"
 
 	# DRIVETRAIN & GEARS
 	gear_count = 5

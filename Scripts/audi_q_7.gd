@@ -11,8 +11,8 @@ func _ready():
 	# GAMEPLAY STATS
 	mass = 2340.0
 	horsepower = 237
-	max_rpm = 4500.0
-	zero_to_hundred = 8.7
+	max_rpm = 6500.0
+	zero_to_hundred = 8.4
 	top_speed_kmh = 208
 	turn_speed = 1.92              # heavier, premium SUV steering feel
 	brake_strength = 14.5          # strong brakes but not sporty
@@ -21,18 +21,19 @@ func _ready():
 
 	# 3.0 TDI-style gearing (torque-rich, smooth, long-legged)
 	gear_count = 6
+
 	gear_ratios = [
-		3.57,  # 1st - diesel torque launch
-		2.10,  # 2nd
-		1.46,  # 3rd
-		1.06,  # 4th
-		0.84,  # 5th
-		0.67   # 6th - long highway overdrive
+		3.90, # 1st
+		2.30, # 2nd
+		1.60, # 3rd
+		1.20, # 4th
+		0.92, # 5th
+		0.72  # 6th
 	]
-	shift_up_rpm = 4200
+	shift_up_rpm = 6200
 	shift_down_rpm = 1700
 
-	is_diesel = true
+	is_diesel = false
 
 	# APPLY STATS + HANDLING
 	apply_stats()

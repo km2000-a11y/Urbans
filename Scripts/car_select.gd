@@ -800,7 +800,7 @@ var suv = {
 	"Schroder Colosso":[
 		"", "Country: Germany", "HP: 237", "WEIGHT: 2340 KG",
 		"0-100 KM/H: 8.5s", "TOP SPEED: 211 KM/H",
-		"ENGINE: V6 3.0L DIESEL", "ASPIRATION: Turbo", "TORQUE: 500 NM",
+		"ENGINE: V6 3.6L", "ASPIRATION: NA", "TORQUE: 370 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 	"Mir Cars Nightwolf":[
@@ -873,7 +873,7 @@ var urban_racers = {
 "Brutus Stingray":[
 		"", "Country: USA", "HP: 350", "WEIGHT: 1460 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 258 KM/H",
-		"ENGINE: V8 5.7L", "ASPIRATION: NA", "TORQUE: 530 NM",
+		"ENGINE: V8 4.4L", "ASPIRATION: Supercharged", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kestrel Speedster":[
@@ -912,7 +912,7 @@ var sedans = {
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
 		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
 		"ENGINE: L5 2.3L", "ASPIRATION: Turbo", "TORQUE: 320 NM",
-		"TRANSMISSION: FRONT-WHEEL DRIVE"
+		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 }
 var sport = {
@@ -939,7 +939,7 @@ var sport = {
 		"", "Country: Sweden", "HP: 270", "WEIGHT: 1490 KG",
 		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
 		"ENGINE: L4 2.3L", "ASPIRATION: Turbo", "TORQUE: 370 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
+		"TRANSMISSION: FRONT-WHEEL DRIVE"
 	]
 }
 var sport_racing = {

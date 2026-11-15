@@ -62,6 +62,10 @@ const HARD_LIMIT_KMH := 400.0
 const HARD_LIMIT := HARD_LIMIT_KMH / 3.6
 var display_hp := 0.0
 var display_weight := 0.0
+var accel_rate :float = (
+			100.0
+			/ max(zero_to_hundred, 0.1)
+		)
 var ai_dodge_timer:=0.0
 var ai_dodge_dir:=0.0
 var stuck_time := 0.0
@@ -382,7 +386,7 @@ func _ready() -> void:
 			audio_character_type = 1
 
 		"Schroder Colosso":
-			audio_character_type = 6 # Diesel
+			audio_character_type = 1 # Diesel
 
 		"Mir Cars Nightwolf":
 			audio_character_type = 0 # Lexus Luxury
@@ -1011,70 +1015,52 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 		lateral_friction = lerp(
 			lateral_friction,
-			1.08,
-			delta * 2.0
+			1.15,
+			delta * 3.0
 		)
 
-		if speed_kmh > 80.0:
-			steering *= lerp(
-				1.0,
-				0.88,
-				clamp(speed_kmh / 250.0, 0.0, 1.0)
+		# High-power FWD torque steer
+		if horsepower > 200.0 and accel > 0.7 and speed_kmh < 100.0:
+
+			var torque_steer := (
+				(horsepower - 200.0)
+				/ 400.0
 			)
-
-		if accel > 0.8 and speed_kmh < 60.0:
-
-			var torque_steer :float= 0.12 * twitch_factor
 
 			if steer > 0.0:
-				rotation.y += torque_steer * delta
+				rotation.y += torque_steer * 0.12 * delta
 			else:
-				rotation.y -= torque_steer * delta
+				rotation.y -= torque_steer * 0.12 * delta
 
-		if speed_kmh > 100.0:
+			lateral_friction *= 0.92
 
-			var forward_velocity := forward * velocity.dot(forward)
+		# Classic FWD understeer
+		if accel > 0.6:
 
 			velocity = velocity.lerp(
-				forward_velocity,
-				stability_factor * 0.08 * delta
+				forward * velocity.dot(forward),
+				0.10 * delta
 			)
 
-	elif transmission == "Rear wheel drive":
+		if speed_kmh < 80.0:
+			accel_rate *= 1.10
+	if transmission == "Rear wheel drive":
 
 		lateral_friction = lerp(
 			lateral_friction,
-			0.92,
+			0.90,
 			delta * 2.0
 		)
 
-		var instability :float = clamp(
-			1.0 / max(stability_factor, 0.75),
-			0.75,
-			2.0
+		var instability :float= clamp(
+			1.0 / max(stability_factor, 0.5),
+			0.8,
+			3.0
 		)
 
-		var yaw_boost :float = clamp(
-			speed_kmh / 140.0,
-			0.0,
-			1.0
-		)
+		if accel > 0.55 and speed_kmh > 25.0:
 
-		# Natural chassis rotation
-
-		velocity = velocity.rotated(
-			Vector3.UP,
-			steering
-			* yaw_boost
-			* 0.08
-			* delta
-		)
-
-		# Power oversteer
-
-		if accel > 0.60 and speed_kmh > 30.0:
-
-			var oversteer_strength :float = (
+			var slide_strength := (
 				accel
 				* oversteer_factor
 				* instability
@@ -1083,117 +1069,40 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			velocity = velocity.rotated(
 				Vector3.UP,
 				steering
-				* oversteer_strength
-				* 0.018
+				* slide_strength
+				* 0.025
 				* delta
 			)
 
 			lateral_friction *= lerp(
 				1.0,
-				0.80,
+				0.70,
 				accel
 			)
 
-		# Wheelspin
+		if accel > 0.90 and speed_kmh < 80.0:
 
-		if accel > 0.90 and speed_kmh < 50.0:
-
-			var wheelspin :float = clamp(
-				horsepower / 800.0,
+			var wheelspin :float= clamp(
+				horsepower / 700.0,
 				0.0,
-				0.30
+				0.45
 			)
 
 			lateral_friction *= (
-				1.0
-				- wheelspin
+				1.0 - wheelspin
 			)
-
-		# Lift-off oversteer
-
-		if accel < 0.15 and speed_kmh > 100.0:
-
-			velocity = velocity.rotated(
-				Vector3.UP,
-				steering
-				* instability
-				* 0.025
-				* delta
-			)
-
-		var forward_velocity := (
-			forward
-			* velocity.dot(forward)
-		)
-
-		# Slower self-correction
-
-		velocity = velocity.lerp(
-			forward_velocity,
-			stability_factor * 0.03 * delta
-		)
-
-		# High-speed stability
-
-		if speed_kmh > 180.0:
-
-			velocity = velocity.lerp(
-				forward_velocity,
-				0.04 * delta
-			)
-
-		# Luxury GT behaviour
-
-		if car_name == "Kuro Vault":
-
-			lateral_friction *= 1.15
-
-			velocity = velocity.lerp(
-				forward_velocity,
-				0.15 * delta
-			)
-	
-	elif transmission == "Four wheel drive":
+	if transmission == "Four wheel drive":
 
 		lateral_friction = lerp(
 			lateral_friction,
-			1.35,
-			delta * 4.0
+			1.45,
+			delta * 5.0
 		)
 
-		traction_factor = 1.20
-		launch_grip = 1.35
+		if speed_kmh < 120.0:
+			accel_rate *= 1.22
 
-		var yaw_boost :float = clamp(
-			speed_kmh / 140.0,
-			0.0,
-			1.0
-		)
-
-		# Much less rotation than RWD
-		velocity = velocity.rotated(
-			Vector3.UP,
-			steering
-			* yaw_boost
-			* 0.05
-			* delta
-		)
-
-		# AWD pulls itself straight under throttle
-		if accel > 0.5:
-
-			var throttle_grip := (
-				forward
-				* velocity.dot(forward)
-			)
-
-			velocity = velocity.lerp(
-				throttle_grip,
-				0.30 * delta
-			)
-
-		# Massive high-speed stability
-		if speed_kmh > 100.0:
+		if accel > 0.3:
 
 			var forward_velocity := (
 				forward
@@ -1202,13 +1111,18 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 			velocity = velocity.lerp(
 				forward_velocity,
-				stability_factor * 0.22 * delta
+				0.55 * delta
 			)
 
-		# Extra corner exit grip
+		if speed_kmh > 100.0:
+
+			velocity = velocity.lerp(
+				forward * velocity.dot(forward),
+				0.35 * delta
+			)
+
 		if accel > 0.8:
-			lateral_friction *= 1.15
-# Higher stability = calmer
+			lateral_friction *= 1.20
 # Lower stability = twitchier
 
 
@@ -1261,46 +1175,77 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 		# Base acceleration from 0-100
 
-		var accel_rate :float = (
-			100.0
-			/ max(zero_to_hundred, 0.1)
-		)
+		
 
 		# Turbo
 
 		if has_turbo:
 
-			if rpm_ratio < 0.35:
-				accel_rate *= 0.85
+			if speed_kmh < 60.0:
 
-			elif rpm_ratio < 0.60:
-				accel_rate *= 1.25
+				accel_rate *= 0.95
 
-			elif rpm_ratio < 0.85:
-				accel_rate *= 1.40
+			elif speed_kmh < 120.0:
+
+				accel_rate *= 1.08
+
+			elif speed_kmh < 220.0:
+
+				accel_rate *= 1.28
 
 			else:
+
+				accel_rate *= 1.12
+			if rpm_ratio < 0.25:
+				accel_rate *= 0.85
+
+			elif rpm_ratio < 0.50:
+				accel_rate *= 1.00
+
+			elif rpm_ratio < 0.80:
 				accel_rate *= 1.10
 
+			else:
+				accel_rate *= 1.05
 		# Supercharger
 
-		elif has_supercharger:
+		if has_supercharger:
 
-			accel_rate *= lerp(
-				1.05,
-				1.20,
-				rpm_ratio
-			)
+			if speed_kmh < 80.0:
+
+				accel_rate *= 1.30
+
+			elif speed_kmh < 160.0:
+
+				accel_rate *= 1.20
+
+			elif speed_kmh < 240.0:
+
+				accel_rate *= 1.10
+
+			else:
+
+				accel_rate *= 1.00
 
 		# N/A
 
-		else:
+		if not is_diesel and not has_turbo and not has_supercharger:
 
-			accel_rate *= lerp(
-				0.95,
-				1.10,
-				rpm_ratio
-			)
+			if rpm_ratio < 0.30:
+
+				accel_rate *= 0.75
+
+			elif rpm_ratio < 0.55:
+
+				accel_rate *= 0.95
+
+			elif rpm_ratio < 0.80:
+
+				accel_rate *= 1.20
+
+			else:
+
+				accel_rate *= 1.35
 
 		# Drivetrain
 
@@ -1312,56 +1257,142 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 		# Diesel
 
+		# =========================
+# ENGINE PERSONALITY
+# =========================
+
+		var engine_multiplier := 1.0
+
+	# DIESEL
+		# =========================
+# ENGINE PERSONALITY
+# =========================
+
+
+# -------------------------
+# DIESEL
+# -------------------------
+
 		if is_diesel:
-			var speed_norm :float = clamp(speed_kmh / 160.0, 0.0, 1.0)
-			var final_multiplier :float
-			
-			if speed_kmh < 65.0:
-				# Sluggish and lazy from 0 to 65 km/h (building boost)
-				var progress :float = speed_kmh / 65.0
-				final_multiplier = lerp(0.7, 0.9, progress)
-				
-			elif speed_kmh <= 160.0:
-				# Wakes up past 65 km/h and holds maximum surge strength up to 160 km/h
-				var high_speed_progress :float = (speed_kmh - 65.0) / (160.0 - 65.0)
-				final_multiplier = lerp(1.00, 1.45, high_speed_progress)
-				
+
+			if speed_kmh < 60.0:
+
+				engine_multiplier = 1.25
+
+			elif speed_kmh < 140.0:
+
+				engine_multiplier = 1.45
+
+			elif speed_kmh < 200.0:
+
+				engine_multiplier = 1.20
+
 			else:
-				# Fades off smoothly past 160 km/h as it hits its aerodynamic/power wall
-				var overspeed_progress :float = clamp((speed_kmh - 160.0) / 40.0, 0.0, 1.0)
-				final_multiplier = lerp(1.15, 0.9, overspeed_progress)
-				
-			accel_rate *= final_multiplier
-		# NOS
 
-		if nitro_active:
-			accel_rate *= 1.35
+				engine_multiplier = 0.85
 
-		# Build speed naturally
 
+		# -------------------------
+		# TURBO
+		# -------------------------
+
+		elif has_turbo:
+
+			if speed_kmh < 60.0:
+
+				engine_multiplier = 0.95
+
+			elif speed_kmh < 120.0:
+
+				engine_multiplier = 1.08
+
+			elif speed_kmh < 220.0:
+
+				engine_multiplier = 1.28
+
+			else:
+
+				engine_multiplier = 1.08
+
+
+		# -------------------------
+		# SUPERCHARGER
+		# -------------------------
+
+		elif has_supercharger:
+
+			if speed_kmh < 80.0:
+
+				engine_multiplier = 1.35
+
+			elif speed_kmh < 160.0:
+
+				engine_multiplier = 1.20
+
+			elif speed_kmh < 240.0:
+
+				engine_multiplier = 1.10
+
+			else:
+
+				engine_multiplier = 1.00
+
+
+		# -------------------------
+		# NATURALLY ASPIRATED
+		# -------------------------
+
+		else:
+
+			if speed_kmh < 60.0:
+
+				engine_multiplier = 0.90
+
+			elif speed_kmh < 120.0:
+
+				engine_multiplier = 1.00
+
+			elif speed_kmh < 180.0:
+
+				engine_multiplier = 1.15
+
+			else:
+
+				engine_multiplier = 1.30
+
+
+		accel_rate *= engine_multiplier
+
+		# Desired acceleration from 0-100 stat
+
+		var accel_kmh_per_sec :float= (
+			100.0 / max(zero_to_hundred, 0.1)
+		)
+
+		# Engine personality modifies WHERE power happens
+		accel_kmh_per_sec *= engine_multiplier
+		var forward_speed := current_speed
+
+		# Near top speed power falls away
 		var speed_ratio :float= clamp(
 			speed_kmh / target_speed,
 			0.0,
 			1.0
 		)
 
-		# Only start dying near vmax
+		if speed_ratio > 0.70:
 
-		if speed_ratio > 0.85:
-
-			accel_rate *= lerp(
+			accel_kmh_per_sec *= lerp(
 				1.0,
-				0.55,
-				(speed_ratio - 0.85) / 0.15
+				0.25,
+				(speed_ratio - 0.70) / 0.30
 			)
 
-		var forward_speed := current_speed
+		# Convert kmh acceleration to m/s acceleration
+		var accel_ms := accel_kmh_per_sec / 3.6
 
-		forward_speed = move_toward(
-			forward_speed,
-			target_speed,
-			accel_rate * 4.0 * delta
-		)
+		# Apply acceleration directly
+		velocity += forward * accel_ms * 1.30 * delta
 
 		if nitro_active:
 			forward_speed += 4.0 * delta
