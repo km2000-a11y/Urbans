@@ -156,6 +156,7 @@ var class_lists: Dictionary = {
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
 		"Zenith Touring",
+		"Brutus Stingray",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
 	],
@@ -215,6 +216,7 @@ var class_lists: Dictionary = {
 		"Bartoli Cruiser",
 		"Eisenach Monarch",
 		"Kronstadt Predator",
+		"Brutus Venom",
 		"Berkshire Blunt",
 		"Brutus Stingray"
 	],
@@ -263,7 +265,6 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 
 		"Schroder Classique Sport",
-		"Brutus Stingray",
 		"Berkshire V12-S"
 	],
 
