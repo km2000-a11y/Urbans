@@ -81,7 +81,7 @@ var car_sell_prices := {
 	"Colossus Behemoth": 0,
 	"Mir Cars Nightwolf": 22500,
 	"Schroder Colosso": 33750,
-	"Eisenach Prince":86250,
+	"Schroder Prince":86250,
 
 	"Colossus Titan Max": 52500,
 
@@ -181,7 +181,7 @@ var car_prices := {
 	"Kuro Vault": 95000,
 	"Zenith Touring": 105000,
 	"Berkshire Mocha": 100000,
-	"Eisenach Prince":115000,
+	"Schroder Prince": 98000,
 
 	# Urban Performance
 
@@ -467,7 +467,7 @@ var car_colors = {
 	Color8(80,20,20)      # Burgundy
 ],
 
-"Eisenach Prince": [
+"Schroder Prince": [
 	Color8(255, 91, 79),   # Imola Red (default)
 	Color8(15, 15, 15),    # Jet Black
 	Color8(192, 192, 192), # Titanium Silver
@@ -734,7 +734,7 @@ var muscle_list = [
 ]
 
 var urban_list = [
-	"Berkshire Falcon",
+	"Schroder Prince",
 	"Kestrel Seabird",
 	"Kestrel Speedster",
 	"Berkshire Blunt",
@@ -745,7 +745,7 @@ var sedans_list = [
 	"Strandberg Turbo",
 	"Kuro Vault",
 	"Zenith Touring",
-	"Eisenach Prince",
+	"Berkshire Falcon",
 ]
 var torque_monsters_list = [
 	"Kronstadt Regent",
@@ -864,18 +864,18 @@ var urban_racers = {
 	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-"Berkshire Falcon":[
-	"", "Country: UK", "HP: 346", "WEIGHT: 1740 KG",
-	"0-100 KM/H: 5.3s", "TOP SPEED: 254 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
 "Brutus Stingray":[
 		"", "Country: USA", "HP: 350", "WEIGHT: 1460 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 258 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: Supercharged", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Schroder Prince":[
+	"", "Country: Germany", "HP: 340", "WEIGHT: 1850 KG",
+	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 430 NM",
+	"TRANSMISSION: FOUR-WHEEL DRIVE"
+],
 	"Kestrel Speedster":[
 		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 273 KM/H",
@@ -896,17 +896,18 @@ var sedans = {
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-"Eisenach Prince":[
-	"", "Country: Germany", "HP: 340", "WEIGHT: 1850 KG",
-	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
-	"ENGINE: V8 4.9L", "ASPIRATION: NA", "TORQUE: 500 NM",
+
+"Mir Cars Goblin":[
+	"", "Country: USA", "HP: 230", "WEIGHT: 1580 KG",
+	"0-100 KM/H: 6.6s", "TOP SPEED: 250 KM/H",
+	"ENGINE: V8 3.9L", "ASPIRATION: NA", "TORQUE: 380 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-"Mir Cars Goblin":[
-	"", "Country: UAE", "HP: 230", "WEIGHT: 1580 KG",
-	"0-100 KM/H: 6.6s", "TOP SPEED: 250 KM/H",
-	"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 290 NM",
-	"TRANSMISSION: FRONT-WHEEL DRIVE"
+"Berkshire Falcon":[
+	"", "Country: UK", "HP: 346", "WEIGHT: 1740 KG",
+	"0-100 KM/H: 5.3s", "TOP SPEED: 254 KM/H",
+	"ENGINE: L6 4.0L", "ASPIRATION: Supercharged", "TORQUE: 510 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 "Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
@@ -1137,7 +1138,7 @@ var car_scene_paths = {
 	"Schroder Colosso":"res://Scenes/audi_q7.tscn",
 	"Eisenach Black Panda":"res://Scenes/bmw_330d.tscn",
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
-	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
+	"Schroder Prince":"res://Scenes/audi_s8.tscn",
 	"Mir Cars Athletic C70":"res://Scenes/zonda.tscn",
 	"Bartoli Track Cruiser":"res://Scenes/mc12.tscn",
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",

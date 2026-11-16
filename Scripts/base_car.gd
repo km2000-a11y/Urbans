@@ -33,7 +33,7 @@ var stability_values := {
 	"Berkshire Blunt": 1.60,
 	"Berkshire Falcon":1.60,
 	"Berkshire V12-S": 1.80,
-	"Eisenach Prince":2.40,
+	"Schroder Prince":2.40,
 	"Berkshire Tempest": 2.00,
 	"Schroder Classique Sport": 2.20,
 
@@ -107,7 +107,7 @@ var oversteer_values := {
 
 	"Berkshire Blunt": 0.5,
 	"Berkshire Falcon":0.5,
-	"Eisenach Prince":0.8,
+	"Schroder Prince":0.1,
 	"Berkshire V12-S": 0.4,
 	"Berkshire Tempest": 0.4,
 
@@ -421,13 +421,13 @@ func _ready() -> void:
 		"Strandberg Turbo":
 			audio_character_type = 3
 		"Brutus Goblin":
-			audio_character_type = 3
+			audio_character_type = 0
 
 		"Kuro Vault":
 			audio_character_type = 0 # Lexus V8
 
-		"Zenith Prince":
-			audio_character_type = 0
+		"Schroder Prince":
+			audio_character_type = 7
 
 		"Schroder Suppressor":
 			audio_character_type = 6
@@ -719,7 +719,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	steering = lerp(
 	steering,
 	steer,
-	delta * 3.5
+	delta * 2.5
 )
 
 	var forward := -transform.basis.z
@@ -751,16 +751,15 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	
 		var steering_factor := wheelbase_agility
 
-		if speed_kmh > 120.0:
-			steering_factor *= lerp(
-				1.0,
-				0.65,
-				clamp(
-					(speed_kmh - 120.0) / 120.0,
-					0.0,
-					1.0
-				)
+		steering_factor *= lerp(
+			1.0,
+			0.45,
+			clamp(
+				speed_kmh / 250.0,
+				0.0,
+				1.0
 			)
+		)
 		if car_name == "Kestrel Battleaxe":
 
 			if speed_kmh > 180.0:
@@ -1183,19 +1182,36 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 			if speed_kmh < 60.0:
 
-				accel_rate *= 0.95
+				accel_rate *= 0.92
 
 			elif speed_kmh < 120.0:
 
+				accel_rate *= 1.00
+
+			elif speed_kmh < 180.0:
+
 				accel_rate *= 1.08
-
-			elif speed_kmh < 220.0:
-
-				accel_rate *= 1.28
 
 			else:
 
-				accel_rate *= 1.12
+				accel_rate *= 1.04
+
+			if rpm_ratio < 0.25:
+
+				accel_rate *= 0.90
+
+			elif rpm_ratio < 0.50:
+
+				accel_rate *= 1.00
+
+			elif rpm_ratio < 0.80:
+
+				accel_rate *= 1.04
+
+			else:
+
+				accel_rate *= 1.00
+				
 			if rpm_ratio < 0.25:
 				accel_rate *= 0.85
 
@@ -1213,39 +1229,38 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 			if speed_kmh < 80.0:
 
-				accel_rate *= 1.30
+				accel_rate *= 1.15
 
 			elif speed_kmh < 160.0:
 
-				accel_rate *= 1.20
+				accel_rate *= 1.10
 
 			elif speed_kmh < 240.0:
 
-				accel_rate *= 1.10
+				accel_rate *= 1.05
 
 			else:
 
 				accel_rate *= 1.00
-
 		# N/A
 
 		if not is_diesel and not has_turbo and not has_supercharger:
 
-			if rpm_ratio < 0.30:
+				if rpm_ratio < 0.30:
 
-				accel_rate *= 0.75
+					accel_rate *= 0.85
 
-			elif rpm_ratio < 0.55:
+				elif rpm_ratio < 0.55:
 
-				accel_rate *= 0.95
+					accel_rate *= 0.95
 
-			elif rpm_ratio < 0.80:
+				elif rpm_ratio < 0.80:
 
-				accel_rate *= 1.20
+					accel_rate *= 1.05
 
-			else:
+				else:
 
-				accel_rate *= 1.35
+					accel_rate *= 1.12
 
 		# Drivetrain
 
@@ -1375,18 +1390,19 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 		# Near top speed power falls away
 		var speed_ratio :float= clamp(
-			speed_kmh / target_speed,
-			0.0,
-			1.0
-		)
+	speed_kmh / target_speed,
+	0.0,
+	1.0
+)
 
-		if speed_ratio > 0.70:
+		if speed_ratio > 0.85:
 
 			accel_kmh_per_sec *= lerp(
 				1.0,
-				0.25,
-				(speed_ratio - 0.70) / 0.30
+				0.20,
+				(speed_ratio - 0.85) / 0.15
 			)
+
 
 		# Convert kmh acceleration to m/s acceleration
 		var accel_ms := accel_kmh_per_sec / 3.6

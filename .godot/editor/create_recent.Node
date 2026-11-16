@@ -1,7 +1,7 @@
+MeshInstance3D
 CarController
 CollisionShape3D
 StaticBody3D
-MeshInstance3D
 RichTextLabel
 Label
 Button

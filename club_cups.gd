@@ -71,7 +71,7 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"urban": [
-		"Berkshire Falcon",
+		"Schroder Prince",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Brutus Stingray",
@@ -88,7 +88,7 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Mir Cars Goblin",
 		"Zenith Touring",
-		"Eisenach Prince",
+		"Berkshire Falcon",
 		"Strandberg Turbo",
 	],
 	"torque_monsters":[
@@ -154,8 +154,8 @@ var class_lists: Dictionary = {
 		"Eisenach Prince",
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
+		"Berkshire Falcon",
 		"Zenith Touring",
-		"Brutus Stingray",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
 	],
@@ -197,7 +197,7 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Brutus Stingray",
 		"Berkshire Blunt",
-		"Berkshire Falcon"
+		"Schroder Prince"
 	],
 
 	"eisenach_cup":[
@@ -209,8 +209,8 @@ var class_lists: Dictionary = {
 		"Brutus Viper",
 		"Mir Cars Hutch",
 		"Kuro Vault",
-		"Eisenach Prince",
-		"Berkshire Falcon",
+		"Schroder Prince",
+		"Mir Cars Goblin",
 		"Bartoli Cruiser",
 		"Eisenach Monarch",
 		"Kronstadt Predator",
@@ -229,13 +229,13 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Straeda Volant",
 		"Kestrel Speedster",
-		"Bartoli Cruiser",
+		"Brutus Stingray",
 		"Berkshire Falcon",
 	],
 
 	"under_400_hp":[
 		"Colossus Titan Max",
-		"Eisenach Prince",
+		"Schroder Prince",
 		"Colossus Behemoth",
 		"Zenith Touring",
 		"Eisenach Monarch",
@@ -282,8 +282,9 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Eisenach Prince",
+		"Schroder Prince",
 		"Zenith Touring",
+		"Brutus Stingray",
 		"Berkshire Falcon",
 		"Kronstadt Predator",
 		"Bartoli Cruiser",
@@ -328,7 +329,7 @@ var class_lists: Dictionary = {
 	"german_cup":[
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
-		"Eisenach Prince",
+		"Schroder Prince",
 		"Schroder Suppressor",
 		"Kronstadt Regent",
 		"Kronstadt Predator",
@@ -390,7 +391,7 @@ var class_lists: Dictionary = {
 	"Schroder Atrix Q32",
 	"Schroder Colosso",
 	"Schroder Suppressor",
-	"Eisenach Prince",
+	"Schroder Prince",
 	"Eisenach Monarch",
 
 	"Eisenach Bengal"
@@ -410,7 +411,7 @@ var cup_rewards: Dictionary = {
 	"japanese_cup":"Kronstadt Regent",
 	"diesel_masters":"Schroder Suppressor",
 
-	"all_wheel_grip":"Berkshire Falcon",          # XKR
+		"all_wheel_grip":"Schroder Prince",          # XKR
 
 	"urban_performance_cars":"Kestrel Seabird",  # Exige
 

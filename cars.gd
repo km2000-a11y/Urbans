@@ -38,7 +38,7 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"urban": [
-		"Berkshire Falcon",
+		"Schroder Prince",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Brutus Stingray",
@@ -55,7 +55,7 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Mir Cars Goblin",
 		"Zenith Touring",
-		"Eisenach Prince",
+		"Berkshire Falcon",
 		"Strandberg Turbo",
 	],
 	"torque_monsters":[
@@ -121,6 +121,7 @@ var class_lists: Dictionary = {
 		"Eisenach Prince",
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
+		"Berkshire Falcon",
 		"Zenith Touring",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
@@ -163,7 +164,7 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Brutus Stingray",
 		"Berkshire Blunt",
-		"Berkshire Falcon"
+		"Schroder Prince"
 	],
 
 	"eisenach_cup":[
@@ -175,8 +176,8 @@ var class_lists: Dictionary = {
 		"Brutus Viper",
 		"Mir Cars Hutch",
 		"Kuro Vault",
-		"Eisenach Prince",
-		"Berkshire Falcon",
+		"Schroder Prince",
+		"Mir Cars Goblin",
 		"Bartoli Cruiser",
 		"Eisenach Monarch",
 		"Kronstadt Predator",
@@ -201,7 +202,7 @@ var class_lists: Dictionary = {
 
 	"under_400_hp":[
 		"Colossus Titan Max",
-		"Eisenach Prince",
+		"Schroder Prince",
 		"Colossus Behemoth",
 		"Zenith Touring",
 		"Eisenach Monarch",
@@ -248,7 +249,7 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Eisenach Prince",
+		"Schroder Prince",
 		"Zenith Touring",
 		"Brutus Stingray",
 		"Berkshire Falcon",
@@ -295,7 +296,7 @@ var class_lists: Dictionary = {
 	"german_cup":[
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
-		"Eisenach Prince",
+		"Schroder Prince",
 		"Schroder Suppressor",
 		"Kronstadt Regent",
 		"Kronstadt Predator",
@@ -357,7 +358,7 @@ var class_lists: Dictionary = {
 	"Schroder Atrix Q32",
 	"Schroder Colosso",
 	"Schroder Suppressor",
-	"Eisenach Prince",
+	"Schroder Prince",
 	"Eisenach Monarch",
 
 	"Eisenach Bengal"
@@ -383,7 +384,7 @@ var car_scene_paths := {
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
-	"Eisenach Prince":"res://Scenes/bmw_m5_e39.tscn",
+	"Schroder Prince":"res://Scenes/audi_s8.tscn",
 		"Mir Cars Blazer":"res://Scenes/sl500.tscn",	
 	"Strandberg Pilot":"res://Scenes/saab_95.tscn",
 
