@@ -144,7 +144,7 @@ stream = ExtResource("3_bkoa3")
 stream = ExtResource("4_3uhi0")
 
 [node name="ModelRoot" type="Node3D" parent="."]
-transform = Transform3D(-1.15, 0, -1.96295e-07, 0, 1, 0, 1.73645e-07, 0, -1.3, 1.18212e-08, -0.315375, 0.267102)
+transform = Transform3D(-1.15, 0, -1.96295e-07, 0, 0.9, 0, 1.73645e-07, 0, -1.3, 1.18212e-08, -0.315375, 0.267102)
 
 [node name="WheelHolder" type="Node3D" parent="ModelRoot"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.203167, -0.15023, 0.711363)

@@ -6,7 +6,6 @@ const SETTINGS_FILE = "user://settings.cfg"
 var song_names := [
 	"After Dark",
 	"Afterlife City",
-	"Dance of the Pixies",
 	"Electroids",
 	"End of Mankind",
 	"Ephermal Reign",

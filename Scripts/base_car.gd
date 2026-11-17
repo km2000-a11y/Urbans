@@ -1,6 +1,128 @@
 class_name CarController
 extends CharacterBody3D
 var wall_recovery_timer := 0.0
+var launch_torque_values := {
+
+	# 4x4 SUV
+	"Colossus Titan Max": 0.95,
+	"Colossus Behemoth": 0.95,
+	"Schroder Colosso": 0.90,
+	"Mir Cars Nightwolf": 0.95,
+
+	# Muscle
+	"Brutus Viper": 1.20,
+	"Mir Cars Hutch": 1.25,
+
+	# Compact
+	"Straeda Volant": 1.00,
+	"Eisenach Bengal": 0.98,
+	"Schroder Atrix Q32": 1.10,
+	"Zenith Horizon": 1.00,
+
+	# Torque Monsters
+	"Kronstadt Regent": 0.75,
+	"Schroder Suppressor": 0.75,
+	"Eisenach Monarch": 0.70,
+	"Berkshire Mocha": 0.80,
+
+	# Executive
+	"Brutus Goblin": 0.95,
+	"Strandberg Turbo": 0.95,
+	"Kuro Vault": 0.95,
+	"Zenith Touring": 1.00,
+	"Berkshire Falcon": 1.15,
+
+	# Urban Performance
+	"Schroder Prince": 1.10,
+	"Kestrel Seabird": 0.90,
+	"Kestrel Speedster": 0.85,
+	"Berkshire Blunt": 1.20,
+	"Brutus Stingray": 1.20,
+
+	# Sport Coupe
+	"Strandberg Pilot": 0.90,
+	"Bartoli Cruiser": 0.90,
+	"Berkshire V12-S": 0.85,
+	"Kronstadt Predator": 1.25,
+
+	# Sport Racing
+	"Brutus Venom": 1.05,
+	"Berkshire Tempest": 0.90,
+	"Kestrel Battleaxe": 0.75,
+	"Linetti Shepherd": 1.15,
+
+	# Supercars
+	"Kestrel Guillotine": 0.75,
+	"Linetti Firestorm": 0.85,
+	"Mir Cars Raptor": 0.95,
+	"Linetti Terror": 1.10,
+
+	# Track
+	"Bartoli Track Cruiser": 0.80,
+	"Brutus Thunderbolt": 1.20,
+	"Mir Cars Athletic C70": 0.80
+}
+var torque_curve_values := {
+
+	# 4x4 SUV
+	"Colossus Titan Max": 1.40,
+	"Colossus Behemoth": 1.25,
+	"Schroder Colosso": 1.80,
+	"Mir Cars Nightwolf": 1.15,
+
+	# Muscle
+	"Brutus Viper": 1.40,
+	"Mir Cars Hutch": 1.50,
+
+	# Compact
+	"Straeda Volant": 1.00,
+	"Eisenach Bengal": 1.05,
+	"Schroder Atrix Q32": 1.10,
+	"Zenith Horizon": 1.10,
+
+	# Torque Monsters
+	"Kronstadt Regent": 2.00,
+	"Schroder Suppressor": 2.10,
+	"Eisenach Monarch": 2.25,
+	"Berkshire Mocha": 1.90,
+
+	# Executive
+	"Brutus Goblin": 1.00,
+	"Strandberg Turbo": 1.30,
+	"Kuro Vault": 1.20,
+	"Zenith Touring": 1.05,
+	"Berkshire Falcon": 1.60,
+
+	# Urban Performance
+	"Schroder Prince": 1.40,
+	"Kestrel Seabird": 0.80,
+	"Kestrel Speedster": 1.00,
+	"Berkshire Blunt": 1.60,
+	"Brutus Stingray": 1.70,
+
+	# Sport Coupe
+	"Strandberg Pilot": 1.50,
+	"Bartoli Cruiser": 0.95,
+	"Berkshire V12-S": 0.90,
+	"Kronstadt Predator": 1.80,
+
+	# Sport Racing
+	"Brutus Venom": 1.20,
+	"Berkshire Tempest": 1.00,
+	"Kestrel Battleaxe": 0.65,
+	"Linetti Shepherd": 0.95,
+
+	# Supercars
+	"Kestrel Guillotine": 0.70,
+	"Linetti Firestorm": 1.00,
+	"Mir Cars Raptor": 1.20,
+	"Linetti Terror": 1.05,
+
+	# Track
+	"Bartoli Track Cruiser": 0.85,
+	"Brutus Thunderbolt": 1.60,
+	"Mir Cars Athletic C70": 0.75
+}
 var stability_values := {
 
 	# ===== CERTIFIABLY INSANE =====
@@ -1287,102 +1409,45 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 # -------------------------
 # DIESEL
 # -------------------------
+		var launch_torque :float= launch_torque_values.get(car_name, 1.0)
 
-		if is_diesel:
+		if speed_kmh < 80.0:
+			accel_rate *= lerp(
+				1.0,
+				launch_torque,
+				1.0 - (speed_kmh / 80.0)
+			)
+		var torque_character :float= torque_curve_values.get(
+	car_name,
+	1.0
+)
 
-			if speed_kmh < 60.0:
+		var torque_multiplier :float= lerp(
+			0.70,
+			1.30,
+			sin(rpm_ratio * PI)
+		)
 
-				engine_multiplier = 1.25
-
-			elif speed_kmh < 140.0:
-
-				engine_multiplier = 1.45
-
-			elif speed_kmh < 200.0:
-
-				engine_multiplier = 1.20
-
-			else:
-
-				engine_multiplier = 0.85
-
-
-		# -------------------------
-		# TURBO
-		# -------------------------
-
-		elif has_turbo:
-
-			if speed_kmh < 60.0:
-
-				engine_multiplier = 0.95
-
-			elif speed_kmh < 120.0:
-
-				engine_multiplier = 1.08
-
-			elif speed_kmh < 220.0:
-
-				engine_multiplier = 1.28
-
-			else:
-
-				engine_multiplier = 1.08
-
-
-		# -------------------------
-		# SUPERCHARGER
-		# -------------------------
-
-		elif has_supercharger:
-
-			if speed_kmh < 80.0:
-
-				engine_multiplier = 1.35
-
-			elif speed_kmh < 160.0:
-
-				engine_multiplier = 1.20
-
-			elif speed_kmh < 240.0:
-
-				engine_multiplier = 1.10
-
-			else:
-
-				engine_multiplier = 1.00
-
-
-		# -------------------------
-		# NATURALLY ASPIRATED
-		# -------------------------
-
-		else:
-
-			if speed_kmh < 60.0:
-
-				engine_multiplier = 0.90
-
-			elif speed_kmh < 120.0:
-
-				engine_multiplier = 1.00
-
-			elif speed_kmh < 180.0:
-
-				engine_multiplier = 1.15
-
-			else:
-
-				engine_multiplier = 1.30
-
+		accel_rate *= lerp(
+			1.0,
+			torque_multiplier,
+			torque_character - 1.0
+		)
+		
 
 		accel_rate *= engine_multiplier
 
 		# Desired acceleration from 0-100 stat
 
-		var accel_kmh_per_sec :float= (
-			100.0 / max(zero_to_hundred, 0.1)
-		)
+		var accel_kmh_per_sec :float = (
+	pow(
+		100.0 / max(zero_to_hundred, 0.1),
+		0.8
+	)
+	* torque_factor
+	* launch_torque
+	* 2.2
+)
 
 		# Engine personality modifies WHERE power happens
 		accel_kmh_per_sec *= engine_multiplier
@@ -1422,7 +1487,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			- current_forward_speed
 		)
 
-		var recovery_factor := 0.30
+		var recovery_factor := 0.08
 
 		if wall_recovery_timer > 0.0:
 
@@ -2170,8 +2235,8 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 
 	RevPlayer.pitch_scale = engine_pitch_smoothed
 	if not is_diesel: 
-		RevPlayer.volume_db = clamp(engine_volume_smoothed-1.5, -40.0, 0.0)
-	else:RevPlayer.volume_db = clamp(engine_volume_smoothed+2.0, -40.0, 0.0)
+		RevPlayer.volume_db = clamp(engine_volume_smoothed-2.5, -40.0, 0.0)
+	else:RevPlayer.volume_db = clamp(engine_volume_smoothed+1.5, -40.0, 0.0)
 		
 func setup_engine_bus() -> void:
 	if not is_instance_valid(RevPlayer):
