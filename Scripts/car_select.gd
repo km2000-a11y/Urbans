@@ -749,9 +749,10 @@ var sedans_list = [
 ]
 var torque_monsters_list = [
 	"Kronstadt Regent",
-	"Schroder Suppressor",
-	"Eisenach Monarch",
 	"Berkshire Mocha",
+	"Eisenach Monarch",
+	"Schroder Suppressor",
+	
 ]
 
 var sport_list = [

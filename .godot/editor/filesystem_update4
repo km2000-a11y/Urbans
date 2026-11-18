@@ -1,5 +1,4 @@
 res://Scenes/main_menu.tscn
-res://Scripts/base_car.gd
 res://Scenes/cls55.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Scenes/car_select.tscn
@@ -25,3 +24,11 @@ res://Tracks/new_york.tscn
 res://Tracks/las_vegas.tscn
 res://Scenes/hummer_h1.tscn
 res://Scenes/pause_menu.tscn
+res://Scripts/base_car.gd
+res://Scenes/bmw_530d.gd
+res://Scripts/bmw_745li.gd
+res://Scripts/car_select.gd
+res://Scenes/e_320.gd
+res://Scripts/lexus_gs430.gd
+res://Scenes/bmw_745.tscn
+res://Scenes/audi_a4.tscn

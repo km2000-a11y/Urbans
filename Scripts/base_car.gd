@@ -1,180 +1,155 @@
 class_name CarController
 extends CharacterBody3D
 var wall_recovery_timer := 0.0
-var launch_torque_values := {
-
-	# 4x4 SUV
-	"Colossus Titan Max": 0.95,
-	"Colossus Behemoth": 0.95,
-	"Schroder Colosso": 0.90,
-	"Mir Cars Nightwolf": 0.95,
-
-	# Muscle
-	"Brutus Viper": 1.20,
-	"Mir Cars Hutch": 1.25,
-
-	# Compact
-	"Straeda Volant": 1.00,
-	"Eisenach Bengal": 0.98,
-	"Schroder Atrix Q32": 1.10,
-	"Zenith Horizon": 1.00,
-
-	# Torque Monsters
-	"Kronstadt Regent": 0.75,
-	"Schroder Suppressor": 0.75,
-	"Eisenach Monarch": 0.70,
-	"Berkshire Mocha": 0.80,
-
-	# Executive
-	"Brutus Goblin": 0.95,
-	"Strandberg Turbo": 0.95,
-	"Kuro Vault": 0.95,
-	"Zenith Touring": 1.00,
-	"Berkshire Falcon": 1.15,
-
-	# Urban Performance
-	"Schroder Prince": 1.10,
-	"Kestrel Seabird": 0.90,
-	"Kestrel Speedster": 0.85,
-	"Berkshire Blunt": 1.20,
-	"Brutus Stingray": 1.20,
-
-	# Sport Coupe
-	"Strandberg Pilot": 0.90,
-	"Bartoli Cruiser": 0.90,
-	"Berkshire V12-S": 0.85,
-	"Kronstadt Predator": 1.25,
-
-	# Sport Racing
-	"Brutus Venom": 1.05,
-	"Berkshire Tempest": 0.90,
-	"Kestrel Battleaxe": 0.75,
-	"Linetti Shepherd": 1.15,
-
-	# Supercars
-	"Kestrel Guillotine": 0.75,
-	"Linetti Firestorm": 0.85,
-	"Mir Cars Raptor": 0.95,
-	"Linetti Terror": 1.10,
-
-	# Track
-	"Bartoli Track Cruiser": 0.80,
-	"Brutus Thunderbolt": 1.20,
-	"Mir Cars Athletic C70": 0.80
+enum TorqueCharacter {
+	HIGH_REV,
+	SPORTS,
+	NORMAL,
+	TORQUEY,
+	SUPERCHARGED,
+	DIESEL
 }
-var torque_curve_values := {
+var torque_character_values := {
 
 	# 4x4 SUV
-	"Colossus Titan Max": 1.40,
-	"Colossus Behemoth": 1.25,
-	"Schroder Colosso": 1.80,
-	"Mir Cars Nightwolf": 1.15,
+	"Colossus Titan Max": TorqueCharacter.TORQUEY,
+	"Colossus Behemoth": TorqueCharacter.TORQUEY,
+	"Schroder Colosso": TorqueCharacter.DIESEL,
+	"Mir Cars Nightwolf": TorqueCharacter.NORMAL,
 
 	# Muscle
-	"Brutus Viper": 1.40,
-	"Mir Cars Hutch": 1.50,
+	"Brutus Viper": TorqueCharacter.TORQUEY,
+	"Mir Cars Hutch": TorqueCharacter.TORQUEY,
 
 	# Compact
-	"Straeda Volant": 1.00,
-	"Eisenach Bengal": 1.05,
-	"Schroder Atrix Q32": 1.10,
-	"Zenith Horizon": 1.10,
+	"Straeda Volant": TorqueCharacter.TORQUEY,
+	"Eisenach Bengal": TorqueCharacter.HIGH_REV,
+	"Schroder Atrix Q32": TorqueCharacter.TORQUEY,
+	"Zenith Horizon": TorqueCharacter.HIGH_REV,
 
 	# Torque Monsters
-	"Kronstadt Regent": 2.00,
-	"Schroder Suppressor": 2.10,
-	"Eisenach Monarch": 2.25,
-	"Berkshire Mocha": 1.90,
+	"Kronstadt Regent": TorqueCharacter.DIESEL,
+	"Schroder Suppressor": TorqueCharacter.DIESEL,
+	"Eisenach Monarch": TorqueCharacter.DIESEL,
+	"Berkshire Mocha": TorqueCharacter.DIESEL,
 
 	# Executive
-	"Brutus Goblin": 1.00,
-	"Strandberg Turbo": 1.30,
-	"Kuro Vault": 1.20,
-	"Zenith Touring": 1.05,
-	"Berkshire Falcon": 1.60,
+	"Brutus Goblin": TorqueCharacter.NORMAL,
+	"Strandberg Turbo": TorqueCharacter.TORQUEY,
+	"Kuro Vault": TorqueCharacter.NORMAL,
+	"Zenith Touring": TorqueCharacter.NORMAL,
+	"Berkshire Falcon": TorqueCharacter.SUPERCHARGED,
 
 	# Urban Performance
-	"Schroder Prince": 1.40,
-	"Kestrel Seabird": 0.80,
-	"Kestrel Speedster": 1.00,
-	"Berkshire Blunt": 1.60,
-	"Brutus Stingray": 1.70,
+	"Schroder Prince": TorqueCharacter.TORQUEY,
+	"Kestrel Seabird": TorqueCharacter.HIGH_REV,
+	"Kestrel Speedster": TorqueCharacter.HIGH_REV,
+	"Berkshire Blunt": TorqueCharacter.SUPERCHARGED,
+	"Brutus Stingray": TorqueCharacter.SUPERCHARGED,
 
 	# Sport Coupe
-	"Strandberg Pilot": 1.50,
-	"Bartoli Cruiser": 0.95,
-	"Berkshire V12-S": 0.90,
-	"Kronstadt Predator": 1.80,
+	"Strandberg Pilot": TorqueCharacter.TORQUEY,
+	"Bartoli Cruiser": TorqueCharacter.SPORTS,
+	"Berkshire V12-S": TorqueCharacter.HIGH_REV,
+	"Kronstadt Predator": TorqueCharacter.SUPERCHARGED,
 
 	# Sport Racing
-	"Brutus Venom": 1.20,
-	"Berkshire Tempest": 1.00,
-	"Kestrel Battleaxe": 0.65,
-	"Linetti Shepherd": 0.95,
+	"Brutus Venom": TorqueCharacter.SPORTS,
+	"Berkshire Tempest": TorqueCharacter.HIGH_REV,
+	"Kestrel Battleaxe": TorqueCharacter.HIGH_REV,
+	"Linetti Shepherd": TorqueCharacter.HIGH_REV,
 
 	# Supercars
-	"Kestrel Guillotine": 0.70,
-	"Linetti Firestorm": 1.00,
-	"Mir Cars Raptor": 1.20,
-	"Linetti Terror": 1.05,
+	"Kestrel Guillotine": TorqueCharacter.HIGH_REV,
+	"Linetti Firestorm": TorqueCharacter.HIGH_REV,
+	"Mir Cars Raptor": TorqueCharacter.SPORTS,
+	"Linetti Terror": TorqueCharacter.HIGH_REV,
 
 	# Track
-	"Bartoli Track Cruiser": 0.85,
-	"Brutus Thunderbolt": 1.60,
-	"Mir Cars Athletic C70": 0.75
+	"Bartoli Track Cruiser": TorqueCharacter.HIGH_REV,
+	"Brutus Thunderbolt": TorqueCharacter.TORQUEY,
+	"Mir Cars Athletic C70": TorqueCharacter.HIGH_REV
 }
 var stability_values := {
 
-	# ===== CERTIFIABLY INSANE =====
+	"Kestrel Battleaxe": 0.02,
+	"Kestrel Guillotine": 0.05,
+	"Kestrel Speedster": 0.08,
+	"Kestrel Seabird": 0.15,
 
-	"Kestrel Battleaxe": 0.005,     # Sagaris
-	"Kestrel Guillotine": 0.010,    # T440R
-	"Kestrel Speedster": 0.020,     # Morgan Aero 8
-	"Kestrel Seabird": 0.080,       # Exige
+	"Brutus Venom": 0.30,
+	"Mir Cars Raptor": 0.40,
+	"Brutus Thunderbolt": 0.50,
 
-	# ===== DANGEROUS =====
-
-	"Brutus Venom": 0.20,
-	"Mir Cars Raptor": 0.35,
-	"Brutus Thunderbolt": 0.45,
-
-	# ===== SPORTS CARS =====
-
-	"Brutus Stingray": 0.70,
-	"Zenith Horizon": 0.80,
-	"Bartoli Cruiser": 0.90,
-
-	# ===== NORMAL =====
+	"Brutus Stingray": 0.75,
+	"Zenith Horizon": 0.85,
 
 	"Eisenach Bengal": 1.00,
 	"Strandberg Turbo": 1.00,
 	"Brutus Goblin": 1.00,
 
-	# ===== GT =====
-
-	"Berkshire Blunt": 1.60,
-	"Berkshire Falcon":1.60,
+	"Berkshire Blunt": 1.40,
+	"Berkshire Falcon": 1.60,
 	"Berkshire V12-S": 1.80,
-	"Schroder Prince":2.40,
-	"Berkshire Tempest": 2.00,
-	"Schroder Classique Sport": 2.20,
+	"Berkshire Tempest": 1.80,
 
-	# ===== AWD =====
+	"Strandberg Pilot": 2.20,
+	"Schroder Prince": 2.40,
 
-	"Linetti Shepherd": 3.00,
-	"Linetti Terror": 3.50,
-
-	# ===== BOATS =====
+	"Linetti Shepherd": 3.20,
+	"Linetti Terror": 3.80,
 
 	"Kuro Vault": 5.00,
-	"Mir Cars Blazer": 4.00,
+	"Schroder Colosso": 5.00,
+	"Mir Cars Nightwolf": 6.00,
 
-	# ===== SUVS =====
+	"Colossus Behemoth": 8.00,
+	"Colossus Titan Max": 12.00
+}
+var oversteer_values := {
 
-	"Schroder Colosso": 6.00,
-	"Mir Cars Nightwolf": 7.00,
-	"Colossus Behemoth": 10.00,
-	"Colossus Titan Max": 20.00
+	"Schroder Colosso": 0.00,
+	"Mir Cars Nightwolf": 0.00,
+	"Colossus Behemoth": 0.00,
+	"Colossus Titan Max": 0.00,
+
+	"Kuro Vault": 0.01,
+
+	"Linetti Terror": 0.03,
+
+	"Schroder Prince": 0.05,
+
+	"Linetti Shepherd": 0.08,
+
+	"Strandberg Pilot": 0.25,
+
+	"Berkshire Tempest": 0.30,
+	"Berkshire V12-S": 0.30,
+
+	"Berkshire Falcon": 0.40,
+	"Berkshire Blunt": 0.40,
+
+	"Strandberg Turbo": 0.80,
+
+	"Eisenach Bengal": 1.00,
+	"Bartoli Cruiser": 1.00,
+
+	"Zenith Horizon": 2.00,
+
+	"Brutus Stingray": 3.50,
+
+	"Mir Cars Raptor": 5.00,
+
+	"Brutus Thunderbolt": 7.00,
+
+	"Kestrel Seabird": 10.00,
+	"Brutus Venom": 10.00,
+
+	"Kestrel Speedster": 18.00,
+
+	"Kestrel Guillotine": 24.00,
+
+	"Kestrel Battleaxe": 30.00
 }
 var stability_factor:=1.0
 const GRAVITY := 30.0
@@ -199,58 +174,7 @@ var unstuck_time := 0.0
 var unstucking := false
 var nitro_bottles := 4
 var max_nitro_bottles := 5
-var oversteer_values := {
 
-	# ===== HOMICIDAL =====
-
-	"Kestrel Battleaxe": 25.0,     # Sagaris
-	"Kestrel Guillotine": 20.0,    # T440R
-	"Kestrel Speedster": 15.0,     # Morgan
-
-	# ===== VERY BAD IDEA =====
-
-	"Kestrel Seabird": 8.0,
-	"Brutus Venom": 8.0,
-
-	# ===== SPICY =====
-
-	"Brutus Thunderbolt": 6.0,
-	"Mir Cars Raptor": 4.0,
-	"Brutus Stingray": 3.0,
-	"Zenith Horizon": 2.0,
-
-	# ===== NORMAL =====
-
-	"Eisenach Bengal": 1.0,
-	"Bartoli Cruiser": 1.0,
-	"Strandberg Turbo": 0.8,
-
-	# ===== STABLE =====
-
-	"Berkshire Blunt": 0.5,
-	"Berkshire Falcon":0.5,
-	"Schroder Prince":0.1,
-	"Berkshire V12-S": 0.4,
-	"Berkshire Tempest": 0.4,
-
-	# ===== AWD =====
-
-	"Schroder Classique Sport": 0.15,
-	"Linetti Shepherd": 0.10,
-	"Linetti Terror": 0.05,
-
-	# ===== BIG CARS =====
-
-	"Kuro Vault": 0.01,
-	"Mir Cars Blazer": 0.01,
-
-	# ===== SUVS =====
-
-	"Schroder Colosso": 0.0,
-	"Mir Cars Nightwolf": 0.0,
-	"Colossus Behemoth": 0.0,
-	"Colossus Titan Max": 0.0
-}
 
 var drift_charge_timer := 0.0
 var nitro_burn_timer := 0.0
@@ -437,8 +361,7 @@ func apply_stats() -> void:
 	acceleration_calc = pow(27.78 / zero_to_hundred, 0.875) * 2.8
 	torque = (horsepower * 5252.0) / max_rpm
 
-	if is_diesel:
-		torque *= 1.6
+
 
 	top_speed = top_speed_kmh / 3.6
 
@@ -1300,89 +1223,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 		# Turbo
 
-		if has_turbo:
-
-			if speed_kmh < 60.0:
-
-				accel_rate *= 0.92
-
-			elif speed_kmh < 120.0:
-
-				accel_rate *= 1.00
-
-			elif speed_kmh < 180.0:
-
-				accel_rate *= 1.08
-
-			else:
-
-				accel_rate *= 1.04
-
-			if rpm_ratio < 0.25:
-
-				accel_rate *= 0.90
-
-			elif rpm_ratio < 0.50:
-
-				accel_rate *= 1.00
-
-			elif rpm_ratio < 0.80:
-
-				accel_rate *= 1.04
-
-			else:
-
-				accel_rate *= 1.00
-				
-			if rpm_ratio < 0.25:
-				accel_rate *= 0.85
-
-			elif rpm_ratio < 0.50:
-				accel_rate *= 1.00
-
-			elif rpm_ratio < 0.80:
-				accel_rate *= 1.10
-
-			else:
-				accel_rate *= 1.05
-		# Supercharger
-
-		if has_supercharger:
-
-			if speed_kmh < 80.0:
-
-				accel_rate *= 1.15
-
-			elif speed_kmh < 160.0:
-
-				accel_rate *= 1.10
-
-			elif speed_kmh < 240.0:
-
-				accel_rate *= 1.05
-
-			else:
-
-				accel_rate *= 1.00
-		# N/A
-
-		if not is_diesel and not has_turbo and not has_supercharger:
-
-				if rpm_ratio < 0.30:
-
-					accel_rate *= 0.85
-
-				elif rpm_ratio < 0.55:
-
-					accel_rate *= 0.95
-
-				elif rpm_ratio < 0.80:
-
-					accel_rate *= 1.05
-
-				else:
-
-					accel_rate *= 1.12
+		
 
 		# Drivetrain
 
@@ -1409,46 +1250,86 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 # -------------------------
 # DIESEL
 # -------------------------
-		var launch_torque :float= launch_torque_values.get(car_name, 1.0)
-
-		if speed_kmh < 80.0:
-			accel_rate *= lerp(
-				1.0,
-				launch_torque,
-				1.0 - (speed_kmh / 80.0)
-			)
-		var torque_character :float= torque_curve_values.get(
-	car_name,
-	1.0
-)
-
-		var torque_multiplier :float= lerp(
-			0.70,
-			1.30,
-			sin(rpm_ratio * PI)
-		)
-
-		accel_rate *= lerp(
-			1.0,
-			torque_multiplier,
-			torque_character - 1.0
-		)
 		
+				
 
-		accel_rate *= engine_multiplier
+
 
 		# Desired acceleration from 0-100 stat
 
+		
 		var accel_kmh_per_sec :float = (
 	pow(
 		100.0 / max(zero_to_hundred, 0.1),
 		0.8
 	)
 	* torque_factor
-	* launch_torque
 	* 2.2
 )
+		var torque_character = torque_character_values.get(
+	car_name,
+	TorqueCharacter.NORMAL
+)
+		match torque_character:
 
+			TorqueCharacter.HIGH_REV:
+
+				if rpm_ratio < 0.50:
+					accel_kmh_per_sec *= 0.85
+
+				elif rpm_ratio < 0.80:
+					accel_kmh_per_sec *= 1.00
+
+				else:
+					accel_kmh_per_sec *= 1.25
+
+			TorqueCharacter.SPORTS:
+
+				if rpm_ratio < 0.40:
+					accel_kmh_per_sec *= 0.95
+
+				elif rpm_ratio < 0.80:
+					accel_kmh_per_sec *= 1.10
+
+				else:
+					accel_kmh_per_sec *= 1.15
+
+			TorqueCharacter.NORMAL:
+
+				pass
+
+			TorqueCharacter.TORQUEY:
+
+				if rpm_ratio < 0.30:
+					accel_kmh_per_sec *= 1.10
+
+				elif rpm_ratio < 0.70:
+					accel_kmh_per_sec *= 1.20
+
+				else:
+					accel_kmh_per_sec *= 0.95
+
+			TorqueCharacter.SUPERCHARGED:
+
+				if rpm_ratio < 0.80:
+					accel_kmh_per_sec *= 1.15
+
+				else:
+					accel_kmh_per_sec *= 1.05
+
+			TorqueCharacter.DIESEL:
+
+				if speed_kmh < 80.0:
+					accel_kmh_per_sec *= 0.90
+
+				elif speed_kmh < 120.0:
+					accel_kmh_per_sec *= 1.20
+
+				elif speed_kmh < 160.0:
+					accel_kmh_per_sec *= 1.35
+
+				elif speed_kmh < 220.0:
+					accel_kmh_per_sec *= 1.20
 		# Engine personality modifies WHERE power happens
 		accel_kmh_per_sec *= engine_multiplier
 		var forward_speed := current_speed
