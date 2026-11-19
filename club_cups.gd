@@ -128,7 +128,7 @@ var class_lists: Dictionary = {
 	],
 
 	"special": [
-		"Bartoli Cruiser Interceptor"
+		"Brutus Sheriff"
 	],
 
 	# CHAMPIONSHIP CLASSES

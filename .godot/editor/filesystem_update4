@@ -1,15 +1,8 @@
-res://Scenes/jaguar_s_type.tscn
-res://Scripts/audi_a8_42_2004.gd
-res://Scripts/car_select.gd
-res://Scenes/jaguar_s_type.gd
-res://Scenes/taurus_sho.tscn
-res://Scripts/bmw_745li.gd
-res://cars.gd
-res://Scenes/e_320.gd
-res://Scenes/rs3.gd
-res://club_cups.gd
 res://Scenes/main_menu.tscn
+res://Scripts/car_select.gd
+res://lan_manager.gd
 res://Scenes/cls55.tscn
+res://Scenes/jaguar_s_type.tscn
 res://Scenes/car_select.tscn
 res://Scenes/lexus_ls430.tscn
 res://Scenes/infiniti_g35.tscn
@@ -23,6 +16,7 @@ res://Scenes/cadillac_cts.tscn
 res://Scenes/saab_95.tscn
 res://Scenes/championships.tscn
 res://Scenes/audi_q7.tscn
+res://Scenes/taurus_sho.tscn
 res://Scenes/xk8.tscn
 res://Scenes/jaguar_xkr.tscn
 res://Tracks/chernobyl.tscn
@@ -35,3 +29,10 @@ res://Scenes/pause_menu.tscn
 res://Scenes/bmw_745.tscn
 res://Scenes/audi_a4.tscn
 res://Scripts/base_car.gd
+res://cars.gd
+res://club_cups.gd
+res://cop_chase_manager.gd
+res://Scripts/granturismo_s_2009_police.gd
+res://Scenes/taurus_police.tscn
+res://main.tscn
+res://Scripts/mode_select.gd

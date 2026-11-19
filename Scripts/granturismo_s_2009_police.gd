@@ -3,11 +3,11 @@ extends CarController
 # ============================
 # COSMETIC INFO (UI only)
 # ============================
-var def_car_name := "Bartoli Interceptor"
-var country := "Italy"
-var engine := "V8 4.7L"
-var weight_kg := 1880
-var zero_to_hundred_display := 4.90
+var def_car_name := "Brutus Interceptor"
+var country := "USA"
+var engine := "V6 3.5L Twin Turbo"
+var weight_kg := 1995
+var zero_to_hundred_display := 5.10
 
 # ============================
 # EMP SYSTEM
@@ -23,23 +23,28 @@ var emp_cooldown_timer := 0.0
 
 
 func _ready():
+
 	# Gameplay stats
-	mass = 1880.0
-	horsepower = 433
-	max_rpm = 7200.0
-	zero_to_hundred = 4.8
-	top_speed_kmh = 292
-	turn_speed = 2.75
-	brake_strength = 13.4
-	lateral_friction = 1.08
-	transmission = "Rear wheel drive"
+	mass = 1995.0
+	horsepower = 365
+	max_rpm = 6500.0
+	zero_to_hundred = 5.1
+	top_speed_kmh = 270
+
+	turn_speed = 2.65
+	brake_strength = 14.0
+	lateral_friction = 1.15
+
+	transmission = "Four wheel drive"
 
 	gear_count = 6
-	gear_ratios = [3.20, 2.05, 1.46, 1.13, 0.87, 0.66]
-	shift_up_rpm = 6800
-	shift_down_rpm = 2200
+	gear_ratios = [4.48, 2.87, 1.84, 1.41, 1.00, 0.74]
+
+	shift_up_rpm = 6200
+	shift_down_rpm = 1800
 
 	apply_stats()
+
 	print("Child READY loaded:", def_car_name)
 
 

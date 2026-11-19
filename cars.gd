@@ -95,7 +95,7 @@ var class_lists: Dictionary = {
 	],
 
 	"special": [
-		"Bartoli Cruiser Interceptor"
+		"Brutus Sheriff"
 	],
 
 	# CHAMPIONSHIP CLASSES
@@ -437,7 +437,7 @@ var car_scene_paths := {
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
 
 
-	"Bartoli Cruiser Interceptor": "res://Scenes/granturismo_police.tscn"
+	"Brutus Sheriff": "res://Scenes/taurus_police.tscn"
 }
 var radar_target_speeds := {
 	"suv": 160,

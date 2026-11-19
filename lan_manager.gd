@@ -114,3 +114,4 @@ func sync_track_and_start(track_name: String) -> void:
 	synced_track_name = track_name
 	TrackName.track_name = track_name
 	get_tree().change_scene_to_file("res://main.tscn")
+# Called by any client or host when they change their color in the menu

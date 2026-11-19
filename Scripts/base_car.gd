@@ -20,6 +20,7 @@ var torque_character_values := {
 	# Muscle
 	"Brutus Viper": TorqueCharacter.TORQUEY,
 	"Mir Cars Hutch": TorqueCharacter.TORQUEY,
+	"Brutus Sheriff":TorqueCharacter.TORQUEY,
 
 	# Compact
 	"Straeda Volant": TorqueCharacter.TORQUEY,
@@ -92,6 +93,7 @@ var stability_values := {
 	"Berkshire Falcon": 1.60,
 	"Berkshire V12-S": 1.80,
 	"Berkshire Tempest": 1.80,
+	"Brutus Sheriff":5.60,
 
 	"Strandberg Pilot": 2.20,
 	"Brutus Prince": 2.40,
@@ -111,6 +113,7 @@ var oversteer_values := {
 	"Schroder Colosso": 0.00,
 	"Mir Cars Nightwolf": 0.00,
 	"Colossus Behemoth": 0.00,
+	"Brutus Sheriff":0.02,
 	"Colossus Titan Max": 0.00,
 
 	"Kuro Vault": 0.01,
@@ -554,8 +557,8 @@ func _ready() -> void:
 
 		# Special
 
-		"Bartoli Cruiser Interceptor":
-			audio_character_type = 9 # Maserati
+		"Brutus Sheriff":
+			audio_character_type = 1 # Maserati
 	# --- REV PLAYER SETUP ---
 	# --- REV PLAYER SETUP ---
 	if RevPlayer:
@@ -1382,10 +1385,10 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 			TorqueCharacter.SUPERCHARGED:
 
 				if rpm_ratio < 0.80:
-					accel_kmh_per_sec *= 1.10
+					accel_kmh_per_sec *= 1.05
 
 				else:
-					accel_kmh_per_sec *= 1.025
+					accel_kmh_per_sec *= 1.00
 
 
 			TorqueCharacter.DIESEL:

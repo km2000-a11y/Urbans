@@ -11,8 +11,8 @@ var ai_spawns: Array = []
 
 var chase_active: bool = false
 
-var total_time: float = 270.0       # 3 minutes
-var time_left: float = 270.0
+var total_time: float = 300.0       # 3 minutes
+var time_left: float = 300.0
 
 var captured_count: int = 0
 var captured_total: int = 7
@@ -71,8 +71,17 @@ func spawn_chase(scene: Node) -> void:
 
 	ai_spawns.clear()
 	for i in range(captured_total):
-		ai_spawns.append(root.get_node("AISpawnPoint" + str(i+1)).global_transform.origin)
 
+		var spawn_name := (
+			"AISpawnPoint"
+			+ str((i % 3) + 1)
+		)
+
+		ai_spawns.append(
+			root.get_node(
+				spawn_name
+			).global_transform.origin
+		)
 	main_scene = scene
 
 
@@ -85,7 +94,9 @@ func spawn_chase(scene: Node) -> void:
 	player_car.driver_name = "Police"
 	player_car.car_name = Cars.selected_car_name
 	scene.add_child(player_car)
-
+	player_car.top_speed_kmh *= 1.05
+	player_car.zero_to_hundred *= 0.90
+	player_car.apply_stats()
 	_apply_player_color(player_car)
 
 	await get_tree().process_frame
@@ -115,7 +126,9 @@ func spawn_chase(scene: Node) -> void:
 
 		ai.driver_name = ai.ai_names[randi() % ai.ai_names.size()]
 		ai.car_name = Cars.car_scene_paths.keys()[Cars.car_scene_paths.values().find(ai_car_paths[i])]
-
+		ai.top_speed_kmh *= 0.92
+		ai.zero_to_hundred *= 1.15
+		ai.apply_stats()
 		_apply_random_ai_color(ai)
 
 		ai_cars.append(ai)
@@ -177,23 +190,49 @@ func update_chase(delta: float) -> void:
 # CAPTURE RACER
 # ============================================================
 func capture_racer(car: CarController) -> void:
+
 	if not chase_active:
 		return
 
 	if ai_cars.has(car):
+
 		ai_cars.erase(car)
+
+		captured_count += 1
+
+		# Reward player
+		time_left += 20.0
+		time_left = min(time_left, total_time)
+
+		if player_car:
+			player_car.nitro_bottles = min(
+				player_car.nitro_bottles + 1,
+				player_car.max_nitro_bottles
+			)
+
+		hud.update_captured(
+			captured_count,
+			captured_total
+		)
+
+		hud.update_time_left(time_left)
+
+		emit_signal(
+			"racer_captured",
+			car
+		)
+
 		if car.is_inside_tree():
 			car.queue_free()
 
-		captured_count += 1
-		hud.update_captured(captured_count, captured_total)
-		emit_signal("racer_captured", car)
-
 		if captured_count >= captured_total:
-			chase_active = false
-			player_car.controls_enabled=false
-			emit_signal("chase_completed")
 
+			chase_active = false
+
+			if player_car:
+				player_car.controls_enabled = false
+
+			emit_signal("chase_completed")
 
 
 func get_all_race_cars() -> Array:
@@ -207,7 +246,7 @@ func get_all_race_cars() -> Array:
 # COLOR APPLY
 func _apply_player_color(car: CarController) -> void:
 	# Do NOT recolor the police interceptor
-	if car.car_name == "Bartoli Cruiser Interceptor":
+	if car.car_name == "Brutus Sheriff":
 		return
 
 	var color: Color = Cars.selected_color

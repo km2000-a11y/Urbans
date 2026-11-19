@@ -52,10 +52,10 @@ func _on_cop_chase_btn_pressed() -> void:
 	Modes.mode = "Cop Chase"
 
 	# Fixed: your actual police car scene
-	Cars.selected_car = "res://Scenes/granturismo_police.tscn"
+	Cars.selected_car = "res://Scenes/taurus_police.tscn"
 
 	# Fixed: your actual car name
-	Cars.selected_car_name = "Bartoli Cruiser Interceptor"
+	Cars.selected_car_name = "Brutus Sheriff"
 
 	# Go straight into the race
 	get_tree().change_scene_to_file("res://Scenes/track_select.tscn")

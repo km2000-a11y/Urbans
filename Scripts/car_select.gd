@@ -1613,10 +1613,12 @@ func _reset_color():
 
 func change_color(direction):
 	var colors = car_colors[car_name]
+	var chosen_color:Color=car_colors[car_name][color_index]
 	color_index = (color_index + direction) % colors.size()
 	if color_index < 0:
 		color_index = colors.size() - 1
-
+	if multiplayer.multiplayer_peer != null:
+		LanManager.sync_my_color(chosen_color.r, chosen_color.g, chosen_color.b)
 	apply_color_to_preview(colors[color_index])
 	update_color_ui()
 
