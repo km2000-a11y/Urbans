@@ -41,7 +41,7 @@ var torque_character_values := {
 	"Berkshire Falcon": TorqueCharacter.SUPERCHARGED,
 
 	# Urban Performance
-	"Schroder Prince": TorqueCharacter.TORQUEY,
+	"Brutus Prince": TorqueCharacter.NORMAL,
 	"Kestrel Seabird": TorqueCharacter.HIGH_REV,
 	"Kestrel Speedster": TorqueCharacter.HIGH_REV,
 	"Berkshire Blunt": TorqueCharacter.SUPERCHARGED,
@@ -94,7 +94,7 @@ var stability_values := {
 	"Berkshire Tempest": 1.80,
 
 	"Strandberg Pilot": 2.20,
-	"Schroder Prince": 2.40,
+	"Brutus Prince": 2.40,
 
 	"Linetti Shepherd": 3.20,
 	"Linetti Terror": 3.80,
@@ -117,7 +117,7 @@ var oversteer_values := {
 
 	"Linetti Terror": 0.03,
 
-	"Schroder Prince": 0.05,
+	"Brutus Prince": 0.05,
 
 	"Linetti Shepherd": 0.08,
 
@@ -471,8 +471,8 @@ func _ready() -> void:
 		"Kuro Vault":
 			audio_character_type = 0 # Lexus V8
 
-		"Schroder Prince":
-			audio_character_type = 7
+		"Brutus Prince":
+			audio_character_type = 10
 
 		"Schroder Suppressor":
 			audio_character_type = 6
@@ -764,7 +764,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	steering = lerp(
 	steering,
 	steer,
-	delta * 2.5
+	delta * 2.0
 )
 
 	var forward := -transform.basis.z
@@ -1059,94 +1059,152 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 		lateral_friction = lerp(
 			lateral_friction,
-			1.15,
-			delta * 3.0
+			1.30,
+			delta * 4.0
 		)
 
-		# High-power FWD torque steer
-		if horsepower > 200.0 and accel > 0.7 and speed_kmh < 100.0:
+		# FWD cars launch extremely well
+		if speed_kmh < 60.0:
+			accel_rate *= 1.15
 
-			var torque_steer := (
-				(horsepower - 200.0)
-				/ 400.0
+		# Torque steer
+		if accel > 0.75 and speed_kmh < 120.0:
+
+			var steer_strength :float= clamp(
+				horsepower / 400.0,
+				0.0,
+				1.0
 			)
 
-			if steer > 0.0:
-				rotation.y += torque_steer * 0.12 * delta
-			else:
-				rotation.y -= torque_steer * 0.12 * delta
+			rotation.y += sin(Time.get_ticks_msec() * 0.0015) * steer_strength * 0.01
 
-			lateral_friction *= 0.92
+		# Understeer under power
+		if accel > 0.50:
 
-		# Classic FWD understeer
-		if accel > 0.6:
+			var understeer :float= lerp(
+				0.0,
+				0.25,
+				accel
+			)
 
 			velocity = velocity.lerp(
 				forward * velocity.dot(forward),
-				0.10 * delta
+				understeer * delta
 			)
 
-		if speed_kmh < 80.0:
-			accel_rate *= 1.10
+			lateral_friction *= 0.92
 	if transmission == "Rear wheel drive":
 
 		lateral_friction = lerp(
 			lateral_friction,
 			0.90,
-			delta * 2.0
+			delta * 3.0
 		)
 
-		var instability :float= clamp(
-			1.0 / max(stability_factor, 0.5),
-			0.8,
-			3.0
-		)
+		# LS400 special case
+		if car_name == "Kuro Vault":
 
-		if accel > 0.55 and speed_kmh > 25.0:
+			lateral_friction *= 1.30
 
-			var slide_strength := (
+			velocity = velocity.lerp(
+				forward * velocity.dot(forward),
+				0.80 * delta
+			)
+
+		# Launch wheelspin
+		if accel > 0.75 and speed_kmh < 50.0:
+
+			var launch_ratio := 1.0 - (speed_kmh / 50.0)
+
+			lateral_friction *= lerp(
+				1.0,
+				0.45,
+				launch_ratio
+			)
+
+			accel_rate *= lerp(
+				1.0,
+				0.65,
+				launch_ratio
+			)
+
+		# Power oversteer
+		if accel > 0.55 and speed_kmh > 20.0:
+
+			var slide_strength :float = (
 				accel
 				* oversteer_factor
-				* instability
+				/ max(stability_factor, 0.5)
 			)
 
 			velocity = velocity.rotated(
 				Vector3.UP,
 				steering
 				* slide_strength
-				* 0.025
+				* 0.060
 				* delta
 			)
 
 			lateral_friction *= lerp(
 				1.0,
-				0.70,
+				0.55,
 				accel
 			)
 
-		if accel > 0.90 and speed_kmh < 80.0:
+		# High-speed stability from stability_factor
+		if speed_kmh > 120.0:
 
-			var wheelspin :float= clamp(
-				horsepower / 700.0,
+			var stability_assist :float= clamp(
+				stability_factor * 0.04,
 				0.0,
-				0.45
+				0.35
 			)
 
-			lateral_friction *= (
-				1.0 - wheelspin
+			velocity = velocity.lerp(
+				forward * velocity.dot(forward),
+				stability_assist * delta
+			)
+		if accel > 0.75 and speed_kmh < 50.0:
+			
+			var launch_ratio := 1.0 - (speed_kmh / 50.0)
+			rotation.y += (
+				steering
+				* launch_ratio
+				* 0.12
+				* delta
+			)
+
+			var wheelspin_factor :float= clamp(
+				horsepower / 500.0,
+				0.0,
+				1.0
+			)
+
+			lateral_friction *= lerp(
+				1.0,
+				1.0 - (0.60 * wheelspin_factor),
+				launch_ratio
+			)
+
+			accel_rate *= lerp(
+				1.0,
+				1.0 - (0.40 * wheelspin_factor),
+				launch_ratio
 			)
 	if transmission == "Four wheel drive":
 
 		lateral_friction = lerp(
 			lateral_friction,
-			1.45,
+			1.50,
 			delta * 5.0
 		)
 
-		if speed_kmh < 120.0:
-			accel_rate *= 1.22
+		# AWD launch bite
+		if speed_kmh < 60.0:
+			accel_rate *= 1.15
 
-		if accel > 0.3:
+		# Pull vehicle straight under power
+		if accel > 0.30:
 
 			var forward_velocity := (
 				forward
@@ -1155,19 +1213,20 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 			velocity = velocity.lerp(
 				forward_velocity,
-				0.55 * delta
+				0.80 * delta
 			)
 
+		# High-speed stability
 		if speed_kmh > 100.0:
 
 			velocity = velocity.lerp(
 				forward * velocity.dot(forward),
-				0.35 * delta
+				0.40 * delta
 			)
 
-		if accel > 0.8:
+		# Extra corner exit grip
+		if accel > 0.60:
 			lateral_friction *= 1.20
-# Lower stability = twitchier
 
 
 	if speed_kmh > 140.0:
@@ -1274,62 +1333,78 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 			TorqueCharacter.HIGH_REV:
 
-				if rpm_ratio < 0.50:
-					accel_kmh_per_sec *= 0.85
+				if rpm_ratio < 0.40:
+					accel_kmh_per_sec *= 0.75
 
-				elif rpm_ratio < 0.80:
+				elif rpm_ratio < 0.75:
 					accel_kmh_per_sec *= 1.00
 
 				else:
-					accel_kmh_per_sec *= 1.25
+					accel_kmh_per_sec *= 1.35
+
 
 			TorqueCharacter.SPORTS:
 
-				if rpm_ratio < 0.40:
-					accel_kmh_per_sec *= 0.95
+				if rpm_ratio < 0.35:
+					accel_kmh_per_sec *= 0.90
 
 				elif rpm_ratio < 0.80:
-					accel_kmh_per_sec *= 1.10
+					accel_kmh_per_sec *= 1.15
 
 				else:
 					accel_kmh_per_sec *= 1.15
 
+
 			TorqueCharacter.NORMAL:
 
-				pass
+				if rpm_ratio < 0.30:
+					accel_kmh_per_sec *= 0.95
+
+				elif rpm_ratio < 0.80:
+					accel_kmh_per_sec *= 1.05
+
+				else:
+					accel_kmh_per_sec *= 1.00
+
 
 			TorqueCharacter.TORQUEY:
 
 				if rpm_ratio < 0.30:
-					accel_kmh_per_sec *= 1.10
+					accel_kmh_per_sec *= 1.30
 
-				elif rpm_ratio < 0.70:
+				elif rpm_ratio < 0.65:
 					accel_kmh_per_sec *= 1.20
 
 				else:
-					accel_kmh_per_sec *= 0.95
+					accel_kmh_per_sec *= 0.80
+
 
 			TorqueCharacter.SUPERCHARGED:
 
 				if rpm_ratio < 0.80:
-					accel_kmh_per_sec *= 1.15
+					accel_kmh_per_sec *= 1.10
 
 				else:
-					accel_kmh_per_sec *= 1.05
+					accel_kmh_per_sec *= 1.025
+
 
 			TorqueCharacter.DIESEL:
 
-				if speed_kmh < 80.0:
-					accel_kmh_per_sec *= 0.90
+				if speed_kmh < 60.0:
+					accel_kmh_per_sec *= 0.75
 
-				elif speed_kmh < 120.0:
-					accel_kmh_per_sec *= 1.20
+				elif speed_kmh < 100.0:
+					accel_kmh_per_sec *= 1.10
 
 				elif speed_kmh < 160.0:
-					accel_kmh_per_sec *= 1.35
+					accel_kmh_per_sec *= 1.40
 
 				elif speed_kmh < 220.0:
-					accel_kmh_per_sec *= 1.20
+					accel_kmh_per_sec *= 1.15
+
+				else:
+					accel_kmh_per_sec *= 0.90
+					
 		# Engine personality modifies WHERE power happens
 		accel_kmh_per_sec *= engine_multiplier
 		var forward_speed := current_speed
@@ -2056,6 +2131,7 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 
 				rasp = 0.035
 				rasp_speed = 55.0
+	
 	var target_pitch: float = audio_base_pitch * (
 		0.75 + curve * pitch_range
 	)

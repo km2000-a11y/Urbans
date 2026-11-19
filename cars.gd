@@ -38,7 +38,7 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"urban": [
-		"Schroder Prince",
+		"Brutus Prince",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Brutus Stingray",
@@ -104,6 +104,7 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Suppressor",
 		"Berkshire Mocha",
+		"Brutus Prince",
 		"Schroder Colosso",
 		"Zenith Touring",
 		"Zenith Horizon"
@@ -118,7 +119,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Kronstadt Regent",
-		"Eisenach Prince",
+		"Brutus Prince",
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
 		"Berkshire Falcon",
@@ -148,6 +149,7 @@ var class_lists: Dictionary = {
 		"Colossus Titan Max",
 		"Colossus Behemoth",
 		"Berkshire Mocha",
+		"Strandberg Pilot",
 		"Mir Cars Nightwolf",
 		"Schroder Colosso"
 	],
@@ -164,7 +166,7 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Brutus Stingray",
 		"Berkshire Blunt",
-		"Schroder Prince"
+		"Brutus Prince"
 	],
 
 	"eisenach_cup":[
@@ -176,7 +178,6 @@ var class_lists: Dictionary = {
 		"Brutus Viper",
 		"Mir Cars Hutch",
 		"Kuro Vault",
-		"Schroder Prince",
 		"Mir Cars Goblin",
 		"Bartoli Cruiser",
 		"Eisenach Monarch",
@@ -202,7 +203,7 @@ var class_lists: Dictionary = {
 
 	"under_400_hp":[
 		"Colossus Titan Max",
-		"Schroder Prince",
+		"Brutus Prince",
 		"Colossus Behemoth",
 		"Zenith Touring",
 		"Eisenach Monarch",
@@ -249,7 +250,6 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Schroder Prince",
 		"Zenith Touring",
 		"Brutus Stingray",
 		"Berkshire Falcon",
@@ -266,6 +266,7 @@ var class_lists: Dictionary = {
 		"Brutus Thunderbolt",
 		"Colossus Behemoth",
 		"Mir Cars Goblin",
+		"Brutus Prince",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -296,7 +297,6 @@ var class_lists: Dictionary = {
 	"german_cup":[
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
-		"Schroder Prince",
 		"Schroder Suppressor",
 		"Kronstadt Regent",
 		"Kronstadt Predator",
@@ -358,7 +358,6 @@ var class_lists: Dictionary = {
 	"Schroder Atrix Q32",
 	"Schroder Colosso",
 	"Schroder Suppressor",
-	"Schroder Prince",
 	"Eisenach Monarch",
 
 	"Eisenach Bengal"
@@ -384,7 +383,7 @@ var car_scene_paths := {
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
-	"Schroder Prince":"res://Scenes/audi_s8.tscn",
+	"Brutus Prince":"res://Scenes/taurus_sho.tscn",
 		"Mir Cars Blazer":"res://Scenes/sl500.tscn",	
 	"Strandberg Pilot":"res://Scenes/saab_95.tscn",
 
@@ -507,14 +506,14 @@ var car_colors = {
 	Color8(255,140,0),
 	Color8(255,255,255)
 ],
-"Eisenach Prince": [
-	Color8(255, 91, 79),   # Imola Red (default)
-	Color8(15, 15, 15),    # Jet Black
-	Color8(192, 192, 192), # Titanium Silver
-	Color8(25, 55, 120),   # Le Mans Blue
-	Color8(25, 45, 30),    # Oxford Green II
-	Color8(115, 110, 95),  # Sterling Grey
-	Color8(255, 255, 255)  # Alpine White
+"Brutus Prince": [
+	Color8(200, 35, 35),    # Vibrant Red (default)
+	Color8(20, 20, 20),     # Black
+	Color8(35, 110, 105),   # Teal Metallic
+	Color8(30, 55, 110),    # Deep Sapphire Blue
+	Color8(45, 70, 55),     # Forest Green
+	Color8(120, 115, 105),  # Mocha Frost
+	Color8(245, 245, 240)   # Crystal White
 ],
 "Straeda Volant":[
 	Color8(132, 132, 132), # Classic Grey (Default)

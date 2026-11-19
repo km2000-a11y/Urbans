@@ -81,7 +81,7 @@ var car_sell_prices := {
 	"Colossus Behemoth": 0,
 	"Mir Cars Nightwolf": 22500,
 	"Schroder Colosso": 33750,
-	"Schroder Prince":86250,
+	"Brutus Prince":86250,
 
 	"Colossus Titan Max": 52500,
 
@@ -181,7 +181,7 @@ var car_prices := {
 	"Kuro Vault": 95000,
 	"Zenith Touring": 105000,
 	"Berkshire Mocha": 100000,
-	"Schroder Prince": 98000,
+	"Brutus Prince": 98000,
 
 	# Urban Performance
 
@@ -467,14 +467,14 @@ var car_colors = {
 	Color8(80,20,20)      # Burgundy
 ],
 
-"Schroder Prince": [
-	Color8(255, 91, 79),   # Imola Red (default)
-	Color8(15, 15, 15),    # Jet Black
-	Color8(192, 192, 192), # Titanium Silver
-	Color8(25, 55, 120),   # Le Mans Blue
-	Color8(25, 45, 30),    # Oxford Green II
-	Color8(115, 110, 95),  # Sterling Grey
-	Color8(255, 255, 255)  # Alpine White
+"Brutus Prince": [
+	Color8(200, 35, 35),    # Vibrant Red (default)
+	Color8(20, 20, 20),     # Black
+	Color8(35, 110, 105),   # Teal Metallic
+	Color8(30, 55, 110),    # Deep Sapphire Blue
+	Color8(45, 70, 55),     # Forest Green
+	Color8(120, 115, 105),  # Mocha Frost
+	Color8(245, 245, 240)   # Crystal White
 ],
 
 "Schroder Suppressor":[
@@ -734,7 +734,7 @@ var muscle_list = [
 ]
 
 var urban_list = [
-	"Schroder Prince",
+	"Brutus Prince",
 	"Kestrel Seabird",
 	"Kestrel Speedster",
 	"Berkshire Blunt",
@@ -871,11 +871,11 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: Supercharged", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Schroder Prince":[
-	"", "Country: Germany", "HP: 340", "WEIGHT: 1850 KG",
+	"Brutus Prince":[
+	"", "Country: USA", "HP: 340", "WEIGHT: 1850 KG",
 	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
-	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 430 NM",
-	"TRANSMISSION: FOUR-WHEEL DRIVE"
+	"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 290 NM",
+	"TRANSMISSION: FRONT-WHEEL DRIVE"
 ],
 	"Kestrel Speedster":[
 		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
@@ -940,8 +940,8 @@ var sport = {
 	"Strandberg Pilot":[
 		"", "Country: Sweden", "HP: 270", "WEIGHT: 1490 KG",
 		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
-		"ENGINE: L4 2.3L", "ASPIRATION: Turbo", "TORQUE: 370 NM",
-		"TRANSMISSION: FRONT-WHEEL DRIVE"
+		"ENGINE: F4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	]
 }
 var sport_racing = {
@@ -1139,7 +1139,7 @@ var car_scene_paths = {
 	"Schroder Colosso":"res://Scenes/audi_q7.tscn",
 	"Eisenach Black Panda":"res://Scenes/bmw_330d.tscn",
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
-	"Schroder Prince":"res://Scenes/audi_s8.tscn",
+	"Brutus Prince":"res://Scenes/taurus_sho.tscn",
 	"Mir Cars Athletic C70":"res://Scenes/zonda.tscn",
 	"Bartoli Track Cruiser":"res://Scenes/mc12.tscn",
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",

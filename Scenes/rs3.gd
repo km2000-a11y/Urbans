@@ -11,7 +11,7 @@ func _ready():
 
 	# GAMEPLAY STATS — Saab 9-5 Aero
 	mass = 1610.0
-	horsepower = 265
+	horsepower = 258
 	max_rpm = 6800.0
 	zero_to_hundred = 5.7
 	top_speed_kmh = 265
@@ -23,7 +23,7 @@ func _ready():
 	brake_strength = 22.5
 	lateral_friction = 1.14
 
-	transmission = "Front wheel drive"
+	transmission = "Four wheel drive"
 
 	# Turbocharged inline-four powerband
 	shift_up_rpm = 6500

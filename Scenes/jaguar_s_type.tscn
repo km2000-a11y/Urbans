@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://uauukaos75ls"]
 
-[ext_resource type="Script" uid="uid://c75ynaxgevfv1" path="res://Scripts/lexus_gs430.gd" id="1_lfqqe"]
+[ext_resource type="Script" uid="uid://bydqo5h6vrlob" path="res://Scenes/jaguar_s_type.gd" id="1_lfqqe"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_wa4gj"]
 [ext_resource type="AudioStream" uid="uid://d2xqdma33ld30" path="res://SFX/diesel.mp3" id="3_lfqqe"]
 [ext_resource type="AudioStream" uid="uid://cbyhxjdmmxqg3" path="res://SFX/brake.mp3" id="4_hrmk4"]
