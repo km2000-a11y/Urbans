@@ -39,12 +39,12 @@ var torque_character_values := {
 	"Strandberg Turbo": TorqueCharacter.TORQUEY,
 	"Kuro Vault": TorqueCharacter.NORMAL,
 	"Zenith Touring": TorqueCharacter.NORMAL,
-	"Berkshire Falcon": TorqueCharacter.SUPERCHARGED,
+	"Berkshire Falcon": TorqueCharacter.NORMAL,
 
 	# Urban Performance
 	"Brutus Prince": TorqueCharacter.NORMAL,
 	"Kestrel Seabird": TorqueCharacter.HIGH_REV,
-	"Kestrel Speedster": TorqueCharacter.HIGH_REV,
+	"Kestrel Speedster": TorqueCharacter.SPORTS,
 	"Berkshire Blunt": TorqueCharacter.SUPERCHARGED,
 	"Brutus Stingray": TorqueCharacter.SUPERCHARGED,
 
@@ -1320,14 +1320,10 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		# Desired acceleration from 0-100 stat
 
 		
-		var accel_kmh_per_sec :float = (
-	pow(
-		100.0 / max(zero_to_hundred, 0.1),
-		0.8
-	)
-	* torque_factor
-	* 2.2
-)
+		var accel_kmh_per_sec : float = (
+	100.0 / max(zero_to_hundred, 0.1)
+) * torque_factor * 1.6
+
 		var torque_character = torque_character_values.get(
 	car_name,
 	TorqueCharacter.NORMAL
@@ -1335,79 +1331,49 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		match torque_character:
 
 			TorqueCharacter.HIGH_REV:
-
 				if rpm_ratio < 0.40:
-					accel_kmh_per_sec *= 0.75
-
+					accel_kmh_per_sec *= 0.80
 				elif rpm_ratio < 0.75:
 					accel_kmh_per_sec *= 1.00
-
 				else:
-					accel_kmh_per_sec *= 1.35
-
+					accel_kmh_per_sec *= 1.15
 
 			TorqueCharacter.SPORTS:
-
 				if rpm_ratio < 0.35:
 					accel_kmh_per_sec *= 0.90
-
 				elif rpm_ratio < 0.80:
-					accel_kmh_per_sec *= 1.15
-
+					accel_kmh_per_sec *= 1.05
 				else:
-					accel_kmh_per_sec *= 1.15
-
+					accel_kmh_per_sec *= 1.05
 
 			TorqueCharacter.NORMAL:
-
-				if rpm_ratio < 0.30:
-					accel_kmh_per_sec *= 0.95
-
-				elif rpm_ratio < 0.80:
-					accel_kmh_per_sec *= 1.05
-
-				else:
-					accel_kmh_per_sec *= 1.00
-
+				accel_kmh_per_sec *= 1.00
 
 			TorqueCharacter.TORQUEY:
-
 				if rpm_ratio < 0.30:
-					accel_kmh_per_sec *= 1.30
-
+					accel_kmh_per_sec *= 1.15
 				elif rpm_ratio < 0.65:
-					accel_kmh_per_sec *= 1.20
-
+					accel_kmh_per_sec *= 1.05
 				else:
-					accel_kmh_per_sec *= 0.80
-
+					accel_kmh_per_sec *= 0.85
 
 			TorqueCharacter.SUPERCHARGED:
-
 				if rpm_ratio < 0.80:
-					accel_kmh_per_sec *= 1.05
-
+					accel_kmh_per_sec *= 1.02
 				else:
-					accel_kmh_per_sec *= 1.00
-
+					accel_kmh_per_sec *= 0.93
 
 			TorqueCharacter.DIESEL:
-
-				if speed_kmh < 60.0:
-					accel_kmh_per_sec *= 0.75
-
+				if speed_kmh < 70.0:
+					accel_kmh_per_sec *= 0.60
 				elif speed_kmh < 100.0:
-					accel_kmh_per_sec *= 1.10
-
-				elif speed_kmh < 160.0:
-					accel_kmh_per_sec *= 1.40
-
+					accel_kmh_per_sec *= 1.00
+				elif speed_kmh < 180.0:
+					accel_kmh_per_sec *= 1.30
 				elif speed_kmh < 220.0:
-					accel_kmh_per_sec *= 1.15
-
+					accel_kmh_per_sec *= 1.00
 				else:
-					accel_kmh_per_sec *= 0.90
-					
+					accel_kmh_per_sec *= 0.85				
 		# Engine personality modifies WHERE power happens
 		accel_kmh_per_sec *= engine_multiplier
 		var forward_speed := current_speed

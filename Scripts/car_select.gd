@@ -113,10 +113,10 @@ var car_sell_prices := {
 
 	# Urban Performance
 
-	"Berkshire Falcon": 71250,
+	"Berkshire Falcon": 95250,
 	"Kestrel Seabird": 86250,
 	"Brutus Stingray": 105000,
-	"Berkshire Blunt": 116250,
+	"Berkshire Blunt": 140250,
 	"Kestrel Speedster": 131250,
 
 	# Sport Coupe
@@ -150,73 +150,63 @@ var car_sell_prices := {
 var car_prices := {
 
 	# 4x4 SUV
+"Colossus Behemoth": 0,
+"Mir Cars Nightwolf": 30000,
+"Schroder Colosso": 45000,
+"Colossus Titan Max": 70000,
 
-	"Colossus Behemoth": 0,
-	"Mir Cars Nightwolf": 30000,
-	"Schroder Colosso": 45000,
-	"Colossus Titan Max": 70000,
+# Muscle
+"Brutus Viper": 45000,
+"Mir Cars Hutch": 60000,
 
-	# Muscle
+# Compact
+"Straeda Volant": 40000,
+"Eisenach Bengal": 55000,
+"Schroder Atrix Q32": 65000,
+"Zenith Horizon": 75000,
 
-	"Brutus Viper": 45000,
-	"Mir Cars Hutch": 60000,
+# Torque Monsters
+"Kronstadt Regent": 60000,
+"Schroder Suppressor": 80000,
+"Berkshire Mocha": 95000,
+"Eisenach Monarch": 110000,
 
-	# Compact
+# Executive
+"Mir Cars Goblin": 70000,
+"Strandberg Turbo": 85000,
+"Kuro Vault": 95000,
+"Brutus Prince": 100000,
+"Zenith Touring": 110000,
 
-	"Straeda Volant": 40000,
-	"Eisenach Bengal": 55000,
-	"Schroder Atrix Q32": 65000,
-	"Zenith Horizon": 75000,
+# Urban Performance
+"Strandberg Pilot": 120000,
+"Berkshire Falcon": 150000,
+"Kestrel Seabird": 135000,
+"Brutus Stingray": 165000,
+"Kestrel Speedster": 160000,
 
-	# Torque Monsters
+# Sport Coupe
+"Berkshire Blunt": 170000,
+"Bartoli Cruiser": 190000,
+"Kronstadt Predator": 220000,
+"Berkshire V12-S": 250000,
 
-	"Kronstadt Regent": 60000,
-	"Schroder Suppressor": 85000,
-	"Eisenach Monarch": 92000,
+# Sport Racing
+"Brutus Venom": 260000,
+"Berkshire Tempest": 285000,
+"Kestrel Battleaxe": 305000,
+"Linetti Shepherd": 335000,
 
-	# Executive
+# Supercars
+"Kestrel Guillotine": 280000,
+"Linetti Firestorm": 360000,
+"Mir Cars Raptor": 400000,
+"Linetti Terror": 475000,
 
-	"Mir Cars Goblin": 70000,
-	"Strandberg Turbo": 85000,
-	"Kuro Vault": 95000,
-	"Zenith Touring": 105000,
-	"Berkshire Mocha": 100000,
-	"Brutus Prince": 98000,
-
-	# Urban Performance
-
-	"Berkshire Falcon": 95000,
-	"Kestrel Seabird": 115000,
-	"Brutus Stingray": 140000,
-	"Berkshire Blunt": 155000,
-	"Kestrel Speedster": 175000,
-
-	# Sport Coupe
-
-	"Strandberg Pilot": 145000,
-	"Bartoli Cruiser": 175000,
-	"Kronstadt Predator": 200000,
-	"Berkshire V12-S": 230000,
-
-	# Sport Racing
-
-	"Brutus Venom": 240000,
-	"Berkshire Tempest": 270000,
-	"Kestrel Battleaxe": 290000,
-	"Linetti Shepherd": 320000,
-
-	# Supercars
-
-	"Kestrel Guillotine": 260000,
-	"Linetti Firestorm": 340000,
-	"Mir Cars Raptor": 380000,
-	"Linetti Terror": 450000,
-
-	# Track Cars
-
-	"Brutus Thunderbolt": 500000,
-	"Bartoli Track Cruiser": 650000,
-	"Mir Cars Athletic C70": 800000
+# Track Cars
+"Brutus Thunderbolt": 525000,
+"Bartoli Track Cruiser": 675000,
+"Mir Cars Athletic C70": 800000
 }
 
 
@@ -599,6 +589,7 @@ var car_colors = {
 	Color8(200,40,40)
 ],
 "Berkshire Falcon":[
+	Color8(0,66,37),
 	Color8(232,214,179),  # Platinum Silver (default)
 	Color8(180,180,180),   # Champagne Gold
 	Color8(25,35,80),     # Sapphire Blue
@@ -606,7 +597,6 @@ var car_colors = {
 	Color8(255,248,220),  # Ivory White
 	Color8(70,70,70),     # Anthracite Grey
 	Color8(0,0,0),        # Black
-	Color8(0,66,37),
 	Color8(48, 78, 58),
 	Color8(145,145,125)   # Willow Green Metallic
 ],
@@ -734,18 +724,19 @@ var muscle_list = [
 ]
 
 var urban_list = [
-	"Brutus Prince",
+	"Strandberg Pilot",
 	"Kestrel Seabird",
+	"Berkshire Falcon",
 	"Kestrel Speedster",
-	"Berkshire Blunt",
 	"Brutus Stingray",
 ]
 var sedans_list = [
 	"Mir Cars Goblin",
+	"Brutus Prince",
 	"Strandberg Turbo",
 	"Kuro Vault",
 	"Zenith Touring",
-	"Berkshire Falcon",
+	
 ]
 var torque_monsters_list = [
 	"Kronstadt Regent",
@@ -756,7 +747,7 @@ var torque_monsters_list = [
 ]
 
 var sport_list = [
-	"Strandberg Pilot",
+	"Berkshire Blunt",
 	"Bartoli Cruiser",
 	"Berkshire V12-S",
 	"Kronstadt Predator",
@@ -859,23 +850,18 @@ var urban_racers = {
 		"ENGINE: L4 1.8L", "ASPIRATION: NA", "TORQUE: 181 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Berkshire Blunt":[
-	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
-	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
-	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
+	
 "Brutus Stingray":[
 		"", "Country: USA", "HP: 350", "WEIGHT: 1460 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 258 KM/H",
 		"ENGINE: V8 4.4L", "ASPIRATION: Supercharged", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Brutus Prince":[
-	"", "Country: USA", "HP: 340", "WEIGHT: 1850 KG",
-	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
-	"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 290 NM",
-	"TRANSMISSION: FRONT-WHEEL DRIVE"
+	"Berkshire Falcon":[
+	"", "Country: UK", "HP: 346", "WEIGHT: 1740 KG",
+	"0-100 KM/H: 5.3s", "TOP SPEED: 254 KM/H",
+	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 420 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	"Kestrel Speedster":[
 		"", "Country: UK", "HP: 362", "WEIGHT: 1165 KG",
@@ -883,6 +869,12 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Strandberg Pilot":[
+		"", "Country: Sweden", "HP: 270", "WEIGHT: 1490 KG",
+		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
+		"ENGINE: F4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+		"TRANSMISSION: FOUR-WHEEL DRIVE"
+	]
 }
 var sedans = {
 "Zenith Touring":[
@@ -897,6 +889,12 @@ var sedans = {
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Brutus Prince":[
+	"", "Country: USA", "HP: 340", "WEIGHT: 1850 KG",
+	"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
+	"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 290 NM",
+	"TRANSMISSION: FRONT-WHEEL DRIVE"
+],
 
 "Mir Cars Goblin":[
 	"", "Country: USA", "HP: 230", "WEIGHT: 1580 KG",
@@ -904,17 +902,12 @@ var sedans = {
 	"ENGINE: V8 3.9L", "ASPIRATION: NA", "TORQUE: 380 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-"Berkshire Falcon":[
-	"", "Country: UK", "HP: 346", "WEIGHT: 1740 KG",
-	"0-100 KM/H: 5.3s", "TOP SPEED: 254 KM/H",
-	"ENGINE: L6 4.0L", "ASPIRATION: Supercharged", "TORQUE: 510 NM",
-	"TRANSMISSION: REAR-WHEEL DRIVE"
-],
+
 "Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
 		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
 		"ENGINE: L5 2.3L", "ASPIRATION: Turbo", "TORQUE: 320 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
+		"TRANSMISSION: FRONT-WHEEL DRIVE"
 	],
 }
 var sport = {
@@ -924,6 +917,12 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Berkshire Blunt":[
+	"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
+	"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
+	"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
+	"TRANSMISSION: REAR-WHEEL DRIVE"
+],
 	"Kronstadt Predator":[
 	"", "Country: Germany", "HP: 342", "WEIGHT: 1720 KG",
 	"0-100 KM/H: 5.5s", "TOP SPEED: 256 KM/H",
@@ -937,12 +936,7 @@ var sport = {
 	"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 450 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
-	"Strandberg Pilot":[
-		"", "Country: Sweden", "HP: 270", "WEIGHT: 1490 KG",
-		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
-		"ENGINE: F4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
-	]
+	
 }
 var sport_racing = {
 	"Linetti Shepherd":[

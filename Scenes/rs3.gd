@@ -11,10 +11,10 @@ func _ready():
 
 	# GAMEPLAY STATS — Saab 9-5 Aero
 	mass = 1610.0
-	horsepower = 258
+	horsepower = 230
 	max_rpm = 6800.0
 	zero_to_hundred = 5.7
-	top_speed_kmh = 265
+	top_speed_kmh = 250
 
 	# Fast Swedish executive sedan
 	# Strong turbo pull, stable motorway manners,

@@ -38,11 +38,12 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"urban": [
-		"Brutus Prince",
+		"Berkshire Falcon",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Strandberg Pilot",
 		"Brutus Stingray",
-		"Berkshire Blunt",
+		
 	],
 	
 
@@ -55,7 +56,7 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Mir Cars Goblin",
 		"Zenith Touring",
-		"Berkshire Falcon",
+		"Brutus Prince",
 		"Strandberg Turbo",
 	],
 	"torque_monsters":[
@@ -68,7 +69,7 @@ var class_lists: Dictionary = {
 
 
 	"sport": [
-		"Strandberg Pilot",
+		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Kronstadt Predator",
 		"Bartoli Cruiser",
@@ -122,7 +123,6 @@ var class_lists: Dictionary = {
 		"Brutus Prince",
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
-		"Berkshire Falcon",
 		"Zenith Touring",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
@@ -136,7 +136,6 @@ var class_lists: Dictionary = {
 	],
 
 	"diesel_masters":[
-		"Schroder Colosso",
 		"Eisenach Monarch",
 		"Berkshire Mocha",
 		"Kronstadt Regent",
@@ -165,8 +164,8 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Brutus Stingray",
-		"Berkshire Blunt",
-		"Brutus Prince"
+		"Berkshire Falcon",
+		"Strandberg Pilot"
 	],
 
 	"eisenach_cup":[

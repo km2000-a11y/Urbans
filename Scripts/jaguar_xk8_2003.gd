@@ -10,10 +10,10 @@ var zero_to_hundred_display := 6.10
 func _ready():
 	# GAMEPLAY STATS
 	mass = 1715.0
-	horsepower = 325
+	horsepower = 300
 	max_rpm = 6100.0
-	zero_to_hundred = 5.7
-	top_speed_kmh = 253
+	zero_to_hundred = 5.9
+	top_speed_kmh = 256
 	turn_speed = 2.45
 	brake_strength = 11.5
 	lateral_friction = 1.03
@@ -33,8 +33,8 @@ func _ready():
 		0.69   # 6th
 	]
 
-	has_supercharger = true
-	audio_character_type=4
+	has_supercharger = false
+	audio_character_type=0
 
 	shift_up_rpm = 5500
 	shift_down_rpm = 1800

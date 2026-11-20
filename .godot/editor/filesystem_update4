@@ -1,6 +1,4 @@
 res://Scenes/main_menu.tscn
-res://Scripts/car_select.gd
-res://lan_manager.gd
 res://Scenes/cls55.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Scenes/car_select.tscn
@@ -28,11 +26,14 @@ res://Scenes/hummer_h1.tscn
 res://Scenes/pause_menu.tscn
 res://Scenes/bmw_745.tscn
 res://Scenes/audi_a4.tscn
-res://Scripts/base_car.gd
-res://cars.gd
-res://club_cups.gd
-res://cop_chase_manager.gd
-res://Scripts/granturismo_s_2009_police.gd
 res://Scenes/taurus_police.tscn
 res://main.tscn
-res://Scripts/mode_select.gd
+res://Scripts/audi_a8_42_2004.gd
+res://Scripts/car_select.gd
+res://Scripts/jaguar_xk8_2003.gd
+res://Scripts/jaguar_xkr_2003.gd
+res://Scenes/rs3.gd
+res://Scenes/cooper_s.tscn
+res://cars.gd
+res://club_cups.gd
+res://Scripts/base_car.gd

@@ -71,11 +71,12 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"urban": [
-		"Brutus Prince",
+		"Berkshire Falcon",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Strandberg Pilot",
 		"Brutus Stingray",
-		"Berkshire Blunt",
+		
 	],
 	
 
@@ -88,7 +89,7 @@ var class_lists: Dictionary = {
 		"Kuro Vault",
 		"Mir Cars Goblin",
 		"Zenith Touring",
-		"Berkshire Falcon",
+		"Brutus Prince",
 		"Strandberg Turbo",
 	],
 	"torque_monsters":[
@@ -101,7 +102,7 @@ var class_lists: Dictionary = {
 
 
 	"sport": [
-		"Strandberg Pilot",
+		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Kronstadt Predator",
 		"Bartoli Cruiser",
@@ -155,7 +156,6 @@ var class_lists: Dictionary = {
 		"Brutus Prince",
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
-		"Berkshire Falcon",
 		"Zenith Touring",
 		"Berkshire Mocha",
 		"Schroder Suppressor"
@@ -169,7 +169,6 @@ var class_lists: Dictionary = {
 	],
 
 	"diesel_masters":[
-		"Schroder Colosso",
 		"Eisenach Monarch",
 		"Berkshire Mocha",
 		"Kronstadt Regent",
@@ -198,8 +197,8 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Brutus Stingray",
-		"Berkshire Blunt",
-		"Brutus Prince"
+		"Berkshire Falcon",
+		"Strandberg Pilot"
 	],
 
 	"eisenach_cup":[
@@ -410,7 +409,7 @@ var cup_rewards: Dictionary = {
 	"japanese_cup":"Kronstadt Regent",
 	"diesel_masters":"Schroder Suppressor",
 
-		"all_wheel_grip":"Brutus Prince",          # XKR
+		"all_wheel_grip":"Strandberg Pilot",          # XKR
 
 	"urban_performance_cars":"Kestrel Seabird",  # Exige
 
@@ -418,11 +417,11 @@ var cup_rewards: Dictionary = {
 	
 	"japan_vs_germany":"Kestrel Speedster",
 
-	"drop_top_challenge":"Berkshire Blunt",
+	"drop_top_challenge":"Berkshire Falcon",
 	
 	"british_invasion":"Brutus Stingray",    # Morgan
 
-	"under_400_hp":"Strandberg Pilot",
+	"under_400_hp":"Berkshire Blunt",
 	
 	"german_cup":"Bartoli Cruiser",
 	
