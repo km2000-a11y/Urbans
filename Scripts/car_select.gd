@@ -1085,6 +1085,7 @@ func _ready():
 		$Control/ClassList/MuscleCars.disabled = not _class_has_eligible(muscle_list)
 		$Control/ClassList/UrbanRacers.disabled = not _class_has_eligible(urban_list)
 		$Control/ClassList/Sedans.disabled = not _class_has_eligible(sedans_list)
+		$Control/ClassList/TorqueMonsters.disabled = not _class_has_eligible(torque_monsters_list)
 		$Control/ClassList/SportCoupe.disabled = not _class_has_eligible(sport_list)
 		$Control/ClassList/SportRacing.disabled = not _class_has_eligible(sport_racing_list)
 		$Control/ClassList/Supercars.disabled = not _class_has_eligible(supercars_list)

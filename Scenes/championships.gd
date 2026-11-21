@@ -109,7 +109,7 @@ func _update_button_states():
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/EisenachCup", "eisenach_cup", "Eisenach Cup")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/Under400HP", "under_400_hp", "Under 400 HP")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/StingrayCompetition","stingray_competition", "Stingray Competition")
-	_update_cup_text("Control/ScrollContainer/VBoxContainer/SchroderCup", "schroder_cup", "Swedish Cup")
+	_update_cup_text("Control/ScrollContainer/VBoxContainer/SchroderCup", "swedish_cup", "Swedish Cup")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/DieselMasters", "diesel_masters", "Diesel Masters")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/ColinTribute", "colin_tribute", "Colin Tribute")
 	_update_cup_text("Control/ScrollContainer/VBoxContainer/AmericanThunder", "american_thunder", "American Thunder")
@@ -164,7 +164,7 @@ func _on_stingray_competition_pressed() -> void:
 	_show_cup("stingray_competition")
 
 func _on_schroder_cup_pressed() -> void:
-	_show_cup("schroder_cup")
+	_show_cup("swedish_cup")
 
 func _on_diesel_masters_pressed() -> void:
 	_show_cup("diesel_masters")

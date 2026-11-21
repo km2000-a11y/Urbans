@@ -4,54 +4,44 @@ extends Node
 #  FULL CLASS LIST (LOCAL — SELF-CONTAINED)
 # ============================================================
 var completed_cups: Array = []
-var cash_rewards: Dictionary = {
+var cash_rewards := {
 	"colossus": 2500,
-	"street_tuners": 5000,
-	"muscle_hustle": 7500,
+"street_tuners": 3000,
+"muscle_hustle": 4000,
 
-	"v6_engines": 10000,
-	"zenith_competition": 12500,
+"v6_engines": 5000,
+"zenith_competition": 6000,
 
-	"businessman_racers": 15000,
-	"japan_vs_germany":13000,
-	"japanese_cup": 17500,
-	"diesel_masters": 20000,
+"businessman_racers": 7500,
+"japanese_cup": 9000,
+"diesel_masters": 10000,
 
-	"all_wheel_grip": 25000,
-	"urban_performance_cars": 30000,
-	"england_vs_italy":30000,
+"all_wheel_grip": 12000,
+"urban_performance_cars": 14000,
 
-	"eisenach_cup": 32500,
-	"colin_tribute": 35000,
-	"drop_top_challenge": 40000,
+"eisenach_cup": 16000,
+"colin_tribute": 18000,
 
-	"low_displacement_challenge": 45000,
-	"under_400_hp": 50000,
+"drop_top_challenge": 20000,
+"low_displacement_challenge": 22000,
+"under_400_hp": 25000,
 
-	"german_cup": 60000,
-	"schroder_cup": 70000,
+"german_cup": 30000,
+"swedish_cup": 35000,
 
-	"speedster_tournament": 80000,
+"england_vs_italy": 40000,
+"gentleman_racers": 45000,
 
-	"berkshire_cup": 90000,
+"american_thunder": 50000,
+"british_invasion": 55000,
+"v8_fury": 60000,
 
-	"american_thunder": 100000,
-	"british_invasion": 110000,
+"kestrel_max": 70000,
+"sport_racing": 80000,
 
-	"stingray_competition": 120000,
-	"v8_fury": 130000,
-
-	"gentleman_racers": 140000,
-
-	"kestrel_max": 160000,
-
-	"sport_racing": 180000,
-
-	"v12_engines": 220000,
-
-	"supercars": 275000,
-
-	"track_cars": 350000
+"v12_engines": 100000,
+"supercars": 125000,
+"track_cars": 150000
 }
 var class_lists: Dictionary = {
 
@@ -469,6 +459,8 @@ var career_order: Array = [
 	"eisenach_cup",
 
 	"low_displacement_challenge",
+	
+	"speedster_tournament",
 
 	"colin_tribute",
 	"japan_vs_germany",           # Exige reward
@@ -616,8 +608,8 @@ var cups: Dictionary = {
 		"eligible_classes": ["german_cup"]
 	},
 
-	"schroder_cup": {
-		"eligible_classes": ["schroder_cup"]
+	"swedish_cup": {
+		"eligible_classes": ["swedish_cup"]
 	},
 
 	"american_thunder": {
