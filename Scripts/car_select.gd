@@ -976,8 +976,8 @@ var torque_monsters = {
 	"Berkshire Mocha":[
 	"", "Country: UK", "HP: 400", "WEIGHT: 1810 KG",
 	"0-100 KM/H: 5.0s", "TOP SPEED: 259 KM/H",
-	"ENGINE: V6 2.7L", "ASPIRATION: Twin Turbo",
-	"TORQUE: 435 NM",
+	"ENGINE: V6 3.0L", "ASPIRATION: Twin Turbo",
+	"TORQUE: 500 NM",
 	"TRANSMISSION: REAR-WHEEL DRIVE"
 ],
 	

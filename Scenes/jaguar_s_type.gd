@@ -9,10 +9,10 @@ var zero_to_hundred_display := 6.00
 
 func _ready():
 	# GAMEPLAY STATS — Refined British executive sedan
-	mass = 1552.0
-	horsepower = 231
-	max_rpm = 6200.0
-	zero_to_hundred = 7.5
+	mass = 1752.0
+	horsepower = 238
+	max_rpm = 5000.0
+	zero_to_hundred = 7.1
 	top_speed_kmh = 246
 	turn_speed = 2.40
 	brake_strength = 11.2
@@ -25,16 +25,17 @@ func _ready():
 
 	# ZF 6-speed automatic
 	gear_count = 6
+
 	gear_ratios = [
-		4.17,  # 1st
-		2.34,  # 2nd
-		1.52,  # 3rd
-		1.14,  # 4th
-		0.87,  # 5th
-		0.69   # 6th
+		4.10,  # 1st
+		2.50,  # 2nd
+		1.65,  # 3rd
+		1.20,  # 4th
+		0.90,  # 5th
+		0.72   # 6th
 	]
 
-	shift_up_rpm = 5900
+	shift_up_rpm = 4600
 	shift_down_rpm = 2200
 
 	apply_stats()
