@@ -267,7 +267,7 @@ var top_speed_kmh := 200.0
 var top_speed := 60.0
 var turn_speed := 2.5
 var brake_strength := 20.0
-var lateral_friction := 1.2
+var lateral_friction := 1.8
 var driver_name: String = "Unknown"
 var car_name: String = ""
 var has_supercharger :=false
@@ -767,7 +767,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	steering = lerp(
 	steering,
 	steer,
-	delta * 2.0
+	delta * 3.5
 )
 
 	var forward := -transform.basis.z
@@ -850,13 +850,25 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 		velocity = velocity.rotated(Vector3.UP, throttle_steer * grip * delta)
 		lateral_friction = lerp(1.2, 0.12, drift_factor)
 
-	car_model.rotation_degrees.z = lerp(car_model.rotation_degrees.z, -steering * 10.0, delta * 8.0)
+	car_model.rotation_degrees.z = lerp(
+	car_model.rotation_degrees.z,
+	-steering * 6.0,
+	delta * 12.0
+)
 
 	forward = -transform.basis.z
 	forward.y = 0.0
 	forward = forward.normalized()
 	right = transform.basis.x.normalized()
+	var forward_speed := velocity.dot(forward)
+	if is_on_floor():
+		sideways_speed = lerp(
+			sideways_speed,
+			0.0,
+			delta * lateral_friction * 8.0
+		)
 
+		velocity =forward * forward_speed +right * sideways_speed
 	var wall_block := false
 	var wall_scrape := false
 
@@ -1376,7 +1388,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 					accel_kmh_per_sec *= 0.85				
 		# Engine personality modifies WHERE power happens
 		accel_kmh_per_sec *= engine_multiplier
-		var forward_speed := current_speed
+		forward_speed = current_speed
 
 		# Near top speed power falls away
 		var speed_ratio :float= clamp(

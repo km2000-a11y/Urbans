@@ -28,12 +28,5 @@ res://Scenes/bmw_745.tscn
 res://Scenes/audi_a4.tscn
 res://Scenes/taurus_police.tscn
 res://main.tscn
-res://Scripts/audi_a8_42_2004.gd
-res://Scripts/car_select.gd
-res://Scripts/jaguar_xk8_2003.gd
-res://Scripts/jaguar_xkr_2003.gd
-res://Scenes/rs3.gd
 res://Scenes/cooper_s.tscn
-res://cars.gd
-res://club_cups.gd
 res://Scripts/base_car.gd
