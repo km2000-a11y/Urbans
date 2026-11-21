@@ -1074,31 +1074,33 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 		lateral_friction = lerp(
 			lateral_friction,
-			1.30,
+			1.35,
 			delta * 4.0
 		)
 
-		# FWD cars launch extremely well
+		# Strong launch grip
 		if speed_kmh < 60.0:
-			accel_rate *= 1.15
+			accel_rate *= 1.12
 
-		# Torque steer
-		if accel > 0.75 and speed_kmh < 120.0:
+		# Mild torque steer
+		if accel > 0.90 and speed_kmh < 100.0:
 
-			var steer_strength :float= clamp(
-				horsepower / 400.0,
+			var steer_strength: float = clamp(
+				horsepower / 500.0,
 				0.0,
 				1.0
 			)
 
-			rotation.y += sin(Time.get_ticks_msec() * 0.0015) * steer_strength * 0.01
+			rotation.y += sin(
+				Time.get_ticks_msec() * 0.0015
+			) * steer_strength * 0.004
 
-		# Understeer under power
-		if accel > 0.50:
+		# Gentle understeer
+		if accel > 0.70 and speed_kmh > 40.0:
 
-			var understeer :float= lerp(
+			var understeer: float = lerp(
 				0.0,
-				0.25,
+				0.12,
 				accel
 			)
 
@@ -1107,7 +1109,15 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 				understeer * delta
 			)
 
-			lateral_friction *= 0.92
+			lateral_friction *= 0.97
+
+		# FWD stability bonus
+		if speed_kmh > 100.0:
+
+			velocity = velocity.lerp(
+				forward * velocity.dot(forward),
+				0.20 * delta
+			)
 	if transmission == "Rear wheel drive":
 
 		lateral_friction = lerp(
