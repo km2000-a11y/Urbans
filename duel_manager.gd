@@ -80,6 +80,7 @@ func spawn_duel(main_scene: Node) -> void:
 	_apply_random_ai_color(ai_car)
 
 	ai_car.driver_name = ai_car.ai_names[randi() % ai_car.ai_names.size()]
+	ai_car.car_name = Cars.selected_ai_car_name
 
 	await get_tree().process_frame
 
