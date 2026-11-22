@@ -10,7 +10,7 @@ var zero_to_hundred_display := 5.40
 func _ready():
 	# GAMEPLAY STATS
 	mass = 1785.0
-	horsepower =370
+	horsepower = 406
 	max_rpm = 6200.0
 	zero_to_hundred = 5.6
 	top_speed_kmh = 277
@@ -23,14 +23,14 @@ func _ready():
 	handling_type = "balanced"
 
 	# Mercedes 5G-Tronic automatic
-	gear_count = 5
-
+	gear_count = 6
 	gear_ratios = [
-		3.40,  # 1st
-		2.05,  # 2nd
-		1.34,  # 3rd
-		1.00,  # 4th
-		0.80   # 5th
+		4.17,  # 1st
+		2.34,  # 2nd
+		1.52,  # 3rd
+		1.14,  # 4th
+		0.87,  # 5th
+		0.69   # 6th
 	]
 	has_supercharger = true
 

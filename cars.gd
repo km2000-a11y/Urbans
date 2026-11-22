@@ -227,7 +227,7 @@ var class_lists: Dictionary = {
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 
-		"Berkshire Blunt",
+		"Bartoli Cruiser",
 
 		"Strandberg Pilot",
 		"Berkshire V12-S"
