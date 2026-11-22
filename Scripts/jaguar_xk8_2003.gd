@@ -10,10 +10,10 @@ var zero_to_hundred_display := 6.10
 func _ready():
 	# GAMEPLAY STATS
 	mass = 1815.0
-	horsepower = 300
+	horsepower = 370
 	max_rpm = 6100.0
-	zero_to_hundred = 5.9
-	top_speed_kmh = 256
+	zero_to_hundred = 5.6
+	top_speed_kmh = 269
 	turn_speed = 2.45
 	brake_strength = 11.5
 	lateral_friction = 1.03
@@ -23,18 +23,17 @@ func _ready():
 	handling_type = "luxury_boat"
 
 	# ZF 6-speed automatic
-	gear_count = 6
-	gear_ratios = [
-		4.17,  # 1st
-		2.34,  # 2nd
-		1.52,  # 3rd
-		1.14,  # 4th
-		0.87,  # 5th
-		0.69   # 6th
-	]
+	gear_count = 5
 
-	has_supercharger = false
-	audio_character_type=0
+	gear_ratios = [
+		3.38, # 1st
+		1.77, # 2nd
+		1.18, # 3rd
+		0.89, # 4th
+		0.70  # 5th
+]
+
+	audio_character_type=4
 
 	shift_up_rpm = 5500
 	shift_down_rpm = 1800
