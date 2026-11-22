@@ -48,6 +48,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Urban Performance Cars"
 
+[node name="SportsRoadsters" type="Button" parent="Control/ClassList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sports Roadsters"
+
 [node name="SportCoupe" type="Button" parent="Control/ClassList"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -337,6 +342,7 @@ offset_bottom = 614.0
 [connection signal="pressed" from="Control/ClassList/TorqueMonsters" to="." method="_on_torque_monsters_pressed"]
 [connection signal="pressed" from="Control/ClassList/Sedans" to="." method="_on_sedans_pressed"]
 [connection signal="pressed" from="Control/ClassList/UrbanRacers" to="." method="_on_urban_racers_pressed"]
+[connection signal="pressed" from="Control/ClassList/SportsRoadsters" to="." method="_on_sports_roadsters_pressed"]
 [connection signal="pressed" from="Control/ClassList/SportCoupe" to="." method="_on_sport_coupe_pressed"]
 [connection signal="pressed" from="Control/ClassList/SportRacing" to="." method="_on_sport_racing_pressed"]
 [connection signal="pressed" from="Control/ClassList/Supercars" to="." method="_on_supercars_pressed"]

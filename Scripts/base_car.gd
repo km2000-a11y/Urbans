@@ -43,6 +43,7 @@ var torque_character_values := {
 
 	# Urban Performance
 	"Brutus Prince": TorqueCharacter.NORMAL,
+	"Kronstadt Atrocity":TorqueCharacter.TORQUEY,
 	"Kestrel Seabird": TorqueCharacter.HIGH_REV,
 	"Kestrel Speedster": TorqueCharacter.SPORTS,
 	"Berkshire Blunt": TorqueCharacter.SUPERCHARGED,
@@ -77,6 +78,7 @@ var stability_values := {
 	"Kestrel Guillotine": 0.05,
 	"Kestrel Speedster": 0.08,
 	"Kestrel Seabird": 0.15,
+	"Kronstadt Atrocity": 0.20,
 
 	"Brutus Venom": 0.30,
 	"Mir Cars Raptor": 0.40,
@@ -1680,7 +1682,7 @@ func _update_player_waypoint():
 	var dot := forward.dot(dir)
 
 	# Normal hit
-	if dist < 12.0:
+	if dist < 18.0:
 		current_wp = (current_wp + 1) % waypoints.size()
 		return
 
@@ -2055,7 +2057,7 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 				throttle_response = 0.30
 
 				idle_db = -27.0
-				load_db = -3.0
+				load_db = -1.0
 
 				rumble = 0.003
 				rumble_speed = 5.0

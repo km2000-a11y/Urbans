@@ -20,6 +20,7 @@ var cash_rewards := {
 "urban_performance_cars": 14000,
 
 "eisenach_cup": 16000,
+"speedster_tournament":10000,
 "colin_tribute": 18000,
 
 "drop_top_challenge": 20000,
@@ -53,6 +54,12 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Mir Cars Nightwolf"
 	],
+	"sports_roadster":[
+		"Kronstadt Atrocity",
+		"Brutus Stingray",
+		"Berkshire Falcon",
+		"Eisenach Roadstar"
+	],
 
 	"compact": [
 		"Straeda Volant",
@@ -61,12 +68,11 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"urban": [
-		"Berkshire Falcon",
 		"Kestrel Seabird",
+		"Zenith Touring",
 		"Kestrel Speedster",
 		"Strandberg Pilot",
-		"Brutus Stingray",
-		
+
 	],
 	
 
@@ -78,7 +84,6 @@ var class_lists: Dictionary = {
 	"sedans": [
 		"Kuro Vault",
 		"Mir Cars Goblin",
-		"Zenith Touring",
 		"Brutus Prince",
 		"Strandberg Turbo",
 	],
@@ -186,13 +191,13 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
-		"Brutus Stingray",
-		"Berkshire Falcon",
+		"Zenith Touring",
 		"Strandberg Pilot"
 	],
 
 	"eisenach_cup":[
 		"Eisenach Bengal",
+		"Eisenach Roadstar",
 		"Eisenach Monarch"
 	],
 
@@ -201,6 +206,7 @@ var class_lists: Dictionary = {
 		"Mir Cars Hutch",
 		"Kuro Vault",
 		"Mir Cars Goblin",
+		"Eisenach Roadstar",
 		"Bartoli Cruiser",
 		"Eisenach Monarch",
 		"Kronstadt Predator",
@@ -220,6 +226,7 @@ var class_lists: Dictionary = {
 		"Straeda Volant",
 		"Kestrel Speedster",
 		"Brutus Stingray",
+		"Kronstadt Atrocity",
 		"Berkshire Falcon",
 	],
 
@@ -228,6 +235,7 @@ var class_lists: Dictionary = {
 		"Brutus Prince",
 		"Colossus Behemoth",
 		"Zenith Touring",
+		"Eisenach Roadstar",
 		"Eisenach Monarch",
 		"Berkshire Falcon",
 		"Kronstadt Regent",
@@ -272,7 +280,8 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Zenith Touring",
+		"Kronstadt Atrocity",
+		"Eisenach Roadstar",
 		"Brutus Stingray",
 		"Berkshire Falcon",
 		"Kronstadt Predator",
@@ -321,6 +330,8 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Schroder Suppressor",
 		"Kronstadt Regent",
+		"Kronstadt Atrocity",
+		"Eisenach Roadstar",
 		"Kronstadt Predator",
 		"Eisenach Monarch",
 		"Eisenach Bengal",
@@ -338,6 +349,7 @@ var class_lists: Dictionary = {
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 		"Linetti Firestorm",
+		"Kronstadt Atrocity",
 		"Linetti Terror"
 	],
 		"england_vs_italy":[
@@ -367,9 +379,11 @@ var class_lists: Dictionary = {
 
 	"Zenith Horizon",
 	"Zenith Touring",
+	"Eisenach Roadstar",
 	"Kronstadt Predator",
 
 	"Kuro Vault",
+	"Kronstadt Atrocity",
 
 
 	"Mir Cars Nightwolf",

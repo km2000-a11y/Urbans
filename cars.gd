@@ -30,6 +30,12 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Mir Cars Nightwolf"
 	],
+	"sports_roadster":[
+		"Kronstadt Atrocity",
+		"Brutus Stingray",
+		"Berkshire Falcon",
+		"Eisenach Roadstar"
+	],
 
 	"compact": [
 		"Straeda Volant",
@@ -38,12 +44,11 @@ var class_lists: Dictionary = {
 		"Zenith Horizon"
 	],
 	"urban": [
-		"Berkshire Falcon",
 		"Kestrel Seabird",
+		"Zenith Touring",
 		"Kestrel Speedster",
 		"Strandberg Pilot",
-		"Brutus Stingray",
-		
+
 	],
 	
 
@@ -55,7 +60,6 @@ var class_lists: Dictionary = {
 	"sedans": [
 		"Kuro Vault",
 		"Mir Cars Goblin",
-		"Zenith Touring",
 		"Brutus Prince",
 		"Strandberg Turbo",
 	],
@@ -163,13 +167,13 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
-		"Brutus Stingray",
-		"Berkshire Falcon",
+		"Zenith Touring",
 		"Strandberg Pilot"
 	],
 
 	"eisenach_cup":[
 		"Eisenach Bengal",
+		"Eisenach Roadstar",
 		"Eisenach Monarch"
 	],
 
@@ -178,6 +182,7 @@ var class_lists: Dictionary = {
 		"Mir Cars Hutch",
 		"Kuro Vault",
 		"Mir Cars Goblin",
+		"Eisenach Roadstar",
 		"Bartoli Cruiser",
 		"Eisenach Monarch",
 		"Kronstadt Predator",
@@ -197,6 +202,7 @@ var class_lists: Dictionary = {
 		"Straeda Volant",
 		"Kestrel Speedster",
 		"Brutus Stingray",
+		"Kronstadt Atrocity",
 		"Berkshire Falcon",
 	],
 
@@ -205,6 +211,7 @@ var class_lists: Dictionary = {
 		"Brutus Prince",
 		"Colossus Behemoth",
 		"Zenith Touring",
+		"Eisenach Roadstar",
 		"Eisenach Monarch",
 		"Berkshire Falcon",
 		"Kronstadt Regent",
@@ -249,7 +256,8 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Zenith Touring",
+		"Kronstadt Atrocity",
+		"Eisenach Roadstar",
 		"Brutus Stingray",
 		"Berkshire Falcon",
 		"Kronstadt Predator",
@@ -298,6 +306,8 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Schroder Suppressor",
 		"Kronstadt Regent",
+		"Kronstadt Atrocity",
+		"Eisenach Roadstar",
 		"Kronstadt Predator",
 		"Eisenach Monarch",
 		"Eisenach Bengal",
@@ -315,6 +325,7 @@ var class_lists: Dictionary = {
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 		"Linetti Firestorm",
+		"Kronstadt Atrocity",
 		"Linetti Terror"
 	],
 		"england_vs_italy":[
@@ -344,9 +355,11 @@ var class_lists: Dictionary = {
 
 	"Zenith Horizon",
 	"Zenith Touring",
+	"Eisenach Roadstar",
 	"Kronstadt Predator",
 
 	"Kuro Vault",
+	"Kronstadt Atrocity",
 
 
 	"Mir Cars Nightwolf",
@@ -423,6 +436,7 @@ var car_scene_paths := {
 	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn",
 	"Berkshire Falcon":"res://Scenes/xk8.tscn",
 	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
+	"Kronstadt Atrocity":"res://Scenes/sl_65.tscn",
 
 
 	"Zenith Prince":"res://Scenes/q45.tscn",
@@ -474,6 +488,12 @@ var car_colors = {
 	Color8(0,70,120),
 	Color8(0,60,20),
 	Color8(120,0,0)
+],
+"Kronstadt Atrocity":[
+	Color8(192,192,192),  # Brilliant Silver (default)
+	Color8(0,0,0),        # Obsidian Black
+	Color8(255,255,255),  # Polar White
+	Color8(25,35,80)      # Midnight Navy
 ],
 "Kronstadt Predator":[
 	Color8(255,255,255),  # Polar White (default)
@@ -744,13 +764,15 @@ var car_colors = {
 	Color8(255,215,0)
 ],
 
-"Eisenach Roadstar": [
-	Color8(192, 192, 192), # Silver (default)
-	Color8(255, 255, 255), # White
-	Color8(15, 15, 15),    # Black
-	Color8(25, 70, 180),   # Interlagos Blue
-	Color8(190, 20, 30),   # Imola Red
-	Color8(0, 140, 90)     # Deep Emerald Green
+"Eisenach Roadstar":[
+	Color8(199,55,47),     # Crimson Red (default)
+	Color8(192,192,192),   # Titanium Silver
+	Color8(255,255,255),   # Alpine White
+	Color8(15,15,15),      # Sapphire Black
+	Color8(25,35,80),      # Monaco Blue
+	Color8(0,66,37),       # Oxford Green
+	Color8(145,145,125),   # Champagne Beige
+	Color8(90,70,50)       # Sepang Bronze
 ],
 "Mir Cars Blazer": [
 	Color8(15, 15, 15),    # Obsidian Black (default)

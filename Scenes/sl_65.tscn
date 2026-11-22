@@ -282,7 +282,7 @@ material_override = SubResource("StandardMaterial3D_suri6")
 mesh = SubResource("CylinderMesh_daeqo")
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="ModelRoot"]
-transform = Transform3D(0.5, 4.26326e-14, 8.47033e-22, 0, -4.37114e-08, 0.6, 2.84217e-14, -1, -2.62268e-08, -0.187378, 0.197725, 1.30487)
+transform = Transform3D(0.5, 4.26326e-14, 8.47033e-22, 0, -4.37114e-08, 0.6, 2.13163e-14, -1, -2.62268e-08, -0.20016, 0.197725, 1.30487)
 material_override = SubResource("StandardMaterial3D_suri6")
 mesh = SubResource("CylinderMesh_daeqo")
 
