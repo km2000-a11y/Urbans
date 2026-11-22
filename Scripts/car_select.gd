@@ -112,6 +112,7 @@ var car_prices := {
 
 	# Sports Roadsters
 	"Berkshire Falcon": 135000,
+	"Eisenach Roadstar":147500,
 	"Brutus Stingray": 155000,
 	"Kronstadt Atrocity": 185000,
 
@@ -177,6 +178,7 @@ var car_sell_prices := {
 	# Sports Roadsters
 	"Berkshire Falcon": 101250,
 	"Brutus Stingray": 116250,
+	"Eisenach Roadstar":120000,
 	"Kronstadt Atrocity": 138750,
 
 	# Sport Coupe
@@ -482,13 +484,15 @@ var car_colors = {
 	Color8(255,215,0)
 ],
 
-"Eisenach Roadstar": [
-	Color8(192, 192, 192), # Silver (default)
-	Color8(255, 255, 255), # White
-	Color8(15, 15, 15),    # Black
-	Color8(25, 70, 180),   # Interlagos Blue
-	Color8(190, 20, 30),   # Imola Red
-	Color8(0, 140, 90)     # Deep Emerald Green
+"Eisenach Roadstar":[
+	Color8(199,55,47),     # Crimson Red (default)
+	Color8(192,192,192),   # Titanium Silver
+	Color8(255,255,255),   # Alpine White
+	Color8(15,15,15),      # Sapphire Black
+	Color8(25,35,80),      # Monaco Blue
+	Color8(0,66,37),       # Oxford Green
+	Color8(145,145,125),   # Champagne Beige
+	Color8(90,70,50)       # Sepang Bronze
 ],
 "Eisenach Monarch":[
 	Color8(0,0,80),        # Orient Blue (default)
@@ -746,8 +750,9 @@ var torque_monsters_list = [
 
 var sports_roadster_list=[
 	"Brutus Stingray",
-	"Kronstadt Atrocity",
 	"Berkshire Falcon",
+	"Eisenach Roadstar",
+	"Kronstadt Atrocity",
 ]
 var sport_list = [
 	"Berkshire Blunt",
@@ -950,6 +955,12 @@ var sports_roadster = {
 		"", "Country: Germany", "HP: 612", "WEIGHT: 2080 KG",
 		"0-100 KM/H: 4.3s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V12 6.0L", "ASPIRATION: Twin Turbo", "TORQUE: 1000 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Eisenach Roadstar":[
+		"", "Country: Germany", "HP: 612", "WEIGHT: 2080 KG",
+		"0-100 KM/H: 4.3s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 480 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	]
 }
@@ -1623,17 +1634,22 @@ func _reset_color():
 	apply_color_to_preview(car_colors[car_name][0])
 	update_color_ui()
 
-func change_color(direction):
-	var colors = car_colors[car_name]
-	var chosen_color:Color=car_colors[car_name][color_index]
-	color_index = (color_index + direction) % colors.size()
-	if color_index < 0:
-		color_index = colors.size() - 1
-	if multiplayer.multiplayer_peer != null:
-		LanManager.sync_my_color(chosen_color.r, chosen_color.g, chosen_color.b)
-	apply_color_to_preview(colors[color_index])
-	update_color_ui()
-
+func change_color(direction: int) -> void:  
+	var colors: Array = car_colors.get(car_name, [])  
+	if colors.is_empty():  
+		return  
+	color_index = posmod(color_index + direction, colors.size())  
+	var chosen_color: Color = colors[color_index]  
+	Cars.selected_color = chosen_color  
+	apply_color_to_preview(chosen_color)  
+	update_color_ui()  
+	if multiplayer.multiplayer_peer != null:  
+		LanManager.rpc(  
+			"sync_my_color",  
+			chosen_color.r,  
+			chosen_color.g,  
+			chosen_color.b  
+		)
 func apply_color_to_preview(color: Color):
 	if preview_car == null:
 		return

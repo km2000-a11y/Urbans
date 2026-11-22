@@ -77,10 +77,11 @@ func spawn_duel(main_scene: Node) -> void:
 	ai_car.controls_enabled = false
 
 	main_scene.add_child(ai_car)
-	_apply_random_ai_color(ai_car)
 
 	ai_car.driver_name = ai_car.ai_names[randi() % ai_car.ai_names.size()]
 	ai_car.car_name = Cars.selected_ai_car_name
+	
+	_apply_random_ai_color(ai_car)
 
 	await get_tree().process_frame
 

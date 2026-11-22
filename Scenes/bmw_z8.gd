@@ -1,39 +1,40 @@
 extends CarController
 
 # COSMETIC INFO (UI only)
-var def_car_name := "Eisenach Roadstar"
+var def_car_name := "Eisenach Sovereign 650"
 var country := "Germany"
-var engine := "I6 3.2L Naturally Aspirated"
-var weight_kg := 1485
-var zero_to_hundred_display := 4.80
+var engine := "V8 4.8L Naturally Aspirated"
+var weight_kg := 1735
+var zero_to_hundred_display := 5.40
 
 func _ready():
-	# GAMEPLAY STATS — Lightweight BMW M roadster with high-revving straight-six
-	mass = 1485.0
-	horsepower = 343
-	max_rpm = 8000.0
-	idle_rpm = 800.0
-	zero_to_hundred = 5.0
-	top_speed_kmh = 272
+	# GAMEPLAY STATS — BMW 650i (E63/E64)
+	mass = 1735.0
+	horsepower = 360
+	max_rpm = 6500.0
+	idle_rpm = 700.0
+	zero_to_hundred = 5.4
+	top_speed_kmh = 266
 	transmission = "Rear wheel drive"
 
-	# HANDLING — Agile, responsive and playful
-	turn_speed = 2.85
-	brake_strength = 12.8
-	lateral_friction = 1.22
-	# 6-speed manual
+	# HANDLING — Grand Tourer, stable and powerful
+	turn_speed = 2.55
+	brake_strength = 12.5
+	lateral_friction = 1.15
+
+	# 6-speed automatic/manual
 	gear_count = 6
 	gear_ratios = [
-		4.35,  # 1st - aggressive launch
-		2.50,  # 2nd - strong acceleration
-		1.66,  # 3rd - high-rev pull
-		1.23,  # 4th - fast road gear
-		1.00,  # 5th - direct drive
-		0.83   # 6th - high-speed cruising
+		4.17,  # 1st
+		2.34,  # 2nd
+		1.52,  # 3rd
+		1.14,  # 4th
+		0.87,  # 5th
+		0.69   # 6th
 	]
 
-	shift_up_rpm = 7900
-	shift_down_rpm = 2800
+	shift_up_rpm = 6400
+	shift_down_rpm = 1800
 
 	apply_stats()
 	print("Child READY loaded:", def_car_name)

@@ -85,8 +85,9 @@ func _ready():
 	mode = Modes.mode if Modes.mode != null else ""
 	if mode == "":
 		mode = "Normal Race"
-
-	Cars.load_color()
+	
+	if not is_lan:
+		Cars.load_color()
 	career_progress = ClubCups.career_progress
 
 	if has_node("EliminationWinScreen"):
@@ -431,16 +432,28 @@ func _force_player_camera():
 	if player_car.has_node("Camera3D"):
 		player_car.get_node("Camera3D").current = true
 
-func _apply_color_to_car(car: Node, color: Color):
-	if car.has_node("ModelRoot/Body"):
-		var body = car.get_node("ModelRoot/Body")
-		for child in body.get_children():
-			if child is MeshInstance3D:
-				var mat = child.get_active_material(0)
-				if mat:
-					var unique_mat = mat.duplicate()
-					unique_mat.albedo_color = color
-					child.set_surface_override_material(0, unique_mat)
+func _apply_color_to_car(car: Node, color: Color) -> void:  
+	var body := car.get_node_or_null("ModelRoot/Body")  
+	if body == null:  
+		push_warning("Не найден ModelRoot/Body у машины: " + car.name)  
+		return  
+	_apply_color_recursive(body, color)  
+func _apply_color_recursive(node: Node, color: Color) -> void:  
+	if node is MeshInstance3D:  
+		var mesh_instance := node as MeshInstance3D  
+		if mesh_instance.material_override is BaseMaterial3D:  
+			var override_copy :=  mesh_instance.material_override.duplicate() as BaseMaterial3D  
+			override_copy.albedo_color = color  
+			mesh_instance.material_override = override_copy  
+		elif mesh_instance.mesh != null:  
+			for surface in range(mesh_instance.mesh.get_surface_count()):  
+				var active_material := mesh_instance.get_active_material(surface)  
+				if active_material is BaseMaterial3D:  
+					var surface_copy := active_material.duplicate() as BaseMaterial3D  
+					surface_copy.albedo_color = color  
+					mesh_instance.set_surface_override_material(surface, surface_copy)  
+	for child in node.get_children():  
+		_apply_color_recursive(child, color)
 
 func _on_radar_trap_body_entered(body):
 	if mode != "Radar Race":
@@ -805,6 +818,7 @@ func lan_race_over(winner_id: int):
 @rpc("any_peer", "reliable")
 func spawn_remote_player(id: int, car_path: String, cr: float, cg: float, cb: float):
 	if has_node(str(id)):
+		_apply_color_to_car(get_node(str(id)), Color(cr, cg, cb))
 		return
 
 	var scene := load(car_path)

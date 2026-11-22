@@ -101,14 +101,19 @@ func spawn_race(scene: Node) -> void:
 		ai.controls_enabled =false
 
 		ai.driver_name = ai.ai_names[randi() % ai.ai_names.size()]
+
 		var car_name := ""
 		for name in Cars.car_scene_paths.keys():
 			if Cars.car_scene_paths[name] == path:
 				car_name = name
 				break
+
+		ai.car_name = car_name
+
 		_apply_random_ai_color(ai)
 
 		ai_cars.append(ai)
+
 
 	await get_tree().process_frame
 	await get_tree().process_frame
