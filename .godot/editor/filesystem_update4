@@ -1,7 +1,5 @@
 res://Scenes/main_menu.tscn
-res://duel_manager.gd
-res://elimination_manager.gd
-res://normal_race_manager.gd
+res://cars.gd
 res://Scenes/cls55.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Scenes/car_select.tscn
@@ -37,4 +35,4 @@ res://Scenes/morgan_aero_8.tscn
 res://Scenes/sl_65.tscn
 res://Scenes/bmw_z8.tscn
 res://Scenes/nissan_350z.tscn
-res://cars.gd
+res://Scripts/car_select.gd

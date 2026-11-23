@@ -1429,13 +1429,14 @@ func load_preview_car(path: String):
 
 	var supports_kits := car_has_bodykits()
 
-	var show_bodykit_buttons := supports_kits and Cars.garage_mode
-
+	var show_bodykit_buttons := supports_kits \
+	and Cars.garage_mode \
+	and not Cars.dealership_mode
 	$Control/BodyKit1Button.visible = show_bodykit_buttons
 	$Control/BodyKit2Button.visible = show_bodykit_buttons
 	$StockBtn.visible = show_bodykit_buttons
+	$StockBtn.visible = show_bodykit_buttons
 
-	$StockBtn.visible = supports_kits
 
 	if not supports_kits:
 		body_kit = 0
