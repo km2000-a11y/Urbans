@@ -9,6 +9,7 @@ enum TorqueCharacter {
 	SUPERCHARGED,
 	DIESEL
 }
+var body_kit := 0
 var torque_character_values := {
 
 	# 4x4 SUV
@@ -2228,3 +2229,14 @@ func _find_and_add_car_exceptions(node: Node) -> void:
 		# Recursively search sub-nodes in case cars are nested under tracks, holders, etc.
 		if child.get_child_count() > 0:
 			_find_and_add_car_exceptions(child)
+func set_body_kit(kit: int) -> void:
+	body_kit = kit
+
+	$ModelRoot/BodyKit1.visible = false
+	$ModelRoot/BodyKit2.visible = false
+
+	if kit == 1:
+		$ModelRoot/BodyKit1.visible = true
+
+	elif kit == 2:
+		$ModelRoot/BodyKit2.visible = true

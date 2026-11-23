@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://crlbgqhohcxb1"]
+[gd_scene load_steps=47 format=3 uid="uid://crlbgqhohcxb1"]
 
 [ext_resource type="Script" uid="uid://yx8vd2r3k3at" path="res://Scenes/infiniti_g_35.gd" id="1_8iyvs"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_aig3l"]
@@ -71,6 +71,44 @@ size = Vector3(0.1, 0.35, 0.6)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rx4aj"]
 size = Vector3(0.7, 0.3, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2f3t"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_irlv2"]
+size = Vector3(0.7, 0.05, 0.06)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whd4v"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_ewk81"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4p4s4"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bg08d"]
+size = Vector3(0.65, 0.4, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irlv2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_whd4v"]
+text = "NAGAZUMI COMPUTING"
+font_size = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aig3l"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_d2f3t"]
+text = "23"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8iyvs"]
+albedo_color = Color(0.196078, 0, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_aig3l"]
+text = "ZENITH MOTORSPORT"
+font_size = 8
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08euy"]
 size = Vector3(1, 1, 1.7)
@@ -302,6 +340,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0799521, 0.190925, -1.2072
 material_override = SubResource("StandardMaterial3D_1f3ku")
 mesh = SubResource("BoxMesh_rx4aj")
 skeleton = NodePath("../..")
+
+[node name="BodyKit1" type="Node3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, -2.41934e-07, 0, 1.31614)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/BodyKit1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0632973, -0.0451351, -0.114023)
+material_override = SubResource("StandardMaterial3D_d2f3t")
+mesh = SubResource("BoxMesh_irlv2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/BodyKit1"]
+transform = Transform3D(0.8, 0, 1.42109e-14, 0, 1.2, 0, 0, 0, 0.999999, -0.108485, 0.369913, -1.37619)
+material_override = SubResource("StandardMaterial3D_d2f3t")
+mesh = SubResource("BoxMesh_irlv2")
+
+[node name="BodyKit2" type="Node3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, -2.41934e-07, 0, 1.31614)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(0.7, 3.55271e-15, -5.29396e-23, 0, -8.74227e-09, -0.1, 4.26326e-14, 0.2, -4.37114e-09, -0.105937, 0.402683, -1.45102)
+material_override = SubResource("StandardMaterial3D_whd4v")
+mesh = SubResource("BoxMesh_ewk81")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, 1.42109e-14, 0, 0.999999, 0, 0, 0, 0.999999, -0.0923263, 0.273813, -1.04161)
+material_override = SubResource("StandardMaterial3D_4p4s4")
+mesh = SubResource("BoxMesh_bg08d")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(-0.869565, 0, 1.31301e-07, 0, 1, 0, -1.07854e-07, 0, -0.714285, -0.101164, 0.280935, -1.44972)
+material_override = SubResource("StandardMaterial3D_irlv2")
+mesh = SubResource("TextMesh_whd4v")
+skeleton = NodePath("../../../Exhaust/GPUParticles3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.27951, 0.257353, -0.873088)
+material_override = SubResource("StandardMaterial3D_aig3l")
+mesh = SubResource("TextMesh_d2f3t")
+skeleton = NodePath("../../Body/MeshInstance3D3")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 0.5, 0.866026, -1.42109e-14, -0.866025, 0.5, -0.00887078, 0.257353, -0.250848)
+material_override = SubResource("StandardMaterial3D_aig3l")
+mesh = SubResource("TextMesh_d2f3t")
+skeleton = NodePath("../../Body/MeshInstance3D3")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.441566, 0.267885, -0.892295)
+material_override = SubResource("StandardMaterial3D_8iyvs")
+mesh = SubResource("TextMesh_aig3l")
+skeleton = NodePath("../../Body/MeshInstance3D4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383226, 0.144474, -0.156084)

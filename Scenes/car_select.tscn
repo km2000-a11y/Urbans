@@ -170,6 +170,25 @@ offset_bottom = 559.0
 theme_override_font_sizes/font_size = 30
 text = "UPGRADES"
 
+[node name="BodyKit1Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 549.0
+offset_right = 1161.0
+offset_bottom = 599.0
+theme_override_font_sizes/font_size = 30
+text = "BODY KIT 1
+"
+
+[node name="BodyKit2Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 591.0
+offset_right = 1161.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 30
+text = "BODY KIT 2"
+
 [node name="GarageInfo" type="Label" parent="Control"]
 visible = false
 layout_mode = 0
@@ -209,9 +228,9 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="Select" type="Button" parent="."]
 offset_left = 404.0
-offset_top = 639.0
+offset_top = 675.0
 offset_right = 1141.0
-offset_bottom = 699.0
+offset_bottom = 725.0
 theme_override_font_sizes/font_size = 30
 text = "SELECT CAR
 "
@@ -222,6 +241,13 @@ offset_right = 253.0
 offset_bottom = 664.0
 theme_override_font_sizes/font_size = 40
 text = "BACK"
+
+[node name="StockBtn" type="Button" parent="."]
+offset_top = 658.0
+offset_right = 253.0
+offset_bottom = 721.0
+theme_override_font_sizes/font_size = 40
+text = "STOCK"
 
 [node name="UpgradeMenu" type="Control" parent="."]
 layout_mode = 3
@@ -348,8 +374,11 @@ offset_bottom = 614.0
 [connection signal="pressed" from="Control/ClassList/Supercars" to="." method="_on_supercars_pressed"]
 [connection signal="pressed" from="Control/ClassList/TrackCars" to="." method="_on_track_cars_pressed"]
 [connection signal="pressed" from="Control/UpgradesButton" to="." method="_on_upgrades_pressed"]
+[connection signal="pressed" from="Control/BodyKit1Button" to="." method="_on_body_kit_1_button_pressed"]
+[connection signal="pressed" from="Control/BodyKit2Button" to="." method="_on_body_kit_2_button_pressed"]
 [connection signal="pressed" from="Select" to="." method="_on_select_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="StockBtn" to="." method="_on_stock_btn_pressed"]
 [connection signal="pressed" from="UpgradeMenu/VBoxContainer/WeightReduction/BuyBtn3" to="." method="_on_buy_btn_3_pressed"]
 [connection signal="pressed" from="UpgradeMenu/VBoxContainer/EngineTune/BuyBtn2" to="." method="_on_buy_btn_2_pressed"]
 [connection signal="pressed" from="UpgradeMenu/VBoxContainer/Steering/BuyBtn" to="." method="_on_buy_btn_pressed"]

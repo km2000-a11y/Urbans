@@ -2,7 +2,7 @@ extends Node
 
 var selected_car: String = ""          # scene path
 var selected_car_name: String = ""     # car name string
-
+var selected_body_kit := 0
 var selected_ai_car: String = ""       # scene path
 var selected_ai_car_name: String = ""  # car name string
 var dealership_mode:bool=false
@@ -1244,3 +1244,29 @@ func get_radar_target_speed_formatted() -> String:
 		return "%d mph" % mph
 	else:
 		return "%d km/h" % target_kmh
+func apply_bodykit(car: Node, car_name: String):
+
+	var saved_kit := get_body_kit(car_name)
+	await get_tree().process_frame
+	var kit1 = car.get_node_or_null(
+		"ModelRoot/BodyKit1"
+	)
+
+	var kit2 = car.get_node_or_null(
+		"ModelRoot/BodyKit2"
+	)
+
+	if kit1:
+		kit1.visible = saved_kit == 1
+
+	if kit2:
+		kit2.visible = saved_kit == 2
+func get_body_kit(car_name: String) -> int:
+
+	if not unlocked_cars.has(car_name):
+		return 0
+
+	return unlocked_cars[car_name].get(
+		"body_kit",
+		0
+	)

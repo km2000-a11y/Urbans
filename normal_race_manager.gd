@@ -168,7 +168,19 @@ func spawn_race(scene: Node) -> void:
 
 	var all_cars = get_all_race_cars()
 	scene.get_node("Start").start_countdown(all_cars)
+	var saved_kit :int= Cars.unlocked_cars.get(
+	Cars.selected_car_name,
+	{}
+).get("body_kit", 0)
 
+	var kit1 = player_car.get_node_or_null("ModelRoot/BodyKit1")
+	var kit2 = player_car.get_node_or_null("ModelRoot/BodyKit2")
+
+	if kit1:
+		kit1.visible = saved_kit == 1
+
+	if kit2:
+		kit2.visible = saved_kit == 2
 
 func on_countdown_finished():
 	

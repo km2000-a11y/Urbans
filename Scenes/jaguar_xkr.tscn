@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bosrka0n87x30"]
+[gd_scene load_steps=46 format=3 uid="uid://bosrka0n87x30"]
 
 [ext_resource type="Script" uid="uid://bl6s5amr84tgr" path="res://Scripts/jaguar_xkr_2003.gd" id="1_8csix"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_8csix"]
@@ -96,6 +96,29 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_nyk4q"]
 size = Vector3(0.6, 0.15, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pf3kd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gnug7"]
+size = Vector3(0.6, 0.05, 0.1)
+
+[sub_resource type="TextMesh" id="TextMesh_ssfej"]
+text = "URBAN COLA"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kicw4"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dag8e"]
+size = Vector3(0.9, 0.1, 0.1)
+
+[sub_resource type="TextMesh" id="TextMesh_y3djm"]
+text = "BERKSHIRE PERFORMANCE"
+font_size = 10
+
+[sub_resource type="TextMesh" id="TextMesh_8csix"]
+text = "68"
+font_size = 32
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08euy"]
 size = Vector3(1, 1, 1.7)
@@ -319,12 +342,7 @@ material_override = SubResource("StandardMaterial3D_hckqp")
 mesh = SubResource("BoxMesh_pf3kd")
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="ModelRoot/Body/MeshInstance3D3"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0445493, 0.181169, -0.25053)
-material_override = SubResource("StandardMaterial3D_gnug7")
-mesh = SubResource("PrismMesh_ssfej")
-
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="ModelRoot/Body/MeshInstance3D3"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0445493, 0.181169, -0.25053)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0445493, 0.150641, -0.25053)
 material_override = SubResource("StandardMaterial3D_gnug7")
 mesh = SubResource("PrismMesh_ssfej")
 
@@ -368,6 +386,64 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.145657, 0.225843, 0.76856)
 material_override = SubResource("StandardMaterial3D_y3djm")
 mesh = SubResource("BoxMesh_nyk4q")
 skeleton = NodePath("../Body/MeshInstance3D4")
+
+[node name="BodyKit1" type="Node3D" parent="ModelRoot"]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/BodyKit1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101584, 0.0114926, 1.16029)
+material_override = SubResource("StandardMaterial3D_pf3kd")
+mesh = SubResource("BoxMesh_gnug7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/BodyKit1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101584, 0.352751, -0.361794)
+material_override = SubResource("StandardMaterial3D_pf3kd")
+mesh = SubResource("BoxMesh_gnug7")
+
+[node name="BodyKit2" type="Node3D" parent="ModelRoot"]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -0.525719, 0.412312, 0.0772792)
+mesh = SubResource("TextMesh_ssfej")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0.319708, 0.410241, 0.0430198)
+mesh = SubResource("TextMesh_ssfej")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(0.999972, 0.0125926, -0.00143826, -0.00740401, 1.69994, 0.00527912, 0.00098488, -0.00597077, 1.49999, -0.104441, 0.207877, 0.0609993)
+material_override = SubResource("StandardMaterial3D_uouuj")
+mesh = SubResource("BoxMesh_ivjmb")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121492, 0.396391, -0.391768)
+material_override = SubResource("StandardMaterial3D_kicw4")
+mesh = SubResource("BoxMesh_dag8e")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121493, 0.0134169, 1.17444)
+material_override = SubResource("StandardMaterial3D_kicw4")
+mesh = SubResource("BoxMesh_dag8e")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.324937, 0.267176, 0.315792)
+mesh = SubResource("TextMesh_y3djm")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.471105, 0.267176, 0.315792)
+mesh = SubResource("TextMesh_y3djm")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0909475, 0.536139, 0.30272)
+mesh = SubResource("TextMesh_8csix")
+skeleton = NodePath("../../Body/MeshInstance3D10")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0909476, 0.298054, 0.889257)
+mesh = SubResource("TextMesh_8csix")
+skeleton = NodePath("../../Body/MeshInstance3D10")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383226, 0.144474, -0.156084)

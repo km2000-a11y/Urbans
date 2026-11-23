@@ -116,7 +116,19 @@ func spawn_duel(main_scene: Node) -> void:
 	main_scene.get_node("Start").start_countdown(all_cars)
 
 	print("DuelManager: Duel started.")
+	var saved_kit :int= Cars.unlocked_cars.get(
+	Cars.selected_car_name,
+	{}
+).get("body_kit", 0)
 
+	var kit1 = player_car.get_node_or_null("ModelRoot/BodyKit1")
+	var kit2 = player_car.get_node_or_null("ModelRoot/BodyKit2")
+
+	if kit1:
+		kit1.visible = saved_kit == 1
+
+	if kit2:
+		kit2.visible = saved_kit == 2
 
 func _pick_unique_ai_car() -> String:
 	var cls: String = Cars.selected_class

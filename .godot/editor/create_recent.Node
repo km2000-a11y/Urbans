@@ -1,5 +1,6 @@
-CarController
+Node3D
 MeshInstance3D
+CarController
 CollisionShape3D
 StaticBody3D
 RichTextLabel
@@ -11,4 +12,3 @@ CanvasLayer
 TextureProgressBar
 ProgressBar
 HBoxContainer
-AudioStreamPlayer

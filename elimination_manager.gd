@@ -113,7 +113,19 @@ func spawn_race(scene: Node) -> void:
 		_apply_random_ai_color(ai)
 
 		ai_cars.append(ai)
+		var saved_kit :int= Cars.unlocked_cars.get(
+	Cars.selected_car_name,
+	{}
+).get("body_kit", 0)
 
+		var kit1 = player_car.get_node_or_null("ModelRoot/BodyKit1")
+		var kit2 = player_car.get_node_or_null("ModelRoot/BodyKit2")
+
+		if kit1:
+				kit1.visible = saved_kit == 1
+
+		if kit2:
+				kit2.visible = saved_kit == 2
 
 	await get_tree().process_frame
 	await get_tree().process_frame

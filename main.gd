@@ -265,6 +265,7 @@ func _setup_duel():
 	DuelManager.main_scene = self
 
 	player_car = DuelManager.player_car
+	_apply_bodykit_to_car(player_car)
 	_force_player_camera()
 
 	var cars = DuelManager.get_all_race_cars()
@@ -307,6 +308,7 @@ func _setup_normal_race():
 	NormalRaceManager.spawn_race(self)
 
 	player_car = NormalRaceManager.player_car
+	_apply_bodykit_to_car(player_car)
 	_force_player_camera()
 
 	var cars = NormalRaceManager.get_all_race_cars()
@@ -354,6 +356,7 @@ func _setup_elimination():
 	EliminationManager.spawn_race(self)
 
 	player_car = EliminationManager.player_car
+	_apply_bodykit_to_car(player_car)
 	_force_player_camera()
 
 	var cars = EliminationManager.get_all_race_cars()
@@ -394,6 +397,7 @@ func _setup_cop_chase():
 	CopChaseManager.spawn_chase(self)
 
 	player_car = CopChaseManager.player_car
+	_apply_bodykit_to_car(player_car)
 	_force_player_camera()
 
 	var cars = CopChaseManager.get_all_race_cars()
@@ -878,3 +882,38 @@ func setup_multiplayer_sync(car_node: Node3D):
 	config.add_property(":sync_velocity")
 	sync.replication_config = config
 	car_node.add_child(sync)
+func _apply_bodykit_to_car(car: Node):
+	Cars.apply_bodykit(
+	player_car,
+	Cars.selected_car_name
+)
+	if car == null:
+		return
+
+	var saved_kit := 0
+
+	if Cars.unlocked_cars.has(Cars.selected_car_name):
+		saved_kit = Cars.unlocked_cars[
+			Cars.selected_car_name
+		].get("body_kit", 0)
+
+	var kit1 = car.get_node_or_null(
+		"ModelRoot/BodyKit1"
+	)
+
+	var kit2 = car.get_node_or_null(
+		"ModelRoot/BodyKit2"
+	)
+
+	if kit1:
+		kit1.visible = saved_kit == 1
+
+	if kit2:
+		kit2.visible = saved_kit == 2
+
+	print(
+		"Applied body kit",
+		saved_kit,
+		"to",
+		Cars.selected_car_name
+	)

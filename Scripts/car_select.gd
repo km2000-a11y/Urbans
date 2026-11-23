@@ -5,6 +5,7 @@ extends CanvasLayer
 # CAR SELECT STATE
 # -------------------------
 var stability_factor := 1.0
+var body_kit := 0
 
 var stability_values := {
 	# SUVs
@@ -1075,16 +1076,20 @@ var track_cars = {
 # -------------------------
 
 func _ready():
+	$Control/BodyKit1Button.visible = Cars.garage_mode
+	$Control/BodyKit2Button.visible = Cars.garage_mode
+	$StockBtn.visible = Cars.garage_mode
 	stability_factor = stability_values.get(
 		car_name,
 		1.0
 	)
+
 	Localization.language_changed.connect(_on_language_changed)
 	RoadChallengeSave.load_progress()
+	
 	$UpgradeMenu.visible = false
 	MusicManager.play_menu_music()
-	if Cars.garage_mode:
-		$Select.hide()
+	if GameMode.game_mode=="Club Cups":
 		$Control/UpgradesButton.show()
 
 		var owned_cars = Cars.unlocked_cars.size()
@@ -1418,6 +1423,60 @@ func load_preview_car(path: String):
 
 	preview_car = car
 
+	# -------------------------
+	# BODY KIT SUPPORT
+	# -------------------------
+
+	var supports_kits := car_has_bodykits()
+
+	var show_bodykit_buttons := supports_kits and Cars.garage_mode
+
+	$Control/BodyKit1Button.visible = show_bodykit_buttons
+	$Control/BodyKit2Button.visible = show_bodykit_buttons
+	$StockBtn.visible = show_bodykit_buttons
+
+	$StockBtn.visible = supports_kits
+
+	if not supports_kits:
+		body_kit = 0
+	else:
+
+		var saved_kit := 0
+
+		if GameMode.game_mode == "Club Cups":
+			if Cars.unlocked_cars.has(car_name):
+				saved_kit = Cars.unlocked_cars[car_name].get(
+					"body_kit",
+					0
+				)
+
+		body_kit = saved_kit
+
+		var kit1 = preview_car.get_node_or_null(
+			"ModelRoot/BodyKit1"
+		)
+
+		var kit2 = preview_car.get_node_or_null(
+			"ModelRoot/BodyKit2"
+		)
+
+		if kit1:
+			kit1.visible = (saved_kit == 1)
+
+		if kit2:
+			kit2.visible = (saved_kit == 2)
+
+		if saved_kit == 2:
+			color_index = 0
+			apply_color_to_preview(Color.WHITE)
+			$Control/ColorSelector.hide()
+		else:
+			$Control/ColorSelector.show()
+
+	# -------------------------
+	# NORMAL PREVIEW SETUP
+	# -------------------------
+
 	car.apply_stats()
 
 	var model_root: Node3D
@@ -1437,8 +1496,10 @@ func load_preview_car(path: String):
 	if cc != null:
 		_update_live_stats(cc)
 
-	update_car_ui(get_base_stats_for(car_name), car_name)
-# -------------------------
+	update_car_ui(
+		get_base_stats_for(car_name),
+		car_name
+	)
 
 func _process(delta):
 	if Cars.dealership_mode:
@@ -1634,7 +1695,9 @@ func _reset_color():
 	apply_color_to_preview(car_colors[car_name][0])
 	update_color_ui()
 
-func change_color(direction: int) -> void:  
+func change_color(direction: int) -> void:
+	if body_kit == 2:
+		return  
 	var colors: Array = car_colors.get(car_name, [])  
 	if colors.is_empty():  
 		return  
@@ -1772,7 +1835,7 @@ func _on_select_pressed() -> void:
 	Cars.selected_color = car_colors.get(car_name, [])[color_index]
 
 	Cars.save_color()
-
+	Cars.selected_body_kit = body_kit
 	get_tree().change_scene_to_file("res://Scenes/track_select.tscn")
 func _on_back_btn_pressed() -> void:
 	if GameMode.game_mode == "Road Challenge":
@@ -2142,3 +2205,90 @@ func _on_sports_roadsters_pressed() -> void:
 	update_car_ui(sports_roadster[car_name], car_name)
 	load_preview_car(car_scene_paths[car_name])
 	_reset_color()
+
+
+func _on_body_kit_1_button_pressed() -> void:
+
+	if not car_has_bodykits():
+		return
+
+	var kit1 = preview_car.get_node_or_null("ModelRoot/BodyKit1")
+	var kit2 = preview_car.get_node_or_null("ModelRoot/BodyKit2")
+
+	if body_kit != 1:
+
+		if Cars.player_money < 3000:
+			$Control/Label.text = "NEED $3000"
+			$Control/Label.modulate = Color.RED
+			return
+
+		Cars.spend_money(3000)
+
+	body_kit = 1
+
+	if kit1:
+		kit1.visible = true
+
+	if kit2:
+		kit2.visible = false
+
+	$Control/ColorSelector.show()
+
+	if GameMode.game_mode == "Club Cups":
+		Cars.unlocked_cars[car_name]["body_kit"] = 1
+		Cars.save_unlocked_cars()
+func _on_body_kit_2_button_pressed() -> void:
+	if not car_has_bodykits():
+		return
+
+	var kit1 = preview_car.get_node_or_null("ModelRoot/BodyKit1")
+	var kit2 = preview_car.get_node_or_null("ModelRoot/BodyKit2")
+
+	if body_kit != 2:
+
+		if Cars.player_money < 8000:
+			$Control/Label.text = "NEED $8000"
+			$Control/Label.modulate = Color.RED
+			return
+
+		Cars.spend_money(8000)
+
+	body_kit = 2
+
+	if kit1:
+		kit1.visible = false
+
+	if kit2:
+		kit2.visible = true
+
+	color_index = 0
+	apply_color_to_preview(Color.WHITE)
+
+	$Control/ColorSelector.hide()
+
+	if GameMode.game_mode == "Club Cups":
+		Cars.unlocked_cars[car_name]["body_kit"] = 2
+		Cars.save_unlocked_cars()
+func _on_stock_btn_pressed() -> void:
+	body_kit = 0
+
+	var kit1 = preview_car.get_node_or_null("ModelRoot/BodyKit1")
+	var kit2 = preview_car.get_node_or_null("ModelRoot/BodyKit2")
+
+	if kit1:
+		kit1.visible = false
+
+	if kit2:
+		kit2.visible = false
+
+	$Control/ColorSelector.show()
+
+	Cars.unlocked_cars[car_name]["body_kit"] = 0
+	Cars.save_unlocked_cars()
+func car_has_bodykits() -> bool:
+	return car_name in [
+		"Zenith Touring",
+		"Zenith Horizon",
+		"Berkshire Blunt",
+		"Strandberg Turbo",
+	]
