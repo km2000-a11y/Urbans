@@ -32,8 +32,8 @@ var class_lists: Dictionary = {
 	],
 	"sports_roadster":[
 		"Kronstadt Atrocity",
-		"Brutus Stingray",
 		"Berkshire Falcon",
+		"Brutus Stingray",
 		"Eisenach Roadstar"
 	],
 
@@ -48,7 +48,6 @@ var class_lists: Dictionary = {
 		"Zenith Touring",
 		"Kestrel Speedster",
 		"Strandberg Pilot",
-
 	],
 	
 
@@ -110,6 +109,7 @@ var class_lists: Dictionary = {
 		"Schroder Suppressor",
 		"Berkshire Mocha",
 		"Brutus Prince",
+		"Kronstadt Atrocity",
 		"Schroder Colosso",
 		"Zenith Touring",
 		"Zenith Horizon"
@@ -167,6 +167,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Berkshire Falcon",
 		"Zenith Touring",
 		"Strandberg Pilot"
 	],
@@ -209,9 +210,11 @@ var class_lists: Dictionary = {
 	"under_400_hp":[
 		"Colossus Titan Max",
 		"Brutus Prince",
+		"Brutus Stingray",
 		"Colossus Behemoth",
 		"Zenith Touring",
 		"Eisenach Roadstar",
+		"Kronstadt Atrocity",
 		"Eisenach Monarch",
 		"Berkshire Falcon",
 		"Kronstadt Regent",
@@ -256,7 +259,6 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Kronstadt Atrocity",
 		"Eisenach Roadstar",
 		"Brutus Stingray",
 		"Berkshire Falcon",
@@ -325,7 +327,6 @@ var class_lists: Dictionary = {
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 		"Linetti Firestorm",
-		"Kronstadt Atrocity",
 		"Linetti Terror"
 	],
 		"england_vs_italy":[
@@ -489,11 +490,11 @@ var car_colors = {
 	Color8(0,60,20),
 	Color8(120,0,0)
 ],
-"Kronstadt Atrocity":[
+"Kronstadt Atrocity": [
 	Color8(192,192,192),  # Brilliant Silver (default)
-	Color8(0,0,0),        # Obsidian Black
+	Color8(15,15,15),     # Obsidian Black
 	Color8(255,255,255),  # Polar White
-	Color8(25,35,80)      # Midnight Navy
+	Color8(160,20,20)     # AMG Crimson Red
 ],
 "Kronstadt Predator":[
 	Color8(255,255,255),  # Polar White (default)
@@ -1245,16 +1246,16 @@ func get_radar_target_speed_formatted() -> String:
 	else:
 		return "%d km/h" % target_kmh
 func apply_bodykit(car: Node, car_name: String):
-
 	var saved_kit := get_body_kit(car_name)
-	await get_tree().process_frame
-	var kit1 = car.get_node_or_null(
-		"ModelRoot/BodyKit1"
-	)
 
-	var kit2 = car.get_node_or_null(
-		"ModelRoot/BodyKit2"
-	)
+	await get_tree().process_frame
+
+	var kit1 = car.get_node_or_null("ModelRoot/BodyKit1")
+	var kit2 = car.get_node_or_null("ModelRoot/BodyKit2")
+
+	# Car has no body kits
+	if kit1 == null and kit2 == null:
+		return
 
 	if kit1:
 		kit1.visible = saved_kit == 1

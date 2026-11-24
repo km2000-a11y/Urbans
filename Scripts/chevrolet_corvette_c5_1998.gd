@@ -9,19 +9,17 @@ var zero_to_hundred_display := 5.00
 
 func _ready():
 	# GAMEPLAY STATS
-	mass = 1460.0
-	horsepower = 443
+	mass = 1660.0
+	horsepower = 320
 	max_rpm = 6000.0
-	zero_to_hundred = 4.8
-	top_speed_kmh = 257
+	zero_to_hundred = 5.6
+	top_speed_kmh = 250
 	turn_speed = 2.85
 	brake_strength = 12.8
 	lateral_friction = 1.10
 	transmission = "Rear wheel drive"
 
 	# Corvette C5-style handling (light nose, playful RWD, stable at speed)
-	has_supercharger=true
-
 	# GM 6-speed manual (shorter gears, aggressive acceleration)
 	gear_count = 6
 	gear_ratios = [

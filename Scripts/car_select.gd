@@ -109,13 +109,13 @@ var car_prices := {
 	"Strandberg Pilot": 105000,
 	"Kestrel Seabird": 120000,
 	"Zenith Touring": 130000,
-	"Kestrel Speedster": 145000,
+	"Kestrel Speedster": 120000,
 
 	# Sports Roadsters
 	"Berkshire Falcon": 135000,
 	"Eisenach Roadstar":147500,
 	"Brutus Stingray": 155000,
-	"Kronstadt Atrocity": 185000,
+	"Kronstadt Atrocity": 85000,
 
 	# Sport Coupe
 	"Berkshire Blunt": 160000,
@@ -696,11 +696,11 @@ var car_colors = {
 	Color8(200,40,40),
 	Color8(20,20,20)
 ],
-"Kronstadt Atrocity":[
+"Kronstadt Atrocity": [
 	Color8(192,192,192),  # Brilliant Silver (default)
-	Color8(0,0,0),        # Obsidian Black
+	Color8(15,15,15),     # Obsidian Black
 	Color8(255,255,255),  # Polar White
-	Color8(25,35,80)      # Midnight Navy
+	Color8(160,20,20)     # AMG Crimson Red
 ],
 
 }
@@ -731,14 +731,14 @@ var muscle_list = [
 var urban_list = [
 	"Strandberg Pilot",
 	"Kestrel Seabird",
-	"Zenith Touring",
 	"Kestrel Speedster",
+	"Zenith Touring",
 ]
 var sedans_list = [
 	"Mir Cars Goblin",
 	"Brutus Prince",
 	"Strandberg Turbo",
-	"Kuro Vault",
+	"Kuro Vault"
 	
 ]
 var torque_monsters_list = [
@@ -751,9 +751,9 @@ var torque_monsters_list = [
 
 var sports_roadster_list=[
 	"Brutus Stingray",
+	"Kronstadt Atrocity",
 	"Berkshire Falcon",
 	"Eisenach Roadstar",
-	"Kronstadt Atrocity",
 ]
 var sport_list = [
 	"Berkshire Blunt",
@@ -909,7 +909,7 @@ var sedans = {
 		"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
 		"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 290 NM",
 		"TRANSMISSION: FRONT-WHEEL DRIVE"
-	]
+	],
 }
 
 var urban_racers = {
@@ -940,22 +940,23 @@ var urban_racers = {
 }
 
 var sports_roadster = {
-	"Berkshire Falcon":[
-		"", "Country: UK", "HP: 370", "WEIGHT: 1710 KG",
-		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.0L", "ASPIRATION: Supercharged", "TORQUE: 525 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+	
 	"Brutus Stingray":[
 		"", "Country: USA", "HP: 443", "WEIGHT: 1645 KG",
 		"0-100 KM/H: 4.6s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.4L", "ASPIRATION: Supercharged", "TORQUE: 561 NM",
+		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 420 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Berkshire Falcon":[
+		"", "Country: UK", "HP: 370", "WEIGHT: 1710 KG",
+		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kronstadt Atrocity":[
 		"", "Country: Germany", "HP: 612", "WEIGHT: 2080 KG",
 		"0-100 KM/H: 4.3s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V12 6.0L", "ASPIRATION: Twin Turbo", "TORQUE: 1000 NM",
+			"ENGINE: V6 3.2L", "ASPIRATION: Supercharged", "TORQUE: 480 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Eisenach Roadstar":[

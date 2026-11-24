@@ -56,8 +56,8 @@ var class_lists: Dictionary = {
 	],
 	"sports_roadster":[
 		"Kronstadt Atrocity",
-		"Brutus Stingray",
 		"Berkshire Falcon",
+		"Brutus Stingray",
 		"Eisenach Roadstar"
 	],
 
@@ -72,7 +72,6 @@ var class_lists: Dictionary = {
 		"Zenith Touring",
 		"Kestrel Speedster",
 		"Strandberg Pilot",
-
 	],
 	
 
@@ -134,6 +133,7 @@ var class_lists: Dictionary = {
 		"Schroder Suppressor",
 		"Berkshire Mocha",
 		"Brutus Prince",
+		"Kronstadt Atrocity",
 		"Schroder Colosso",
 		"Zenith Touring",
 		"Zenith Horizon"
@@ -191,6 +191,7 @@ var class_lists: Dictionary = {
 	"urban_performance_cars":[
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Berkshire Falcon",
 		"Zenith Touring",
 		"Strandberg Pilot"
 	],
@@ -233,9 +234,11 @@ var class_lists: Dictionary = {
 	"under_400_hp":[
 		"Colossus Titan Max",
 		"Brutus Prince",
+		"Brutus Stingray",
 		"Colossus Behemoth",
 		"Zenith Touring",
 		"Eisenach Roadstar",
+		"Kronstadt Atrocity",
 		"Eisenach Monarch",
 		"Berkshire Falcon",
 		"Kronstadt Regent",
@@ -280,7 +283,6 @@ var class_lists: Dictionary = {
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Kronstadt Atrocity",
 		"Eisenach Roadstar",
 		"Brutus Stingray",
 		"Berkshire Falcon",
@@ -349,7 +351,6 @@ var class_lists: Dictionary = {
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 		"Linetti Firestorm",
-		"Kronstadt Atrocity",
 		"Linetti Terror"
 	],
 		"england_vs_italy":[
@@ -399,58 +400,50 @@ var class_lists: Dictionary = {
 	"Eisenach Bengal"
 ],
 }
-
 var cup_rewards: Dictionary = {
-	"colossus":"Eisenach Bengal",
-	"street_tuners":"Brutus Viper",
-	"muscle_hustle":"Schroder Atrix Q32",
+	"colossus": "Eisenach Bengal",
+	"street_tuners": "Brutus Viper",
+	"muscle_hustle": "Schroder Atrix Q32",
 
-	"v6_engines":"Zenith Horizon",
-	"zenith_competition":"Brutus Goblin",
+	"v6_engines": "Zenith Horizon",
+	"zenith_competition": "Brutus Goblin",
 
-	"businessman_racers":"Kuro Vault",
+	"businessman_racers": "Kuro Vault",
 
-	"japanese_cup":"Kronstadt Regent",
-	"diesel_masters":"Schroder Suppressor",
+	"japanese_cup": "Kronstadt Regent",
+	"diesel_masters": "Schroder Suppressor",
 
-		"all_wheel_grip":"Strandberg Pilot",          # XKR
+	"all_wheel_grip": "Strandberg Pilot",          # XKR
 
-	"urban_performance_cars":"Kestrel Seabird",  # Exige
+	"urban_performance_cars": "Kestrel Seabird",  # Exige
 
-	"colin_tribute":"Zenith Touring",           # E55
-	
-	"japan_vs_germany":"Kestrel Speedster",
+	"colin_tribute": "Zenith Touring",           # E55
 
-	"drop_top_challenge":"Berkshire Falcon",
-	
-	"british_invasion":"Brutus Stingray",    # Morgan
+	"japan_vs_germany": "Brutus Stingray",
 
-	"under_400_hp":"Berkshire Blunt",
-	
-	"german_cup":"Bartoli Cruiser",
-	
-	"england_vs_italy":"Berkshire V12-S",
+	"drop_top_challenge": "Berkshire Falcon",
 
-	"gentleman_racers":"Brutus Venom",
-	"american_thunder":"Kronstadt Predator",
-	"v8_fury":"Kestrel Battleaxe",
-	"kestrel_max":"Berkshire Tempest",
+	"british_invasion": "Kronstadt Atrocity",    # Morgan
 
-	"sport_racing":"Linetti Firestorm",
+	"under_400_hp": "Berkshire Blunt",
 
-	"v12_engines":"Linetti Terror",
+	"german_cup": "Bartoli Cruiser",
 
-	"supercars":"Bartoli Track Cruiser",
+	"england_vs_italy": "Berkshire V12-S",
 
-	"track_cars":"Mir Cars Athletic C70"
+	"gentleman_racers": "Brutus Venom",
+	"american_thunder": "Kronstadt Predator",
+	"v8_fury": "Kestrel Battleaxe",
+	"kestrel_max": "Berkshire Tempest",
+
+	"sport_racing": "Linetti Firestorm",
+
+	"v12_engines": "Linetti Terror",
+
+	"supercars": "Bartoli Track Cruiser",
+
+	"track_cars": "Mir Cars Athletic C70"
 }
-# ============================================================
-#  CHAMPIONSHIPS (ONLY THESE FOUR)
-# ============================================================
-# ============================================================
-#  CAREER PROGRESSION LOGIC
-# ============================================================
-
 var career_order: Array = [
 	"colossus",
 
@@ -465,10 +458,9 @@ var career_order: Array = [
 	"japanese_cup",
 	"diesel_masters",
 
-	"all_wheel_grip",          # Morgan reward
+	"all_wheel_grip",
 
-	"urban_performance_cars",  # First real Urban championship
-	# XKR reward
+	"urban_performance_cars",
 
 	"eisenach_cup",
 
@@ -477,7 +469,7 @@ var career_order: Array = [
 	"speedster_tournament",
 
 	"colin_tribute",
-	"japan_vs_germany",           # Exige reward
+	"japan_vs_germany",
 	
 	"drop_top_challenge",
 	"british_invasion",

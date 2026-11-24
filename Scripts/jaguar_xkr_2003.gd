@@ -33,7 +33,7 @@ func _ready():
 		0.69   # 6th
 	]
 	has_supercharger = true
-
+	
 	shift_up_rpm = 5600
 	shift_down_rpm = 2000
 

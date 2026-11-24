@@ -14,13 +14,14 @@ func _ready():
 	max_rpm = 6500.0
 	idle_rpm = 700.0
 	zero_to_hundred = 5.4
-	top_speed_kmh = 266
+	top_speed_kmh = 259
 	transmission = "Rear wheel drive"
 
 	# HANDLING — Grand Tourer, stable and powerful
 	turn_speed = 2.55
 	brake_strength = 12.5
 	lateral_friction = 1.15
+	audio_character_type=10
 
 	# 6-speed automatic/manual
 	gear_count = 6
