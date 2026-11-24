@@ -1675,50 +1675,25 @@ func _update_player_waypoint():
 
 	var dist := to_wp.length()
 
-	var forward := -transform.basis.z
-	forward.y = 0.0
-	forward = forward.normalized()
-
-	var dir := to_wp.normalized()
-	var dot := forward.dot(dir)
-
-	# Normal hit
-	if dist < 18.0:
+	# Slightly larger than before
+	if dist < 25.0:
 		current_wp = (current_wp + 1) % waypoints.size()
 		return
-
-	# Forgiveness: waypoint passed behind car
-	if dot < -0.3:
-		current_wp = (current_wp + 1) % waypoints.size()
-		return
-
+		
 func _update_ai_waypoint():
 	if waypoints.is_empty():
 		return
 
 	var wp := waypoints[current_wp] as Node3D
+
 	var to_wp := wp.global_position - global_position
 	to_wp.y = 0.0
 
 	var dist := to_wp.length()
 
-	# Skip waypoint if too close
-	if dist < 8.0:
+	if dist < 15.0:
 		current_wp = (current_wp + 1) % waypoints.size()
 		return
-
-	var dir := to_wp.normalized()
-	var forward := -transform.basis.z
-	forward.y = 0.0
-	forward = forward.normalized()
-
-	var dot := forward.dot(dir)
-
-	# If waypoint is behind the car, skip it
-	if dot < -0.2:
-		current_wp = (current_wp + 1) % waypoints.size()
-		return
-
 
 func distance_to_finish_line(lapline: Node3D) -> float:
 	return global_position.distance_to(lapline.global_position)

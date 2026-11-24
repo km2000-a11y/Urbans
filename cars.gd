@@ -490,24 +490,7 @@ var car_colors = {
 	Color8(0,60,20),
 	Color8(120,0,0)
 ],
-"Kronstadt Atrocity": [
-	Color8(192,192,192),  # Brilliant Silver (default)
-	Color8(15,15,15),     # Obsidian Black
-	Color8(255,255,255),  # Polar White
-	Color8(160,20,20)     # AMG Crimson Red
-],
-"Kronstadt Predator":[
-	Color8(255,255,255),  # Polar White (default)
-	Color8(15,15,15),     # Obsidian Black
-	Color8(192,192,192),  # Brilliant Silver
-	Color8(90,90,90),     # Flint Grey
-	Color8(25,35,80),     # Midnight Blue
-	Color8(0,66,37),      # Emerald Green
-	Color8(110,20,20),    # Bordeaux Red
-	Color8(145,145,125),  # Travertine Beige
-	Color8(60,70,120),    # Capri Blue
-	Color8(180,170,145)   # Champagne Silver
-],
+
 "Mir Cars Nightwolf":[
 	Color8(0,0,192),
 	Color8(255,255,255),
@@ -526,15 +509,7 @@ var car_colors = {
 	Color8(255,140,0),
 	Color8(255,255,255)
 ],
-"Brutus Prince": [
-	Color8(200, 35, 35),    # Vibrant Red (default)
-	Color8(20, 20, 20),     # Black
-	Color8(35, 110, 105),   # Teal Metallic
-	Color8(30, 55, 110),    # Deep Sapphire Blue
-	Color8(45, 70, 55),     # Forest Green
-	Color8(120, 115, 105),  # Mocha Frost
-	Color8(245, 245, 240)   # Crystal White
-],
+
 "Straeda Volant":[
 	Color8(132, 132, 132), # Classic Grey (Default)
 	Color8(20, 20, 20),    # Midnight Black
@@ -546,26 +521,6 @@ var car_colors = {
 	Color8(255, 160, 200), # Rose Pink
 	Color8(190, 150, 90),  # Mocha Brown
 	Color8(140, 40, 180)   # Velvet Purple
-],
-"Bartoli Cruiser":[
-	Color8(0,157,196),
-	Color8(180,180,180),
-	Color8(255,255,255),
-	Color8(20,20,20),
-	Color8(120,0,0),
-	Color8(0,70,120),
-	Color8(90,90,90)
-],
-"Berkshire Falcon":[
-	Color8(180,180,180),  # Platinum Silver (default)
-	Color8(212,175,55),   # Champagne Gold
-	Color8(25,35,80),     # Sapphire Blue
-	Color8(110,20,20),    # Bordeaux Red
-	Color8(255,248,220),  # Ivory White
-	Color8(70,70,70),     # Anthracite Grey
-	Color8(0,0,0),        # Black
-	Color8(145,145,125),   # Willow Green Metallic
-	Color8(48, 78, 58)
 ],
 "Schroder Atrix Q32":[
 	Color8(192,192,192),
@@ -620,29 +575,6 @@ var car_colors = {
 	Color8(20,20,20),
 	Color8(255,140,0)
 ],
-"Zenith Touring":[
-	Color8(255,255,255),  # White (default)
-	Color8(20,20,20),     # Black
-	Color8(192,192,192),  # Silver
-	Color8(90,90,90),     # Gunmetal
-	Color8(25,35,80),     # Midnight Blue
-	Color8(120,20,20),    # Burgundy
-	Color8(145,145,125),  # Champagne
-	Color8(0,66,37)       # Emerald Green
-],
-
-"Kronstadt Regent": [
-	Color8(255, 255, 255), # Polar White
-	Color8(12, 12, 12),   # Obsidian Black
-	Color8(190, 190, 190),# Brilliant Silver
-	Color8(120, 120, 120),# Flint Grey
-	Color8(30, 35, 55),   # Midnight Blue
-	Color8(15, 45, 25),   # Emerald Green
-	Color8(115, 105, 85), # Travertine Beige
-	Color8(80, 20, 20),   # Bordeaux Red
-	Color8(55, 55, 70),   # Blue Black
-	Color8(140, 145, 150) # Titanium Grey
-],
 
 # URBAN
 
@@ -654,7 +586,16 @@ var car_colors = {
 	Color8(0,0,0),
 	Color8(90,70,50)
 ],
-
+"Zenith Touring":[
+	Color8(255,255,255),  # White (default)
+	Color8(20,20,20),     # Black
+	Color8(192,192,192),  # Silver
+	Color8(90,90,90),     # Gunmetal
+	Color8(25,35,80),     # Midnight Blue
+	Color8(120,20,20),    # Burgundy
+	Color8(145,145,125),  # Champagne
+	Color8(0,66,37)       # Emerald Green
+],
 "Kestrel Seabird":[
 	Color8(50,205,50),
 	Color8(255,80,20),
@@ -698,6 +639,27 @@ var car_colors = {
 	Color8(40,40,80),
 	Color8(160,160,160)
 ],
+"Berkshire Mocha":[
+	Color8(139,69,19),    # Mocha Brown (default)
+	Color8(0,0,0),        # Black
+	Color8(255,255,255),  # White
+	Color8(192,192,192),  # Silver
+	Color8(25,35,80),     # Sapphire Blue
+	Color8(110,20,20),    # Burgundy Red
+	Color8(0,66,37),      # British Racing Green
+	Color8(90,90,90),     # Gunmetal Grey
+	Color8(145,145,125),  # Willow Green
+	Color8(220,200,170)   # Champagne Gold
+],
+"Bartoli Cruiser":[
+	Color8(0,157,196),
+	Color8(180,180,180),
+	Color8(255,255,255),
+	Color8(20,20,20),
+	Color8(120,0,0),
+	Color8(0,70,120),
+	Color8(90,90,90)
+],
 
 # EXECUTIVE
 
@@ -709,15 +671,13 @@ var car_colors = {
 	Color8(28,74,135),     # Dark Blue
 	Color8(180,180,180)    # Silver
 ],
-"Eisenach Monarch":[
-	Color8(0,0,80),        # Orient Blue (default)
-	Color8(0,0,0),         # Black
-	Color8(255,255,255),   # White
-	Color8(192,192,192),   # Titanium Silver
-	Color8(80,80,80),      # Graphite
-	Color8(120,20,20),     # Burgundy
-	Color8(0,66,37),       # Oxford Green
-	Color8(145,145,125)    # Champagne
+"Mir Cars Goblin":[
+	Color8(20,20,20),     # Black
+	Color8(255,255,255),  # White
+	Color8(180,180,180),  # Silver
+	Color8(60,80,130),    # Executive Blue
+	Color8(120,30,30),    # Burgundy Red
+	Color8(90,100,80)     # Sage Green
 ],
 
 "Mir Cars Regent":[
@@ -736,12 +696,22 @@ var car_colors = {
 	Color8(20,40,60)
 ],
 
-"Berkshire Prince":[
-	Color8(0,0,0),
-	Color8(255,255,255),
-	Color8(180,180,180),
-	Color8(0,40,80),
-	Color8(0,60,20)
+"Zenith Prince":[
+	Color8(0,0,0),        # Black (default)
+	Color8(255,255,255),  # White
+	Color8(128,128,128),  # Silver
+	Color8(25,35,80),     # Midnight Blue
+	Color8(80,20,20)      # Burgundy
+],
+
+"Brutus Prince": [
+	Color8(200, 35, 35),    # Vibrant Red (default)
+	Color8(20, 20, 20),     # Black
+	Color8(35, 110, 105),   # Teal Metallic
+	Color8(30, 55, 110),    # Deep Sapphire Blue
+	Color8(45, 70, 55),     # Forest Green
+	Color8(120, 115, 105),  # Mocha Frost
+	Color8(245, 245, 240)   # Crystal White
 ],
 
 "Schroder Suppressor":[
@@ -775,13 +745,15 @@ var car_colors = {
 	Color8(145,145,125),   # Champagne Beige
 	Color8(90,70,50)       # Sepang Bronze
 ],
-"Mir Cars Blazer": [
-	Color8(15, 15, 15),    # Obsidian Black (default)
-	Color8(192, 192, 192), # Brilliant Silver
-	Color8(255, 255, 255), # Polar White
-	Color8(55, 75, 145),   # Tanzanite Blue
-	Color8(20, 65, 35),    # Designo Green
-	Color8(120, 20, 20)    # Designo Red
+"Eisenach Monarch":[
+	Color8(0,0,80),        # Orient Blue (default)
+	Color8(0,0,0),         # Black
+	Color8(255,255,255),   # White
+	Color8(192,192,192),   # Titanium Silver
+	Color8(80,80,80),      # Graphite
+	Color8(120,20,20),     # Burgundy
+	Color8(0,66,37),       # Oxford Green
+	Color8(145,145,125)    # Champagne
 ],
 
 "Berkshire V12-S":[
@@ -791,6 +763,18 @@ var car_colors = {
 	Color8(160,160,160),
 	Color8(0,0,0),
 	Color8(120,0,0)
+],
+"Kronstadt Predator":[
+	Color8(255,255,255),  # Polar White (default)
+	Color8(15,15,15),     # Obsidian Black
+	Color8(192,192,192),  # Brilliant Silver
+	Color8(90,90,90),     # Flint Grey
+	Color8(25,35,80),     # Midnight Blue
+	Color8(0,66,37),      # Emerald Green
+	Color8(110,20,20),    # Bordeaux Red
+	Color8(145,145,125),  # Travertine Beige
+	Color8(60,70,120),    # Capri Blue
+	Color8(180,170,145)   # Champagne Silver
 ],
 
 "Kestrel Touring":[
@@ -853,9 +837,41 @@ var car_colors = {
 	Color8(0,90,180),
 	Color8(200,40,40)
 ],
+"Berkshire Falcon":[
+	Color8(0,66,37),
+	Color8(232,214,179),  # Platinum Silver (default)
+	Color8(180,180,180),   # Champagne Gold
+	Color8(25,35,80),     # Sapphire Blue
+	Color8(110,20,20),    # Bordeaux Red
+	Color8(255,248,220),  # Ivory White
+	Color8(70,70,70),     # Anthracite Grey
+	Color8(0,0,0),        # Black
+	Color8(48, 78, 58),
+	Color8(145,145,125)   # Willow Green Metallic
+],
+"Mir Cars Blazer": [
+	Color8(15, 15, 15),    # Obsidian Black (default)
+	Color8(192, 192, 192), # Brilliant Silver
+	Color8(255, 255, 255), # Polar White
+	Color8(55, 75, 145),   # Tanzanite Blue
+	Color8(20, 65, 35),    # Designo Green
+	Color8(120, 20, 20)    # Designo Red
+],
+"Kronstadt Regent": [
+	Color8(255, 255, 255), # Polar White
+	Color8(12, 12, 12),   # Obsidian Black
+	Color8(190, 190, 190),# Brilliant Silver
+	Color8(120, 120, 120),# Flint Grey
+	Color8(30, 35, 55),   # Midnight Blue
+	Color8(15, 45, 25),   # Emerald Green
+	Color8(115, 105, 85), # Travertine Beige
+	Color8(80, 20, 20),   # Bordeaux Red
+	Color8(55, 55, 70),   # Blue Black
+	Color8(140, 145, 150) # Titanium Grey
+],
+
 
 # SUPERCARS
-
 "Kestrel Guillotine":[
 	Color8(120,0,180),     # Default TVR purple
 	Color8(255,255,255),   # Crystal white
@@ -929,7 +945,13 @@ var car_colors = {
 	Color8(140,0,255),
 	Color8(200,40,40),
 	Color8(20,20,20)
-]
+],
+"Kronstadt Atrocity": [
+	Color8(192,192,192),  # Brilliant Silver (default)
+	Color8(15,15,15),     # Obsidian Black
+	Color8(255,255,255),  # Polar White
+	Color8(160,20,20)     # AMG Crimson Red
+],
 
 }
 
@@ -1246,14 +1268,19 @@ func get_radar_target_speed_formatted() -> String:
 	else:
 		return "%d km/h" % target_kmh
 func apply_bodykit(car: Node, car_name: String):
+	if car == null:
+		return
+
 	var saved_kit := get_body_kit(car_name)
 
 	await get_tree().process_frame
 
+	if !is_instance_valid(car):
+		return
+
 	var kit1 = car.get_node_or_null("ModelRoot/BodyKit1")
 	var kit2 = car.get_node_or_null("ModelRoot/BodyKit2")
 
-	# Car has no body kits
 	if kit1 == null and kit2 == null:
 		return
 

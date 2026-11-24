@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://m0nkdistmaar"]
+[gd_scene load_steps=36 format=3 uid="uid://m0nkdistmaar"]
 
 [ext_resource type="Script" uid="uid://cs7cdg04ml8s" path="res://Scripts/bmw_135i.gd" id="1_v7ldy"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_1vobb"]
@@ -64,6 +64,19 @@ size = Vector3(0.853, 0.3, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kuo4o"]
 size = Vector3(0.8, 0.05, 0.65)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajxe3"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sowlc"]
+size = Vector3(0.8, 0.05, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7ldy"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_1vobb"]
+text = "NordWERKS"
+font_size = 10
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08euy"]
 size = Vector3(1, 1, 1.7)
@@ -240,6 +253,61 @@ transform = Transform3D(0.999698, 0, -0.0270289, 0, 1, 0, 0.0245718, 0, 1.09967,
 material_override = SubResource("StandardMaterial3D_kjpq4")
 mesh = SubResource("BoxMesh_kuo4o")
 skeleton = NodePath("../..")
+
+[node name="BodyKit1" type="Node3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102135, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/BodyKit1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313079, 0.0114926, 1.1311)
+material_override = SubResource("StandardMaterial3D_ajxe3")
+mesh = SubResource("BoxMesh_sowlc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/BodyKit1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.076741, 0.720634, -0.269527)
+material_override = SubResource("StandardMaterial3D_ajxe3")
+mesh = SubResource("BoxMesh_sowlc")
+
+[node name="BodyKit2" type="Node3D" parent="ModelRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102135, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0313079, 0.0114926, 1.1311)
+material_override = SubResource("StandardMaterial3D_ajxe3")
+mesh = SubResource("BoxMesh_sowlc")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(0.3, 0, 0, 0, 2, 0, 0, 0, 2, 0.0313079, 0.463502, 0.815058)
+material_override = SubResource("StandardMaterial3D_ajxe3")
+mesh = SubResource("BoxMesh_sowlc")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(0.2, 0, 0, 0, 2, 0, 0, 0, 1, 0.524363, 0.463502, 0.336647)
+material_override = SubResource("StandardMaterial3D_ajxe3")
+mesh = SubResource("BoxMesh_sowlc")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(0.2, 0, 0, 0, 2, 0, 0, 0, 1, -0.47049, 0.463502, 0.336646)
+material_override = SubResource("StandardMaterial3D_ajxe3")
+mesh = SubResource("BoxMesh_sowlc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2, 0.0709768, 0.707462, -0.263879)
+material_override = SubResource("StandardMaterial3D_ajxe3")
+mesh = SubResource("BoxMesh_sowlc")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.46165, 0.372808, 0.0534424)
+material_override = SubResource("StandardMaterial3D_v7ldy")
+mesh = SubResource("TextMesh_1vobb")
+skeleton = NodePath("../../Body/MeshInstance3D6")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, 1, 0, -4.37114e-08, -0.409127, 0.372808, 0.0534423)
+material_override = SubResource("StandardMaterial3D_v7ldy")
+mesh = SubResource("TextMesh_1vobb")
+skeleton = NodePath("../../Body/MeshInstance3D6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383226, 0.144474, -0.156084)

@@ -33,7 +33,7 @@ func _ready():
 		0.70  # 5th
 ]
 
-	audio_character_type=8
+	audio_character_type=0
 
 	shift_up_rpm = 5500
 	shift_down_rpm = 1800

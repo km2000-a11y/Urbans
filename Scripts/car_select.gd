@@ -115,7 +115,7 @@ var car_prices := {
 	"Berkshire Falcon": 135000,
 	"Eisenach Roadstar":147500,
 	"Brutus Stingray": 155000,
-	"Kronstadt Atrocity": 85000,
+	"Kronstadt Atrocity": 120000,
 
 	# Sport Coupe
 	"Berkshire Blunt": 160000,
@@ -422,12 +422,12 @@ var car_colors = {
 	Color8(180,180,180)    # Silver
 ],
 "Mir Cars Goblin":[
-	Color8(20,20,20),
-	Color8(255,255,255),
-	Color8(180,180,180),
-	Color8(0,70,140),
-	Color8(120,20,20),
-	Color8(40,80,40)
+	Color8(20,20,20),     # Black
+	Color8(255,255,255),  # White
+	Color8(180,180,180),  # Silver
+	Color8(60,80,130),    # Executive Blue
+	Color8(120,30,30),    # Burgundy Red
+	Color8(90,100,80)     # Sage Green
 ],
 
 "Mir Cars Regent":[
@@ -1077,6 +1077,8 @@ var track_cars = {
 # -------------------------
 
 func _ready():
+	if Cars.garage_mode:
+		$Select.visible=false
 	$Control/BodyKit1Button.visible = Cars.garage_mode
 	$Control/BodyKit2Button.visible = Cars.garage_mode
 	$StockBtn.visible = Cars.garage_mode
@@ -2292,5 +2294,6 @@ func car_has_bodykits() -> bool:
 		"Zenith Touring",
 		"Zenith Horizon",
 		"Berkshire Blunt",
+		"Kronstadt Atrocity",
 		"Strandberg Turbo",
 	]
