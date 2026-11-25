@@ -83,7 +83,7 @@ var class_lists: Dictionary = {
 	"sedans": [
 		"Kuro Vault",
 		"Mir Cars Goblin",
-		"Brutus Prince",
+		"Schroder Prince",
 		"Strandberg Turbo",
 	],
 	"torque_monsters":[
@@ -132,7 +132,6 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Suppressor",
 		"Berkshire Mocha",
-		"Brutus Prince",
 		"Kronstadt Atrocity",
 		"Schroder Colosso",
 		"Zenith Touring",
@@ -148,7 +147,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Kronstadt Regent",
-		"Brutus Prince",
+		"Schroder Prince",
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
 		"Zenith Touring",
@@ -177,6 +176,7 @@ var class_lists: Dictionary = {
 		"Colossus Behemoth",
 		"Berkshire Mocha",
 		"Strandberg Pilot",
+		"Schroder Prince",
 		"Mir Cars Nightwolf",
 		"Schroder Colosso"
 	],
@@ -233,7 +233,7 @@ var class_lists: Dictionary = {
 
 	"under_400_hp":[
 		"Colossus Titan Max",
-		"Brutus Prince",
+		"Schroder Prince",
 		"Brutus Stingray",
 		"Colossus Behemoth",
 		"Zenith Touring",
@@ -299,7 +299,6 @@ var class_lists: Dictionary = {
 		"Brutus Thunderbolt",
 		"Colossus Behemoth",
 		"Mir Cars Goblin",
-		"Brutus Prince",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -336,6 +335,7 @@ var class_lists: Dictionary = {
 		"Eisenach Roadstar",
 		"Kronstadt Predator",
 		"Eisenach Monarch",
+		"Schroder Prince",
 		"Eisenach Bengal",
 
 	],

@@ -103,7 +103,7 @@ var car_prices := {
 	"Mir Cars Goblin": 65000,
 	"Strandberg Turbo": 80000,
 	"Kuro Vault": 90000,
-	"Brutus Prince": 95000,
+	"Schroder Prince": 95000,
 
 	# Urban Performance
 	"Strandberg Pilot": 105000,
@@ -168,7 +168,7 @@ var car_sell_prices := {
 	"Mir Cars Goblin": 48750,
 	"Strandberg Turbo": 60000,
 	"Kuro Vault": 67500,
-	"Brutus Prince": 71250,
+	"Schroder Prince": 71250,
 
 	# Urban Performance
 	"Strandberg Pilot": 78750,
@@ -454,14 +454,15 @@ var car_colors = {
 	Color8(80,20,20)      # Burgundy
 ],
 
-"Brutus Prince": [
-	Color8(200, 35, 35),    # Vibrant Red (default)
-	Color8(20, 20, 20),     # Black
-	Color8(35, 110, 105),   # Teal Metallic
-	Color8(30, 55, 110),    # Deep Sapphire Blue
-	Color8(45, 70, 55),     # Forest Green
-	Color8(120, 115, 105),  # Mocha Frost
-	Color8(245, 245, 240)   # Crystal White
+"Schroder Prince": [
+	Color8(0, 0, 50),      # Midnight Blue (default)
+	Color8(185, 185, 175), # Reflex Silver
+	Color8(25, 25, 25),    # Black Magic Pearl
+	Color8(40, 65, 105),   # Indigo Blue
+	Color8(90, 95, 90),    # Platinum Grey
+	Color8(65, 75, 65),    # Dark Forest Green
+	Color8(125, 115, 105), # Mocha Beige
+	Color8(245, 245, 240)  # Alpine White
 ],
 
 "Schroder Suppressor":[
@@ -736,8 +737,8 @@ var urban_list = [
 ]
 var sedans_list = [
 	"Mir Cars Goblin",
-	"Brutus Prince",
 	"Strandberg Turbo",
+	"Schroder Prince",
 	"Kuro Vault"
 	
 ]
@@ -904,11 +905,11 @@ var sedans = {
 		"ENGINE: V8 4.0L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Brutus Prince":[
-		"", "Country: USA", "HP: 340", "WEIGHT: 1850 KG",
+	"Schroder Prince":[
+		"", "Country: Germany", "HP: 340", "WEIGHT: 1850 KG",
 		"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
-		"ENGINE: V6 3.0L", "ASPIRATION: NA", "TORQUE: 290 NM",
-		"TRANSMISSION: FRONT-WHEEL DRIVE"
+			"ENGINE: W8 4.0L", "ASPIRATION: NA", "TORQUE: 370 NM",
+		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	],
 }
 
@@ -1168,7 +1169,7 @@ var car_scene_paths = {
 	"Schroder Colosso":"res://Scenes/audi_q7.tscn",
 	"Eisenach Black Panda":"res://Scenes/bmw_330d.tscn",
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
-	"Brutus Prince":"res://Scenes/taurus_sho.tscn",
+	"Schroder Prince":"res://Scenes/passat.tscn",
 	"Mir Cars Athletic C70":"res://Scenes/zonda.tscn",
 	"Bartoli Track Cruiser":"res://Scenes/mc12.tscn",
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",

@@ -59,7 +59,7 @@ var class_lists: Dictionary = {
 	"sedans": [
 		"Kuro Vault",
 		"Mir Cars Goblin",
-		"Brutus Prince",
+		"Schroder Prince",
 		"Strandberg Turbo",
 	],
 	"torque_monsters":[
@@ -108,7 +108,6 @@ var class_lists: Dictionary = {
 		"Schroder Atrix Q32",
 		"Schroder Suppressor",
 		"Berkshire Mocha",
-		"Brutus Prince",
 		"Kronstadt Atrocity",
 		"Schroder Colosso",
 		"Zenith Touring",
@@ -124,7 +123,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Kronstadt Regent",
-		"Brutus Prince",
+		"Schroder Prince",
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
 		"Zenith Touring",
@@ -153,6 +152,7 @@ var class_lists: Dictionary = {
 		"Colossus Behemoth",
 		"Berkshire Mocha",
 		"Strandberg Pilot",
+		"Schroder Prince",
 		"Mir Cars Nightwolf",
 		"Schroder Colosso"
 	],
@@ -209,7 +209,7 @@ var class_lists: Dictionary = {
 
 	"under_400_hp":[
 		"Colossus Titan Max",
-		"Brutus Prince",
+		"Schroder Prince",
 		"Brutus Stingray",
 		"Colossus Behemoth",
 		"Zenith Touring",
@@ -275,7 +275,6 @@ var class_lists: Dictionary = {
 		"Brutus Thunderbolt",
 		"Colossus Behemoth",
 		"Mir Cars Goblin",
-		"Brutus Prince",
 		"Brutus Stingray",
 		"Brutus Venom"
 	],
@@ -312,6 +311,7 @@ var class_lists: Dictionary = {
 		"Eisenach Roadstar",
 		"Kronstadt Predator",
 		"Eisenach Monarch",
+		"Schroder Prince",
 		"Eisenach Bengal",
 
 	],
@@ -396,7 +396,7 @@ var car_scene_paths := {
 	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
-	"Brutus Prince":"res://Scenes/taurus_sho.tscn",
+	"Schroder Prince":"res://Scenes/passat.tscn",
 		"Mir Cars Blazer":"res://Scenes/sl500.tscn",	
 	"Strandberg Pilot":"res://Scenes/saab_95.tscn",
 
@@ -532,7 +532,16 @@ var car_colors = {
 	Color8(255,140,0),
 	Color8(255,215,0)
 ],
-
+"Schroder Prince": [
+	Color8(0, 0, 50),      # Midnight Blue (default)
+	Color8(185, 185, 175), # Reflex Silver
+	Color8(25, 25, 25),    # Black Magic Pearl
+	Color8(40, 65, 105),   # Indigo Blue
+	Color8(90, 95, 90),    # Platinum Grey
+	Color8(65, 75, 65),    # Dark Forest Green
+	Color8(125, 115, 105), # Mocha Beige
+	Color8(245, 245, 240)  # Alpine White
+],
 "Eisenach Bengal":[
 	Color8(255,255,255),
 	Color8(255,99,71),
@@ -704,15 +713,7 @@ var car_colors = {
 	Color8(80,20,20)      # Burgundy
 ],
 
-"Brutus Prince": [
-	Color8(200, 35, 35),    # Vibrant Red (default)
-	Color8(20, 20, 20),     # Black
-	Color8(35, 110, 105),   # Teal Metallic
-	Color8(30, 55, 110),    # Deep Sapphire Blue
-	Color8(45, 70, 55),     # Forest Green
-	Color8(120, 115, 105),  # Mocha Frost
-	Color8(245, 245, 240)   # Crystal White
-],
+
 
 "Schroder Suppressor":[
 	Color8(75,78,71),
