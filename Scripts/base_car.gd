@@ -1374,9 +1374,12 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	car_name,
 	TorqueCharacter.NORMAL
 )
+
+	
 		match torque_character:
 
 			TorqueCharacter.HIGH_REV:
+
 				if rpm_ratio < 0.40:
 					accel_kmh_per_sec *= 0.80
 				elif rpm_ratio < 0.75:
@@ -1384,7 +1387,11 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 				else:
 					accel_kmh_per_sec *= 1.15
 
+				shift_delay = 0.08
+				shift_up_rpm = int(max_rpm * 0.95)
+
 			TorqueCharacter.SPORTS:
+
 				if rpm_ratio < 0.35:
 					accel_kmh_per_sec *= 0.90
 				elif rpm_ratio < 0.80:
@@ -1392,10 +1399,18 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 				else:
 					accel_kmh_per_sec *= 1.05
 
+				shift_delay = 0.12
+				shift_up_rpm = int(max_rpm * 0.90)
+
 			TorqueCharacter.NORMAL:
+
 				accel_kmh_per_sec *= 1.00
 
+				shift_delay = 0.18
+				shift_up_rpm = int(max_rpm * 0.88)
+
 			TorqueCharacter.TORQUEY:
+
 				if rpm_ratio < 0.30:
 					accel_kmh_per_sec *= 1.15
 				elif rpm_ratio < 0.65:
@@ -1403,15 +1418,23 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 				else:
 					accel_kmh_per_sec *= 0.85
 
+				shift_delay = 0.25
+				shift_up_rpm = int(max_rpm * 0.80)
+
 			TorqueCharacter.SUPERCHARGED:
+
 				if rpm_ratio < 0.80:
 					accel_kmh_per_sec *= 1.02
 				else:
 					accel_kmh_per_sec *= 0.93
 
+				shift_delay = 0.15
+				shift_up_rpm = int(max_rpm * 0.87)
+
 			TorqueCharacter.DIESEL:
+
 				if speed_kmh < 70.0:
-					accel_kmh_per_sec *= 0.60
+					accel_kmh_per_sec *= 0.75
 				elif speed_kmh < 100.0:
 					accel_kmh_per_sec *= 1.00
 				elif speed_kmh < 180.0:
@@ -1419,7 +1442,10 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 				elif speed_kmh < 220.0:
 					accel_kmh_per_sec *= 1.00
 				else:
-					accel_kmh_per_sec *= 0.85				
+					accel_kmh_per_sec *= 0.85
+
+				shift_delay = 0.30
+				shift_up_rpm = int(max_rpm * 0.70)	
 		# Engine personality modifies WHERE power happens
 		accel_kmh_per_sec *= engine_multiplier
 		forward_speed = current_speed

@@ -151,7 +151,6 @@ var class_lists: Dictionary = {
 		"Colossus Titan Max",
 		"Colossus Behemoth",
 		"Berkshire Mocha",
-		"Strandberg Pilot",
 		"Schroder Prince",
 		"Mir Cars Nightwolf",
 		"Schroder Colosso"
@@ -261,6 +260,7 @@ var class_lists: Dictionary = {
 		"Berkshire V12-S",
 		"Eisenach Roadstar",
 		"Brutus Stingray",
+		"Strandberg Pilot",
 		"Berkshire Falcon",
 		"Kronstadt Predator",
 		"Bartoli Cruiser",
@@ -376,7 +376,6 @@ var class_lists: Dictionary = {
 	"Eisenach Bengal"
 ],
 }
-
 var car_scene_paths := {
 	"Colossus Titan Max":"res://Scenes/hummer_h1.tscn",
 	"Colossus Behemoth":"res://Scenes/hummer_h2.tscn",
@@ -726,14 +725,23 @@ var car_colors = {
 # SPORT COUPE
 
 "Strandberg Pilot":[
-	Color8(0,192,192),
-	Color8(255,255,255),
-	Color8(180,180,180),
-	Color8(200,40,40),
-	Color8(20,20,20),
-	Color8(0,70,120),
-	Color8(255,140,0),
-	Color8(255,215,0)
+
+	Color8(0,192,192),    # Turquoise Pearl (default)
+
+	Color8(255,255,255),  # Polar White
+
+	Color8(190,190,190),  # Silver Metallic
+
+	Color8(120,20,20),    # Burgundy Red
+
+	Color8(20,20,20),     # Black Sapphire
+
+	Color8(0,50,110),     # Nautic Blue
+
+	Color8(110,70,140),   # Volvo Purple
+
+	Color8(140,140,160)   # Blue Grey Metallic
+
 ],
 
 "Eisenach Roadstar":[

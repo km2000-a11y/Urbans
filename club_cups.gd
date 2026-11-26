@@ -175,7 +175,6 @@ var class_lists: Dictionary = {
 		"Colossus Titan Max",
 		"Colossus Behemoth",
 		"Berkshire Mocha",
-		"Strandberg Pilot",
 		"Schroder Prince",
 		"Mir Cars Nightwolf",
 		"Schroder Colosso"
@@ -285,6 +284,7 @@ var class_lists: Dictionary = {
 		"Berkshire V12-S",
 		"Eisenach Roadstar",
 		"Brutus Stingray",
+		"Strandberg Pilot",
 		"Berkshire Falcon",
 		"Kronstadt Predator",
 		"Bartoli Cruiser",

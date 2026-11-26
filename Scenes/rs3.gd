@@ -1,47 +1,63 @@
 extends CarController
 
 # COSMETIC INFO (UI only)
+
 var def_car_name := "Strandberg Pilot"
+
 var country := "Sweden"
-var engine := "I4 2.3L Turbo"
+
+var engine := "I5 2.3L Turbo"
+
 var weight_kg := 1610
-var zero_to_hundred_display := 5.40
+
+var zero_to_hundred_display := 6.10
 
 func _ready():
 
-	# GAMEPLAY STATS — Saab 9-5 Aero
+	# GAMEPLAY STATS — 1999 Volvo C70 T5 Coupe
+
 	mass = 1610.0
-	horsepower = 230
-	max_rpm = 6800.0
-	zero_to_hundred = 5.7
+
+	horsepower = 245
+
+	max_rpm = 6200.0
+
+	zero_to_hundred = 6.1
+
 	top_speed_kmh = 250
 
-	# Fast Swedish executive sedan
-	# Strong turbo pull, stable motorway manners,
-	# comfortable and predictable rather than aggressive
-	turn_speed = 2.50
-	brake_strength = 22.5
-	lateral_friction = 1.14
+	# Stylish Swedish GT coupe
+	# Strong turbo mid-range,
+	# high-speed stability,
+	# slight understeer under power,
+	# more cruiser than sports car
 
-	transmission = "Four wheel drive"
+	turn_speed = 2.35
 
-	# Turbocharged inline-four powerband
-	shift_up_rpm = 6500
-	shift_down_rpm = 2500
+	brake_strength = 22.0
 
-	gear_count = 6
+	lateral_friction = 1.10
+
+	transmission = "Front wheel drive"
+
+	# Turbocharged inline-five powerband
+
+	shift_up_rpm = 6100
+
+	shift_down_rpm = 2400
+
+	gear_count = 5
 
 	gear_ratios = [
-		3.50, # 1st
-		1.89, # 2nd
-		1.23, # 3rd
-		0.97, # 4th
-		0.81, # 5th
-		0.68  # 6th
+		3.38, # 1st
+		1.90, # 2nd
+		1.28, # 3rd
+		0.95, # 4th
+		0.70  # 5th
 	]
 
 	has_turbo = true
 
-
 	apply_stats()
+
 	print("Child READY loaded:", def_car_name)

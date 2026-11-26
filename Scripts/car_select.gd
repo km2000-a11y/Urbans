@@ -476,14 +476,23 @@ var car_colors = {
 # SPORT COUPE
 
 "Strandberg Pilot":[
-	Color8(0,192,192),
-	Color8(255,255,255),
-	Color8(180,180,180),
-	Color8(200,40,40),
-	Color8(20,20,20),
-	Color8(0,70,120),
-	Color8(255,140,0),
-	Color8(255,215,0)
+
+	Color8(0,192,192),    # Turquoise Pearl (default)
+
+	Color8(255,255,255),  # Polar White
+
+	Color8(190,190,190),  # Silver Metallic
+
+	Color8(120,20,20),    # Burgundy Red
+
+	Color8(20,20,20),     # Black Sapphire
+
+	Color8(0,50,110),     # Nautic Blue
+
+	Color8(110,70,140),   # Volvo Purple
+
+	Color8(140,140,160)   # Blue Grey Metallic
+
 ],
 
 "Eisenach Roadstar":[
@@ -917,8 +926,8 @@ var urban_racers = {
 	"Strandberg Pilot":[
 		"", "Country: Sweden", "HP: 270", "WEIGHT: 1490 KG",
 		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
-		"ENGINE: F4 2.0L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
-		"TRANSMISSION: FOUR-WHEEL DRIVE"
+		"ENGINE: L5 2.3L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
+		"TRANSMISSION: FRONT-WHEEL DRIVE"
 	],
 	"Kestrel Seabird":[
 		"", "Country: UK", "HP: 192", "WEIGHT: 875 KG",
