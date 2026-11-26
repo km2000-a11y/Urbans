@@ -10,6 +10,9 @@ enum TorqueCharacter {
 	DIESEL
 }
 var body_kit := 0
+var shift_timer := 0.0
+var shift_delay := 0.25
+var shifting := false
 var torque_character_values := {
 
 	# 4x4 SUV
@@ -414,10 +417,12 @@ var phase: float = 0.0
 # we will now override it safely as a standard AudioStreamPlayer object:
 
 func _ready() -> void:
+	
 	# Add this so cars don't block each other via Godot's rigid physics walls
 	# --- CAR-TO-CAR COLLISION EXCEPTION ---
 	# Automatically tell Godot's physics engine to ignore default solid-wall blocking 
-	# between all CarControllers so our custom script can handle the speed math instead.
+	# between all CarControllers so our custom script can handle the speed math instead
+	apply_material_recursive($ModelRoot/Body)
 	var root := get_tree().current_scene
 	if root:
 		_find_and_add_car_exceptions(root)
@@ -609,17 +614,33 @@ func _on_rev_finished() -> void:
 	if RevPlayer and RevPlayer.stream:
 		RevPlayer.play()	
 func update_gears(speed_kmh: float) -> void:
-	if rpm > shift_up_rpm and current_gear < gear_count:
-		current_gear += 1
-		rpm *= 0.6
 
-	if rpm < shift_down_rpm and current_gear > 1:
+	if shifting:
+		return
+
+	if rpm > shift_up_rpm and current_gear < gear_count:
+
+		shifting = true
+		shift_timer = shift_delay
+
+		current_gear += 1
+		rpm *= 0.60
+
+	elif rpm < shift_down_rpm and current_gear > 1:
+
+		shifting = true
+		shift_timer = shift_delay
+
 		current_gear -= 1
-		rpm *= 1.3
+		rpm *= 1.30
 
 	current_gear = clamp(current_gear, 1, gear_count)
-
 func _physics_process(delta: float) -> void:
+	if shift_timer > 0.0:
+		shift_timer -= delta
+
+	if shift_timer <= 0.0:
+		shifting = false
 	if is_ai:
 		update_position_label()
 	if race_finished:
@@ -770,7 +791,7 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 	steering = lerp(
 	steering,
 	steer,
-	delta * 3.5
+	delta * 2.5
 )
 
 	var forward := -transform.basis.z
@@ -855,8 +876,8 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 	car_model.rotation_degrees.z = lerp(
 	car_model.rotation_degrees.z,
-	-steering * 6.0,
-	delta * 12.0
+	-steering * 12.0,
+	delta * 8.0
 )
 
 	forward = -transform.basis.z
@@ -1421,6 +1442,8 @@ func _drive(delta: float, accel: float, brake: float, steer: float) -> void:
 
 		# Convert kmh acceleration to m/s acceleration
 		var accel_ms := accel_kmh_per_sec / 3.6
+		if shifting:
+			accel_ms *= 0.15
 
 		# Apply acceleration directly
 		velocity += forward * accel_ms * 1.30 * delta
@@ -1902,7 +1925,8 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 	var rumble_speed: float = 10.0
 	var rasp: float = 0.0
 	var rasp_speed: float = 30.0
-
+	if shifting:
+		RevPlayer.pitch_scale *= 0.92
 	# Each family has its own RPM curve and sound behavior.
 	match audio_character_type:
 
@@ -2132,13 +2156,7 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 		target_db += rpm_ratio * 2.0
 
 	# Distinct idle behavior.
-	if speed_kmh < 2.0 and load < 0.05:
-		target_db = idle_db + audio_volume_offset
-		target_pitch = audio_base_pitch * (
-			0.94 if audio_character_type == 1
-			or audio_character_type == 11
-			else 1.0
-		)
+	
 
 	# Turbo and supercharger increase load loudness.
 	if load > 0.2 and has_turbo:
@@ -2146,12 +2164,19 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 
 	if load > 0.2 and has_supercharger:
 		target_db += 2.0
-
+	if speed_kmh < 2.0 and load < 0.05:
+		target_db = idle_db + audio_volume_offset
+		target_pitch = audio_base_pitch * (
+			0.94 if audio_character_type == 1
+			or audio_character_type == 11
+			else 1.0
+		)
 	engine_pitch_smoothed = lerp(
 		engine_pitch_smoothed,
 		target_pitch,
 		1.0 - exp(-delta * 5.0)
 	)
+	
 
 	engine_volume_smoothed = lerp(
 		engine_volume_smoothed,
@@ -2163,7 +2188,9 @@ func update_engine_audio(delta: float, accel: float, speed_kmh: float) -> void:
 	if not is_diesel: 
 		RevPlayer.volume_db = clamp(engine_volume_smoothed-2.5, -40.0, 0.0)
 	else:RevPlayer.volume_db = clamp(engine_volume_smoothed+1.5, -40.0, 0.0)
-		
+	if nitro_active:
+		target_pitch += 0.35
+		target_db += 4.0
 func setup_engine_bus() -> void:
 	if not is_instance_valid(RevPlayer):
 		return
@@ -2215,3 +2242,27 @@ func set_body_kit(kit: int) -> void:
 
 	elif kit == 2:
 		$ModelRoot/BodyKit2.visible = true
+func apply_material_recursive(node: Node) -> void:
+
+	for child in node.get_children():
+
+		if child is MeshInstance3D:
+
+			if child.mesh == null:
+				continue
+
+			for i in range(child.mesh.get_surface_count()):
+
+				var mat :BaseMaterial3D= child.mesh.surface_get_material(i)
+
+				if mat is BaseMaterial3D:
+
+					var new_mat := mat.duplicate()
+
+					new_mat.metallic = 1.0
+					new_mat.roughness = 0.05
+					new_mat.specular = 1.0
+
+					child.set_surface_override_material(i, new_mat)
+
+		apply_material_recursive(child)
