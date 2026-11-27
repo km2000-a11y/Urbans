@@ -23,15 +23,15 @@ func _ready():
 	handling_type = "luxury_boat"
 
 	# ZF 6-speed automatic
-	gear_count = 5
-
+	gear_count = 6
 	gear_ratios = [
-		3.38, # 1st
-		1.77, # 2nd
-		1.18, # 3rd
-		0.89, # 4th
-		0.70  # 5th
-]
+		4.17,  # 1st
+		2.34,  # 2nd
+		1.52,  # 3rd
+		1.14,  # 4th
+		0.87,  # 5th
+		0.69   # 6th
+	]
 
 	audio_character_type=0
 

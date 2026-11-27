@@ -57,7 +57,7 @@ var torque_character_values := {
 	"Strandberg Pilot": TorqueCharacter.TORQUEY,
 	"Bartoli Cruiser": TorqueCharacter.SPORTS,
 	"Berkshire V12-S": TorqueCharacter.HIGH_REV,
-	"Kronstadt Predator": TorqueCharacter.SUPERCHARGED,
+	"Kronstadt Predator": TorqueCharacter.SPORTS,
 
 	# Sport Racing
 	"Brutus Venom": TorqueCharacter.SPORTS,

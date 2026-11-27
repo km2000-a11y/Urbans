@@ -98,7 +98,7 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Kronstadt Predator",
+		"Strandberg Predator",
 		"Bartoli Cruiser",
 	],
 
@@ -147,6 +147,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Kronstadt Regent",
+		"Strandberg Predator",
 		"Schroder Prince",
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
@@ -209,7 +210,7 @@ var class_lists: Dictionary = {
 		"Eisenach Roadstar",
 		"Bartoli Cruiser",
 		"Eisenach Monarch",
-		"Kronstadt Predator",
+		"Strandberg Predator",
 		"Brutus Venom",
 		"Berkshire Blunt",
 		"Brutus Stingray"
@@ -275,6 +276,7 @@ var class_lists: Dictionary = {
 
 	"swedish_cup":[
 		"Strandberg Turbo",
+		"Strandberg Predator",
 		"Strandberg Pilot"
 	],
 
@@ -286,7 +288,7 @@ var class_lists: Dictionary = {
 		"Brutus Stingray",
 		"Strandberg Pilot",
 		"Berkshire Falcon",
-		"Kronstadt Predator",
+		"Strandberg Predator",
 		"Bartoli Cruiser",
 		"Berkshire Mocha",
 		"Berkshire Tempest",
@@ -333,7 +335,6 @@ var class_lists: Dictionary = {
 		"Kronstadt Regent",
 		"Kronstadt Atrocity",
 		"Eisenach Roadstar",
-		"Kronstadt Predator",
 		"Eisenach Monarch",
 		"Schroder Prince",
 		"Eisenach Bengal",
@@ -381,7 +382,6 @@ var class_lists: Dictionary = {
 	"Zenith Horizon",
 	"Zenith Touring",
 	"Eisenach Roadstar",
-	"Kronstadt Predator",
 
 	"Kuro Vault",
 	"Kronstadt Atrocity",
@@ -423,7 +423,7 @@ var cup_rewards: Dictionary = {
 
 	"drop_top_challenge": "Berkshire Falcon",
 
-	"british_invasion": "Kronstadt Atrocity",    # Morgan
+	"british_invasion": "Strandberg Predator",    # Morgan
 
 	"under_400_hp": "Berkshire Blunt",
 
@@ -432,7 +432,7 @@ var cup_rewards: Dictionary = {
 	"england_vs_italy": "Berkshire V12-S",
 
 	"gentleman_racers": "Brutus Venom",
-	"american_thunder": "Kronstadt Predator",
+	"american_thunder": "Brutus Stingray",
 	"v8_fury": "Kestrel Battleaxe",
 	"kestrel_max": "Berkshire Tempest",
 

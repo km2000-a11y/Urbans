@@ -1,6 +1,5 @@
-res://Scenes/main_menu.tscn
-res://Scripts/base_car.gd
 res://Scenes/cls55.tscn
+res://Scenes/main_menu.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Scenes/car_select.tscn
 res://Scenes/lexus_ls430.tscn
@@ -37,3 +36,4 @@ res://Scenes/bmw_z8.tscn
 res://Scenes/nissan_350z.tscn
 res://Scenes/bmw_135.tscn
 res://Scenes/hummer_h2.tscn
+res://Scripts/jaguar_xk8_2003.gd

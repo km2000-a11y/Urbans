@@ -39,7 +39,7 @@ var stability_values := {
 	# Urban
 	"Mir Cars Blazer": 1.30,
 	"Kestrel Seabird": 0.75,
-	"Kronstadt Predator": 1.10,
+	"Strandberg Predator": 1.10,
 	"Berkshire Blunt": 1.20,
 	"Kestrel Speedster": 0.60,
 
@@ -120,7 +120,7 @@ var car_prices := {
 	# Sport Coupe
 	"Berkshire Blunt": 160000,
 	"Bartoli Cruiser": 180000,
-	"Kronstadt Predator": 205000,
+	"Strandberg Predator": 205000,
 	"Berkshire V12-S": 235000,
 
 	# Sport Racing
@@ -185,7 +185,7 @@ var car_sell_prices := {
 	# Sport Coupe
 	"Berkshire Blunt": 120000,
 	"Bartoli Cruiser": 135000,
-	"Kronstadt Predator": 153750,
+	"Strandberg Predator": 115750,
 	"Berkshire V12-S": 176250,
 
 	# Sport Racing
@@ -219,7 +219,25 @@ var rotation_speed := 1.0
 var car_colors = {
 
 # SUV
+"Strandberg Predator":[
 
+	Color8(255,255,255), # Ice White (default)
+
+	Color8(20,20,20),    # Black Sapphire
+
+	Color8(190,190,190), # Silver Metallic
+
+	Color8(80,80,80),    # Titanium Grey
+
+	Color8(0,45,105),    # Nautic Blue
+
+	Color8(125,80,165),  # Volvo Purple
+
+	Color8(110,20,20),   # Burgundy Red
+
+	Color8(160,180,200)  # Magic Blue Metallic
+
+],
 "Colossus Titan Max":[
 	Color8(255,0,0),
 	Color8(255,255,0),
@@ -524,17 +542,24 @@ var car_colors = {
 	Color8(0,0,0),
 	Color8(120,0,0)
 ],
-"Kronstadt Predator":[
-	Color8(255,255,255),  # Polar White (default)
-	Color8(15,15,15),     # Obsidian Black
-	Color8(192,192,192),  # Brilliant Silver
-	Color8(90,90,90),     # Flint Grey
-	Color8(25,35,80),     # Midnight Blue
-	Color8(0,66,37),      # Emerald Green
-	Color8(110,20,20),    # Bordeaux Red
-	Color8(145,145,125),  # Travertine Beige
-	Color8(60,70,120),    # Capri Blue
-	Color8(180,170,145)   # Champagne Silver
+"Strandberg Sovereign":[
+
+	Color8(255,255,255), # Ice White (default)
+
+	Color8(20,20,20),    # Black Sapphire
+
+	Color8(190,190,190), # Silver Metallic
+
+	Color8(60,60,60),    # Dark Grey
+
+	Color8(0,40,100),    # Nautic Blue
+
+	Color8(125,80,165),  # Volvo Purple
+
+	Color8(120,20,20),   # Burgundy
+
+	Color8(160,180,200)  # Ice Blue Metallic
+
 ],
 
 "Kestrel Touring":[
@@ -766,10 +791,10 @@ var sports_roadster_list=[
 	"Eisenach Roadstar",
 ]
 var sport_list = [
+	"Strandberg Predator",
 	"Berkshire Blunt",
 	"Bartoli Cruiser",
 	"Berkshire V12-S",
-	"Kronstadt Predator",
 ]
 
 var sport_racing_list = [
@@ -996,12 +1021,12 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kronstadt Predator":[
+	"Strandberg Predator":[
 		"", "Country: Germany", "HP: 342", "WEIGHT: 1720 KG",
 		"0-100 KM/H: 5.5s", "TOP SPEED: 256 KM/H",
 		"ENGINE: V8 5.4L", "ASPIRATION: Supercharged",
-		"TORQUE: 700 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
+		"TORQUE: 450 NM",
+		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	]
 }
 
@@ -1184,7 +1209,7 @@ var car_scene_paths = {
 	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
 	"Eisenach Monarch":"res://Scenes/bmw_745.tscn",
 	"Straeda Volant":"res://Scenes/cooper_s.tscn",
-	"Kronstadt Predator":"res://Scenes/cls55.tscn",
+	"Strandberg Predator":"res://Scenes/cls55.tscn",
 	"Bartoli Cruiser":"res://Scenes/4200_gt.tscn",
 	"Kronstadt Atrocity":"res://Scenes/sl_65.tscn",
 

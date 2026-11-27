@@ -74,7 +74,7 @@ var class_lists: Dictionary = {
 	"sport": [
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Kronstadt Predator",
+		"Strandberg Predator",
 		"Bartoli Cruiser",
 	],
 
@@ -123,6 +123,7 @@ var class_lists: Dictionary = {
 		"Strandberg Turbo",
 		"Kuro Vault",
 		"Kronstadt Regent",
+		"Strandberg Predator",
 		"Schroder Prince",
 		"Mir Cars Goblin",
 		"Eisenach Monarch",
@@ -185,7 +186,7 @@ var class_lists: Dictionary = {
 		"Eisenach Roadstar",
 		"Bartoli Cruiser",
 		"Eisenach Monarch",
-		"Kronstadt Predator",
+		"Strandberg Predator",
 		"Brutus Venom",
 		"Berkshire Blunt",
 		"Brutus Stingray"
@@ -251,6 +252,7 @@ var class_lists: Dictionary = {
 
 	"swedish_cup":[
 		"Strandberg Turbo",
+		"Strandberg Predator",
 		"Strandberg Pilot"
 	],
 
@@ -262,7 +264,7 @@ var class_lists: Dictionary = {
 		"Brutus Stingray",
 		"Strandberg Pilot",
 		"Berkshire Falcon",
-		"Kronstadt Predator",
+		"Strandberg Predator",
 		"Bartoli Cruiser",
 		"Berkshire Mocha",
 		"Berkshire Tempest",
@@ -309,7 +311,6 @@ var class_lists: Dictionary = {
 		"Kronstadt Regent",
 		"Kronstadt Atrocity",
 		"Eisenach Roadstar",
-		"Kronstadt Predator",
 		"Eisenach Monarch",
 		"Schroder Prince",
 		"Eisenach Bengal",
@@ -357,7 +358,6 @@ var class_lists: Dictionary = {
 	"Zenith Horizon",
 	"Zenith Touring",
 	"Eisenach Roadstar",
-	"Kronstadt Predator",
 
 	"Kuro Vault",
 	"Kronstadt Atrocity",
@@ -418,7 +418,7 @@ var car_scene_paths := {
 
 	"Schroder Atrix Sport":"res://Scenes/audi_tt_rs.tscn",
 	"Mir Cars Goblin":"res://Scenes/ford_mondeo.tscn",
-	"Kronstadt Predator":"res://Scenes/cls55.tscn",
+	"Strandberg Predator":"res://Scenes/cls55.tscn",
 	"Bartoli Cruiser":"res://Scenes/4200_gt.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
@@ -773,17 +773,24 @@ var car_colors = {
 	Color8(0,0,0),
 	Color8(120,0,0)
 ],
-"Kronstadt Predator":[
-	Color8(255,255,255),  # Polar White (default)
-	Color8(15,15,15),     # Obsidian Black
-	Color8(192,192,192),  # Brilliant Silver
-	Color8(90,90,90),     # Flint Grey
-	Color8(25,35,80),     # Midnight Blue
-	Color8(0,66,37),      # Emerald Green
-	Color8(110,20,20),    # Bordeaux Red
-	Color8(145,145,125),  # Travertine Beige
-	Color8(60,70,120),    # Capri Blue
-	Color8(180,170,145)   # Champagne Silver
+"Strandberg Sovereign":[
+
+	Color8(255,255,255), # Ice White (default)
+
+	Color8(20,20,20),    # Black Sapphire
+
+	Color8(190,190,190), # Silver Metallic
+
+	Color8(60,60,60),    # Dark Grey
+
+	Color8(0,40,100),    # Nautic Blue
+
+	Color8(125,80,165),  # Volvo Purple
+
+	Color8(120,20,20),   # Burgundy
+
+	Color8(160,180,200)  # Ice Blue Metallic
+
 ],
 
 "Kestrel Touring":[
