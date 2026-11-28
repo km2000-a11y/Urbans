@@ -1,6 +1,6 @@
-CarController
-Node3D
 MeshInstance3D
+Node3D
+CarController
 CollisionShape3D
 StaticBody3D
 RichTextLabel

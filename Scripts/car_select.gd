@@ -2271,5 +2271,6 @@ func car_has_bodykits() -> bool:
 		"Zenith Horizon",
 		"Berkshire Blunt",
 		"Kronstadt Atrocity",
+		"Straeda Volant",
 		"Strandberg Turbo",
 	]

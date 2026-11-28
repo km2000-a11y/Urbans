@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://biqgwfdnkllcs"]
+[gd_scene load_steps=52 format=3 uid="uid://biqgwfdnkllcs"]
 
 [ext_resource type="Script" uid="uid://cb582snb2vx44" path="res://Scripts/new_beetle_rsi_2001.gd" id="1_tvxdm"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_j5fgl"]
@@ -123,6 +123,18 @@ inner_radius = 0.05
 outer_radius = 0.15
 rings = 32
 ring_segments = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvxdm"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j5fgl"]
+size = Vector3(0.6, 0.05, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5fgl"]
+albedo_color = Color(0, 0, 0.227451, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wl4c8"]
+size = Vector3(0.6, 0.15, 0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08euy"]
 size = Vector3(1, 1, 1.7)
@@ -342,6 +354,64 @@ mesh = SubResource("TorusMesh_yb7l6")
 transform = Transform3D(0.5, -5.68434e-14, 5.0822e-21, 0, -3.0598e-08, -1.5, 0, 0.7, -6.55671e-08, -0.171869, 0.303342, 0.00723194)
 material_override = SubResource("StandardMaterial3D_nj1on")
 mesh = SubResource("TorusMesh_yb7l6")
+
+[node name="BodyKit1" type="Node3D" parent="ModelRoot"]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/BodyKit1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133674, 0.0114926, 0.971241)
+material_override = SubResource("StandardMaterial3D_tvxdm")
+mesh = SubResource("BoxMesh_j5fgl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/BodyKit1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109802, 0.504543, -0.435651)
+material_override = SubResource("StandardMaterial3D_tvxdm")
+mesh = SubResource("BoxMesh_j5fgl")
+skeleton = NodePath("../..")
+
+[node name="BodyKit2" type="Node3D" parent="ModelRoot"]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133674, 0.0114926, 0.971241)
+material_override = SubResource("StandardMaterial3D_tvxdm")
+mesh = SubResource("BoxMesh_j5fgl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 3, -0.109802, 0.504543, -0.533603)
+material_override = SubResource("StandardMaterial3D_tvxdm")
+mesh = SubResource("BoxMesh_j5fgl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/BodyKit2/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21541e-08, 0, 0.101828)
+material_override = SubResource("StandardMaterial3D_j5fgl")
+mesh = SubResource("BoxMesh_wl4c8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/BodyKit2/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 5, 0.0474338, 0.0763297, 0.217526)
+material_override = SubResource("StandardMaterial3D_j5fgl")
+mesh = SubResource("BoxMesh_wl4c8")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 5, 0.286641, 0.551597, 0.20023)
+material_override = SubResource("StandardMaterial3D_f03w0")
+mesh = SubResource("BoxMesh_mbnah")
+skeleton = NodePath("../../MeshInstance3D7")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 5, -0.407346, 0.551597, 0.20023)
+material_override = SubResource("StandardMaterial3D_f03w0")
+mesh = SubResource("BoxMesh_mbnah")
+skeleton = NodePath("../../MeshInstance3D7")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="ModelRoot/BodyKit2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3, -0.109253, 0.410186, -0.0527497)
+material_override = SubResource("StandardMaterial3D_f03w0")
+mesh = SubResource("BoxMesh_mbnah")
+skeleton = NodePath("../../MeshInstance3D7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383226, 0.144474, -0.156084)

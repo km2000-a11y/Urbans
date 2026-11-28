@@ -359,7 +359,7 @@ var car_scene_paths = {
 	"Straeda Pitbull":"res://Scenes/vw_touareg_v10.tscn",
 
 	"Schroder Atrix Q32":"res://Scenes/audi_tt.tscn",
-	"Straeda B32":"res://Scenes/cooper_s.tscn",
+
 	"Zenith Horizon":"res://Scenes/nissan_350z.tscn",
 	"Straeda G25":"res://Scenes/golf_v_gti.tscn",
 	"Schroder D-20":"res://Scenes/audi_a3.tscn",

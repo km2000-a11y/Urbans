@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cxr82yf8vka6f"]
+[gd_scene load_steps=36 format=3 uid="uid://cxr82yf8vka6f"]
 
 [ext_resource type="Script" uid="uid://dc2n0tjilt6d" path="res://Scenes/ford_mondeo.gd" id="1_7dbyq"]
 [ext_resource type="Script" uid="uid://ffvs8ga7wgmd" path="res://Scripts/camera.gd" id="2_70vs0"]
@@ -76,6 +76,12 @@ roughness = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_70vs0"]
 size = Vector3(0.4, 0.07, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70vs0"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_njpiy"]
+size = Vector3(0.02, 0.07, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_08euy"]
 size = Vector3(1, 1, 1.7)
@@ -246,6 +252,31 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 0, 0, 1, -0.0110059, 0.3274
 material_override = SubResource("StandardMaterial3D_7dbyq")
 mesh = SubResource("BoxMesh_70vs0")
 skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelRoot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116759, 0, 0.0527853)
+material_override = SubResource("StandardMaterial3D_70vs0")
+mesh = SubResource("BoxMesh_njpiy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelRoot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0551917, 0, 0.0527853)
+material_override = SubResource("StandardMaterial3D_70vs0")
+mesh = SubResource("BoxMesh_njpiy")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="ModelRoot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0911061, 0, 0.0527853)
+material_override = SubResource("StandardMaterial3D_70vs0")
+mesh = SubResource("BoxMesh_njpiy")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="ModelRoot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.149704, 0, 0.0527853)
+material_override = SubResource("StandardMaterial3D_70vs0")
+mesh = SubResource("BoxMesh_njpiy")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ModelRoot/MeshInstance3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.020062, 0, 0.0527853)
+material_override = SubResource("StandardMaterial3D_70vs0")
+mesh = SubResource("BoxMesh_njpiy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383226, 0.144474, -0.156084)
