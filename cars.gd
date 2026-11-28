@@ -19,7 +19,6 @@ var upgrades: Dictionary = {}   # car_name -> { weight, engine, steering, brakes
 var upgrades_save_path := "user://car_upgrades.json"
 var money_save_path := "user://money.save"
 
-
 var class_lists: Dictionary = {
 
 	# MAIN CLASSES
@@ -60,9 +59,9 @@ var class_lists: Dictionary = {
 
 	"urban": [
 		"Kronstadt Atrocity",
-		"Brutus Stingray",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Brutus Mammoth",
 		"Berkshire Blunt"
 	],
 
@@ -70,6 +69,7 @@ var class_lists: Dictionary = {
 		"Bartoli Cruiser",
 		"Brutus Dragster",
 		"Berkshire V12-S",
+		"Brutus Stingray",
 		"Strandberg Predator"
 	],
 
@@ -124,7 +124,8 @@ var class_lists: Dictionary = {
 		"Eisenach Monarch",
 		"Zenith Touring",
 		"Berkshire Mocha",
-		"Schroder Suppressor"
+		"Schroder Suppressor",
+		"Brutus Mammoth"
 	],
 
 	"japanese_cup":[
@@ -154,9 +155,9 @@ var class_lists: Dictionary = {
 
 	"urban_performance_cars":[
 		"Kronstadt Atrocity",
-		"Brutus Stingray",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Brutus Mammoth",
 		"Berkshire Blunt"
 	],
 
@@ -175,6 +176,7 @@ var class_lists: Dictionary = {
 		"Bartoli Cruiser",
 		"Brutus Dragster",
 		"Brutus Stingray",
+		"Brutus Mammoth",
 		"Brutus Venom"
 	],
 
@@ -219,6 +221,7 @@ var class_lists: Dictionary = {
 		"Brutus Stingray",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Brutus Mammoth",
 
 		"Bartoli Cruiser",
 		"Brutus Dragster",
@@ -255,6 +258,7 @@ var class_lists: Dictionary = {
 		"Colossus Behemoth",
 		"Mir Cars Goblin",
 		"Brutus Stingray",
+		"Brutus Mammoth",
 		"Brutus Venom",
 		"Brutus Thunderbolt"
 	],
@@ -304,7 +308,6 @@ var class_lists: Dictionary = {
 	],
 
 	"england_vs_italy":[
-		# ENGLAND
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Kestrel Battleaxe",
@@ -315,7 +318,6 @@ var class_lists: Dictionary = {
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 
-		# ITALY
 		"Bartoli Cruiser",
 		"Bartoli Track Cruiser",
 
@@ -325,13 +327,11 @@ var class_lists: Dictionary = {
 	],
 
 	"japan_vs_germany":[
-		# JAPAN
 		"Zenith Horizon",
 		"Zenith Touring",
 		"Kuro Vault",
 		"Mir Cars Nightwolf",
 
-		# GERMANY
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Suppressor",
@@ -339,17 +339,20 @@ var class_lists: Dictionary = {
 		"Eisenach Bengal",
 		"Kronstadt Atrocity"
 	],
+
 	"colin_tribute":[
-	"Kestrel Seabird"
-],
+		"Kestrel Seabird"
+	],
 
-"speedster_tournament":[
-	"Kestrel Speedster"
-],
+	"speedster_tournament":[
+		"Kestrel Speedster"
+	],
 
-"stingray_competition":[
-	"Brutus Stingray"
-],
+	"stingray_competition":[
+		"Brutus Stingray"
+	],
+
+	
 }
 var car_scene_paths = {
 	"Colossus Titan Max":"res://Scenes/hummer_h1.tscn",
@@ -357,6 +360,7 @@ var car_scene_paths = {
 	"Berkshire Mocha":"res://Scenes/jaguar_s_type.tscn",
 	"Mir Cars Nightwolf":"res://Scenes/lexus_lx470.tscn",
 	"Straeda Pitbull":"res://Scenes/vw_touareg_v10.tscn",
+	"Brutus Mammoth":"res://Scenes/crown_vic.tscn",
 
 	"Schroder Atrix Q32":"res://Scenes/audi_tt.tscn",
 
@@ -436,11 +440,28 @@ var radar_target_speeds := {
 	"supercars": 270,
 	"special": 230
 }
-
 var car_colors = {
 
 # SUV
+"Strandberg Predator":[
 
+	Color8(255,255,255), # Ice White (default)
+
+	Color8(20,20,20),    # Black Sapphire
+
+	Color8(190,190,190), # Silver Metallic
+
+	Color8(80,80,80),    # Titanium Grey
+
+	Color8(0,45,105),    # Nautic Blue
+
+	Color8(125,80,165),  # Volvo Purple
+
+	Color8(110,20,20),   # Burgundy Red
+
+	Color8(160,180,200)  # Magic Blue Metallic
+
+],
 "Colossus Titan Max":[
 	Color8(255,0,0),
 	Color8(255,255,0),
@@ -503,16 +524,7 @@ var car_colors = {
 	Color8(255,140,0),
 	Color8(255,215,0)
 ],
-"Schroder Prince": [
-	Color8(0, 0, 50),      # Midnight Blue (default)
-	Color8(185, 185, 175), # Reflex Silver
-	Color8(25, 25, 25),    # Black Magic Pearl
-	Color8(40, 65, 105),   # Indigo Blue
-	Color8(90, 95, 90),    # Platinum Grey
-	Color8(65, 75, 65),    # Dark Forest Green
-	Color8(125, 115, 105), # Mocha Beige
-	Color8(245, 245, 240)  # Alpine White
-],
+
 "Eisenach Bengal":[
 	Color8(255,255,255),
 	Color8(255,99,71),
@@ -601,7 +613,7 @@ var car_colors = {
 ],
 
 "Brutus Stingray":[
-	Color8(255,255,0),
+	Color8(214,192,161),
 	Color8(255,0,0),
 	Color8(180,180,180),
 	Color8(0,0,0)
@@ -684,7 +696,16 @@ var car_colors = {
 	Color8(80,20,20)      # Burgundy
 ],
 
-
+"Schroder Prince": [
+	Color8(0, 0, 50),      # Midnight Blue (default)
+	Color8(185, 185, 175), # Reflex Silver
+	Color8(25, 25, 25),    # Black Magic Pearl
+	Color8(40, 65, 105),   # Indigo Blue
+	Color8(90, 95, 90),    # Platinum Grey
+	Color8(65, 75, 65),    # Dark Forest Green
+	Color8(125, 115, 105), # Mocha Beige
+	Color8(245, 245, 240)  # Alpine White
+],
 
 "Schroder Suppressor":[
 	Color8(75,78,71),
@@ -934,13 +955,36 @@ var car_colors = {
 	Color8(200,40,40),
 	Color8(20,20,20)
 ],
+"Brutus Dragster": [
+	Color8(255, 255, 0),    # Bright Yellow (default)
+	Color8(20, 20, 20),     # Black
+	Color8(255, 255, 255),  # White
+	Color8(180, 180, 180),  # Silver
+	Color8(120, 15, 15),    # Dark Red
+	Color8(30, 60, 120),    # Deep Blue
+	Color8(214, 198, 161),  # Champagne Metallic
+	Color8(40, 80, 40)      # Dark Green
+],
 "Kronstadt Atrocity": [
 	Color8(192,192,192),  # Brilliant Silver (default)
 	Color8(15,15,15),     # Obsidian Black
 	Color8(255,255,255),  # Polar White
 	Color8(160,20,20)     # AMG Crimson Red
 ],
-
+"Brutus Mammoth": [
+	Color8(45,45,45),      # Fleet Black (default)
+	Color8(255,255,255),   # Police White
+	Color8(20,40,80),      # Dark Navy Blue
+	Color8(110,110,110),   # Steel Grey
+	Color8(190,190,180),   # Silver Frost
+	Color8(205,185,140),   # Champagne Beige
+	Color8(90,50,25),      # Tobacco Brown
+	Color8(120,0,0),       # Dark Red Metallic
+	Color8(0,90,0),        # Dark Forest Green
+	Color8(70,70,120),     # Medium Blue
+	Color8(160,160,170),   # Titanium Silver
+	Color8(220,210,180)    # Grandpa Gold
+]
 }
 
 func _ready() -> void:

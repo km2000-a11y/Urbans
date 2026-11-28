@@ -48,7 +48,8 @@ var car_prices := {
 	"Zenith Touring": 105000,
 
 	# Urban Performance
-	"Brutus Stingray": 115000,
+	"Brutus Stingray": 230000,
+	"Brutus Mammoth":90000,
 	"Kestrel Seabird": 125000,
 	"Kestrel Speedster": 135000,
 	"Kronstadt Atrocity": 145000,
@@ -98,6 +99,7 @@ var car_sell_prices := {
 	"Kronstadt Regent": 41250,
 	"Schroder Suppressor": 52500,
 	"Berkshire Mocha": 60000,
+	"Brutus Mammoth":67000,
 	"Eisenach Monarch": 67500,
 
 	# Executive
@@ -679,7 +681,20 @@ var car_colors = {
 	Color8(255,255,255),  # Polar White
 	Color8(160,20,20)     # AMG Crimson Red
 ],
-
+"Brutus Mammoth": [
+	Color8(45,45,45),      # Fleet Black (default)
+	Color8(255,255,255),   # Police White
+	Color8(20,40,80),      # Dark Navy Blue
+	Color8(110,110,110),   # Steel Grey
+	Color8(190,190,180),   # Silver Frost
+	Color8(205,185,140),   # Champagne Beige
+	Color8(90,50,25),      # Tobacco Brown
+	Color8(120,0,0),       # Dark Red Metallic
+	Color8(0,90,0),        # Dark Forest Green
+	Color8(70,70,120),     # Medium Blue
+	Color8(160,160,170),   # Titanium Silver
+	Color8(220,210,180)    # Grandpa Gold
+]
 }
 
 # -------------------------
@@ -706,7 +721,7 @@ var muscle_list = [
 ]
 
 var urban_list = [
-	"Brutus Stingray",
+	"Brutus Mammoth",
 	"Kestrel Seabird",
 	"Kestrel Speedster",
 	"Kronstadt Atrocity",
@@ -736,6 +751,7 @@ var sport_list = [
 	"Bartoli Cruiser",
 	"Brutus Dragster",
 	"Berkshire V12-S",
+	"Brutus Stingray",
 ]
 
 var sport_racing_list = [
@@ -895,12 +911,7 @@ var sedans = {
 }
 
 var urban_racers = {
-	"Brutus Stingray":[
-		"", "Country: USA", "HP: 443", "WEIGHT: 1645 KG",
-		"0-100 KM/H: 4.6s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 420 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+	
 	"Kronstadt Atrocity":[
 		"", "Country: Germany", "HP: 612", "WEIGHT: 2080 KG",
 		"0-100 KM/H: 4.3s", "TOP SPEED: 250 KM/H",
@@ -911,6 +922,12 @@ var urban_racers = {
 		"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
 		"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Brutus Mammoth":[
+		"", "Country: USA", "HP: 400", "WEIGHT: 1785 KG",
+		"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
+		"ENGINE: V8 4.6L", "ASPIRATION: Supercharged", "TORQUE: 530 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kestrel Seabird":[
@@ -946,6 +963,12 @@ var sport = {
 		"", "Country: Italy", "HP: 434", "WEIGHT: 1880 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 295 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 450 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Brutus Stingray":[
+		"", "Country: USA", "HP: 443", "WEIGHT: 1645 KG",
+		"0-100 KM/H: 4.6s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 420 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Berkshire V12-S":[
@@ -1155,6 +1178,7 @@ var car_scene_paths = {
 	"Kronstadt Crest":"res://Scenes/slk.tscn",
 	"Zenith Prince":"res://Scenes/q45.tscn",
 	"Strandberg Pilot":"res://Scenes/saab_95.tscn",
+	"Brutus Mammoth":"res://Scenes/crown_vic.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
 	"Brutus Dragster":"res://Scenes/pontiac_gto.tscn",

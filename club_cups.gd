@@ -88,6 +88,7 @@ var class_lists: Dictionary = {
 		"Brutus Stingray",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Brutus Mammoth",
 		"Berkshire Blunt"
 	],
 
@@ -149,7 +150,8 @@ var class_lists: Dictionary = {
 		"Eisenach Monarch",
 		"Zenith Touring",
 		"Berkshire Mocha",
-		"Schroder Suppressor"
+		"Schroder Suppressor",
+		"Brutus Mammoth"
 	],
 
 	"japanese_cup":[
@@ -182,6 +184,7 @@ var class_lists: Dictionary = {
 		"Brutus Stingray",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Brutus Mammoth",
 		"Berkshire Blunt"
 	],
 
@@ -200,6 +203,7 @@ var class_lists: Dictionary = {
 		"Bartoli Cruiser",
 		"Brutus Dragster",
 		"Brutus Stingray",
+		"Brutus Mammoth",
 		"Brutus Venom"
 	],
 
@@ -244,6 +248,7 @@ var class_lists: Dictionary = {
 		"Brutus Stingray",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
+		"Brutus Mammoth",
 
 		"Bartoli Cruiser",
 		"Brutus Dragster",
@@ -280,6 +285,7 @@ var class_lists: Dictionary = {
 		"Colossus Behemoth",
 		"Mir Cars Goblin",
 		"Brutus Stingray",
+		"Brutus Mammoth",
 		"Brutus Venom",
 		"Brutus Thunderbolt"
 	],
@@ -329,7 +335,6 @@ var class_lists: Dictionary = {
 	],
 
 	"england_vs_italy":[
-		# ENGLAND
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Kestrel Battleaxe",
@@ -340,7 +345,6 @@ var class_lists: Dictionary = {
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 
-		# ITALY
 		"Bartoli Cruiser",
 		"Bartoli Track Cruiser",
 
@@ -350,13 +354,11 @@ var class_lists: Dictionary = {
 	],
 
 	"japan_vs_germany":[
-		# JAPAN
 		"Zenith Horizon",
 		"Zenith Touring",
 		"Kuro Vault",
 		"Mir Cars Nightwolf",
 
-		# GERMANY
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Suppressor",
@@ -364,17 +366,20 @@ var class_lists: Dictionary = {
 		"Eisenach Bengal",
 		"Kronstadt Atrocity"
 	],
+
 	"colin_tribute":[
-	"Kestrel Seabird"
-],
+		"Kestrel Seabird"
+	],
 
-"speedster_tournament":[
-	"Kestrel Speedster"
-],
+	"speedster_tournament":[
+		"Kestrel Speedster"
+	],
 
-"stingray_competition":[
-	"Brutus Stingray"
-],
+	"stingray_competition":[
+		"Brutus Stingray"
+	],
+
+	
 }
 var cup_rewards: Dictionary = {
 	"colossus": "Eisenach Bengal",
@@ -400,7 +405,7 @@ var cup_rewards: Dictionary = {
 
 	"speedster_tournament": "Kestrel Speedster",
 
-	"colin_tribute": "Brutus Stingray",
+	"colin_tribute": "Brutus Mammoth",
 
 	"japan_vs_germany": "Berkshire Blunt",
 
@@ -412,7 +417,7 @@ var cup_rewards: Dictionary = {
 
 	"under_400_hp": "Berkshire V12-S",
 
-	"german_cup": "Brutus Venom",
+	"german_cup": "Brutus Stingray",
 
 	"swedish_cup": "Berkshire Mocha",
 
@@ -420,7 +425,7 @@ var cup_rewards: Dictionary = {
 
 	"gentleman_racers": "Kestrel Battleaxe",
 
-	"american_thunder": "Brutus Thunderbolt",
+	"american_thunder": "Brutus Venom",
 
 	"v8_fury": "Linetti Shepherd",
 
