@@ -13,18 +13,18 @@ var body_kit := 0
 var shift_timer := 0.0
 var shift_delay := 0.25
 var shifting := false
+
 var torque_character_values := {
 
 	# 4x4 SUV
 	"Colossus Titan Max": TorqueCharacter.TORQUEY,
 	"Colossus Behemoth": TorqueCharacter.TORQUEY,
-	"Schroder Colosso": TorqueCharacter.DIESEL,
+	"Schroder Colosso": TorqueCharacter.NORMAL,
 	"Mir Cars Nightwolf": TorqueCharacter.NORMAL,
 
 	# Muscle
 	"Brutus Viper": TorqueCharacter.TORQUEY,
 	"Mir Cars Hutch": TorqueCharacter.TORQUEY,
-	"Brutus Sheriff":TorqueCharacter.TORQUEY,
 
 	# Compact
 	"Straeda Volant": TorqueCharacter.TORQUEY,
@@ -39,25 +39,24 @@ var torque_character_values := {
 	"Berkshire Mocha": TorqueCharacter.DIESEL,
 
 	# Executive
-	"Brutus Goblin": TorqueCharacter.NORMAL,
+	"Mir Cars Goblin": TorqueCharacter.NORMAL,
 	"Strandberg Turbo": TorqueCharacter.TORQUEY,
 	"Kuro Vault": TorqueCharacter.NORMAL,
+	"Schroder Prince": TorqueCharacter.NORMAL,
 	"Zenith Touring": TorqueCharacter.NORMAL,
-	"Berkshire Falcon": TorqueCharacter.NORMAL,
 
 	# Urban Performance
-	"Brutus Prince": TorqueCharacter.NORMAL,
-	"Kronstadt Atrocity":TorqueCharacter.TORQUEY,
+	"Kronstadt Atrocity": TorqueCharacter.SUPERCHARGED,
+	"Brutus Stingray": TorqueCharacter.SUPERCHARGED,
 	"Kestrel Seabird": TorqueCharacter.HIGH_REV,
 	"Kestrel Speedster": TorqueCharacter.SPORTS,
 	"Berkshire Blunt": TorqueCharacter.SUPERCHARGED,
-	"Brutus Stingray": TorqueCharacter.SUPERCHARGED,
 
 	# Sport Coupe
-	"Strandberg Pilot": TorqueCharacter.TORQUEY,
 	"Bartoli Cruiser": TorqueCharacter.SPORTS,
+	"Brutus Dragster": TorqueCharacter.TORQUEY,
 	"Berkshire V12-S": TorqueCharacter.HIGH_REV,
-	"Kronstadt Predator": TorqueCharacter.SPORTS,
+	"Strandberg Predator": TorqueCharacter.TORQUEY,
 
 	# Sport Racing
 	"Brutus Venom": TorqueCharacter.SPORTS,
@@ -71,10 +70,13 @@ var torque_character_values := {
 	"Mir Cars Raptor": TorqueCharacter.SPORTS,
 	"Linetti Terror": TorqueCharacter.HIGH_REV,
 
-	# Track
+	# Track Cars
 	"Bartoli Track Cruiser": TorqueCharacter.HIGH_REV,
 	"Brutus Thunderbolt": TorqueCharacter.TORQUEY,
-	"Mir Cars Athletic C70": TorqueCharacter.HIGH_REV
+	"Mir Cars Athletic C70": TorqueCharacter.HIGH_REV,
+
+	# Special
+	"Brutus Sheriff": TorqueCharacter.TORQUEY
 }
 var stability_values := {
 
@@ -93,22 +95,22 @@ var stability_values := {
 
 	"Eisenach Bengal": 1.00,
 	"Strandberg Turbo": 1.00,
-	"Brutus Goblin": 1.00,
+	"Mir Cars Goblin": 1.00,
 
 	"Berkshire Blunt": 1.40,
-	"Berkshire Falcon": 1.60,
+	"Brutus Dragster": 1.60,
 	"Berkshire V12-S": 1.80,
 	"Berkshire Tempest": 1.80,
-	"Brutus Sheriff":5.60,
+	"Brutus Sheriff": 5.60,
 
-	"Strandberg Pilot": 2.20,
-	"Brutus Prince": 2.40,
+	"Strandberg Predator": 2.20,
 
 	"Linetti Shepherd": 3.20,
 	"Linetti Terror": 3.80,
 
 	"Kuro Vault": 5.00,
 	"Schroder Colosso": 5.00,
+
 	"Mir Cars Nightwolf": 6.00,
 
 	"Colossus Behemoth": 8.00,
@@ -119,23 +121,20 @@ var oversteer_values := {
 	"Schroder Colosso": 0.00,
 	"Mir Cars Nightwolf": 0.00,
 	"Colossus Behemoth": 0.00,
-	"Brutus Sheriff":0.02,
 	"Colossus Titan Max": 0.00,
 
 	"Kuro Vault": 0.01,
+	"Brutus Sheriff": 0.02,
 
 	"Linetti Terror": 0.03,
 
-	"Brutus Prince": 0.05,
-
 	"Linetti Shepherd": 0.08,
 
-	"Strandberg Pilot": 0.25,
+	"Brutus Dragster": 0.25,
 
 	"Berkshire Tempest": 0.30,
 	"Berkshire V12-S": 0.30,
 
-	"Berkshire Falcon": 0.40,
 	"Berkshire Blunt": 0.40,
 
 	"Strandberg Turbo": 0.80,
@@ -159,6 +158,20 @@ var oversteer_values := {
 	"Kestrel Guillotine": 24.00,
 
 	"Kestrel Battleaxe": 30.00
+}
+enum Layout {
+	FF_T, # Front engine, front wheel drive, transverse
+	FF_L, # Front engine, front wheel drive, longitudinal
+
+	FR,   # Front engine, rear wheel drive
+
+	FA_T, # Front engine, AWD, transverse
+	FA_L, # Front engine, AWD, longitudinal
+
+	MR,   # Mid engine, rear wheel drive
+	MA,   # Mid engine, AWD
+
+	RR    # Rear engine, rear wheel drive
 }
 var stability_factor:=1.0
 const GRAVITY := 30.0
@@ -280,7 +293,81 @@ var has_supercharger :=false
 
 
 
+var layout_values := {
 
+	# 4x4 SUV
+
+	"Colossus Titan Max": Layout.FA_L,
+	"Colossus Behemoth": Layout.FA_L,
+	"Schroder Colosso": Layout.FA_L,
+	"Mir Cars Nightwolf": Layout.FA_L,
+
+	# Muscle
+
+	"Brutus Viper": Layout.FR,
+	"Mir Cars Hutch": Layout.FR,
+
+	# Compact
+
+	"Straeda Volant": Layout.FF_T,
+	"Eisenach Bengal": Layout.FR,
+	"Schroder Atrix Q32": Layout.FA_T,
+	"Zenith Horizon": Layout.FR,
+
+	# Torque Monsters
+
+	"Kronstadt Regent": Layout.FR,
+	"Schroder Suppressor": Layout.FA_L,
+	"Eisenach Monarch": Layout.FR,
+	"Berkshire Mocha": Layout.FR,
+
+	# Executive
+
+	"Mir Cars Goblin": Layout.FF_L,
+	"Strandberg Turbo": Layout.FF_T,
+	"Kuro Vault": Layout.FF_L,
+	"Schroder Prince": Layout.FA_L,
+	"Zenith Touring": Layout.FF_L,
+
+	# Urban Performance
+
+	"Kronstadt Atrocity": Layout.FR,
+	"Brutus Stingray": Layout.FR,
+	"Kestrel Seabird": Layout.RR,
+	"Kestrel Speedster": Layout.FR,
+	"Berkshire Blunt": Layout.FR,
+
+	# Sport Coupe
+
+	"Bartoli Cruiser": Layout.FR,
+	"Brutus Dragster": Layout.FR,
+	"Berkshire V12-S": Layout.FR,
+	"Strandberg Predator": Layout.FA_L,
+
+	# Sport Racing
+
+	"Brutus Venom": Layout.FR,
+	"Berkshire Tempest": Layout.FR,
+	"Kestrel Battleaxe": Layout.FR,
+	"Linetti Shepherd": Layout.MR,
+
+	# Supercars
+
+	"Kestrel Guillotine": Layout.FR,
+	"Linetti Firestorm": Layout.MR,
+	"Mir Cars Raptor": Layout.MR,
+	"Linetti Terror": Layout.MA,
+
+	# Track Cars
+
+	"Bartoli Track Cruiser": Layout.MR,
+	"Brutus Thunderbolt": Layout.FR,
+	"Mir Cars Athletic C70": Layout.MR,
+
+	# Special
+
+	"Brutus Sheriff": Layout.FA_L
+}
 
 var transmission := "Front wheel drive" # "Front wheel drive", "Rear wheel drive", "Four wheel drive"
 var is_diesel := false

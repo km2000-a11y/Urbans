@@ -30,59 +30,54 @@ var class_lists: Dictionary = {
 		"Schroder Colosso",
 		"Mir Cars Nightwolf"
 	],
-	"sports_roadster":[
-		"Kronstadt Atrocity",
-		"Berkshire Falcon",
-		"Brutus Stingray",
-		"Eisenach Roadstar"
-	],
 
 	"compact": [
 		"Straeda Volant",
-		"Schroder Atrix Q32",
 		"Eisenach Bengal",
+		"Schroder Atrix Q32",
 		"Zenith Horizon"
 	],
-	"urban": [
-		"Kestrel Seabird",
-		"Zenith Touring",
-		"Kestrel Speedster",
-		"Strandberg Pilot",
-	],
-	
 
 	"muscle": [
 		"Brutus Viper",
 		"Mir Cars Hutch"
 	],
 
-	"sedans": [
-		"Kuro Vault",
-		"Mir Cars Goblin",
-		"Schroder Prince",
-		"Strandberg Turbo",
-	],
 	"torque_monsters":[
+		"Kronstadt Regent",
 		"Schroder Suppressor",
 		"Eisenach Monarch",
-		"Kronstadt Regent",
-		"Berkshire Mocha",
+		"Berkshire Mocha"
 	],
-	
 
+	"sedans": [
+		"Mir Cars Goblin",
+		"Strandberg Turbo",
+		"Kuro Vault",
+		"Schroder Prince",
+		"Zenith Touring"
+	],
+
+	"urban": [
+		"Kronstadt Atrocity",
+		"Brutus Stingray",
+		"Kestrel Seabird",
+		"Kestrel Speedster",
+		"Berkshire Blunt"
+	],
 
 	"sport": [
-		"Berkshire Blunt",
-		"Berkshire V12-S",
-		"Strandberg Predator",
 		"Bartoli Cruiser",
+		"Brutus Dragster",
+		"Berkshire V12-S",
+		"Strandberg Predator"
 	],
 
 	"sport_racing": [
-		"Kestrel Battleaxe",
 		"Brutus Venom",
-		"Linetti Shepherd",
 		"Berkshire Tempest",
+		"Kestrel Battleaxe",
+		"Linetti Shepherd"
 	],
 
 	"supercars": [
@@ -116,7 +111,7 @@ var class_lists: Dictionary = {
 
 	"zenith_competition":[
 		"Zenith Horizon",
-		"Zenith Touring",
+		"Zenith Touring"
 	],
 
 	"businessman_racers":[
@@ -156,25 +151,17 @@ var class_lists: Dictionary = {
 		"Mir Cars Nightwolf",
 		"Schroder Colosso"
 	],
-	"colin_tribute":[
-		"Kestrel Seabird"
-	],
-
-	"speedster_tournament":[
-		"Kestrel Speedster"
-	],
 
 	"urban_performance_cars":[
+		"Kronstadt Atrocity",
+		"Brutus Stingray",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
-		"Berkshire Falcon",
-		"Zenith Touring",
-		"Strandberg Pilot"
+		"Berkshire Blunt"
 	],
 
 	"eisenach_cup":[
 		"Eisenach Bengal",
-		"Eisenach Roadstar",
 		"Eisenach Monarch"
 	],
 
@@ -183,102 +170,93 @@ var class_lists: Dictionary = {
 		"Mir Cars Hutch",
 		"Kuro Vault",
 		"Mir Cars Goblin",
-		"Eisenach Roadstar",
-		"Bartoli Cruiser",
 		"Eisenach Monarch",
 		"Strandberg Predator",
-		"Brutus Venom",
-		"Berkshire Blunt",
-		"Brutus Stingray"
+		"Bartoli Cruiser",
+		"Brutus Dragster",
+		"Brutus Stingray",
+		"Brutus Venom"
 	],
 
 	"berkshire_cup":[
 		"Berkshire Blunt",
+		"Berkshire Mocha",
 		"Berkshire V12-S",
 		"Berkshire Tempest"
 	],
 
 	"drop_top_challenge":[
-		"Schroder Atrix Q32",
 		"Straeda Volant",
+		"Schroder Atrix Q32",
 		"Kestrel Speedster",
 		"Brutus Stingray",
-		"Kronstadt Atrocity",
-		"Berkshire Falcon",
+		"Kronstadt Atrocity"
 	],
 
 	"under_400_hp":[
 		"Colossus Titan Max",
-		"Schroder Prince",
-		"Brutus Stingray",
 		"Colossus Behemoth",
-		"Zenith Touring",
-		"Eisenach Roadstar",
-		"Kronstadt Atrocity",
-		"Eisenach Monarch",
-		"Berkshire Falcon",
-		"Kronstadt Regent",
 		"Mir Cars Nightwolf",
-		"Berkshire Mocha",
 		"Schroder Colosso",
 
 		"Straeda Volant",
 		"Schroder Atrix Q32",
 		"Eisenach Bengal",
 		"Zenith Horizon",
-		"Mir Cars Goblin",
-		"Brutus Viper",
-		"Mir Cars Hutch",
 
+		"Kronstadt Regent",
+		"Schroder Suppressor",
+		"Eisenach Monarch",
+		"Berkshire Mocha",
+
+		"Mir Cars Goblin",
 		"Strandberg Turbo",
 		"Kuro Vault",
-		"Schroder Suppressor",
+		"Schroder Prince",
+		"Zenith Touring",
 
+		"Kronstadt Atrocity",
+		"Brutus Stingray",
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 
 		"Bartoli Cruiser",
-
-		"Strandberg Pilot",
+		"Brutus Dragster",
 		"Berkshire V12-S"
 	],
 
 	"low_displacement_challenge":[
 		"Straeda Volant",
 		"Strandberg Turbo",
-		"Strandberg Pilot",
 		"Kestrel Seabird"
 	],
 
 	"swedish_cup":[
 		"Strandberg Turbo",
-		"Strandberg Predator",
-		"Strandberg Pilot"
+		"Strandberg Predator"
 	],
 
 	"gentleman_racers":[
 		"Kestrel Speedster",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
-		"Eisenach Roadstar",
 		"Brutus Stingray",
-		"Strandberg Pilot",
-		"Berkshire Falcon",
 		"Strandberg Predator",
 		"Bartoli Cruiser",
 		"Berkshire Mocha",
-		"Berkshire Tempest",
+		"Berkshire Tempest"
 	],
 
 	"american_thunder":[
 		"Brutus Viper",
 		"Mir Cars Hutch",
+		"Brutus Dragster",
 		"Colossus Titan Max",
-		"Brutus Thunderbolt",
 		"Colossus Behemoth",
 		"Mir Cars Goblin",
 		"Brutus Stingray",
-		"Brutus Venom"
+		"Brutus Venom",
+		"Brutus Thunderbolt"
 	],
 
 	"british_invasion":[
@@ -287,34 +265,28 @@ var class_lists: Dictionary = {
 		"Berkshire Blunt",
 		"Berkshire Mocha",
 		"Berkshire V12-S",
-		"Berkshire Falcon",
 		"Berkshire Tempest",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine"
 	],
 
 	"grand_touring":[
-		
+		"Bartoli Cruiser",
+		"Brutus Dragster",
 		"Berkshire Blunt",
 		"Berkshire V12-S",
 		"Berkshire Tempest"
-	],
-
-	"stingray_competition":[
-		"Brutus Stingray"
 	],
 
 	"german_cup":[
 		"Schroder Atrix Q32",
 		"Schroder Colosso",
 		"Schroder Suppressor",
+		"Eisenach Monarch",
+		"Eisenach Bengal",
 		"Kronstadt Regent",
 		"Kronstadt Atrocity",
-		"Eisenach Roadstar",
-		"Eisenach Monarch",
-		"Schroder Prince",
-		"Eisenach Bengal",
-
+		"Schroder Prince"
 	],
 
 	"kestrel_max":[
@@ -330,21 +302,20 @@ var class_lists: Dictionary = {
 		"Linetti Firestorm",
 		"Linetti Terror"
 	],
-		"england_vs_italy":[
-		# ENGLAND
 
+	"england_vs_italy":[
+		# ENGLAND
 		"Kestrel Seabird",
 		"Kestrel Speedster",
 		"Kestrel Battleaxe",
 		"Kestrel Guillotine",
-		"Berkshire Falcon",
+
 		"Berkshire Blunt",
 		"Berkshire Mocha",
 		"Berkshire V12-S",
 		"Berkshire Tempest",
 
 		# ITALY
-
 		"Bartoli Cruiser",
 		"Bartoli Track Cruiser",
 
@@ -352,105 +323,106 @@ var class_lists: Dictionary = {
 		"Linetti Firestorm",
 		"Linetti Terror"
 	],
+
 	"japan_vs_germany":[
-	# JAPAN
+		# JAPAN
+		"Zenith Horizon",
+		"Zenith Touring",
+		"Kuro Vault",
+		"Mir Cars Nightwolf",
 
-	"Zenith Horizon",
-	"Zenith Touring",
-	"Eisenach Roadstar",
+		# GERMANY
+		"Schroder Atrix Q32",
+		"Schroder Colosso",
+		"Schroder Suppressor",
+		"Eisenach Monarch",
+		"Eisenach Bengal",
+		"Kronstadt Atrocity"
+	],
+	"colin_tribute":[
+	"Kestrel Seabird"
+],
 
-	"Kuro Vault",
-	"Kronstadt Atrocity",
+"speedster_tournament":[
+	"Kestrel Speedster"
+],
 
-
-	"Mir Cars Nightwolf",
-
-
-	# GERMANY
-
-	"Schroder Atrix Q32",
-	"Schroder Colosso",
-	"Schroder Suppressor",
-	"Eisenach Monarch",
-
-	"Eisenach Bengal"
+"stingray_competition":[
+	"Brutus Stingray"
 ],
 }
-var car_scene_paths := {
+var car_scene_paths = {
 	"Colossus Titan Max":"res://Scenes/hummer_h1.tscn",
 	"Colossus Behemoth":"res://Scenes/hummer_h2.tscn",
+	"Berkshire Mocha":"res://Scenes/jaguar_s_type.tscn",
 	"Mir Cars Nightwolf":"res://Scenes/lexus_lx470.tscn",
 	"Straeda Pitbull":"res://Scenes/vw_touareg_v10.tscn",
-	"Schroder Colosso":"res://Scenes/audi_q7.tscn",
 
 	"Schroder Atrix Q32":"res://Scenes/audi_tt.tscn",
+	"Straeda B32":"res://Scenes/cooper_s.tscn",
 	"Zenith Horizon":"res://Scenes/nissan_350z.tscn",
-	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
+	"Straeda G25":"res://Scenes/golf_v_gti.tscn",
+	"Schroder D-20":"res://Scenes/audi_a3.tscn",
+	"Mir Cars Crawler":"res://Scenes/volvo_xc90.tscn",
+	"Eisenach Escorter":"res://Scenes/bmw_x5.tscn",
+	"Kronstadt Regent":"res://Scenes/e320.tscn",
+
 
 	"Kestrel Seabird":"res://Scenes/lotus_exige_s.tscn",
-	"Kestrel Speedster":"res://Scenes/morgan_aero_8.tscn",
-	"Berkshire Blunt":"res://Scenes/jaguar_xkr.tscn",
+	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
 	"Brutus Stingray":"res://Scenes/cadillac_cts.tscn",
 	"Kuro Zephyr V6":"res://Scenes/lexus_is350.tscn",
-	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
-	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
-	"Mir Cars Regent":"res://Scenes/gs300.tscn",
-	"Schroder Prince":"res://Scenes/passat.tscn",
-		"Mir Cars Blazer":"res://Scenes/sl500.tscn",	
-	"Strandberg Pilot":"res://Scenes/saab_95.tscn",
-
+	"Kestrel Speedster":"res://Scenes/morgan_aero_8.tscn",
+	"Berkshire Blunt":"res://Scenes/jaguar_xkr.tscn",
 	"Brutus Viper":"res://Scenes/gt500.tscn",
 	"Mir Cars Hutch":"res://Scenes/chevelle_ss.tscn",
-	"Mir Cars Crawler":"res://Scenes/volvo_xc90.tscn",
-	"Zenith Touring":"res://Scenes/infiniti_g35.tscn",
-	"Eisenach Escorter":"res://Scenes/bmw_x5.tscn",
-
+	"Schroder Colosso":"res://Scenes/audi_q7.tscn",
+	"Eisenach Black Panda":"res://Scenes/bmw_330d.tscn",
+	"Eisenach Bengal":"res://Scenes/bmw_135.tscn",
+	"Schroder Prince":"res://Scenes/passat.tscn",
+	"Mir Cars Athletic C70":"res://Scenes/zonda.tscn",
+	"Bartoli Track Cruiser":"res://Scenes/mc12.tscn",
+	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
 	"Eisenach Monarch":"res://Scenes/bmw_745.tscn",
-	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",
-	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
-	"Schroder Suppressor":"res://Scenes/audi_a4.tscn",
-	"Schroder D-20":"res://Scenes/audi_a3.tscn",
-		"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
-		"Kronstadt Fortress":"res://Scenes/s600.tscn",
-			"Eisenach Goblin":"res://Scenes/bmw_1m.tscn",
-			"Straeda Volant":"res://Scenes/cooper_s.tscn",
-
-
-	"Schroder Atrix Sport":"res://Scenes/audi_tt_rs.tscn",
-	"Mir Cars Goblin":"res://Scenes/ford_mondeo.tscn",
+	"Straeda Volant":"res://Scenes/cooper_s.tscn",
 	"Strandberg Predator":"res://Scenes/cls55.tscn",
 	"Bartoli Cruiser":"res://Scenes/4200_gt.tscn",
+	"Kronstadt Atrocity":"res://Scenes/sl_65.tscn",
+
+	"Mir Cars Transporter":"res://Scenes/audi_a8.tscn",
+	"Berkshire Falcon":"res://Scenes/xk8.tscn",
+	"Kuro Vault":"res://Scenes/lexus_ls430.tscn",
+	"Kronstadt Crest":"res://Scenes/slk.tscn",
+	"Zenith Prince":"res://Scenes/q45.tscn",
+	"Strandberg Pilot":"res://Scenes/saab_95.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
-	"Eisenach Black Panda":"res://Scenes/bmw_330d.tscn",
-	"Kuro Persian":"res://Scenes/lexus_gs430.tscn",
-	"Kronstadt Crest":"res://Scenes/slk.tscn",
+	"Brutus Dragster":"res://Scenes/pontiac_gto.tscn",
+	"Mir Cars Regent":"res://Scenes/gs300.tscn",
+	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
+	"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
+	"Eisenach Goblin":"res://Scenes/bmw_1m.tscn",
+	"Mir Cars Goblin":"res://Scenes/ford_mondeo.tscn",
 
 
 	"Schroder Atrocity":"res://Scenes/audi_s6.tscn",
 	"Kestrel Battleaxe":"res://Scenes/sagaris.tscn",
 	"Linetti Shepherd":"res://Scenes/gallardo.tscn",
 	"Brutus Venom":"res://Scenes/corvette_z06.tscn",
-	"Kronstadt Regent":"res://Scenes/e320.tscn",
-	"Berkshire Mocha":"res://Scenes/jaguar_s_type.tscn",
-	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn",
-	"Berkshire Falcon":"res://Scenes/xk8.tscn",
-	"Eisenach Roadstar":"res://Scenes/bmw_z8.tscn",
-	"Kronstadt Atrocity":"res://Scenes/sl_65.tscn",
+	"Kuro Persian":"res://Scenes/lexus_gs430.tscn",
+	"Kronstadt Fortress":"res://Scenes/s600.tscn",
+	"Zenith Touring":"res://Scenes/infiniti_g35.tscn",
 
-
-	"Zenith Prince":"res://Scenes/q45.tscn",
 	"Linetti Terror":"res://Scenes/murcielago.tscn",
 	"Linetti Firestorm":"res://Scenes/diablo_road.tscn",
 	"Kestrel Guillotine":"res://Scenes/tvr_tuscan.tscn",
 	"Mir Cars Raptor":"res://Scenes/saleen_s7.tscn",
+	"Kuro Zephyr":"res://Scenes/lexus_is250.tscn",
+	"Schroder Suppressor":"res://Scenes/audi_a4.tscn",
 	"Schroder Fastback":"res://Scenes/audi_a5_tdi.tscn",
-	"Mir Cars Athletic C70":"res://Scenes/zonda.tscn",
-	"Bartoli Track Cruiser":"res://Scenes/mc12.tscn",
-	"Brutus Thunderbolt":"res://Scenes/ford_cobra.tscn",
+	"Mir Cars Blazer":"res://Scenes/sl500.tscn",
+	"Kestrel Touring":"res://Scenes/tvr_cerbera.tscn"
 
-
-	"Brutus Sheriff": "res://Scenes/taurus_police.tscn"
 }
 var radar_target_speeds := {
 	"suv": 160,

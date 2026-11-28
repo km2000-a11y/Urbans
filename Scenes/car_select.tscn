@@ -49,6 +49,7 @@ theme_override_font_sizes/font_size = 30
 text = "Urban Performance Cars"
 
 [node name="SportsRoadsters" type="Button" parent="Control/ClassList"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Sports Roadsters"

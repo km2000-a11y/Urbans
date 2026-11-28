@@ -7,65 +7,7 @@ extends CanvasLayer
 var stability_factor := 1.0
 var body_kit := 0
 
-var stability_values := {
-	# SUVs
-	"Colossus Titan Max": 1.60,
-	"Colossus Behemoth": 1.45,
-	"Mir Cars Nightwolf": 1.35,
-	"Schroder Colosso": 1.25,
 
-	# Compacts
-	"Straeda Volant": 1.10,
-	"Eisenach Bengal": 0.95,
-	"Schroder Atrix Q32": 1.15,
-	"Zenith Horizon": 0.90,
-
-	# Muscle
-	"Brutus Viper": 0.75,
-	"Mir Cars Hutch": 0.70,
-
-	# Torque
-	"Kronstadt Regent": 1.25,
-	"Schroder Suppressor": 1.20,
-	"Eisenach Monarch": 1.35,
-
-	# Executive
-	"Mir Cars Goblin": 1.05,
-	"Strandberg Turbo": 0.95,
-	"Kuro Vault": 1.40,
-	"Zenith Touring": 1.00,
-	"Berkshire Mocha": 1.10,
-
-	# Urban
-	"Mir Cars Blazer": 1.30,
-	"Kestrel Seabird": 0.75,
-	"Strandberg Predator": 1.10,
-	"Berkshire Blunt": 1.20,
-	"Kestrel Speedster": 0.60,
-
-	# Sport Coupe
-	"Strandberg Pilot": 1.20,
-	"Bartoli Cruiser": 1.00,
-	"Berkshire V12-S": 1.15,
-	"Brutus Stingray": 0.85,
-
-	# Sport Racing
-	"Brutus Venom": 0.55,
-	"Kestrel Battleaxe": 0.50,
-	"Berkshire Tempest": 1.00,
-	"Linetti Shepherd": 1.15,
-
-	# Supercars
-	"Kestrel Guillotine": 0.65,
-	"Linetti Firestorm": 0.90,
-	"Mir Cars Raptor": 0.75,
-	"Linetti Terror": 1.10,
-
-	# Track
-	"Bartoli Track Cruiser": 1.10,
-	"Brutus Thunderbolt": 0.85,
-	"Mir Cars Athletic C70": 0.95,
-}
 var car_class := ""
 var car_name := ""
 var car_index := 0
@@ -389,7 +331,7 @@ var car_colors = {
 ],
 
 "Brutus Stingray":[
-	Color8(255,255,0),
+	Color8(214,192,161),
 	Color8(255,0,0),
 	Color8(180,180,180),
 	Color8(0,0,0)
@@ -731,6 +673,16 @@ var car_colors = {
 	Color8(200,40,40),
 	Color8(20,20,20)
 ],
+"Brutus Dragster": [
+	Color8(255, 255, 0),    # Bright Yellow (default)
+	Color8(20, 20, 20),     # Black
+	Color8(255, 255, 255),  # White
+	Color8(180, 180, 180),  # Silver
+	Color8(120, 15, 15),    # Dark Red
+	Color8(30, 60, 120),    # Deep Blue
+	Color8(214, 198, 161),  # Champagne Metallic
+	Color8(40, 80, 40)      # Dark Green
+],
 "Kronstadt Atrocity": [
 	Color8(192,192,192),  # Brilliant Silver (default)
 	Color8(15,15,15),     # Obsidian Black
@@ -764,16 +716,17 @@ var muscle_list = [
 ]
 
 var urban_list = [
-	"Strandberg Pilot",
+	"Brutus Stingray",
 	"Kestrel Seabird",
 	"Kestrel Speedster",
-	"Zenith Touring",
+	"Berkshire Blunt",
 ]
 var sedans_list = [
 	"Mir Cars Goblin",
 	"Strandberg Turbo",
+	"Kuro Vault",
 	"Schroder Prince",
-	"Kuro Vault"
+	"Zenith Touring",
 	
 ]
 var torque_monsters_list = [
@@ -785,15 +738,13 @@ var torque_monsters_list = [
 ]
 
 var sports_roadster_list=[
-	"Brutus Stingray",
 	"Kronstadt Atrocity",
-	"Berkshire Falcon",
 	"Eisenach Roadstar",
 ]
 var sport_list = [
 	"Strandberg Predator",
-	"Berkshire Blunt",
 	"Bartoli Cruiser",
+	"Brutus Dragster",
 	"Berkshire V12-S",
 ]
 
@@ -927,6 +878,12 @@ var sedans = {
 		"ENGINE: V8 3.9L", "ASPIRATION: NA", "TORQUE: 380 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Zenith Touring":[
+		"", "Country: Japan", "HP: 340", "WEIGHT: 1850 KG",
+		"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
+		"ENGINE: V6 3.5L", "ASPIRATION: NA", "TORQUE: 360 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 	"Strandberg Turbo":[
 		"", "Country: Sweden", "HP: 300", "WEIGHT: 1667 KG",
 		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
@@ -948,11 +905,23 @@ var sedans = {
 }
 
 var urban_racers = {
-	"Strandberg Pilot":[
-		"", "Country: Sweden", "HP: 270", "WEIGHT: 1490 KG",
-		"0-100 KM/H: 5.3s", "TOP SPEED: 265 KM/H",
-		"ENGINE: L5 2.3L", "ASPIRATION: Turbo", "TORQUE: 350 NM",
-		"TRANSMISSION: FRONT-WHEEL DRIVE"
+	"Brutus Stingray":[
+		"", "Country: USA", "HP: 443", "WEIGHT: 1645 KG",
+		"0-100 KM/H: 4.6s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 420 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Kronstadt Atrocity":[
+		"", "Country: Germany", "HP: 612", "WEIGHT: 2080 KG",
+		"0-100 KM/H: 4.3s", "TOP SPEED: 250 KM/H",
+		"ENGINE: V6 3.2L", "ASPIRATION: Supercharged", "TORQUE: 480 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
+	"Berkshire Blunt":[
+		"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
+		"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
+		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
 	"Kestrel Seabird":[
 		"", "Country: UK", "HP: 192", "WEIGHT: 875 KG",
@@ -966,49 +935,23 @@ var urban_racers = {
 		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 410 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Zenith Touring":[
-		"", "Country: Japan", "HP: 340", "WEIGHT: 1850 KG",
-		"0-100 KM/H: 5.8s", "TOP SPEED: 253 KM/H",
-		"ENGINE: V6 3.5L", "ASPIRATION: NA", "TORQUE: 360 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	]
+	
 }
 
 var sports_roadster = {
 	
-	"Brutus Stingray":[
-		"", "Country: USA", "HP: 443", "WEIGHT: 1645 KG",
-		"0-100 KM/H: 4.6s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.4L", "ASPIRATION: NA", "TORQUE: 420 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+	
 	"Berkshire Falcon":[
 		"", "Country: UK", "HP: 370", "WEIGHT: 1710 KG",
 		"0-100 KM/H: 5.8s", "TOP SPEED: 250 KM/H",
 		"ENGINE: V8 4.2L", "ASPIRATION: NA", "TORQUE: 430 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
-	"Kronstadt Atrocity":[
-		"", "Country: Germany", "HP: 612", "WEIGHT: 2080 KG",
-		"0-100 KM/H: 4.3s", "TOP SPEED: 250 KM/H",
-			"ENGINE: V6 3.2L", "ASPIRATION: Supercharged", "TORQUE: 480 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
-	"Eisenach Roadstar":[
-		"", "Country: Germany", "HP: 612", "WEIGHT: 2080 KG",
-		"0-100 KM/H: 4.3s", "TOP SPEED: 250 KM/H",
-		"ENGINE: V8 4.8L", "ASPIRATION: NA", "TORQUE: 480 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	]
+	
 }
 
 var sport = {
-	"Berkshire Blunt":[
-		"", "Country: UK", "HP: 400", "WEIGHT: 1785 KG",
-		"0-100 KM/H: 6.1s", "TOP SPEED: 263 KM/H",
-		"ENGINE: V8 4.2L", "ASPIRATION: Supercharged", "TORQUE: 553 NM",
-		"TRANSMISSION: REAR-WHEEL DRIVE"
-	],
+	
 	"Bartoli Cruiser":[
 		"", "Country: Italy", "HP: 434", "WEIGHT: 1880 KG",
 		"0-100 KM/H: 4.7s", "TOP SPEED: 295 KM/H",
@@ -1021,10 +964,16 @@ var sport = {
 		"ENGINE: V12 5.9L", "ASPIRATION: NA", "TORQUE: 570 NM",
 		"TRANSMISSION: REAR-WHEEL DRIVE"
 	],
+	"Brutus Dragster":[
+		"", "Country: USA", "HP: 612", "WEIGHT: 2080 KG",
+		"0-100 KM/H: 4.3s", "TOP SPEED: 250 KM/H",
+			"ENGINE: V8 5.7L", "ASPIRATION: NA", "TORQUE: 500 NM",
+		"TRANSMISSION: REAR-WHEEL DRIVE"
+	],
 	"Strandberg Predator":[
 		"", "Country: Germany", "HP: 342", "WEIGHT: 1720 KG",
 		"0-100 KM/H: 5.5s", "TOP SPEED: 256 KM/H",
-		"ENGINE: V8 5.4L", "ASPIRATION: Supercharged",
+		"ENGINE: V8 4.4L", "ASPIRATION: NA",
 		"TORQUE: 450 NM",
 		"TRANSMISSION: FOUR-WHEEL DRIVE"
 	]
@@ -1117,10 +1066,7 @@ func _ready():
 	$Control/BodyKit1Button.visible = Cars.garage_mode
 	$Control/BodyKit2Button.visible = Cars.garage_mode
 	$StockBtn.visible = Cars.garage_mode
-	stability_factor = stability_values.get(
-		car_name,
-		1.0
-	)
+	
 
 	Localization.language_changed.connect(_on_language_changed)
 	RoadChallengeSave.load_progress()
@@ -1221,6 +1167,7 @@ var car_scene_paths = {
 	"Strandberg Pilot":"res://Scenes/saab_95.tscn",
 	"Berkshire V12-S":"res://Scenes/aston_db9.tscn",
 	"Berkshire Tempest":"res://Scenes/vanquish.tscn",
+	"Brutus Dragster":"res://Scenes/pontiac_gto.tscn",
 	"Mir Cars Regent":"res://Scenes/gs300.tscn",
 	"Strandberg Turbo":"res://Scenes/volvo_s60r.tscn",
 	"Kuro Serenity":"res://Scenes/lexus_sc.tscn",
