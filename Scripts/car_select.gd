@@ -18,7 +18,6 @@ var zero_to_hundred: float
 
 var unlocked_cars := {}
 var car_prices := {
-
 	# 4x4 SUV
 	"Colossus Behemoth": 0,
 	"Mir Cars Nightwolf": 25000,
@@ -46,24 +45,20 @@ var car_prices := {
 	"Strandberg Turbo": 80000,
 	"Kuro Vault": 90000,
 	"Schroder Prince": 95000,
+	"Zenith Touring": 105000,
 
 	# Urban Performance
-	"Strandberg Pilot": 105000,
-	"Kestrel Seabird": 120000,
-	"Zenith Touring": 130000,
-	"Kestrel Speedster": 120000,
-
-	# Sports Roadsters
-	"Berkshire Falcon": 135000,
-	"Eisenach Roadstar":147500,
-	"Brutus Stingray": 155000,
-	"Kronstadt Atrocity": 120000,
+	"Brutus Stingray": 120000,
+	"Kestrel Seabird": 130000,
+	"Kestrel Speedster": 140000,
+	"Kronstadt Atrocity": 150000,
+	"Berkshire Blunt": 160000,
 
 	# Sport Coupe
-	"Berkshire Blunt": 160000,
 	"Bartoli Cruiser": 180000,
-	"Strandberg Predator": 205000,
+	"Brutus Dragster": 195000,
 	"Berkshire V12-S": 235000,
+	"Strandberg Predator": 205000,
 
 	# Sport Racing
 	"Brutus Venom": 245000,
@@ -72,18 +67,20 @@ var car_prices := {
 	"Linetti Shepherd": 320000,
 
 	# Supercars
-	"Kestrel Guillotine": 265000,
-	"Linetti Firestorm": 340000,
-	"Mir Cars Raptor": 390000,
-	"Linetti Terror": 450000,
+	"Kestrel Guillotine": 340000,
+	"Linetti Firestorm": 390000,
+	"Mir Cars Raptor": 450000,
+	"Linetti Terror": 500000,
 
 	# Track Cars
-	"Brutus Thunderbolt": 500000,
-	"Bartoli Track Cruiser": 625000,
-	"Mir Cars Athletic C70": 750000
+	"Brutus Thunderbolt": 550000,
+	"Bartoli Track Cruiser": 675000,
+	"Mir Cars Athletic C70": 800000,
+
+	# Special
+
 }
 var car_sell_prices := {
-
 	# 4x4 SUV
 	"Colossus Behemoth": 0,
 	"Mir Cars Nightwolf": 18750,
@@ -111,24 +108,20 @@ var car_sell_prices := {
 	"Strandberg Turbo": 60000,
 	"Kuro Vault": 67500,
 	"Schroder Prince": 71250,
+	"Zenith Touring": 78750,
 
 	# Urban Performance
-	"Strandberg Pilot": 78750,
-	"Kestrel Seabird": 90000,
-	"Zenith Touring": 97500,
-	"Kestrel Speedster": 108750,
-
-	# Sports Roadsters
-	"Berkshire Falcon": 101250,
-	"Brutus Stingray": 116250,
-	"Eisenach Roadstar":120000,
-	"Kronstadt Atrocity": 138750,
+	"Brutus Stingray": 90000,
+	"Kestrel Seabird": 97500,
+	"Kestrel Speedster": 105000,
+	"Kronstadt Atrocity": 112500,
+	"Berkshire Blunt": 120000,
 
 	# Sport Coupe
-	"Berkshire Blunt": 120000,
 	"Bartoli Cruiser": 135000,
-	"Strandberg Predator": 115750,
+	"Brutus Dragster": 146250,
 	"Berkshire V12-S": 176250,
+	"Strandberg Predator": 153750,
 
 	# Sport Racing
 	"Brutus Venom": 183750,
@@ -137,15 +130,16 @@ var car_sell_prices := {
 	"Linetti Shepherd": 240000,
 
 	# Supercars
-	"Kestrel Guillotine": 198750,
-	"Linetti Firestorm": 255000,
-	"Mir Cars Raptor": 292500,
-	"Linetti Terror": 337500,
+	"Kestrel Guillotine": 255000,
+	"Linetti Firestorm": 292500,
+	"Mir Cars Raptor": 337500,
+	"Linetti Terror": 375000,
 
 	# Track Cars
-	"Brutus Thunderbolt": 375000,
-	"Bartoli Track Cruiser": 468750,
-	"Mir Cars Athletic C70": 562500
+	"Brutus Thunderbolt": 412500,
+	"Bartoli Track Cruiser": 506250,
+	"Mir Cars Athletic C70": 600000,
+
 }
 
 
@@ -719,6 +713,7 @@ var urban_list = [
 	"Brutus Stingray",
 	"Kestrel Seabird",
 	"Kestrel Speedster",
+	"Kronstadt Atrocity",
 	"Berkshire Blunt",
 ]
 var sedans_list = [
@@ -738,7 +733,6 @@ var torque_monsters_list = [
 ]
 
 var sports_roadster_list=[
-	"Kronstadt Atrocity",
 	"Eisenach Roadstar",
 ]
 var sport_list = [

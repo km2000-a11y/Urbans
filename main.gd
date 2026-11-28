@@ -883,12 +883,13 @@ func setup_multiplayer_sync(car_node: Node3D):
 	sync.replication_config = config
 	car_node.add_child(sync)
 func _apply_bodykit_to_car(car: Node):
-	Cars.apply_bodykit(
-	player_car,
-	Cars.selected_car_name
-)
 	if car == null:
 		return
+
+	Cars.apply_bodykit(
+		car,
+		Cars.selected_car_name
+	)
 
 	var saved_kit := 0
 
@@ -897,11 +898,11 @@ func _apply_bodykit_to_car(car: Node):
 			Cars.selected_car_name
 		].get("body_kit", 0)
 
-	var kit1 = car.get_node_or_null(
+	var kit1 := car.get_node_or_null(
 		"ModelRoot/BodyKit1"
 	)
 
-	var kit2 = car.get_node_or_null(
+	var kit2 := car.get_node_or_null(
 		"ModelRoot/BodyKit2"
 	)
 
@@ -912,8 +913,8 @@ func _apply_bodykit_to_car(car: Node):
 		kit2.visible = saved_kit == 2
 
 	print(
-		"Applied body kit",
+		"Applied body kit ",
 		saved_kit,
-		"to",
+		" to ",
 		Cars.selected_car_name
 	)

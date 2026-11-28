@@ -1,10 +1,5 @@
-res://Scenes/pontiac_gto.tscn
-res://Scripts/base_car.gd
-res://cars.gd
-res://Scripts/car_select.gd
-res://club_cups.gd
-res://Scripts/jaguar_xkr_2003.gd
 res://Scenes/main_menu.tscn
+res://Scripts/car_select.gd
 res://Scenes/cls55.tscn
 res://Scenes/jaguar_s_type.tscn
 res://Scenes/car_select.tscn
@@ -38,8 +33,8 @@ res://Scenes/aston_db9.tscn
 res://Scenes/4200_gt.tscn
 res://Scenes/morgan_aero_8.tscn
 res://Scenes/sl_65.tscn
-res://Scenes/bmw_z8.tscn
 res://Scenes/nissan_350z.tscn
 res://Scenes/bmw_135.tscn
 res://Scenes/hummer_h2.tscn
-res://Scenes/pontiac_gto.gd
+res://Scenes/pontiac_gto.tscn
+res://main.gd
